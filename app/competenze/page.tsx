@@ -1,0 +1,115 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { JsonLd } from "@/components/json-ld";
+import { PageHero } from "@/components/page-hero";
+import { competencePages } from "@/lib/seo-content";
+import { buildBreadcrumbSchema, buildItemListSchema, createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Competenze Estetiche Locali | Carmagnola e Dintorni",
+  description:
+    "Approfondimenti Rebel sulle principali competenze estetiche a Carmagnola: estetica avanzata, trattamenti viso/corpo, laser e beauty routine professionale.",
+  path: "/competenze",
+  keywords: [
+    "competenze centro estetico Carmagnola",
+    "estetica avanzata Carmagnola",
+    "guide trattamenti Carmagnola",
+  ],
+});
+
+export default function CompetenzeHubPage() {
+  const breadcrumb = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Competenze", path: "/competenze" },
+  ]);
+  const competenceListSchema = buildItemListSchema({
+    name: "Guide e competenze Rebel",
+    path: "/competenze",
+    items: competencePages.map((competence) => ({
+      name: competence.title,
+      path: `/competenze/${competence.slug}`,
+    })),
+  });
+
+  return (
+    <main className="page-shell page-competenze">
+      <JsonLd data={breadcrumb} />
+      <JsonLd data={competenceListSchema} />
+      <PageHero
+        eyebrow="Guide utili"
+        title="Competenze Rebel: spiegate in modo semplice, concreto e utile."
+        lead="Queste pagine ti aiutano a capire davvero come funzionano trattamenti, tecnologie e percorsi. Cosi puoi scegliere con calma e con le idee chiare."
+        badge="Informazioni pratiche prima di prenotare"
+        tone="ocean"
+      />
+
+      <section className="section">
+        <div className="container split">
+          <article className="card glow-card">
+            <h2 style={{ marginTop: 0 }}>Perche abbiamo creato queste guide</h2>
+            <p className="lead" style={{ marginTop: 0 }}>
+              Quando si parla di pelle o corpo e normale avere dubbi. Preferiamo
+              spiegare bene le cose prima, cosi arrivi al primo appuntamento piu
+              tranquilla e con aspettative realistiche.
+            </p>
+            <div className="hero-visual" style={{ marginTop: "1rem", borderRadius: 16 }}>
+              <Image
+                src="https://rebelepigenetica.it/assets/rebel/vetrina2.webp"
+                alt="Dettaglio studio Rebel"
+                width={1200}
+                height={900}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  borderRadius: 16,
+                  border: "1px solid rgba(255,255,255,0.14)",
+                }}
+              />
+            </div>
+          </article>
+          <aside className="card">
+            <h2 style={{ marginTop: 0 }}>Da dove iniziare</h2>
+            <ul className="list-clean">
+              <li>- leggi il tema che senti piu vicino al tuo caso</li>
+              <li>- guarda i servizi consigliati in fondo pagina</li>
+              <li>- se vuoi, scrivici e ti orientiamo noi</li>
+              <li>- prenota solo quando hai chiaro il percorso</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section className="section section-light">
+        <div className="container">
+          <h2 className="page-title">Competenze pubblicate</h2>
+          <div className="grid grid-2" style={{ marginTop: "1rem" }}>
+            {competencePages.map((item) => (
+              <Link key={item.slug} href={`/competenze/${item.slug}`} className="card-light">
+                <h3 style={{ marginTop: 0 }}>{item.title}</h3>
+                <p
+                  style={{
+                    margin: "0.35rem 0",
+                    fontFamily: "var(--font-inter), sans-serif",
+                    color: "rgba(39,31,56,0.78)",
+                  }}
+                >
+                  {item.shortDescription}
+                </p>
+                <small
+                  style={{
+                    fontFamily: "var(--font-inter), sans-serif",
+                    color: "rgba(39,31,56,0.65)",
+                  }}
+                >
+                  Apri la guida
+                </small>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
