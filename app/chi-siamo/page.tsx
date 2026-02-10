@@ -104,7 +104,7 @@ export default function ChiSiamoPage() {
             Le foto reali del negozio, proprio come lo trovi quando arrivi.
           </h2>
           <p className="lead" style={{ color: "rgba(39,31,56,0.78)" }}>
-            Abbiamo voluto mostrare l'ambiente in modo trasparente: luce, spazi,
+            Abbiamo voluto mostrare l&apos;ambiente in modo trasparente: luce, spazi,
             dettagli e atmosfera dello studio a Carmagnola.
           </p>
           <StoreGallery images={storeGalleryImages} />

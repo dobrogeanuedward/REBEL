@@ -182,7 +182,7 @@ export default function ListinoPage() {
             <p className="lead" style={{ marginTop: 0 }}>
               Se il tuo obiettivo e prenderti cura della pelle, rilassarti o
               migliorare tono e benessere, i servizi di estetica classica sono
-              un'ottima base.
+              un&apos;ottima base.
             </p>
             <p className="lead">
               Se invece vuoi ridurre in modo progressivo la ricrescita del pelo,
@@ -193,10 +193,10 @@ export default function ListinoPage() {
           <article className="card">
             <h2 style={{ marginTop: 0 }}>Domande che ci fanno spesso prima di prenotare</h2>
             <ul className="list-clean">
-              <li>- "Posso iniziare con un solo trattamento?"</li>
-              <li>- "Meglio fare un ciclo o una seduta singola?"</li>
-              <li>- "In quanto tempo vedro i primi risultati?"</li>
-              <li>- "Posso combinare piu trattamenti nello stesso periodo?"</li>
+              <li>- &quot;Posso iniziare con un solo trattamento?&quot;</li>
+              <li>- &quot;Meglio fare un ciclo o una seduta singola?&quot;</li>
+              <li>- &quot;In quanto tempo vedro i primi risultati?&quot;</li>
+              <li>- &quot;Posso combinare piu trattamenti nello stesso periodo?&quot;</li>
             </ul>
             <p className="lead" style={{ marginTop: "0.9rem" }}>
               Sono domande normalissime. Scrivici su WhatsApp e ti diamo subito

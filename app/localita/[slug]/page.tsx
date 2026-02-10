@@ -10,16 +10,17 @@ type Params = {
   slug: string;
 };
 
+type PageProps = {
+  params: Promise<Params>;
+};
+
 export function generateStaticParams() {
   return localAreaPages.map((area) => ({ slug: area.slug }));
 }
 
-export function generateMetadata({
-  params,
-}: {
-  params: Params;
-}): Metadata {
-  const area = getLocalAreaBySlug(params.slug);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const area = getLocalAreaBySlug(slug);
   if (!area) {
     return createPageMetadata({
       title: "Localita non trovata",
@@ -35,8 +36,9 @@ export function generateMetadata({
   });
 }
 
-export default function LocalAreaDetailPage({ params }: { params: Params }) {
-  const area = getLocalAreaBySlug(params.slug);
+export default async function LocalAreaDetailPage({ params }: PageProps) {
+  const { slug } = await params;
+  const area = getLocalAreaBySlug(slug);
   if (!area) notFound();
 
   const breadcrumb = buildBreadcrumbSchema([

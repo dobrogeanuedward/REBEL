@@ -79,7 +79,7 @@ export default function HomePage() {
               il centro estetico epigenetico a Carmagnola.
             </h1>
             <p className="home-hero-lead">
-              Un'esperienza estetica costruita su misura: ascolto, diagnosi, metodo
+              Un&apos;esperienza estetica costruita su misura: ascolto, diagnosi, metodo
               e cura dei dettagli. Viso, corpo e laser Thory convivono in un unico
               percorso premium con obiettivi chiari e reali.
             </p>
@@ -127,7 +127,7 @@ export default function HomePage() {
               />
             </div>
             <div className="home-hero-side-panel">
-              <p className="home-hero-panel-title">L'esperienza in studio</p>
+              <p className="home-hero-panel-title">L&apos;esperienza in studio</p>
               <p className="home-hero-caption">
                 Un ambiente elegante, ritmi rispettati e consulenze precise: ogni
                 trattamento nasce da una logica professionale, firmata Rebel.

@@ -72,7 +72,7 @@ export default function TecnologiaPage() {
           <aside className="card">
             <h2 style={{ marginTop: 0 }}>Cosa significa in pratica</h2>
             <ul className="list-clean">
-              <li>- niente tecnologia usata "a caso"</li>
+              <li>- niente tecnologia usata &quot;a caso&quot;</li>
               <li>- parametri impostati sul tuo caso</li>
               <li>- progressi controllati seduta dopo seduta</li>
             </ul>

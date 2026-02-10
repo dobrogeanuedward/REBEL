@@ -19,16 +19,17 @@ type Params = {
   slug: string;
 };
 
+type PageProps = {
+  params: Promise<Params>;
+};
+
 export function generateStaticParams() {
   return servicePages.map((service) => ({ slug: service.slug }));
 }
 
-export function generateMetadata({
-  params,
-}: {
-  params: Params;
-}): Metadata {
-  const service = getServiceBySlug(params.slug);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const service = getServiceBySlug(slug);
   if (!service) {
     return createPageMetadata({
       title: "Servizio non trovato",
@@ -44,8 +45,9 @@ export function generateMetadata({
   });
 }
 
-export default function ServiceDetailPage({ params }: { params: Params }) {
-  const service = getServiceBySlug(params.slug);
+export default async function ServiceDetailPage({ params }: PageProps) {
+  const { slug } = await params;
+  const service = getServiceBySlug(slug);
   if (!service) notFound();
 
   const breadcrumb = buildBreadcrumbSchema([
@@ -168,7 +170,7 @@ export default function ServiceDetailPage({ params }: { params: Params }) {
           <article className="card">
             <h2 style={{ marginTop: 0 }}>Come si svolge una seduta da Rebel</h2>
             <ol className="list-clean">
-              <li>1. Ascolto iniziale e verifica dell'obiettivo.</li>
+              <li>1. Ascolto iniziale e verifica dell&apos;obiettivo.</li>
               <li>2. Trattamento eseguito con protocollo personalizzato.</li>
               <li>3. Indicazioni post-seduta chiare e realistiche.</li>
             </ol>

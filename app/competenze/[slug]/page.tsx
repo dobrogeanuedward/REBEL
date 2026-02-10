@@ -19,16 +19,17 @@ type Params = {
   slug: string;
 };
 
+type PageProps = {
+  params: Promise<Params>;
+};
+
 export function generateStaticParams() {
   return competencePages.map((competence) => ({ slug: competence.slug }));
 }
 
-export function generateMetadata({
-  params,
-}: {
-  params: Params;
-}): Metadata {
-  const competence = getCompetenceBySlug(params.slug);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const competence = getCompetenceBySlug(slug);
   if (!competence) {
     return createPageMetadata({
       title: "Competenza non trovata",
@@ -44,8 +45,9 @@ export function generateMetadata({
   });
 }
 
-export default function CompetenceDetailPage({ params }: { params: Params }) {
-  const competence = getCompetenceBySlug(params.slug);
+export default async function CompetenceDetailPage({ params }: PageProps) {
+  const { slug } = await params;
+  const competence = getCompetenceBySlug(slug);
   if (!competence) notFound();
 
   const breadcrumb = buildBreadcrumbSchema([
