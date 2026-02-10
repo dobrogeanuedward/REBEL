@@ -7,9 +7,9 @@ export const siteConfig = {
     "Centro estetico avanzato a Carmagnola specializzato in estetica epigenetica, protocolli viso/corpo e epilazione laser Thory.",
   siteUrl: "https://www.rebelepigenetica.it",
   assets: {
-    logoLight: "https://rebelepigenetica.it/assets/rebel/rebel-logo-light.png?v=now",
-    heroStorefront: "https://rebelepigenetica.it/assets/rebel/vetrina.webp",
-    ogImage: "https://rebelepigenetica.it/assets/rebel/vetrina2.webp",
+    logoLight: "https://epikey.rebelepigenetica.it/assets/rebel/rebel-logo-light.png?v=now",
+    heroStorefront: "https://epikey.rebelepigenetica.it/assets/rebel/vetrina.webp",
+    ogImage: "https://epikey.rebelepigenetica.it/assets/rebel/vetrina2.webp",
   },
   phoneDisplay: "+39 351 691 9416",
   phoneRaw: "+393516919416",

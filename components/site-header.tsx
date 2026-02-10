@@ -37,7 +37,7 @@ export function SiteHeader() {
           aria-label="Rebel Home"
         >
           <Image
-            src="https://rebelepigenetica.it/assets/rebel/rebel-logo-light.png?v=now"
+            src="https://epikey.rebelepigenetica.it/assets/rebel/rebel-logo-light.png?v=now"
             alt="Rebel Estetica Epigenetica"
             width={108}
             height={38}
@@ -70,7 +70,7 @@ export function SiteHeader() {
         <div className="mobile-header-shell">
           <Link href="/" className="header-logo mobile-logo" aria-label="Rebel Home">
             <Image
-              src="https://rebelepigenetica.it/assets/rebel/rebel-logo-light.png?v=now"
+              src="https://epikey.rebelepigenetica.it/assets/rebel/rebel-logo-light.png?v=now"
               alt="Rebel Estetica Epigenetica"
               width={156}
               height={56}

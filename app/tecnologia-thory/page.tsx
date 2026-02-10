@@ -56,7 +56,7 @@ export default function TecnologiaPage() {
             </p>
             <div className="hero-visual" style={{ marginTop: "1rem", borderRadius: 16 }}>
               <Image
-                src="https://rebelepigenetica.it/assets/rebel/vetrina.webp"
+                src="https://epikey.rebelepigenetica.it/assets/rebel/vetrina.webp"
                 alt="Ambiente Rebel con approccio tecnologico"
                 width={1200}
                 height={900}

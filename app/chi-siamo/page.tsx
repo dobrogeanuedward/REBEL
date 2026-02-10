@@ -48,7 +48,7 @@ export default function ChiSiamoPage() {
             </p>
             <div className="hero-visual" style={{ marginTop: "1rem", borderRadius: 14 }}>
               <Image
-                src="https://rebelepigenetica.it/assets/rebel/0.webp"
+                src="https://epikey.rebelepigenetica.it/assets/rebel/0.webp"
                 alt="Interni Rebel Carmagnola"
                 width={1280}
                 height={800}

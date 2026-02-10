@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "www.rebelepigenetica.it",
       },
+      {
+        protocol: "https",
+        hostname: "epikey.rebelepigenetica.it",
+      },
     ],
   },
 };

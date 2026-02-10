@@ -72,53 +72,39 @@ export default function HomePage() {
           <article className="home-hero-main">
             <div className="home-hero-brandline">
               <p className="home-hero-kicker">Rebel Estetica Epigenetica | Carmagnola</p>
-              <span className="home-hero-badge">Signature beauty locale</span>
+              <span className="home-hero-badge">Viso, corpo e laser</span>
             </div>
             <h1 className="home-hero-title">
               <span className="home-hero-title-mark">REBEL</span>
-              il centro estetico epigenetico a Carmagnola.
+              estetica epigenetica, luce nuova alla tua pelle.
             </h1>
             <p className="home-hero-lead">
-              Un&apos;esperienza estetica costruita su misura: ascolto, diagnosi, metodo
-              e cura dei dettagli. Viso, corpo e laser Thory convivono in un unico
-              percorso premium con obiettivi chiari e reali.
+              Nel nostro studio trovi un percorso chiaro, elegante e personalizzato:
+              partiamo dall&apos;ascolto, definiamo il metodo e lavoriamo con costanza
+              su viso, corpo e laser Thory.
             </p>
             <div className="home-hero-cta">
               <Link className="button button-primary" href="/contatti">
                 Prenota una consulenza
               </Link>
               <Link className="button button-secondary" href="/listino-estetica-laser">
-                Guarda i trattamenti
-              </Link>
-              <Link className="button button-secondary" href="/metodo-rebel">
-                Scopri il metodo
+                Vedi trattamenti e prezzi
               </Link>
             </div>
+            <p className="home-hero-footnote">
+              Primo incontro con analisi iniziale, obiettivo condiviso e piano su misura.
+            </p>
             <div className="home-hero-chips">
-              <span className="home-chip">Percorsi 1:1</span>
-              <span className="home-chip">Laser Thory</span>
+              <span className="home-chip">Percorsi personalizzati 1:1</span>
+              <span className="home-chip">Laser Thory con Ice Polar</span>
               <span className="home-chip">Carmagnola, Viale Barbaroux 20</span>
-            </div>
-            <div className="home-hero-stats">
-              <div className="home-hero-stat">
-                <strong>Rebel</strong>
-                <span>Brand beauty locale riconoscibile</span>
-              </div>
-              <div className="home-hero-stat">
-                <strong>Viso + Corpo + Laser</strong>
-                <span>Un metodo, una direzione precisa</span>
-              </div>
-              <div className="home-hero-stat">
-                <strong>Carmagnola</strong>
-                <span>Punto di riferimento della zona</span>
-              </div>
             </div>
           </article>
 
           <aside className="home-hero-side">
             <div className="home-hero-media">
               <Image
-                src="https://rebelepigenetica.it/assets/rebel/vetrina.webp"
+                src="https://epikey.rebelepigenetica.it/assets/rebel/vetrina.webp"
                 alt="Ingresso Rebel Carmagnola"
                 width={1280}
                 height={820}
@@ -127,24 +113,15 @@ export default function HomePage() {
               />
             </div>
             <div className="home-hero-side-panel">
-              <p className="home-hero-panel-title">L&apos;esperienza in studio</p>
+              <p className="home-hero-panel-title">Uno spazio luminoso, ritmi giusti</p>
               <p className="home-hero-caption">
-                Un ambiente elegante, ritmi rispettati e consulenze precise: ogni
-                trattamento nasce da una logica professionale, firmata Rebel.
+                Ti accompagniamo con passaggi semplici: ascolto iniziale, scelta del
+                percorso, trattamento e monitoraggio costante.
               </p>
-            </div>
-            <div className="home-trust-grid">
-              <div className="home-trust-item">
-                <strong>1:1</strong>
-                <span>Approccio personale</span>
-              </div>
-              <div className="home-trust-item">
-                <strong>Viso + Corpo + Laser</strong>
-                <span>Un unico punto di riferimento</span>
-              </div>
-              <div className="home-trust-item">
-                <strong>Clienti locali</strong>
-                <span>Carmagnola e comuni vicini</span>
+              <div className="home-hero-side-points">
+                <span>Analisi iniziale accurata</span>
+                <span>Protocollo su misura</span>
+                <span>Risultati progressivi</span>
               </div>
             </div>
           </aside>

@@ -60,7 +60,7 @@ export default function ServiziHubPage() {
             </p>
             <div className="hero-visual" style={{ marginTop: "1rem", borderRadius: 16 }}>
               <Image
-                src="https://rebelepigenetica.it/assets/rebel/vetrina.webp"
+                src="https://epikey.rebelepigenetica.it/assets/rebel/vetrina.webp"
                 alt="Centro estetico Rebel a Carmagnola"
                 width={1200}
                 height={900}

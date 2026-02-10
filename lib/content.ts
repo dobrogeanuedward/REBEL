@@ -139,20 +139,20 @@ export const thoryDevices = [
 ];
 
 export const storeGalleryImages = [
-  { src: "https://rebelepigenetica.it/assets/rebel/0.webp", alt: "Rebel Carmagnola - interno studio 1" },
-  { src: "https://rebelepigenetica.it/assets/rebel/0001.webp", alt: "Rebel Carmagnola - interno studio 2" },
-  { src: "https://rebelepigenetica.it/assets/rebel/001.webp", alt: "Rebel Carmagnola - interno studio 3" },
-  { src: "https://rebelepigenetica.it/assets/rebel/001-1.webp", alt: "Rebel Carmagnola - interno studio 4" },
-  { src: "https://rebelepigenetica.it/assets/rebel/001-2.webp", alt: "Rebel Carmagnola - interno studio 5" },
-  { src: "https://rebelepigenetica.it/assets/rebel/002.webp", alt: "Rebel Carmagnola - interno studio 6" },
-  { src: "https://rebelepigenetica.it/assets/rebel/2.webp", alt: "Rebel Carmagnola - interno studio 7" },
-  { src: "https://rebelepigenetica.it/assets/rebel/3.webp", alt: "Rebel Carmagnola - interno studio 8" },
-  { src: "https://rebelepigenetica.it/assets/rebel/3-1.webp", alt: "Rebel Carmagnola - interno studio 9" },
-  { src: "https://rebelepigenetica.it/assets/rebel/5.webp", alt: "Rebel Carmagnola - interno studio 10" },
-  { src: "https://rebelepigenetica.it/assets/rebel/5-1.webp", alt: "Rebel Carmagnola - interno studio 11" },
-  { src: "https://rebelepigenetica.it/assets/rebel/6-1-1.webp", alt: "Rebel Carmagnola - interno studio 12" },
-  { src: "https://rebelepigenetica.it/assets/rebel/7.webp", alt: "Rebel Carmagnola - interno studio 13" },
-  { src: "https://rebelepigenetica.it/assets/rebel/20.webp", alt: "Rebel Carmagnola - interno studio 14" },
+  { src: "https://epikey.rebelepigenetica.it/assets/rebel/0.webp", alt: "Rebel Carmagnola - interno studio 1" },
+  { src: "https://epikey.rebelepigenetica.it/assets/rebel/0001.webp", alt: "Rebel Carmagnola - interno studio 2" },
+  { src: "https://epikey.rebelepigenetica.it/assets/rebel/001.webp", alt: "Rebel Carmagnola - interno studio 3" },
+  { src: "https://epikey.rebelepigenetica.it/assets/rebel/001-1.webp", alt: "Rebel Carmagnola - interno studio 4" },
+  { src: "https://epikey.rebelepigenetica.it/assets/rebel/001-2.webp", alt: "Rebel Carmagnola - interno studio 5" },
+  { src: "https://epikey.rebelepigenetica.it/assets/rebel/002.webp", alt: "Rebel Carmagnola - interno studio 6" },
+  { src: "https://epikey.rebelepigenetica.it/assets/rebel/2.webp", alt: "Rebel Carmagnola - interno studio 7" },
+  { src: "https://epikey.rebelepigenetica.it/assets/rebel/3.webp", alt: "Rebel Carmagnola - interno studio 8" },
+  { src: "https://epikey.rebelepigenetica.it/assets/rebel/3-1.webp", alt: "Rebel Carmagnola - interno studio 9" },
+  { src: "https://epikey.rebelepigenetica.it/assets/rebel/5.webp", alt: "Rebel Carmagnola - interno studio 10" },
+  { src: "https://epikey.rebelepigenetica.it/assets/rebel/5-1.webp", alt: "Rebel Carmagnola - interno studio 11" },
+  { src: "https://epikey.rebelepigenetica.it/assets/rebel/6-1-1.webp", alt: "Rebel Carmagnola - interno studio 12" },
+  { src: "https://epikey.rebelepigenetica.it/assets/rebel/7.webp", alt: "Rebel Carmagnola - interno studio 13" },
+  { src: "https://epikey.rebelepigenetica.it/assets/rebel/20.webp", alt: "Rebel Carmagnola - interno studio 14" },
 ];
 
 

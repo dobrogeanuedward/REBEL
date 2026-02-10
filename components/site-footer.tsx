@@ -15,7 +15,7 @@ export function SiteFooter() {
         <div className="grid grid-3">
           <div>
             <Image
-              src="https://rebelepigenetica.it/assets/rebel/rebel-logo-light.png?v=now"
+              src="https://epikey.rebelepigenetica.it/assets/rebel/rebel-logo-light.png?v=now"
               alt="Rebel Estetica Epigenetica"
               width={108}
               height={38}

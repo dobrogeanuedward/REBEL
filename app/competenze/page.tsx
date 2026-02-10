@@ -55,7 +55,7 @@ export default function CompetenzeHubPage() {
             </p>
             <div className="hero-visual" style={{ marginTop: "1rem", borderRadius: 16 }}>
               <Image
-                src="https://rebelepigenetica.it/assets/rebel/vetrina2.webp"
+                src="https://epikey.rebelepigenetica.it/assets/rebel/vetrina2.webp"
                 alt="Dettaglio studio Rebel"
                 width={1200}
                 height={900}
