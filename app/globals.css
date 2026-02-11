@@ -1950,6 +1950,42 @@ body.mobile-menu-open .wa-live {
   line-height: 1.65;
 }
 
+.footer-brand-instagram {
+  margin-top: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.46rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  padding: 0.42rem 0.72rem;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.76rem;
+  letter-spacing: 0.02em;
+  color: rgba(248, 247, 244, 0.92);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 10px 24px rgba(18, 8, 34, 0.24),
+    0 0 20px rgba(228, 72, 150, 0.14);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.footer-brand-instagram:hover {
+  transform: translateY(-1px);
+  border-color: rgba(244, 114, 182, 0.45);
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow:
+    0 12px 28px rgba(18, 8, 34, 0.32),
+    0 0 24px rgba(228, 72, 150, 0.22);
+}
+
+.footer-brand-instagram svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+}
+
 .footer-title {
   margin: 0;
   font-family: var(--font-inter), sans-serif;

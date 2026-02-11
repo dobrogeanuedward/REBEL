@@ -25,6 +25,20 @@ export function SiteFooter() {
               Centro estetico a Carmagnola specializzato in estetica epigenetica,
               trattamenti viso/corpo evoluti ed epilazione laser a Carmagnola.
             </p>
+            <a
+              href={siteConfig.social.instagram}
+              target="_blank"
+              rel="noreferrer"
+              className="footer-brand-instagram"
+              aria-label="Apri il profilo Instagram di Rebel"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+                <circle cx="12" cy="12" r="4.2" />
+                <circle cx="17.35" cy="6.65" r="1.2" />
+              </svg>
+              <span>Seguici su Instagram</span>
+            </a>
           </div>
 
           <div className="footer-panel footer-panel-menu">
