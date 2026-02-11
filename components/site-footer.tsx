@@ -27,58 +27,98 @@ export function SiteFooter() {
             </p>
           </div>
 
-          <div className="footer-panel">
+          <div className="footer-panel footer-panel-menu">
             <p className="footer-title">Menu</p>
-            <ul className="list-clean footer-links">
+            <p className="footer-panel-subtitle">Percorsi e pagine principali</p>
+            <ul className="list-clean footer-links footer-links-menu">
               <li>
-                <Link href="/">Home</Link>
+                <Link href="/">
+                  <span className="footer-link-bullet" aria-hidden="true">✦</span>
+                  <span>Home</span>
+                </Link>
               </li>
               <li>
-                <Link href="/chi-siamo">Chi siamo</Link>
+                <Link href="/chi-siamo">
+                  <span className="footer-link-bullet" aria-hidden="true">✦</span>
+                  <span>Chi siamo</span>
+                </Link>
               </li>
               <li>
-                <Link href="/metodo-rebel">Metodo Rebel</Link>
+                <Link href="/metodo-rebel">
+                  <span className="footer-link-bullet" aria-hidden="true">✦</span>
+                  <span>Metodo Rebel</span>
+                </Link>
               </li>
               <li>
-                <Link href="/protocolli-epigenetici">Protocolli</Link>
+                <Link href="/protocolli-epigenetici">
+                  <span className="footer-link-bullet" aria-hidden="true">✦</span>
+                  <span>Protocolli</span>
+                </Link>
               </li>
               <li>
-                <Link href="/listino-estetica-laser">Listino Estetica + Laser</Link>
+                <Link href="/listino-estetica-laser">
+                  <span className="footer-link-bullet" aria-hidden="true">✦</span>
+                  <span>Listino Estetica + Laser</span>
+                </Link>
               </li>
               <li>
-                <Link href="/servizi">Servizi</Link>
+                <Link href="/servizi">
+                  <span className="footer-link-bullet" aria-hidden="true">✦</span>
+                  <span>Servizi</span>
+                </Link>
               </li>
               <li>
-                <Link href="/competenze">Guide e competenze</Link>
+                <Link href="/competenze">
+                  <span className="footer-link-bullet" aria-hidden="true">✦</span>
+                  <span>Guide e competenze</span>
+                </Link>
               </li>
               <li>
-                <Link href="/tecnologia-thory">Tecnologia</Link>
+                <Link href="/tecnologia-thory">
+                  <span className="footer-link-bullet" aria-hidden="true">✦</span>
+                  <span>Tecnologia</span>
+                </Link>
               </li>
               <li>
-                <Link href="/localita">Localita servite</Link>
+                <Link href="/localita">
+                  <span className="footer-link-bullet" aria-hidden="true">✦</span>
+                  <span>Localita servite</span>
+                </Link>
               </li>
               <li>
-                <Link href="/contatti">Contatti</Link>
+                <Link href="/contatti">
+                  <span className="footer-link-bullet" aria-hidden="true">✦</span>
+                  <span>Contatti</span>
+                </Link>
               </li>
             </ul>
           </div>
 
-          <address className="footer-panel footer-contact">
+          <address className="footer-panel footer-contact footer-panel-contact">
             <p className="footer-title">Contatti rapidi</p>
-            <ul className="list-clean footer-links">
-              <li>
-                <a href={`tel:${siteConfig.phoneRaw}`}>{siteConfig.phoneDisplay}</a>
+            <p className="footer-panel-subtitle">Scrivici o chiamaci quando vuoi</p>
+            <ul className="list-clean footer-contact-list">
+              <li className="footer-contact-row">
+                <span className="footer-contact-label">Telefono</span>
+                <a href={`tel:${siteConfig.phoneRaw}`} className="footer-contact-value">
+                  {siteConfig.phoneDisplay}
+                </a>
               </li>
-              <li>
-                <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+              <li className="footer-contact-row">
+                <span className="footer-contact-label">Email</span>
+                <a href={`mailto:${siteConfig.email}`} className="footer-contact-value">
+                  {siteConfig.email}
+                </a>
               </li>
-              <li>
-                <a href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer">
+              <li className="footer-contact-row">
+                <span className="footer-contact-label">WhatsApp</span>
+                <a href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer" className="footer-contact-value">
                   WhatsApp
                 </a>
               </li>
-              <li>
-                <a href={siteConfig.social.maps} target="_blank" rel="noreferrer">
+              <li className="footer-contact-row">
+                <span className="footer-contact-label">Indirizzo</span>
+                <a href={siteConfig.social.maps} target="_blank" rel="noreferrer" className="footer-contact-value">
                   {siteConfig.address.streetAddress}, {siteConfig.address.locality}
                 </a>
               </li>

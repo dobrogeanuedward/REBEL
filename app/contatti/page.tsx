@@ -6,6 +6,43 @@ import { PageHero } from "@/components/page-hero";
 import { buildBreadcrumbSchema, createPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
+type ContactIconKind = "whatsapp" | "phone" | "email" | "pin";
+
+function ContactIcon({ kind }: { kind: ContactIconKind }) {
+  if (kind === "whatsapp") {
+    return (
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
+        <path d="M12 3.5a8.5 8.5 0 0 0-7.4 12.7L4 21l4.95-1.57A8.5 8.5 0 1 0 12 3.5Z" stroke="currentColor" strokeWidth="1.8" />
+        <path d="M8.8 9.3c.2-.5.46-.5.68-.5h.6c.2 0 .47.04.6.42.14.38.47 1.3.5 1.38.05.1.08.24.02.38-.06.14-.1.22-.2.33-.1.12-.2.27-.3.36-.1.1-.2.2-.08.4.1.2.47.8 1 1.3.7.62 1.3.83 1.5.92.2.1.3.08.42-.04.1-.12.5-.58.62-.78.13-.2.27-.17.45-.1.18.06 1.16.54 1.36.64.2.1.33.16.38.26.05.1.05.63-.15 1.24-.2.6-1.18 1.18-1.62 1.24-.42.07-.95.1-2.6-.6-2-.86-3.3-3-3.4-3.12-.1-.12-.8-1.06-.8-2.02 0-.96.5-1.43.68-1.62Z" fill="currentColor" />
+      </svg>
+    );
+  }
+
+  if (kind === "phone") {
+    return (
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
+        <path d="M6.7 4.3 9.5 7a1.2 1.2 0 0 1 .23 1.43l-1.1 2.02a1 1 0 0 0 .08 1.02c.74 1 1.55 1.94 2.44 2.83.9.88 1.84 1.7 2.83 2.44a1 1 0 0 0 1.02.08l2.02-1.1A1.2 1.2 0 0 1 18.5 16l2.7 2.8a1.3 1.3 0 0 1 .27 1.37c-.58 1.5-2.07 2.37-3.67 2.11-4.15-.67-7.84-4.36-8.5-8.5A3.25 3.25 0 0 1 4.3 6.7 1.3 1.3 0 0 1 5.63 4l1.07.3Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+
+  if (kind === "email") {
+    return (
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
+        <rect x="3.5" y="5.5" width="17" height="13" rx="2.5" stroke="currentColor" strokeWidth="1.8" />
+        <path d="m5 8 7 5 7-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
+      <path d="M12 20.5s6-5.7 6-10a6 6 0 0 0-12 0c0 4.3 6 10 6 10Z" stroke="currentColor" strokeWidth="1.8" />
+      <circle cx="12" cy="10.5" r="2.2" fill="currentColor" />
+    </svg>
+  );
+}
+
 export const metadata: Metadata = createPageMetadata({
   title: "Contatti Centro Estetico Rebel a Carmagnola | WhatsApp, Mappa, Orari",
   description:
@@ -36,6 +73,55 @@ export default function ContattiPage() {
       email: siteConfig.email,
     },
   };
+  const quickContacts: Array<{
+    kind: ContactIconKind;
+    label: string;
+    value: string;
+    href: string;
+    external?: boolean;
+    color: string;
+    background: string;
+    border: string;
+  }> = [
+    {
+      kind: "whatsapp",
+      label: "WhatsApp",
+      value: siteConfig.phoneDisplay,
+      href: siteConfig.social.whatsapp,
+      external: true,
+      color: "#d8fff2",
+      background: "linear-gradient(135deg, rgba(16, 185, 129, 0.26), rgba(5, 150, 105, 0.18))",
+      border: "1px solid rgba(16, 185, 129, 0.36)",
+    },
+    {
+      kind: "phone",
+      label: "Telefono",
+      value: siteConfig.phoneDisplay,
+      href: `tel:${siteConfig.phoneRaw}`,
+      color: "#e2dcff",
+      background: "linear-gradient(135deg, rgba(167, 139, 250, 0.26), rgba(124, 58, 237, 0.18))",
+      border: "1px solid rgba(167, 139, 250, 0.34)",
+    },
+    {
+      kind: "email",
+      label: "Email",
+      value: siteConfig.email,
+      href: `mailto:${siteConfig.email}`,
+      color: "#ffe2f2",
+      background: "linear-gradient(135deg, rgba(228, 72, 150, 0.24), rgba(219, 39, 119, 0.16))",
+      border: "1px solid rgba(228, 72, 150, 0.34)",
+    },
+    {
+      kind: "pin",
+      label: "Indirizzo",
+      value: `${siteConfig.address.streetAddress}, ${siteConfig.address.locality}`,
+      href: siteConfig.social.maps,
+      external: true,
+      color: "#d8ecff",
+      background: "linear-gradient(135deg, rgba(59, 130, 246, 0.24), rgba(37, 99, 235, 0.16))",
+      border: "1px solid rgba(59, 130, 246, 0.34)",
+    },
+  ];
 
   return (
     <main className="page-shell page-contatti">
@@ -54,114 +140,37 @@ export default function ContattiPage() {
           <article className="card glow-card">
             <h2 style={{ marginTop: 0 }}>Contatti rapidi</h2>
             <div style={{ marginTop: "1rem", display: "grid", gap: "0.85rem" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "0.7rem" }}>
-                <div
-                  style={{
-                    width: "44px",
-                    height: "44px",
-                    borderRadius: "12px",
-                    background: "linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.15))",
-                    border: "1px solid rgba(16, 185, 129, 0.3)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "1.2rem",
-                  }}
-                >
-                  💬
-                </div>
-                <div>
-                  <div style={{ fontSize: "0.72rem", color: "var(--muted)", textTransform: "uppercase", letterSpacing: "0.08em" }}>WhatsApp</div>
-                  <a
-                    href={siteConfig.social.whatsapp}
-                    target="_blank"
-                    rel="noreferrer"
-                    style={{ color: "#fff", fontWeight: 500, fontSize: "1.05rem" }}
+              {quickContacts.map((item) => (
+                <div key={item.label} style={{ display: "flex", alignItems: "center", gap: "0.7rem" }}>
+                  <div
+                    style={{
+                      width: "44px",
+                      height: "44px",
+                      borderRadius: "12px",
+                      background: item.background,
+                      border: item.border,
+                      color: item.color,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
                   >
-                    {siteConfig.phoneDisplay}
-                  </a>
+                    <ContactIcon kind={item.kind} />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: "0.72rem", color: "var(--muted)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                      {item.label}
+                    </div>
+                    <a
+                      href={item.href}
+                      {...(item.external ? { target: "_blank", rel: "noreferrer" } : {})}
+                      style={{ color: "#fff", fontWeight: 500, fontSize: "1.05rem" }}
+                    >
+                      {item.value}
+                    </a>
+                  </div>
                 </div>
-              </div>
-              <div style={{ display: "flex", alignItems: "center", gap: "0.7rem" }}>
-                <div
-                  style={{
-                    width: "44px",
-                    height: "44px",
-                    borderRadius: "12px",
-                    background: "linear-gradient(135deg, rgba(167, 139, 250, 0.2), rgba(124, 58, 237, 0.15))",
-                    border: "1px solid rgba(167, 139, 250, 0.3)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "1.2rem",
-                  }}
-                >
-                  📞
-                </div>
-                <div>
-                  <div style={{ fontSize: "0.72rem", color: "var(--muted)", textTransform: "uppercase", letterSpacing: "0.08em" }}>Telefono</div>
-                  <a
-                    href={`tel:${siteConfig.phoneRaw}`}
-                    style={{ color: "#fff", fontWeight: 500, fontSize: "1.05rem" }}
-                  >
-                    {siteConfig.phoneDisplay}
-                  </a>
-                </div>
-              </div>
-              <div style={{ display: "flex", alignItems: "center", gap: "0.7rem" }}>
-                <div
-                  style={{
-                    width: "44px",
-                    height: "44px",
-                    borderRadius: "12px",
-                    background: "linear-gradient(135deg, rgba(228, 72, 150, 0.2), rgba(219, 39, 119, 0.15))",
-                    border: "1px solid rgba(228, 72, 150, 0.3)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "1.2rem",
-                  }}
-                >
-                  ✉️
-                </div>
-                <div>
-                  <div style={{ fontSize: "0.72rem", color: "var(--muted)", textTransform: "uppercase", letterSpacing: "0.08em" }}>Email</div>
-                  <a
-                    href={`mailto:${siteConfig.email}`}
-                    style={{ color: "#fff", fontWeight: 500, fontSize: "1.05rem" }}
-                  >
-                    {siteConfig.email}
-                  </a>
-                </div>
-              </div>
-              <div style={{ display: "flex", alignItems: "center", gap: "0.7rem" }}>
-                <div
-                  style={{
-                    width: "44px",
-                    height: "44px",
-                    borderRadius: "12px",
-                    background: "linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(37, 99, 235, 0.15))",
-                    border: "1px solid rgba(59, 130, 246, 0.3)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "1.2rem",
-                  }}
-                >
-                  📍
-                </div>
-                <div>
-                  <div style={{ fontSize: "0.72rem", color: "var(--muted)", textTransform: "uppercase", letterSpacing: "0.08em" }}>Indirizzo</div>
-                  <a
-                    href={siteConfig.social.maps}
-                    target="_blank"
-                    rel="noreferrer"
-                    style={{ color: "#fff", fontWeight: 500, fontSize: "1.05rem" }}
-                  >
-                    {siteConfig.address.streetAddress}, {siteConfig.address.locality}
-                  </a>
-                </div>
-              </div>
+              ))}
             </div>
             <div
               style={{

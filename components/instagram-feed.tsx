@@ -1,7 +1,6 @@
 import Link from "next/link";
-import Script from "next/script";
 import { InstagramEmbed } from "@/components/instagram-embed";
-import { instagramConfig } from "@/lib/instagram-config";
+import { instagramConfig, isReel } from "@/lib/instagram-config";
 import { siteConfig } from "@/lib/site-config";
 
 type InstagramFeedProps = {
@@ -22,7 +21,7 @@ export function InstagramFeed({
   maxPosts = 3,
   hidePostsOnMobile = false,
 }: InstagramFeedProps) {
-  const reels = instagramConfig.featuredReels.slice(0, maxReels);
+  const reels = instagramConfig.featuredReels.filter((item) => isReel(item)).slice(0, maxReels);
   const posts = instagramConfig.latestPosts.slice(0, maxPosts);
 
   if (reels.length === 0 && posts.length === 0) {
@@ -46,7 +45,6 @@ export function InstagramFeed({
 
   return (
     <div className="instagram-feed">
-      <Script src="https://www.instagram.com/embed.js" strategy="lazyOnload" />
       {showReels && reels.length > 0 && (
         <section className="instagram-group">
           <div className="instagram-group-head">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo } from "react";
 import { extractInstagramId, isReel } from "@/lib/instagram-config";
 
 type InstagramEmbedProps = {
@@ -8,16 +8,6 @@ type InstagramEmbedProps = {
   className?: string;
   captioned?: boolean;
 };
-
-declare global {
-  interface Window {
-    instgrm?: {
-      Embeds?: {
-        process: () => void;
-      };
-    };
-  }
-}
 
 function buildInstagramPermalink(urlOrId: string) {
   if (urlOrId.startsWith("http")) {
@@ -36,63 +26,29 @@ export function InstagramEmbed({
   className = "",
   captioned = true,
 }: InstagramEmbedProps) {
-  const [timedOut, setTimedOut] = useState(false);
-  const wrapperRef = useRef<HTMLDivElement>(null);
   const permalink = useMemo(() => buildInstagramPermalink(urlOrId), [urlOrId]);
   const reel = useMemo(() => isReel(urlOrId), [urlOrId]);
-  const fallbackUrl = useMemo(() => {
-    if (urlOrId.startsWith("http")) return urlOrId;
-    return buildInstagramPermalink(urlOrId);
-  }, [urlOrId]);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    setTimedOut(false);
-
-    let attempts = 0;
-    const maxAttempts = 40;
-
-    const interval = window.setInterval(() => {
-      attempts += 1;
-      window.instgrm?.Embeds?.process();
-
-      const hasIframe = !!wrapperRef.current?.querySelector("iframe");
-      if (hasIframe || attempts >= maxAttempts) {
-        if (!hasIframe && attempts >= maxAttempts) {
-          setTimedOut(true);
-        }
-        window.clearInterval(interval);
-      }
-    }, 300);
-
-    return () => window.clearInterval(interval);
-  }, [permalink]);
-
-  if (timedOut) {
-    return (
-      <div className={`instagram-embed-fallback ${className}`}>
-        <p style={{ margin: 0 }}>Non riusciamo a caricare questo contenuto Instagram.</p>
-        <a
-          href={fallbackUrl}
-          target="_blank"
-          rel="noreferrer"
-        >
-          Apri su Instagram
-        </a>
-      </div>
-    );
-  }
+  const embedUrl = useMemo(() => {
+    if (reel) return `${permalink}embed/`;
+    if (captioned) return `${permalink}embed/captioned/`;
+    return `${permalink}embed/`;
+  }, [captioned, permalink, reel]);
 
   return (
-    <div className={`instagram-embed-wrapper ${className}`} ref={wrapperRef}>
-      <blockquote
-        className="instagram-media"
-        {...(captioned && !reel ? { "data-instgrm-captioned": "" } : {})}
-        data-instgrm-permalink={permalink}
-        data-instgrm-version="14"
+    <div className={`instagram-embed-wrapper ${reel ? "is-reel" : "is-post"} ${className}`.trim()}>
+      <iframe
+        src={embedUrl}
+        title={reel ? "Instagram Reel" : "Instagram Post"}
+        className="instagram-embed-iframe"
+        loading="lazy"
+        scrolling="no"
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+        allowFullScreen
+        sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms allow-top-navigation-by-user-activation"
+        referrerPolicy="strict-origin-when-cross-origin"
       />
       <noscript>
-        <a href={fallbackUrl} target="_blank" rel="noreferrer">
+        <a href={permalink} target="_blank" rel="noreferrer">
           Apri il contenuto su Instagram
         </a>
       </noscript>

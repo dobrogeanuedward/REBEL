@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { InstagramFeed } from "@/components/instagram-feed";
 import { JsonLd } from "@/components/json-ld";
@@ -37,7 +36,7 @@ export default function ChiSiamoPage() {
         tone="rose"
       />
 
-      <section className="section">
+      <section className="section" style={{ paddingTop: "44px", paddingBottom: "36px" }}>
         <div className="container grid grid-2">
           <article className="card glow-card">
             <h2 style={{ marginTop: 0 }}>Visione</h2>
@@ -46,20 +45,6 @@ export default function ChiSiamoPage() {
               biologico che può essere riattivato con protocolli pertinenti,
               continuità e precisione esecutiva.
             </p>
-            <div className="hero-visual" style={{ marginTop: "1rem", borderRadius: 14 }}>
-              <Image
-                src="https://epikey.rebelepigenetica.it/assets/rebel/0.webp"
-                alt="Interni Rebel Carmagnola"
-                width={1280}
-                height={800}
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  borderRadius: 14,
-                  border: "1px solid rgba(255,255,255,0.14)",
-                }}
-              />
-            </div>
           </article>
           <article className="card mission-card">
             <p className="eyebrow">Chi siamo</p>
@@ -83,18 +68,18 @@ export default function ChiSiamoPage() {
         </div>
       </section>
 
-      <section className="section section-light instagram-reels-4">
+      <section className="section section-light">
         <div className="container">
           <p className="eyebrow" style={{ color: "rgba(39,31,56,0.68)" }}>
             Instagram
           </p>
           <h2 className="page-title" style={{ marginTop: "0.6rem", color: "#271f38" }}>
-            Reel e post dal centro estetico Rebel.
+            Post dal centro estetico Rebel.
           </h2>
           <p className="lead" style={{ color: "rgba(39,31,56,0.78)", marginTop: "0.8rem" }}>
-            Trattamenti, risultati e momenti dal nostro studio a Carmagnola.
+            Scatti e aggiornamenti dal nostro studio a Carmagnola.
           </p>
-          <InstagramFeed showReels={true} showPosts={true} maxReels={4} maxPosts={3} />
+          <InstagramFeed showReels={false} showPosts={true} maxPosts={6} />
         </div>
       </section>
 

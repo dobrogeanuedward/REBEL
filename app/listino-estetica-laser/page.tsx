@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
+import { protocolCards } from "@/lib/content";
 import { servicePages } from "@/lib/seo-content";
 import {
   buildBreadcrumbSchema,
@@ -13,7 +14,7 @@ import {
 export const metadata: Metadata = createPageMetadata({
   title: "Listino Estetica + Epilazione Laser a Carmagnola | Prezzi Rebel",
   description:
-    "Listino completo Rebel a Carmagnola: estetica classica ed epilazione laser a Carmagnola nella stessa pagina, con prezzi chiari e percorsi personalizzati.",
+    "Listino completo Rebel a Carmagnola: estetica avanzata e benessere, epilazione laser ed estetica epigenetica nella stessa pagina, con prezzi chiari e percorsi personalizzati.",
   path: "/listino-estetica-laser",
   keywords: [
     "listino centro estetico Carmagnola",
@@ -87,11 +88,30 @@ export default function ListinoPage() {
 
       <PageHero
         eyebrow="Listino unico"
-        title="Listino Rebel: estetica classica ed epilazione laser nella stessa pagina."
+        title="Listino Rebel: estetica avanzata, laser ed epigenetica nella stessa pagina."
         lead="Qui trovi i prezzi in modo semplice e trasparente. Se non sai quale trattamento scegliere, ti aiutiamo noi a orientarti."
         badge="Prezzi trasparenti a Carmagnola"
         tone="gold"
       />
+
+      <section className="section" style={{ paddingTop: "20px", paddingBottom: "28px" }}>
+        <div className="container">
+          <div className="listino-switch">
+            <a className="listino-switch-btn" href="#estetica-classica">
+              <span aria-hidden="true">✦</span>
+              Estetica Avanzata e Benessere
+            </a>
+            <a className="listino-switch-btn" href="#epilazione-laser">
+              <span aria-hidden="true">◉</span>
+              Epilazione Laser
+            </a>
+            <a className="listino-switch-btn" href="#estetica-epigenetica">
+              <span aria-hidden="true">⬡</span>
+              Estetica Epigenetica
+            </a>
+          </div>
+        </div>
+      </section>
 
       <section className="section" id="estetica-classica">
         <div className="container">
@@ -167,11 +187,40 @@ export default function ListinoPage() {
             <Link className="button button-primary" href="/contatti">
               Prenota valutazione laser
             </Link>
-            <Link className="button" href="/protocolli-epigenetici">
-              Vedi protocolli epigenetici
+            <Link className="button" href="#estetica-epigenetica">
+              Vai a estetica epigenetica
             </Link>
             <Link className="button button-secondary" href="/servizi">
               Scopri tutti i servizi
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="section epigenetica-tech-section" id="estetica-epigenetica">
+        <div className="container">
+          <h2 className="page-title">Estetica epigenetica</h2>
+          <p className="lead">
+            Protocolli viso e corpo orientati a qualità cutanea, tono e rigenerazione progressiva.
+            Ogni trattamento viene scelto in base al tuo punto di partenza e all&apos;obiettivo reale.
+          </p>
+          <div className="grid grid-2" style={{ marginTop: "1rem" }}>
+            {protocolCards.map((item) => (
+              <article key={item.name} className="card glow-card">
+                <h3 style={{ marginTop: 0 }}>{item.name}</h3>
+                <p className="lead" style={{ marginTop: "0.28rem" }}>
+                  {item.desc}
+                </p>
+                <strong style={{ fontFamily: "var(--font-inter), sans-serif" }}>{item.price}</strong>
+              </article>
+            ))}
+          </div>
+          <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
+            <Link className="button button-primary" href="/contatti">
+              Prenota lettura iniziale
+            </Link>
+            <Link className="button button-secondary" href="/protocolli-epigenetici">
+              Approfondisci i protocolli
             </Link>
           </div>
         </div>
