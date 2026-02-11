@@ -59,7 +59,7 @@ export default function ListinoPage() {
         eyebrow="Listino unico"
         title="Listino Rebel: estetica avanzata, laser ed epigenetica nella stessa pagina."
         lead="Qui trovi i prezzi in modo semplice e trasparente. Se non sai quale trattamento scegliere, ti aiutiamo noi a orientarti."
-        badge="Prezzi trasparenti a Carmagnola"
+        badge="Listino Rebel - Centro Estetico a Carmagnola"
         tone="gold"
       />
 
@@ -196,20 +196,7 @@ export default function ListinoPage() {
       </section>
 
       <section className="section">
-        <div className="container grid grid-2">
-          <article className="card glow-card">
-            <h2 style={{ marginTop: 0 }}>Come scegliere tra estetica classica e laser</h2>
-            <p className="lead" style={{ marginTop: 0 }}>
-              Se il tuo obiettivo è prenderti cura della pelle, rilassarti o
-              migliorare tono e benessere, i servizi di estetica classica sono
-              un&apos;ottima base.
-            </p>
-            <p className="lead">
-              Se invece vuoi ridurre in modo progressivo la ricrescita del pelo,
-              allora il laser è la strada giusta. In ogni caso, la valutazione
-              iniziale ti aiuta a non sbagliare direzione.
-            </p>
-          </article>
+        <div className="container">
           <article className="card listino-categories-card">
             <h2 style={{ marginTop: 0 }}>Le 3 categorie principali a Carmagnola</h2>
             <p className="lead" style={{ marginTop: "0.2rem" }}>

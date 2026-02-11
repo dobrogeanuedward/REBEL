@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { InstagramEmbed } from "@/components/instagram-embed";
+import { InstagramReelsShowcase } from "@/components/instagram-reels-showcase";
 import { instagramConfig, isReel } from "@/lib/instagram-config";
 import { siteConfig } from "@/lib/site-config";
 
@@ -45,28 +46,7 @@ export function InstagramFeed({
 
   return (
     <div className="instagram-feed">
-      {showReels && reels.length > 0 && (
-        <section className="instagram-group instagram-group--reels-showcase">
-          <div className="instagram-group-head">
-            <h3 className="instagram-group-title">Reel in evidenza</h3>
-            <Link
-              href={siteConfig.social.instagram}
-              target="_blank"
-              rel="noreferrer"
-              className="instagram-group-link"
-            >
-              Vedi tutti <span>→</span>
-            </Link>
-          </div>
-          <div className="instagram-grid instagram-grid--reels">
-            {reels.map((reel, index) => (
-              <article key={index} className="instagram-feed-item glow-card">
-                <InstagramEmbed urlOrId={reel} captioned={false} />
-              </article>
-            ))}
-          </div>
-        </section>
-      )}
+      {showReels && reels.length > 0 && <InstagramReelsShowcase reels={reels} />}
 
       {showPosts && posts.length > 0 && (
         <section

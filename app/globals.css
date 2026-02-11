@@ -194,51 +194,60 @@ img {
 }
 
 .card {
-  border: 1px solid var(--card-border);
-  border-radius: calc(var(--radius) + 1px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: calc(var(--radius) + 3px);
   background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04)),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.04) 46%, rgba(196, 181, 253, 0.08)),
     var(--card);
-  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(16px) saturate(1.18);
+  backdrop-filter: blur(16px) saturate(1.18);
   padding: 1.4rem;
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.04),
-    0 18px 48px rgba(88, 28, 135, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 22px 62px rgba(35, 16, 65, 0.32),
+    0 0 28px rgba(167, 139, 250, 0.1),
     0 0 0 0 rgba(228, 72, 150, 0);
   transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.32s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.32s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  overflow: hidden;
 }
 
 .card-light {
-  border: 1px solid rgba(18, 10, 34, 0.12);
-  border-radius: calc(var(--radius) + 1px);
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.98), rgba(253, 247, 255, 0.9));
+  border: 1px solid rgba(18, 10, 34, 0.16);
+  border-radius: calc(var(--radius) + 3px);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.99), rgba(252, 247, 255, 0.94), rgba(244, 240, 255, 0.88));
   box-shadow: 
-    0 20px 52px rgba(53, 31, 86, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 24px 62px rgba(53, 31, 86, 0.14),
+    0 0 30px rgba(196, 181, 253, 0.08),
     0 0 0 0 rgba(167, 139, 250, 0);
   padding: 1.4rem;
   transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.32s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.32s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  overflow: hidden;
 }
 
 .card:hover,
 .card-light:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
 }
 
 .card:hover {
-  border-color: rgba(228, 72, 150, 0.42);
+  border-color: rgba(244, 114, 182, 0.48);
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
-    0 22px 58px rgba(88, 28, 135, 0.29),
-    0 0 32px rgba(228, 72, 150, 0.18);
+    inset 0 1px 0 rgba(255, 255, 255, 0.24),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 26px 68px rgba(53, 25, 95, 0.38),
+    0 0 36px rgba(228, 72, 150, 0.24);
 }
 
 .card-light:hover {
-  border-color: rgba(167, 139, 250, 0.36);
+  border-color: rgba(167, 139, 250, 0.44);
   box-shadow: 
-    0 24px 60px rgba(53, 31, 86, 0.18),
-    0 0 28px rgba(167, 139, 250, 0.14);
+    inset 0 1px 0 rgba(255, 255, 255, 0.94),
+    0 28px 72px rgba(53, 31, 86, 0.24),
+    0 0 34px rgba(167, 139, 250, 0.18);
 }
 
 .button {
@@ -2302,6 +2311,41 @@ body.mobile-menu-open .wa-live {
   --page-accent-dark-rgb: 180, 83, 9;
 }
 
+.page-listino .page-hero-shell {
+  border-color: rgba(255, 255, 255, 0.3);
+  background:
+    radial-gradient(110% 88% at 8% 0%, rgba(167, 139, 250, 0.24), transparent 70%),
+    radial-gradient(96% 82% at 95% 8%, rgba(228, 72, 150, 0.28), transparent 72%),
+    linear-gradient(140deg, rgba(37, 16, 60, 0.86), rgba(56, 20, 74, 0.78) 52%, rgba(24, 12, 44, 0.86));
+  box-shadow:
+    0 20px 56px rgba(24, 10, 45, 0.5),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    0 0 26px rgba(228, 72, 150, 0.16);
+}
+
+.page-listino .page-hero-shell::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.76),
+    rgba(235, 244, 255, 0.34),
+    rgba(255, 255, 255, 0.54)
+  );
+  filter: blur(15px);
+  opacity: 0.42;
+}
+
+.page-listino .page-hero-shell::after {
+  background: rgba(236, 72, 153, 0.52);
+  opacity: 0.18;
+}
+
+.page-listino .badge {
+  border-color: rgba(56, 189, 248, 0.52);
+  color: rgba(222, 245, 255, 0.96);
+  background: rgba(56, 189, 248, 0.12);
+}
+
 .epigenetica-tech-section {
   background:
     radial-gradient(68% 84% at 12% 0%, rgba(34, 211, 238, 0.18), transparent 72%),
@@ -2338,6 +2382,74 @@ body.mobile-menu-open .wa-live {
 
 .epigenetica-tech-section .card .lead {
   color: rgba(214, 240, 255, 0.8);
+}
+
+.epigenetica-tech-section .card::after {
+  background: linear-gradient(
+    90deg,
+    rgba(186, 230, 253, 0),
+    rgba(125, 211, 252, 0.72),
+    rgba(16, 185, 129, 0.5),
+    rgba(186, 230, 253, 0)
+  );
+}
+
+.epigenetica-tech-section .card:hover {
+  border-color: rgba(125, 211, 252, 0.44);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 22px 58px rgba(9, 32, 49, 0.36),
+    0 0 30px rgba(34, 211, 238, 0.2);
+}
+
+.epigenetica-tech-section .glow-card::before {
+  background: linear-gradient(
+    135deg,
+    rgba(186, 230, 253, 0.36),
+    rgba(34, 211, 238, 0.28),
+    rgba(255, 255, 255, 0.24)
+  );
+  opacity: 0.6;
+}
+
+.epigenetica-tech-section .button-primary {
+  background: linear-gradient(
+    96deg,
+    rgba(16, 185, 129, 0.96),
+    rgba(52, 211, 153, 0.95),
+    rgba(20, 184, 166, 0.96)
+  );
+  box-shadow:
+    0 12px 30px rgba(5, 83, 64, 0.34),
+    0 0 30px rgba(16, 185, 129, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24);
+}
+
+.epigenetica-tech-section .button-primary::before {
+  background: linear-gradient(
+    95deg,
+    rgba(16, 185, 129, 1),
+    rgba(52, 211, 153, 1),
+    rgba(20, 184, 166, 1)
+  );
+}
+
+.epigenetica-tech-section .button-secondary {
+  border-color: rgba(125, 211, 252, 0.44);
+  background: rgba(236, 252, 255, 0.1);
+  color: rgba(223, 246, 255, 0.95);
+  box-shadow:
+    0 10px 24px rgba(10, 34, 56, 0.26),
+    0 0 22px rgba(125, 211, 252, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.epigenetica-tech-section .button-secondary:hover {
+  border-color: rgba(16, 185, 129, 0.52);
+  box-shadow:
+    0 10px 24px rgba(5, 40, 34, 0.24),
+    0 0 24px rgba(16, 185, 129, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 #estetica-classica,
@@ -2437,15 +2549,14 @@ body.mobile-menu-open .wa-live {
 .home-ecosystem-section::before {
   content: "";
   position: absolute;
-  inset: -5% 0 auto;
-  height: 420px;
+  inset: -3% 0 0;
   pointer-events: none;
-  opacity: 0.18;
+  opacity: 0.2;
   background-image: url("https://res.cloudinary.com/dx8tfq82f/image/upload/v1770780624/vetrtina2_krgcys.png");
   background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
-  filter: blur(2px) saturate(0.9);
+  background-position: center 8%;
+  background-size: contain;
+  filter: blur(1.6px) saturate(0.95);
 }
 
 .home-ecosystem-section::after {
@@ -2470,15 +2581,21 @@ body.mobile-menu-open .wa-live {
 }
 
 .ecosystem-card {
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
   padding: 1rem 0.95rem;
   position: relative;
   overflow: hidden;
-  background: rgba(15, 10, 28, 0.72);
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03)),
+    rgba(15, 10, 28, 0.72);
+  -webkit-backdrop-filter: blur(16px) saturate(1.16);
+  backdrop-filter: blur(16px) saturate(1.16);
   box-shadow:
-    0 18px 44px rgba(13, 9, 24, 0.28),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    0 24px 62px rgba(13, 9, 24, 0.36),
+    0 0 26px rgba(167, 139, 250, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
 .ecosystem-card::before {
@@ -2487,6 +2604,17 @@ body.mobile-menu-open .wa-live {
   inset: -20% -12%;
   pointer-events: none;
   opacity: 0.76;
+}
+
+.ecosystem-card:hover {
+  border-color: rgba(255, 255, 255, 0.34);
+  box-shadow:
+    0 28px 74px rgba(13, 9, 24, 0.44),
+    0 0 36px rgba(228, 72, 150, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  transform: translateY(-3px);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .ecosystem-card h3 {
@@ -2852,6 +2980,79 @@ body.mobile-menu-open .wa-live {
   letter-spacing: 0.01em;
 }
 
+.instagram-reels-rebuild {
+  border-radius: 24px;
+  border: 1px solid rgba(39, 31, 56, 0.12);
+  background:
+    radial-gradient(82% 68% at 12% 0%, rgba(236, 72, 153, 0.08), transparent 72%),
+    radial-gradient(80% 68% at 90% 0%, rgba(167, 139, 250, 0.09), transparent 74%),
+    rgba(255, 255, 255, 0.74);
+  padding: 1rem 1rem 1.1rem;
+  box-shadow:
+    0 16px 36px rgba(53, 31, 86, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.instagram-reels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.9rem;
+  justify-items: center;
+  align-items: start;
+}
+
+.instagram-reel-card {
+  width: 100%;
+  max-width: 360px;
+  border-radius: 22px;
+  border: 1px solid rgba(244, 114, 182, 0.35);
+  padding: 0.42rem;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.96),
+    rgba(255, 241, 248, 0.94),
+    rgba(254, 234, 246, 0.92)
+  );
+  box-shadow:
+    0 16px 36px rgba(53, 31, 86, 0.12),
+    0 0 34px rgba(228, 72, 150, 0.22),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.instagram-reel-card::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border-radius: 24px;
+  background:
+    radial-gradient(56% 52% at 50% 10%, rgba(244, 114, 182, 0.45), transparent 72%),
+    radial-gradient(52% 46% at 84% 88%, rgba(236, 72, 153, 0.24), transparent 74%);
+  filter: blur(16px);
+  opacity: 0.75;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.instagram-reel-embed {
+  margin: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  background: #fff !important;
+}
+
+.instagram-reel-embed > div,
+.instagram-reel-embed iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
 .instagram-grid {
   display: grid;
   gap: 1rem;
@@ -2868,8 +3069,14 @@ body.mobile-menu-open .wa-live {
   max-width: 280px;
 }
 
+.instagram-grid--reels {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  justify-items: center;
+  align-items: start;
+}
+
 .instagram-reels-4 .instagram-grid--reels {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
 .instagram-grid--reels .instagram-feed-item {
@@ -2879,17 +3086,34 @@ body.mobile-menu-open .wa-live {
 
 .instagram-feed-item {
   border-radius: 22px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.26);
   padding: 0.55rem;
+  position: relative;
+  isolation: isolate;
   background: linear-gradient(
     145deg,
-    rgba(255, 255, 255, 0.06),
-    rgba(167, 139, 250, 0.08),
-    rgba(228, 72, 150, 0.06)
+    rgba(255, 255, 255, 0.14),
+    rgba(167, 139, 250, 0.1),
+    rgba(228, 72, 150, 0.09)
   );
+  -webkit-backdrop-filter: blur(15px) saturate(1.16);
+  backdrop-filter: blur(15px) saturate(1.16);
   box-shadow:
-    0 16px 40px rgba(27, 14, 51, 0.22),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    0 20px 50px rgba(27, 14, 51, 0.28),
+    0 0 30px rgba(167, 139, 250, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
+}
+
+.instagram-feed-item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.38);
+  box-shadow:
+    0 24px 58px rgba(27, 14, 51, 0.34),
+    0 0 36px rgba(228, 72, 150, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.09);
 }
 
 .section-light .instagram-feed-item {
@@ -2914,7 +3138,7 @@ body.mobile-menu-open .wa-live {
 }
 
 .instagram-embed-wrapper.is-reel {
-  aspect-ratio: 9 / 16;
+  aspect-ratio: 10 / 19;
   background: #fff;
 }
 
@@ -2926,7 +3150,6 @@ body.mobile-menu-open .wa-live {
 }
 
 @media (min-width: 981px) {
-  .instagram-group--reels-showcase,
   .instagram-group--posts-showcase {
     border-radius: 24px;
     border: 1px solid rgba(39, 31, 56, 0.12);
@@ -2937,22 +3160,6 @@ body.mobile-menu-open .wa-live {
     box-shadow:
       0 16px 36px rgba(53, 31, 86, 0.1),
       inset 0 0 0 1px rgba(255, 255, 255, 0.5);
-  }
-
-  .instagram-group--reels-showcase .instagram-grid--reels {
-    grid-template-columns: repeat(3, minmax(250px, 1fr));
-    justify-items: center;
-  }
-
-  .instagram-group--reels-showcase .instagram-feed-item {
-    width: 100%;
-    max-width: 340px;
-    padding: 0.38rem;
-    border-radius: 18px;
-  }
-
-  .instagram-group--reels-showcase .instagram-embed-wrapper.is-reel {
-    aspect-ratio: 9 / 16;
   }
 
   .instagram-group--posts-showcase .instagram-grid--posts {
@@ -3348,8 +3555,10 @@ body.mobile-menu-open .wa-live {
     gap: 1.55rem;
   }
   .home-ecosystem-section::before {
-    height: 280px;
-    opacity: 0.12;
+    inset: 0;
+    opacity: 0.16;
+    background-position: center top;
+    background-size: 145% auto;
   }
   .instagram-group {
     gap: 0.72rem;
@@ -3369,6 +3578,22 @@ body.mobile-menu-open .wa-live {
     grid-template-columns: 1fr;
     gap: 0.82rem;
   }
+  .instagram-reels-rebuild {
+    padding: 0.82rem 0.78rem;
+    border-radius: 18px;
+  }
+  .instagram-reels-grid {
+    grid-template-columns: 1fr;
+    gap: 0.72rem;
+  }
+  .instagram-reel-card {
+    max-width: 100%;
+    border-radius: 18px;
+    padding: 0.34rem;
+  }
+  .instagram-reel-embed {
+    border-radius: 14px !important;
+  }
   .instagram-feed-item {
     padding: 0.42rem;
     border-radius: 18px;
@@ -3377,7 +3602,7 @@ body.mobile-menu-open .wa-live {
     border-radius: 14px;
   }
   .instagram-embed-wrapper.is-reel {
-    aspect-ratio: 9 / 16;
+    aspect-ratio: 10 / 19;
     border-radius: 14px;
   }
   .wa-live {
