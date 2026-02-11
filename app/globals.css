@@ -1163,15 +1163,17 @@ body.mobile-menu-open .wa-live {
 .home-hero-main::after {
   content: "";
   position: absolute;
-  right: -70px;
-  top: -86px;
-  width: 236px;
-  height: 236px;
-  border-radius: 999px;
-  border: 1px solid rgba(124, 58, 237, 0.22);
-  background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0));
-  opacity: 0.64;
-  filter: blur(0.2px);
+  right: -42px;
+  top: -26px;
+  width: 360px;
+  height: 360px;
+  background-image: url("https://res.cloudinary.com/dx8tfq82f/image/upload/v1770787721/Rebel-girl-CARMAGNOLA_c21e9b.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.1;
+  filter: grayscale(1) saturate(0.65) contrast(1.05);
+  mix-blend-mode: multiply;
   pointer-events: none;
 }
 
@@ -3090,6 +3092,13 @@ body.mobile-menu-open .wa-live {
   .home-hero-side {
     padding: 0.9rem;
     border-radius: 16px;
+  }
+  .home-hero-main::after {
+    width: 240px;
+    height: 240px;
+    right: -74px;
+    top: -56px;
+    opacity: 0.09;
   }
   .home-hero-photo-chip {
     right: 0.54rem;
