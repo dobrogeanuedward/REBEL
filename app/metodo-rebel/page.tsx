@@ -28,7 +28,7 @@ export default function MetodoPage() {
   ]);
   const service = buildServiceSchema(
     "Metodo estetico epigenetico personalizzato",
-    "Percorso in 5 step per riattivare tono, luminosita e qualita cutanea.",
+    "Percorso in 5 step per riattivare tono, luminosità e qualità cutanea.",
     "/metodo-rebel",
   );
 
@@ -41,7 +41,7 @@ export default function MetodoPage() {
         eyebrow="Metodo proprietario"
         title="Dal primo ascolto alla riprogrammazione cutanea: il Metodo Rebel."
         lead="Un percorso semplice in 5 passaggi, pensato per adattarsi davvero alla tua pelle e ai tuoi obiettivi."
-        badge="Metodo orientato alla continuita"
+        badge="Metodo orientato alla continuità"
         tone="ocean"
       />
 
@@ -65,13 +65,13 @@ export default function MetodoPage() {
 
       <section className="section section-light">
         <div className="container">
-          <h2 className="page-title">Perche questo metodo funziona nella pratica.</h2>
+          <h2 className="page-title">Perché questo metodo funziona nella pratica.</h2>
           <p
             className="lead"
             style={{ color: "rgba(39,31,56,0.8)", maxWidth: "74ch" }}
           >
-            Quando hai chiari i passaggi, anche i risultati diventano piu facili da
-            seguire. Sai sempre cosa stiamo facendo, perche lo facciamo e in quanto
+            Quando hai chiari i passaggi, anche i risultati diventano più facili da
+            seguire. Sai sempre cosa stiamo facendo, perché lo facciamo e in quanto
             tempo puoi aspettarti un cambiamento.
           </p>
           <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>

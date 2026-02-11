@@ -9,6 +9,7 @@ type InstagramFeedProps = {
   showPosts?: boolean;
   maxReels?: number;
   maxPosts?: number;
+  hidePostsOnMobile?: boolean;
 };
 
 /**
@@ -19,6 +20,7 @@ export function InstagramFeed({
   showPosts = true,
   maxReels = 3,
   maxPosts = 3,
+  hidePostsOnMobile = false,
 }: InstagramFeedProps) {
   const reels = instagramConfig.featuredReels.slice(0, maxReels);
   const posts = instagramConfig.latestPosts.slice(0, maxPosts);
@@ -58,10 +60,10 @@ export function InstagramFeed({
               Vedi tutti <span>→</span>
             </Link>
           </div>
-          <div className="instagram-grid">
+          <div className="instagram-grid instagram-grid--reels">
             {reels.map((reel, index) => (
               <article key={index} className="instagram-feed-item glow-card">
-                <InstagramEmbed urlOrId={reel} />
+                <InstagramEmbed urlOrId={reel} captioned={false} />
               </article>
             ))}
           </div>
@@ -69,9 +71,16 @@ export function InstagramFeed({
       )}
 
       {showPosts && posts.length > 0 && (
-        <section className="instagram-group">
+        <section
+          className={`instagram-group${hidePostsOnMobile ? " instagram-group--mobile-hidden" : ""}`}
+        >
           <div className="instagram-group-head">
-            <h3 className="instagram-group-title">Ultimi {posts.length} post</h3>
+            <div>
+              <h3 className="instagram-group-title">Post in evidenza</h3>
+              <p className="instagram-group-subtitle">
+                REBEL - CENTRO ESTETICO A CARMAGNOLA
+              </p>
+            </div>
             <Link
               href={siteConfig.social.instagram}
               target="_blank"
@@ -81,7 +90,7 @@ export function InstagramFeed({
               Vedi tutti <span>→</span>
             </Link>
           </div>
-          <div className="instagram-grid">
+          <div className="instagram-grid instagram-grid--posts">
             {posts.map((post, index) => (
               <article key={index} className="instagram-feed-item glow-card">
                 <InstagramEmbed urlOrId={post} />

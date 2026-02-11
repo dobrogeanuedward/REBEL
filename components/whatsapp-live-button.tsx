@@ -11,8 +11,8 @@ export function WhatsappLiveButton() {
     >
       <span className="wa-live-dot" aria-hidden="true" />
       <span className="wa-live-text">
-        WhatsApp Live
-        <small>Rispondiamo in giornata</small>
+        Whatsapp
+        <small>Scrivici</small>
       </span>
     </a>
   );

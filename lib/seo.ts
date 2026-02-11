@@ -98,6 +98,10 @@ export function buildLocalBusinessSchema() {
     ],
     knowsAbout: [
       "estetica epigenetica",
+      "epilazione laser",
+      "epilazione laser Carmagnola",
+      "epilazione laser Rebel",
+      "laser Carmagnola",
       "epilazione laser Thory",
       "trattamenti viso",
       "trattamenti corpo",

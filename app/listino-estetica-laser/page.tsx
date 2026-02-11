@@ -11,13 +11,15 @@ import {
 } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Listino Estetica + Laser a Carmagnola | Prezzi Rebel",
+  title: "Listino Estetica + Epilazione Laser a Carmagnola | Prezzi Rebel",
   description:
-    "Listino completo Rebel a Carmagnola: estetica classica e epilazione laser nella stessa pagina, con prezzi chiari e percorsi personalizzati.",
+    "Listino completo Rebel a Carmagnola: estetica classica ed epilazione laser a Carmagnola nella stessa pagina, con prezzi chiari e percorsi personalizzati.",
   path: "/listino-estetica-laser",
   keywords: [
     "listino centro estetico Carmagnola",
     "prezzi epilazione laser Carmagnola",
+    "epilazione laser Rebel",
+    "laser Carmagnola",
     "listino estetista Carmagnola",
   ],
 });
@@ -33,8 +35,8 @@ export default function ListinoPage() {
     { name: "Listino estetica e laser", path: "/listino-estetica-laser" },
   ]);
   const service = buildServiceSchema(
-    "Listino estetica classica e laser Thory",
-    "Prezzi chiari per servizi estetici e epilazione laser a Carmagnola.",
+    "Listino estetica classica ed epilazione laser a Carmagnola",
+    "Prezzi chiari per servizi estetici ed epilazione laser a Carmagnola.",
     "/listino-estetica-laser",
   );
   const faqSchema = {
@@ -46,7 +48,7 @@ export default function ListinoPage() {
         name: "I prezzi del laser sono per singola seduta?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Si, i prezzi sono per singola seduta. Sono disponibili pacchetti personalizzati multi-zona.",
+          text: "Sì, i prezzi sono per singola seduta. Sono disponibili pacchetti personalizzati multi-zona.",
         },
       },
       {
@@ -54,7 +56,7 @@ export default function ListinoPage() {
         name: "Serve una valutazione iniziale prima del laser?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Si, la valutazione iniziale e inclusa e permette di definire potenza e frequenza adatte al tuo profilo.",
+          text: "Sì, la valutazione iniziale è inclusa e permette di definire potenza e frequenza adatte al tuo profilo.",
         },
       },
       {
@@ -62,7 +64,7 @@ export default function ListinoPage() {
         name: "Posso combinare estetica classica e protocolli avanzati?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Si, Rebel integra servizi classici, protocolli epigenetici e tecnologie in un piano unico personalizzato.",
+          text: "Sì, Rebel integra servizi classici, protocolli epigenetici e tecnologie in un piano unico personalizzato.",
         },
       },
     ],
@@ -85,7 +87,7 @@ export default function ListinoPage() {
 
       <PageHero
         eyebrow="Listino unico"
-        title="Listino Rebel: estetica classica e laser nella stessa pagina."
+        title="Listino Rebel: estetica classica ed epilazione laser nella stessa pagina."
         lead="Qui trovi i prezzi in modo semplice e trasparente. Se non sai quale trattamento scegliere, ti aiutiamo noi a orientarti."
         badge="Prezzi trasparenti a Carmagnola"
         tone="gold"
@@ -96,7 +98,7 @@ export default function ListinoPage() {
           <h2 className="page-title">Estetica classica e benessere</h2>
           <p className="lead">
             Servizi utili nella routine di tutti i giorni, perfetti anche come base
-            per percorsi piu avanzati.
+            per percorsi più avanzati.
           </p>
           <div className="grid" style={{ marginTop: "1rem" }}>
             {classicaListino.map((item) => (
@@ -130,14 +132,14 @@ export default function ListinoPage() {
 
       <section className="section section-light" id="epilazione-laser">
         <div className="container">
-          <h2 className="page-title">Epilazione laser Thory</h2>
+          <h2 className="page-title">Epilazione laser a Carmagnola</h2>
           <p
             className="lead"
             style={{ color: "rgba(39,31,56,0.8)", maxWidth: "72ch" }}
           >
-            Il laser viene impostato sul tuo caso: zona, tipo di pelle e obiettivo.
-            Usiamo il laser Thory con manipolo Ice Polar per lavorare con maggiore
-            comfort. La valutazione iniziale e inclusa.
+            L&apos;epilazione laser viene impostata sul tuo caso: zona, tipo di pelle
+            e obiettivo. Usiamo tecnologia Thory con manipolo Ice Polar per lavorare
+            con maggiore comfort. La valutazione iniziale è inclusa.
           </p>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             {laserListino.map((item) => (
@@ -180,13 +182,13 @@ export default function ListinoPage() {
           <article className="card glow-card">
             <h2 style={{ marginTop: 0 }}>Come scegliere tra estetica classica e laser</h2>
             <p className="lead" style={{ marginTop: 0 }}>
-              Se il tuo obiettivo e prenderti cura della pelle, rilassarti o
+              Se il tuo obiettivo è prenderti cura della pelle, rilassarti o
               migliorare tono e benessere, i servizi di estetica classica sono
               un&apos;ottima base.
             </p>
             <p className="lead">
               Se invece vuoi ridurre in modo progressivo la ricrescita del pelo,
-              allora il laser e la strada giusta. In ogni caso, la valutazione
+              allora il laser è la strada giusta. In ogni caso, la valutazione
               iniziale ti aiuta a non sbagliare direzione.
             </p>
           </article>
@@ -195,8 +197,8 @@ export default function ListinoPage() {
             <ul className="list-clean">
               <li>- &quot;Posso iniziare con un solo trattamento?&quot;</li>
               <li>- &quot;Meglio fare un ciclo o una seduta singola?&quot;</li>
-              <li>- &quot;In quanto tempo vedro i primi risultati?&quot;</li>
-              <li>- &quot;Posso combinare piu trattamenti nello stesso periodo?&quot;</li>
+              <li>- &quot;In quanto tempo vedrò i primi risultati?&quot;</li>
+              <li>- &quot;Posso combinare più trattamenti nello stesso periodo?&quot;</li>
             </ul>
             <p className="lead" style={{ marginTop: "0.9rem" }}>
               Sono domande normalissime. Scrivici su WhatsApp e ti diamo subito

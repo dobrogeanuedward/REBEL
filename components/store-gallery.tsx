@@ -17,41 +17,43 @@ export function StoreGallery({ images }: StoreGalleryProps) {
 
   return (
     <section className="store-gallery">
-      <div className="store-gallery-main">
-        <Image
-          src={images[active].src}
-          alt={images[active].alt}
-          width={1400}
-          height={980}
-          className="store-gallery-main-image"
-          priority={active < 2}
-        />
-        <div className="store-gallery-overlay">
-          <button type="button" onClick={prev} aria-label="Foto precedente">
-            ‹
-          </button>
-          <span>
-            {active + 1} / {images.length}
-          </span>
-          <button type="button" onClick={next} aria-label="Foto successiva">
-            ›
-          </button>
+      <div className="store-gallery-layout">
+        <div className="store-gallery-main">
+          <Image
+            src={images[active].src}
+            alt={images[active].alt}
+            width={1600}
+            height={900}
+            className="store-gallery-main-image"
+            priority={active < 2}
+          />
+          <div className="store-gallery-overlay">
+            <button type="button" onClick={prev} aria-label="Foto precedente">
+              ‹
+            </button>
+            <span>
+              {active + 1} / {images.length}
+            </span>
+            <button type="button" onClick={next} aria-label="Foto successiva">
+              ›
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div className="store-gallery-thumbs" role="list">
-        {images.map((img, index) => (
-          <button
-            key={img.src}
-            type="button"
-            role="listitem"
-            className={index === active ? "is-active" : ""}
-            onClick={() => setActive(index)}
-            aria-label={`Apri foto ${index + 1}`}
-          >
-            <Image src={img.src} alt={img.alt} width={260} height={180} />
-          </button>
-        ))}
+        <div className="store-gallery-thumbs" role="list">
+          {images.map((img, index) => (
+            <button
+              key={img.src}
+              type="button"
+              role="listitem"
+              className={index === active ? "is-active" : ""}
+              onClick={() => setActive(index)}
+              aria-label={`Apri foto ${index + 1}`}
+            >
+              <Image src={img.src} alt={img.alt} width={520} height={360} />
+            </button>
+          ))}
+        </div>
       </div>
     </section>
   );

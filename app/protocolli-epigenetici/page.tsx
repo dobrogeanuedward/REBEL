@@ -12,7 +12,7 @@ import {
 export const metadata: Metadata = createPageMetadata({
   title: "Protocolli Epigenetici a Carmagnola: Trattamenti Viso e Corpo Rebel",
   description:
-    "Scopri i protocolli epigenetici Rebel a Carmagnola: percorsi viso e corpo su tono, densita, luminosita, drenaggio e rigenerazione.",
+    "Scopri i protocolli epigenetici Rebel a Carmagnola: percorsi viso e corpo su tono, densità, luminosità, drenaggio e rigenerazione.",
   path: "/protocolli-epigenetici",
   keywords: [
     "protocolli epigenetici Carmagnola",
@@ -40,8 +40,8 @@ export default function ProtocolliPage() {
       <PageHero
         eyebrow="Percorsi ad alto valore"
         title="Protocolli epigenetici Rebel: precisione su viso e corpo."
-        lead="Ogni protocollo parte da una valutazione iniziale e viene adattato a cio che ti serve davvero: tono, luminosita, drenaggio o rigenerazione."
-        badge="Attivo + manualita + tecnologia"
+        lead="Ogni protocollo parte da una valutazione iniziale e viene adattato a ciò che ti serve davvero: tono, luminosità, drenaggio o rigenerazione."
+        badge="Attivo + manualità + tecnologia"
         tone="violet"
       />
 

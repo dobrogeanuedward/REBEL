@@ -51,7 +51,7 @@ export default function TecnologiaPage() {
             <h2 style={{ marginTop: 0 }}>Integrazione con il metodo</h2>
             <p className="lead" style={{ marginTop: 0 }}>
               In Rebel la tecnologia non sostituisce la mano esperta: la amplifica.
-              Analisi, attivi e strumentazione lavorano insieme per risultati piu
+              Analisi, attivi e strumentazione lavorano insieme per risultati più
               coerenti e misurabili nel tempo.
             </p>
             <div className="hero-visual" style={{ marginTop: "1rem", borderRadius: 16 }}>

@@ -39,7 +39,7 @@ export default function CompetenzeHubPage() {
       <PageHero
         eyebrow="Guide utili"
         title="Competenze Rebel: spiegate in modo semplice, concreto e utile."
-        lead="Queste pagine ti aiutano a capire davvero come funzionano trattamenti, tecnologie e percorsi. Cosi puoi scegliere con calma e con le idee chiare."
+        lead="Queste pagine ti aiutano a capire davvero come funzionano trattamenti, tecnologie e percorsi. Così puoi scegliere con calma e con le idee chiare."
         badge="Informazioni pratiche prima di prenotare"
         tone="ocean"
       />
@@ -47,10 +47,10 @@ export default function CompetenzeHubPage() {
       <section className="section">
         <div className="container split">
           <article className="card glow-card">
-            <h2 style={{ marginTop: 0 }}>Perche abbiamo creato queste guide</h2>
+            <h2 style={{ marginTop: 0 }}>Perché abbiamo creato queste guide</h2>
             <p className="lead" style={{ marginTop: 0 }}>
-              Quando si parla di pelle o corpo e normale avere dubbi. Preferiamo
-              spiegare bene le cose prima, cosi arrivi al primo appuntamento piu
+              Quando si parla di pelle o corpo è normale avere dubbi. Preferiamo
+              spiegare bene le cose prima, così arrivi al primo appuntamento più
               tranquilla e con aspettative realistiche.
             </p>
             <div className="hero-visual" style={{ marginTop: "1rem", borderRadius: 16 }}>
@@ -71,7 +71,7 @@ export default function CompetenzeHubPage() {
           <aside className="card">
             <h2 style={{ marginTop: 0 }}>Da dove iniziare</h2>
             <ul className="list-clean">
-              <li>- leggi il tema che senti piu vicino al tuo caso</li>
+              <li>- leggi il tema che senti più vicino al tuo caso</li>
               <li>- guarda i servizi consigliati in fondo pagina</li>
               <li>- se vuoi, scrivici e ti orientiamo noi</li>
               <li>- prenota solo quando hai chiaro il percorso</li>

@@ -257,7 +257,7 @@ export default function ContattiPage() {
             <h2 style={{ marginTop: 0 }}>Scrivici dal form</h2>
             <p className="lead" style={{ marginTop: "0.35rem" }}>
               Compila il form e ti ricontattiamo via email o telefono. Il sistema
-              e gia predisposto per inoltrare le richieste anche verso Gmail.
+              è già predisposto per inoltrare le richieste anche verso Gmail.
             </p>
             <ContactForm />
           </article>
@@ -271,7 +271,7 @@ export default function ContattiPage() {
             </ul>
             <p className="lead" style={{ marginTop: "0.9rem" }}>
               Nessun linguaggio complicato: preferiamo spiegarti tutto in modo
-              semplice, cosi sai esattamente cosa aspettarti.
+              semplice, così sai esattamente cosa aspettarti.
             </p>
           </aside>
         </div>

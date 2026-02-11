@@ -93,7 +93,7 @@ export default async function LocalAreaDetailPage({ params }: PageProps) {
       <section className="section">
         <div className="container grid grid-2">
           <article className="card glow-card">
-            <h2 style={{ marginTop: 0 }}>Perche molte clienti scelgono Rebel</h2>
+            <h2 style={{ marginTop: 0 }}>Perché molte clienti scelgono Rebel</h2>
             <ul className="list-clean">
               {area.whyRebel.map((point) => (
                 <li key={point}>- {point}</li>
@@ -103,8 +103,8 @@ export default async function LocalAreaDetailPage({ params }: PageProps) {
           <aside className="card">
             <h2 style={{ marginTop: 0 }}>Prossimo passo consigliato</h2>
             <p className="lead" style={{ marginTop: 0 }}>
-              Se stai confrontando piu centri estetici nella zona, la scelta migliore
-              e partire da una lettura iniziale seria e capire quale percorso ha
+              Se stai confrontando più centri estetici nella zona, la scelta migliore
+              è partire da una lettura iniziale seria e capire quale percorso ha
               davvero senso per te.
             </p>
             <div

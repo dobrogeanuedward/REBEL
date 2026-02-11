@@ -8,9 +8,9 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = createPageMetadata({
   title:
-    "Rebel Estetica Epigenetica a Carmagnola | Trattamenti Viso, Corpo e Laser Thory",
+    "Rebel Estetica Epigenetica a Carmagnola | Viso, Corpo ed Epilazione Laser",
   description:
-    "Rebel Estetica Epigenetica e il centro estetico di riferimento a Carmagnola: percorsi personalizzati viso/corpo, epilazione laser Thory e consulenza specialistica.",
+    "Rebel Estetica Epigenetica è il centro estetico di riferimento a Carmagnola: percorsi personalizzati viso/corpo, epilazione laser a Carmagnola e consulenza specialistica.",
   path: "/",
   keywords: [
     "Rebel",
@@ -19,7 +19,9 @@ export const metadata: Metadata = createPageMetadata({
     "centro estetico avanzato Carmagnola",
     "centro estetico Rebel Carmagnola",
     "epigenetica viso Carmagnola",
-    "epilazione laser Thory Carmagnola",
+    "epilazione laser Carmagnola",
+    "epilazione laser Rebel",
+    "laser Carmagnola",
   ],
 });
 
@@ -30,10 +32,10 @@ export default function HomePage() {
     mainEntity: [
       {
         "@type": "Question",
-        name: "Perche scegliere un centro estetico a Carmagnola con approccio epigenetico?",
+        name: "Perché scegliere un centro estetico a Carmagnola con approccio epigenetico?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "L'approccio epigenetico lavora sulla qualita biologica della pelle con protocolli personalizzati, non su trattamenti standard uguali per tutti.",
+          text: "L'approccio epigenetico lavora sulla qualità biologica della pelle con protocolli personalizzati, non su trattamenti standard uguali per tutti.",
         },
       },
       {
@@ -54,7 +56,7 @@ export default function HomePage() {
       },
       {
         "@type": "Question",
-        name: "Qual e il primo passo per iniziare?",
+        name: "Qual è il primo passo per iniziare?",
         acceptedAnswer: {
           "@type": "Answer",
           text: "La lettura iniziale: analisi personalizzata, obiettivi e piano di trattamento calibrato.",
@@ -71,17 +73,31 @@ export default function HomePage() {
         <div className="container home-hero-grid">
           <article className="home-hero-main">
             <div className="home-hero-brandline">
-              <p className="home-hero-kicker">Rebel Estetica Epigenetica | Carmagnola</p>
+              <div className="home-hero-brand">
+                <span className="logo-glow logo-glow--lg">
+                  <Image
+                    src="https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769422/rebel-logo-light_fvlqgi.webp"
+                    alt="Rebel Estetica Epigenetica"
+                    width={220}
+                    height={72}
+                    className="home-hero-logo"
+                    priority
+                  />
+                </span>
+                <div className="home-hero-brand-text">
+                  <span>Rebel Estetica Epigenetica</span>
+                  <small>Centro estetico a Carmagnola</small>
+                </div>
+              </div>
               <span className="home-hero-badge">Viso, corpo e laser</span>
             </div>
             <h1 className="home-hero-title">
-              <span className="home-hero-title-mark">REBEL</span>
-              estetica epigenetica, luce nuova alla tua pelle.
+              Luce per la Tua Pelle con l&apos;Estetica epigenetica e Avanzata
             </h1>
             <p className="home-hero-lead">
               Nel nostro studio trovi un percorso chiaro, elegante e personalizzato:
               partiamo dall&apos;ascolto, definiamo il metodo e lavoriamo con costanza
-              su viso, corpo e laser Thory.
+              su viso, corpo ed epilazione laser a Carmagnola.
             </p>
             <div className="home-hero-cta">
               <Link className="button button-primary" href="/contatti">
@@ -96,7 +112,7 @@ export default function HomePage() {
             </p>
             <div className="home-hero-chips">
               <span className="home-chip">Percorsi personalizzati 1:1</span>
-              <span className="home-chip">Laser Thory con Ice Polar</span>
+              <span className="home-chip">Epilazione laser a Carmagnola</span>
               <span className="home-chip">Carmagnola, Viale Barbaroux 20</span>
             </div>
           </article>
@@ -104,7 +120,7 @@ export default function HomePage() {
           <aside className="home-hero-side">
             <div className="home-hero-media">
               <Image
-                src="https://epikey.rebelepigenetica.it/assets/rebel/vetrina.webp"
+                src="https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769277/vetrina_1_lptuck.webp"
                 alt="Ingresso Rebel Carmagnola"
                 width={1280}
                 height={820}
@@ -140,7 +156,13 @@ export default function HomePage() {
           <p className="lead" style={{ color: "rgba(39,31,56,0.78)", marginTop: "0.8rem" }}>
             Reel, post e aggiornamenti dal centro estetico Rebel a Carmagnola.
           </p>
-          <InstagramFeed showReels={true} showPosts={true} maxReels={4} maxPosts={3} />
+          <InstagramFeed
+            showReels={true}
+            showPosts={true}
+            maxReels={4}
+            maxPosts={3}
+            hidePostsOnMobile={true}
+          />
         </div>
       </section>
 
@@ -154,7 +176,7 @@ export default function HomePage() {
             <Link className="card" href="/chi-siamo">
               <h3 style={{ marginTop: 0 }}>Chi siamo</h3>
               <p className="lead" style={{ marginTop: 0 }}>
-                Come lavoriamo e perche tante clienti tornano da noi.
+                Come lavoriamo e perché tante clienti tornano da noi.
               </p>
             </Link>
             <Link className="card" href="/metodo-rebel">
@@ -177,7 +199,7 @@ export default function HomePage() {
             </Link>
           </div>
           <p className="lead" style={{ marginTop: "0.95rem" }}>
-            Se vuoi approfondire tecnologie, guide e localita servite, trovi tutto
+            Se vuoi approfondire tecnologie, guide e località servite, trovi tutto
             nel footer del sito.
           </p>
         </div>
@@ -196,8 +218,8 @@ export default function HomePage() {
             style={{ color: "rgba(39,31,56,0.78)", maxWidth: "74ch" }}
           >
             Oltre a Carmagnola, arrivano clienti da Carignano, Racconigi,
-            Sommariva del Bosco, Torino Sud e Alba. Se vuoi capire se Rebel e la
-            scelta giusta per te, il modo migliore e scriverci: ti rispondiamo
+            Sommariva del Bosco, Torino Sud e Alba. Se vuoi capire se Rebel è la
+            scelta giusta per te, il modo migliore è scriverci: ti rispondiamo
             presto con indicazioni chiare su come iniziare.
           </p>
           <div style={{ display: "flex", gap: "0.7rem", flexWrap: "wrap", marginTop: "1rem" }}>

@@ -6,6 +6,7 @@ import { extractInstagramId, isReel } from "@/lib/instagram-config";
 type InstagramEmbedProps = {
   urlOrId: string;
   className?: string;
+  captioned?: boolean;
 };
 
 declare global {
@@ -30,10 +31,15 @@ function buildInstagramPermalink(urlOrId: string) {
     : `https://www.instagram.com/p/${id}/`;
 }
 
-export function InstagramEmbed({ urlOrId, className = "" }: InstagramEmbedProps) {
+export function InstagramEmbed({
+  urlOrId,
+  className = "",
+  captioned = true,
+}: InstagramEmbedProps) {
   const [timedOut, setTimedOut] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const permalink = useMemo(() => buildInstagramPermalink(urlOrId), [urlOrId]);
+  const reel = useMemo(() => isReel(urlOrId), [urlOrId]);
   const fallbackUrl = useMemo(() => {
     if (urlOrId.startsWith("http")) return urlOrId;
     return buildInstagramPermalink(urlOrId);
@@ -81,7 +87,7 @@ export function InstagramEmbed({ urlOrId, className = "" }: InstagramEmbedProps)
     <div className={`instagram-embed-wrapper ${className}`} ref={wrapperRef}>
       <blockquote
         className="instagram-media"
-        data-instgrm-captioned
+        {...(captioned && !reel ? { "data-instgrm-captioned": "" } : {})}
         data-instgrm-permalink={permalink}
         data-instgrm-version="14"
       />

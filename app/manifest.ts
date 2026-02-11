@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Rebel Estetica Epigenetica",
     short_name: "Rebel",
     description:
-      "Centro estetico avanzato a Carmagnola specializzato in estetica epigenetica e epilazione laser Thory.",
+      "Centro estetico avanzato a Carmagnola specializzato in estetica epigenetica ed epilazione laser a Carmagnola.",
     start_url: "/",
     display: "standalone",
     background_color: "#0f0a1b",

@@ -1,12 +1,12 @@
 export const protocolCards = [
   {
     name: "Rebel Lift Protocol",
-    desc: "Tensore e rigenerante, orientato a tono, ovale e luminosita.",
+    desc: "Tensore e rigenerante, orientato a tono, ovale e luminosità.",
     price: "EUR 148",
   },
   {
     name: "Rebirth 60+",
-    desc: "Stimola densita e nutrimento per pelli mature.",
+    desc: "Stimola densità e nutrimento per pelli mature.",
     price: "EUR 148",
   },
   {
@@ -35,12 +35,12 @@ export const methodSteps = [
   {
     step: "Step 1",
     title: "Lettura iniziale",
-    text: "Analisi viso/corpo, ascolto obiettivi e definizione delle priorita con metriche reali.",
+    text: "Analisi viso/corpo, ascolto obiettivi e definizione delle priorità con metriche reali.",
   },
   {
     step: "Step 2",
     title: "Attivi intelligenti",
-    text: "Selezione biomimetica personalizzata per tono, densita, drenaggio e fotoinvecchiamento.",
+    text: "Selezione biomimetica personalizzata per tono, densità, drenaggio e fotoinvecchiamento.",
   },
   {
     step: "Step 3",
@@ -139,20 +139,38 @@ export const thoryDevices = [
 ];
 
 export const storeGalleryImages = [
-  { src: "https://epikey.rebelepigenetica.it/assets/rebel/0.webp", alt: "Rebel Carmagnola - interno studio 1" },
-  { src: "https://epikey.rebelepigenetica.it/assets/rebel/0001.webp", alt: "Rebel Carmagnola - interno studio 2" },
-  { src: "https://epikey.rebelepigenetica.it/assets/rebel/001.webp", alt: "Rebel Carmagnola - interno studio 3" },
-  { src: "https://epikey.rebelepigenetica.it/assets/rebel/001-1.webp", alt: "Rebel Carmagnola - interno studio 4" },
-  { src: "https://epikey.rebelepigenetica.it/assets/rebel/001-2.webp", alt: "Rebel Carmagnola - interno studio 5" },
-  { src: "https://epikey.rebelepigenetica.it/assets/rebel/002.webp", alt: "Rebel Carmagnola - interno studio 6" },
-  { src: "https://epikey.rebelepigenetica.it/assets/rebel/2.webp", alt: "Rebel Carmagnola - interno studio 7" },
-  { src: "https://epikey.rebelepigenetica.it/assets/rebel/3.webp", alt: "Rebel Carmagnola - interno studio 8" },
-  { src: "https://epikey.rebelepigenetica.it/assets/rebel/3-1.webp", alt: "Rebel Carmagnola - interno studio 9" },
-  { src: "https://epikey.rebelepigenetica.it/assets/rebel/5.webp", alt: "Rebel Carmagnola - interno studio 10" },
-  { src: "https://epikey.rebelepigenetica.it/assets/rebel/5-1.webp", alt: "Rebel Carmagnola - interno studio 11" },
-  { src: "https://epikey.rebelepigenetica.it/assets/rebel/6-1-1.webp", alt: "Rebel Carmagnola - interno studio 12" },
-  { src: "https://epikey.rebelepigenetica.it/assets/rebel/7.webp", alt: "Rebel Carmagnola - interno studio 13" },
-  { src: "https://epikey.rebelepigenetica.it/assets/rebel/20.webp", alt: "Rebel Carmagnola - interno studio 14" },
+  {
+    src: "https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769377/0_c3xnae.webp",
+    alt: "Rebel Carmagnola - Accoglienza",
+  },
+  {
+    src: "https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769376/3-1_azvdla.webp",
+    alt: "Rebel Carmagnola - Postazione nails",
+  },
+  {
+    src: "https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769379/6-1-1_qutptv.webp",
+    alt: "Rebel Carmagnola - Cabina 1",
+  },
+  {
+    src: "https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769379/2_ymmjmu.webp",
+    alt: "Rebel Carmagnola - Cabina 2",
+  },
+  {
+    src: "https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769377/7_neoi9k.webp",
+    alt: "Rebel Carmagnola - Cabina 3",
+  },
+  {
+    src: "https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769378/5_jjooec.webp",
+    alt: "Rebel Carmagnola - Cabina 4",
+  },
+  {
+    src: "https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769379/3_ic7ggj.webp",
+    alt: "Rebel Carmagnola - Postazione nails e corridoio",
+  },
+  {
+    src: "https://res.cloudinary.com/dx8tfq82f/image/upload/v1770770035/20_qq681e.webp",
+    alt: "Rebel Carmagnola - Esterno, entrata e vetrina",
+  },
 ];
 
 

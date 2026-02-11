@@ -4,36 +4,32 @@ import { siteConfig } from "@/lib/site-config";
 
 export function SiteFooter() {
   return (
-    <footer
-      style={{
-        marginTop: 70,
-        borderTop: "1px solid rgba(255,255,255,0.1)",
-        background: "rgba(14,10,24,0.45)",
-      }}
-    >
-      <div className="container" style={{ padding: "2.4rem 0 2.8rem" }}>
-        <div className="grid grid-3">
-          <div>
-            <Image
-              src="https://epikey.rebelepigenetica.it/assets/rebel/rebel-logo-light.png?v=now"
-              alt="Rebel Estetica Epigenetica"
-              width={108}
-              height={38}
-              style={{ marginBottom: "0.65rem", opacity: 0.95 }}
-            />
-            <p className="eyebrow">Rebel Carmagnola</p>
-            <h2 style={{ margin: "0.55rem 0 0.45rem", fontSize: "1.5rem" }}>
-              La pelle che si ricorda di essere viva.
-            </h2>
-            <p className="lead" style={{ marginTop: 0 }}>
+    <footer className="site-footer">
+      <div className="container footer-shell">
+        <div className="footer-grid">
+          <div className="footer-panel footer-brand">
+            <div className="footer-brand-head">
+              <span className="logo-glow logo-glow--xl">
+                <Image
+                  src="https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769422/rebel-logo-light_fvlqgi.webp"
+                  alt="Rebel Estetica Epigenetica"
+                  width={180}
+                  height={62}
+                  className="footer-logo"
+                />
+              </span>
+              <span className="footer-brand-location">Carmagnola</span>
+            </div>
+            <h2 className="footer-tagline">La pelle che si ricorda di essere viva.</h2>
+            <p className="footer-copy">
               Centro estetico a Carmagnola specializzato in estetica epigenetica,
-              trattamenti viso/corpo evoluti e laser Thory.
+              trattamenti viso/corpo evoluti ed epilazione laser a Carmagnola.
             </p>
           </div>
 
-          <div>
-            <p className="eyebrow">Menu</p>
-            <ul className="list-clean" style={{ marginTop: "0.85rem" }}>
+          <div className="footer-panel">
+            <p className="footer-title">Menu</p>
+            <ul className="list-clean footer-links">
               <li>
                 <Link href="/">Home</Link>
               </li>
@@ -67,9 +63,9 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          <address style={{ fontStyle: "normal" }}>
-            <p className="eyebrow">Contatti rapidi</p>
-            <ul className="list-clean" style={{ marginTop: "0.85rem" }}>
+          <address className="footer-panel footer-contact">
+            <p className="footer-title">Contatti rapidi</p>
+            <ul className="list-clean footer-links">
               <li>
                 <a href={`tel:${siteConfig.phoneRaw}`}>{siteConfig.phoneDisplay}</a>
               </li>
@@ -90,16 +86,25 @@ export function SiteFooter() {
           </address>
         </div>
 
-        <p
-          style={{
-            marginTop: "1.4rem",
-            fontFamily: "var(--font-inter), sans-serif",
-            fontSize: "0.85rem",
-            color: "rgba(248,247,244,0.65)",
-          }}
-        >
-          © {new Date().getFullYear()} {siteConfig.name} · Carmagnola
-        </p>
+        <div className="footer-bottom">
+          <div className="footer-bottom-left">
+            <span className="logo-glow logo-glow--xs">
+              <Image
+                src="https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769422/rebel-logo-light_fvlqgi.webp"
+                alt=""
+                width={70}
+                height={24}
+                className="footer-logo-mini"
+              />
+            </span>
+            <span>
+              © {new Date().getFullYear()} {siteConfig.name} · Carmagnola
+            </span>
+          </div>
+          <span className="footer-bottom-note">
+            Estetica epigenetica, viso, corpo ed epilazione laser a Carmagnola.
+          </span>
+        </div>
       </div>
     </footer>
   );

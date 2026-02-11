@@ -30,8 +30,8 @@ export default function ChiSiamoPage() {
     <main className="page-shell page-chi-siamo">
       <JsonLd data={breadcrumb} />
       <PageHero
-        eyebrow="Identita Rebel"
-        title="Un laboratorio estetico a Carmagnola costruito su scienza, misura e ascolto."
+        eyebrow="Identità Rebel"
+        title="Un centro estetico a Carmagnola costruito su scienza, misura e ascolto."
         lead="Rebel nasce per superare l'estetica standardizzata: ogni percorso parte da lettura iniziale, obiettivi reali e metodo replicabile. Lavoriamo per generare fiducia, non promesse generiche."
         badge="Centro estetico locale ad alta specializzazione"
         tone="rose"
@@ -42,9 +42,9 @@ export default function ChiSiamoPage() {
           <article className="card glow-card">
             <h2 style={{ marginTop: 0 }}>Visione</h2>
             <p className="lead" style={{ marginTop: 0 }}>
-              Per noi la bellezza non e una correzione esterna. E un equilibrio
-              biologico che puo essere riattivato con protocolli pertinenti,
-              continuita e precisione esecutiva.
+              Per noi la bellezza non è una correzione esterna. È un equilibrio
+              biologico che può essere riattivato con protocolli pertinenti,
+              continuità e precisione esecutiva.
             </p>
             <div className="hero-visual" style={{ marginTop: "1rem", borderRadius: 14 }}>
               <Image
@@ -61,14 +61,17 @@ export default function ChiSiamoPage() {
               />
             </div>
           </article>
-          <article className="card">
-            <h2 style={{ marginTop: 0 }}>Missione locale</h2>
-            <p className="lead" style={{ marginTop: 0 }}>
-              Diventare il punto di riferimento per l&apos;estetica avanzata a
-              Carmagnola, offrendo percorsi trasparenti per residenti e clienti
+          <article className="card mission-card">
+            <p className="eyebrow">Chi siamo</p>
+            <h2 style={{ marginTop: "0.55rem" }}>
+              Siamo pionieri dell&apos;estetica epigenetica in Italia.
+            </h2>
+            <p className="lead" style={{ marginTop: "0.6rem" }}>
+              Rebel è un punto di riferimento per l&apos;estetica avanzata a Carmagnola,
+              offrendo percorsi avanzati e trasparenti per residenti e clienti
               dell&apos;area Torino Sud.
             </p>
-            <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
+            <div className="mission-actions">
               <Link href="/servizi" className="button button-primary">
                 Scopri i servizi
               </Link>
@@ -80,7 +83,7 @@ export default function ChiSiamoPage() {
         </div>
       </section>
 
-      <section className="section section-light">
+      <section className="section section-light instagram-reels-4">
         <div className="container">
           <p className="eyebrow" style={{ color: "rgba(39,31,56,0.68)" }}>
             Instagram
@@ -98,14 +101,13 @@ export default function ChiSiamoPage() {
       <section className="section section-light">
         <div className="container">
           <p className="eyebrow" style={{ color: "rgba(39,31,56,0.66)" }}>
-            Lo studio Rebel
+            Rebel- Estetica Epigenetica
           </p>
           <h2 className="page-title" style={{ marginTop: "0.58rem", color: "#271f38" }}>
-            Le foto reali del negozio, proprio come lo trovi quando arrivi.
+            Le foto del nostro centro estetico a Carmagnola.
           </h2>
           <p className="lead" style={{ color: "rgba(39,31,56,0.78)" }}>
-            Abbiamo voluto mostrare l&apos;ambiente in modo trasparente: luce, spazi,
-            dettagli e atmosfera dello studio a Carmagnola.
+            Per mostrarvi la luce, gli spazi, i dettagli e l&apos;atmosfera di Rebel.
           </p>
           <StoreGallery images={storeGalleryImages} />
         </div>
@@ -138,7 +140,7 @@ export default function ChiSiamoPage() {
                   color: "var(--muted)",
                 }}
               >
-                Attivi, manualita e tecnologia integrati con logica e criterio.
+                Attivi, manualità e tecnologia integrati con logica e criterio.
               </p>
             </article>
             <article className="card glow-card">

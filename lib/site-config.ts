@@ -4,7 +4,7 @@ export const siteConfig = {
   tagline: "La pelle che si ricorda di essere viva.",
   lastUpdated: "2026-02-10",
   description:
-    "Centro estetico avanzato a Carmagnola specializzato in estetica epigenetica, protocolli viso/corpo e epilazione laser Thory.",
+    "Centro estetico avanzato a Carmagnola specializzato in estetica epigenetica, protocolli viso/corpo ed epilazione laser a Carmagnola con percorsi Rebel.",
   siteUrl: "https://www.rebelepigenetica.it",
   assets: {
     logoLight: "https://epikey.rebelepigenetica.it/assets/rebel/rebel-logo-light.png?v=now",
@@ -55,6 +55,7 @@ export const localSeoKeywords = [
   "estetista Carmagnola",
   "estetica epigenetica Carmagnola",
   "epilazione laser Carmagnola",
+  "laser Carmagnola",
   "trattamenti viso Carmagnola",
   "trattamenti corpo Carmagnola",
   "laser diodo Carmagnola",
@@ -72,6 +73,7 @@ export const brandSeoKeywords = [
   "Rebel telefono",
   "centro estetico Rebel",
   "Rebel epilazione laser",
+  "epilazione laser Rebel",
   "Rebel trattamenti viso corpo",
 ];
 

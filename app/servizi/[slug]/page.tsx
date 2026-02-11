@@ -175,7 +175,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               <li>3. Indicazioni post-seduta chiare e realistiche.</li>
             </ol>
             <p className="lead" style={{ marginTop: "0.9rem" }}>
-              Il nostro obiettivo non e solo il risultato immediato, ma la continuita
+              Il nostro obiettivo non è solo il risultato immediato, ma la continuità
               nel tempo. Per questo ogni seduta si collega sempre alla successiva.
             </p>
           </article>

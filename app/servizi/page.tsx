@@ -7,14 +7,17 @@ import { servicePages } from "@/lib/seo-content";
 import { buildBreadcrumbSchema, buildItemListSchema, createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Servizi Estetici a Carmagnola | Viso, Corpo e Laser",
+  title: "Servizi Estetici a Carmagnola | Viso, Corpo ed Epilazione Laser",
   description:
-    "Tutti i servizi Rebel a Carmagnola: trattamenti viso e corpo, manicure, laminazione e epilazione laser Thory con percorsi personalizzati.",
+    "Tutti i servizi Rebel a Carmagnola: trattamenti viso e corpo, manicure, laminazione ed epilazione laser a Carmagnola con percorsi personalizzati.",
   path: "/servizi",
   keywords: [
     "servizi centro estetico Carmagnola",
     "trattamenti estetici Carmagnola",
     "lista servizi estetista Carmagnola",
+    "epilazione laser Carmagnola",
+    "laser Carmagnola",
+    "epilazione laser Rebel",
   ],
 });
 
@@ -54,8 +57,8 @@ export default function ServiziHubPage() {
           <div className="card glow-card">
             <h2 style={{ marginTop: 0 }}>Esperienza in studio</h2>
             <p className="lead" style={{ marginTop: 0 }}>
-              In Rebel il percorso inizia con ascolto e lettura iniziale. Da li
-              si sceglie il servizio piu adatto, con una proposta chiara e
+              In Rebel il percorso inizia con ascolto e lettura iniziale. Da lì
+              si sceglie il servizio più adatto, con una proposta chiara e
               sostenibile nel tempo.
             </p>
             <div className="hero-visual" style={{ marginTop: "1rem", borderRadius: 16 }}>
@@ -112,7 +115,11 @@ export default function ServiziHubPage() {
 
       <section className="section">
         <div className="container">
-          <h2 className="page-title">Laser Thory</h2>
+          <h2 className="page-title">Epilazione laser a Carmagnola</h2>
+          <p className="lead" style={{ marginTop: "0.5rem", maxWidth: "70ch" }}>
+            Percorsi di epilazione laser Rebel con tecnologia Thory, programmati su
+            zona, fototipo e obiettivo.
+          </p>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             {laser.map((item) => (
               <Link key={item.slug} href={`/servizi/${item.slug}`} className="card">

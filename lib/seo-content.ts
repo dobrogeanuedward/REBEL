@@ -31,12 +31,12 @@ export const servicePages: ServicePage[] = [
     shortDescription:
       "Pulizia viso completa per pelle impura, spenta o appesantita.",
     longDescription:
-      "Iniziamo guardando bene la tua pelle, poi facciamo detersione profonda, esfoliazione delicata e fase riequilibrante. Il risultato e una pelle piu pulita, luminosa e confortevole.",
+      "Iniziamo guardando bene la tua pelle, poi facciamo detersione profonda, esfoliazione delicata e fase riequilibrante. Il risultato è una pelle più pulita, luminosa e confortevole.",
     priceHint: "da EUR 49",
     category: "estetica-classica",
     benefits: [
-      "Riduce impurita e ispessimenti",
-      "Migliora grana e luminosita della pelle",
+      "Riduce impurità e ispessimenti",
+      "Migliora grana e luminosità della pelle",
       "Prepara il viso a percorsi avanzati",
     ],
     faqs: [
@@ -46,7 +46,7 @@ export const servicePages: ServicePage[] = [
       },
       {
         q: "E indicata anche per pelli sensibili?",
-        a: "Si, con manovre e prodotti adattati al tuo profilo cutaneo.",
+        a: "Sì, con manovre e prodotti adattati al tuo profilo cutaneo.",
       },
     ],
     keywords: [
@@ -65,18 +65,18 @@ export const servicePages: ServicePage[] = [
     shortDescription:
       "Esfoliazione corpo per pelle liscia, morbida e uniforme.",
     longDescription:
-      "Lo scrub corpo aiuta a togliere le cellule superficiali e lascia la pelle subito piu liscia. E ottimo anche come preparazione ad altri trattamenti corpo.",
+      "Lo scrub corpo aiuta a togliere le cellule superficiali e lascia la pelle subito più liscia. È ottimo anche come preparazione ad altri trattamenti corpo.",
     priceHint: "da EUR 49",
     category: "estetica-classica",
     benefits: [
-      "Pelle subito piu liscia e uniforme",
+      "Pelle subito più liscia e uniforme",
       "Stimola il rinnovamento superficiale",
       "Ottima base per protocolli corpo",
     ],
     faqs: [
       {
-        q: "Lo scrub e adatto tutto l'anno?",
-        a: "Si, basta adattare frequenza e intensita al periodo e alla sensibilita della tua pelle.",
+        q: "Lo scrub è adatto tutto l'anno?",
+        a: "Sì, basta adattare frequenza e intensità al periodo e alla sensibilità della tua pelle.",
       },
       {
         q: "Ogni quanto e consigliato?",
@@ -96,7 +96,7 @@ export const servicePages: ServicePage[] = [
     shortDescription:
       "Massaggio drenante per alleggerire e sgonfiare.",
     longDescription:
-      "Il linfodrenaggio aiuta a ridurre la sensazione di gonfiore e pesantezza, soprattutto su gambe e addome. E un trattamento delicato e molto graduale.",
+      "Il linfodrenaggio aiuta a ridurre la sensazione di gonfiore e pesantezza, soprattutto su gambe e addome. È un trattamento delicato e molto graduale.",
     priceHint: "da EUR 69",
     category: "estetica-classica",
     benefits: [
@@ -106,12 +106,12 @@ export const servicePages: ServicePage[] = [
     ],
     faqs: [
       {
-        q: "Il linfodrenante e doloroso?",
-        a: "No, e una tecnica delicata e progressiva.",
+        q: "Il linfodrenante è doloroso?",
+        a: "No, è una tecnica delicata e progressiva.",
       },
       {
         q: "Quante sedute servono per vedere beneficio?",
-        a: "La sensazione di leggerezza spesso si sente gia dalle prime sedute, poi si stabilizza con il ciclo.",
+        a: "La sensazione di leggerezza spesso si sente già dalle prime sedute, poi si stabilizza con il ciclo.",
       },
     ],
     keywords: [
@@ -134,7 +134,7 @@ export const servicePages: ServicePage[] = [
     priceHint: "da EUR 79",
     category: "estetica-classica",
     benefits: [
-      "Sguardo visivamente piu aperto",
+      "Sguardo visivamente più aperto",
       "Sopracciglia disciplinate e piene",
       "Risultato elegante e naturale",
     ],
@@ -195,7 +195,7 @@ export const servicePages: ServicePage[] = [
     shortDescription:
       "Laser viso per ridurre progressivamente la ricrescita.",
     longDescription:
-      "Con Thory impostiamo il laser in base a fototipo, zona e obiettivo. Il manipolo Ice Polar aiuta a rendere la seduta piu confortevole. Il percorso e graduale, con controlli regolari e attenzione al comfort.",
+      "Con Thory impostiamo il laser in base a fototipo, zona e obiettivo. Il manipolo Ice Polar aiuta a rendere la seduta più confortevole. Il percorso è graduale, con controlli regolari e attenzione al comfort.",
     priceHint: "da EUR 25.90 per zona",
     category: "laser",
     benefits: [
@@ -205,8 +205,8 @@ export const servicePages: ServicePage[] = [
     ],
     faqs: [
       {
-        q: "Il laser viso e adatto alle pelli sensibili?",
-        a: "Si, dopo valutazione iniziale e settaggio corretto.",
+        q: "Il laser viso è adatto alle pelli sensibili?",
+        a: "Sì, dopo valutazione iniziale e settaggio corretto.",
       },
       {
         q: "Quante sedute servono?",
@@ -226,22 +226,22 @@ export const servicePages: ServicePage[] = [
     shortDescription:
       "Laser corpo su aree singole o multiple, con percorso su misura.",
     longDescription:
-      "Il laser corpo viene pianificato sulle zone che vuoi trattare, con Thory e manipolo Ice Polar per migliorare la tollerabilita durante la seduta.",
+      "Il laser corpo viene pianificato sulle zone che vuoi trattare, con Thory e manipolo Ice Polar per migliorare la tollerabilità durante la seduta.",
     priceHint: "da EUR 25.90 a 103.60",
     category: "laser",
     benefits: [
       "Riduzione progressiva della ricrescita",
       "Migliore comfort nel tempo",
-      "Piano strutturato su zone e stagionalita",
+      "Piano strutturato su zone e stagionalità",
     ],
     faqs: [
       {
-        q: "Il laser corpo e doloroso?",
-        a: "Dipende dalla sensibilita personale, ma impostiamo sempre il trattamento per renderlo tollerabile.",
+        q: "Il laser corpo è doloroso?",
+        a: "Dipende dalla sensibilità personale, ma impostiamo sempre il trattamento per renderlo tollerabile.",
       },
       {
-        q: "Posso trattare piu zone nello stesso appuntamento?",
-        a: "Si, con pianificazione adeguata.",
+        q: "Posso trattare più zone nello stesso appuntamento?",
+        a: "Sì, con pianificazione adeguata.",
       },
     ],
     keywords: [
@@ -260,23 +260,23 @@ export const competencePages: CompetencePage[] = [
     shortDescription:
       "Una guida semplice per scegliere bene, con criteri pratici.",
     longDescription:
-      "Quando confronti piu centri estetici e facile perdersi. Qui trovi criteri pratici per scegliere con lucidita: metodo, chiarezza prezzi, competenze reali e continuita del percorso.",
+      "Quando confronti più centri estetici è facile perdersi. Qui trovi criteri pratici per scegliere con lucidità: metodo, chiarezza prezzi, competenze reali e continuità del percorso.",
     localAngle:
-      "Perfetta se stai confrontando piu opzioni a Carmagnola prima di prenotare.",
+      "Perfetta se stai confrontando più opzioni a Carmagnola prima di prenotare.",
     intent: "informational",
     benefits: [
       "Riduce confusione nella fase di confronto",
       "Aiuta a scegliere su criteri oggettivi",
-      "Migliora la qualita della decisione prima del primo appuntamento",
+      "Migliora la qualità della decisione prima del primo appuntamento",
     ],
     faqs: [
       {
         q: "Quali segnali indicano un centro estetico affidabile?",
-        a: "Metodo chiaro, comunicazione trasparente, obiettivi realistici e continuita nel tempo.",
+        a: "Metodo chiaro, comunicazione trasparente, obiettivi realistici e continuità nel tempo.",
       },
       {
-        q: "Il prezzo piu basso e sempre la scelta migliore?",
-        a: "Non sempre: conta il valore complessivo del percorso e la qualita dell'esecuzione.",
+        q: "Il prezzo più basso è sempre la scelta migliore?",
+        a: "Non sempre: conta il valore complessivo del percorso e la qualità dell'esecuzione.",
       },
     ],
     keywords: [
@@ -306,8 +306,8 @@ export const competencePages: CompetencePage[] = [
     ],
     faqs: [
       {
-        q: "Qual e la differenza con un trattamento estetico standard?",
-        a: "La differenza e nella personalizzazione e nella logica di percorso.",
+        q: "Qual è la differenza con un trattamento estetico standard?",
+        a: "La differenza è nella personalizzazione e nella logica di percorso.",
       },
       {
         q: "Serve sempre tecnologia?",
@@ -343,15 +343,17 @@ export const competencePages: CompetencePage[] = [
     faqs: [
       {
         q: "Quante sedute sono necessarie?",
-        a: "Mediamente 8-12, con variabilita in base alla persona e alla zona.",
+        a: "Mediamente 8-12, con variabilità in base alla persona e alla zona.",
       },
       {
         q: "Posso iniziare il laser in ogni periodo dell'anno?",
-        a: "Si, pianificando correttamente esposizione solare e follow-up.",
+        a: "Sì, pianificando correttamente esposizione solare e follow-up.",
       },
     ],
     keywords: [
       "epilazione laser Carmagnola",
+      "epilazione laser Rebel",
+      "laser Carmagnola",
       "centro laser Carmagnola",
       "laser estetico Carmagnola",
     ],
@@ -366,14 +368,14 @@ export const competencePages: CompetencePage[] = [
     shortDescription:
       "Spiegazione pratica del laser diodo, chiara e concreta.",
     longDescription:
-      "Spieghiamo cosa cambia tra laser diodo e altre tecnologie, cosi scegli in modo piu consapevole e adatto al tuo caso.",
+      "Spieghiamo cosa cambia tra laser diodo e altre tecnologie, così scegli in modo più consapevole e adatto al tuo caso.",
     localAngle:
       "Ideale se stai confrontando diverse tecnologie prima di iniziare.",
     intent: "informational",
     benefits: [
       "Spiega differenze tra tecnologie",
       "Aiuta a scegliere in modo consapevole",
-      "Migliora qualita dei lead in ingresso",
+      "Migliora qualità dei lead in ingresso",
     ],
     faqs: [
       {
@@ -381,7 +383,7 @@ export const competencePages: CompetencePage[] = [
         a: "No, hanno caratteristiche tecniche e indicazioni differenti.",
       },
       {
-        q: "Il laser diodo e sempre adatto?",
+        q: "Il laser diodo è sempre adatto?",
         a: "Va valutato per fototipo, colore/struttura del pelo e obiettivo.",
       },
     ],
@@ -399,14 +401,14 @@ export const competencePages: CompetencePage[] = [
     slug: "trattamenti-viso-carmagnola",
     title: "Trattamenti viso a Carmagnola",
     shortDescription:
-      "Trattamenti viso su tono, luminosita e qualita della pelle.",
+      "Trattamenti viso su tono, luminosità e qualità della pelle.",
     longDescription:
-      "In questa guida trovi i trattamenti viso disponibili e capisci quale puo essere piu adatto a te in base alla situazione della tua pelle.",
+      "In questa guida trovi i trattamenti viso disponibili e capisci quale può essere più adatto a te in base alla situazione della tua pelle.",
     localAngle:
       "Perfetta se stai cercando un trattamento viso mirato a Carmagnola.",
     intent: "commercial",
     benefits: [
-      "Selezione trattamento piu rapida",
+      "Selezione trattamento più rapida",
       "Progressione chiara del percorso",
       "Migliore coerenza tra obiettivo e protocollo",
     ],
@@ -436,7 +438,7 @@ export const competencePages: CompetencePage[] = [
     shortDescription:
       "Percorsi corpo su drenaggio, tono e benessere quotidiano.",
     longDescription:
-      "I percorsi corpo Rebel uniscono manualita e tecnologie selezionate per aiutarti a sentirti piu leggera, tonica e a tuo agio.",
+      "I percorsi corpo Rebel uniscono manualità e tecnologie selezionate per aiutarti a sentirti più leggera, tonica e a tuo agio.",
     localAngle:
       "Per chi cerca un percorso corpo concreto a Carmagnola e dintorni.",
     intent: "commercial",
@@ -452,7 +454,7 @@ export const competencePages: CompetencePage[] = [
       },
       {
         q: "Meglio trattamento singolo o pacchetto?",
-        a: "Dipende dall'obiettivo, ma il percorso strutturato e spesso piu efficace.",
+        a: "Dipende dall'obiettivo, ma il percorso strutturato è spesso più efficace.",
       },
     ],
     keywords: [
@@ -471,9 +473,9 @@ export const competencePages: CompetencePage[] = [
     shortDescription:
       "Drenaggio su misura quando senti gambe pesanti o gonfiore.",
     longDescription:
-      "Qui spieghiamo come impostare un percorso drenante realistico, considerando stagione, abitudini e continuita.",
+      "Qui spieghiamo come impostare un percorso drenante realistico, considerando stagione, abitudini e continuità.",
     localAngle:
-      "Utile soprattutto nei periodi in cui gonfiore e pesantezza si fanno sentire di piu.",
+      "Utile soprattutto nei periodi in cui gonfiore e pesantezza si fanno sentire di più.",
     intent: "commercial",
     benefits: [
       "Aiuta a ridurre la sensazione di gonfiore",
@@ -482,8 +484,8 @@ export const competencePages: CompetencePage[] = [
     ],
     faqs: [
       {
-        q: "Il drenaggio e utile solo nei mesi caldi?",
-        a: "No, e utile tutto l'anno con intensita diversa secondo periodo.",
+        q: "Il drenaggio è utile solo nei mesi caldi?",
+        a: "No, è utile tutto l'anno con intensità diversa secondo periodo.",
       },
       {
         q: "Il drenaggio sostituisce sport e alimentazione?",
@@ -505,12 +507,12 @@ export const competencePages: CompetencePage[] = [
     longDescription:
       "Una guida semplice per costruire una routine sostenibile: pochi passaggi fatti bene, con costanza.",
     localAngle:
-      "Pensata per chi vuole risultati piu stabili anche tra una seduta e l'altra.",
+      "Pensata per chi vuole risultati più stabili anche tra una seduta e l'altra.",
     intent: "informational",
     benefits: [
       "Aumenta durata dei risultati",
       "Riduce errori frequenti nella skincare",
-      "Rende il percorso piu sostenibile nel tempo",
+      "Rende il percorso più sostenibile nel tempo",
     ],
     faqs: [
       {
