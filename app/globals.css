@@ -1950,8 +1950,15 @@ body.mobile-menu-open .wa-live {
   line-height: 1.65;
 }
 
-.footer-brand-instagram {
+.footer-brand-socials {
   margin-top: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-brand-social {
   display: inline-flex;
   align-items: center;
   gap: 0.46rem;
@@ -1969,7 +1976,7 @@ body.mobile-menu-open .wa-live {
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
-.footer-brand-instagram:hover {
+.footer-brand-social:hover {
   transform: translateY(-1px);
   border-color: rgba(244, 114, 182, 0.45);
   background: rgba(255, 255, 255, 0.09);
@@ -1978,12 +1985,27 @@ body.mobile-menu-open .wa-live {
     0 0 24px rgba(228, 72, 150, 0.22);
 }
 
-.footer-brand-instagram svg {
+.footer-brand-social svg {
   width: 14px;
   height: 14px;
   fill: none;
   stroke: currentColor;
   stroke-width: 1.9;
+}
+
+.footer-brand-treatwell {
+  border-color: rgba(110, 231, 183, 0.34);
+  background: rgba(110, 231, 183, 0.1);
+  box-shadow:
+    0 10px 24px rgba(8, 35, 26, 0.24),
+    0 0 20px rgba(110, 231, 183, 0.18);
+}
+
+.footer-brand-treatwell:hover {
+  border-color: rgba(110, 231, 183, 0.55);
+  box-shadow:
+    0 12px 28px rgba(8, 35, 26, 0.32),
+    0 0 24px rgba(110, 231, 183, 0.26);
 }
 
 .footer-title {

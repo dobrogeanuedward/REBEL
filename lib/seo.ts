@@ -20,6 +20,8 @@ const dayMap: Record<string, string> = {
   Su: "Sunday",
 };
 
+const primaryActivityProfiles = [siteConfig.social.instagram, siteConfig.social.treatwell];
+
 function toOpeningHoursSpecification() {
   return siteConfig.openingHours
     .map((entry) => {
@@ -117,10 +119,9 @@ export function buildOrganizationSchema() {
     email: siteConfig.email,
     telephone: siteConfig.phoneDisplay,
     sameAs: [
-      siteConfig.social.instagram,
+      ...primaryActivityProfiles,
       siteConfig.social.tiktok,
       siteConfig.social.googleCard,
-      siteConfig.social.treatwell,
     ],
     contactPoint: [
       {
@@ -145,6 +146,7 @@ export function buildWebsiteSchema() {
     name: siteConfig.name,
     alternateName: [siteConfig.shortName, "Rebel Carmagnola"],
     inLanguage: siteConfig.locale,
+    sameAs: primaryActivityProfiles,
     publisher: {
       "@id": `${siteConfig.siteUrl}/#organization`,
     },
@@ -259,11 +261,10 @@ export function buildLocalBusinessSchema() {
       "Rebel Carmagnola",
     ],
     sameAs: [
-      siteConfig.social.instagram,
+      ...primaryActivityProfiles,
       siteConfig.social.tiktok,
       siteConfig.social.maps,
       siteConfig.social.googleCard,
-      siteConfig.social.treatwell,
     ],
   };
 }

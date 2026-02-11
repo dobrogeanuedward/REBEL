@@ -25,20 +25,37 @@ export function SiteFooter() {
               Centro estetico a Carmagnola specializzato in estetica epigenetica,
               trattamenti viso/corpo evoluti ed epilazione laser a Carmagnola.
             </p>
-            <a
-              href={siteConfig.social.instagram}
-              target="_blank"
-              rel="noreferrer"
-              className="footer-brand-instagram"
-              aria-label="Apri il profilo Instagram di Rebel"
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
-                <circle cx="12" cy="12" r="4.2" />
-                <circle cx="17.35" cy="6.65" r="1.2" />
-              </svg>
-              <span>Seguici su Instagram</span>
-            </a>
+            <div className="footer-brand-socials">
+              <a
+                href={siteConfig.social.instagram}
+                target="_blank"
+                rel="noreferrer"
+                className="footer-brand-social footer-brand-instagram"
+                aria-label="Apri il profilo Instagram di Rebel"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+                  <circle cx="12" cy="12" r="4.2" />
+                  <circle cx="17.35" cy="6.65" r="1.2" />
+                </svg>
+                <span>Instagram</span>
+              </a>
+              <a
+                href={siteConfig.social.treatwell}
+                target="_blank"
+                rel="noreferrer"
+                className="footer-brand-social footer-brand-treatwell"
+                aria-label="Apri la pagina Treatwell di Rebel"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 6h16" />
+                  <path d="M8 6v12" />
+                  <path d="M8 12h10" />
+                  <path d="M18 12v6" />
+                </svg>
+                <span>Treatwell</span>
+              </a>
+            </div>
           </div>
 
           <div className="footer-panel footer-panel-menu">
