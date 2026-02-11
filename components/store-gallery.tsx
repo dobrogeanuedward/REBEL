@@ -16,7 +16,11 @@ export function StoreGallery({ images }: StoreGalleryProps) {
   const next = () => setActive((v) => (v + 1) % images.length);
 
   return (
-    <section className="store-gallery">
+    <section
+      className="store-gallery"
+      onContextMenu={(event) => event.preventDefault()}
+      onDragStart={(event) => event.preventDefault()}
+    >
       <div className="store-gallery-layout">
         <div className="store-gallery-main">
           <Image
@@ -26,7 +30,9 @@ export function StoreGallery({ images }: StoreGalleryProps) {
             height={900}
             className="store-gallery-main-image"
             priority={active < 2}
+            draggable={false}
           />
+          <span className="store-gallery-watermark" aria-hidden="true" />
           <div className="store-gallery-overlay">
             <button type="button" onClick={prev} aria-label="Foto precedente">
               ‹
@@ -50,7 +56,8 @@ export function StoreGallery({ images }: StoreGalleryProps) {
               onClick={() => setActive(index)}
               aria-label={`Apri foto ${index + 1}`}
             >
-              <Image src={img.src} alt={img.alt} width={520} height={360} />
+              <Image src={img.src} alt={img.alt} width={520} height={360} draggable={false} />
+              <span className="store-gallery-thumb-watermark" aria-hidden="true" />
             </button>
           ))}
         </div>

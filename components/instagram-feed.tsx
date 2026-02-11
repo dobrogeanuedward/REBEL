@@ -46,7 +46,7 @@ export function InstagramFeed({
   return (
     <div className="instagram-feed">
       {showReels && reels.length > 0 && (
-        <section className="instagram-group">
+        <section className="instagram-group instagram-group--reels-showcase">
           <div className="instagram-group-head">
             <h3 className="instagram-group-title">Reel in evidenza</h3>
             <Link
@@ -70,7 +70,7 @@ export function InstagramFeed({
 
       {showPosts && posts.length > 0 && (
         <section
-          className={`instagram-group${hidePostsOnMobile ? " instagram-group--mobile-hidden" : ""}`}
+          className={`instagram-group instagram-group--posts-showcase${hidePostsOnMobile ? " instagram-group--mobile-hidden" : ""}`}
         >
           <div className="instagram-group-head">
             <div>

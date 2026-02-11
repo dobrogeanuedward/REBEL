@@ -5,7 +5,11 @@ import { ScrollProgressBar } from "@/components/scroll-progress-bar";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { WhatsappLiveButton } from "@/components/whatsapp-live-button";
-import { buildLocalBusinessSchema } from "@/lib/seo";
+import {
+  buildLocalBusinessSchema,
+  buildOrganizationSchema,
+  buildWebsiteSchema,
+} from "@/lib/seo";
 import { brandSeoKeywords, localSeoKeywords, siteConfig } from "@/lib/site-config";
 import "./globals.css";
 
@@ -32,10 +36,22 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: Array.from(new Set([...brandSeoKeywords, ...localSeoKeywords])),
+  category: "Beauty & Wellness",
   applicationName: siteConfig.shortName,
+  authors: [{ name: siteConfig.name, url: siteConfig.siteUrl }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
   manifest: "/manifest.webmanifest",
+  formatDetection: {
+    email: true,
+    address: true,
+    telephone: true,
+  },
   alternates: {
     canonical: "/",
+    languages: {
+      [siteConfig.locale]: "/",
+    },
   },
   openGraph: {
     type: "website",
@@ -65,30 +81,41 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  other: {
+    "geo.region": siteConfig.regionCode,
+    "geo.placename": siteConfig.address.locality,
+    "geo.position": `${siteConfig.geo.latitude};${siteConfig.geo.longitude}`,
+    ICBM: `${siteConfig.geo.latitude}, ${siteConfig.geo.longitude}`,
   },
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const organizationSchema = buildOrganizationSchema();
   const localBusinessSchema = buildLocalBusinessSchema();
-  const websiteSchema = {
+  const websiteSchema = buildWebsiteSchema();
+  const identityGraphSchema = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: siteConfig.name,
-    alternateName: [siteConfig.shortName, "Rebel Carmagnola"],
-    url: siteConfig.siteUrl,
-    inLanguage: "it-IT",
-    sameAs: [
-      siteConfig.social.instagram,
-      siteConfig.social.tiktok,
-      siteConfig.social.googleCard,
-      siteConfig.social.treatwell,
-    ],
+    "@graph": [organizationSchema, websiteSchema, localBusinessSchema],
   };
 
   return (
     <html lang="it" className={`${cormorant.variable} ${inter.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+        <link rel="preconnect" href="https://www.instagram.com" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://www.instagram.com" />
+      </head>
       <body>
         <ScrollProgressBar />
         <div className="ambient-layer" aria-hidden="true">
@@ -96,8 +123,7 @@ export default function RootLayout({
           <span className="orb orb-pink" />
           <span className="orb orb-blue" />
         </div>
-        <JsonLd data={localBusinessSchema} />
-        <JsonLd data={websiteSchema} />
+        <JsonLd data={identityGraphSchema} />
         <SiteHeader />
         {children}
         <SiteFooter />

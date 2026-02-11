@@ -26,6 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: "Localita non trovata",
       description: "La pagina richiesta non e disponibile.",
       path: "/localita",
+      indexable: false,
     });
   }
   return createPageMetadata({
@@ -40,6 +41,9 @@ export default async function LocalAreaDetailPage({ params }: PageProps) {
   const { slug } = await params;
   const area = getLocalAreaBySlug(slug);
   if (!area) notFound();
+  const relatedAreas = localAreaPages
+    .filter((item) => item.slug !== area.slug && item.cluster === area.cluster)
+    .slice(0, 6);
 
   const breadcrumb = buildBreadcrumbSchema([
     { name: "Home", path: "/" },
@@ -125,6 +129,33 @@ export default async function LocalAreaDetailPage({ params }: PageProps) {
           </aside>
         </div>
       </section>
+
+      {relatedAreas.length > 0 && (
+        <section className="section section-light">
+          <div className="container">
+            <h2 className="page-title">Comuni vicini già serviti</h2>
+            <p className="lead" style={{ marginTop: "0.5rem", color: "rgba(39,31,56,0.78)" }}>
+              Se vuoi, puoi vedere anche le pagine dedicate ai comuni più vicini a {area.city}.
+            </p>
+            <div className="grid grid-3" style={{ marginTop: "0.9rem" }}>
+              {relatedAreas.map((item) => (
+                <Link key={item.slug} href={`/localita/${item.slug}`} className="card-light">
+                  <h3 style={{ marginTop: 0 }}>{item.city}</h3>
+                  <p
+                    style={{
+                      margin: 0,
+                      fontFamily: "var(--font-inter), sans-serif",
+                      color: "rgba(39,31,56,0.78)",
+                    }}
+                  >
+                    {item.description}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
     </main>
   );
 }

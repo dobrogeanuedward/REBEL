@@ -112,8 +112,13 @@ export function SiteHeader() {
         />
         <div className="mobile-nav-sheet" role="dialog" aria-modal="true" aria-label="Menu principale">
           <div className="mobile-nav-head">
-            <button type="button" className="mobile-nav-close" onClick={() => setOpen(false)}>
-              Chiudi
+            <button
+              type="button"
+              className="mobile-nav-close"
+              aria-label="Chiudi menu"
+              onClick={() => setOpen(false)}
+            >
+              <span aria-hidden="true">×</span>
             </button>
           </div>
           <div className="mobile-nav-hero">

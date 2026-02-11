@@ -1,18 +1,48 @@
 import type { Metadata } from "next";
 import { brandSeoKeywords, localSeoKeywords, siteConfig } from "@/lib/site-config";
+import { servicePages } from "@/lib/seo-content";
 
 type CreatePageMetadataInput = {
   title: string;
   description: string;
   path: string;
   keywords?: string[];
+  indexable?: boolean;
 };
+
+const dayMap: Record<string, string> = {
+  Mo: "Monday",
+  Tu: "Tuesday",
+  We: "Wednesday",
+  Th: "Thursday",
+  Fr: "Friday",
+  Sa: "Saturday",
+  Su: "Sunday",
+};
+
+function toOpeningHoursSpecification() {
+  return siteConfig.openingHours
+    .map((entry) => {
+      const [day, timeRange] = entry.split(" ");
+      const [opens, closes] = timeRange.split("-");
+      const dayOfWeek = dayMap[day];
+      if (!dayOfWeek || !opens || !closes) return null;
+      return {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: `https://schema.org/${dayOfWeek}`,
+        opens,
+        closes,
+      };
+    })
+    .filter(Boolean);
+}
 
 export function createPageMetadata({
   title,
   description,
   path,
   keywords = [],
+  indexable = true,
 }: CreatePageMetadataInput): Metadata {
   const canonical = new URL(path, siteConfig.siteUrl).toString();
   const mergedKeywords = Array.from(
@@ -25,7 +55,29 @@ export function createPageMetadata({
     title,
     description,
     keywords: mergedKeywords,
-    alternates: { canonical },
+    alternates: {
+      canonical,
+      languages: {
+        [siteConfig.locale]: canonical,
+      },
+    },
+    category: "Beauty & Wellness",
+    publisher: siteConfig.name,
+    creator: siteConfig.name,
+    authors: [{ name: siteConfig.name, url: siteConfig.siteUrl }],
+    robots: {
+      index: indexable,
+      follow: indexable,
+      nocache: !indexable,
+      googleBot: {
+        index: indexable,
+        follow: indexable,
+        noimageindex: !indexable,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
     openGraph: {
       title,
       description,
@@ -51,7 +103,82 @@ export function createPageMetadata({
   };
 }
 
+export function buildOrganizationSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${siteConfig.siteUrl}/#organization`,
+    name: siteConfig.name,
+    alternateName: [siteConfig.shortName, "Rebel Carmagnola"],
+    url: siteConfig.siteUrl,
+    logo: siteConfig.assets.logoLight,
+    image: siteConfig.assets.ogImage,
+    description: siteConfig.description,
+    email: siteConfig.email,
+    telephone: siteConfig.phoneDisplay,
+    sameAs: [
+      siteConfig.social.instagram,
+      siteConfig.social.tiktok,
+      siteConfig.social.googleCard,
+      siteConfig.social.treatwell,
+    ],
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        telephone: siteConfig.phoneDisplay,
+        email: siteConfig.email,
+        areaServed: "IT",
+        availableLanguage: [siteConfig.locale],
+        url: siteConfig.social.whatsapp,
+      },
+    ],
+  };
+}
+
+export function buildWebsiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${siteConfig.siteUrl}/#website`,
+    url: siteConfig.siteUrl,
+    name: siteConfig.name,
+    alternateName: [siteConfig.shortName, "Rebel Carmagnola"],
+    inLanguage: siteConfig.locale,
+    publisher: {
+      "@id": `${siteConfig.siteUrl}/#organization`,
+    },
+    potentialAction: {
+      "@type": "ContactAction",
+      target: [`${siteConfig.siteUrl}/contatti`, siteConfig.social.whatsapp],
+      name: "Prenota consulenza estetica",
+    },
+  };
+}
+
 export function buildLocalBusinessSchema() {
+  const esteticaServices = servicePages
+    .filter((service) => service.category === "estetica-classica")
+    .map((service) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: service.name,
+        url: new URL(`/servizi/${service.slug}`, siteConfig.siteUrl).toString(),
+      },
+    }));
+
+  const laserServices = servicePages
+    .filter((service) => service.category === "laser")
+    .map((service) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: service.name,
+        url: new URL(`/servizi/${service.slug}`, siteConfig.siteUrl).toString(),
+      },
+    }));
+
   return {
     "@context": "https://schema.org",
     "@type": "BeautySalon",
@@ -59,13 +186,20 @@ export function buildLocalBusinessSchema() {
     name: siteConfig.name,
     alternateName: [siteConfig.shortName, "Rebel Carmagnola"],
     slogan: siteConfig.tagline,
+    description: siteConfig.description,
     image: siteConfig.assets.ogImage,
     logo: siteConfig.assets.logoLight,
     url: siteConfig.siteUrl,
     telephone: siteConfig.phoneDisplay,
     email: siteConfig.email,
+    inLanguage: siteConfig.locale,
     hasMap: siteConfig.social.maps,
     priceRange: "$$",
+    currenciesAccepted: "EUR",
+    mainEntityOfPage: siteConfig.siteUrl,
+    isPartOf: {
+      "@id": `${siteConfig.siteUrl}/#website`,
+    },
     brand: {
       "@type": "Brand",
       name: siteConfig.shortName,
@@ -85,6 +219,23 @@ export function buildLocalBusinessSchema() {
     },
     areaServed: siteConfig.areasServed,
     openingHours: siteConfig.openingHours,
+    openingHoursSpecification: toOpeningHoursSpecification(),
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Servizi Rebel Carmagnola",
+      itemListElement: [
+        {
+          "@type": "OfferCatalog",
+          name: "Estetica avanzata e benessere",
+          itemListElement: esteticaServices,
+        },
+        {
+          "@type": "OfferCatalog",
+          name: "Epilazione laser",
+          itemListElement: laserServices,
+        },
+      ],
+    },
     contactPoint: [
       {
         "@type": "ContactPoint",
@@ -92,7 +243,7 @@ export function buildLocalBusinessSchema() {
         telephone: siteConfig.phoneDisplay,
         email: siteConfig.email,
         areaServed: "IT",
-        availableLanguage: ["it-IT"],
+        availableLanguage: [siteConfig.locale],
         url: siteConfig.social.whatsapp,
       },
     ],
@@ -102,7 +253,6 @@ export function buildLocalBusinessSchema() {
       "epilazione laser Carmagnola",
       "epilazione laser Rebel",
       "laser Carmagnola",
-      "epilazione laser Thory",
       "trattamenti viso",
       "trattamenti corpo",
       "centro estetico Carmagnola",

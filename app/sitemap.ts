@@ -5,46 +5,37 @@ import { siteConfig } from "@/lib/site-config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date(siteConfig.lastUpdated);
-  const staticRoutes = [
-    "/",
-    "/chi-siamo",
-    "/metodo-rebel",
-    "/protocolli-epigenetici",
-    "/listino-estetica-laser",
-    "/servizi",
-    "/competenze",
-    "/localita",
-    "/tecnologia-thory",
-    "/contatti",
-  ];
-
-  const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((path) => {
-    const priorityMap: Record<string, number> = {
-      "/": 1,
-      "/listino-estetica-laser": 0.93,
-      "/contatti": 0.92,
-      "/servizi": 0.9,
-      "/chi-siamo": 0.88,
-      "/metodo-rebel": 0.86,
-      "/protocolli-epigenetici": 0.85,
-      "/competenze": 0.84,
-      "/localita": 0.83,
-      "/tecnologia-thory": 0.82,
-    };
-
-    return {
-      url: `${siteConfig.siteUrl}${path}`,
-      lastModified,
-      changeFrequency: path === "/" || path === "/contatti" ? "daily" : "weekly",
-      priority: priorityMap[path] ?? 0.8,
-    };
+  const defaultImage = siteConfig.assets.ogImage;
+  const createEntry = (
+    path: string,
+    changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"],
+    priority: number,
+  ): MetadataRoute.Sitemap[number] => ({
+    url: `${siteConfig.siteUrl}${path}`,
+    lastModified,
+    changeFrequency,
+    priority,
+    images: [defaultImage],
   });
+
+  const staticEntries: MetadataRoute.Sitemap = [
+    createEntry("/", "daily", 1),
+    createEntry("/chi-siamo", "weekly", 0.9),
+    createEntry("/metodo-rebel", "weekly", 0.88),
+    createEntry("/protocolli-epigenetici", "weekly", 0.89),
+    createEntry("/listino-estetica-laser", "weekly", 0.95),
+    createEntry("/servizi", "weekly", 0.93),
+    createEntry("/competenze", "weekly", 0.91),
+    createEntry("/localita", "weekly", 0.9),
+    createEntry("/contatti", "daily", 0.94),
+  ];
 
   const serviceEntries: MetadataRoute.Sitemap = servicePages.map((service) => ({
     url: `${siteConfig.siteUrl}/servizi/${service.slug}`,
     lastModified,
     changeFrequency: "weekly",
-    priority: 0.8,
+    priority: service.category === "laser" ? 0.84 : 0.82,
+    images: [defaultImage],
   }));
 
   const competenceEntries: MetadataRoute.Sitemap = competencePages.map(
@@ -52,7 +43,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${siteConfig.siteUrl}/competenze/${competence.slug}`,
       lastModified,
       changeFrequency: "weekly",
-      priority: 0.75,
+      priority: competence.intent === "commercial" ? 0.8 : 0.78,
+      images: [defaultImage],
     }),
   );
 
@@ -61,6 +53,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified,
     changeFrequency: "weekly",
     priority: 0.74,
+    images: [defaultImage],
   }));
 
   return [...staticEntries, ...serviceEntries, ...competenceEntries, ...localEntries];

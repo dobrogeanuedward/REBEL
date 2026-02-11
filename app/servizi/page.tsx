@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
+import { protocolCards } from "@/lib/content";
 import { servicePages } from "@/lib/seo-content";
 import { buildBreadcrumbSchema, buildItemListSchema, createPageMetadata } from "@/lib/seo";
 
@@ -31,6 +32,7 @@ export default function ServiziHubPage() {
     (service) => service.category === "estetica-classica",
   );
   const laser = servicePages.filter((service) => service.category === "laser");
+  const featuredProtocols = protocolCards.slice(0, 6);
   const serviceListSchema = buildItemListSchema({
     name: "Servizi Rebel Carmagnola",
     path: "/servizi",
@@ -46,25 +48,25 @@ export default function ServiziHubPage() {
       <JsonLd data={serviceListSchema} />
       <PageHero
         eyebrow="I nostri servizi"
-        title="Tutti i servizi Rebel a Carmagnola, organizzati per obiettivo."
-        lead="Se non sai da dove partire, va benissimo: qui trovi una panoramica chiara di quello che facciamo, con prezzi e spiegazioni semplici."
-        badge="Scegli il percorso giusto per te"
+        title="Tutti i servizi Rebel a Carmagnola, organizzati per obiettivo reale."
+        lead="In questa pagina trovi una panoramica completa di trattamenti viso, corpo, epilazione laser e protocolli epigenetici: chiara, ordinata e subito utile."
+        badge="Hub servizi completo"
         tone="emerald"
       />
 
       <section className="section">
         <div className="container split">
           <div className="card glow-card">
-            <h2 style={{ marginTop: 0 }}>Esperienza in studio</h2>
+            <h2 style={{ marginTop: 0 }}>Un unico hub per scegliere senza confusione</h2>
             <p className="lead" style={{ marginTop: 0 }}>
-              In Rebel il percorso inizia con ascolto e lettura iniziale. Da lì
-              si sceglie il servizio più adatto, con una proposta chiara e
-              sostenibile nel tempo.
+              In Rebel ogni percorso parte dall&apos;ascolto e si costruisce in base
+              ai tuoi obiettivi. Qui trovi tutti i servizi con logica chiara, così
+              sai subito da dove iniziare e cosa aspettarti.
             </p>
             <div className="hero-visual" style={{ marginTop: "1rem", borderRadius: 16 }}>
               <Image
-                src="https://epikey.rebelepigenetica.it/assets/rebel/vetrina.webp"
-                alt="Centro estetico Rebel a Carmagnola"
+                src="https://res.cloudinary.com/dx8tfq82f/image/upload/v1770780624/vetrtina2_krgcys.png"
+                alt="Studio Rebel a Carmagnola"
                 width={1200}
                 height={900}
                 style={{
@@ -75,20 +77,60 @@ export default function ServiziHubPage() {
                 }}
               />
             </div>
+            <p className="lead" style={{ marginTop: "0.9rem", marginBottom: 0 }}>
+              &quot;La bellezza non si aggiunge, si riattiva!&quot;
+            </p>
           </div>
           <aside className="card">
             <h2 style={{ marginTop: 0 }}>Come usare questa pagina</h2>
             <ul className="list-clean">
-              <li>- scegli prima la categoria che ti interessa</li>
-              <li>- apri la scheda servizio per dettagli e FAQ</li>
-              <li>- se hai dubbi, scrivici su WhatsApp</li>
-              <li>- in studio definiamo insieme il piano migliore</li>
+              <li>- scegli prima la macro categoria</li>
+              <li>- apri il servizio specifico per dettagli e FAQ</li>
+              <li>- confronta in 2 minuti opzioni e prezzo indicativo</li>
+              <li>- poi fissiamo insieme il tuo piano in studio</li>
             </ul>
+            <div className="services-hub-shortcuts">
+              <a className="services-hub-shortcut" href="#servizi-estetica">Estetica e benessere</a>
+              <a className="services-hub-shortcut" href="#servizi-laser">Epilazione laser</a>
+              <a className="services-hub-shortcut" href="#servizi-epigenetica">Estetica epigenetica</a>
+              <Link className="services-hub-shortcut" href="/contatti">Consulenza personalizzata</Link>
+            </div>
           </aside>
         </div>
       </section>
 
       <section className="section section-light">
+        <div className="container">
+          <p className="eyebrow" style={{ color: "rgba(39,31,56,0.68)" }}>
+            Percorsi
+          </p>
+          <h2 className="page-title" style={{ marginTop: "0.55rem" }}>
+            Scegli per obiettivo e passa subito alla sezione giusta.
+          </h2>
+          <div className="grid grid-3" style={{ marginTop: "1rem" }}>
+            <a className="card-light" href="#servizi-estetica">
+              <h3 style={{ marginTop: 0 }}>Estetica avanzata e benessere</h3>
+              <p className="lead" style={{ marginTop: "0.35rem", marginBottom: 0, color: "rgba(39,31,56,0.78)" }}>
+                Trattamenti viso, corpo e cura mani per riequilibrio, tono e luminosita.
+              </p>
+            </a>
+            <a className="card-light" href="#servizi-laser">
+              <h3 style={{ marginTop: 0 }}>Epilazione laser</h3>
+              <p className="lead" style={{ marginTop: "0.35rem", marginBottom: 0, color: "rgba(39,31,56,0.78)" }}>
+                Percorsi personalizzati su area, fototipo e obiettivo, con monitoraggio progressivo.
+              </p>
+            </a>
+            <a className="card-light" href="#servizi-epigenetica">
+              <h3 style={{ marginTop: 0 }}>Estetica Epigenetica</h3>
+              <p className="lead" style={{ marginTop: "0.35rem", marginBottom: 0, color: "rgba(39,31,56,0.78)" }}>
+                Protocolli mirati con attivi intelligenti e tecnologie integrate in modo calibrato.
+              </p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="section" id="servizi-estetica">
         <div className="container">
           <h2 className="page-title">Estetica classica e benessere</h2>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
@@ -113,12 +155,12 @@ export default function ServiziHubPage() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section-light" id="servizi-laser">
         <div className="container">
           <h2 className="page-title">Epilazione laser a Carmagnola</h2>
-          <p className="lead" style={{ marginTop: "0.5rem", maxWidth: "70ch" }}>
-            Percorsi di epilazione laser Rebel con tecnologia Thory, programmati su
-            zona, fototipo e obiettivo.
+          <p className="lead" style={{ marginTop: "0.5rem", maxWidth: "70ch", color: "rgba(39,31,56,0.78)" }}>
+            Percorsi programmati su zona, fototipo e risposta della pelle, con
+            progressione chiara e sostenibile.
           </p>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             {laser.map((item) => (
@@ -133,6 +175,55 @@ export default function ServiziHubPage() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="section epigenetica-tech-section" id="servizi-epigenetica">
+        <div className="container">
+          <h2 className="page-title">Estetica Epigenetica</h2>
+          <p className="lead" style={{ maxWidth: "74ch", marginTop: "0.55rem" }}>
+            Una selezione dei protocolli piu richiesti in studio. Per la lista completa e
+            gli approfondimenti, puoi consultare anche la pagina dedicata ai protocolli.
+          </p>
+          <div className="grid grid-2" style={{ marginTop: "1rem" }}>
+            {featuredProtocols.map((protocol) => (
+              <article key={protocol.name} className="card">
+                <h3 style={{ marginTop: 0 }}>{protocol.name}</h3>
+                <p className="lead" style={{ marginTop: "0.35rem" }}>
+                  {protocol.desc}
+                </p>
+                <strong style={{ fontFamily: "var(--font-inter), sans-serif" }}>{protocol.price}</strong>
+              </article>
+            ))}
+          </div>
+          <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
+            <Link className="button button-primary" href="/protocolli-epigenetici">
+              Vedi tutti i protocolli
+            </Link>
+            <Link className="button button-secondary" href="/contatti">
+              Richiedi consulenza
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <article className="card glow-card">
+            <h2 style={{ marginTop: 0 }}>Non sai quale percorso scegliere?</h2>
+            <p className="lead" style={{ marginTop: "0.45rem", maxWidth: "72ch" }}>
+              Ti aiutiamo noi: in consulenza definiamo priorita, tempi e combinazione
+              piu adatta tra estetica, laser ed epigenetica.
+            </p>
+            <div style={{ marginTop: "0.9rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
+              <Link className="button button-primary" href="/contatti">
+                Prenota consulenza
+              </Link>
+              <Link className="button button-secondary" href="/listino-estetica-laser">
+                Apri listino completo
+              </Link>
+            </div>
+          </article>
         </div>
       </section>
     </main>

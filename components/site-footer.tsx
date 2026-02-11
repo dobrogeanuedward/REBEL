@@ -74,12 +74,6 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/tecnologia-thory">
-                  <span className="footer-link-bullet" aria-hidden="true">✦</span>
-                  <span>Tecnologia</span>
-                </Link>
-              </li>
-              <li>
                 <Link href="/localita">
                   <span className="footer-link-bullet" aria-hidden="true">✦</span>
                   <span>Localita servite</span>

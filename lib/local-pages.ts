@@ -1,6 +1,7 @@
 export type LocalAreaPage = {
   slug: string;
   city: string;
+  cluster: "asse-carmagnola" | "torino-sud" | "cuneo";
   title: string;
   description: string;
   intro: string;
@@ -12,6 +13,7 @@ export const localAreaPages: LocalAreaPage[] = [
   {
     slug: "carmagnola",
     city: "Carmagnola",
+    cluster: "asse-carmagnola",
     title: "Centro estetico a Carmagnola: benvenuta da Rebel",
     description:
       "Rebel è a Carmagnola: trattamenti viso e corpo, epilazione laser a Carmagnola e percorsi costruiti su misura.",
@@ -31,6 +33,7 @@ export const localAreaPages: LocalAreaPage[] = [
   {
     slug: "carignano",
     city: "Carignano",
+    cluster: "asse-carmagnola",
     title: "Da Carignano a Rebel: percorso estetico su misura",
     description:
       "Se vivi a Carignano, Rebel Carmagnola è una soluzione comoda per viso, corpo ed epilazione laser a Carmagnola.",
@@ -50,6 +53,7 @@ export const localAreaPages: LocalAreaPage[] = [
   {
     slug: "racconigi",
     city: "Racconigi",
+    cluster: "asse-carmagnola",
     title: "Centro estetico per chi arriva da Racconigi",
     description:
       "Da Racconigi a Carmagnola: Rebel propone trattamenti viso/corpo ed epilazione laser con metodo personalizzato.",
@@ -69,6 +73,7 @@ export const localAreaPages: LocalAreaPage[] = [
   {
     slug: "sommariva-del-bosco",
     city: "Sommariva del Bosco",
+    cluster: "asse-carmagnola",
     title: "Da Sommariva del Bosco a Rebel Carmagnola",
     description:
       "Percorsi estetici evoluti a pochi minuti da Sommariva del Bosco.",
@@ -86,8 +91,69 @@ export const localAreaPages: LocalAreaPage[] = [
     ],
   },
   {
+    slug: "poirino",
+    city: "Poirino",
+    cluster: "asse-carmagnola",
+    title: "Da Poirino a Rebel: centro estetico a pochi minuti",
+    description:
+      "Rebel Carmagnola è una scelta comoda per chi vive a Poirino e cerca un centro estetico con metodo.",
+    intro:
+      "Se arrivi da Poirino puoi trovare in un unico studio estetica avanzata, benessere ed epilazione laser.",
+    whyRebel: [
+      "Percorsi personalizzati e spiegati in modo semplice",
+      "Trattamenti viso/corpo e laser nello stesso centro",
+      "Contatto rapido su WhatsApp per agenda e richiami",
+    ],
+    keywords: [
+      "centro estetico Poirino",
+      "estetista Poirino",
+      "epilazione laser Poirino",
+    ],
+  },
+  {
+    slug: "villastellone",
+    city: "Villastellone",
+    cluster: "asse-carmagnola",
+    title: "Centro estetico vicino Villastellone: percorsi Rebel",
+    description:
+      "Da Villastellone a Carmagnola: trattamenti viso, corpo ed epilazione laser con approccio personalizzato.",
+    intro:
+      "Molte clienti da Villastellone ci scelgono quando cercano un percorso serio, non soluzioni standard.",
+    whyRebel: [
+      "Distanza comoda da Villastellone",
+      "Metodo progressivo con obiettivi realistici",
+      "Piano di mantenimento chiaro",
+    ],
+    keywords: [
+      "centro estetico Villastellone",
+      "estetica avanzata Villastellone",
+      "laser Villastellone",
+    ],
+  },
+  {
+    slug: "pancalieri",
+    city: "Pancalieri",
+    cluster: "asse-carmagnola",
+    title: "Da Pancalieri a Rebel Carmagnola",
+    description:
+      "Per chi arriva da Pancalieri: centro estetico avanzato con servizi viso/corpo e laser a Carmagnola.",
+    intro:
+      "Se vivi a Pancalieri e vuoi un piano estetico ben organizzato, Rebel è una soluzione concreta e vicina.",
+    whyRebel: [
+      "Consulenza iniziale per capire priorità reali",
+      "Trattamenti combinati in base al tuo obiettivo",
+      "Supporto costante tra una seduta e l'altra",
+    ],
+    keywords: [
+      "centro estetico Pancalieri",
+      "estetista Pancalieri",
+      "epilazione laser Pancalieri",
+    ],
+  },
+  {
     slug: "torino-sud",
     city: "Torino Sud",
+    cluster: "torino-sud",
     title: "Da Torino Sud a Rebel: un'alternativa concreta",
     description:
       "Rebel Carmagnola è scelto anche da clienti di Torino Sud che cercano metodo e continuità.",
@@ -105,8 +171,149 @@ export const localAreaPages: LocalAreaPage[] = [
     ],
   },
   {
+    slug: "moncalieri",
+    city: "Moncalieri",
+    cluster: "torino-sud",
+    title: "Da Moncalieri a Rebel: centro estetico con metodo",
+    description:
+      "Rebel Carmagnola è una soluzione scelta anche da clienti di Moncalieri per percorsi viso, corpo e laser.",
+    intro:
+      "Da Moncalieri puoi raggiungerci facilmente se cerchi un centro estetico con approccio tecnico e umano.",
+    whyRebel: [
+      "Programma personalizzato fin dal primo incontro",
+      "Risultati progressivi e non promesse irrealistiche",
+      "Organizzazione precisa del percorso",
+    ],
+    keywords: [
+      "centro estetico Moncalieri",
+      "estetica epigenetica Moncalieri",
+      "epilazione laser Moncalieri",
+    ],
+  },
+  {
+    slug: "nichelino",
+    city: "Nichelino",
+    cluster: "torino-sud",
+    title: "Centro estetico per chi arriva da Nichelino",
+    description:
+      "Da Nichelino a Rebel Carmagnola per trattamenti mirati viso/corpo ed epilazione laser su misura.",
+    intro:
+      "Chi arriva da Nichelino cerca spesso una gestione più personalizzata: in Rebel trovi questo approccio.",
+    whyRebel: [
+      "Protocollo costruito sulle tue necessità",
+      "Un solo studio per benessere, estetica e laser",
+      "Comunicazione diretta e tempi chiari",
+    ],
+    keywords: [
+      "centro estetico Nichelino",
+      "estetista Nichelino",
+      "laser Nichelino",
+    ],
+  },
+  {
+    slug: "vinovo",
+    city: "Vinovo",
+    cluster: "torino-sud",
+    title: "Da Vinovo a Rebel Carmagnola",
+    description:
+      "Percorsi estetici avanzati per chi vive a Vinovo e vuole continuità, metodo e risultati concreti.",
+    intro:
+      "Da Vinovo ci raggiungono clienti che vogliono una guida chiara su trattamenti viso, corpo e laser.",
+    whyRebel: [
+      "Analisi iniziale accurata con obiettivo condiviso",
+      "Percorsi modulabili in base ai tempi reali",
+      "Mantenimento pianificato per risultati stabili",
+    ],
+    keywords: [
+      "centro estetico Vinovo",
+      "estetica avanzata Vinovo",
+      "epilazione laser Vinovo",
+    ],
+  },
+  {
+    slug: "la-loggia",
+    city: "La Loggia",
+    cluster: "torino-sud",
+    title: "Centro estetico vicino La Loggia: percorso Rebel",
+    description:
+      "Da La Loggia a Rebel Carmagnola: trattamenti personalizzati per viso, corpo e depilazione laser.",
+    intro:
+      "Se arrivi da La Loggia e vuoi evitare percorsi improvvisati, in Rebel trovi struttura e metodo.",
+    whyRebel: [
+      "Piano personalizzato senza pacchetti standard",
+      "Spiegazioni semplici su servizi, tempi e costi",
+      "Supporto costante durante il percorso",
+    ],
+    keywords: [
+      "centro estetico La Loggia",
+      "estetista La Loggia",
+      "laser La Loggia",
+    ],
+  },
+  {
+    slug: "trofarello",
+    city: "Trofarello",
+    cluster: "torino-sud",
+    title: "Da Trofarello a Rebel: centro estetico specializzato",
+    description:
+      "Per chi vive a Trofarello: percorsi estetici evoluti a Carmagnola con approccio epigenetico e laser.",
+    intro:
+      "Molte clienti da Trofarello scelgono Rebel quando cercano continuità e un metodo realmente personalizzato.",
+    whyRebel: [
+      "Integrazione tra trattamenti e mantenimento",
+      "Focus su qualità pelle e benessere progressivo",
+      "Agenda gestita in modo chiaro e puntuale",
+    ],
+    keywords: [
+      "centro estetico Trofarello",
+      "estetica epigenetica Trofarello",
+      "epilazione laser Trofarello",
+    ],
+  },
+  {
+    slug: "chieri",
+    city: "Chieri",
+    cluster: "torino-sud",
+    title: "Da Chieri a Rebel Carmagnola",
+    description:
+      "Centro estetico di riferimento per clienti da Chieri che cercano trattamenti avanzati viso/corpo e laser.",
+    intro:
+      "Se arrivi da Chieri e desideri un percorso ben strutturato, Rebel offre consulenza, metodo e continuità.",
+    whyRebel: [
+      "Percorsi realistici costruiti sui tuoi obiettivi",
+      "Attivi epigenetici e tecnologie mirate",
+      "Comunicazione trasparente dall'inizio alla fine",
+    ],
+    keywords: [
+      "centro estetico Chieri",
+      "trattamenti viso Chieri",
+      "epilazione laser Chieri",
+    ],
+  },
+  {
+    slug: "orbassano",
+    city: "Orbassano",
+    cluster: "torino-sud",
+    title: "Centro estetico per chi arriva da Orbassano",
+    description:
+      "Da Orbassano a Rebel Carmagnola: percorsi su misura per estetica avanzata, benessere ed epilazione laser.",
+    intro:
+      "Chi arriva da Orbassano trova in Rebel un centro organizzato, con obiettivi chiari e risultati progressivi.",
+    whyRebel: [
+      "Approccio completo viso/corpo e laser",
+      "Valutazione iniziale e piano personalizzato",
+      "Risposte rapide su WhatsApp e supporto continuo",
+    ],
+    keywords: [
+      "centro estetico Orbassano",
+      "estetista Orbassano",
+      "laser Orbassano",
+    ],
+  },
+  {
     slug: "alba",
     city: "Alba",
+    cluster: "cuneo",
     title: "Da Alba a Rebel Carmagnola",
     description:
       "Per chi arriva da Alba: trattamenti viso/corpo ed epilazione laser in uno studio avanzato a Carmagnola.",
@@ -121,6 +328,86 @@ export const localAreaPages: LocalAreaPage[] = [
       "centro estetico Alba",
       "estetista Alba trattamenti viso",
       "epilazione laser Alba",
+    ],
+  },
+  {
+    slug: "bra",
+    city: "Bra",
+    cluster: "cuneo",
+    title: "Da Bra a Rebel: percorsi viso, corpo e laser",
+    description:
+      "Per chi vive a Bra, Rebel Carmagnola offre trattamenti personalizzati con approccio epigenetico e tecnico.",
+    intro:
+      "Da Bra ci scelgono clienti che cercano una strategia estetica più chiara e continuativa nel tempo.",
+    whyRebel: [
+      "Consulenza iniziale per definire priorità vere",
+      "Integrazione tra manualità, attivi e tecnologie",
+      "Gestione progressiva e sostenibile del percorso",
+    ],
+    keywords: [
+      "centro estetico Bra",
+      "estetica avanzata Bra",
+      "epilazione laser Bra",
+    ],
+  },
+  {
+    slug: "savigliano",
+    city: "Savigliano",
+    cluster: "cuneo",
+    title: "Centro estetico per chi arriva da Savigliano",
+    description:
+      "Da Savigliano a Carmagnola: Rebel propone percorsi viso/corpo e laser con obiettivi realistici.",
+    intro:
+      "Se vivi a Savigliano e vuoi un centro estetico con metodo, Rebel è una soluzione concreta e organizzata.",
+    whyRebel: [
+      "Percorso personalizzato senza formule preconfezionate",
+      "Prezzi e tempi spiegati in modo chiaro",
+      "Controllo progressi durante tutto il programma",
+    ],
+    keywords: [
+      "centro estetico Savigliano",
+      "estetista Savigliano",
+      "laser Savigliano",
+    ],
+  },
+  {
+    slug: "fossano",
+    city: "Fossano",
+    cluster: "cuneo",
+    title: "Da Fossano a Rebel Carmagnola",
+    description:
+      "Percorsi estetici evoluti per clienti da Fossano: trattamenti viso/corpo, epigenetica ed epilazione laser.",
+    intro:
+      "Chi arriva da Fossano sceglie Rebel per la combinazione tra approccio umano, tecnica e continuità.",
+    whyRebel: [
+      "Metodo personalizzato e verificabile",
+      "Percorsi su misura in base al tuo obiettivo",
+      "Supporto costante tra una seduta e la successiva",
+    ],
+    keywords: [
+      "centro estetico Fossano",
+      "estetica epigenetica Fossano",
+      "epilazione laser Fossano",
+    ],
+  },
+  {
+    slug: "saluzzo",
+    city: "Saluzzo",
+    cluster: "cuneo",
+    title: "Centro estetico vicino Saluzzo: percorso Rebel",
+    description:
+      "Da Saluzzo a Carmagnola per trattamenti estetici avanzati, percorsi epigenetici ed epilazione laser.",
+    intro:
+      "Se arrivi da Saluzzo e cerchi un centro con struttura e metodo, in Rebel trovi una guida chiara.",
+    whyRebel: [
+      "Valutazione iniziale approfondita",
+      "Percorso costruito su esigenze concrete",
+      "Comunicazione trasparente e supporto dedicato",
+    ],
+    keywords: [
+      "centro estetico Saluzzo",
+      "estetista Saluzzo",
+      "laser Saluzzo",
     ],
   },
 ];

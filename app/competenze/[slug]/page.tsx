@@ -35,6 +35,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: "Competenza non trovata",
       description: "La pagina richiesta non e disponibile.",
       path: "/competenze",
+      indexable: false,
     });
   }
   return createPageMetadata({
