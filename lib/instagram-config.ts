@@ -19,6 +19,8 @@ export const instagramConfig = {
 
   // Ultimi 3 post (inserisci i link o gli ID)
   latestPosts: [
+    "https://www.instagram.com/p/DUWIpwvCBIy/?img_index=1",
+    "https://www.instagram.com/p/DTA_62KCBDH/?img_index=1",
     "https://www.instagram.com/p/DTDidTyiMIm/?img_index=1",
     "https://www.instagram.com/p/DR7axePCCHR/?img_index=1",
     "https://www.instagram.com/p/DR5B4_fCH6o/",
