@@ -1967,6 +1967,92 @@ body.mobile-menu-open .wa-live {
   gap: 0.65rem;
 }
 
+.method-steps-stage {
+  position: relative;
+  padding: 0.8rem 0 0.2rem;
+}
+
+.method-steps-stage::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(860px, 94%);
+  height: 100%;
+  pointer-events: none;
+  background:
+    radial-gradient(58% 30% at 20% 14%, rgba(56, 189, 248, 0.12), transparent 70%),
+    radial-gradient(52% 28% at 84% 42%, rgba(124, 58, 237, 0.16), transparent 72%),
+    radial-gradient(46% 26% at 46% 88%, rgba(228, 72, 150, 0.14), transparent 74%);
+  filter: blur(8px);
+  opacity: 0.92;
+}
+
+.method-steps-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.95rem;
+}
+
+.method-step-card {
+  position: relative;
+  isolation: isolate;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 1.05rem 1rem 0.98rem;
+  background:
+    radial-gradient(94% 70% at 10% 0%, rgba(59, 130, 246, 0.1), transparent 72%),
+    radial-gradient(80% 68% at 100% 12%, rgba(124, 58, 237, 0.12), transparent 74%),
+    rgba(18, 13, 33, 0.75);
+  box-shadow:
+    0 18px 42px rgba(14, 8, 26, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+}
+
+.method-step-card:nth-child(odd) {
+  transform: translateY(-10px);
+}
+
+.method-step-card::after {
+  content: "";
+  position: absolute;
+  inset: auto -26% -42% -26%;
+  height: 62%;
+  background: radial-gradient(
+    58% 72% at 50% 50%,
+    rgba(56, 189, 248, 0.16),
+    rgba(124, 58, 237, 0.14),
+    transparent 74%
+  );
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.method-step-index {
+  position: absolute;
+  top: 0.42rem;
+  right: 0.72rem;
+  font-family: var(--font-cormorant), serif;
+  font-size: 2.05rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.18);
+  letter-spacing: 0.02em;
+}
+
+.method-step-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: linear-gradient(145deg, #67e8f9, #a78bfa);
+  box-shadow: 0 0 0 0 rgba(103, 232, 249, 0.55);
+  display: inline-flex;
+  animation: pulse-dot 2.2s infinite;
+}
+
 .page-shell {
   --page-accent-rgb: 167, 139, 250;
   --page-accent-soft-rgb: 228, 72, 150;
@@ -2165,6 +2251,51 @@ body.mobile-menu-open .wa-live {
     0 0 24px rgba(228, 72, 150, 0.16);
 }
 
+.listino-categories-card {
+  background:
+    radial-gradient(96% 74% at 8% 0%, rgba(56, 189, 248, 0.1), transparent 72%),
+    radial-gradient(88% 68% at 100% 16%, rgba(167, 139, 250, 0.12), transparent 74%),
+    rgba(14, 12, 28, 0.74);
+}
+
+.listino-categories-list {
+  margin-top: 0.75rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.listino-category-item {
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.72rem 0.78rem;
+  display: grid;
+  gap: 0.22rem;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.listino-category-item:hover {
+  transform: translateY(-1px);
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow:
+    0 8px 24px rgba(11, 19, 36, 0.34),
+    0 0 20px rgba(56, 189, 248, 0.14);
+}
+
+.listino-category-item strong {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.2rem;
+  line-height: 1.1;
+  color: #f2f8ff;
+}
+
+.listino-category-item span {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: rgba(240, 245, 255, 0.78);
+}
+
 .page-servizi {
   --page-accent-rgb: 16, 185, 129;
   --page-accent-soft-rgb: 110, 231, 183;
@@ -2264,6 +2395,12 @@ body.mobile-menu-open .wa-live {
   }
   .listino-switch {
     grid-template-columns: 1fr;
+  }
+  .method-steps-grid {
+    gap: 0.8rem;
+  }
+  .method-step-card:nth-child(odd) {
+    transform: none;
   }
 }
 
@@ -2533,6 +2670,25 @@ body.mobile-menu-open .wa-live {
   .page-title {
     font-size: clamp(1.62rem, 8.6vw, 2.22rem);
     line-height: 1.08;
+  }
+  .method-steps-stage {
+    padding-top: 0.25rem;
+  }
+  .method-steps-stage::before {
+    width: 100%;
+  }
+  .method-steps-grid {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+  .method-step-card {
+    padding: 0.88rem 0.84rem 0.84rem;
+    border-radius: 14px;
+  }
+  .method-step-index {
+    font-size: 1.7rem;
+    top: 0.34rem;
+    right: 0.58rem;
   }
   #estetica-classica,
   #epilazione-laser,
@@ -2844,6 +3000,12 @@ body.mobile-menu-open .wa-live {
     font-size: 0.74rem;
     padding: 0.62rem 0.55rem;
     border-radius: 12px;
+  }
+  .listino-category-item strong {
+    font-size: 1.06rem;
+  }
+  .listino-category-item span {
+    font-size: 0.78rem;
   }
 }
 

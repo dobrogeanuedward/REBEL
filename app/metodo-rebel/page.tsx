@@ -47,18 +47,22 @@ export default function MetodoPage() {
 
       <section className="section">
         <div className="container">
-          <div className="grid grid-2">
-            {methodSteps.map((item) => (
-              <article key={item.step} className="card">
-                <p className="eyebrow">{item.step}</p>
-                <h2 style={{ margin: "0.45rem 0 0.6rem", fontSize: "1.4rem" }}>
-                  {item.title}
-                </h2>
-                <p className="lead" style={{ marginTop: 0 }}>
-                  {item.text}
-                </p>
-              </article>
-            ))}
+          <div className="method-steps-stage">
+            <div className="method-steps-grid">
+              {methodSteps.map((item, index) => (
+                <article key={item.step} className="method-step-card">
+                  <span className="method-step-index">{String(index + 1).padStart(2, "0")}</span>
+                  <p className="eyebrow">{item.step}</p>
+                  <h2 style={{ margin: "0.45rem 0 0.55rem", fontSize: "1.38rem" }}>
+                    {item.title}
+                  </h2>
+                  <p className="lead" style={{ marginTop: 0 }}>
+                    {item.text}
+                  </p>
+                  <span className="method-step-dot" aria-hidden="true" />
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>

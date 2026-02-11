@@ -40,36 +40,6 @@ export default function ListinoPage() {
     "Prezzi chiari per servizi estetici ed epilazione laser a Carmagnola.",
     "/listino-estetica-laser",
   );
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "I prezzi del laser sono per singola seduta?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Sì, i prezzi sono per singola seduta. Sono disponibili pacchetti personalizzati multi-zona.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Serve una valutazione iniziale prima del laser?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Sì, la valutazione iniziale è inclusa e permette di definire potenza e frequenza adatte al tuo profilo.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Posso combinare estetica classica e protocolli avanzati?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Sì, Rebel integra servizi classici, protocolli epigenetici e tecnologie in un piano unico personalizzato.",
-        },
-      },
-    ],
-  };
   const listinoItemListSchema = buildItemListSchema({
     name: "Listino Rebel Estetica e Laser",
     path: "/listino-estetica-laser",
@@ -83,7 +53,6 @@ export default function ListinoPage() {
     <main className="page-shell page-listino">
       <JsonLd data={breadcrumb} />
       <JsonLd data={service} />
-      <JsonLd data={faqSchema} />
       <JsonLd data={listinoItemListSchema} />
 
       <PageHero
@@ -241,18 +210,32 @@ export default function ListinoPage() {
               iniziale ti aiuta a non sbagliare direzione.
             </p>
           </article>
-          <article className="card">
-            <h2 style={{ marginTop: 0 }}>Domande che ci fanno spesso prima di prenotare</h2>
-            <ul className="list-clean">
-              <li>- &quot;Posso iniziare con un solo trattamento?&quot;</li>
-              <li>- &quot;Meglio fare un ciclo o una seduta singola?&quot;</li>
-              <li>- &quot;In quanto tempo vedrò i primi risultati?&quot;</li>
-              <li>- &quot;Posso combinare più trattamenti nello stesso periodo?&quot;</li>
-            </ul>
-            <p className="lead" style={{ marginTop: "0.9rem" }}>
-              Sono domande normalissime. Scrivici su WhatsApp e ti diamo subito
-              una risposta chiara e personalizzata.
+          <article className="card listino-categories-card">
+            <h2 style={{ marginTop: 0 }}>Le 3 categorie principali a Carmagnola</h2>
+            <p className="lead" style={{ marginTop: "0.2rem" }}>
+              Se arrivi da Carmagnola, Carignano, Racconigi o Torino Sud, parti da qui:
+              scegli la categoria più vicina al tuo obiettivo e ti guidiamo noi.
             </p>
+            <div className="listino-categories-list">
+              <a href="#estetica-classica" className="listino-category-item">
+                <strong>Estetica Avanzata e Benessere</strong>
+                <span>
+                  Percorsi viso/corpo per qualità della pelle, equilibrio e continuità nel tempo.
+                </span>
+              </a>
+              <a href="#epilazione-laser" className="listino-category-item">
+                <strong>Epilazione Laser</strong>
+                <span>
+                  Trattamenti laser personalizzati per zone e fototipo, con valutazione iniziale inclusa.
+                </span>
+              </a>
+              <a href="#estetica-epigenetica" className="listino-category-item">
+                <strong>Estetica Epigenetica</strong>
+                <span>
+                  Protocolli evoluti orientati a rigenerazione, tono e luminosità progressiva.
+                </span>
+              </a>
+            </div>
           </article>
         </div>
       </section>
