@@ -226,6 +226,7 @@ img {
   border: 1px solid rgba(18, 10, 34, 0.16);
   border-radius: calc(var(--radius) + 3px);
   background: linear-gradient(160deg, rgba(255, 255, 255, 0.99), rgba(252, 247, 255, 0.94), rgba(244, 240, 255, 0.88));
+  color: #271f38;
   box-shadow: 
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
     0 24px 62px rgba(53, 31, 86, 0.14),
@@ -235,6 +236,10 @@ img {
   transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.32s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.32s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+}
+
+.card-light .lead {
+  color: rgba(39, 31, 56, 0.78);
 }
 
 .card:hover,
