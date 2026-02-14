@@ -1,0 +1,42 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A071B" />
+      <stop offset="0.58" stop-color="#140C2D" />
+      <stop offset="1" stop-color="#090517" />
+    </linearGradient>
+    <radialGradient id="rose3" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(470 240) rotate(30) scale(560 280)">
+      <stop stop-color="#F9A8D4" stop-opacity="0.46" />
+      <stop offset="1" stop-color="#F9A8D4" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="blue3" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1210 612) rotate(-26) scale(620 320)">
+      <stop stop-color="#60A5FA" stop-opacity="0.4" />
+      <stop offset="1" stop-color="#60A5FA" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="silk1" x1="100" y1="508" x2="1500" y2="412" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C4B5FD" stop-opacity="0.04" />
+      <stop offset="0.34" stop-color="#F9A8D4" stop-opacity="0.8" />
+      <stop offset="0.68" stop-color="#A78BFA" stop-opacity="0.86" />
+      <stop offset="1" stop-color="#7DD3FC" stop-opacity="0.2" />
+    </linearGradient>
+    <linearGradient id="silk2" x1="130" y1="360" x2="1490" y2="556" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#67E8F9" stop-opacity="0.12" />
+      <stop offset="0.38" stop-color="#C4B5FD" stop-opacity="0.72" />
+      <stop offset="0.68" stop-color="#F9A8D4" stop-opacity="0.78" />
+      <stop offset="1" stop-color="#F9A8D4" stop-opacity="0.08" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg3)" />
+  <rect width="1600" height="900" fill="url(#rose3)" />
+  <rect width="1600" height="900" fill="url(#blue3)" />
+
+  <g opacity="0.24">
+    <path d="M96 700C266 594 432 594 610 648C786 700 944 724 1114 664C1268 610 1388 594 1512 622" stroke="#F9A8D4" stroke-opacity="0.44" stroke-width="1.4" />
+    <path d="M92 744C262 638 428 638 606 692C782 744 940 768 1110 708C1264 654 1384 638 1508 666" stroke="#A78BFA" stroke-opacity="0.42" stroke-width="1.4" />
+  </g>
+
+  <path d="M120 502C292 438 442 438 626 486C816 536 972 566 1146 530C1282 500 1400 444 1500 362" stroke="url(#silk1)" stroke-width="36" stroke-linecap="round" />
+  <path d="M142 360C316 456 498 502 682 478C860 456 1010 388 1174 378C1316 370 1416 414 1492 490" stroke="url(#silk2)" stroke-width="24" stroke-linecap="round" />
+  <path d="M176 458C346 420 504 428 670 472C836 516 984 546 1148 520C1278 500 1400 454 1496 392" stroke="#E9D5FF" stroke-opacity="0.44" stroke-width="10" stroke-linecap="round" />
+</svg>

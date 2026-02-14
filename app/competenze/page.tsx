@@ -7,9 +7,9 @@ import { competencePages } from "@/lib/seo-content";
 import { buildBreadcrumbSchema, buildItemListSchema, createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Competenze Estetiche Locali | Carmagnola e Dintorni",
+  title: "Competenze ed Editoriali Estetici Locali | Carmagnola e Dintorni",
   description:
-    "Approfondimenti Rebel sulle principali competenze estetiche a Carmagnola: estetica avanzata, trattamenti viso/corpo, laser e beauty routine professionale.",
+    "Approfondimenti e articoli editoriali Rebel sulle principali competenze estetiche a Carmagnola: estetica avanzata, trattamenti viso/corpo, laser e beauty routine professionale.",
   path: "/competenze",
   keywords: [
     "competenze centro estetico Carmagnola",
@@ -37,9 +37,9 @@ export default function CompetenzeHubPage() {
       <JsonLd data={breadcrumb} />
       <JsonLd data={competenceListSchema} />
       <PageHero
-        eyebrow="Guide utili"
+        eyebrow="Guide utili + editoriali"
         title="Competenze Rebel: spiegate in modo semplice, concreto e utile."
-        lead="Queste pagine ti aiutano a capire davvero come funzionano trattamenti, tecnologie e percorsi. Così puoi scegliere con calma e con le idee chiare."
+        lead="Qui trovi guide pratiche e articoli editoriali su servizi reali, con copy umano e fonti autorevoli. Così scegli con calma e con le idee chiare."
         badge="Informazioni pratiche prima di prenotare"
         tone="ocean"
       />

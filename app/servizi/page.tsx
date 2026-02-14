@@ -4,7 +4,7 @@ import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
 import { protocolCards } from "@/lib/content";
-import { servicePages } from "@/lib/seo-content";
+import { competencePages, servicePages } from "@/lib/seo-content";
 import { buildBreadcrumbSchema, buildItemListSchema, createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
@@ -32,6 +32,15 @@ export default function ServiziHubPage() {
     (service) => service.category === "estetica-classica",
   );
   const laser = servicePages.filter((service) => service.category === "laser");
+  const editorialSlugs = [
+    "epilazione-laser-viso-carmagnola-guida-realistica",
+    "epilazione-laser-corpo-carmagnola-zone-tempi",
+    "pulizia-viso-carmagnola-frequenza-benefici",
+    "linfodrenante-carmagnola-guida-pratica",
+  ];
+  const featuredEditorials = editorialSlugs
+    .map((slug) => competencePages.find((item) => item.slug === slug))
+    .filter((item): item is (typeof competencePages)[number] => Boolean(item));
   const featuredProtocols = protocolCards.slice(0, 6);
   const serviceListSchema = buildItemListSchema({
     name: "Servizi Rebel Carmagnola",
@@ -94,6 +103,7 @@ export default function ServiziHubPage() {
               <a className="services-hub-shortcut" href="#servizi-estetica">Estetica e benessere</a>
               <a className="services-hub-shortcut" href="#servizi-laser">Epilazione laser</a>
               <a className="services-hub-shortcut" href="#servizi-epigenetica">Estetica epigenetica</a>
+              <a className="services-hub-shortcut" href="#servizi-editoriali">Editoriali utili</a>
               <Link className="services-hub-shortcut" href="/contatti">Consulenza personalizzata</Link>
             </div>
           </aside>
@@ -207,6 +217,40 @@ export default function ServiziHubPage() {
             <Link className="button button-secondary" href="/contatti">
               Richiedi consulenza
             </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-light" id="servizi-editoriali">
+        <div className="container">
+          <p className="eyebrow" style={{ color: "rgba(39,31,56,0.68)" }}>
+            Spinta editoriale servizi top
+          </p>
+          <h2 className="page-title" style={{ marginTop: "0.55rem" }}>
+            Articoli naturali e concreti sui servizi più richiesti.
+          </h2>
+          <p className="lead" style={{ marginTop: "0.5rem", color: "rgba(39,31,56,0.78)", maxWidth: "72ch" }}>
+            Abbiamo creato guide stile blog, con fonti autorevoli e taglio umano, per
+            aiutarti a scegliere bene tra i percorsi principali del nostro listino.
+          </p>
+          <div className="grid grid-2" style={{ marginTop: "1rem" }}>
+            {featuredEditorials.map((item) => (
+              <Link key={item.slug} href={`/competenze/${item.slug}`} className="card-light">
+                <h3 style={{ marginTop: 0 }}>{item.title}</h3>
+                <p
+                  style={{
+                    margin: "0.35rem 0",
+                    fontFamily: "var(--font-inter), sans-serif",
+                    color: "rgba(39,31,56,0.78)",
+                  }}
+                >
+                  {item.shortDescription}
+                </p>
+                <small style={{ fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.64)" }}>
+                  Leggi l&apos;editoriale
+                </small>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

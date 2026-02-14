@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/json-ld";
@@ -84,6 +85,8 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
   const relatedServices = servicePages.filter((service) =>
     competence.relatedServiceSlugs.includes(service.slug),
   );
+  const editorialSections = competence.editorialSections ?? [];
+  const sourceLinks = competence.sourceLinks ?? [];
   const siblingCompetences = competencePages
     .filter((item) => item.slug !== competence.slug)
     .map((item) => ({
@@ -144,6 +147,54 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
         </div>
       </section>
 
+      {editorialSections.length > 0 && (
+        <section className="section">
+          <div className="container split">
+            <article className="card glow-card">
+              <p className="eyebrow">Editoriale Rebel</p>
+              <h2 style={{ marginTop: "0.45rem" }}>Analisi professionale, copy umano, verita utili</h2>
+              {editorialSections.map((section) => (
+                <div key={section.heading} style={{ marginTop: "0.95rem" }}>
+                  <h3 style={{ marginTop: 0 }}>{section.heading}</h3>
+                  {section.paragraphs.map((paragraph, index) => (
+                    <p key={`${section.heading}-${index}`} className="lead" style={{ marginTop: "0.45rem" }}>
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              ))}
+            </article>
+            <aside className="card">
+              {competence.heroImage ? (
+                <>
+                  <div className="editorial-cover">
+                    <Image
+                      src={competence.heroImage.src}
+                      alt={competence.heroImage.alt}
+                      width={1600}
+                      height={900}
+                      style={{ width: "100%", height: "auto" }}
+                    />
+                  </div>
+                  <p className="lead" style={{ marginTop: "0.8rem", marginBottom: 0 }}>
+                    Un visual artistico in stile Rebel per rendere il contenuto
+                    editoriale riconoscibile e coerente con il brand.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <h2 style={{ marginTop: 0 }}>Focus editoriale</h2>
+                  <p className="lead" style={{ marginTop: 0 }}>
+                    Articolo costruito con linguaggio naturale, orientamento pratico
+                    e criteri concreti da usare nella vita reale.
+                  </p>
+                </>
+              )}
+            </aside>
+          </div>
+        </section>
+      )}
+
       <section className="section">
         <div className="container grid grid-2">
           <article className="card glow-card">
@@ -175,6 +226,27 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
           </article>
         </div>
       </section>
+
+      {sourceLinks.length > 0 && (
+        <section className="section section-light">
+          <div className="container">
+            <h2 className="page-title">Fonti e riferimenti</h2>
+            <p className="lead" style={{ marginTop: "0.45rem", color: "rgba(39,31,56,0.78)" }}>
+              In questi editoriali usiamo fonti pubbliche autorevoli per mantenere
+              il contenuto utile, verificabile e senza promesse irreali.
+            </p>
+            <ul className="editorial-source-list">
+              {sourceLinks.map((source) => (
+                <li key={source.url}>
+                  <a href={source.url} target="_blank" rel="noreferrer">
+                    {source.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       <section className="section section-light">
         <div className="container">

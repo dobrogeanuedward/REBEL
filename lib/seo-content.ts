@@ -22,6 +22,18 @@ export type CompetencePage = {
   faqs: Array<{ q: string; a: string }>;
   keywords: string[];
   relatedServiceSlugs: string[];
+  heroImage?: {
+    src: string;
+    alt: string;
+  };
+  editorialSections?: Array<{
+    heading: string;
+    paragraphs: string[];
+  }>;
+  sourceLinks?: Array<{
+    label: string;
+    url: string;
+  }>;
 };
 
 export const servicePages: ServicePage[] = [
@@ -533,6 +545,312 @@ export const competencePages: CompetencePage[] = [
       "pulizia-viso-carmagnola",
       "laminazione-ciglia-sopracciglia-carmagnola",
       "manicure-semipermanente-carmagnola",
+    ],
+  },
+  {
+    slug: "epilazione-laser-viso-carmagnola-guida-realistica",
+    title: "Epilazione laser viso a Carmagnola: guida realistica prima di iniziare",
+    shortDescription:
+      "Una guida editoriale concreta su tempi, sedute, sicurezza e aspettative reali del laser viso.",
+    longDescription:
+      "Se stai valutando l'epilazione laser viso a Carmagnola, qui trovi una guida chiara: cosa aspettarti davvero, come prepararti e quali segnali cercare per scegliere un centro serio.",
+    localAngle:
+      "Pensata per chi confronta più centri estetici a Carmagnola e vuole decidere con consapevolezza.",
+    intent: "commercial",
+    benefits: [
+      "Ti aiuta a fissare aspettative realistiche già dalla prima consulenza",
+      "Riduce dubbi su sicurezza, tempi e frequenza delle sedute",
+      "Ti guida nella scelta del percorso più adatto al tuo viso",
+    ],
+    faqs: [
+      {
+        q: "L'epilazione laser viso è definitiva?",
+        a: "Parliamo di riduzione progressiva e prolungata della ricrescita: in molti casi servono anche richiami nel tempo.",
+      },
+      {
+        q: "Ogni quanto si fanno le sedute viso?",
+        a: "Di solito il calendario viene impostato in intervalli di alcune settimane e adattato in base alla risposta individuale.",
+      },
+    ],
+    keywords: [
+      "epilazione laser viso Carmagnola",
+      "laser baffetti Carmagnola",
+      "laser mento Carmagnola",
+      "epilazione viso donna Carmagnola",
+      "centro laser viso Carmagnola",
+    ],
+    relatedServiceSlugs: [
+      "epilazione-laser-viso-carmagnola",
+      "epilazione-laser-corpo-carmagnola",
+    ],
+    heroImage: {
+      src: "/editoriali/laser-viso-rebel.svg",
+      alt: "Artwork editoriale Rebel su linee di luce per epilazione laser viso",
+    },
+    editorialSections: [
+      {
+        heading: "La domanda giusta non è solo \"quanto costa\"",
+        paragraphs: [
+          "Quando una cliente arriva in studio e ci chiede il prezzo, la capiamo. È normale. Ma per il viso, la domanda più utile è: che percorso serve davvero alla mia pelle e al mio tipo di pelo?",
+          "Nel viso ogni dettaglio conta: fototipo, sensibilità cutanea, fase di crescita del pelo e abitudini quotidiane. Ecco perché un piano serio parte sempre da valutazione, test e parametri calibrati.",
+        ],
+      },
+      {
+        heading: "Aspettative reali: risultati progressivi, non magie",
+        paragraphs: [
+          "Le fonti cliniche più autorevoli spiegano che il laser riduce la ricrescita nel tempo, ma richiede più sedute e spesso mantenimento. È un percorso, non una promessa lampo.",
+          "Tradotto nella vita vera: se cerchi un risultato elegante e stabile, la costanza vince sempre sulla fretta. È qui che si vede la differenza tra protocollo improvvisato e metodo professionale.",
+        ],
+      },
+      {
+        heading: "Come riconoscere un centro affidabile a Carmagnola",
+        paragraphs: [
+          "Durante la consulenza chiedi sempre: chi imposta i parametri, come viene gestito il post-seduta, come si adatta il piano se la risposta della pelle cambia.",
+          "Un centro serio non promette l'impossibile: ti spiega benefici, limiti, rischi e tempi con linguaggio semplice. La trasparenza è già parte del risultato.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - Laser hair removal FAQs",
+        url: "https://www.aad.org/public/cosmetic/hair-removal/laser-hair-removal-faqs",
+      },
+      {
+        label: "Mayo Clinic - Laser hair removal",
+        url: "https://www.mayoclinic.org/tests-procedures/laser-hair-removal/about/pac-20394555",
+      },
+      {
+        label: "NHS - Choosing who will do your cosmetic procedure",
+        url: "https://www.nhs.uk/tests-and-treatments/cosmetic-procedures/advice/choosing-who-will-do-your-procedure/",
+      },
+    ],
+  },
+  {
+    slug: "epilazione-laser-corpo-carmagnola-zone-tempi",
+    title: "Epilazione laser corpo a Carmagnola: zone, tempi e piano sedute",
+    shortDescription:
+      "Editoriale pratico per capire come organizzare il laser corpo in modo sostenibile e coerente.",
+    longDescription:
+      "Una guida concreta per chi vuole iniziare il laser corpo a Carmagnola con una strategia chiara: zone prioritarie, stagionalità e gestione del percorso senza stress.",
+    localAngle:
+      "Ideale se arrivi da Carmagnola o comuni vicini e vuoi un programma realistico, non standard.",
+    intent: "commercial",
+    benefits: [
+      "Aiuta a pianificare bene zone e calendario",
+      "Riduce errori comuni prima e dopo la seduta",
+      "Migliora continuità e qualità del risultato nel tempo",
+    ],
+    faqs: [
+      {
+        q: "Si possono trattare più zone nello stesso periodo?",
+        a: "Sì, con priorità e timing corretti definiti in consulenza, in base a tollerabilità e obiettivo.",
+      },
+      {
+        q: "Estate e laser sono incompatibili?",
+        a: "Non in assoluto: serve una gestione attenta di esposizione e protezione solare, con linee guida precise.",
+      },
+    ],
+    keywords: [
+      "epilazione laser corpo Carmagnola",
+      "laser gambe Carmagnola",
+      "laser inguine Carmagnola",
+      "laser ascelle Carmagnola",
+      "epilazione laser tempi Carmagnola",
+    ],
+    relatedServiceSlugs: [
+      "epilazione-laser-corpo-carmagnola",
+      "epilazione-laser-viso-carmagnola",
+    ],
+    heroImage: {
+      src: "/editoriali/laser-corpo-rebel.svg",
+      alt: "Artwork editoriale Rebel con linee luminose dinamiche dedicate al laser corpo",
+    },
+    editorialSections: [
+      {
+        heading: "Da dove partire: non tutte le zone hanno la stessa priorità",
+        paragraphs: [
+          "Nella pratica quotidiana, partire da tutto insieme non è sempre la scelta migliore. Spesso conviene definire priorità: zone più visibili, più fastidiose o con peli incarniti frequenti.",
+          "Questo approccio riduce ansia, migliora aderenza al piano e permette di leggere meglio i risultati già nelle prime fasi.",
+        ],
+      },
+      {
+        heading: "Tempi e cicli: il laser lavora con la biologia del pelo",
+        paragraphs: [
+          "Le sedute non sono casuali: rispettano cicli di crescita diversi per area. Per questo i risultati migliori arrivano quando si segue il calendario senza salti continui.",
+          "Un piano serio resta flessibile: se la pelle reagisce in modo diverso, i parametri si aggiornano. Il metodo è vivo, non rigido.",
+        ],
+      },
+      {
+        heading: "Il valore di un protocollo umano e trasparente",
+        paragraphs: [
+          "Nel nostro modo di lavorare, il laser non è una macchina da accendere: è una relazione professionale fatta di ascolto, monitoraggio e micro-regolazioni.",
+          "Quando la cliente capisce cosa sta facendo e perché, il percorso diventa più semplice, più sostenibile e molto più efficace.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - Laser hair removal overview",
+        url: "https://www.aad.org/public/cosmetic/hair-removal/laser-hair-removal-overview",
+      },
+      {
+        label: "AAD - Laser hair removal preparation",
+        url: "https://www.aad.org/public/cosmetic/hair-removal/laser-hair-removal-preparation",
+      },
+      {
+        label: "Mayo Clinic - Laser hair removal",
+        url: "https://www.mayoclinic.org/tests-procedures/laser-hair-removal/about/pac-20394555",
+      },
+    ],
+  },
+  {
+    slug: "pulizia-viso-carmagnola-frequenza-benefici",
+    title: "Pulizia viso a Carmagnola: ogni quanto farla e per chi ha senso",
+    shortDescription:
+      "Articolo editoriale su frequenza, pelle sensibile, errori comuni e mantenimento reale dopo la pulizia viso.",
+    longDescription:
+      "Una guida naturale e concreta per capire quando la pulizia viso serve davvero, come integrarla nella routine e come evitare eccessi che irritano la pelle.",
+    localAngle:
+      "Scritta per chi cerca a Carmagnola un approccio viso professionale, delicato e progressivo.",
+    intent: "commercial",
+    benefits: [
+      "Aiuta a scegliere la frequenza giusta in base alla pelle reale",
+      "Migliora la qualità della routine tra una seduta e l'altra",
+      "Riduce i classici errori da sovra-trattamento",
+    ],
+    faqs: [
+      {
+        q: "Pulizia viso e pelle sensibile: si può fare?",
+        a: "Sì, con manovre e prodotti calibrati: l'obiettivo è riequilibrare, non stressare la barriera cutanea.",
+      },
+      {
+        q: "Più trattamenti ravvicinati danno risultati migliori?",
+        a: "Non sempre. Frequenza e intensità vanno adattate, perché l'eccesso può aumentare irritazione e instabilità.",
+      },
+    ],
+    keywords: [
+      "pulizia viso Carmagnola ogni quanto",
+      "pulizia viso pelle sensibile Carmagnola",
+      "trattamento viso professionale Carmagnola",
+      "estetista viso Carmagnola",
+    ],
+    relatedServiceSlugs: [
+      "pulizia-viso-carmagnola",
+      "laminazione-ciglia-sopracciglia-carmagnola",
+    ],
+    heroImage: {
+      src: "/editoriali/pulizia-viso-rebel.svg",
+      alt: "Artwork editoriale Rebel con onde luminose e texture delicate per tema pulizia viso",
+    },
+    editorialSections: [
+      {
+        heading: "Pulizia viso fatta bene: meno aggressività, più strategia",
+        paragraphs: [
+          "Molte persone arrivano convinte che \"più forte\" significhi \"più efficace\". In realtà, quando la pelle è già stressata, serve precisione: detersione, esfoliazione delicata, riequilibrio.",
+          "Una seduta ben costruita migliora comfort e luminosità senza lasciare la pelle in difesa per giorni.",
+        ],
+      },
+      {
+        heading: "Ogni quanto? Dipende dalla tua pelle, non dal calendario fisso",
+        paragraphs: [
+          "La frequenza ideale cambia in base a sebo, sensibilità, stagione, routine e obiettivo. Un protocollo professionale ragiona su questi fattori, non su automatismi.",
+          "Quando la pelle cambia, cambia anche il piano. Questo è il modo più serio per mantenere risultati stabili nel tempo.",
+        ],
+      },
+      {
+        heading: "Routine casa + cabina: il duo che fa la differenza",
+        paragraphs: [
+          "La cabina dà direzione, la routine casa consolida. Anche pochi passaggi fatti con costanza possono migliorare molto la resa del trattamento professionale.",
+          "Il nostro approccio resta semplice: leggere la pelle, scegliere priorità, e costruire un ritmo sostenibile nella vita vera.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - How to safely exfoliate at home",
+        url: "https://www.aad.org/public/everyday-care/skin-care-secrets/routine/safely-exfoliate-at-home",
+      },
+      {
+        label: "AAD - Face washing 101",
+        url: "https://www.aad.org/public/everyday-care/skin-care-basics/care/face-washing-101",
+      },
+      {
+        label: "AAD - Basic skin care",
+        url: "https://www.aad.org/public/everyday-care/skin-care-basics/care",
+      },
+    ],
+  },
+  {
+    slug: "linfodrenante-carmagnola-guida-pratica",
+    title: "Linfodrenante a Carmagnola: quando è utile e come impostare il percorso",
+    shortDescription:
+      "Guida editoriale sul massaggio linfodrenante: benefici percepiti, limiti e criteri per un piano fatto bene.",
+    longDescription:
+      "Un articolo pratico e onesto per capire quando il linfodrenante può aiutarti davvero, quali aspettative avere e come inserirlo in un percorso corpo realistico.",
+    localAngle:
+      "Dedicata a chi cerca a Carmagnola un trattamento drenante serio e personalizzato.",
+    intent: "commercial",
+    benefits: [
+      "Distingue benefici realistici da aspettative gonfiate",
+      "Aiuta a capire quando inserirlo in un percorso corpo",
+      "Migliora la qualità della scelta prima di prenotare",
+    ],
+    faqs: [
+      {
+        q: "Il linfodrenante risolve tutto da solo?",
+        a: "No, funziona meglio come parte di un piano più ampio con abitudini coerenti e monitoraggio nel tempo.",
+      },
+      {
+        q: "Quante sedute servono?",
+        a: "Dipende da situazione e obiettivo: la progressione si valuta seduta dopo seduta, con adattamenti reali.",
+      },
+    ],
+    keywords: [
+      "linfodrenante Carmagnola",
+      "massaggio drenante Carmagnola",
+      "gambe pesanti Carmagnola trattamento",
+      "drenaggio corpo Carmagnola",
+    ],
+    relatedServiceSlugs: [
+      "massaggio-linfodrenante-carmagnola",
+      "scrub-corpo-carmagnola",
+    ],
+    heroImage: {
+      src: "/editoriali/linfodrenante-rebel.svg",
+      alt: "Artwork editoriale Rebel con linee fluide e glow morbido dedicato al drenaggio corpo",
+    },
+    editorialSections: [
+      {
+        heading: "Partiamo da una verità semplice: il drenaggio non è una bacchetta magica",
+        paragraphs: [
+          "Il linfodrenante può dare una sensazione di leggerezza concreta e aiutare nella gestione del gonfiore, ma non sostituisce tutto il resto.",
+          "Quando viene inserito in un piano realistico, con tempi adeguati e monitoraggio, diventa molto più utile e sostenibile.",
+        ],
+      },
+      {
+        heading: "A chi può servire di più",
+        paragraphs: [
+          "In studio lo consigliamo soprattutto quando c'è sensazione di pesantezza, ritenzione o periodi in cui il corpo fatica a \"sbloccarsi\".",
+          "Il punto non è fare più sedute possibili, ma fare le sedute giuste, nella fase giusta.",
+        ],
+      },
+      {
+        heading: "Approccio professionale: ascolto, adattamento, continuità",
+        paragraphs: [
+          "Un percorso drenante efficace nasce da osservazione e adattamento: non tutte le settimane sono uguali e non tutte le persone rispondono allo stesso modo.",
+          "La qualità del risultato dipende da quanto il piano resta umano: chiaro da capire, realistico da seguire.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "Cleveland Clinic - Lymphatic Drainage Massage",
+        url: "https://my.clevelandclinic.org/health/treatments/21768-lymphatic-drainage-massage",
+      },
+      {
+        label: "NHS - Choosing who will do your cosmetic procedure",
+        url: "https://www.nhs.uk/tests-and-treatments/cosmetic-procedures/advice/choosing-who-will-do-your-procedure/",
+      },
     ],
   },
 ];
