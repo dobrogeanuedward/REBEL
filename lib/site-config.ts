@@ -18,7 +18,7 @@ export const siteConfig = {
   },
   phoneDisplay: "+39 351 691 9416",
   phoneRaw: "+393516919416",
-  email: "info@rebelepigenetica.it",
+  email: "inforebel33@gmail.com",
   address: {
     streetAddress: "Viale Barbaroux 20",
     locality: "Carmagnola",
