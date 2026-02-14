@@ -256,6 +256,13 @@ export default function ContattiPage() {
             <Link href="/listino-estetica-laser" className="button button-primary">
               Vedi listino completo
             </Link>
+            <Link
+              href="/epilazione-laser-carmagnola"
+              className="button button-secondary"
+              style={{ marginLeft: "0.6rem" }}
+            >
+              Epilazione laser Carmagnola
+            </Link>
           </div>
         </div>
       </section>

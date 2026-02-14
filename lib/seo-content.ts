@@ -327,9 +327,9 @@ export const competencePages: CompetencePage[] = [
   },
   {
     slug: "epilazione-laser-carmagnola",
-    title: "Epilazione laser a Carmagnola",
+    title: "Epilazione laser a Carmagnola: guida pratica",
     shortDescription:
-      "Guida chiara su sedute, tempi e risultati del laser.",
+      "Guida chiara su sedute, tempi e aspettative realistiche del laser.",
     longDescription:
       "Qui trovi spiegato bene come funziona il laser da Rebel: prima valutazione, poi impostazioni su misura e calendario sedute realistico.",
     localAngle:

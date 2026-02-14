@@ -93,6 +93,12 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
+                <Link href="/epilazione-laser-carmagnola">
+                  <span className="footer-link-bullet" aria-hidden="true">✦</span>
+                  <span>Epilazione Laser Carmagnola</span>
+                </Link>
+              </li>
+              <li>
                 <Link href="/servizi">
                   <span className="footer-link-bullet" aria-hidden="true">✦</span>
                   <span>Servizi</span>

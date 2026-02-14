@@ -76,6 +76,11 @@ export default function CompetenzeHubPage() {
               <li>- se vuoi, scrivici e ti orientiamo noi</li>
               <li>- prenota solo quando hai chiaro il percorso</li>
             </ul>
+            <div style={{ marginTop: "0.9rem", display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
+              <Link className="button button-secondary" href="/epilazione-laser-carmagnola">
+                Epilazione laser Carmagnola
+              </Link>
+            </div>
           </aside>
         </div>
       </section>

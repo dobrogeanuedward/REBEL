@@ -74,6 +74,10 @@ export default function ListinoPage() {
               <span aria-hidden="true">◉</span>
               Epilazione Laser
             </a>
+            <Link className="listino-switch-btn" href="/epilazione-laser-carmagnola">
+              <span aria-hidden="true">↗</span>
+              Epilazione Laser Carmagnola
+            </Link>
             <a className="listino-switch-btn" href="#estetica-epigenetica">
               <span aria-hidden="true">⬡</span>
               Estetica Epigenetica
@@ -155,6 +159,9 @@ export default function ListinoPage() {
           <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
             <Link className="button button-primary" href="/contatti">
               Prenota valutazione laser
+            </Link>
+            <Link className="button button-secondary" href="/epilazione-laser-carmagnola">
+              Approfondisci laser Carmagnola
             </Link>
             <Link className="button" href="#estetica-epigenetica">
               Vai a estetica epigenetica

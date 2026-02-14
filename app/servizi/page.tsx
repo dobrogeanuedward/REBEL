@@ -90,6 +90,7 @@ export default function ServiziHubPage() {
               <li>- poi fissiamo insieme il tuo piano in studio</li>
             </ul>
             <div className="services-hub-shortcuts">
+              <Link className="services-hub-shortcut" href="/epilazione-laser-carmagnola">Epilazione laser Carmagnola</Link>
               <a className="services-hub-shortcut" href="#servizi-estetica">Estetica e benessere</a>
               <a className="services-hub-shortcut" href="#servizi-laser">Epilazione laser</a>
               <a className="services-hub-shortcut" href="#servizi-epigenetica">Estetica epigenetica</a>
@@ -197,6 +198,9 @@ export default function ServiziHubPage() {
             ))}
           </div>
           <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
+            <Link className="button button-secondary" href="/epilazione-laser-carmagnola">
+              Landing laser Carmagnola
+            </Link>
             <Link className="button button-primary" href="/protocolli-epigenetici">
               Vedi tutti i protocolli
             </Link>

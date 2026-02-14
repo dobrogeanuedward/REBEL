@@ -61,6 +61,7 @@ export default function HomePage() {
       subtitle: "Tutti i trattamenti disponibili con prezzi e percorsi dedicati.",
       tone: "aqua",
       links: [
+        { href: "/epilazione-laser-carmagnola", label: "Epilazione laser Carmagnola" },
         { href: "/listino-estetica-laser", label: "Listino Estetica + Laser" },
         { href: "/servizi", label: "Panoramica servizi" },
       ],
@@ -138,6 +139,7 @@ export default function HomePage() {
     items: [
       { name: "Chi siamo", path: "/chi-siamo" },
       { name: "Metodo Rebel", path: "/metodo-rebel" },
+      { name: "Epilazione laser Carmagnola", path: "/epilazione-laser-carmagnola" },
       { name: "Listino Estetica + Laser", path: "/listino-estetica-laser" },
       { name: "Servizi", path: "/servizi" },
       { name: "Competenze", path: "/competenze" },
@@ -207,6 +209,9 @@ export default function HomePage() {
               </Link>
               <Link className="button button-secondary" href="/listino-estetica-laser">
                 Vedi trattamenti e prezzi
+              </Link>
+              <Link className="button button-secondary" href="/epilazione-laser-carmagnola">
+                Epilazione laser Carmagnola
               </Link>
             </div>
             <p className="home-hero-footnote">
