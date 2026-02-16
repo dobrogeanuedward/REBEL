@@ -84,6 +84,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
   const relatedCompetences = competencePages.filter((competence) =>
     service.relatedCompetenceSlugs.includes(competence.slug),
   );
+  const editorialSections = service.editorialSections ?? [];
+  const sourceLinks = service.sourceLinks ?? [];
   const siblingServices = servicePages
     .filter((item) => item.slug !== service.slug && item.category === service.category)
     .map((item) => ({
@@ -155,9 +157,9 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       <section className="section">
         <div className="container grid grid-2">
           <article className="card glow-card">
-            <h2 style={{ marginTop: 0 }}>Per chi e indicato</h2>
+            <h2 style={{ marginTop: 0 }}>Per chi è indicato</h2>
             <p className="lead" style={{ marginTop: 0 }}>
-              {service.name} e ideale se vuoi un trattamento concreto, con passaggi
+              {service.name} è ideale se vuoi un trattamento concreto, con passaggi
               chiari e obiettivi concreti. In studio valutiamo sempre il tuo
               punto di partenza prima di suggerire frequenza e combinazioni.
             </p>
@@ -182,6 +184,63 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           </article>
         </div>
       </section>
+
+      {editorialSections.length > 0 && (
+        <section className="section">
+          <div className="container split">
+            <article className="card glow-card">
+              <p className="eyebrow">Approfondimento</p>
+              <h2 style={{ marginTop: "0.45rem" }}>Dettagli utili, spiegati bene</h2>
+              {editorialSections.map((section) => (
+                <div key={section.heading} style={{ marginTop: "0.95rem" }}>
+                  <h3 style={{ marginTop: 0 }}>{section.heading}</h3>
+                  {section.paragraphs.map((paragraph, index) => (
+                    <p key={`${section.heading}-${index}`} className="lead" style={{ marginTop: "0.45rem" }}>
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              ))}
+            </article>
+            <aside className="card">
+              <h2 style={{ marginTop: 0 }}>Vuoi iniziare con calma?</h2>
+              <p className="lead" style={{ marginTop: 0 }}>
+                Se hai dubbi o vuoi capire se questo servizio è adatto a te, puoi scriverci e
+                ti orientiamo in modo semplice. Preferiamo una scelta chiara a una scelta di fretta.
+              </p>
+              <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
+                <Link className="button button-primary" href="/contatti">
+                  Contatti
+                </Link>
+                <Link className="button button-secondary" href="/listino-estetica-laser">
+                  Vedi listino
+                </Link>
+              </div>
+            </aside>
+          </div>
+        </section>
+      )}
+
+      {sourceLinks.length > 0 && (
+        <section className="section section-light">
+          <div className="container">
+            <h2 className="page-title">Fonti e riferimenti</h2>
+            <p className="lead" style={{ marginTop: "0.45rem", color: "rgba(39,31,56,0.78)" }}>
+              Quando ha senso, usiamo fonti pubbliche autorevoli per mantenere il contenuto
+              utile, chiaro e senza promesse.
+            </p>
+            <ul className="editorial-source-list">
+              {sourceLinks.map((source) => (
+                <li key={source.url}>
+                  <a href={source.url} target="_blank" rel="noreferrer">
+                    {source.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       <section className="section section-light">
         <div className="container">

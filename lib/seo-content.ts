@@ -9,6 +9,14 @@ export type ServicePage = {
   faqs: Array<{ q: string; a: string }>;
   keywords: string[];
   relatedCompetenceSlugs: string[];
+  editorialSections?: Array<{
+    heading: string;
+    paragraphs: string[];
+  }>;
+  sourceLinks?: Array<{
+    label: string;
+    url: string;
+  }>;
 };
 
 export type CompetencePage = {
@@ -43,22 +51,26 @@ export const servicePages: ServicePage[] = [
     shortDescription:
       "Pulizia viso completa per pelle impura, spenta o appesantita.",
     longDescription:
-      "Iniziamo guardando bene la tua pelle, poi facciamo detersione profonda, esfoliazione delicata e fase riequilibrante. Il risultato è una pelle più pulita, luminosa e confortevole.",
+      "Una pulizia viso fatta bene parte dall'osservazione della pelle e lavora per step: detersione, esfoliazione delicata, pulizia mirata e fase lenitiva. L'obiettivo non è stressare, ma lasciare la pelle più pulita, luminosa e comoda nei giorni successivi.",
     priceHint: "da EUR 49",
     category: "estetica-classica",
     benefits: [
-      "Riduce impurità e ispessimenti",
-      "Migliora grana e luminosità della pelle",
-      "Prepara il viso a percorsi avanzati",
+      "Pelle più pulita e uniforme, senza eccessi",
+      "Migliora la grana e la luminosità quando la pelle è spenta",
+      "Riduce la sensazione di pelle \"appesantita\" e poco confortevole",
     ],
     faqs: [
       {
         q: "Ogni quanto conviene fare una pulizia viso?",
-        a: "Di solito ogni 4-6 settimane, ma lo decidiamo in base alla tua pelle e alla tua routine.",
+        a: "Spesso tra 4 e 6 settimane, ma la frequenza giusta dipende da pelle, stagione e routine a casa. Dopo la prima seduta ti diciamo un ritmo semplice da seguire.",
       },
       {
-        q: "E indicata anche per pelli sensibili?",
-        a: "Sì, con manovre e prodotti adattati al tuo profilo cutaneo.",
+        q: "Dopo la pulizia viso avrò rossore?",
+        a: "Può succedere un lieve rossore, soprattutto se la pelle è reattiva. Lavoriamo in modo graduale e chiudiamo sempre con una fase lenitiva per lasciare la pelle il più tranquilla possibile.",
+      },
+      {
+        q: "Cosa conviene fare (e non fare) dopo la seduta?",
+        a: "Ti diamo indicazioni semplici: detersione delicata, idratazione e protezione solare. In generale evitiamo di sovraccaricare la pelle con troppi attivi aggressivi nei giorni immediatamente successivi.",
       },
     ],
     keywords: [
@@ -67,8 +79,47 @@ export const servicePages: ServicePage[] = [
       "estetista viso Carmagnola",
     ],
     relatedCompetenceSlugs: [
+      "pulizia-viso-carmagnola-frequenza-benefici",
       "trattamenti-viso-carmagnola",
       "estetica-avanzata-carmagnola",
+      "beauty-routine-carmagnola",
+    ],
+    editorialSections: [
+      {
+        heading: "Pulizia viso: cosa facciamo davvero (senza aggressività)",
+        paragraphs: [
+          "Molte persone arrivano pensando che una pulizia viso \"efficace\" debba essere forte. In realtà, quando la pelle è stressata, l'aggressività non aiuta: aumenta rossori, sensibilità e instabilità.",
+          "Da Rebel costruiamo la seduta per step: osservazione iniziale, detersione accurata, esfoliazione delicata e pulizia mirata dove serve. Poi chiudiamo con una fase lenitiva e riequilibrante, così la pelle resta più comoda anche nei giorni successivi.",
+        ],
+      },
+      {
+        heading: "Quando ha senso farla (e quando è meglio cambiare strategia)",
+        paragraphs: [
+          "Ha senso quando senti la pelle spessa, opaca, piena di micro-impurità o semplicemente \"fuori equilibrio\". Spesso è anche un ottimo punto di partenza se vuoi poi impostare un percorso viso più avanzato.",
+          "Se invece la pelle è molto reattiva o in un periodo delicato, la strategia cambia: possiamo rendere la seduta più soft, oppure lavorare prima su barriera e comfort. L'obiettivo non è fare tutto oggi, ma fare la cosa giusta.",
+        ],
+      },
+      {
+        heading: "Frequenza e mantenimento: la parte che fa durare il risultato",
+        paragraphs: [
+          "La seduta in studio dà direzione, ma il mantenimento fa durare. Non servono dieci prodotti: servono pochi passaggi coerenti (detersione, idratazione, protezione).",
+          "Dopo la prima pulizia viso ti proponiamo un ritmo semplice e sostenibile: così non rincorri la pelle, la accompagni.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - Face washing 101",
+        url: "https://www.aad.org/public/everyday-care/skin-care-basics/care/face-washing-101",
+      },
+      {
+        label: "AAD - How to safely exfoliate at home",
+        url: "https://www.aad.org/public/everyday-care/skin-care-secrets/routine/safely-exfoliate-at-home",
+      },
+      {
+        label: "AAD - Basic skin care",
+        url: "https://www.aad.org/public/everyday-care/skin-care-basics/care",
+      },
     ],
   },
   {
