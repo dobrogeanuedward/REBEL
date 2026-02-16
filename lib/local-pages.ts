@@ -184,20 +184,86 @@ export const localAreaPages: LocalAreaPage[] = [
     slug: "racconigi",
     city: "Racconigi",
     cluster: "asse-carmagnola",
-    title: "Centro estetico per chi arriva da Racconigi",
+    title: "Da Racconigi a Rebel Carmagnola: laser seguito, con comfort e metodo",
     description:
-      "Da Racconigi a Carmagnola: Rebel propone trattamenti viso/corpo ed epilazione laser con metodo personalizzato.",
+      "Se vivi a Racconigi e vuoi iniziare il laser in modo serio, Rebel a Carmagnola ti segue con percorso chiaro e comfort grazie a Ice Polar.",
     intro:
-      "Se arrivi da Racconigi e vuoi essere seguita bene, con tempi e obiettivi chiari, qui sei nel posto giusto.",
+      "Da Racconigi arrivano spesso clienti stanche di improvvisare: vogliono un calendario sensato, qualcuno che spieghi bene cosa sta facendo e un trattamento confortevole.",
     whyRebel: [
-      "Percorsi modulabili in base al tempo che hai",
-      "Prezzi chiari e spiegazioni semplici",
-      "Supporto costante tra una seduta e l'altra",
+      "Valutazione iniziale e settaggio su misura (zona, pelle, obiettivo)",
+      "Percorso seguito seduta dopo seduta, con micro-aggiustamenti quando serve",
+      "Manipolo Ice Polar per migliorare il comfort durante il laser",
+    ],
+    directions: {
+      heading: "Come arrivare da Racconigi a Rebel (Carmagnola)",
+      mapsUrl:
+        "https://www.google.com/maps/dir/?api=1&origin=Racconigi&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
+      embedUrl:
+        "https://www.google.com/maps?f=d&source=s_d&saddr=Racconigi&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
+      paragraphs: [
+        "Se arrivi da Racconigi, ti consigliamo di aprire la mappa e seguire il percorso aggiornato in tempo reale. La destinazione e Viale Barbaroux 20, Carmagnola.",
+        "Se preferisci organizzarti con anticipo (soprattutto nelle settimane piu piene), scrivici su WhatsApp: ti aiutiamo a capire da dove partire e come distribuire le sedute in modo comodo.",
+      ],
+    },
+    focus: {
+      heading: "Da Racconigi: laser e peli incarniti, come lo impostiamo in modo intelligente",
+      paragraphs: [
+        "Una delle richieste piu frequenti di chi arriva da Racconigi e legata ai peli incarniti: non e solo un tema estetico, e anche una questione di comfort quotidiano (soprattutto su inguine, ascelle e gambe).",
+        "Quando impostiamo un percorso laser fatto bene, ragioniamo per zone e per risposta della pelle. Questo vuol dire due cose pratiche: calendario coerente e parametri adattati nel tempo. Il laser non e un pulsante \"on/off\": e un lavoro di precisione.",
+        "Ice Polar ci aiuta a rendere la seduta piu confortevole, ma la parte decisiva resta l'organizzazione: scegliamo priorita realistiche (una zona alla volta oppure piu zone, se ha senso) e ti diamo indicazioni chiare tra una seduta e l'altra.",
+      ],
+      links: [
+        {
+          label: "Laser a Carmagnola",
+          href: "/epilazione-laser-carmagnola",
+          description: "Da dove si parte e come lavoriamo in studio, spiegato bene.",
+        },
+        {
+          label: "Epilazione laser corpo",
+          href: "/servizi/epilazione-laser-corpo-carmagnola",
+          description: "Zone corpo, organizzazione del ciclo e domande frequenti.",
+        },
+        {
+          label: "Epilazione laser viso",
+          href: "/servizi/epilazione-laser-viso-carmagnola",
+          description: "Per le zone piu delicate: attenzione alla pelle e indicazioni pratiche.",
+        },
+        {
+          label: "Laser diodo: differenze e criteri di scelta",
+          href: "/competenze/laser-diodo-carmagnola",
+          description: "Per orientarti tra tecnologie e impostazioni, senza confusione.",
+        },
+        {
+          label: "Listino completo",
+          href: "/listino-estetica-laser",
+          description: "Prezzi chiari e panoramica dei servizi disponibili in studio.",
+        },
+        {
+          label: "Contatti",
+          href: "/contatti",
+          description: "Per prenotare o farti guidare nella scelta delle prime zone.",
+        },
+      ],
+    },
+    faqs: [
+      {
+        q: "Da Racconigi: posso partire dal laser anche se ho peli incarniti?",
+        a: "Sì, ed e uno dei motivi per cui molte persone iniziano. Serve valutare zona e pelle, poi impostare il percorso con calendario e indicazioni chiare tra le sedute.",
+      },
+      {
+        q: "Ice Polar rende il laser indolore?",
+        a: "Aiuta molto il comfort, ma la percezione cambia in base a zona e sensibilita. Noi regoliamo sempre in modo graduale e sensato.",
+      },
+      {
+        q: "Meglio trattare tante zone insieme o una alla volta?",
+        a: "Dipende da priorita, tempo e tollerabilita. In consulenza scegliamo la strategia piu sostenibile: cosi il percorso resta facile da seguire.",
+      },
     ],
     keywords: [
       "centro estetico Racconigi",
-      "trattamenti viso Racconigi",
       "epilazione laser Racconigi",
+      "laser Racconigi",
+      "laser diodo Racconigi",
     ],
   },
   {
