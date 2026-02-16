@@ -47,13 +47,13 @@ export const localAreaPages: LocalAreaPage[] = [
       embedUrl: "https://www.google.com/maps?q=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
         "Rebel si trova a Carmagnola, in Viale Barbaroux 20. Se vuoi arrivare senza perdere tempo, apri la mappa: ti porta direttamente all'indirizzo.",
-        "Se stai scegliendo da dove partire, il consiglio piu semplice e questo: raccontaci obiettivo e tempi (anche pochi), e ti proponiamo un percorso che abbia senso per te.",
+        "Se stai scegliendo da dove partire, il consiglio più semplice è questo: raccontaci obiettivo e tempi (anche pochi), e ti proponiamo un percorso che abbia senso per te.",
       ],
     },
     focus: {
       heading: "Se sei a Carmagnola: trattamenti viso fatti bene, senza confusione",
       paragraphs: [
-        "Molte persone iniziano dai trattamenti viso quando vogliono rivedere luminosita, grana della pelle e sensazione di comfort. La differenza, per noi, non e fare \"il trattamento del momento\": e scegliere la cosa giusta in base a pelle, stagione e abitudini.",
+        "Molte persone iniziano dai trattamenti viso quando vogliono rivedere luminosità, grana della pelle e sensazione di comfort. La differenza, per noi, non è fare \"il trattamento del momento\": è scegliere la cosa giusta in base a pelle, stagione e abitudini.",
         "Per questo partiamo sempre da una lettura iniziale: capiamo che tipo di pelle hai oggi, cosa vuoi ottenere e in che tempi. Poi costruiamo una progressione semplice da seguire, tra sedute in studio e mantenimento a casa.",
       ],
       links: [
@@ -106,7 +106,7 @@ export const localAreaPages: LocalAreaPage[] = [
     cluster: "asse-carmagnola",
     title: "Da Carignano a Rebel Carmagnola: laser con metodo e comfort",
     description:
-      "Se vivi a Carignano e vuoi iniziare il laser con serenita, Rebel a Carmagnola ti segue con un percorso chiaro e comfort grazie a Ice Polar.",
+      "Se vivi a Carignano e vuoi iniziare il laser con serenità, Rebel a Carmagnola ti segue con un percorso chiaro e comfort grazie a Ice Polar.",
     intro:
       "Da Carignano arrivano clienti che vogliono una cosa semplice: fare il laser bene, senza improvvisare e senza cambiare idea ogni mese.",
     whyRebel: [
@@ -121,16 +121,16 @@ export const localAreaPages: LocalAreaPage[] = [
       embedUrl:
         "https://www.google.com/maps?f=d&source=s_d&saddr=Carignano&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
-        "Per arrivare da Carignano, il modo piu semplice e aprire la mappa e seguire il percorso aggiornato in tempo reale. La destinazione e Viale Barbaroux 20, Carmagnola.",
+        "Per arrivare da Carignano, il modo più semplice è aprire la mappa e seguire il percorso aggiornato in tempo reale. La destinazione è Viale Barbaroux 20, Carmagnola.",
         "Se vuoi organizzarti bene con gli orari, scrivici su WhatsApp: ti aiutiamo a capire da dove partire e come impostare le prime sedute in modo comodo.",
       ],
     },
     focus: {
       heading: "Da Carignano: cosa fa davvero la differenza nel laser (oltre alla tecnologia)",
       paragraphs: [
-        "La parte piu sottovalutata del laser non e il \"nome\" della macchina: e come viene impostato il percorso. Parametri, zona, risposta della pelle e calendario devono essere coerenti tra loro, altrimenti si accumulano solo dubbi.",
-        "In Rebel usiamo anche Ice Polar per lavorare con piu comfort, ma soprattutto ti spieghiamo cosa stiamo facendo e perche: cosi sai sempre a che punto sei, cosa aspettarti e come prenderti cura della pelle tra una seduta e l'altra.",
-        "Se vieni da Carignano e hai poco tempo, si puo comunque costruire un piano sostenibile: poche cose fatte bene, con priorita chiare (ad esempio una zona alla volta, oppure piu zone con una gestione sensata).",
+        "La parte più sottovalutata del laser non è il \"nome\" della macchina: è come viene impostato il percorso. Parametri, zona, risposta della pelle e calendario devono essere coerenti tra loro, altrimenti si accumulano solo dubbi.",
+        "In Rebel usiamo anche Ice Polar per lavorare con più comfort, ma soprattutto ti spieghiamo cosa stiamo facendo e perché: così sai sempre a che punto sei, cosa aspettarti e come prenderti cura della pelle tra una seduta e l'altra.",
+        "Se vieni da Carignano e hai poco tempo, si può comunque costruire un piano sostenibile: poche cose fatte bene, con priorità chiare (ad esempio una zona alla volta, oppure più zone con una gestione sensata).",
       ],
       links: [
         {
@@ -163,15 +163,15 @@ export const localAreaPages: LocalAreaPage[] = [
     faqs: [
       {
         q: "Da Carignano: il laser si sente tanto?",
-        a: "Dipende da zona e sensibilita personale. Ice Polar aiuta il comfort e noi impostiamo sempre in modo graduale, senza forzare.",
+        a: "Dipende da zona e sensibilità personale. Ice Polar aiuta il comfort e noi impostiamo sempre in modo graduale, senza forzare.",
       },
       {
         q: "Posso iniziare anche se ho una routine incasinata?",
         a: "Sì. Pianifichiamo un calendario che riesci a seguire davvero: meglio costanza e chiarezza che corse e stress.",
       },
       {
-        q: "Meglio partire da una zona o farne piu di una?",
-        a: "Si decide insieme in base a priorita, tempo e tollerabilita. L'obiettivo e un percorso semplice da portare avanti.",
+        q: "Meglio partire da una zona o farne più di una?",
+        a: "Si decide insieme in base a priorità, tempo e tollerabilità. L'obiettivo è un percorso semplice da portare avanti.",
       },
     ],
     keywords: [
@@ -201,16 +201,16 @@ export const localAreaPages: LocalAreaPage[] = [
       embedUrl:
         "https://www.google.com/maps?f=d&source=s_d&saddr=Racconigi&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
-        "Se arrivi da Racconigi, ti consigliamo di aprire la mappa e seguire il percorso aggiornato in tempo reale. La destinazione e Viale Barbaroux 20, Carmagnola.",
-        "Se preferisci organizzarti con anticipo (soprattutto nelle settimane piu piene), scrivici su WhatsApp: ti aiutiamo a capire da dove partire e come distribuire le sedute in modo comodo.",
+        "Se arrivi da Racconigi, ti consigliamo di aprire la mappa e seguire il percorso aggiornato in tempo reale. La destinazione è Viale Barbaroux 20, Carmagnola.",
+        "Se preferisci organizzarti con anticipo (soprattutto nelle settimane più piene), scrivici su WhatsApp: ti aiutiamo a capire da dove partire e come distribuire le sedute in modo comodo.",
       ],
     },
     focus: {
       heading: "Da Racconigi: laser e peli incarniti, come lo impostiamo in modo intelligente",
       paragraphs: [
-        "Una delle richieste piu frequenti di chi arriva da Racconigi e legata ai peli incarniti: non e solo un tema estetico, e anche una questione di comfort quotidiano (soprattutto su inguine, ascelle e gambe).",
-        "Quando impostiamo un percorso laser fatto bene, ragioniamo per zone e per risposta della pelle. Questo vuol dire due cose pratiche: calendario coerente e parametri adattati nel tempo. Il laser non e un pulsante \"on/off\": e un lavoro di precisione.",
-        "Ice Polar ci aiuta a rendere la seduta piu confortevole, ma la parte decisiva resta l'organizzazione: scegliamo priorita realistiche (una zona alla volta oppure piu zone, se ha senso) e ti diamo indicazioni chiare tra una seduta e l'altra.",
+        "Una delle richieste più frequenti di chi arriva da Racconigi è legata ai peli incarniti: non è solo un tema estetico, è anche una questione di comfort quotidiano (soprattutto su inguine, ascelle e gambe).",
+        "Quando impostiamo un percorso laser fatto bene, ragioniamo per zone e per risposta della pelle. Questo vuol dire due cose pratiche: calendario coerente e parametri adattati nel tempo. Il laser non è un pulsante \"on/off\": è un lavoro di precisione.",
+        "Ice Polar ci aiuta a rendere la seduta più confortevole, ma la parte decisiva resta l'organizzazione: scegliamo priorità realistiche (una zona alla volta oppure più zone, se ha senso) e ti diamo indicazioni chiare tra una seduta e l'altra.",
       ],
       links: [
         {
@@ -226,7 +226,7 @@ export const localAreaPages: LocalAreaPage[] = [
         {
           label: "Epilazione laser viso",
           href: "/servizi/epilazione-laser-viso-carmagnola",
-          description: "Per le zone piu delicate: attenzione alla pelle e indicazioni pratiche.",
+          description: "Per le zone più delicate: attenzione alla pelle e indicazioni pratiche.",
         },
         {
           label: "Laser diodo: differenze e criteri di scelta",
@@ -248,15 +248,15 @@ export const localAreaPages: LocalAreaPage[] = [
     faqs: [
       {
         q: "Da Racconigi: posso partire dal laser anche se ho peli incarniti?",
-        a: "Sì, ed e uno dei motivi per cui molte persone iniziano. Serve valutare zona e pelle, poi impostare il percorso con calendario e indicazioni chiare tra le sedute.",
+        a: "Sì, ed è uno dei motivi per cui molte persone iniziano. Serve valutare zona e pelle, poi impostare il percorso con calendario e indicazioni chiare tra le sedute.",
       },
       {
         q: "Ice Polar rende il laser indolore?",
-        a: "Aiuta molto il comfort, ma la percezione cambia in base a zona e sensibilita. Noi regoliamo sempre in modo graduale e sensato.",
+        a: "Aiuta molto il comfort, ma la percezione cambia in base a zona e sensibilità. Noi regoliamo sempre in modo graduale e sensato.",
       },
       {
         q: "Meglio trattare tante zone insieme o una alla volta?",
-        a: "Dipende da priorita, tempo e tollerabilita. In consulenza scegliamo la strategia piu sostenibile: cosi il percorso resta facile da seguire.",
+        a: "Dipende da priorità, tempo e tollerabilità. In consulenza scegliamo la strategia più sostenibile: così il percorso resta facile da seguire.",
       },
     ],
     keywords: [
@@ -319,7 +319,7 @@ export const localAreaPages: LocalAreaPage[] = [
       "Distanza comoda da Villastellone",
       "Competenza e settaggio su misura in base a pelle, zona e obiettivo",
       "Percorso chiaro, con calendario e controlli durante il ciclo",
-      "Manipolo Ice Polar per un'esperienza piu confortevole",
+      "Manipolo Ice Polar per un'esperienza più confortevole",
     ],
     directions: {
       heading: "Come arrivare da Villastellone a Rebel (Carmagnola)",
@@ -328,16 +328,16 @@ export const localAreaPages: LocalAreaPage[] = [
       embedUrl:
         "https://www.google.com/maps?f=d&source=s_d&saddr=Villastellone&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
-        "Se arrivi da Villastellone, il modo piu semplice e aprire la mappa e seguire il percorso aggiornato in tempo reale. La destinazione e Viale Barbaroux 20, Carmagnola.",
-        "Se vuoi incastrare bene gli orari con lavoro e famiglia, scrivici su WhatsApp: ti aiutiamo a scegliere il momento piu comodo per iniziare il percorso.",
+        "Se arrivi da Villastellone, il modo più semplice è aprire la mappa e seguire il percorso aggiornato in tempo reale. La destinazione è Viale Barbaroux 20, Carmagnola.",
+        "Se vuoi incastrare bene gli orari con lavoro e famiglia, scrivici su WhatsApp: ti aiutiamo a scegliere il momento più comodo per iniziare il percorso.",
       ],
     },
     focus: {
       heading: "Da Villastellone: laser fatto bene (e confortevole) con Ice Polar",
       paragraphs: [
-        "Se vivi a Villastellone e stai pensando al laser, capiamo benissimo il dubbio piu comune: \"Saro a mio agio durante la seduta?\". Per questo in studio lavoriamo con manipolo Ice Polar, che aiuta a rendere il trattamento piu confortevole.",
-        "Ma il comfort da solo non basta. Quello che fa davvero la differenza e la competenza con cui si impostano parametri e calendario: zona per zona, pelle per pelle, con una progressione chiara e senza corse.",
-        "Di solito si parte da una valutazione semplice, poi scegliamo insieme le priorita (ad esempio viso o corpo, una zona alla volta oppure piu zone nello stesso periodo). L'obiettivo e che il percorso resti facile da seguire anche con la vita piena di tutti i giorni.",
+        "Se vivi a Villastellone e stai pensando al laser, capiamo benissimo il dubbio più comune: \"Sarò a mio agio durante la seduta?\". Per questo in studio lavoriamo con manipolo Ice Polar, che aiuta a rendere il trattamento più confortevole.",
+        "Ma il comfort da solo non basta. Quello che fa davvero la differenza è la competenza con cui si impostano parametri e calendario: zona per zona, pelle per pelle, con una progressione chiara e senza corse.",
+        "Di solito si parte da una valutazione semplice, poi scegliamo insieme le priorità (ad esempio viso o corpo, una zona alla volta oppure più zone nello stesso periodo). L'obiettivo è che il percorso resti facile da seguire anche con la vita piena di tutti i giorni.",
       ],
       links: [
         {
@@ -358,7 +358,7 @@ export const localAreaPages: LocalAreaPage[] = [
         {
           label: "Laser diodo: differenze e criteri di scelta",
           href: "/competenze/laser-diodo-carmagnola",
-          description: "Per orientarti tra tecnologie e scegliere con piu serenita.",
+          description: "Per orientarti tra tecnologie e scegliere con più serenità.",
         },
         {
           label: "Listino completo",
@@ -383,7 +383,7 @@ export const localAreaPages: LocalAreaPage[] = [
       },
       {
         q: "Meglio iniziare dal viso o dal corpo?",
-        a: "Dipende da priorita e abitudini. Durante la valutazione iniziale decidiamo insieme l'ordine delle zone, cosi il percorso resta semplice da seguire.",
+        a: "Dipende da priorità e abitudini. Durante la valutazione iniziale decidiamo insieme l'ordine delle zone, così il percorso resta semplice da seguire.",
       },
     ],
     keywords: [
@@ -522,7 +522,7 @@ export const localAreaPages: LocalAreaPage[] = [
     intro:
       "Da Trofarello ci raggiungono clienti che vogliono smettere di cambiare trattamento ogni mese: preferiscono un piano chiaro, spiegato bene e sostenibile nella vita reale.",
     whyRebel: [
-      "Lettura iniziale: capiamo priorita, tempi e obiettivi prima di proporti qualcosa",
+      "Lettura iniziale: capiamo priorità, tempi e obiettivi prima di proporti qualcosa",
       "Un solo studio per laser, trattamenti viso/corpo e protocolli epigenetici",
       "Metodo progressivo: risultati ragionati, non promesse istantanee",
     ],
@@ -533,16 +533,16 @@ export const localAreaPages: LocalAreaPage[] = [
       embedUrl:
         "https://www.google.com/maps?f=d&source=s_d&saddr=Trofarello&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
-        "Il modo piu semplice e affidabile e aprire Google Maps e seguire il percorso aggiornato in tempo reale (traffico e lavori cambiano spesso). La destinazione e Rebel, in Viale Barbaroux 20 a Carmagnola.",
+        "Il modo più semplice e affidabile è aprire Google Maps e seguire il percorso aggiornato in tempo reale (traffico e lavori cambiano spesso). La destinazione è Rebel, in Viale Barbaroux 20 a Carmagnola.",
         "Se arrivi per la prima volta e vuoi evitare stress, scrivici su WhatsApp: ti confermiamo l'indirizzo e, se serve, ti aiutiamo a orientarti.",
       ],
     },
     focus: {
       heading: "Se vieni da Trofarello: come impostiamo un percorso laser (senza protocolli standard)",
       paragraphs: [
-        "Chi arriva da Trofarello spesso ci racconta la stessa storia: ha provato soluzioni veloci, offerte a seduta singola o percorsi poco chiari. Il punto, con il laser, non e fare \"una seduta\": e costruire una sequenza sensata, con parametri calibrati e un calendario coerente.",
-        "Da Rebel lavoriamo per zone (viso e corpo), obiettivi e risposta della pelle. Spieghiamo cosa aspettarti, cosa evitare tra una seduta e l'altra e quando ha senso rallentare o ritarare. Il comfort e parte del metodo, non un dettaglio.",
-        "Se vuoi farti un'idea prima di prenotare, trovi alcuni approfondimenti dedicati (laser viso, laser corpo, laser diodo) e le pagine dei trattamenti con le domande piu frequenti. Cosi arrivi alla consulenza con domande giuste, non con dubbi confusi.",
+        "Chi arriva da Trofarello spesso ci racconta la stessa storia: ha provato soluzioni veloci, offerte a seduta singola o percorsi poco chiari. Il punto, con il laser, non è fare \"una seduta\": è costruire una sequenza sensata, con parametri calibrati e un calendario coerente.",
+        "Da Rebel lavoriamo per zone (viso e corpo), obiettivi e risposta della pelle. Spieghiamo cosa aspettarti, cosa evitare tra una seduta e l'altra e quando ha senso rallentare o ritarare. Il comfort è parte del metodo, non un dettaglio.",
+        "Se vuoi farti un'idea prima di prenotare, trovi alcuni approfondimenti dedicati (laser viso, laser corpo, laser diodo) e le pagine dei trattamenti con le domande più frequenti. Così arrivi alla consulenza con domande giuste, non con dubbi confusi.",
       ],
       links: [
         {
@@ -564,7 +564,7 @@ export const localAreaPages: LocalAreaPage[] = [
         {
           label: "Laser viso: cosa sapere prima di iniziare",
           href: "/competenze/epilazione-laser-viso-carmagnola-guida-realistica",
-          description: "Aspettative, tempi e attenzione alle zone piu delicate del viso.",
+          description: "Aspettative, tempi e attenzione alle zone più delicate del viso.",
         },
         {
           label: "Epilazione laser viso",
@@ -586,15 +586,15 @@ export const localAreaPages: LocalAreaPage[] = [
     faqs: [
       {
         q: "Quanto ci vuole da Trofarello a Rebel Carmagnola?",
-        a: "Dipende da traffico e orario. Per una stima aggiornata, ti consigliamo di aprire il link Maps: e la fonte piu affidabile nel momento in cui parti.",
+        a: "Dipende da traffico e orario. Per una stima aggiornata, ti consigliamo di aprire il link Maps: è la fonte più affidabile nel momento in cui parti.",
       },
       {
         q: "Posso fare laser e poi impostare anche un percorso viso/corpo?",
-        a: "Sì. Molte clienti combinano laser e protocolli viso/corpo, ma la sequenza la decidiamo in base a obiettivo, tempi e tollerabilita della pelle.",
+        a: "Sì. Molte clienti combinano laser e protocolli viso/corpo, ma la sequenza la decidiamo in base a obiettivo, tempi e tollerabilità della pelle.",
       },
       {
         q: "Cosa devo avere chiaro prima di iniziare un ciclo laser?",
-        a: "Zona, obiettivo e calendario: in consulenza ti spieghiamo frequenza, aspettative e indicazioni pre/post seduta, cosi il percorso resta semplice da seguire.",
+        a: "Zona, obiettivo e calendario: in consulenza ti spieghiamo frequenza, aspettative e indicazioni pre/post seduta, così il percorso resta semplice da seguire.",
       },
     ],
     keywords: [

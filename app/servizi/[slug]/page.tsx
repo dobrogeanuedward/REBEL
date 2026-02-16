@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!service) {
     return createPageMetadata({
       title: "Servizio non trovato",
-      description: "La pagina richiesta non e disponibile.",
+      description: "La pagina richiesta non è disponibile.",
       path: "/servizi",
       indexable: false,
     });

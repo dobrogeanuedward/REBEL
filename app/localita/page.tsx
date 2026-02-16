@@ -38,7 +38,7 @@ export default function LocalitaHubPage() {
 
   const breadcrumb = buildBreadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "Localita", path: "/localita" },
+    { name: "Località", path: "/localita" },
   ]);
   const localAreaListSchema = buildItemListSchema({
     name: "Aree servite Rebel",

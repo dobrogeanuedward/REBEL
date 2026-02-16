@@ -122,7 +122,7 @@ export default function ServiziHubPage() {
             <a className="card-light" href="#servizi-estetica">
               <h3 style={{ marginTop: 0 }}>Estetica avanzata e benessere</h3>
               <p className="lead" style={{ marginTop: "0.35rem", marginBottom: 0, color: "rgba(39,31,56,0.78)" }}>
-                Trattamenti viso, corpo e cura mani per riequilibrio, tono e luminosita.
+                Trattamenti viso, corpo e cura mani per riequilibrio, tono e luminosità.
               </p>
             </a>
             <a className="card-light" href="#servizi-laser">
@@ -193,7 +193,7 @@ export default function ServiziHubPage() {
         <div className="container">
           <h2 className="page-title">Estetica Epigenetica</h2>
           <p className="lead" style={{ maxWidth: "74ch", marginTop: "0.55rem" }}>
-            Una selezione dei protocolli piu richiesti in studio. Per la lista completa e
+            Una selezione dei protocolli più richiesti in studio. Per la lista completa e
             gli approfondimenti, puoi consultare anche la pagina dedicata ai protocolli.
           </p>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
@@ -268,8 +268,8 @@ export default function ServiziHubPage() {
           <article className="card glow-card">
             <h2 style={{ marginTop: 0 }}>Non sai quale percorso scegliere?</h2>
             <p className="lead" style={{ marginTop: "0.45rem", maxWidth: "72ch" }}>
-              Ti aiutiamo noi: in consulenza definiamo priorita, tempi e combinazione
-              piu adatta tra estetica, laser ed epigenetica.
+              Ti aiutiamo noi: in consulenza definiamo priorità, tempi e combinazione
+              più adatta tra estetica, laser ed epigenetica.
             </p>
             <div style={{ marginTop: "0.9rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
               <Link className="button button-primary" href="/contatti">

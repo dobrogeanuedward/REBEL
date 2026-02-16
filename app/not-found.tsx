@@ -15,7 +15,7 @@ export default function NotFoundPage() {
       <div className="container">
         <p className="eyebrow">Pagina non trovata</p>
         <h1 className="page-title" style={{ marginTop: "0.6rem" }}>
-          Questa pagina non e disponibile.
+          Questa pagina non è disponibile.
         </h1>
         <p className="lead">
           Puoi tornare alla home oppure navigare i servizi principali di Rebel.

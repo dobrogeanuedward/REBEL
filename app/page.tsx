@@ -81,16 +81,16 @@ export default function HomePage() {
     },
     {
       key: "local",
-      title: "Territorio e citta servite",
-      subtitle: "Zone da cui ci raggiungono piu spesso in studio.",
+      title: "Territorio e città servite",
+      subtitle: "Zone da cui ci raggiungono più spesso in studio.",
       tone: "gold",
       links: [
-        { href: "/localita", label: "Localita servite" },
+        { href: "/localita", label: "Località servite" },
         ...localAreaPages.slice(0, 8).map((area) => ({
           href: `/localita/${area.slug}`,
           label: area.city,
         })),
-        { href: "/localita", label: "Vedi tutte le localita" },
+        { href: "/localita", label: "Vedi tutte le località" },
       ],
     },
   ];
@@ -143,7 +143,7 @@ export default function HomePage() {
       { name: "Listino Estetica + Laser", path: "/listino-estetica-laser" },
       { name: "Servizi", path: "/servizi" },
       { name: "Competenze", path: "/competenze" },
-      { name: "Localita servite", path: "/localita" },
+      { name: "Località servite", path: "/localita" },
       { name: "Contatti", path: "/contatti" },
     ],
   });

@@ -2,13 +2,13 @@
 
 Obiettivo: trasformare ogni pagina in un contenuto **unico**, **positivo**, **informativo**, **completo** e **naturale**, con un livello **tecnico solo dove serve** (senza gergo inutile) e con collegamenti interni che guidano davvero l'utente.
 
-Questa roadmap e' pensata per lavorare **per gradi**, pagina per pagina, con controllo qualità e push frequenti.
+Questa roadmap è pensata per lavorare **per gradi**, pagina per pagina, con controllo qualità e push frequenti.
 
 ## Principi di copy (non negoziabili)
 
 - **Voce**: positiva, rassicurante, competente, mai fredda.
 - **Chiarezza**: frasi semplici, parole concrete, niente "linguaggio da template".
-- **Completezza**: chi legge deve uscire con piu' chiarezza di prima (non solo "bella sensazione").
+- **Completezza**: chi legge deve uscire con più chiarezza di prima (non solo "bella sensazione").
 - **Tecnico dove serve**: parametri/calendario/zone/post-seduta spiegati in modo accessibile.
 - **Niente promesse**: evitare assoluti ("definitivo", "garantito", "100%") e toni allarmistici.
 - **Niente copypasta**: ogni pagina deve avere un **angolo** diverso + dettagli locali.
@@ -18,7 +18,7 @@ Questa roadmap e' pensata per lavorare **per gradi**, pagina per pagina, con con
 - "landing", "scheda", "editoriale", "realistica/o", "spinta", "hub" (in pagina)
 - sostituire con: "pagina", "servizio", "approfondimento", "chiaro", "concreto", "lettura", "panoramica"
 
-## Struttura standard (Localita)
+## Struttura standard (Località)
 
 Per ogni `/localita/[slug]`:
 
@@ -28,7 +28,7 @@ Per ogni `/localita/[slug]`:
   - `embedUrl` (mappa/dir embed)
   - 2-3 paragrafi brevi, pratici, senza inventare strade specifiche
 - `focus`
-  - un **tema locale** diverso (es. comfort Ice Polar, peli incarniti, priorita zone, gestione calendario, ecc.)
+  - un **tema locale** diverso (es. comfort Ice Polar, peli incarniti, priorità zone, gestione calendario, ecc.)
   - 3 paragrafi: 1 umano + 1 tecnico + 1 organizzativo/pratico
   - `links` con descrizione (sempre coerenti):
     - `/epilazione-laser-carmagnola`
@@ -61,11 +61,11 @@ Per ogni `/servizi/[slug]`:
 
 ## Ordine di lavoro (per ridurre non-indicizzazione)
 
-1. Localita "asse-carmagnola" (piu vicine e piu simili tra loro: rischio duplicazione piu alto)
-2. Localita "torino-sud"
-3. Localita "cuneo"
-4. Competenze piu commerciali (laser, laser diodo, trattamenti viso/corpo)
-5. Servizi (schede) con piu' potenziale e piu' traffico
+1. Località "asse-carmagnola" (più vicine e più simili tra loro: rischio duplicazione più alto)
+2. Località "torino-sud"
+3. Località "cuneo"
+4. Competenze più commerciali (laser, laser diodo, trattamenti viso/corpo)
+5. Servizi con più potenziale e più traffico
 6. Refinement: linking trasversale, CTA, microcopy, refresh periodico
 
 ## Regola operativa (per lavorare bene)

@@ -24,8 +24,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const area = getLocalAreaBySlug(slug);
   if (!area) {
     return createPageMetadata({
-      title: "Localita non trovata",
-      description: "La pagina richiesta non e disponibile.",
+      title: "Località non trovata",
+      description: "La pagina richiesta non è disponibile.",
       path: "/localita",
       indexable: false,
     });
@@ -48,7 +48,7 @@ export default async function LocalAreaDetailPage({ params }: PageProps) {
 
   const breadcrumb = buildBreadcrumbSchema([
     { name: "Home", path: "/" },
-    { name: "Localita", path: "/localita" },
+    { name: "Località", path: "/localita" },
     { name: area.city, path: `/localita/${area.slug}` },
   ]);
 

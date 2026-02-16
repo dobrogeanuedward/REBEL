@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!competence) {
     return createPageMetadata({
       title: "Competenza non trovata",
-      description: "La pagina richiesta non e disponibile.",
+      description: "La pagina richiesta non è disponibile.",
       path: "/competenze",
       indexable: false,
     });
@@ -178,7 +178,7 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
                   </div>
                   <p className="lead" style={{ marginTop: "0.8rem", marginBottom: 0 }}>
                     Un&apos;immagine in stile Rebel per accompagnare la lettura e rendere
-                    la pagina piu piacevole.
+                    la pagina più piacevole.
                   </p>
                 </>
               ) : (

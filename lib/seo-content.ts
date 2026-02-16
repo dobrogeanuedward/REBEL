@@ -142,21 +142,21 @@ export const servicePages: ServicePage[] = [
     shortDescription:
       "Un massaggio distensivo per schiena, spalle e cervicale, pensato per staccare davvero.",
     longDescription:
-      "Il massaggio rilassante e un momento dedicato a decomprimere e ritrovare leggerezza: lavoriamo su schiena, spalle e zona cervicale con manovre graduali, adattate a sensibilita e bisogno del momento.",
+      "Il massaggio rilassante è un momento dedicato a decomprimere e ritrovare leggerezza: lavoriamo su schiena, spalle e zona cervicale con manovre graduali, adattate a sensibilità e bisogno del momento.",
     priceHint: "EUR 59 (50 min)",
     category: "estetica-classica",
     benefits: [
       "Aiuta a staccare e ricaricare",
       "Sensazione di distensione su schiena e spalle",
-      "Seduta adattata a sensibilita e preferenze",
+      "Seduta adattata a sensibilità e preferenze",
     ],
     faqs: [
       {
-        q: "Il massaggio rilassante e forte o delicato?",
+        q: "Il massaggio rilassante è forte o delicato?",
         a: "Dipende da come ti senti: lo impostiamo in modo graduale e lo adattiamo in base alle tue preferenze.",
       },
       {
-        q: "Su quali zone lavorate di piu?",
+        q: "Su quali zone lavorate di più?",
         a: "Soprattutto su schiena, spalle e cervicale, con attenzione al comfort.",
       },
     ],
@@ -177,7 +177,7 @@ export const servicePages: ServicePage[] = [
     shortDescription:
       "Definizione di ciglia e sopracciglia con effetto naturale.",
     longDescription:
-      "La laminazione mette ordine a ciglia e sopracciglia senza stravolgere il viso: il risultato e pulito, armonioso e molto naturale.",
+      "La laminazione mette ordine a ciglia e sopracciglia senza stravolgere il viso: il risultato è pulito, armonioso e molto naturale.",
     priceHint: "da EUR 79",
     category: "estetica-classica",
     benefits: [
@@ -192,7 +192,7 @@ export const servicePages: ServicePage[] = [
       },
       {
         q: "Serve una cura a casa?",
-        a: "Si, semplice e rapida, con consigli dedicati.",
+        a: "Sì, semplice e rapida, con consigli dedicati.",
       },
     ],
     keywords: [
@@ -211,7 +211,7 @@ export const servicePages: ServicePage[] = [
     shortDescription:
       "Manicure semipermanente curata, resistente e ordinata.",
     longDescription:
-      "La manicure semipermanente include preparazione accurata, rifinitura e applicazione colore. L'obiettivo e un risultato pulito, elegante e che duri davvero.",
+      "La manicure semipermanente include preparazione accurata, rifinitura e applicazione colore. L'obiettivo è un risultato pulito, elegante e che duri davvero.",
     priceHint: "da EUR 26",
     category: "estetica-classica",
     benefits: [
@@ -445,37 +445,37 @@ export const competencePages: CompetencePage[] = [
     ],
     editorialSections: [
       {
-        heading: "Prima chiarezza: \"laser diodo\" non e una parola magica, e una tecnologia",
+        heading: "Prima chiarezza: \"laser diodo\" non è una parola magica, è una tecnologia",
         paragraphs: [
-          "Quando si cerca \"laser diodo\" online, spesso si trovano promesse veloci e confronti aggressivi. In realta la domanda utile e un'altra: questa tecnologia e adatta al mio tipo di pelo e alla mia pelle, e viene gestita in modo competente?",
-          "Il laser per epilazione lavora in modo selettivo sul pelo (non su \"tutta la pelle\"): proprio per questo parametri, protocollo e calendario contano piu della sola etichetta commerciale.",
+          "Quando si cerca \"laser diodo\" online, spesso si trovano promesse veloci e confronti aggressivi. In realtà la domanda utile è un'altra: questa tecnologia è adatta al mio tipo di pelo e alla mia pelle, e viene gestita in modo competente?",
+          "Il laser per epilazione lavora in modo selettivo sul pelo (non su \"tutta la pelle\"): proprio per questo parametri, protocollo e calendario contano più della sola etichetta commerciale.",
         ],
       },
       {
         heading: "Laser diodo vs luce pulsata (IPL): cosa cambia in pratica",
         paragraphs: [
-          "La luce pulsata (IPL) e una luce a spettro piu ampio; il laser usa una luce piu specifica. Tradotto: sono strumenti diversi, con logiche diverse, e non sempre offrono la stessa esperienza o gli stessi criteri di impostazione.",
-          "Il punto non e trovare \"il migliore\" in assoluto: e scegliere la soluzione piu sensata per fototipo, colore del pelo, zona e obiettivo (riduzione progressiva e gestione della ricrescita nel tempo).",
+          "La luce pulsata (IPL) è una luce a spettro più ampio; il laser usa una luce più specifica. Tradotto: sono strumenti diversi, con logiche diverse, e non sempre offrono la stessa esperienza o gli stessi criteri di impostazione.",
+          "Il punto non è trovare \"il migliore\" in assoluto: è scegliere la soluzione più sensata per fototipo, colore del pelo, zona e obiettivo (riduzione progressiva e gestione della ricrescita nel tempo).",
         ],
       },
       {
-        heading: "Perche servono piu sedute (e perche la costanza e parte del risultato)",
+        heading: "Perché servono più sedute (e perché la costanza è parte del risultato)",
         paragraphs: [
-          "Molte persone partono con un'aspettativa sbagliata: pensano che basti una seduta \"forte\". In realta il percorso e fatto di appuntamenti distanziati per accompagnare i cicli del pelo e lavorare in modo progressivo.",
-          "Un centro serio ti spiega tempi e variabilita senza venderti certezze: la risposta cambia da persona a persona, e anche la stessa persona puo rispondere in modo diverso tra viso e corpo.",
+          "Molte persone partono con un'aspettativa sbagliata: pensano che basti una seduta \"forte\". In realtà il percorso è fatto di appuntamenti distanziati per accompagnare i cicli del pelo e lavorare in modo progressivo.",
+          "Un centro serio ti spiega tempi e variabilità senza venderti certezze: la risposta cambia da persona a persona, e anche la stessa persona può rispondere in modo diverso tra viso e corpo.",
         ],
       },
       {
         heading: "Come riconoscere un centro affidabile a Carmagnola (prima di iniziare)",
         paragraphs: [
           "Fai domande semplici: chi imposta i parametri, come viene gestito il post-seduta, come si adatta il piano se la pelle cambia, e cosa succede se salti una seduta.",
-          "Se la comunicazione e chiara prima, lo sara anche dopo. E la chiarezza, in un percorso laser, e un vantaggio enorme: ti aiuta a seguire le indicazioni con serenita e a mantenere un ritmo sostenibile.",
+          "Se la comunicazione è chiara prima, lo sarà anche dopo. E la chiarezza, in un percorso laser, è un vantaggio enorme: ti aiuta a seguire le indicazioni con serenità e a mantenere un ritmo sostenibile.",
         ],
       },
       {
         heading: "Il nostro approccio in studio: tecnologia + metodo (non trattamenti standard)",
         paragraphs: [
-          "Da Rebel a Carmagnola impostiamo l'epilazione laser come un percorso: valutazione iniziale, settaggio su misura e monitoraggio. La tecnologia serve a rendere il lavoro piu preciso, ma il cuore resta il metodo.",
+          "Da Rebel a Carmagnola impostiamo l'epilazione laser come un percorso: valutazione iniziale, settaggio su misura e monitoraggio. La tecnologia serve a rendere il lavoro più preciso, ma il cuore resta il metodo.",
           "Se vuoi approfondire, trovi anche le guide dedicate a laser viso e laser corpo, oltre alle schede servizio con FAQ pratiche e indicazioni chiare su come iniziare.",
         ],
       },
@@ -644,7 +644,7 @@ export const competencePages: CompetencePage[] = [
       "Pensata per chi confronta più centri estetici a Carmagnola e vuole decidere con consapevolezza.",
     intent: "commercial",
     benefits: [
-      "Chiarisce tempi e frequenza delle sedute (e perche possono cambiare)",
+      "Chiarisce tempi e frequenza delle sedute (e perché possono cambiare)",
       "Spiega preparazione e post-seduta, con attenzione alla pelle del viso",
       "Ti aiuta a capire cosa chiedere in consulenza, senza imbarazzo",
     ],
@@ -715,14 +715,14 @@ export const competencePages: CompetencePage[] = [
     slug: "epilazione-laser-corpo-carmagnola-zone-tempi",
     title: "Epilazione laser corpo a Carmagnola: zone, tempi e piano sedute",
     shortDescription:
-      "Come organizzare il laser corpo: quali zone dare priorita, tempi e calendario.",
+      "Come organizzare il laser corpo: quali zone dare priorità, tempi e calendario.",
     longDescription:
       "Una guida concreta per chi vuole iniziare il laser corpo a Carmagnola con una strategia chiara: zone prioritarie, stagionalità e gestione del percorso senza stress.",
     localAngle:
       "Ideale se arrivi da Carmagnola o comuni vicini e vuoi un programma coerente, non standard.",
     intent: "commercial",
     benefits: [
-      "Ti fa scegliere le zone in base a priorita e vita reale, non a pacchetti",
+      "Ti fa scegliere le zone in base a priorità e vita reale, non a pacchetti",
       "Ti aiuta a impostare un calendario che riesci a seguire",
       "Spiega cosa considerare con sole, routine e piccoli accorgimenti",
     ],
@@ -802,7 +802,7 @@ export const competencePages: CompetencePage[] = [
     benefits: [
       "Ti aiuta a capire se serve davvero (e ogni quanto, per la tua pelle)",
       "Spiega come evitare irritazioni e sovraccarico della barriera cutanea",
-      "Rende piu semplice la routine tra una seduta e l'altra",
+      "Rende più semplice la routine tra una seduta e l'altra",
     ],
     faqs: [
       {
@@ -872,14 +872,14 @@ export const competencePages: CompetencePage[] = [
     shortDescription:
       "Massaggio linfodrenante: benefici percepiti, limiti e criteri per impostare un piano fatto bene.",
     longDescription:
-      "Un articolo pratico e onesto per capire quando il linfodrenante puo aiutarti davvero, quali aspettative avere e come inserirlo in un percorso corpo coerente.",
+      "Un articolo pratico e onesto per capire quando il linfodrenante può aiutarti davvero, quali aspettative avere e come inserirlo in un percorso corpo coerente.",
     localAngle:
       "Dedicata a chi cerca a Carmagnola un trattamento drenante serio e personalizzato.",
     intent: "commercial",
     benefits: [
-      "Chiarisce quando puo essere utile (e quando no)",
+      "Chiarisce quando può essere utile (e quando no)",
       "Spiega come inserirlo in un percorso corpo con un ritmo sostenibile",
-      "Aiuta a fare scelte piu serene, senza aspettative gonfiate",
+      "Aiuta a fare scelte più serene, senza aspettative gonfiate",
     ],
     faqs: [
       {
@@ -910,7 +910,7 @@ export const competencePages: CompetencePage[] = [
         heading: "Partiamo da una verità semplice: il drenaggio non è una bacchetta magica",
         paragraphs: [
           "Il linfodrenante può dare una sensazione di leggerezza concreta e aiutare nella gestione del gonfiore, ma non sostituisce tutto il resto.",
-          "Quando viene inserito in un piano coerente, con tempi adeguati e monitoraggio, diventa molto piu utile e sostenibile.",
+          "Quando viene inserito in un piano coerente, con tempi adeguati e monitoraggio, diventa molto più utile e sostenibile.",
         ],
       },
       {
@@ -924,7 +924,7 @@ export const competencePages: CompetencePage[] = [
         heading: "Approccio professionale: ascolto, adattamento, continuità",
         paragraphs: [
           "Un percorso drenante efficace nasce da osservazione e adattamento: non tutte le settimane sono uguali e non tutte le persone rispondono allo stesso modo.",
-          "La qualita del risultato dipende da quanto il piano resta umano: chiaro da capire, facile da seguire.",
+          "La qualità del risultato dipende da quanto il piano resta umano: chiaro da capire, facile da seguire.",
         ],
       },
     ],
