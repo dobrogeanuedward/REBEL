@@ -218,9 +218,10 @@ export const localAreaPages: LocalAreaPage[] = [
     focus: {
       heading: "Da Racconigi: laser e peli incarniti, come lo impostiamo in modo intelligente",
       paragraphs: [
-        "Una delle richieste più frequenti di chi arriva da Racconigi è legata ai peli incarniti: non è solo un tema estetico, è anche una questione di comfort quotidiano (soprattutto su inguine, ascelle e gambe).",
+        "Una delle richieste più frequenti, quando si parla di laser, è legata ai peli incarniti: non è solo un tema estetico, è anche una questione di comfort quotidiano (soprattutto su inguine, ascelle e gambe).",
         "Quando impostiamo un percorso laser fatto bene, ragioniamo per zone e per risposta della pelle. Questo vuol dire due cose pratiche: calendario coerente e parametri adattati nel tempo. Il laser non è un pulsante \"on/off\": è un lavoro di precisione.",
         "Ice Polar ci aiuta a rendere la seduta più confortevole, ma la parte decisiva resta l'organizzazione: scegliamo priorità realistiche (una zona alla volta oppure più zone, se ha senso) e ti diamo indicazioni chiare tra una seduta e l'altra.",
+        "Se arrivi da Racconigi e vuoi partire con un piano chiaro (zone + calendario), scrivici o prenota una valutazione: ti diciamo subito da dove iniziare e cosa aspettarti.",
       ],
       links: [
         {
@@ -324,7 +325,7 @@ export const localAreaPages: LocalAreaPage[] = [
     description:
       "Da Villastellone a Carmagnola per il laser: competenza, percorso chiaro e comfort con Ice Polar.",
     intro:
-      "Chi arriva da Villastellone di solito non cerca \"la seduta\": vuole iniziare un percorso laser fatto bene, spiegato con calma e seguito nel tempo.",
+      "Di solito non si cerca \"la seduta\": si cerca un percorso laser fatto bene, spiegato con calma e seguito nel tempo. Se arrivi da Villastellone, Rebel a Carmagnola è una scelta comoda per iniziare con un piano chiaro.",
     whyRebel: [
       "Distanza comoda da Villastellone",
       "Competenza e settaggio su misura in base a pelle, zona e obiettivo",
@@ -408,7 +409,7 @@ export const localAreaPages: LocalAreaPage[] = [
     cluster: "asse-carmagnola",
     title: "Da Pancalieri a Rebel Carmagnola",
     description:
-      "Per chi arriva da Pancalieri: centro estetico avanzato con servizi viso/corpo e laser a Carmagnola.",
+      "Da Pancalieri a Carmagnola: centro estetico avanzato con servizi viso/corpo e laser, con un metodo chiaro.",
     intro:
       "Se vivi a Pancalieri e vuoi un piano estetico ben organizzato, Rebel è una soluzione concreta e vicina.",
     whyRebel: [
@@ -466,11 +467,11 @@ export const localAreaPages: LocalAreaPage[] = [
     slug: "nichelino",
     city: "Nichelino",
     cluster: "torino-sud",
-    title: "Centro estetico per chi arriva da Nichelino",
+    title: "Centro estetico vicino Nichelino: percorsi Rebel",
     description:
       "Da Nichelino a Rebel Carmagnola per trattamenti mirati viso/corpo ed epilazione laser su misura.",
     intro:
-      "Chi arriva da Nichelino cerca spesso una gestione più personalizzata: in Rebel trovi questo approccio.",
+      "Quando cerchi una gestione più personalizzata, la differenza la fa il metodo: ascolto, piano e continuità. Se arrivi da Nichelino, Carmagnola è una soluzione comoda per viso, corpo e laser.",
     whyRebel: [
       "Protocollo costruito sulle tue necessità",
       "Un solo studio per benessere, estetica e laser",
@@ -550,9 +551,9 @@ export const localAreaPages: LocalAreaPage[] = [
     focus: {
       heading: "Se vieni da Trofarello: come impostiamo un percorso laser (senza protocolli standard)",
       paragraphs: [
-        "Chi arriva da Trofarello spesso ci racconta la stessa storia: ha provato soluzioni veloci, offerte a seduta singola o percorsi poco chiari. Il punto, con il laser, non è fare \"una seduta\": è costruire una sequenza sensata, con parametri calibrati e un calendario coerente.",
+        "Molte persone ci raccontano la stessa storia: hanno provato soluzioni veloci, offerte a seduta singola o percorsi poco chiari. Il punto, con il laser, non è fare \"una seduta\": è costruire una sequenza sensata, con parametri calibrati e un calendario coerente.",
         "Da Rebel lavoriamo per zone (viso e corpo), obiettivi e risposta della pelle. Spieghiamo cosa aspettarti, cosa evitare tra una seduta e l'altra e quando ha senso rallentare o ritarare. Il comfort è parte del metodo, non un dettaglio.",
-        "Se vuoi farti un'idea prima di prenotare, trovi alcuni approfondimenti dedicati (laser viso, laser corpo, laser diodo) e le pagine dei trattamenti con le domande più frequenti. Così arrivi alla consulenza con domande giuste, non con dubbi confusi.",
+        "Se vuoi farti un'idea prima di prenotare, trovi alcuni approfondimenti dedicati (laser viso, laser corpo, laser diodo) e le pagine dei trattamenti con le domande più frequenti. Così arrivi alla consulenza con domande giuste, non con dubbi confusi. Se arrivi da Trofarello, scrivici pure: ti diciamo subito da dove partire.",
       ],
       links: [
         {
@@ -637,11 +638,11 @@ export const localAreaPages: LocalAreaPage[] = [
     slug: "orbassano",
     city: "Orbassano",
     cluster: "torino-sud",
-    title: "Centro estetico per chi arriva da Orbassano",
+    title: "Centro estetico vicino Orbassano: percorsi Rebel",
     description:
       "Da Orbassano a Rebel Carmagnola: percorsi su misura per estetica avanzata, benessere ed epilazione laser.",
     intro:
-      "Chi arriva da Orbassano trova in Rebel un centro organizzato, con obiettivi chiari e risultati progressivi.",
+      "Quando cerchi un centro organizzato, la cosa che ti fa respirare è avere obiettivi chiari e risultati progressivi. Se arrivi da Orbassano, in Rebel trovi questo tipo di impostazione: semplice, concreta, seguita.",
     whyRebel: [
       "Approccio completo viso/corpo e laser",
       "Valutazione iniziale e piano personalizzato",
@@ -659,9 +660,9 @@ export const localAreaPages: LocalAreaPage[] = [
     cluster: "cuneo",
     title: "Da Alba a Rebel Carmagnola",
     description:
-      "Per chi arriva da Alba: trattamenti viso/corpo ed epilazione laser in uno studio avanzato a Carmagnola.",
+      "Da Alba a Carmagnola: trattamenti viso/corpo ed epilazione laser in uno studio avanzato, con metodo e continuità.",
     intro:
-      "Chi arriva da Alba ci sceglie per la combinazione tra approccio umano, metodo e risultati concreti.",
+      "La differenza, quando vuoi migliorare davvero, è avere un metodo chiaro e una gestione umana. Se arrivi da Alba, Rebel a Carmagnola è una scelta concreta per impostare un percorso che si regge nel tempo.",
     whyRebel: [
       "Piano personalizzato già dal primo incontro",
       "Spiegazioni semplici su servizi e tempi",
@@ -697,7 +698,7 @@ export const localAreaPages: LocalAreaPage[] = [
     slug: "savigliano",
     city: "Savigliano",
     cluster: "cuneo",
-    title: "Centro estetico per chi arriva da Savigliano",
+    title: "Centro estetico vicino Savigliano: percorsi Rebel",
     description:
       "Da Savigliano a Carmagnola: Rebel propone percorsi viso/corpo e laser con obiettivi concreti.",
     intro:
@@ -721,7 +722,7 @@ export const localAreaPages: LocalAreaPage[] = [
     description:
       "Percorsi estetici evoluti per clienti da Fossano: trattamenti viso/corpo, epigenetica ed epilazione laser.",
     intro:
-      "Chi arriva da Fossano sceglie Rebel per la combinazione tra approccio umano, tecnica e continuità.",
+      "La scelta spesso è legata alla combinazione tra approccio umano, tecnica e continuità: tre cose che insieme fanno davvero la differenza. Se arrivi da Fossano, in Rebel trovi un percorso pensato per essere seguito e verificabile nel tempo.",
     whyRebel: [
       "Metodo personalizzato e verificabile",
       "Percorsi su misura in base al tuo obiettivo",
