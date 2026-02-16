@@ -368,9 +368,9 @@ export const servicePages: ServicePage[] = [
     slug: "laminazione-ciglia-sopracciglia-carmagnola",
     name: "Laminazione ciglia e sopracciglia a Carmagnola",
     shortDescription:
-      "Definizione di ciglia e sopracciglia con effetto naturale.",
+      "Ciglia e sopracciglia più ordinate e definite, con effetto naturale e armonioso.",
     longDescription:
-      "La laminazione mette ordine a ciglia e sopracciglia senza stravolgere il viso: il risultato è pulito, armonioso e molto naturale.",
+      "La laminazione è un trattamento pensato per valorizzare senza stravolgere: mette ordine a ciglia e sopracciglia, le rende più definite e \"facili\" da gestire. In studio la impostiamo in modo delicato e curato nei dettagli, con un risultato pulito e coerente con i tuoi lineamenti.",
     priceHint: "da EUR 79",
     category: "estetica-classica",
     benefits: [
@@ -387,15 +387,52 @@ export const servicePages: ServicePage[] = [
         q: "Serve una cura a casa?",
         a: "Sì, semplice e rapida, con consigli dedicati.",
       },
+      {
+        q: "È adatta anche se ho ciglia/sopracciglia sottili?",
+        a: "Spesso sì: l'obiettivo è valorizzare e ordinare, senza appesantire. In studio valutiamo insieme la situazione e scegliamo un'impostazione coerente.",
+      },
+      {
+        q: "È un effetto molto evidente?",
+        a: "Dipende da come lo vuoi. Il nostro stile è naturale e armonioso: preferiamo un risultato curato che ti somigli, non un cambiamento eccessivo.",
+      },
+      {
+        q: "Cosa conviene evitare subito dopo?",
+        a: "Ti spieghiamo cosa fare nelle prime ore per mantenere il risultato più stabile. In generale, meglio evitare sfregamenti e trattare la zona con delicatezza.",
+      },
     ],
     keywords: [
       "laminazione ciglia Carmagnola",
       "laminazione sopracciglia Carmagnola",
+      "ciglia naturali Carmagnola",
+      "sopracciglia ordinate Carmagnola",
       "trattamento sguardo Carmagnola",
     ],
     relatedCompetenceSlugs: [
       "trattamenti-viso-carmagnola",
       "beauty-routine-carmagnola",
+    ],
+    editorialSections: [
+      {
+        heading: "Laminazione: ordine e armonia, senza eccessi",
+        paragraphs: [
+          "La richiesta più comune è semplice: \"voglio lo sguardo più ordinato, ma senza sembrare diversa\". È esattamente l'idea della laminazione fatta bene: valorizzare e definire restando naturale.",
+          "Per questo curiamo l'impostazione in base al tuo viso: non esiste un effetto identico per tutte. Il risultato migliore è quello che ti somiglia.",
+        ],
+      },
+      {
+        heading: "Ciglia e sopracciglia: cosa cambia nella vita reale",
+        paragraphs: [
+          "Quando ciglia e sopracciglia sono più disciplinate, cambia anche il modo in cui ti prepari: meno tempo, meno correzioni, una sensazione di ordine che resta anche senza trucco.",
+          "È un trattamento ideale se vuoi un look curato e pulito, ma non ami l'effetto artificiale.",
+        ],
+      },
+      {
+        heading: "Durata e mantenimento: farlo restare bello più a lungo",
+        paragraphs: [
+          "La durata dipende da crescita naturale e abitudini. Dopo la seduta ti diamo indicazioni semplici per proteggere il risultato e mantenere la zona confortevole.",
+          "Se vuoi, possiamo anche consigliarti un ritmo di mantenimento che sia sostenibile e coerente con la tua routine.",
+        ],
+      },
     ],
   },
   {

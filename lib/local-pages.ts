@@ -78,6 +78,11 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Quando ha senso e come la impostiamo in modo delicato.",
         },
         {
+          label: "Laminazione ciglia e sopracciglia",
+          href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola",
+          description: "Ordine e definizione con effetto naturale, curato nei dettagli.",
+        },
+        {
           label: "Massaggio rilassante",
           href: "/servizi/massaggio-rilassante-carmagnola",
           description: "50 minuti dedicati a schiena, spalle e cervicale, con ritmo graduale.",
