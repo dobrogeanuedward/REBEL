@@ -88,6 +88,11 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Esfoliazione controllata per pelle più uniforme e una routine corpo più semplice.",
         },
         {
+          label: "Massaggio linfodrenante",
+          href: "/servizi/massaggio-linfodrenante-carmagnola",
+          description: "Per alleggerire la sensazione di gonfiore e impostare un ritmo sostenibile.",
+        },
+        {
           label: "Protocolli epigenetici",
           href: "/protocolli-epigenetici",
           description: "Percorsi evoluti viso/corpo, scelti in base al tuo punto di partenza.",

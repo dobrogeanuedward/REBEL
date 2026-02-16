@@ -189,7 +189,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         <section className="section">
           <div className="container split">
             <article className="card glow-card">
-              <p className="eyebrow">Approfondimento</p>
+              <p className="eyebrow">Da sapere</p>
               <h2 style={{ marginTop: "0.45rem" }}>Dettagli utili, spiegati bene</h2>
               {editorialSections.map((section) => (
                 <div key={section.heading} style={{ marginTop: "0.95rem" }}>

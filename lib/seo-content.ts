@@ -205,34 +205,88 @@ export const servicePages: ServicePage[] = [
     slug: "massaggio-linfodrenante-carmagnola",
     name: "Massaggio linfodrenante a Carmagnola",
     shortDescription:
-      "Massaggio drenante per alleggerire e sgonfiare.",
+      "Massaggio drenante delicato per alleggerire e ritrovare leggerezza.",
     longDescription:
-      "Il linfodrenaggio aiuta a ridurre la sensazione di gonfiore e pesantezza, soprattutto su gambe e addome. È un trattamento delicato e molto graduale.",
+      "Il linfodrenante è un massaggio drenante delicato e progressivo: aiuta a ridurre la sensazione di gonfiore e pesantezza e a ritrovare una percezione più leggera del corpo (soprattutto su gambe e addome). In studio lo impostiamo con manualità graduali, ascolto e un piano coerente: l'obiettivo è farti stare meglio, senza esagerare e senza promesse.",
     priceHint: "da EUR 69",
     category: "estetica-classica",
     benefits: [
-      "Riduce sensazione di gonfiore",
-      "Aiuta la leggerezza corporea",
-      "Supporta percorsi rimodellanti personalizzati",
+      "Aiuta a ridurre la sensazione di gonfiore e pesantezza",
+      "Sensazione di leggerezza più stabile quando inserito con un ritmo coerente",
+      "Supporta percorsi corpo con un piano personalizzato e sostenibile",
     ],
     faqs: [
       {
         q: "Il linfodrenante è doloroso?",
-        a: "No, è una tecnica delicata e progressiva.",
+        a: "No: è una tecnica delicata e progressiva. La sensazione tipica è \"leggera\" e rilassante; se una manovra è troppo intensa la adattiamo subito.",
       },
       {
         q: "Quante sedute servono per vedere beneficio?",
-        a: "La sensazione di leggerezza spesso si sente già dalle prime sedute, poi si stabilizza con il ciclo.",
+        a: "Spesso la sensazione di leggerezza si percepisce già dalle prime sedute; poi il beneficio diventa più stabile quando c'è continuità e un ritmo sensato.",
+      },
+      {
+        q: "Su quali zone lavorate di solito?",
+        a: "Spesso su gambe e addome, ma adattiamo sempre le zone in base a come ti senti e a che tipo di obiettivo hai in mente.",
+      },
+      {
+        q: "C'è qualcosa da fare dopo la seduta?",
+        a: "Ti consigliamo indicazioni semplici: idratarti, muoverti con calma e non sovraccaricare subito il corpo con calore eccessivo o attività troppo intensa se ti senti già \"scarica\". Ti orientiamo in base alla tua giornata.",
+      },
+      {
+        q: "Se ho una condizione specifica, posso farlo comunque?",
+        a: "In questi casi preferiamo capire prima la situazione: scrivici e raccontaci in due righe. Se serve, ti chiediamo un parere medico prima di impostare la seduta.",
       },
     ],
     keywords: [
       "massaggio linfodrenante Carmagnola",
+      "linfodrenaggio Carmagnola",
       "trattamento drenante Carmagnola",
       "gambe gonfie Carmagnola",
     ],
     relatedCompetenceSlugs: [
       "drenaggio-corpo-carmagnola",
       "trattamenti-corpo-carmagnola",
+      "linfodrenante-carmagnola-guida-pratica",
+    ],
+    editorialSections: [
+      {
+        heading: "Linfodrenante: aspettative sane (e perché funziona meglio così)",
+        paragraphs: [
+          "Il linfodrenante può dare una sensazione di leggerezza concreta, ma non è una bacchetta magica. Il risultato migliore arriva quando il trattamento è impostato bene e inserito in un ritmo coerente.",
+          "Noi preferiamo un approccio semplice e onesto: capire come stai, scegliere le zone giuste e costruire una continuità sostenibile. È così che la sensazione di benessere dura, invece di sparire dopo poche ore.",
+        ],
+      },
+      {
+        heading: "Come si svolge una seduta da Rebel",
+        paragraphs: [
+          "Prima di iniziare ti chiediamo cosa senti (gonfiore, pesantezza, tensione) e in quali momenti della giornata. Poi lavoriamo con manualità graduali: il comfort è parte del trattamento.",
+          "Se una zona è più sensibile o se preferisci un ritmo diverso, lo adattiamo. Il linfodrenante non deve essere una prova di resistenza: deve lasciarti più leggera.",
+        ],
+      },
+      {
+        heading: "Quanto spesso farlo: il ritmo che riesci a seguire",
+        paragraphs: [
+          "C'è chi lo sceglie come seduta singola nei periodi più carichi, e chi preferisce una serie di sedute per dare continuità. La scelta dipende da tempo, obiettivo e risposta del corpo.",
+          "La regola che usiamo è pratica: meglio poche sedute fatte con costanza e buon senso che un'intensità difficile da mantenere.",
+        ],
+      },
+      {
+        heading: "Piccoli gesti che aiutano tra una seduta e l'altra",
+        paragraphs: [
+          "Il drenaggio in studio è un pezzo del puzzle. Tra una seduta e l'altra, anche solo camminare un po' di più, idratarsi e non stare sempre ferma può aiutare la sensazione di leggerezza.",
+          "Se vuoi, ti diamo indicazioni semplici (senza stravolgerti la routine) per far durare meglio l'effetto percepito.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "Cleveland Clinic - Lymphatic Drainage Massage",
+        url: "https://my.clevelandclinic.org/health/treatments/21768-lymphatic-drainage-massage",
+      },
+      {
+        label: "NHS - Choosing who will do your cosmetic procedure",
+        url: "https://www.nhs.uk/tests-and-treatments/cosmetic-procedures/advice/choosing-who-will-do-your-procedure/",
+      },
     ],
   },
   {
