@@ -186,13 +186,14 @@ export const localAreaPages: LocalAreaPage[] = [
     cluster: "asse-carmagnola",
     title: "Centro estetico vicino Villastellone: percorsi Rebel",
     description:
-      "Da Villastellone a Carmagnola: trattamenti viso, corpo ed epilazione laser con approccio personalizzato.",
+      "Da Villastellone a Carmagnola per il laser: competenza, percorso chiaro e comfort con Ice Polar.",
     intro:
-      "Molte clienti da Villastellone ci scelgono quando cercano un percorso serio, non soluzioni standard.",
+      "Chi arriva da Villastellone di solito non cerca \"la seduta\": vuole iniziare un percorso laser fatto bene, spiegato con calma e seguito nel tempo.",
     whyRebel: [
       "Distanza comoda da Villastellone",
-      "Metodo progressivo con obiettivi concreti",
-      "Piano di mantenimento chiaro",
+      "Competenza e settaggio su misura in base a pelle, zona e obiettivo",
+      "Percorso chiaro, con calendario e controlli durante il ciclo",
+      "Manipolo Ice Polar per un'esperienza piu confortevole",
     ],
     directions: {
       heading: "Come arrivare da Villastellone a Rebel (Carmagnola)",
@@ -206,21 +207,32 @@ export const localAreaPages: LocalAreaPage[] = [
       ],
     },
     focus: {
-      heading: "Da Villastellone: massaggio rilassante e percorsi viso, con un ritmo sostenibile",
+      heading: "Da Villastellone: laser fatto bene (e confortevole) con Ice Polar",
       paragraphs: [
-        "Chi arriva da Villastellone spesso cerca due cose: un momento di vero \"stacco\" (senza fretta) e un percorso che non sia improvvisato. Per questo lavoriamo con un metodo semplice: ascolto, obiettivo, poi una sequenza chiara di sedute.",
-        "Se il tuo bisogno e scaricare tensioni e sentirti piu leggera, il massaggio rilassante puo essere un ottimo punto di partenza. Se invece vuoi lavorare sul viso, ti orientiamo tra trattamenti e protocolli in base a pelle e stagione.",
+        "Se vivi a Villastellone e stai pensando al laser, capiamo benissimo il dubbio piu comune: \"Saro a mio agio durante la seduta?\". Per questo in studio lavoriamo con manipolo Ice Polar, che aiuta a rendere il trattamento piu confortevole.",
+        "Ma il comfort da solo non basta. Quello che fa davvero la differenza e la competenza con cui si impostano parametri e calendario: zona per zona, pelle per pelle, con una progressione chiara e senza corse.",
+        "Di solito si parte da una valutazione semplice, poi scegliamo insieme le priorita (ad esempio viso o corpo, una zona alla volta oppure piu zone nello stesso periodo). L'obiettivo e che il percorso resti facile da seguire anche con la vita piena di tutti i giorni.",
       ],
       links: [
         {
-          label: "Massaggio rilassante",
-          href: "/servizi/massaggio-rilassante-carmagnola",
-          description: "50 minuti dedicati a schiena, spalle e cervicale, con approccio graduale.",
+          label: "Laser a Carmagnola",
+          href: "/epilazione-laser-carmagnola",
+          description: "Come lavoriamo in studio e da dove partire, spiegato in modo semplice.",
         },
         {
-          label: "Trattamenti viso",
-          href: "/competenze/trattamenti-viso-carmagnola",
-          description: "Per capire da dove partire e cosa ha senso per la tua pelle.",
+          label: "Epilazione laser viso",
+          href: "/servizi/epilazione-laser-viso-carmagnola",
+          description: "Dettagli per le zone del viso, indicazioni e domande frequenti.",
+        },
+        {
+          label: "Epilazione laser corpo",
+          href: "/servizi/epilazione-laser-corpo-carmagnola",
+          description: "Zone corpo e organizzazione del ciclo, con percorso su misura.",
+        },
+        {
+          label: "Laser diodo: differenze e criteri di scelta",
+          href: "/competenze/laser-diodo-carmagnola",
+          description: "Per orientarti tra tecnologie e scegliere con piu serenita.",
         },
         {
           label: "Listino completo",
@@ -240,8 +252,12 @@ export const localAreaPages: LocalAreaPage[] = [
         a: "Sì. Impostiamo il piano in base al tempo reale che hai: meglio poche sedute fatte bene che un programma impossibile da seguire.",
       },
       {
-        q: "Il massaggio rilassante e adatto anche se ho spalle e collo molto tesi?",
-        a: "In genere si parte in modo graduale e si adatta l'intensita. Se hai dubbi specifici, chiedici prima: ti diciamo come impostarlo in modo confortevole.",
+        q: "Ice Polar vuol dire che il laser non si sente?",
+        a: "Aiuta molto il comfort, ma la percezione cambia da persona a persona e da zona a zona. In studio regoliamo sempre in modo graduale e sensato.",
+      },
+      {
+        q: "Meglio iniziare dal viso o dal corpo?",
+        a: "Dipende da priorita e abitudini. Durante la valutazione iniziale decidiamo insieme l'ordine delle zone, cosi il percorso resta semplice da seguire.",
       },
     ],
     keywords: [
