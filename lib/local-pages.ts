@@ -869,19 +869,93 @@ export const localAreaPages: LocalAreaPage[] = [
     slug: "la-loggia",
     city: "La Loggia",
     cluster: "torino-sud",
-    title: "Centro estetico vicino La Loggia: percorso Rebel",
+    title: "Centro estetico vicino La Loggia: laser spiegato bene fin dalla prima seduta",
     description:
-      "Da La Loggia a Rebel Carmagnola: trattamenti personalizzati per viso, corpo e depilazione laser.",
+      "Da La Loggia a Carmagnola per l'epilazione laser: valutazione iniziale, parametri su misura e un percorso seguito con indicazioni chiare.",
     intro:
-      "Se arrivi da La Loggia e vuoi evitare percorsi improvvisati, in Rebel trovi struttura e metodo.",
+      "Le prime sedute sono quelle che decidono se ti fidi del percorso: capire cosa aspettarti, leggere i segnali giusti e avere un calendario coerente. In Rebel partiamo da chiarezza e progressione, non da promesse.",
     whyRebel: [
-      "Piano personalizzato senza pacchetti standard",
-      "Spiegazioni semplici su servizi, tempi e costi",
-      "Supporto costante durante il percorso",
+      "Spiegazioni chiare su cosa aspettarti dopo le prime sedute",
+      "Calendario e controlli per mantenere il percorso coerente",
+      "Tecnologia Thory con manipolo Ice Polar per migliorare il comfort",
+      "Supporto rapido su WhatsApp, prima e dopo",
+    ],
+    directions: {
+      heading: "Come arrivare da La Loggia a Rebel (Carmagnola)",
+      mapsUrl:
+        "https://www.google.com/maps/dir/?api=1&origin=La+Loggia&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
+      embedUrl:
+        "https://www.google.com/maps?f=d&source=s_d&saddr=La+Loggia&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
+      paragraphs: [
+        "Apri Google Maps e segui il percorso aggiornato in tempo reale: la destinazione è Rebel, in Viale Barbaroux 20 a Carmagnola.",
+        "Se vuoi partire con un piano ordinato (zone + calendario), scrivici su WhatsApp: ti aiutiamo a scegliere il ritmo più comodo fin dall'inizio.",
+      ],
+    },
+    focus: {
+      heading: "La Loggia: cosa aspettarti dalle prime sedute (senza ansia)",
+      paragraphs: [
+        "Dopo la prima seduta molte persone si chiedono: \"e adesso cosa devo vedere?\". Nel laser, la parola chiave è progressione: i cambiamenti arrivano nel tempo e vanno letti nel modo giusto, senza pretendere tutto subito.",
+        "Nelle settimane iniziali ti spieghiamo cosa aspettarti e cosa evitare tra una seduta e l'altra. È così che la pelle resta più tranquilla e il percorso resta chiaro, senza tentativi casuali.",
+        "Ice Polar aiuta a migliorare il comfort durante la seduta, ma la differenza vera resta nel metodo: parametri su misura e calendario coerente. Una seduta ben impostata vale più di una seduta \"forte\" fatta a caso.",
+        "Se arrivi da La Loggia e vuoi iniziare con un percorso laser seguito e spiegato bene, scrivici: ti diciamo da dove partire e come organizzare le prime sedute.",
+      ],
+      links: [
+        {
+          label: "Apri il percorso su Google Maps",
+          href: "https://www.google.com/maps/dir/?api=1&origin=La+Loggia&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
+          external: true,
+          description: "Navigazione aggiornata in tempo reale fino a Rebel Carmagnola.",
+        },
+        {
+          label: "Laser a Carmagnola",
+          href: "/epilazione-laser-carmagnola",
+          description: "Valutazione iniziale, settaggio e calendario: come lavoriamo in studio.",
+        },
+        {
+          label: "Laser con Ice Polar",
+          href: "/epilazione-laser-ice-polar-carmagnola",
+          description: "Cosa cambia sul comfort durante la seduta, nella pratica.",
+        },
+        {
+          label: "Laser diodo: differenze e criteri di scelta",
+          href: "/competenze/laser-diodo-carmagnola",
+          description: "Per orientarti tra tecnologie e scelte sensate, senza confusione.",
+        },
+        {
+          label: "Epilazione laser corpo",
+          href: "/servizi/epilazione-laser-corpo-carmagnola",
+          description: "Zone corpo, organizzazione del ciclo e domande frequenti.",
+        },
+        {
+          label: "Listino completo",
+          href: "/listino-estetica-laser",
+          description: "Prezzi chiari e panoramica dei servizi disponibili in studio.",
+        },
+        {
+          label: "Contatti",
+          href: "/contatti",
+          description: "Per prenotare o chiedere un consiglio prima di iniziare.",
+        },
+      ],
+    },
+    faqs: [
+      {
+        q: "Dopo la prima seduta laser cosa succede?",
+        a: "Dipende da zona e risposta individuale. In genere il percorso è progressivo: ti spieghiamo cosa aspettarti nei giorni e nelle settimane successive e come gestire la pelle in modo semplice.",
+      },
+      {
+        q: "Se ho paura del fastidio, posso comunque iniziare?",
+        a: "Sì: lavoriamo in modo graduale e su misura. Ice Polar aiuta il comfort durante la seduta, e il settaggio viene sempre adattato alla risposta della pelle.",
+      },
+      {
+        q: "Quante sedute servono per un risultato stabile?",
+        a: "Dipende da zona, pelo e risposta individuale. In consulenza impostiamo un calendario realistico e lo monitoriamo seduta dopo seduta.",
+      },
     ],
     keywords: [
       "centro estetico La Loggia",
       "estetista La Loggia",
+      "epilazione laser La Loggia",
       "laser La Loggia",
     ],
   },
