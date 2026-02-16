@@ -564,15 +564,83 @@ export const localAreaPages: LocalAreaPage[] = [
     slug: "pancalieri",
     city: "Pancalieri",
     cluster: "asse-carmagnola",
-    title: "Da Pancalieri a Rebel Carmagnola",
+    title: "Centro estetico vicino Pancalieri: laser seguito, con indicazioni chiare",
     description:
-      "Da Pancalieri a Carmagnola: centro estetico avanzato con servizi viso/corpo e laser, con un metodo chiaro.",
+      "Da Pancalieri a Carmagnola per l'epilazione laser: valutazione, settaggio su misura e indicazioni pratiche tra una seduta e l'altra.",
     intro:
-      "Se vivi a Pancalieri e vuoi un piano estetico ben organizzato, Rebel è una soluzione concreta e vicina.",
+      "Il laser funziona meglio quando sai cosa aspettarti prima e cosa fare dopo. In Rebel puntiamo su regole semplici, comunicazione chiara e un percorso che resta gestibile anche quando la vita è piena.",
     whyRebel: [
-      "Consulenza iniziale per capire priorità reali",
-      "Trattamenti combinati in base al tuo obiettivo",
-      "Supporto costante tra una seduta e l'altra",
+      "Indicazioni pratiche pre e post-seduta (senza confusione)",
+      "Calendario coerente e adattabile alle tue abitudini",
+      "Tecnologia Thory con manipolo Ice Polar per migliorare il comfort",
+      "Supporto rapido su WhatsApp durante tutto il percorso",
+    ],
+    directions: {
+      heading: "Come arrivare da Pancalieri a Rebel (Carmagnola)",
+      mapsUrl:
+        "https://www.google.com/maps/dir/?api=1&origin=Pancalieri&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
+      embedUrl:
+        "https://www.google.com/maps?f=d&source=s_d&saddr=Pancalieri&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
+      paragraphs: [
+        "Apri Google Maps e segui il percorso aggiornato in tempo reale: è il modo più comodo per arrivare a Viale Barbaroux 20, Carmagnola.",
+        "Se vuoi partire con un piano ordinato (zone + calendario), scrivici su WhatsApp: ti guidiamo passo per passo, senza accelerazioni inutili.",
+      ],
+    },
+    focus: {
+      heading: "Pancalieri: la parte che fa la differenza è tra una seduta e l'altra",
+      paragraphs: [
+        "Il laser non è solo quello che succede in cabina: è anche il modo in cui la pelle viene gestita tra una seduta e l'altra. Quando le indicazioni sono chiare, la pelle resta più tranquilla e il percorso diventa più facile da seguire.",
+        "In studio impostiamo il lavoro in modo progressivo: valutazione iniziale, parametri su misura e un calendario coerente. Se cambiano abitudini, stagione o sensibilità, si adatta anche il piano.",
+        "Ice Polar aiuta molto il comfort durante la seduta, ma non è l'unica variabile. La differenza vera è una gestione ordinata: niente promesse esagerate, solo una progressione chiara.",
+        "Se arrivi da Pancalieri e vuoi iniziare senza dubbi confusi, scrivici: ti spieghiamo cosa aspettarti e da dove partire (viso, corpo o una zona alla volta).",
+      ],
+      links: [
+        {
+          label: "Apri il percorso su Google Maps",
+          href: "https://www.google.com/maps/dir/?api=1&origin=Pancalieri&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
+          external: true,
+          description: "Navigazione aggiornata in tempo reale fino a Rebel Carmagnola.",
+        },
+        {
+          label: "Laser a Carmagnola",
+          href: "/epilazione-laser-carmagnola",
+          description: "Valutazione, calendario e percorso spiegati in modo semplice.",
+        },
+        {
+          label: "Laser con Ice Polar",
+          href: "/epilazione-laser-ice-polar-carmagnola",
+          description: "Cosa cambia sul comfort durante la seduta, nella pratica.",
+        },
+        {
+          label: "Epilazione laser corpo",
+          href: "/servizi/epilazione-laser-corpo-carmagnola",
+          description: "Zone corpo, organizzazione del ciclo e domande frequenti.",
+        },
+        {
+          label: "Laser diodo: differenze e criteri di scelta",
+          href: "/competenze/laser-diodo-carmagnola",
+          description: "Per orientarti tra tecnologie e scelte sensate, senza confusione.",
+        },
+        {
+          label: "Contatti",
+          href: "/contatti",
+          description: "Per prenotare la prima valutazione o chiedere un consiglio.",
+        },
+      ],
+    },
+    faqs: [
+      {
+        q: "Cosa devo fare dopo una seduta laser?",
+        a: "Ti diamo indicazioni semplici e coerenti con le zone trattate. In generale puntiamo a mantenere la pelle tranquilla: niente eccessi, niente ansia, solo regole chiare da seguire.",
+      },
+      {
+        q: "Se ho la pelle sensibile posso fare il laser?",
+        a: "Spesso sì, ma serve valutazione iniziale e settaggio corretto. Lavoriamo in modo graduale e adattiamo il piano in base alla risposta della pelle.",
+      },
+      {
+        q: "Posso iniziare anche se faccio sport o ho una routine intensa?",
+        a: "Sì: proprio per questo impostiamo calendario e indicazioni in modo realistico. L'obiettivo è un percorso che si incastra nella tua vita, non il contrario.",
+      },
     ],
     keywords: [
       "centro estetico Pancalieri",
