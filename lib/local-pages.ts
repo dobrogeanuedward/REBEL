@@ -83,6 +83,11 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "50 minuti dedicati a schiena, spalle e cervicale, con ritmo graduale.",
         },
         {
+          label: "Scrub corpo",
+          href: "/servizi/scrub-corpo-carmagnola",
+          description: "Esfoliazione controllata per pelle più uniforme e una routine corpo più semplice.",
+        },
+        {
           label: "Protocolli epigenetici",
           href: "/protocolli-epigenetici",
           description: "Percorsi evoluti viso/corpo, scelti in base al tuo punto di partenza.",

@@ -65,7 +65,7 @@ export const servicePages: ServicePage[] = [
         a: "Spesso tra 4 e 6 settimane, ma la frequenza giusta dipende da pelle, stagione e routine a casa. Dopo la prima seduta ti diciamo un ritmo semplice da seguire.",
       },
       {
-        q: "Dopo la pulizia viso avrò rossore?",
+        q: "Dopo la pulizia viso avrò rossore?",
         a: "Può succedere un lieve rossore, soprattutto se la pelle è reattiva. Lavoriamo in modo graduale e chiudiamo sempre con una fase lenitiva per lasciare la pelle il più tranquilla possibile.",
       },
       {
@@ -128,22 +128,30 @@ export const servicePages: ServicePage[] = [
     shortDescription:
       "Esfoliazione corpo per pelle liscia, morbida e uniforme.",
     longDescription:
-      "Lo scrub corpo aiuta a togliere le cellule superficiali e lascia la pelle subito più liscia. È ottimo anche come preparazione ad altri trattamenti corpo.",
+      "Lo scrub corpo è un'esfoliazione controllata: rimuove le cellule superficiali in eccesso e lascia la pelle più uniforme al tatto. In studio lo impostiamo in modo sensato (zone, pressione, prodotto e tempi) per evitare irritazioni e ottenere un risultato piacevole anche nei giorni successivi.",
     priceHint: "da EUR 49",
     category: "estetica-classica",
     benefits: [
-      "Pelle subito più liscia e uniforme",
-      "Stimola il rinnovamento superficiale",
-      "Ottima base per protocolli corpo",
+      "Pelle più morbida e uniforme al tatto",
+      "Riduce la sensazione di pelle ruvida e \"spessa\" su alcune zone",
+      "Rende più semplice la routine corpo (idratazione e mantenimento)",
     ],
     faqs: [
       {
         q: "Lo scrub è adatto tutto l'anno?",
-        a: "Sì, basta adattare frequenza e intensità al periodo e alla sensibilità della tua pelle.",
+        a: "Sì, ma cambia il ritmo: in base a stagione, sole e sensibilità della pelle si adattano intensità e frequenza. In ogni caso, dopo una buona esfoliazione la protezione solare è una buona abitudine.",
       },
       {
-        q: "Ogni quanto e consigliato?",
-        a: "Generalmente ogni 3-5 settimane.",
+        q: "Ogni quanto è consigliato?",
+        a: "Spesso ogni 3-5 settimane, ma se la pelle è reattiva o molto secca possiamo distanziare. La regola è semplice: meglio costanza e delicatezza che esagerare una volta.",
+      },
+      {
+        q: "Può aiutare con pelle ruvida e piccoli ispessimenti?",
+        a: "Sì, soprattutto quando la ruvidità è legata allo strato superficiale. In studio valutiamo anche idratazione e routine, perché lo scrub da solo non sostituisce la continuità a casa.",
+      },
+      {
+        q: "Dopo lo scrub corpo posso fare palestra o sauna?",
+        a: "Dipende da come risponde la tua pelle. In genere, nelle prime ore è meglio evitare calore eccessivo e sfregamenti intensi; ti diamo indicazioni semplici in base alle zone trattate.",
       },
     ],
     keywords: [
@@ -151,7 +159,47 @@ export const servicePages: ServicePage[] = [
       "esfoliazione corpo Carmagnola",
       "trattamento corpo levigante Carmagnola",
     ],
-    relatedCompetenceSlugs: ["trattamenti-corpo-carmagnola"],
+    relatedCompetenceSlugs: ["trattamenti-corpo-carmagnola", "beauty-routine-carmagnola"],
+    editorialSections: [
+      {
+        heading: "Cosa fa davvero lo scrub (e cosa no)",
+        paragraphs: [
+          "Lo scrub lavora sulla superficie: aiuta a rimuovere cellule in eccesso e a rendere la pelle più uniforme al tatto. È uno di quei trattamenti che danno una sensazione immediata di pelle \"più pulita\" e più morbida.",
+          "Non è un trattamento medico e non è una promessa miracolosa. La differenza la fa l'impostazione (quanto è delicato, su quali zone, con che frequenza) e la continuità nel tempo.",
+        ],
+      },
+      {
+        heading: "Come lo impostiamo in studio: zone, pressione, sensibilità",
+        paragraphs: [
+          "Non tutte le zone del corpo reagiscono allo stesso modo. Alcune aree sono più resistenti, altre più reattive. Per questo adattiamo pressione e manovre, e non inseguiamo mai l'effetto \"forte\" a tutti i costi.",
+          "Se l'obiettivo è anche migliorare il comfort quotidiano (pelle che tira, ruvidità, sensazione di ispessimento), abbiniamo sempre una fase finale che lascia la pelle più calma e confortevole.",
+        ],
+      },
+      {
+        heading: "Frequenza: il risultato migliore arriva quando non si esagera",
+        paragraphs: [
+          "Esfoliare troppo spesso può rendere la pelle più sensibile e meno stabile. Il nostro approccio è l'opposto: ritmo sostenibile, sedute ben distanziate e mantenimento semplice.",
+          "Dopo la prima seduta ti diciamo una frequenza realistica, che riesci a seguire senza trasformare la routine corpo in un lavoro.",
+        ],
+      },
+      {
+        heading: "Dopo la seduta: far durare la morbidezza",
+        paragraphs: [
+          "Il post è semplice: idratazione e protezione. Pochi gesti, ma coerenti. Se vuoi, ti suggeriamo anche come scegliere i prodotti in base a stagione e sensazione della pelle (secca, che tira, più spessa).",
+          "L'obiettivo è far durare la sensazione di pelle uniforme, non viverla solo per un giorno.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - How to safely exfoliate at home",
+        url: "https://www.aad.org/public/everyday-care/skin-care-secrets/routine/safely-exfoliate-at-home",
+      },
+      {
+        label: "AAD - Basic skin care",
+        url: "https://www.aad.org/public/everyday-care/skin-care-basics/care",
+      },
+    ],
   },
   {
     slug: "massaggio-linfodrenante-carmagnola",
