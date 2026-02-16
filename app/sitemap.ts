@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries: MetadataRoute.Sitemap = [
     createEntry("/", "daily", 1),
     createEntry("/epilazione-laser-carmagnola", "daily", 0.98),
+    createEntry("/epilazione-laser-ice-polar-carmagnola", "weekly", 0.92),
     createEntry("/chi-siamo", "weekly", 0.9),
     createEntry("/metodo-rebel", "weekly", 0.88),
     createEntry("/protocolli-epigenetici", "weekly", 0.89),

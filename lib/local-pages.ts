@@ -82,6 +82,11 @@ export const localAreaPages: LocalAreaPage[] = [
           href: "/protocolli-epigenetici",
           description: "Percorsi evoluti viso/corpo, scelti in base al tuo punto di partenza.",
         },
+        {
+          label: "Laser con Ice Polar",
+          href: "/epilazione-laser-ice-polar-carmagnola",
+          description: "Una pagina dedicata al comfort durante la seduta e a come impostiamo il percorso.",
+        },
       ],
     },
     faqs: [

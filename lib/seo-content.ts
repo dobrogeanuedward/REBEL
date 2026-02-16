@@ -408,6 +408,50 @@ export const competencePages: CompetencePage[] = [
       "epilazione-laser-viso-carmagnola",
       "epilazione-laser-corpo-carmagnola",
     ],
+    editorialSections: [
+      {
+        heading: "Prima consulenza: la parte più importante del percorso",
+        paragraphs: [
+          "Quando una persona ci contatta per il laser, spesso chiede subito: \"quante sedute servono?\". È una domanda normale, ma la risposta migliore arriva dopo una valutazione: zona, pelle, tipo di pelo e abitudini contano davvero.",
+          "In studio impostiamo parametri e calendario in modo chiaro. L'obiettivo è farti capire cosa stiamo facendo e perché, così il percorso resta sereno e facile da seguire.",
+        ],
+      },
+      {
+        heading: "Calendario e costanza: perché non è una corsa",
+        paragraphs: [
+          "Il laser lavora meglio quando le sedute seguono un ritmo coerente. Saltare troppo spesso o cambiare piano di continuo non aiuta: crea solo confusione e rende più difficile leggere i risultati.",
+          "Per questo preferiamo un approccio semplice: poche regole chiare, controlli regolari e piccoli aggiustamenti quando la pelle o la risposta cambiano.",
+        ],
+      },
+      {
+        heading: "Comfort durante la seduta: Ice Polar come aiuto pratico",
+        paragraphs: [
+          "Molte persone temono il fastidio, soprattutto su alcune zone. In Rebel usiamo anche il manipolo Ice Polar per migliorare il comfort durante la seduta.",
+          "È un aiuto concreto all'esperienza, ma non sostituisce il metodo: la differenza vera resta nel settaggio corretto e nel percorso seguito nel tempo.",
+        ],
+      },
+      {
+        heading: "Cosa chiedere a un centro prima di iniziare",
+        paragraphs: [
+          "Domande semplici, ma decisive: chi imposta i parametri, come si gestisce il post-seduta, come si adatta il piano se la pelle reagisce in modo diverso, e quali indicazioni ti vengono date tra un appuntamento e l'altro.",
+          "Un centro serio ti risponde con chiarezza, senza promesse esagerate. La trasparenza è già parte del risultato.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - Laser hair removal FAQs",
+        url: "https://www.aad.org/public/cosmetic/hair-removal/laser-hair-removal-faqs",
+      },
+      {
+        label: "Mayo Clinic - Laser hair removal",
+        url: "https://www.mayoclinic.org/tests-procedures/laser-hair-removal/about/pac-20394555",
+      },
+      {
+        label: "NHS - Choosing who will do your cosmetic procedure",
+        url: "https://www.nhs.uk/tests-and-treatments/cosmetic-procedures/advice/choosing-who-will-do-your-procedure/",
+      },
+    ],
   },
   {
     slug: "laser-diodo-carmagnola",

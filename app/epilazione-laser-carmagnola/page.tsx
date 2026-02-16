@@ -157,6 +157,9 @@ export default function EpilazioneLaserCarmagnolaPage() {
               <Link href="/servizi/epilazione-laser-corpo-carmagnola" className="button button-secondary">
                 Epilazione laser corpo
               </Link>
+              <Link href="/epilazione-laser-ice-polar-carmagnola" className="button button-secondary">
+                Ice Polar: comfort durante il laser
+              </Link>
               <Link href="/listino-estetica-laser" className="button button-secondary">
                 Vedi listino completo
               </Link>
