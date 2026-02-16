@@ -390,15 +390,83 @@ export const localAreaPages: LocalAreaPage[] = [
     slug: "poirino",
     city: "Poirino",
     cluster: "asse-carmagnola",
-    title: "Da Poirino a Rebel: centro estetico a pochi minuti",
+    title: "Centro estetico vicino Poirino: laser organizzato, senza confusione",
     description:
-      "Rebel Carmagnola è una scelta comoda per chi vive a Poirino e cerca un centro estetico con metodo.",
+      "Da Poirino a Carmagnola per l'epilazione laser: valutazione iniziale, parametri su misura e un calendario che riesci a seguire.",
     intro:
-      "Se arrivi da Poirino puoi trovare in un unico studio estetica avanzata, benessere ed epilazione laser.",
+      "La parte difficile non è decidere \"faccio il laser\": è scegliere le zone e impostare un calendario che non si incasina dopo due settimane. In Rebel facciamo chiarezza da subito, con un percorso pratico e sostenibile.",
     whyRebel: [
-      "Percorsi personalizzati e spiegati in modo semplice",
-      "Trattamenti viso/corpo e laser nello stesso centro",
-      "Contatto rapido su WhatsApp per agenda e richiami",
+      "Valutazione iniziale e priorità chiare (zona per zona)",
+      "Calendario e indicazioni semplici tra una seduta e l'altra",
+      "Tecnologia Thory con manipolo Ice Polar per maggiore comfort",
+      "Listino trasparente e percorso costruito su tempi reali",
+    ],
+    directions: {
+      heading: "Come arrivare da Poirino a Rebel (Carmagnola)",
+      mapsUrl:
+        "https://www.google.com/maps/dir/?api=1&origin=Poirino&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
+      embedUrl:
+        "https://www.google.com/maps?f=d&source=s_d&saddr=Poirino&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
+      paragraphs: [
+        "Per arrivare senza perdere tempo, apri la mappa e segui il percorso aggiornato in tempo reale. La destinazione è Rebel, in Viale Barbaroux 20 a Carmagnola.",
+        "Se vuoi incastrare bene gli appuntamenti con lavoro e famiglia, scrivici su WhatsApp: ti aiutiamo a scegliere un ritmo sostenibile e a non \"mollare\" dopo le prime sedute.",
+      ],
+    },
+    focus: {
+      heading: "Poirino: scegliere le zone giuste (e farlo con buon senso)",
+      paragraphs: [
+        "Molte persone partono con l'idea di fare tutto insieme. In realtà, per vivere bene il percorso, spesso conviene scegliere 1-2 zone prioritarie e impostare un calendario pulito: meno stress, più continuità.",
+        "La differenza la fa l'organizzazione: parametri su misura, intervalli coerenti e piccoli aggiustamenti quando la pelle o la risposta cambiano. Il laser funziona meglio quando lo segui con serenità, non quando lo rincorri.",
+        "Ice Polar è un aiuto concreto sul comfort durante la seduta, ma il risultato non è \"una macchina\": è metodo + calendario + indicazioni chiare tra una seduta e l'altra.",
+        "Se arrivi da Poirino e vuoi capire da quali zone partire (anche in base a tempo e budget), scrivici: ti diciamo subito una strategia semplice e realistica.",
+      ],
+      links: [
+        {
+          label: "Apri il percorso su Google Maps",
+          href: "https://www.google.com/maps/dir/?api=1&origin=Poirino&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
+          external: true,
+          description: "Navigazione aggiornata in tempo reale fino a Viale Barbaroux 20, Carmagnola.",
+        },
+        {
+          label: "Laser a Carmagnola",
+          href: "/epilazione-laser-carmagnola",
+          description: "Panoramica chiara su come impostiamo il percorso (valutazione + calendario).",
+        },
+        {
+          label: "Laser corpo: zone, tempi e piano sedute",
+          href: "/competenze/epilazione-laser-corpo-carmagnola-zone-tempi",
+          description: "Per scegliere priorità e stagionalità con un criterio semplice.",
+        },
+        {
+          label: "Epilazione laser corpo",
+          href: "/servizi/epilazione-laser-corpo-carmagnola",
+          description: "Dettagli sulle zone corpo e sulle domande più comuni.",
+        },
+        {
+          label: "Listino completo",
+          href: "/listino-estetica-laser",
+          description: "Prezzi chiari e panoramica dei servizi disponibili in studio.",
+        },
+        {
+          label: "Contatti",
+          href: "/contatti",
+          description: "Per prenotare o chiedere un consiglio prima di iniziare.",
+        },
+      ],
+    },
+    faqs: [
+      {
+        q: "Da quale zona conviene partire se ho poco tempo?",
+        a: "Dipende da abitudini e obiettivo. In consulenza scegliamo insieme una priorità (o due) e costruiamo un calendario che riesci a seguire, senza incastrarti.",
+      },
+      {
+        q: "Posso trattare più zone nello stesso periodo?",
+        a: "Sì, se ha senso per il tuo tempo e per la tollerabilità. A volte è più sostenibile partire gradualmente: l'importante è non rendere il percorso ingestibile.",
+      },
+      {
+        q: "Ice Polar cambia davvero il comfort durante la seduta?",
+        a: "Aiuta molto la tollerabilità, ma la percezione varia da zona a zona. Per noi resta fondamentale anche il settaggio corretto e la progressione del percorso.",
+      },
     ],
     keywords: [
       "centro estetico Poirino",
