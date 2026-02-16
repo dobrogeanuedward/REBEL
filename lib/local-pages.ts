@@ -104,15 +104,75 @@ export const localAreaPages: LocalAreaPage[] = [
     slug: "carignano",
     city: "Carignano",
     cluster: "asse-carmagnola",
-    title: "Da Carignano a Rebel: percorso estetico su misura",
+    title: "Da Carignano a Rebel Carmagnola: laser con metodo e comfort",
     description:
-      "Se vivi a Carignano, Rebel Carmagnola è una soluzione comoda per viso, corpo ed epilazione laser a Carmagnola.",
+      "Se vivi a Carignano e vuoi iniziare il laser con serenita, Rebel a Carmagnola ti segue con un percorso chiaro e comfort grazie a Ice Polar.",
     intro:
-      "Tante clienti da Carignano ci scelgono perché vogliono un percorso chiaro, non un trattamento uguale per tutte.",
+      "Da Carignano arrivano clienti che vogliono una cosa semplice: fare il laser bene, senza improvvisare e senza cambiare idea ogni mese.",
     whyRebel: [
-      "Ci raggiungi facilmente da Carignano",
-      "In un solo posto trovi servizi base e trattamenti avanzati",
-      "Ogni piano parte dai tuoi obiettivi reali",
+      "Valutazione iniziale e settaggio su misura (zona, pelle, obiettivo)",
+      "Percorso seguito nel tempo, con calendario e controlli",
+      "Manipolo Ice Polar per migliorare il comfort durante la seduta",
+    ],
+    directions: {
+      heading: "Come arrivare da Carignano a Rebel (Carmagnola)",
+      mapsUrl:
+        "https://www.google.com/maps/dir/?api=1&origin=Carignano&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
+      embedUrl:
+        "https://www.google.com/maps?f=d&source=s_d&saddr=Carignano&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
+      paragraphs: [
+        "Per arrivare da Carignano, il modo piu semplice e aprire la mappa e seguire il percorso aggiornato in tempo reale. La destinazione e Viale Barbaroux 20, Carmagnola.",
+        "Se vuoi organizzarti bene con gli orari, scrivici su WhatsApp: ti aiutiamo a capire da dove partire e come impostare le prime sedute in modo comodo.",
+      ],
+    },
+    focus: {
+      heading: "Da Carignano: cosa fa davvero la differenza nel laser (oltre alla tecnologia)",
+      paragraphs: [
+        "La parte piu sottovalutata del laser non e il \"nome\" della macchina: e come viene impostato il percorso. Parametri, zona, risposta della pelle e calendario devono essere coerenti tra loro, altrimenti si accumulano solo dubbi.",
+        "In Rebel usiamo anche Ice Polar per lavorare con piu comfort, ma soprattutto ti spieghiamo cosa stiamo facendo e perche: cosi sai sempre a che punto sei, cosa aspettarti e come prenderti cura della pelle tra una seduta e l'altra.",
+        "Se vieni da Carignano e hai poco tempo, si puo comunque costruire un piano sostenibile: poche cose fatte bene, con priorita chiare (ad esempio una zona alla volta, oppure piu zone con una gestione sensata).",
+      ],
+      links: [
+        {
+          label: "Laser a Carmagnola",
+          href: "/epilazione-laser-carmagnola",
+          description: "Panoramica chiara su come lavoriamo e come iniziare.",
+        },
+        {
+          label: "Epilazione laser viso",
+          href: "/servizi/epilazione-laser-viso-carmagnola",
+          description: "Zone viso, indicazioni e domande frequenti.",
+        },
+        {
+          label: "Epilazione laser corpo",
+          href: "/servizi/epilazione-laser-corpo-carmagnola",
+          description: "Zone corpo e organizzazione del ciclo.",
+        },
+        {
+          label: "Listino completo",
+          href: "/listino-estetica-laser",
+          description: "Prezzi e panoramica dei servizi in studio.",
+        },
+        {
+          label: "Contatti",
+          href: "/contatti",
+          description: "Per prenotare o chiedere un consiglio prima di iniziare.",
+        },
+      ],
+    },
+    faqs: [
+      {
+        q: "Da Carignano: il laser si sente tanto?",
+        a: "Dipende da zona e sensibilita personale. Ice Polar aiuta il comfort e noi impostiamo sempre in modo graduale, senza forzare.",
+      },
+      {
+        q: "Posso iniziare anche se ho una routine incasinata?",
+        a: "Sì. Pianifichiamo un calendario che riesci a seguire davvero: meglio costanza e chiarezza che corse e stress.",
+      },
+      {
+        q: "Meglio partire da una zona o farne piu di una?",
+        a: "Si decide insieme in base a priorita, tempo e tollerabilita. L'obiettivo e un percorso semplice da portare avanti.",
+      },
     ],
     keywords: [
       "centro estetico Carignano",
