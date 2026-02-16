@@ -287,6 +287,22 @@ img {
   color: rgba(39, 31, 56, 0.7);
 }
 
+.insight-points li {
+  position: relative;
+  padding-left: 1.05rem;
+  font-family: var(--font-inter), sans-serif;
+  line-height: 1.6;
+  color: rgba(39, 31, 56, 0.76);
+}
+
+.insight-points li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: rgba(124, 58, 237, 0.58);
+}
+
 .card-light .lead {
   color: rgba(39, 31, 56, 0.78);
 }

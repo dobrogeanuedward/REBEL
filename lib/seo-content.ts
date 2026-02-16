@@ -644,9 +644,9 @@ export const competencePages: CompetencePage[] = [
       "Pensata per chi confronta più centri estetici a Carmagnola e vuole decidere con consapevolezza.",
     intent: "commercial",
     benefits: [
-      "Ti aiuta a fissare aspettative chiare gia dalla prima consulenza",
-      "Riduce dubbi su sicurezza, tempi e frequenza delle sedute",
-      "Ti guida nella scelta del percorso più adatto al tuo viso",
+      "Chiarisce tempi e frequenza delle sedute (e perche possono cambiare)",
+      "Spiega preparazione e post-seduta, con attenzione alla pelle del viso",
+      "Ti aiuta a capire cosa chiedere in consulenza, senza imbarazzo",
     ],
     faqs: [
       {
@@ -715,16 +715,16 @@ export const competencePages: CompetencePage[] = [
     slug: "epilazione-laser-corpo-carmagnola-zone-tempi",
     title: "Epilazione laser corpo a Carmagnola: zone, tempi e piano sedute",
     shortDescription:
-      "Come organizzare il laser corpo in modo sostenibile e coerente: zone, tempi e calendario.",
+      "Come organizzare il laser corpo: quali zone dare priorita, tempi e calendario.",
     longDescription:
       "Una guida concreta per chi vuole iniziare il laser corpo a Carmagnola con una strategia chiara: zone prioritarie, stagionalità e gestione del percorso senza stress.",
     localAngle:
       "Ideale se arrivi da Carmagnola o comuni vicini e vuoi un programma coerente, non standard.",
     intent: "commercial",
     benefits: [
-      "Aiuta a pianificare bene zone e calendario",
-      "Riduce errori comuni prima e dopo la seduta",
-      "Migliora continuità e qualità del risultato nel tempo",
+      "Ti fa scegliere le zone in base a priorita e vita reale, non a pacchetti",
+      "Ti aiuta a impostare un calendario che riesci a seguire",
+      "Spiega cosa considerare con sole, routine e piccoli accorgimenti",
     ],
     faqs: [
       {
@@ -793,16 +793,16 @@ export const competencePages: CompetencePage[] = [
     slug: "pulizia-viso-carmagnola-frequenza-benefici",
     title: "Pulizia viso a Carmagnola: ogni quanto farla e per chi ha senso",
     shortDescription:
-      "Frequenza, pelle sensibile, errori comuni e come mantenere bene il risultato dopo la pulizia viso.",
+      "Frequenza, pelle sensibile, errori comuni e come mantenere bene il risultato.",
     longDescription:
       "Una guida naturale e concreta per capire quando la pulizia viso serve davvero, come integrarla nella routine e come evitare eccessi che irritano la pelle.",
     localAngle:
       "Scritta per chi cerca a Carmagnola un approccio viso professionale, delicato e progressivo.",
     intent: "commercial",
     benefits: [
-      "Aiuta a scegliere la frequenza giusta in base alla pelle reale",
-      "Migliora la qualità della routine tra una seduta e l'altra",
-      "Riduce i classici errori da sovra-trattamento",
+      "Ti aiuta a capire se serve davvero (e ogni quanto, per la tua pelle)",
+      "Spiega come evitare irritazioni e sovraccarico della barriera cutanea",
+      "Rende piu semplice la routine tra una seduta e l'altra",
     ],
     faqs: [
       {
@@ -877,9 +877,9 @@ export const competencePages: CompetencePage[] = [
       "Dedicata a chi cerca a Carmagnola un trattamento drenante serio e personalizzato.",
     intent: "commercial",
     benefits: [
-      "Distingue benefici concreti da aspettative gonfiate",
-      "Aiuta a capire quando inserirlo in un percorso corpo",
-      "Migliora la qualità della scelta prima di prenotare",
+      "Chiarisce quando puo essere utile (e quando no)",
+      "Spiega come inserirlo in un percorso corpo con un ritmo sostenibile",
+      "Aiuta a fare scelte piu serene, senza aspettative gonfiate",
     ],
     faqs: [
       {

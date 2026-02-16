@@ -227,11 +227,12 @@ export default function ServiziHubPage() {
             Approfondimenti
           </p>
           <h2 className="page-title" style={{ marginTop: "0.55rem" }}>
-            Articoli naturali e concreti sui servizi più richiesti.
+            Quattro letture che fanno chiarezza, prima di prenotare.
           </h2>
           <p className="lead" style={{ marginTop: "0.5rem", color: "rgba(39,31,56,0.78)", maxWidth: "72ch" }}>
-            Abbiamo scritto articoli con fonti autorevoli e taglio umano, per aiutarti
-            a scegliere bene tra i percorsi principali del nostro listino.
+            Se stai valutando il laser o vuoi capire meglio cosa aspettarti da un percorso,
+            qui trovi testi positivi, chiari e tecnici dove serve. L&apos;idea e semplice: farti
+            arrivare alla consulenza con le domande giuste e con meno confusione.
           </p>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             {featuredEditorials.map((item) => (
@@ -246,6 +247,13 @@ export default function ServiziHubPage() {
                 >
                   {item.shortDescription}
                 </p>
+                {item.benefits.length > 0 && (
+                  <ul className="list-clean insight-points" style={{ marginTop: "0.65rem" }}>
+                    {item.benefits.slice(0, 2).map((benefit) => (
+                      <li key={benefit}>{benefit}</li>
+                    ))}
+                  </ul>
+                )}
                 <small style={{ fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.64)" }}>
                   Leggi l&apos;articolo
                 </small>
