@@ -692,19 +692,88 @@ export const localAreaPages: LocalAreaPage[] = [
     slug: "nichelino",
     city: "Nichelino",
     cluster: "torino-sud",
-    title: "Centro estetico vicino Nichelino: percorsi Rebel",
+    title: "Centro estetico vicino Nichelino: laser e cura pelle, con metodo",
     description:
-      "Da Nichelino a Rebel Carmagnola per trattamenti mirati viso/corpo ed epilazione laser su misura.",
+      "Da Nichelino a Carmagnola per epilazione laser e trattamenti mirati viso/corpo: valutazione iniziale, percorso su misura e indicazioni chiare.",
     intro:
-      "Quando cerchi una gestione più personalizzata, la differenza la fa il metodo: ascolto, piano e continuità. Se arrivi da Nichelino, Carmagnola è una soluzione comoda per viso, corpo e laser.",
+      "A volte il problema non è scegliere un trattamento: è riuscire a seguirlo. In Rebel impostiamo un piano semplice, con appuntamenti realistici e indicazioni chiare tra una seduta e l'altra.",
     whyRebel: [
-      "Protocollo costruito sulle tue necessità",
-      "Un solo studio per benessere, estetica e laser",
-      "Comunicazione diretta e tempi chiari",
+      "Valutazione iniziale e percorso costruito su pelle, zona e obiettivo",
+      "Indicazioni pratiche tra le sedute (così non vai a tentativi)",
+      "Tecnologia Thory con manipolo Ice Polar per maggiore comfort",
+      "Un solo studio per laser e cura della pelle (viso e corpo)",
+    ],
+    directions: {
+      heading: "Come arrivare da Nichelino a Rebel (Carmagnola)",
+      mapsUrl:
+        "https://www.google.com/maps/dir/?api=1&origin=Nichelino&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
+      embedUrl:
+        "https://www.google.com/maps?f=d&source=s_d&saddr=Nichelino&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
+      paragraphs: [
+        "Apri Google Maps e segui il percorso aggiornato in tempo reale: la destinazione è Rebel, Viale Barbaroux 20, Carmagnola.",
+        "Se vuoi partire con un piano ordinato (zone + calendario), scrivici su WhatsApp: ti aiutiamo a scegliere il ritmo più comodo fin dall'inizio.",
+      ],
+    },
+    focus: {
+      heading: "Nichelino: laser e pelle più comoda da gestire (anche tra le sedute)",
+      paragraphs: [
+        "Un percorso laser fatto bene non riguarda solo la riduzione progressiva della ricrescita: riguarda anche la quotidianità. Meno corse con ceretta e lametta, meno improvvisazione, una pelle più semplice da gestire.",
+        "Per questo insistiamo sulle basi: calendario coerente, parametri impostati con attenzione e indicazioni chiare tra una seduta e l'altra. È lì che spesso si evitano gli errori più comuni.",
+        "Se serve, integriamo anche trattamenti corpo molto semplici (come uno scrub impostato con buon senso) per aiutare la pelle a restare più uniforme e confortevole, senza esagerare.",
+        "Se arrivi da Nichelino e vuoi un percorso laser organizzato (senza dubbi confusi), scrivici: ti diciamo da dove partire e cosa aspettarti, zona per zona.",
+      ],
+      links: [
+        {
+          label: "Apri il percorso su Google Maps",
+          href: "https://www.google.com/maps/dir/?api=1&origin=Nichelino&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
+          external: true,
+          description: "Navigazione aggiornata in tempo reale fino a Rebel Carmagnola.",
+        },
+        {
+          label: "Laser a Carmagnola",
+          href: "/epilazione-laser-carmagnola",
+          description: "Come impostiamo valutazione, parametri e calendario in studio.",
+        },
+        {
+          label: "Epilazione laser corpo",
+          href: "/servizi/epilazione-laser-corpo-carmagnola",
+          description: "Zone corpo, organizzazione del ciclo e FAQ rapide.",
+        },
+        {
+          label: "Scrub corpo",
+          href: "/servizi/scrub-corpo-carmagnola",
+          description: "Esfoliazione controllata per pelle più uniforme (quando ha senso).",
+        },
+        {
+          label: "Laser diodo: differenze e criteri di scelta",
+          href: "/competenze/laser-diodo-carmagnola",
+          description: "Per orientarti tra tecnologie e scelte sensate, senza promesse.",
+        },
+        {
+          label: "Contatti",
+          href: "/contatti",
+          description: "Per prenotare o chiedere un consiglio prima di iniziare.",
+        },
+      ],
+    },
+    faqs: [
+      {
+        q: "Tra una seduta e l'altra posso fare ceretta o epilatore?",
+        a: "In generale, durante un percorso laser si evita l'epilazione a strappo perché interferisce con il ciclo del pelo. Di solito si preferisce il rasoio e seguiamo indicazioni chiare in base alle zone.",
+      },
+      {
+        q: "Posso fare scrub o trattamenti corpo durante il percorso laser?",
+        a: "Spesso sì, ma con timing e delicatezza. Ti diciamo quando farlo e quando invece è meglio aspettare, così la pelle resta tranquilla.",
+      },
+      {
+        q: "Quando si iniziano a vedere cambiamenti?",
+        a: "Dipende da zona e risposta individuale. In genere i cambiamenti sono progressivi: per questo contano costanza e calendario, non la singola seduta.",
+      },
     ],
     keywords: [
       "centro estetico Nichelino",
       "estetista Nichelino",
+      "epilazione laser Nichelino",
       "laser Nichelino",
     ],
   },
