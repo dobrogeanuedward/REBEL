@@ -301,19 +301,88 @@ export const localAreaPages: LocalAreaPage[] = [
     slug: "sommariva-del-bosco",
     city: "Sommariva del Bosco",
     cluster: "asse-carmagnola",
-    title: "Da Sommariva del Bosco a Rebel Carmagnola",
+    title: "Centro estetico vicino Sommariva del Bosco: laser con calendario chiaro",
     description:
-      "Percorsi estetici evoluti a pochi minuti da Sommariva del Bosco.",
+      "Epilazione laser a Carmagnola per chi vive a Sommariva del Bosco: valutazione, parametri su misura, comfort Ice Polar e gestione sensata del sole.",
     intro:
-      "Molte clienti da Sommariva del Bosco ci scelgono quando vogliono un percorso serio e continuativo.",
+      "Il dubbio più comune quando si pensa al laser è legato al periodo: sole, vacanze, abitudini. In Rebel impostiamo il percorso in modo organizzato e realistico, così sai cosa aspettarti e come muoverti.",
     whyRebel: [
-      "Approccio completo viso e corpo",
-      "Epilazione laser con tecnologia Thory e valutazione iniziale inclusa",
-      "Percorso spiegato bene, con passaggi chiari",
+      "Valutazione iniziale e piano sedute costruito su zona, pelle e obiettivo",
+      "Gestione chiara di calendario e indicazioni tra una seduta e l'altra",
+      "Tecnologia Thory con manipolo Ice Polar per migliorare il comfort",
+      "Un solo studio per laser, viso, corpo e percorsi epigenetici",
+    ],
+    directions: {
+      heading: "Come arrivare da Sommariva del Bosco a Rebel (Carmagnola)",
+      mapsUrl:
+        "https://www.google.com/maps/dir/?api=1&origin=Sommariva+del+Bosco&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
+      embedUrl:
+        "https://www.google.com/maps?f=d&source=s_d&saddr=Sommariva+del+Bosco&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
+      paragraphs: [
+        "Il modo più semplice è aprire Google Maps e seguire il percorso aggiornato in tempo reale: traffico e lavori possono cambiare. La destinazione è Rebel, in Viale Barbaroux 20 a Carmagnola.",
+        "Se vuoi organizzare bene le sedute rispetto a lavoro, famiglia e weekend fuori, scrivici su WhatsApp: ti aiutiamo a impostare un calendario che riesci a seguire davvero.",
+      ],
+    },
+    focus: {
+      heading: "Sommariva del Bosco: laser, stagionalità e comfort (senza ansia)",
+      paragraphs: [
+        "Molte persone rimandano il laser per paura del sole o perché hanno in programma vacanze. La verità è che non serve vivere il percorso con ansia: serve impostarlo bene, con indicazioni chiare e scelte sensate su zone e tempi.",
+        "La parte più importante non è \"fare presto\": è avere un calendario coerente e adattabile. Se in un periodo ti esponi di più o cambiano le abitudini, il percorso si può ritarare senza perdere la direzione.",
+        "In studio lavoriamo anche con manipolo Ice Polar per migliorare il comfort durante la seduta. È un aiuto concreto, ma resta un pezzo del metodo: parametri impostati con competenza e una progressione che puoi seguire con serenità.",
+        "Se arrivi da Sommariva del Bosco e vuoi capire se questo è il momento giusto (e da quali zone partire), scrivici: ti orientiamo in modo semplice, senza promesse esagerate.",
+      ],
+      links: [
+        {
+          label: "Apri il percorso su Google Maps",
+          href: "https://www.google.com/maps/dir/?api=1&origin=Sommariva+del+Bosco&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
+          external: true,
+          description: "Navigazione aggiornata in tempo reale fino a Viale Barbaroux 20, Carmagnola.",
+        },
+        {
+          label: "Laser a Carmagnola",
+          href: "/epilazione-laser-carmagnola",
+          description: "Da dove partire e come lavoriamo: valutazione, calendario e metodo.",
+        },
+        {
+          label: "Laser con Ice Polar",
+          href: "/epilazione-laser-ice-polar-carmagnola",
+          description: "Cosa cambia sul comfort durante la seduta, spiegato senza tecnicismi inutili.",
+        },
+        {
+          label: "Laser corpo: zone, tempi e piano sedute",
+          href: "/competenze/epilazione-laser-corpo-carmagnola-zone-tempi",
+          description: "Come scegliere priorità, stagionalità e calendario in modo sostenibile.",
+        },
+        {
+          label: "Epilazione laser corpo",
+          href: "/servizi/epilazione-laser-corpo-carmagnola",
+          description: "Dettagli sulle zone corpo e su come organizziamo il percorso.",
+        },
+        {
+          label: "Contatti",
+          href: "/contatti",
+          description: "Per chiedere un consiglio veloce e fissare la prima valutazione.",
+        },
+      ],
+    },
+    faqs: [
+      {
+        q: "Posso iniziare il laser se ho già in programma sole o vacanze?",
+        a: "Spesso sì, ma va pianificato con buon senso: zone, calendario e indicazioni tra una seduta e l'altra contano molto. In studio ti spieghiamo cosa fare e cosa evitare in base alle tue abitudini.",
+      },
+      {
+        q: "Ice Polar rende il laser più facile da tollerare?",
+        a: "Sì, aiuta il comfort durante la seduta. La differenza vera resta nel metodo: parametri su misura e percorso seguito nel tempo, senza corse.",
+      },
+      {
+        q: "Quante sedute servono e ogni quanto si fanno?",
+        a: "Dipende da zona, pelo e risposta individuale. Impostiamo un calendario realistico in consulenza e lo adattiamo se la pelle o le abitudini cambiano.",
+      },
     ],
     keywords: [
       "centro estetico Sommariva del Bosco",
       "estetista Sommariva del Bosco",
+      "epilazione laser Sommariva del Bosco",
       "laser Sommariva del Bosco",
     ],
   },
