@@ -93,6 +93,11 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Esfoliazione controllata per pelle più uniforme e una routine corpo più semplice.",
         },
         {
+          label: "Manicure semipermanente",
+          href: "/servizi/manicure-semipermanente-carmagnola",
+          description: "Mani curate e ordinate, con un risultato pulito che dura.",
+        },
+        {
           label: "Massaggio linfodrenante",
           href: "/servizi/massaggio-linfodrenante-carmagnola",
           description: "Per alleggerire la sensazione di gonfiore e impostare un ritmo sostenibile.",

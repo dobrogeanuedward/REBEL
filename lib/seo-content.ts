@@ -439,32 +439,82 @@ export const servicePages: ServicePage[] = [
     slug: "manicure-semipermanente-carmagnola",
     name: "Manicure semipermanente a Carmagnola",
     shortDescription:
-      "Manicure semipermanente curata, resistente e ordinata.",
+      "Manicure semipermanente curata e ordinata, con un risultato pulito che dura.",
     longDescription:
-      "La manicure semipermanente include preparazione accurata, rifinitura e applicazione colore. L'obiettivo è un risultato pulito, elegante e che duri davvero.",
+      "La manicure semipermanente è un servizio di precisione: preparazione accurata, rifinitura pulita e applicazione colore con attenzione ai dettagli. L'obiettivo non è solo \"durare\": è avere un risultato ordinato, elegante e confortevole, che ti piaccia anche da vicino.",
     priceHint: "da EUR 26",
     category: "estetica-classica",
     benefits: [
-      "Durata elevata rispetto allo smalto classico",
-      "Unghia ordinata e valorizzata",
-      "Colori e stile personalizzabili",
+      "Aspetto ordinato e curato per più tempo",
+      "Smalto più stabile rispetto allo smalto classico",
+      "Colori e stile personalizzabili senza appesantire la mano",
     ],
     faqs: [
       {
         q: "Il semipermanente rovina l'unghia?",
-        a: "No, se applicazione e rimozione sono fatte in modo corretto.",
+        a: "Non dovrebbe, se applicazione e rimozione sono fatte in modo corretto. Il punto è evitare strappi, limature aggressive e rimozioni \"fai da te\" improvvisate.",
       },
       {
-        q: "Ogni quanto fare il refill?",
-        a: "Indicativamente ogni 2-3 settimane.",
+        q: "Ogni quanto è consigliato rifarlo?",
+        a: "Spesso ogni 2-3 settimane, ma dipende da ricrescita e da quanto usi le mani nella vita reale. In studio ti consigliamo un ritmo sostenibile (e bello da vedere).",
+      },
+      {
+        q: "Posso scegliere un effetto molto naturale?",
+        a: "Sì. Se ti piace un look pulito e discreto, possiamo orientarti su colori e finiture che valorizzano senza essere troppo evidenti.",
+      },
+      {
+        q: "Cosa conviene evitare per farlo durare meglio?",
+        a: "Piccole cose: non usare le unghie come \"attrezzi\", idratare mani e cuticole e proteggere le mani quando fai lavori domestici. Ti diamo indicazioni semplici, non una lista infinita di regole.",
       },
     ],
     keywords: [
       "manicure semipermanente Carmagnola",
       "centro unghie Carmagnola",
       "semipermanente Carmagnola prezzi",
+      "manicure Carmagnola",
+      "semipermanente naturale Carmagnola",
     ],
-    relatedCompetenceSlugs: ["beauty-routine-carmagnola"],
+    relatedCompetenceSlugs: ["beauty-routine-carmagnola", "trattamenti-viso-carmagnola"],
+    editorialSections: [
+      {
+        heading: "È un dettaglio, ma cambia tutto: mani curate \"da vicino\"",
+        paragraphs: [
+          "La manicure semipermanente non è solo colore: è ordine. È quel tipo di cura che ti fa sentire a posto anche nei giorni pieni, senza dover ripassare lo smalto ogni due giorni.",
+          "Per noi il punto è la pulizia del risultato: cuticole curate, bordi ordinati, finitura bella anche a distanza ravvicinata.",
+        ],
+      },
+      {
+        heading: "Durata: cosa influisce davvero",
+        paragraphs: [
+          "La durata cambia molto in base a quanto usi le mani: lavoro, sport, casa, detergenti. Anche lo stile conta: alcune finiture sono più \"delicate\" di altre.",
+          "In studio ti consigliamo una soluzione sensata per la tua routine, non quella più complicata.",
+        ],
+      },
+      {
+        heading: "Rimozione e rispetto dell'unghia: la parte che protegge nel tempo",
+        paragraphs: [
+          "Molti danni attribuiti al semipermanente dipendono da rimozioni scorrette o troppo aggressive. La rimozione va fatta con criterio, senza strappare e senza assottigliare inutilmente.",
+          "Se vuoi alternare periodi con e senza semipermanente, possiamo organizzarlo in modo che l'unghia resti bella e stabile.",
+        ],
+      },
+      {
+        heading: "Se vuoi un effetto naturale, si può (e viene benissimo)",
+        paragraphs: [
+          "Un effetto naturale non significa \"anonimo\": significa mani curate, pulite, armoniose. Possiamo scegliere insieme colore e finitura per valorizzare la tua mano senza eccessi.",
+          "È una scelta perfetta se vuoi un look ordinato anche senza trucco o se ti piace l'eleganza semplice.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - Nail care basics",
+        url: "https://www.aad.org/public/everyday-care/nail-care-secrets/basics/nail-care-basics",
+      },
+      {
+        label: "AAD - How to prevent brittle nails",
+        url: "https://www.aad.org/public/everyday-care/nail-care-secrets/basics/prevent-brittle-nails",
+      },
+    ],
   },
   {
     slug: "epilazione-laser-viso-carmagnola",
