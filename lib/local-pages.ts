@@ -781,15 +781,83 @@ export const localAreaPages: LocalAreaPage[] = [
     slug: "vinovo",
     city: "Vinovo",
     cluster: "torino-sud",
-    title: "Da Vinovo a Rebel Carmagnola",
+    title: "Centro estetico vicino Vinovo: laser con aspettative chiare e percorso seguito",
     description:
-      "Percorsi estetici avanzati per chi vive a Vinovo e vuole continuità, metodo e risultati concreti.",
+      "Da Vinovo a Carmagnola per l'epilazione laser: valutazione iniziale, parametri su misura e un percorso monitorato nel tempo.",
     intro:
-      "Da Vinovo ci raggiungono clienti che vogliono una guida chiara su trattamenti viso, corpo e laser.",
+      "Quando inizi il laser, la cosa più utile è sapere cosa aspettarti: tempi, calendario, cambiamenti progressivi e mantenimento. In Rebel lavoriamo con chiarezza e continuità, senza promesse esagerate.",
     whyRebel: [
-      "Analisi iniziale accurata con obiettivo condiviso",
-      "Percorsi modulabili in base ai tempi reali",
-      "Mantenimento pianificato per risultati stabili",
+      "Valutazione iniziale e piano sedute costruito su zona, pelle e obiettivo",
+      "Calendario coerente e aggiustamenti quando serve (senza confusione)",
+      "Tecnologia Thory con manipolo Ice Polar per migliorare il comfort",
+      "Indicazioni chiare su mantenimento e richiami",
+    ],
+    directions: {
+      heading: "Come arrivare da Vinovo a Rebel (Carmagnola)",
+      mapsUrl:
+        "https://www.google.com/maps/dir/?api=1&origin=Vinovo&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
+      embedUrl:
+        "https://www.google.com/maps?f=d&source=s_d&saddr=Vinovo&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
+      paragraphs: [
+        "Per arrivare in modo semplice, apri Google Maps e segui il percorso aggiornato in tempo reale. La destinazione è Rebel, in Viale Barbaroux 20 a Carmagnola.",
+        "Se vuoi impostare bene gli appuntamenti fin dall'inizio (e non perderti per strada), scrivici su WhatsApp: ti aiutiamo a scegliere un ritmo realistico.",
+      ],
+    },
+    focus: {
+      heading: "Vinovo: laser con aspettative chiare (e mantenimento sensato)",
+      paragraphs: [
+        "Il laser è un percorso progressivo: il cambiamento si costruisce seduta dopo seduta. Per questo preferiamo parlare subito di calendario e tempi, invece di vendere certezze.",
+        "Un altro punto spesso sottovalutato è il mantenimento. In molti casi servono richiami nel tempo: non è un fallimento, è parte di una gestione intelligente e realistica.",
+        "La tecnologia conta (e Ice Polar aiuta il comfort), ma la differenza vera è il metodo: parametri su misura, monitoraggio e comunicazione chiara. Così sai sempre dove sei nel percorso e cosa aspettarti.",
+        "Se arrivi da Vinovo e vuoi partire con una strategia pulita (zone + calendario + aspettative), scrivici: ti orientiamo in modo semplice e concreto.",
+      ],
+      links: [
+        {
+          label: "Apri il percorso su Google Maps",
+          href: "https://www.google.com/maps/dir/?api=1&origin=Vinovo&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
+          external: true,
+          description: "Navigazione aggiornata in tempo reale fino a Rebel Carmagnola.",
+        },
+        {
+          label: "Laser a Carmagnola",
+          href: "/epilazione-laser-carmagnola",
+          description: "Come lavoriamo: valutazione iniziale, settaggio e percorso monitorato.",
+        },
+        {
+          label: "Laser diodo: differenze e criteri di scelta",
+          href: "/competenze/laser-diodo-carmagnola",
+          description: "Per capire cosa conta davvero nella scelta, senza confusione.",
+        },
+        {
+          label: "Epilazione laser viso",
+          href: "/servizi/epilazione-laser-viso-carmagnola",
+          description: "Dettagli e domande frequenti sulle zone del viso.",
+        },
+        {
+          label: "Epilazione laser corpo",
+          href: "/servizi/epilazione-laser-corpo-carmagnola",
+          description: "Zone corpo e organizzazione del ciclo, con percorso su misura.",
+        },
+        {
+          label: "Listino completo",
+          href: "/listino-estetica-laser",
+          description: "Prezzi chiari e panoramica dei servizi in studio.",
+        },
+      ],
+    },
+    faqs: [
+      {
+        q: "Il laser è definitivo?",
+        a: "Parliamo di riduzione progressiva e prolungata della ricrescita. In molti casi, nel tempo, possono servire richiami: l'importante è impostare bene il piano e monitorare la risposta.",
+      },
+      {
+        q: "Cosa succede se salto una seduta?",
+        a: "Non succede \"un disastro\", ma il calendario perde continuità. Se capita, riorganizziamo il piano in modo sensato e ti diciamo come riprendere senza confusione.",
+      },
+      {
+        q: "Ice Polar significa che non sentirò nulla?",
+        a: "Aiuta molto il comfort, ma la percezione varia da zona a zona e da persona a persona. In studio lavoriamo sempre in modo graduale e su misura.",
+      },
     ],
     keywords: [
       "centro estetico Vinovo",
