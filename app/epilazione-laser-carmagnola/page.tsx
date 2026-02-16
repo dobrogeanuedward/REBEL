@@ -128,7 +128,7 @@ export default function EpilazioneLaserCarmagnolaPage() {
               <li>- valutazione iniziale chiara, prima di iniziare il ciclo</li>
               <li>- parametri calibrati su zona e risposta della pelle</li>
               <li>- tecnologia Thory con manipolo Ice Polar per maggiore comfort</li>
-              <li>- percorso monitorato, senza promesse irrealistiche</li>
+              <li>- percorso monitorato, senza promesse esagerate</li>
             </ul>
             <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
               <Link className="button button-primary" href="/contatti">
