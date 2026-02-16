@@ -83,7 +83,7 @@ export default function EpilazioneLaserCarmagnolaPage() {
     url: `${siteConfig.siteUrl}/epilazione-laser-carmagnola`,
     name: "Epilazione Laser Carmagnola | Rebel",
     description:
-      "Landing dedicata all'epilazione laser a Carmagnola con percorso personalizzato e orientamento pratico.",
+      "Pagina dedicata all'epilazione laser a Carmagnola con percorso personalizzato e orientamento pratico.",
     inLanguage: "it-IT",
     about: [
       "epilazione laser Carmagnola",

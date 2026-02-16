@@ -284,7 +284,7 @@ export const competencePages: CompetencePage[] = [
     faqs: [
       {
         q: "Quali segnali indicano un centro estetico affidabile?",
-        a: "Metodo chiaro, comunicazione trasparente, obiettivi realistici e continuità nel tempo.",
+        a: "Metodo chiaro, comunicazione trasparente, obiettivi concreti e continuita nel tempo.",
       },
       {
         q: "Il prezzo più basso è sempre la scelta migliore?",
@@ -339,17 +339,17 @@ export const competencePages: CompetencePage[] = [
   },
   {
     slug: "epilazione-laser-carmagnola",
-    title: "Epilazione laser a Carmagnola: guida pratica",
+    title: "Epilazione laser a Carmagnola: come funziona e da dove partire",
     shortDescription:
-      "Guida chiara su sedute, tempi e aspettative realistiche del laser.",
+      "Chiarimenti su sedute, tempi e aspettative: cosa aspettarti davvero dal laser.",
     longDescription:
-      "Qui trovi spiegato bene come funziona il laser da Rebel: prima valutazione, poi impostazioni su misura e calendario sedute realistico.",
+      "Qui trovi spiegato bene come funziona il laser da Rebel: prima valutazione, poi impostazioni su misura e un calendario sensato.",
     localAngle:
       "Utile se sei in fase di scelta e vuoi capire cosa aspettarti davvero.",
     intent: "commercial",
     benefits: [
       "Chiarezza prima della prenotazione",
-      "Aspettative realistiche sui tempi",
+      "Aspettative chiare sui tempi",
       "Riduzione incertezze sul trattamento",
     ],
     faqs: [
@@ -380,7 +380,7 @@ export const competencePages: CompetencePage[] = [
     shortDescription:
       "Spiegazione pratica del laser diodo, chiara e concreta.",
     longDescription:
-      "Spieghiamo cosa cambia tra laser diodo e altre tecnologie, così scegli in modo più consapevole e adatto al tuo caso.",
+      "Cosa significa davvero \"laser diodo\" per l'epilazione: differenze con IPL, cosa aspettarsi, come valutare un centro serio e come impostare un percorso coerente.",
     localAngle:
       "Ideale se stai confrontando diverse tecnologie prima di iniziare.",
     intent: "informational",
@@ -407,6 +407,57 @@ export const competencePages: CompetencePage[] = [
     relatedServiceSlugs: [
       "epilazione-laser-viso-carmagnola",
       "epilazione-laser-corpo-carmagnola",
+    ],
+    editorialSections: [
+      {
+        heading: "Prima chiarezza: \"laser diodo\" non e una parola magica, e una tecnologia",
+        paragraphs: [
+          "Quando si cerca \"laser diodo\" online, spesso si trovano promesse veloci e confronti aggressivi. In realta la domanda utile e un'altra: questa tecnologia e adatta al mio tipo di pelo e alla mia pelle, e viene gestita in modo competente?",
+          "Il laser per epilazione lavora in modo selettivo sul pelo (non su \"tutta la pelle\"): proprio per questo parametri, protocollo e calendario contano piu della sola etichetta commerciale.",
+        ],
+      },
+      {
+        heading: "Laser diodo vs luce pulsata (IPL): cosa cambia in pratica",
+        paragraphs: [
+          "La luce pulsata (IPL) e una luce a spettro piu ampio; il laser usa una luce piu specifica. Tradotto: sono strumenti diversi, con logiche diverse, e non sempre offrono la stessa esperienza o gli stessi criteri di impostazione.",
+          "Il punto non e trovare \"il migliore\" in assoluto: e scegliere la soluzione piu sensata per fototipo, colore del pelo, zona e obiettivo (riduzione progressiva e gestione della ricrescita nel tempo).",
+        ],
+      },
+      {
+        heading: "Perche servono piu sedute (e perche la costanza e parte del risultato)",
+        paragraphs: [
+          "Molte persone partono con un'aspettativa sbagliata: pensano che basti una seduta \"forte\". In realta il percorso e fatto di appuntamenti distanziati per accompagnare i cicli del pelo e lavorare in modo progressivo.",
+          "Un centro serio ti spiega tempi e variabilita senza venderti certezze: la risposta cambia da persona a persona, e anche la stessa persona puo rispondere in modo diverso tra viso e corpo.",
+        ],
+      },
+      {
+        heading: "Come riconoscere un centro affidabile a Carmagnola (prima di iniziare)",
+        paragraphs: [
+          "Fai domande semplici: chi imposta i parametri, come viene gestito il post-seduta, come si adatta il piano se la pelle cambia, e cosa succede se salti una seduta.",
+          "Se la comunicazione e chiara prima, lo sara anche dopo. E la chiarezza, in un percorso laser, e un vantaggio enorme: ti aiuta a seguire le indicazioni con serenita e a mantenere un ritmo sostenibile.",
+        ],
+      },
+      {
+        heading: "Il nostro approccio in studio: tecnologia + metodo (non trattamenti standard)",
+        paragraphs: [
+          "Da Rebel a Carmagnola impostiamo l'epilazione laser come un percorso: valutazione iniziale, settaggio su misura e monitoraggio. La tecnologia serve a rendere il lavoro piu preciso, ma il cuore resta il metodo.",
+          "Se vuoi approfondire, trovi anche le guide dedicate a laser viso e laser corpo, oltre alle schede servizio con FAQ pratiche e indicazioni chiare su come iniziare.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - Laser hair removal FAQs",
+        url: "https://www.aad.org/public/cosmetic/hair-removal/laser-hair-removal-faqs",
+      },
+      {
+        label: "Mayo Clinic - Laser hair removal",
+        url: "https://www.mayoclinic.org/tests-procedures/laser-hair-removal/about/pac-20394555",
+      },
+      {
+        label: "NHS - Choosing who will do your cosmetic procedure",
+        url: "https://www.nhs.uk/tests-and-treatments/cosmetic-procedures/advice/choosing-who-will-do-your-procedure/",
+      },
     ],
   },
   {
@@ -485,7 +536,7 @@ export const competencePages: CompetencePage[] = [
     shortDescription:
       "Drenaggio su misura quando senti gambe pesanti o gonfiore.",
     longDescription:
-      "Qui spieghiamo come impostare un percorso drenante realistico, considerando stagione, abitudini e continuità.",
+      "Qui spieghiamo come impostare un percorso drenante sensato, considerando stagione, abitudini e continuità.",
     localAngle:
       "Utile soprattutto nei periodi in cui gonfiore e pesantezza si fanno sentire di più.",
     intent: "commercial",
@@ -549,16 +600,16 @@ export const competencePages: CompetencePage[] = [
   },
   {
     slug: "epilazione-laser-viso-carmagnola-guida-realistica",
-    title: "Epilazione laser viso a Carmagnola: guida realistica prima di iniziare",
+    title: "Epilazione laser viso a Carmagnola: cosa sapere prima di iniziare",
     shortDescription:
-      "Una guida editoriale concreta su tempi, sedute, sicurezza e aspettative reali del laser viso.",
+      "Cosa aspettarti dal laser viso: tempi, sedute, attenzione alla pelle e scelte sensate prima di iniziare.",
     longDescription:
       "Se stai valutando l'epilazione laser viso a Carmagnola, qui trovi una guida chiara: cosa aspettarti davvero, come prepararti e quali segnali cercare per scegliere un centro serio.",
     localAngle:
       "Pensata per chi confronta più centri estetici a Carmagnola e vuole decidere con consapevolezza.",
     intent: "commercial",
     benefits: [
-      "Ti aiuta a fissare aspettative realistiche già dalla prima consulenza",
+      "Ti aiuta a fissare aspettative chiare gia dalla prima consulenza",
       "Riduce dubbi su sicurezza, tempi e frequenza delle sedute",
       "Ti guida nella scelta del percorso più adatto al tuo viso",
     ],
@@ -585,7 +636,7 @@ export const competencePages: CompetencePage[] = [
     ],
     heroImage: {
       src: "/editoriali/laser-viso-rebel.svg",
-      alt: "Artwork editoriale Rebel su linee di luce per epilazione laser viso",
+      alt: "Illustrazione Rebel con linee di luce dedicate al laser viso",
     },
     editorialSections: [
       {
@@ -629,11 +680,11 @@ export const competencePages: CompetencePage[] = [
     slug: "epilazione-laser-corpo-carmagnola-zone-tempi",
     title: "Epilazione laser corpo a Carmagnola: zone, tempi e piano sedute",
     shortDescription:
-      "Editoriale pratico per capire come organizzare il laser corpo in modo sostenibile e coerente.",
+      "Come organizzare il laser corpo in modo sostenibile e coerente: zone, tempi e calendario.",
     longDescription:
       "Una guida concreta per chi vuole iniziare il laser corpo a Carmagnola con una strategia chiara: zone prioritarie, stagionalità e gestione del percorso senza stress.",
     localAngle:
-      "Ideale se arrivi da Carmagnola o comuni vicini e vuoi un programma realistico, non standard.",
+      "Ideale se arrivi da Carmagnola o comuni vicini e vuoi un programma coerente, non standard.",
     intent: "commercial",
     benefits: [
       "Aiuta a pianificare bene zone e calendario",
@@ -663,7 +714,7 @@ export const competencePages: CompetencePage[] = [
     ],
     heroImage: {
       src: "/editoriali/laser-corpo-rebel.svg",
-      alt: "Artwork editoriale Rebel con linee luminose dinamiche dedicate al laser corpo",
+      alt: "Illustrazione Rebel con linee luminose dinamiche dedicate al laser corpo",
     },
     editorialSections: [
       {
@@ -707,7 +758,7 @@ export const competencePages: CompetencePage[] = [
     slug: "pulizia-viso-carmagnola-frequenza-benefici",
     title: "Pulizia viso a Carmagnola: ogni quanto farla e per chi ha senso",
     shortDescription:
-      "Articolo editoriale su frequenza, pelle sensibile, errori comuni e mantenimento reale dopo la pulizia viso.",
+      "Frequenza, pelle sensibile, errori comuni e come mantenere bene il risultato dopo la pulizia viso.",
     longDescription:
       "Una guida naturale e concreta per capire quando la pulizia viso serve davvero, come integrarla nella routine e come evitare eccessi che irritano la pelle.",
     localAngle:
@@ -740,7 +791,7 @@ export const competencePages: CompetencePage[] = [
     ],
     heroImage: {
       src: "/editoriali/pulizia-viso-rebel.svg",
-      alt: "Artwork editoriale Rebel con onde luminose e texture delicate per tema pulizia viso",
+      alt: "Illustrazione Rebel con onde luminose e texture delicate sul tema pulizia viso",
     },
     editorialSections: [
       {
@@ -784,14 +835,14 @@ export const competencePages: CompetencePage[] = [
     slug: "linfodrenante-carmagnola-guida-pratica",
     title: "Linfodrenante a Carmagnola: quando è utile e come impostare il percorso",
     shortDescription:
-      "Guida editoriale sul massaggio linfodrenante: benefici percepiti, limiti e criteri per un piano fatto bene.",
+      "Massaggio linfodrenante: benefici percepiti, limiti e criteri per impostare un piano fatto bene.",
     longDescription:
-      "Un articolo pratico e onesto per capire quando il linfodrenante può aiutarti davvero, quali aspettative avere e come inserirlo in un percorso corpo realistico.",
+      "Un articolo pratico e onesto per capire quando il linfodrenante puo aiutarti davvero, quali aspettative avere e come inserirlo in un percorso corpo coerente.",
     localAngle:
       "Dedicata a chi cerca a Carmagnola un trattamento drenante serio e personalizzato.",
     intent: "commercial",
     benefits: [
-      "Distingue benefici realistici da aspettative gonfiate",
+      "Distingue benefici concreti da aspettative gonfiate",
       "Aiuta a capire quando inserirlo in un percorso corpo",
       "Migliora la qualità della scelta prima di prenotare",
     ],
@@ -817,14 +868,14 @@ export const competencePages: CompetencePage[] = [
     ],
     heroImage: {
       src: "/editoriali/linfodrenante-rebel.svg",
-      alt: "Artwork editoriale Rebel con linee fluide e glow morbido dedicato al drenaggio corpo",
+      alt: "Illustrazione Rebel con linee fluide e glow morbido dedicato al drenaggio corpo",
     },
     editorialSections: [
       {
         heading: "Partiamo da una verità semplice: il drenaggio non è una bacchetta magica",
         paragraphs: [
           "Il linfodrenante può dare una sensazione di leggerezza concreta e aiutare nella gestione del gonfiore, ma non sostituisce tutto il resto.",
-          "Quando viene inserito in un piano realistico, con tempi adeguati e monitoraggio, diventa molto più utile e sostenibile.",
+          "Quando viene inserito in un piano coerente, con tempi adeguati e monitoraggio, diventa molto piu utile e sostenibile.",
         ],
       },
       {
@@ -838,7 +889,7 @@ export const competencePages: CompetencePage[] = [
         heading: "Approccio professionale: ascolto, adattamento, continuità",
         paragraphs: [
           "Un percorso drenante efficace nasce da osservazione e adattamento: non tutte le settimane sono uguali e non tutte le persone rispondono allo stesso modo.",
-          "La qualità del risultato dipende da quanto il piano resta umano: chiaro da capire, realistico da seguire.",
+          "La qualita del risultato dipende da quanto il piano resta umano: chiaro da capire, facile da seguire.",
         ],
       },
     ],

@@ -103,7 +103,7 @@ export default function ServiziHubPage() {
               <a className="services-hub-shortcut" href="#servizi-estetica">Estetica e benessere</a>
               <a className="services-hub-shortcut" href="#servizi-laser">Epilazione laser</a>
               <a className="services-hub-shortcut" href="#servizi-epigenetica">Estetica epigenetica</a>
-              <a className="services-hub-shortcut" href="#servizi-editoriali">Editoriali utili</a>
+              <a className="services-hub-shortcut" href="#servizi-editoriali">Approfondimenti</a>
               <Link className="services-hub-shortcut" href="/contatti">Consulenza personalizzata</Link>
             </div>
           </aside>
@@ -209,7 +209,7 @@ export default function ServiziHubPage() {
           </div>
           <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
             <Link className="button button-secondary" href="/epilazione-laser-carmagnola">
-              Landing laser Carmagnola
+              Laser a Carmagnola
             </Link>
             <Link className="button button-primary" href="/protocolli-epigenetici">
               Vedi tutti i protocolli
@@ -224,14 +224,14 @@ export default function ServiziHubPage() {
       <section className="section section-light" id="servizi-editoriali">
         <div className="container">
           <p className="eyebrow" style={{ color: "rgba(39,31,56,0.68)" }}>
-            Spinta editoriale servizi top
+            Approfondimenti
           </p>
           <h2 className="page-title" style={{ marginTop: "0.55rem" }}>
             Articoli naturali e concreti sui servizi più richiesti.
           </h2>
           <p className="lead" style={{ marginTop: "0.5rem", color: "rgba(39,31,56,0.78)", maxWidth: "72ch" }}>
-            Abbiamo creato guide stile blog, con fonti autorevoli e taglio umano, per
-            aiutarti a scegliere bene tra i percorsi principali del nostro listino.
+            Abbiamo scritto articoli con fonti autorevoli e taglio umano, per aiutarti
+            a scegliere bene tra i percorsi principali del nostro listino.
           </p>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             {featuredEditorials.map((item) => (
@@ -247,7 +247,7 @@ export default function ServiziHubPage() {
                   {item.shortDescription}
                 </p>
                 <small style={{ fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.64)" }}>
-                  Leggi l&apos;editoriale
+                  Leggi l&apos;articolo
                 </small>
               </Link>
             ))}

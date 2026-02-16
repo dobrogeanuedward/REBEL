@@ -37,9 +37,9 @@ export default function CompetenzeHubPage() {
       <JsonLd data={breadcrumb} />
       <JsonLd data={competenceListSchema} />
       <PageHero
-        eyebrow="Guide utili + editoriali"
+        eyebrow="Approfondimenti"
         title="Competenze Rebel: spiegate in modo semplice, concreto e utile."
-        lead="Qui trovi guide pratiche e articoli editoriali su servizi reali, con copy umano e fonti autorevoli. Così scegli con calma e con le idee chiare."
+        lead="Qui trovi articoli su servizi reali, scritti in modo chiaro e con fonti autorevoli. Così scegli con calma e con le idee chiare."
         badge="Informazioni pratiche prima di prenotare"
         tone="ocean"
       />
@@ -51,7 +51,7 @@ export default function CompetenzeHubPage() {
             <p className="lead" style={{ marginTop: 0 }}>
               Quando si parla di pelle o corpo è normale avere dubbi. Preferiamo
               spiegare bene le cose prima, così arrivi al primo appuntamento più
-              tranquilla e con aspettative realistiche.
+              tranquilla e con aspettative chiare.
             </p>
             <div className="hero-visual" style={{ marginTop: "1rem", borderRadius: 16 }}>
               <Image

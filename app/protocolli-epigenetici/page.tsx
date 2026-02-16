@@ -98,7 +98,7 @@ export default function ProtocolliPage() {
                 }}
               >
                 Scrivici su WhatsApp o prenota una valutazione: costruiamo insieme
-                un piano concreto, con obiettivi chiari e tempi realistici.
+                un piano concreto, con obiettivi chiari e tempi sensati.
               </p>
             </article>
           </div>

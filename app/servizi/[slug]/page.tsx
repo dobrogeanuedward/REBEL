@@ -107,7 +107,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       <JsonLd data={articleSchema} />
       <JsonLd data={faqSchema} />
       <PageHero
-        eyebrow="Scheda servizio"
+        eyebrow="Servizio"
         title={service.name}
         lead={service.longDescription}
         badge={service.priceHint}
@@ -158,7 +158,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             <h2 style={{ marginTop: 0 }}>Per chi e indicato</h2>
             <p className="lead" style={{ marginTop: 0 }}>
               {service.name} e ideale se vuoi un trattamento concreto, con passaggi
-              chiari e obiettivi realistici. In studio valutiamo sempre il tuo
+              chiari e obiettivi concreti. In studio valutiamo sempre il tuo
               punto di partenza prima di suggerire frequenza e combinazioni.
             </p>
             <p className="lead">
@@ -173,7 +173,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             <ol className="list-clean">
               <li>1. Ascolto iniziale e verifica dell&apos;obiettivo.</li>
               <li>2. Trattamento eseguito con protocollo personalizzato.</li>
-              <li>3. Indicazioni post-seduta chiare e realistiche.</li>
+              <li>3. Indicazioni post-seduta chiare e sensate.</li>
             </ol>
             <p className="lead" style={{ marginTop: "0.9rem" }}>
               Il nostro obiettivo non è solo il risultato immediato, ma la continuità

@@ -238,6 +238,55 @@ img {
   overflow: hidden;
 }
 
+.link-card {
+  display: block;
+  padding: 1rem 1.05rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 16px 40px rgba(20, 10, 40, 0.28);
+  transition: transform 0.24s ease, border-color 0.24s ease, background 0.24s ease;
+}
+
+.link-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.link-card-content {
+  display: block;
+}
+
+.link-card-title {
+  display: block;
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.link-card-desc {
+  display: block;
+  margin-top: 0.25rem;
+  font-family: var(--font-inter), sans-serif;
+  color: rgba(248, 247, 244, 0.78);
+  line-height: 1.45;
+}
+
+.section-light .link-card {
+  border-color: rgba(18, 10, 34, 0.14);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 18px 44px rgba(53, 31, 86, 0.12);
+}
+
+.section-light .link-card-desc {
+  color: rgba(39, 31, 56, 0.7);
+}
+
 .card-light .lead {
   color: rgba(39, 31, 56, 0.78);
 }

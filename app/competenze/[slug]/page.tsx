@@ -114,7 +114,7 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
       <JsonLd data={articleSchema} />
       <JsonLd data={faqSchema} />
       <PageHero
-        eyebrow="Guida pratica"
+        eyebrow="Approfondimento"
         title={competence.title}
         lead={competence.longDescription}
         badge={competence.localAngle}
@@ -151,8 +151,8 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
         <section className="section">
           <div className="container split">
             <article className="card glow-card">
-              <p className="eyebrow">Editoriale Rebel</p>
-              <h2 style={{ marginTop: "0.45rem" }}>Analisi professionale, copy umano, verita utili</h2>
+              <p className="eyebrow">Dal nostro studio</p>
+              <h2 style={{ marginTop: "0.45rem" }}>Cosa conta davvero, spiegato bene</h2>
               {editorialSections.map((section) => (
                 <div key={section.heading} style={{ marginTop: "0.95rem" }}>
                   <h3 style={{ marginTop: 0 }}>{section.heading}</h3>
@@ -177,16 +177,16 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
                     />
                   </div>
                   <p className="lead" style={{ marginTop: "0.8rem", marginBottom: 0 }}>
-                    Un visual artistico in stile Rebel per rendere il contenuto
-                    editoriale riconoscibile e coerente con il brand.
+                    Un&apos;immagine in stile Rebel per accompagnare la lettura e rendere
+                    la pagina piu piacevole.
                   </p>
                 </>
               ) : (
                 <>
-                  <h2 style={{ marginTop: 0 }}>Focus editoriale</h2>
+                  <h2 style={{ marginTop: 0 }}>In breve</h2>
                   <p className="lead" style={{ marginTop: 0 }}>
-                    Articolo costruito con linguaggio naturale, orientamento pratico
-                    e criteri concreti da usare nella vita reale.
+                    Linguaggio naturale, orientamento pratico e criteri concreti
+                    da usare nella vita reale.
                   </p>
                 </>
               )}
