@@ -41,6 +41,59 @@ export const localAreaPages: LocalAreaPage[] = [
       "Un unico studio per estetica classica, percorsi avanzati ed epilazione laser",
       "Contatto diretto e veloce su WhatsApp",
     ],
+    directions: {
+      heading: "Dove siamo a Carmagnola",
+      mapsUrl: "https://www.google.com/maps/search/?api=1&query=Viale+Barbaroux+20,+10022+Carmagnola+TO",
+      embedUrl: "https://www.google.com/maps?q=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
+      paragraphs: [
+        "Rebel si trova a Carmagnola, in Viale Barbaroux 20. Se vuoi arrivare senza perdere tempo, apri la mappa: ti porta direttamente all'indirizzo.",
+        "Se stai scegliendo da dove partire, il consiglio piu semplice e questo: raccontaci obiettivo e tempi (anche pochi), e ti proponiamo un percorso che abbia senso per te.",
+      ],
+    },
+    focus: {
+      heading: "Se sei a Carmagnola: trattamenti viso fatti bene, senza confusione",
+      paragraphs: [
+        "Molte persone iniziano dai trattamenti viso quando vogliono rivedere luminosita, grana della pelle e sensazione di comfort. La differenza, per noi, non e fare \"il trattamento del momento\": e scegliere la cosa giusta in base a pelle, stagione e abitudini.",
+        "Per questo partiamo sempre da una lettura iniziale: capiamo che tipo di pelle hai oggi, cosa vuoi ottenere e in che tempi. Poi costruiamo una progressione semplice da seguire, tra sedute in studio e mantenimento a casa.",
+      ],
+      links: [
+        {
+          label: "Contatti",
+          href: "/contatti",
+          description: "Per prenotare o chiedere un consiglio prima di iniziare.",
+        },
+        {
+          label: "Listino completo",
+          href: "/listino-estetica-laser",
+          description: "Prezzi chiari e panoramica dei percorsi disponibili a Carmagnola.",
+        },
+        {
+          label: "Trattamenti viso",
+          href: "/competenze/trattamenti-viso-carmagnola",
+          description: "Un punto di partenza utile per orientarti tra obiettivi e opzioni.",
+        },
+        {
+          label: "Pulizia viso",
+          href: "/servizi/pulizia-viso-carmagnola",
+          description: "Quando ha senso e come la impostiamo in modo delicato.",
+        },
+        {
+          label: "Protocolli epigenetici",
+          href: "/protocolli-epigenetici",
+          description: "Percorsi evoluti viso/corpo, scelti in base al tuo punto di partenza.",
+        },
+      ],
+    },
+    faqs: [
+      {
+        q: "Sono a Carmagnola: da cosa mi consigliate di partire?",
+        a: "Dipende da obiettivo e tempi. Se vuoi un consiglio veloce, scrivici: ti orientiamo tra viso, corpo, laser e protocolli in base alla tua situazione.",
+      },
+      {
+        q: "Posso vedere prezzi e servizi prima di prenotare?",
+        a: "Sì: trovi il listino completo online. Poi, se vuoi, in studio lo traduciamo in un percorso su misura.",
+      },
+    ],
     keywords: [
       "centro estetico Carmagnola",
       "estetista Carmagnola",
@@ -140,6 +193,56 @@ export const localAreaPages: LocalAreaPage[] = [
       "Distanza comoda da Villastellone",
       "Metodo progressivo con obiettivi concreti",
       "Piano di mantenimento chiaro",
+    ],
+    directions: {
+      heading: "Come arrivare da Villastellone a Rebel (Carmagnola)",
+      mapsUrl:
+        "https://www.google.com/maps/dir/?api=1&origin=Villastellone&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
+      embedUrl:
+        "https://www.google.com/maps?f=d&source=s_d&saddr=Villastellone&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
+      paragraphs: [
+        "Se arrivi da Villastellone, il modo piu semplice e aprire la mappa e seguire il percorso aggiornato in tempo reale. La destinazione e Viale Barbaroux 20, Carmagnola.",
+        "Se vuoi incastrare bene gli orari con lavoro e famiglia, scrivici su WhatsApp: ti aiutiamo a scegliere il momento piu comodo per iniziare il percorso.",
+      ],
+    },
+    focus: {
+      heading: "Da Villastellone: massaggio rilassante e percorsi viso, con un ritmo sostenibile",
+      paragraphs: [
+        "Chi arriva da Villastellone spesso cerca due cose: un momento di vero \"stacco\" (senza fretta) e un percorso che non sia improvvisato. Per questo lavoriamo con un metodo semplice: ascolto, obiettivo, poi una sequenza chiara di sedute.",
+        "Se il tuo bisogno e scaricare tensioni e sentirti piu leggera, il massaggio rilassante puo essere un ottimo punto di partenza. Se invece vuoi lavorare sul viso, ti orientiamo tra trattamenti e protocolli in base a pelle e stagione.",
+      ],
+      links: [
+        {
+          label: "Massaggio rilassante",
+          href: "/servizi/massaggio-rilassante-carmagnola",
+          description: "50 minuti dedicati a schiena, spalle e cervicale, con approccio graduale.",
+        },
+        {
+          label: "Trattamenti viso",
+          href: "/competenze/trattamenti-viso-carmagnola",
+          description: "Per capire da dove partire e cosa ha senso per la tua pelle.",
+        },
+        {
+          label: "Listino completo",
+          href: "/listino-estetica-laser",
+          description: "Prezzi e panoramica dei servizi disponibili in studio.",
+        },
+        {
+          label: "Contatti",
+          href: "/contatti",
+          description: "Per prenotare o chiedere un consiglio rapido prima di iniziare.",
+        },
+      ],
+    },
+    faqs: [
+      {
+        q: "Da Villastellone posso fare un percorso, anche se ho poco tempo?",
+        a: "Sì. Impostiamo il piano in base al tempo reale che hai: meglio poche sedute fatte bene che un programma impossibile da seguire.",
+      },
+      {
+        q: "Il massaggio rilassante e adatto anche se ho spalle e collo molto tesi?",
+        a: "In genere si parte in modo graduale e si adatta l'intensita. Se hai dubbi specifici, chiedici prima: ti diciamo come impostarlo in modo confortevole.",
+      },
     ],
     keywords: [
       "centro estetico Villastellone",

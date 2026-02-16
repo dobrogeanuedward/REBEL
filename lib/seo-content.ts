@@ -137,6 +137,41 @@ export const servicePages: ServicePage[] = [
     ],
   },
   {
+    slug: "massaggio-rilassante-carmagnola",
+    name: "Massaggio rilassante a Carmagnola",
+    shortDescription:
+      "Un massaggio distensivo per schiena, spalle e cervicale, pensato per staccare davvero.",
+    longDescription:
+      "Il massaggio rilassante e un momento dedicato a decomprimere e ritrovare leggerezza: lavoriamo su schiena, spalle e zona cervicale con manovre graduali, adattate a sensibilita e bisogno del momento.",
+    priceHint: "EUR 59 (50 min)",
+    category: "estetica-classica",
+    benefits: [
+      "Aiuta a staccare e ricaricare",
+      "Sensazione di distensione su schiena e spalle",
+      "Seduta adattata a sensibilita e preferenze",
+    ],
+    faqs: [
+      {
+        q: "Il massaggio rilassante e forte o delicato?",
+        a: "Dipende da come ti senti: lo impostiamo in modo graduale e lo adattiamo in base alle tue preferenze.",
+      },
+      {
+        q: "Su quali zone lavorate di piu?",
+        a: "Soprattutto su schiena, spalle e cervicale, con attenzione al comfort.",
+      },
+    ],
+    keywords: [
+      "massaggio rilassante Carmagnola",
+      "massaggio schiena Carmagnola",
+      "massaggio cervicale Carmagnola",
+      "massaggio distensivo Carmagnola",
+    ],
+    relatedCompetenceSlugs: [
+      "trattamenti-corpo-carmagnola",
+      "beauty-routine-carmagnola",
+    ],
+  },
+  {
     slug: "laminazione-ciglia-sopracciglia-carmagnola",
     name: "Laminazione ciglia e sopracciglia a Carmagnola",
     shortDescription:
