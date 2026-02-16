@@ -78,6 +78,11 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Quando ha senso e come la impostiamo in modo delicato.",
         },
         {
+          label: "Massaggio rilassante",
+          href: "/servizi/massaggio-rilassante-carmagnola",
+          description: "50 minuti dedicati a schiena, spalle e cervicale, con ritmo graduale.",
+        },
+        {
           label: "Protocolli epigenetici",
           href: "/protocolli-epigenetici",
           description: "Percorsi evoluti viso/corpo, scelti in base al tuo punto di partenza.",

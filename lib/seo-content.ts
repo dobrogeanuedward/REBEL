@@ -191,15 +191,15 @@ export const servicePages: ServicePage[] = [
     slug: "massaggio-rilassante-carmagnola",
     name: "Massaggio rilassante a Carmagnola",
     shortDescription:
-      "Un massaggio distensivo per schiena, spalle e cervicale, pensato per staccare davvero.",
+      "Un massaggio distensivo su schiena, spalle e cervicale, per staccare davvero e respirare.",
     longDescription:
-      "Il massaggio rilassante è un momento dedicato a decomprimere e ritrovare leggerezza: lavoriamo su schiena, spalle e zona cervicale con manovre graduali, adattate a sensibilità e bisogno del momento.",
+      "Il massaggio rilassante è un momento dedicato a decomprimere e ritrovare leggerezza. Lavoriamo su schiena, spalle e zona cervicale con manovre graduali, adattate a sensibilità e bisogno del momento: l'obiettivo è farti uscire più sciolta e con la testa più leggera, non \"stravolgere\" il corpo.",
     priceHint: "EUR 59 (50 min)",
     category: "estetica-classica",
     benefits: [
-      "Aiuta a staccare e ricaricare",
-      "Sensazione di distensione su schiena e spalle",
-      "Seduta adattata a sensibilità e preferenze",
+      "Momento di vero stacco (senza fretta)",
+      "Sensazione di distensione su schiena, spalle e cervicale",
+      "Pressione e ritmo adattati a sensibilità e preferenze",
     ],
     faqs: [
       {
@@ -210,9 +210,19 @@ export const servicePages: ServicePage[] = [
         q: "Su quali zone lavorate di più?",
         a: "Soprattutto su schiena, spalle e cervicale, con attenzione al comfort.",
       },
+      {
+        q: "Devo fare qualcosa prima della seduta?",
+        a: "Nulla di complicato: arriva con qualche minuto di anticipo e, se vuoi, dicci subito dove senti più tensione. Al resto pensiamo noi.",
+      },
+      {
+        q: "Se ho un punto molto dolorante, posso fare comunque il massaggio?",
+        a: "Dipende dal motivo e da quanto è recente/forte. In questi casi avvisaci prima: possiamo lavorare più delicatamente, evitare alcune zone o consigliarti di rimandare se non è il momento giusto.",
+      },
     ],
     keywords: [
       "massaggio rilassante Carmagnola",
+      "massaggio relax Carmagnola",
+      "massaggio antistress Carmagnola",
       "massaggio schiena Carmagnola",
       "massaggio cervicale Carmagnola",
       "massaggio distensivo Carmagnola",
@@ -220,6 +230,36 @@ export const servicePages: ServicePage[] = [
     relatedCompetenceSlugs: [
       "trattamenti-corpo-carmagnola",
       "beauty-routine-carmagnola",
+    ],
+    editorialSections: [
+      {
+        heading: "Non è solo \"coccole\": è un reset semplice, fatto bene",
+        paragraphs: [
+          "Quando la testa corre e il corpo resta sempre in tensione, anche 50 minuti possono fare la differenza. Il massaggio rilassante serve a rallentare, respirare e sciogliere la sensazione di carico che spesso si accumula su schiena e spalle.",
+          "Non cerchiamo la seduta \"forte\" a tutti i costi: puntiamo a un lavoro graduale, che rispetta la tua sensibilità e ti lascia una sensazione pulita e leggera.",
+        ],
+      },
+      {
+        heading: "Come si svolge una seduta (e perché chiediamo sempre feedback)",
+        paragraphs: [
+          "Prima di iniziare ti chiediamo due cose: dove senti più tensione e che tipo di pressione preferisci. Poi lavoriamo su schiena, spalle e cervicale con un ritmo che può cambiare durante la seduta.",
+          "Il feedback è parte del metodo: se una manovra è troppo intensa o se vuoi un tocco più profondo, lo adattiamo. Il risultato migliore è quello che ti fa stare bene, non quello che \"resisti\".",
+        ],
+      },
+      {
+        heading: "Quanto spesso farlo: singola seduta o ritmo regolare",
+        paragraphs: [
+          "C'è chi lo fa ogni tanto, quando sente di averne bisogno. E c'è chi preferisce un ritmo più regolare, soprattutto nei periodi stressanti o quando la tensione torna sempre nelle stesse zone.",
+          "La scelta dipende da tempo e obiettivo. La regola che consigliamo è semplice: meglio un ritmo sostenibile che una corsa fatta una volta e poi dimenticata.",
+        ],
+      },
+      {
+        heading: "Piccoli accorgimenti dopo: far durare la sensazione di leggerezza",
+        paragraphs: [
+          "Dopo la seduta, l'ideale è bere acqua, evitare di ripartire subito in modalità \"tutto di corsa\" e ascoltare come risponde il corpo. Anche una passeggiata lenta può aiutare a mantenere la sensazione di distensione.",
+          "Se vuoi, ti suggeriamo anche come integrare il massaggio dentro una routine più ampia di benessere (senza complicarti la vita).",
+        ],
+      },
     ],
   },
   {
