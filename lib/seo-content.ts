@@ -582,6 +582,7 @@ export const servicePages: ServicePage[] = [
       "epilazione-laser-estate-sole-carmagnola",
       "laser-uomo-carmagnola-guida-pratica",
     ],
+    relatedProtocolSlugs: ["eye-genesis"],
     editorialSections: [
       {
         heading: "Zone viso: come scegliamo la priorità (senza fare tutto insieme a caso)",
@@ -681,6 +682,7 @@ export const servicePages: ServicePage[] = [
       "epilazione-laser-ascelle-carmagnola-guida-pratica",
       "laser-uomo-carmagnola-guida-pratica",
     ],
+    relatedProtocolSlugs: ["rebel-cell-regeneration"],
     editorialSections: [
       {
         heading: "Zone corpo: come organizziamo il ciclo (una zona alla volta o più zone)",
