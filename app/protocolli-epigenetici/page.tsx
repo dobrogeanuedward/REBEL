@@ -3,6 +3,7 @@ import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
 import { protocolCards } from "@/lib/content";
+import { competencePages } from "@/lib/seo-content";
 import {
   buildArticleSchema,
   buildBreadcrumbSchema,
@@ -57,6 +58,27 @@ export default function ProtocolliPage() {
       path: `/protocolli/${protocol.slug}`,
     })),
   });
+  const guideSlugs = [
+    "estetica-avanzata-carmagnola",
+    "trattamenti-viso-carmagnola",
+    "trattamenti-corpo-carmagnola",
+    "beauty-routine-carmagnola",
+    "pulizia-viso-carmagnola-frequenza-benefici",
+  ];
+  const guides = guideSlugs
+    .map((slug) => competencePages.find((item) => item.slug === slug))
+    .filter((item): item is (typeof competencePages)[number] => Boolean(item));
+  const guidesSchema =
+    guides.length > 0
+      ? buildItemListSchema({
+          name: "Guide utili per scegliere un protocollo epigenetico",
+          path: "/protocolli-epigenetici",
+          items: guides.map((guide) => ({
+            name: guide.title,
+            path: `/competenze/${guide.slug}`,
+          })),
+        })
+      : null;
 
   return (
     <main className="page-shell page-protocolli">
@@ -65,6 +87,7 @@ export default function ProtocolliPage() {
       <JsonLd data={service} />
       <JsonLd data={articleSchema} />
       <JsonLd data={protocolsSchema} />
+      {guidesSchema ? <JsonLd data={guidesSchema} /> : null}
 
       <PageHero
         eyebrow="Protocolli Rebel"
@@ -144,6 +167,39 @@ export default function ProtocolliPage() {
           </div>
         </div>
       </section>
+
+      {guides.length > 0 ? (
+        <section className="section">
+          <div className="container">
+            <p className="eyebrow">Per orientarti</p>
+            <h2 className="page-title" style={{ marginTop: "0.6rem" }}>
+              Due letture fatte bene valgono più di dieci trattamenti scelti a caso.
+            </h2>
+            <p className="lead" style={{ marginTop: "0.6rem", maxWidth: "74ch" }}>
+              Se sei indecisa tra più protocolli, parti da queste guide: ti aiutano a chiarire obiettivo, ritmo e primo step
+              (senza trasformare la skincare in un lavoro).
+            </p>
+            <div className="grid grid-2" style={{ marginTop: "1rem" }}>
+              {guides.map((guide) => (
+                <Link key={guide.slug} href={`/competenze/${guide.slug}`} className="card glow-card">
+                  <h3 style={{ marginTop: 0 }}>{guide.title}</h3>
+                  <p className="lead" style={{ marginTop: 0 }}>
+                    {guide.shortDescription}
+                  </p>
+                </Link>
+              ))}
+            </div>
+            <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
+              <Link className="button button-primary" href="/contatti">
+                Prenota lettura iniziale
+              </Link>
+              <Link className="button button-secondary" href="/competenze">
+                Vedi tutte le guide
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
     </main>
   );
 }
