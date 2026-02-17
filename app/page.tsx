@@ -35,6 +35,22 @@ export default function HomePage() {
   const compactCompetenceTitle = (value: string) =>
     value.replace(/\s+a Carmagnola$/i, "").replace(/\s+per chi arriva da$/i, "").trim();
 
+  const featuredGuideSlugs = [
+    "epilazione-laser-viso-carmagnola-guida-realistica",
+    "epilazione-laser-corpo-carmagnola-zone-tempi",
+    "laser-diodo-carmagnola",
+    "epilazione-laser-estate-sole-carmagnola",
+    "peli-incarniti-laser-carmagnola",
+    "pulizia-viso-carmagnola-frequenza-benefici",
+    "manicure-semipermanente-carmagnola-durata-rimozione",
+    "laminazione-ciglia-sopracciglia-carmagnola-durata-cura",
+    "scrub-corpo-carmagnola-quando-farlo",
+    "massaggio-rilassante-carmagnola-cervicale-stress",
+  ];
+  const featuredGuides = featuredGuideSlugs
+    .map((slug) => competencePages.find((item) => item.slug === slug))
+    .filter((item): item is (typeof competencePages)[number] => Boolean(item));
+
   const ecosystemGroups: Array<{
     key: string;
     title: string;
@@ -72,10 +88,11 @@ export default function HomePage() {
       tone: "rose",
       links: [
         { href: "/competenze", label: "Hub competenze" },
-        ...competencePages.map((item) => ({
+        ...featuredGuides.map((item) => ({
           href: `/competenze/${item.slug}`,
           label: compactCompetenceTitle(item.title),
         })),
+        { href: "/competenze", label: "Vedi tutte le guide" },
       ],
     },
     {

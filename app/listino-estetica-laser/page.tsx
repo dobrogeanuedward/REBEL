@@ -49,12 +49,21 @@ export default function ListinoPage() {
       path: `/servizi/${serviceItem.slug}`,
     })),
   });
+  const protocolItemListSchema = buildItemListSchema({
+    name: "Protocolli epigenetici Rebel (listino)",
+    path: "/listino-estetica-laser",
+    items: protocolCards.map((protocol) => ({
+      name: protocol.name,
+      path: `/protocolli/${protocol.slug}`,
+    })),
+  });
 
   return (
     <main className="page-shell page-listino">
       <JsonLd data={breadcrumb} />
       <JsonLd data={webPageSchema} />
       <JsonLd data={listinoItemListSchema} />
+      <JsonLd data={protocolItemListSchema} />
 
       <PageHero
         eyebrow="Listino unico"
@@ -183,13 +192,18 @@ export default function ListinoPage() {
           </p>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             {protocolCards.map((item) => (
-              <article key={item.name} className="card glow-card">
+              <Link
+                key={item.slug}
+                href={`/protocolli/${item.slug}`}
+                className="card glow-card"
+                aria-label={`Apri ${item.name}`}
+              >
                 <h3 style={{ marginTop: 0 }}>{item.name}</h3>
                 <p className="lead" style={{ marginTop: "0.28rem" }}>
                   {item.desc}
                 </p>
                 <strong style={{ fontFamily: "var(--font-inter), sans-serif" }}>{item.price}</strong>
-              </article>
+              </Link>
             ))}
           </div>
           <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>

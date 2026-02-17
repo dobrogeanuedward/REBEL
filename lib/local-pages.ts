@@ -109,9 +109,14 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Per alleggerire la sensazione di gonfiore e impostare un calendario che non ti stressi.",
         },
         {
-          label: "Protocolli epigenetici",
+          label: "Collagen Code",
+          href: "/protocolli/collagen-code",
+          description: "Un protocollo richiesto spesso quando si cerca tono e compattezza con una progressione pulita.",
+        },
+        {
+          label: "Tutti i protocolli epigenetici",
           href: "/protocolli-epigenetici",
-          description: "Percorsi evoluti viso/corpo, scelti in base al tuo punto di partenza.",
+          description: "Panoramica completa con prezzi, FAQ e dettagli dei protocolli.",
         },
         {
           label: "Laser a Carmagnola",
@@ -887,9 +892,9 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Comfort durante la seduta e progressione impostata bene.",
         },
         {
-          label: "Protocolli epigenetici",
+          label: "Percorsi epigenetici viso/corpo",
           href: "/protocolli-epigenetici",
-          description: "Percorsi viso/corpo avanzati (tono, luminosità, rigenerazione).",
+          description: "Panoramica dei protocolli e link agli approfondimenti dedicati.",
         },
         {
           label: "Pulizia viso",
@@ -983,9 +988,9 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Come scegliere un trattamento viso in modo chiaro e sensato.",
         },
         {
-          label: "Protocolli epigenetici",
-          href: "/protocolli-epigenetici",
-          description: "Percorsi avanzati: tono, luminosità, densità e reset cutaneo (Catalysis Ritual incluso).",
+          label: "Catalysis Ritual",
+          href: "/protocolli/catalysis-ritual",
+          description: "Protocollo reset per pelle opaca o disordinata: progressione, comfort e metodo.",
         },
         {
           label: "Pulizia viso",
@@ -1099,9 +1104,9 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Cosa cambia sul comfort durante la seduta, nella pratica.",
         },
         {
-          label: "Protocolli epigenetici",
-          href: "/protocolli-epigenetici",
-          description: "Rebel Cell Regeneration e gli altri protocolli (viso/corpo) in progressione.",
+          label: "Rebel Cell Regeneration",
+          href: "/protocolli/rebel-cell-regeneration",
+          description: "Protocollo intensivo viso/corpo richiesto spesso quando si cerca rigenerazione progressiva.",
         },
         {
           label: "Epilazione laser corpo",
@@ -1210,9 +1215,9 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Comfort durante la seduta e progressione impostata bene.",
         },
         {
-          label: "Protocolli epigenetici",
-          href: "/protocolli-epigenetici",
-          description: "Eye Genesis e gli altri protocolli: cosa fanno e come si scelgono.",
+          label: "Eye Genesis",
+          href: "/protocolli/eye-genesis",
+          description: "Protocollo contorno occhi: focus su gonfiore, micro-segni e pelle più stanca.",
         },
         {
           label: "Laser diodo: differenze e criteri di scelta",
@@ -1319,9 +1324,9 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Cosa cambia sul comfort durante la seduta, nella pratica.",
         },
         {
-          label: "Protocolli epigenetici",
-          href: "/protocolli-epigenetici",
-          description: "Rebel Lift Protocol e gli altri protocolli: tono, luminosità e progressione.",
+          label: "Rebel Lift Protocol",
+          href: "/protocolli/rebel-lift-protocol",
+          description: "Protocollo viso orientato a tono e luminosità, con progressione ordinata e ritmo realistico.",
         },
         {
           label: "Pulizia viso",
@@ -1423,9 +1428,9 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Comfort durante la seduta e impostazione graduale, zona per zona.",
         },
         {
-          label: "Protocolli epigenetici",
-          href: "/protocolli-epigenetici",
-          description: "Rebirth 60+ e gli altri protocolli: come si scelgono e come si impostano.",
+          label: "Rebirth 60+",
+          href: "/protocolli/rebirth-60-plus",
+          description: "Protocollo pensato per pelli mature: densità e nutrimento percepito con una progressione pulita.",
         },
         {
           label: "Manicure semipermanente",
@@ -1532,9 +1537,9 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Cosa significa davvero, in pratica, e come si costruisce un percorso.",
         },
         {
-          label: "Protocolli epigenetici",
-          href: "/protocolli-epigenetici",
-          description: "Collagen Code e gli altri protocolli: cosa fanno e come si scelgono.",
+          label: "Collagen Code",
+          href: "/protocolli/collagen-code",
+          description: "Protocollo richiesto spesso quando si cerca tono e compattezza con una progressione realistica.",
         },
         {
           label: "Pulizia viso",
@@ -1641,9 +1646,9 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Come orientarti tra percorsi corpo, drenaggio e relax.",
         },
         {
-          label: "Protocolli epigenetici",
-          href: "/protocolli-epigenetici",
-          description: "Rebel Cell Regeneration e protocolli viso/corpo: come si impostano in progressione.",
+          label: "Rebel Cell Regeneration",
+          href: "/protocolli/rebel-cell-regeneration",
+          description: "Protocollo intensivo viso/corpo: rigenerazione progressiva e percorso seguito nel tempo.",
         },
         {
           label: "Linfodrenante",
@@ -1755,9 +1760,9 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Comfort durante la seduta e progressione impostata bene.",
         },
         {
-          label: "Protocolli epigenetici",
-          href: "/protocolli-epigenetici",
-          description: "Collagen Code e gli altri protocolli: obiettivi e progressione.",
+          label: "Collagen Code",
+          href: "/protocolli/collagen-code",
+          description: "Protocollo viso richiesto spesso quando si cerca tono e compattezza: progressione pulita e chiara.",
         },
         {
           label: "Listino completo",
@@ -1860,9 +1865,9 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Cosa cambia sul comfort durante la seduta, nella pratica.",
         },
         {
-          label: "Protocolli epigenetici",
-          href: "/protocolli-epigenetici",
-          description: "Eye Genesis e gli altri protocolli: come si scelgono e come si impostano.",
+          label: "Eye Genesis",
+          href: "/protocolli/eye-genesis",
+          description: "Protocollo contorno occhi: focus su gonfiore, micro-segni e sguardo più riposato.",
         },
         {
           label: "Laminazione ciglia e sopracciglia",
@@ -1964,9 +1969,9 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Comfort durante la seduta e progressione impostata bene.",
         },
         {
-          label: "Protocolli epigenetici",
-          href: "/protocolli-epigenetici",
-          description: "Rebel Cell Regeneration e protocolli viso/corpo: logica e progressione.",
+          label: "Rebel Cell Regeneration",
+          href: "/protocolli/rebel-cell-regeneration",
+          description: "Protocollo intensivo viso/corpo per rigenerazione progressiva e qualità cutanea più uniforme.",
         },
         {
           label: "Laser corpo: zone e tempi",
@@ -2073,9 +2078,9 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Comfort durante la seduta e progressione impostata con criterio.",
         },
         {
-          label: "Protocolli epigenetici",
-          href: "/protocolli-epigenetici",
-          description: "Rebirth 60+ e gli altri protocolli: come si scelgono e come si impostano.",
+          label: "Rebirth 60+",
+          href: "/protocolli/rebirth-60-plus",
+          description: "Protocollo dedicato alle pelli mature: densità, nutrimento e progressione seguita nel tempo.",
         },
         {
           label: "Trattamenti viso",
@@ -2177,9 +2182,9 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Cosa cambia sul comfort durante la seduta, nella pratica.",
         },
         {
-          label: "Protocolli epigenetici",
-          href: "/protocolli-epigenetici",
-          description: "Catalysis Ritual e gli altri protocolli: obiettivo, logica e progressione.",
+          label: "Catalysis Ritual",
+          href: "/protocolli/catalysis-ritual",
+          description: "Protocollo reset quando la pelle è opaca o disordinata: progressione, comfort e metodo.",
         },
         {
           label: "Pulizia viso",

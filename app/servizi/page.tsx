@@ -58,6 +58,14 @@ export default function ServiziHubPage() {
       path: `/servizi/${service.slug}`,
     })),
   });
+  const protocolListSchema = buildItemListSchema({
+    name: "Protocolli epigenetici Rebel (selezione)",
+    path: "/servizi",
+    items: featuredProtocols.map((protocol) => ({
+      name: protocol.name,
+      path: `/protocolli/${protocol.slug}`,
+    })),
+  });
   const webPageSchema = buildWebPageSchema({
     name: "Servizi Rebel a Carmagnola",
     description:
@@ -69,6 +77,7 @@ export default function ServiziHubPage() {
     <main className="page-shell page-servizi">
       <JsonLd data={breadcrumb} />
       <JsonLd data={serviceListSchema} />
+      <JsonLd data={protocolListSchema} />
       <JsonLd data={webPageSchema} />
       <PageHero
         eyebrow="I nostri servizi"
@@ -213,13 +222,18 @@ export default function ServiziHubPage() {
           </p>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             {featuredProtocols.map((protocol) => (
-              <article key={protocol.name} className="card">
+              <Link
+                key={protocol.slug}
+                href={`/protocolli/${protocol.slug}`}
+                className="card"
+                aria-label={`Apri ${protocol.name}`}
+              >
                 <h3 style={{ marginTop: 0 }}>{protocol.name}</h3>
                 <p className="lead" style={{ marginTop: "0.35rem" }}>
                   {protocol.desc}
                 </p>
                 <strong style={{ fontFamily: "var(--font-inter), sans-serif" }}>{protocol.price}</strong>
-              </article>
+              </Link>
             ))}
           </div>
           <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
@@ -242,7 +256,7 @@ export default function ServiziHubPage() {
             Approfondimenti
           </p>
           <h2 className="page-title" style={{ marginTop: "0.55rem" }}>
-            Quattro letture che fanno chiarezza, prima di prenotare.
+            Letture che fanno chiarezza, prima di prenotare.
           </h2>
           <p className="lead" style={{ marginTop: "0.5rem", color: "rgba(39,31,56,0.78)", maxWidth: "72ch" }}>
             Se stai valutando il laser o vuoi capire meglio cosa aspettarti da un percorso,
