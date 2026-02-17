@@ -56,6 +56,7 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
   const { slug } = await params;
   const competence = getCompetenceBySlug(slug);
   if (!competence) notFound();
+  const compactTitle = competence.title.replace(/\s+a Carmagnola$/i, "").trim();
 
   const breadcrumb = buildBreadcrumbSchema([
     { name: "Home", path: "/" },
@@ -154,7 +155,7 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
   const featuredAreasSchema =
     featuredAreas.length > 0
       ? buildItemListSchema({
-          name: `Localita vicine per ${competence.title}`,
+          name: `Località vicine per ${competence.title}`,
           path: `/competenze/${competence.slug}`,
           items: featuredAreas.map((area) => ({
             name: area.city,
@@ -190,11 +191,13 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
       <section className="section">
         <div className="container grid grid-2">
           <article className="card">
-            <h2 style={{ marginTop: 0 }}>Perché {competence.title} conta a Carmagnola</h2>
+            <h2 style={{ marginTop: 0 }}>
+              {competence.intent === "commercial" ? `Prima di prenotare: ${compactTitle}` : `Guida pratica: ${compactTitle}`}
+            </h2>
             <p className="lead" style={{ marginTop: 0 }}>
               {competence.localAngle}
             </p>
-            <h3 style={{ marginBottom: "0.5rem" }}>Cosa ti porti a casa da questa guida</h3>
+            <h3 style={{ marginBottom: "0.5rem" }}>Punti chiave (pratici)</h3>
             <ul className="list-clean">
               {competence.benefits.map((benefit) => (
                 <li key={benefit}>- {benefit}</li>
@@ -243,8 +246,7 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
                     />
                   </div>
                   <p className="lead" style={{ marginTop: "0.8rem", marginBottom: 0 }}>
-                    Un&apos;immagine in stile Rebel per accompagnare la lettura di{" "}
-                    {competence.title} e rendere la pagina più piacevole.
+                    Illustrazione Rebel: {competence.heroImage.alt}.
                   </p>
                 </>
               ) : (
@@ -266,8 +268,7 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
           <div className="container">
             <h2 className="page-title">Fonti e riferimenti</h2>
             <p className="lead" style={{ marginTop: "0.45rem", color: "rgba(39,31,56,0.78)" }}>
-              In questi editoriali usiamo fonti pubbliche autorevoli per mantenere
-              il contenuto utile, verificabile e senza promesse irreali.
+              Se vuoi approfondire, qui trovi le fonti citate (pubbliche e verificabili).
             </p>
             <ul className="editorial-source-list">
               {sourceLinks.map((source) => (
@@ -368,8 +369,8 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
           <div className="container">
             <h2 className="page-title">Se arrivi dai comuni vicini</h2>
             <p className="lead" style={{ marginTop: "0.5rem", color: "rgba(39,31,56,0.78)", maxWidth: "74ch" }}>
-              Per ogni localita abbiamo una pagina dedicata con focus diverso. Se vuoi orientarti in base alla tua zona,
-              qui trovi alcune localita vicine a Carmagnola.
+              Per ogni località abbiamo una pagina dedicata con un focus diverso. Se vuoi orientarti anche in base alla tua
+              zona, qui trovi alcune località vicine a Carmagnola.
             </p>
             <div className="grid grid-2" style={{ marginTop: "1rem" }}>
               {featuredAreas.map((area) => (
@@ -386,7 +387,7 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
                 Contatti
               </Link>
               <Link className="button button-secondary" href="/localita">
-                Vedi tutte le localita
+                Vedi tutte le località
               </Link>
             </div>
           </div>

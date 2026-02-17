@@ -149,7 +149,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
   const featuredAreasSchema =
     featuredAreas.length > 0
       ? buildItemListSchema({
-          name: `Localita vicine per ${service.name}`,
+          name: `Località vicine per ${service.name}`,
           path: `/servizi/${service.slug}`,
           items: featuredAreas.map((area) => ({
             name: area.city,
@@ -352,10 +352,10 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       {featuredAreas.length > 0 ? (
         <section className="section section-light">
           <div className="container">
-            <h2 className="page-title">Se arrivi da fuori: localita vicine e percorsi</h2>
+            <h2 className="page-title">Se arrivi da fuori: località vicine e percorsi</h2>
             <p className="lead" style={{ marginTop: "0.5rem", color: "rgba(39,31,56,0.78)", maxWidth: "74ch" }}>
-              Molte clienti arrivano anche dai comuni vicini. Se ti e&apos; comodo, qui trovi le pagine dedicate:
-              hanno un focus diverso (laser, viso/corpo, protocolli) e ti aiutano a scegliere il primo passo.
+              Molte clienti arrivano anche dai comuni vicini. Se ti è comodo, qui trovi le pagine dedicate: hanno un
+              focus diverso (laser, viso/corpo, protocolli) e ti aiutano a scegliere il primo passo.
             </p>
             <div className="grid grid-2" style={{ marginTop: "1rem" }}>
               {featuredAreas.map((area) => (
@@ -372,7 +372,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                 Contatti e mappa
               </Link>
               <Link className="button button-secondary" href="/localita">
-                Vedi tutte le localita
+                Vedi tutte le località
               </Link>
             </div>
           </div>

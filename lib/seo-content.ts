@@ -3300,6 +3300,33 @@ function validateSeoContent(): SeoContentValidation {
 
   const seenServiceSlugs = new Set<string>();
   const seenCompetenceSlugs = new Set<string>();
+  const normalizeForDupCheck = (value: string) =>
+    value
+      .toLowerCase()
+      .replace(/<[^>]+>/g, " ")
+      .replace(/[^\p{L}\p{N}]+/gu, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+
+  const duplicateWarnings: string[] = [];
+  const trackDuplicates = (
+    bucket: Map<string, string[]>,
+    value: string | undefined,
+    label: string,
+    slug: string,
+  ) => {
+    const normalized = normalizeForDupCheck(value ?? "");
+    // Skip very short strings: too noisy to validate.
+    if (normalized.length < 48) return;
+    const list = bucket.get(normalized) ?? [];
+    list.push(`${label}/${slug}`);
+    bucket.set(normalized, list);
+  };
+
+  const dupServiceShort = new Map<string, string[]>();
+  const dupServiceLong = new Map<string, string[]>();
+  const dupCompetenceShort = new Map<string, string[]>();
+  const dupCompetenceLong = new Map<string, string[]>();
 
   for (const service of servicePages) {
     if (seenServiceSlugs.has(service.slug)) errors.push(`Duplicate service slug: ${service.slug}`);
@@ -3311,6 +3338,9 @@ function validateSeoContent(): SeoContentValidation {
 
     if ((service.editorialSections ?? []).length < 2)
       warnings.push(`[servizi/${service.slug}] editorialSections < 2 (may be thin)`);
+
+    trackDuplicates(dupServiceShort, service.shortDescription, "servizi", service.slug);
+    trackDuplicates(dupServiceLong, service.longDescription, "servizi", service.slug);
   }
 
   for (const competence of competencePages) {
@@ -3327,6 +3357,9 @@ function validateSeoContent(): SeoContentValidation {
 
     if ((competence.editorialSections ?? []).length < 2)
       warnings.push(`[competenze/${competence.slug}] editorialSections < 2 (may be thin)`);
+
+    trackDuplicates(dupCompetenceShort, competence.shortDescription, "competenze", competence.slug);
+    trackDuplicates(dupCompetenceLong, competence.longDescription, "competenze", competence.slug);
   }
 
   // Cross-link integrity (warn only).
@@ -3364,6 +3397,25 @@ function validateSeoContent(): SeoContentValidation {
         warnings.push(`[competenze/${competence.slug}] missing protocol reference: ${related}`);
     }
   }
+
+  const pushDupGroupWarnings = (bucket: Map<string, string[]>, kind: string) => {
+    const groups = Array.from(bucket.values()).filter((slugs) => slugs.length > 1);
+    if (groups.length === 0) return;
+    groups
+      .slice(0, 12)
+      .forEach((slugs) =>
+        duplicateWarnings.push(`[dup] ${kind} appears identical across: ${slugs.slice(0, 6).join(", ")}${slugs.length > 6 ? " ..." : ""}`),
+      );
+    if (groups.length > 12) {
+      duplicateWarnings.push(`[dup] ${kind}: ${groups.length - 12} more duplicate groups not shown`);
+    }
+  };
+
+  pushDupGroupWarnings(dupServiceShort, "service shortDescription");
+  pushDupGroupWarnings(dupServiceLong, "service longDescription");
+  pushDupGroupWarnings(dupCompetenceShort, "competence shortDescription");
+  pushDupGroupWarnings(dupCompetenceLong, "competence longDescription");
+  warnings.push(...duplicateWarnings);
 
   return { errors, warnings };
 }
