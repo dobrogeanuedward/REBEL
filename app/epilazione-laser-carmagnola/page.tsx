@@ -157,6 +157,15 @@ export default function EpilazioneLaserCarmagnolaPage() {
               <Link href="/servizi/epilazione-laser-corpo-carmagnola" className="button button-secondary">
                 Epilazione laser corpo
               </Link>
+              <Link href="/servizi/epilazione-laser-viso-uomo-carmagnola" className="button button-secondary">
+                Laser viso uomo
+              </Link>
+              <Link href="/servizi/epilazione-laser-corpo-uomo-carmagnola" className="button button-secondary">
+                Laser corpo uomo
+              </Link>
+              <Link href="/competenze/laser-uomo-carmagnola-guida-pratica" className="button button-secondary">
+                Guida: laser uomo
+              </Link>
               <Link href="/epilazione-laser-ice-polar-carmagnola" className="button button-secondary">
                 Ice Polar: comfort durante il laser
               </Link>

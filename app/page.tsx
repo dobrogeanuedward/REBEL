@@ -38,14 +38,15 @@ export default function HomePage() {
   const featuredGuideSlugs = [
     "epilazione-laser-viso-carmagnola-guida-realistica",
     "epilazione-laser-corpo-carmagnola-zone-tempi",
-    "laser-diodo-carmagnola",
     "epilazione-laser-estate-sole-carmagnola",
     "peli-incarniti-laser-carmagnola",
     "pulizia-viso-carmagnola-frequenza-benefici",
-    "manicure-semipermanente-carmagnola-durata-rimozione",
-    "laminazione-ciglia-sopracciglia-carmagnola-durata-cura",
-    "scrub-corpo-carmagnola-quando-farlo",
-    "massaggio-rilassante-carmagnola-cervicale-stress",
+    "epilazione-laser-inguine-carmagnola-guida-pratica",
+    "epilazione-laser-ascelle-carmagnola-guida-pratica",
+    "laser-uomo-carmagnola-guida-pratica",
+    "contorno-occhi-gonfiore-occhiaie-carmagnola",
+    "pelle-opaca-grana-irregolare-carmagnola",
+    "tono-viso-ovale-carmagnola-percorso",
   ];
   const featuredGuides = featuredGuideSlugs
     .map((slug) => competencePages.find((item) => item.slug === slug))

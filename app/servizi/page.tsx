@@ -210,6 +210,24 @@ export default function ServiziHubPage() {
               </Link>
             ))}
           </div>
+          <div className="card-light" style={{ marginTop: "1rem" }}>
+            <h3 style={{ marginTop: 0 }}>Laser uomo: barba/collo, schiena, torace</h3>
+            <p className="lead" style={{ marginTop: "0.35rem", color: "rgba(39,31,56,0.78)", maxWidth: "74ch" }}>
+              Se stai cercando il laser uomo a Carmagnola, qui trovi le due schede servizio e una guida pratica per partire
+              con obiettivo e calendario chiari.
+            </p>
+            <div style={{ display: "flex", gap: "0.65rem", flexWrap: "wrap", marginTop: "0.75rem" }}>
+              <Link className="button button-secondary" href="/servizi/epilazione-laser-viso-uomo-carmagnola">
+                Laser viso uomo
+              </Link>
+              <Link className="button button-secondary" href="/servizi/epilazione-laser-corpo-uomo-carmagnola">
+                Laser corpo uomo
+              </Link>
+              <Link className="button button-secondary" href="/competenze/laser-uomo-carmagnola-guida-pratica">
+                Guida: laser uomo
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 

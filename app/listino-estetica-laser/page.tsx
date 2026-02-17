@@ -166,6 +166,24 @@ export default function ListinoPage() {
               </article>
             ))}
           </div>
+          <div className="card" style={{ marginTop: "1rem" }}>
+            <h3 style={{ marginTop: 0 }}>Laser uomo: pagine dedicate</h3>
+            <p className="lead" style={{ marginTop: "0.35rem" }}>
+              Se stai cercando il laser uomo (barba/collo o aree ampie come schiena e torace), abbiamo due schede servizio
+              dedicate e una guida per orientarti.
+            </p>
+            <div style={{ display: "flex", gap: "0.65rem", flexWrap: "wrap", marginTop: "0.75rem" }}>
+              <Link className="button button-secondary" href="/servizi/epilazione-laser-viso-uomo-carmagnola">
+                Laser viso uomo
+              </Link>
+              <Link className="button button-secondary" href="/servizi/epilazione-laser-corpo-uomo-carmagnola">
+                Laser corpo uomo
+              </Link>
+              <Link className="button button-secondary" href="/competenze/laser-uomo-carmagnola-guida-pratica">
+                Guida: laser uomo
+              </Link>
+            </div>
+          </div>
           <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
             <Link className="button button-primary" href="/contatti">
               Prenota valutazione laser
