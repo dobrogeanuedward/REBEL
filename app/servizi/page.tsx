@@ -41,6 +41,8 @@ export default function ServiziHubPage() {
   const editorialSlugs = [
     "epilazione-laser-viso-carmagnola-guida-realistica",
     "epilazione-laser-corpo-carmagnola-zone-tempi",
+    "epilazione-laser-estate-sole-carmagnola",
+    "peli-incarniti-laser-carmagnola",
     "pulizia-viso-carmagnola-frequenza-benefici",
     "linfodrenante-carmagnola-guida-pratica",
   ];

@@ -159,7 +159,11 @@ export const servicePages: ServicePage[] = [
       "esfoliazione corpo Carmagnola",
       "trattamento corpo levigante Carmagnola",
     ],
-    relatedCompetenceSlugs: ["trattamenti-corpo-carmagnola", "beauty-routine-carmagnola"],
+    relatedCompetenceSlugs: [
+      "trattamenti-corpo-carmagnola",
+      "beauty-routine-carmagnola",
+      "scrub-corpo-carmagnola-quando-farlo",
+    ],
     editorialSections: [
       {
         heading: "Cosa fa davvero lo scrub (e cosa no)",
@@ -332,6 +336,7 @@ export const servicePages: ServicePage[] = [
     relatedCompetenceSlugs: [
       "trattamenti-corpo-carmagnola",
       "beauty-routine-carmagnola",
+      "massaggio-rilassante-carmagnola-cervicale-stress",
     ],
     editorialSections: [
       {
@@ -410,6 +415,7 @@ export const servicePages: ServicePage[] = [
     relatedCompetenceSlugs: [
       "trattamenti-viso-carmagnola",
       "beauty-routine-carmagnola",
+      "laminazione-ciglia-sopracciglia-carmagnola-durata-cura",
     ],
     editorialSections: [
       {
@@ -474,7 +480,11 @@ export const servicePages: ServicePage[] = [
       "manicure Carmagnola",
       "semipermanente naturale Carmagnola",
     ],
-    relatedCompetenceSlugs: ["beauty-routine-carmagnola", "trattamenti-viso-carmagnola"],
+    relatedCompetenceSlugs: [
+      "beauty-routine-carmagnola",
+      "trattamenti-viso-carmagnola",
+      "manicure-semipermanente-carmagnola-durata-rimozione",
+    ],
     editorialSections: [
       {
         heading: "È un dettaglio, ma cambia tutto: mani curate \"da vicino\"",
@@ -560,6 +570,7 @@ export const servicePages: ServicePage[] = [
       "epilazione-laser-carmagnola",
       "laser-diodo-carmagnola",
       "epilazione-laser-viso-carmagnola-guida-realistica",
+      "epilazione-laser-estate-sole-carmagnola",
     ],
     editorialSections: [
       {
@@ -623,7 +634,7 @@ export const servicePages: ServicePage[] = [
       "Riduzione progressiva della ricrescita con percorso seguito",
       "Organizzazione sensata: zone, calendario e priorità chiare",
       "Comfort migliorato durante la seduta con Ice Polar",
-      "Indicazioni pratiche pre/post per una pelle più tranquilla",
+      "Consigli pratici pre/post per una pelle più tranquilla",
     ],
     faqs: [
       {
@@ -654,6 +665,8 @@ export const servicePages: ServicePage[] = [
       "epilazione-laser-carmagnola",
       "laser-diodo-carmagnola",
       "epilazione-laser-corpo-carmagnola-zone-tempi",
+      "epilazione-laser-estate-sole-carmagnola",
+      "peli-incarniti-laser-carmagnola",
     ],
     editorialSections: [
       {
@@ -1554,6 +1567,472 @@ export const competencePages: CompetencePage[] = [
       {
         label: "Mayo Clinic - Laser hair removal",
         url: "https://www.mayoclinic.org/tests-procedures/laser-hair-removal/about/pac-20394555",
+      },
+    ],
+  },
+  {
+    slug: "epilazione-laser-estate-sole-carmagnola",
+    title: "Laser in estate a Carmagnola: sole, SPF e calendario senza ansia",
+    shortDescription:
+      "Quando si può fare, cosa evitare e come pianificare vacanze e sedute in modo sensato.",
+    longDescription:
+      "Una guida pratica per gestire laser e sole: non è una questione di divieti assoluti, ma di calendario e protezione. Qui trovi cosa chiedere prima di iniziare e come muoverti tra una seduta e l'altra.",
+    localAngle:
+      "Pensata per chi vive a Carmagnola (o arriva dai comuni vicini) e vuole programmare il laser senza complicarsi l'estate.",
+    intent: "informational",
+    benefits: [
+      "Chiarisce come gestire sole, SPF e vacanze senza stress",
+      "Aiuta a capire quando conviene rimandare e quando si può programmare",
+      "Rende più semplice tenere un calendario coerente tra sedute",
+    ],
+    faqs: [
+      {
+        q: "Si può fare il laser in estate?",
+        a: "Dipende da esposizione, abitudini e zona. Non è un no automatico: in consulenza pianifichiamo calendario e protezione in base ai tuoi impegni.",
+      },
+      {
+        q: "Se ho preso sole o mi sono abbronzata devo fermarmi?",
+        a: "A volte sì, a volte basta distanziare la seduta. La scelta dipende da quanto è recente/intensa l'esposizione e da come sta la pelle.",
+      },
+      {
+        q: "SPF: quanto conta davvero?",
+        a: "Conta molto. La protezione riduce rischi di irritazione e discromie e ti aiuta a vivere il percorso con più tranquillità, soprattutto nei mesi luminosi.",
+      },
+      {
+        q: "Posso programmare il laser prima di una vacanza?",
+        a: "Spesso sì, ma va fatto con criterio: meglio decidere insieme timing e zone, così non ti ritrovi a cambiare piano all'ultimo.",
+      },
+    ],
+    keywords: [
+      "laser estate Carmagnola",
+      "epilazione laser estate Carmagnola",
+      "laser e sole Carmagnola",
+      "laser prima vacanze Carmagnola",
+      "SPF dopo laser Carmagnola",
+    ],
+    relatedServiceSlugs: [
+      "epilazione-laser-corpo-carmagnola",
+      "epilazione-laser-viso-carmagnola",
+    ],
+    heroImage: {
+      src: "/editoriali/laser-corpo-rebel.svg",
+      alt: "Illustrazione Rebel con linee luminose dedicate a calendario laser e stagioni",
+    },
+    editorialSections: [
+      {
+        heading: "La verità semplice: laser e sole non vanno improvvisati",
+        paragraphs: [
+          "Il tema non è \"si può\" o \"non si può\". Il tema è: come sta la pelle, quanta esposizione hai in programma e quanto vuoi essere costante con il percorso.",
+          "Quando il calendario è pensato bene (e non deciso di corsa), il laser diventa gestibile anche nei mesi più luminosi.",
+        ],
+      },
+      {
+        heading: "Vacanze, weekend fuori e abitudini reali: da qui si decide",
+        paragraphs: [
+          "In consulenza chiediamo sempre due cose: quando sei al sole e come ti proteggi. Non per giudicare, ma per costruire un piano che funzioni davvero per te.",
+          "Se sai già che avrai giornate piene di sole, possiamo scegliere zone prioritarie e momenti più comodi, senza rovinarti l'estate.",
+        ],
+      },
+      {
+        heading: "Protezione: poche cose fatte bene (SPF, abbigliamento, buon senso)",
+        paragraphs: [
+          "La protezione non è una mania: è la base per tenere la pelle tranquilla e ridurre il rischio di irritazioni o macchie.",
+          "Meglio una routine semplice e costante che dieci prodotti usati a caso. Se hai dubbi, te la impostiamo in modo pulito.",
+        ],
+      },
+      {
+        heading: "Quando conviene rimandare",
+        paragraphs: [
+          "Se la pelle è molto abbronzata o irritata, spesso conviene aspettare. Rimandare una seduta può essere la scelta più intelligente per non creare problemi dopo.",
+          "Un percorso ben fatto è flessibile: l'obiettivo è arrivare al risultato, non fare sedute \"a tutti i costi\".",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - Laser hair removal FAQs",
+        url: "https://www.aad.org/public/cosmetic/hair-removal/laser-hair-removal-faqs",
+      },
+      {
+        label: "Mayo Clinic - Laser hair removal",
+        url: "https://www.mayoclinic.org/tests-procedures/laser-hair-removal/about/pac-20394555",
+      },
+      {
+        label: "NHS - Laser hair removal",
+        url: "https://www.nhs.uk/conditions/cosmetic-procedures/non-surgical-cosmetic-procedures/laser-hair-removal/",
+      },
+    ],
+  },
+  {
+    slug: "peli-incarniti-laser-carmagnola",
+    title: "Peli incarniti: quando il laser aiuta davvero (guida a Carmagnola)",
+    shortDescription:
+      "Cause comuni, routine quotidiana e criteri pratici per capire se un percorso laser ha senso.",
+    longDescription:
+      "I peli incarniti non sono solo un fastidio: spesso sono infiammazione, attrito e ricrescita gestita male. Qui trovi cosa funziona davvero (e cosa peggiora la situazione) e quando il laser può diventare la scelta più comoda.",
+    localAngle:
+      "Utile se cerchi a Carmagnola una soluzione concreta per peli incarniti frequenti su gambe, inguine o ascelle.",
+    intent: "commercial",
+    benefits: [
+      "Chiarisce cosa scatena i peli incarniti più spesso",
+      "Ti aiuta a costruire una routine più gentile (senza aggressività)",
+      "Spiega quando il laser può ridurre ricrescita e infiammazione nel tempo",
+    ],
+    faqs: [
+      {
+        q: "Lo scrub risolve i peli incarniti?",
+        a: "Può aiutare se è delicato e fatto con il ritmo giusto. Esfoliare troppo o troppo spesso, invece, può irritare e peggiorare.",
+      },
+      {
+        q: "Ceretta e pinzetta peggiorano?",
+        a: "In alcune persone sì, soprattutto su peli che tendono a rientrare. Dipende da zona, tipo di pelo e sensibilità della pelle.",
+      },
+      {
+        q: "Il laser funziona se ho peli incarniti frequenti?",
+        a: "Spesso sì: riducendo progressivamente la ricrescita, diminuisce anche la probabilità che il pelo rientri. Va impostato con metodo e calendario coerente.",
+      },
+      {
+        q: "Quali zone sono le più problematiche?",
+        a: "Spesso inguine, ascelle e alcune aree delle gambe, soprattutto con attrito e rasatura frequente.",
+      },
+    ],
+    keywords: [
+      "peli incarniti Carmagnola",
+      "laser peli incarniti Carmagnola",
+      "peli sottopelle inguine Carmagnola",
+      "peli incarniti ascelle Carmagnola",
+      "peli incarniti gambe Carmagnola",
+    ],
+    relatedServiceSlugs: [
+      "epilazione-laser-corpo-carmagnola",
+      "scrub-corpo-carmagnola",
+    ],
+    heroImage: {
+      src: "/editoriali/laser-corpo-rebel.svg",
+      alt: "Illustrazione Rebel con glow morbido sul tema pelle uniforme e ricrescita più gestibile",
+    },
+    editorialSections: [
+      {
+        heading: "Prima di tutto: i peli incarniti sono un mix di ricrescita, attrito e infiammazione",
+        paragraphs: [
+          "Quando il pelo fatica a uscire, la pelle si infiamma. A volte è colpa della rasatura, a volte della ceretta, a volte dell'attrito (leggings, sport, caldo).",
+          "La soluzione non è essere più aggressive: è diventare più precise e più gentili.",
+        ],
+      },
+      {
+        heading: "Scrub sì, ma fatto bene: ritmo, delicatezza e timing",
+        paragraphs: [
+          "Lo scrub può essere utilissimo, ma deve rispettare la pelle. Se lo fai con troppa forza o troppo spesso, la pelle si irrita e i peli incarniti aumentano.",
+          "In studio ti diciamo come impostarlo in base alla tua pelle e, se stai facendo laser, anche in base al calendario.",
+        ],
+      },
+      {
+        heading: "Quando il laser diventa la scelta più comoda",
+        paragraphs: [
+          "Se hai peli incarniti ricorrenti su zone specifiche, spesso il laser aiuta perché riduce progressivamente la ricrescita. Meno ricrescita = meno probabilità di pelo che rientra.",
+          "La differenza la fa come si imposta il percorso: parametri su misura, progressione e controlli, non sedute buttate lì.",
+        ],
+      },
+      {
+        heading: "La cosa più importante: scegliere una priorità e seguirla",
+        paragraphs: [
+          "In molti casi conviene partire da una o due zone, non da tutto insieme. Così capiamo come risponde la pelle e impostiamo un piano più chiaro.",
+          "Se vuoi, ci scrivi su WhatsApp e ti diciamo come partire in modo pratico (zone, tempi, preparazione).",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "Cleveland Clinic - Ingrown hair",
+        url: "https://my.clevelandclinic.org/health/diseases/17722-ingrown-hair",
+      },
+      {
+        label: "Mayo Clinic - Ingrown hair",
+        url: "https://www.mayoclinic.org/diseases-conditions/ingrown-hair/symptoms-causes/syc-20373893",
+      },
+      {
+        label: "AAD - Laser hair removal overview",
+        url: "https://www.aad.org/public/cosmetic/hair-removal/laser-hair-removal-overview",
+      },
+    ],
+  },
+  {
+    slug: "manicure-semipermanente-carmagnola-durata-rimozione",
+    title: "Semipermanente a Carmagnola: durata, ricrescita e rimozione senza danni",
+    shortDescription:
+      "Cosa incide sulla durata e come si rimuove bene (senza strappi o limature aggressive).",
+    longDescription:
+      "Una guida pratica per chi vuole un semipermanente bello e ordinato nel tempo: cosa fa durare di più il risultato, quando conviene rifarlo e perché la rimozione è la parte che protegge davvero l'unghia.",
+    localAngle:
+      "Utile se cerchi a Carmagnola un servizio unghie curato e vuoi capire come mantenerlo senza rovinare l'unghia.",
+    intent: "informational",
+    benefits: [
+      "Ti aiuta a capire perché a volte dura di più (e a volte no)",
+      "Spiega come gestire ricrescita e calendario senza stress",
+      "Chiarisce la rimozione corretta per rispettare l'unghia",
+    ],
+    faqs: [
+      {
+        q: "Quanto dura davvero il semipermanente?",
+        a: "In media 2-3 settimane, ma dipende da ricrescita e da quanto usi le mani. Anche detergenti e lavori manuali incidono molto.",
+      },
+      {
+        q: "La rimozione è quella che rovina l'unghia?",
+        a: "Spesso sì, se viene fatta male. Strappare o limare troppo assottiglia l'unghia. La rimozione corretta è paziente e rispettosa.",
+      },
+      {
+        q: "Posso rimuoverlo da sola a casa?",
+        a: "Si può, ma se non hai pratica rischi di strappare. Se vuoi farlo a casa, ti consigliamo di farlo con calma e senza forzare.",
+      },
+      {
+        q: "Se un'unghia si scheggia cosa faccio?",
+        a: "Meglio non 'aggiustare' a tentativi con limate aggressive. Scrivici o passa in studio: spesso basta una sistemazione piccola fatta bene.",
+      },
+    ],
+    keywords: [
+      "semipermanente Carmagnola durata",
+      "manicure semipermanente Carmagnola rimozione",
+      "rimozione semipermanente Carmagnola",
+      "semipermanente unghie Carmagnola",
+      "semipermanente rovina unghie",
+    ],
+    relatedServiceSlugs: ["manicure-semipermanente-carmagnola"],
+    editorialSections: [
+      {
+        heading: "Durata: non è solo 'quanto dura', è come resta dopo una settimana",
+        paragraphs: [
+          "Una manicure fatta bene si vede anche dopo giorni: bordi puliti, cuticole ordinate, finitura bella da vicino. La durata non è solo il numero di giorni, è anche come ti senti guardando le mani.",
+          "Per questo lavoriamo molto sulla preparazione e sulla rifinitura: sono le parti che fanno la differenza.",
+        ],
+      },
+      {
+        heading: "Ricrescita: il momento giusto per rifarlo non è uguale per tutte",
+        paragraphs: [
+          "C'è chi ha ricrescita veloce e preferisce tenere sempre un look perfetto. C'è chi vuole semplicemente mani ordinate e torna quando sente che è il momento.",
+          "In studio ti diciamo una finestra realistica, così non aspetti troppo e non ti ritrovi a dover 'salvare' la situazione.",
+        ],
+      },
+      {
+        heading: "Rimozione: la parte che protegge l'unghia nel tempo",
+        paragraphs: [
+          "Molti danni non arrivano dal semipermanente in sé, ma da rimozioni aggressive: strappi, fretta, limature eccessive.",
+          "La regola è semplice: mai forzare. Se vuoi fare una pausa, la facciamo in modo che l'unghia resti sana e bella.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - Gel manicures: Tips for healthy nails",
+        url: "https://www.aad.org/media/news-releases/gel-manicures-dermatologists-share-tips-to-keep-nails-healthy",
+      },
+      {
+        label: "AAD - Dermatologist's secret for removing gel nail polish at home",
+        url: "https://www.aad.org/public/everyday-care/nail-care-secrets/basics/pedicures/removing-gel-polish",
+      },
+    ],
+  },
+  {
+    slug: "laminazione-ciglia-sopracciglia-carmagnola-durata-cura",
+    title: "Laminazione a Carmagnola: durata e cura nelle prime ore (ciglia e sopracciglia)",
+    shortDescription:
+      "Quanto dura davvero, cosa evitare subito dopo e come farla restare ordinata più a lungo.",
+    longDescription:
+      "Una guida pratica sulla laminazione: cosa aspettarti, cosa cambia nelle prime ore e quali piccole attenzioni fanno la differenza sulla durata del risultato.",
+    localAngle:
+      "Scritta per chi cerca a Carmagnola un effetto naturale e pulito, senza eccessi e senza sorprese.",
+    intent: "informational",
+    benefits: [
+      "Chiarisce cosa aspettarti nelle prime ore dopo la seduta",
+      "Aiuta a far durare il risultato senza complicazioni",
+      "Spiega come scegliere un effetto naturale, coerente con il tuo viso",
+    ],
+    faqs: [
+      {
+        q: "Quanto dura la laminazione?",
+        a: "In media 4-6 settimane, ma dipende da crescita naturale e abitudini (struccaggio, prodotti, sfregamenti).",
+      },
+      {
+        q: "Cosa conviene evitare subito dopo?",
+        a: "Nelle prime ore è meglio trattare la zona con delicatezza: evitare sfregamenti e gestire struccaggio e detersione con più calma.",
+      },
+      {
+        q: "Se ho ciglia o sopracciglia sottili ha senso?",
+        a: "Spesso sì. L'obiettivo è ordine e armonia, non un effetto pesante. In studio adattiamo impostazione e intensità al tuo punto di partenza.",
+      },
+      {
+        q: "È un effetto molto evidente?",
+        a: "Dipende da come lo vuoi. Il nostro stile è naturale: preferiamo un risultato curato che ti somigli, non un cambiamento eccessivo.",
+      },
+    ],
+    keywords: [
+      "laminazione Carmagnola durata",
+      "laminazione ciglia Carmagnola quanto dura",
+      "laminazione sopracciglia Carmagnola cura",
+      "laminazione ciglia dopo trattamento",
+      "laminazione effetto naturale Carmagnola",
+    ],
+    relatedServiceSlugs: ["laminazione-ciglia-sopracciglia-carmagnola"],
+    editorialSections: [
+      {
+        heading: "Perché dura di più quando l'effetto è 'giusto' (non eccessivo)",
+        paragraphs: [
+          "Quando l'impostazione è coerente con la tua struttura, la laminazione resta bella più a lungo: non è tirata, non è pesante, non ti costringe a correggere ogni giorno.",
+          "Il punto è uscire ordinata. Non uscire 'diversa'.",
+        ],
+      },
+      {
+        heading: "Prime ore: poche attenzioni che salvano la durata",
+        paragraphs: [
+          "È la fase più semplice, ma anche quella che viene sottovalutata. Se nelle prime ore tratti la zona con delicatezza, il risultato resta più stabile.",
+          "In studio ti diciamo esattamente cosa fare in base a ciglia/sopracciglia e alle tue abitudini quotidiane.",
+        ],
+      },
+      {
+        heading: "Mantenimento: come restare ordinata senza fare 'troppo'",
+        paragraphs: [
+          "Detersione delicata, struccaggio senza sfregare e prodotti scelti con criterio. Non servono rituali lunghi: serve non stressare la zona.",
+          "Se vuoi, ti consigliamo anche quando rifarla, così non aspetti che l'effetto 'collassi'.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "scrub-corpo-carmagnola-quando-farlo",
+    title: "Scrub corpo a Carmagnola: ogni quanto farlo e come non irritare la pelle",
+    shortDescription:
+      "Frequenza, stagioni e accorgimenti pratici prima/dopo per avere pelle più uniforme senza stress.",
+    longDescription:
+      "Una guida concreta sullo scrub corpo: come scegliere la frequenza giusta, cosa evitare per non irritare e come farlo diventare un aiuto vero (non un gesto aggressivo).",
+    localAngle:
+      "Utile se cerchi a Carmagnola uno scrub corpo fatto bene e vuoi evitare l'effetto 'pelle sensibilizzata'.",
+    intent: "informational",
+    benefits: [
+      "Ti aiuta a scegliere una frequenza sensata per la tua pelle",
+      "Riduce il rischio di irritazione da esfoliazione eccessiva",
+      "Spiega come abbinarlo a idratazione e mantenimento per far durare l'effetto",
+    ],
+    faqs: [
+      {
+        q: "Ogni quanto si fa lo scrub corpo?",
+        a: "Dipende da sensibilità e stagione. Spesso 3-5 settimane è una buona base, ma alcune pelli preferiscono tempi più lunghi.",
+      },
+      {
+        q: "È meglio farlo prima o dopo la doccia?",
+        a: "Dipende dal tipo di scrub e da come reagisce la pelle. In studio lo scegliamo e lo impostiamo in modo che resti confortevole anche dopo.",
+      },
+      {
+        q: "Se ho pelle secca posso farlo?",
+        a: "Sì, ma in modo delicato e con una buona fase finale di idratazione. Se la pelle è molto reattiva, distanziamo e scegliamo un approccio più soft.",
+      },
+      {
+        q: "Esfoliare di più rende la pelle più liscia?",
+        a: "Nel breve può sembrare, ma l'eccesso spesso porta sensibilità e instabilità. Il risultato migliore arriva quando non si esagera.",
+      },
+    ],
+    keywords: [
+      "scrub corpo Carmagnola ogni quanto",
+      "esfoliazione corpo frequenza",
+      "scrub corpo pelle sensibile",
+      "scrub corpo estate sole",
+      "scrub corpo idratazione",
+    ],
+    relatedServiceSlugs: ["scrub-corpo-carmagnola"],
+    editorialSections: [
+      {
+        heading: "La regola che funziona: meglio delicato e regolare che 'forte' una volta",
+        paragraphs: [
+          "L'esfoliazione non deve lasciare la pelle in difesa. Se dopo lo scrub senti bruciore o pelle che tira per giorni, qualcosa va rivisto.",
+          "Quando lo scrub è impostato bene, la pelle resta più uniforme e più comoda anche nei giorni successivi.",
+        ],
+      },
+      {
+        heading: "Frequenza: pelle, stagione e abitudini contano più della teoria",
+        paragraphs: [
+          "La frequenza giusta cambia in base a come vivi: docce, sport, attrito, prodotti che usi. Non esiste una tabella valida per tutte.",
+          "In studio ti proponiamo un ritmo realistico: non vogliamo trasformare la routine corpo in un lavoro.",
+        ],
+      },
+      {
+        heading: "Dopo lo scrub: la parte che fa durare la pelle liscia",
+        paragraphs: [
+          "Idratazione e protezione. Pochi gesti, coerenti. Se vuoi, ti consigliamo prodotti in base a stagione e sensazione della pelle.",
+          "L'obiettivo è far durare il comfort, non inseguire l'effetto 'wow' per un giorno.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - How to safely exfoliate at home",
+        url: "https://www.aad.org/public/everyday-care/skin-care-secrets/routine/safely-exfoliate-at-home",
+      },
+      {
+        label: "AAD - Basic skin care",
+        url: "https://www.aad.org/public/everyday-care/skin-care-basics/care",
+      },
+    ],
+  },
+  {
+    slug: "massaggio-rilassante-carmagnola-cervicale-stress",
+    title: "Massaggio rilassante e cervicale a Carmagnola: cosa aspettarti in 50 minuti",
+    shortDescription:
+      "Quando serve, come lo impostiamo e come far durare la sensazione di sollievo dopo la seduta.",
+    longDescription:
+      "Una guida chiara per chi sente tensione su cervicale, spalle e schiena: come si svolge una seduta, che tipo di pressione si può scegliere e come inserire il massaggio in un periodo più stressante.",
+    localAngle:
+      "Pensata per chi lavora tanto, guida molto o passa molte ore al computer tra Carmagnola e dintorni.",
+    intent: "informational",
+    benefits: [
+      "Aiuta a capire se il massaggio rilassante è adatto al tuo momento",
+      "Chiarisce come gestiamo pressione e zone sensibili",
+      "Ti dà idee pratiche per far durare la sensazione di leggerezza",
+    ],
+    faqs: [
+      {
+        q: "È un massaggio 'forte'?",
+        a: "Non per forza. Si decide insieme: preferiamo un lavoro graduale e su misura, soprattutto su cervicale e spalle.",
+      },
+      {
+        q: "Su cosa lavorate di più?",
+        a: "Schiena, spalle e cervicale, con attenzione a come rispondi seduta per seduta.",
+      },
+      {
+        q: "Quante sedute servono?",
+        a: "Dipende da quanto è carico il periodo. C'è chi fa una seduta singola ogni tanto e chi preferisce un ritmo più regolare per qualche settimana.",
+      },
+      {
+        q: "Cosa posso fare dopo per far durare l'effetto?",
+        a: "Bere acqua, evitare di correre subito e ascoltare il corpo. Anche una passeggiata lenta può aiutare a mantenere la sensazione di distensione.",
+      },
+    ],
+    keywords: [
+      "massaggio cervicale Carmagnola",
+      "massaggio rilassante Carmagnola cervicale",
+      "tensione spalle Carmagnola massaggio",
+      "massaggio schiena Carmagnola",
+      "massaggio antistress Carmagnola",
+    ],
+    relatedServiceSlugs: ["massaggio-rilassante-carmagnola"],
+    editorialSections: [
+      {
+        heading: "Il punto non è 'fare forte': è sciogliere senza lasciare il corpo in difesa",
+        paragraphs: [
+          "Su cervicale e spalle, l'effetto migliore arriva quando il corpo si fida: ritmo graduale, pressione calibrata, ascolto durante la seduta.",
+          "Se una zona è troppo sensibile o troppo carica, la gestiamo con buon senso: non serve 'resistere' per avere un risultato.",
+        ],
+      },
+      {
+        heading: "Quando ha più senso farlo (e quando conviene essere più prudenti)",
+        paragraphs: [
+          "Ha senso quando senti tensione ricorrente, sonno agitato o periodi in cui ti 'stringi' senza accorgertene. Se invece c'è un dolore acuto o recente, prima capiamo bene cosa succede.",
+          "In studio ti facciamo domande semplici e impostiamo la seduta in modo che sia davvero confortevole.",
+        ],
+      },
+      {
+        heading: "Mantenimento: micro-gesti che aiutano tra una seduta e l'altra",
+        paragraphs: [
+          "Non servono rivoluzioni. Basta non tornare subito in modalità corsa: acqua, respiro, qualche minuto di calma e meno tensione su spalle e mandibola quando puoi.",
+          "Se vuoi inserire il massaggio in un periodo stressante, ti aiutiamo a scegliere un ritmo realistico.",
+        ],
       },
     ],
   },

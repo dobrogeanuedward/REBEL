@@ -1056,7 +1056,7 @@ export const localAreaPages: LocalAreaPage[] = [
       "A volte il problema non è scegliere un trattamento: è riuscire a seguirlo. In Rebel impostiamo un piano ordinato, con appuntamenti realistici e poche regole pratiche tra una seduta e l'altra.",
     whyRebel: [
       "Valutazione iniziale e percorso costruito su pelle, zona e obiettivo",
-      "Indicazioni pratiche tra le sedute (così non vai a tentativi)",
+      "Consigli pratici tra le sedute (così non vai a tentativi)",
       "Tecnologia Thory con manipolo Ice Polar per maggiore comfort",
       "Un solo studio per laser e cura della pelle (viso e corpo)",
     ],
@@ -1606,7 +1606,7 @@ export const localAreaPages: LocalAreaPage[] = [
     whyRebel: [
       "Percorsi corpo e drenaggio impostati con obiettivo e calendario realistico",
       "Laser con metodo: parametri su misura e comfort (Ice Polar)",
-      "Indicazioni pratiche tra le sedute, senza liste infinite",
+      "Consigli pratici tra le sedute, senza liste infinite",
       "Supporto rapido su WhatsApp, prima e dopo",
     ],
     directions: {
@@ -1820,7 +1820,7 @@ export const localAreaPages: LocalAreaPage[] = [
       "Valutazione iniziale e percorso laser con aspettative chiare",
       "Comfort durante la seduta (Ice Polar) e settaggio su misura",
       "Percorsi viso/corpo organizzati per obiettivo reale",
-      "Indicazioni pratiche tra le sedute e supporto su WhatsApp",
+      "Consigli pratici tra le sedute e supporto su WhatsApp",
     ],
     directions: {
       heading: "Come arrivare da Bra a Rebel (Carmagnola)",
@@ -1923,7 +1923,7 @@ export const localAreaPages: LocalAreaPage[] = [
       "Da Savigliano arrivano persone che vogliono un laser impostato bene e una gestione più semplice della pelle tra una seduta e l'altra.",
     whyRebel: [
       "Laser con metodo: parametri su misura, calendario e controlli",
-      "Indicazioni pratiche tra le sedute (così eviti errori comuni)",
+      "Consigli pratici tra le sedute (così eviti errori comuni)",
       "Comfort durante la seduta con Ice Polar",
       "Un solo studio per laser e percorsi viso/corpo",
     ],
