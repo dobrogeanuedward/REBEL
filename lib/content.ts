@@ -1,32 +1,32 @@
 export const protocolCards = [
   {
     name: "Rebel Lift Protocol",
-    desc: "Tensore e rigenerante, orientato a tono, ovale e luminosità.",
+    desc: "Pensato per tono, ovale e luminosità, con una progressione pulita.",
     price: "EUR 148",
   },
   {
     name: "Rebirth 60+",
-    desc: "Stimola densità e nutrimento per pelli mature.",
+    desc: "Un protocollo dedicato alle pelli mature: nutrimento e densità percepita.",
     price: "EUR 148",
   },
   {
     name: "Eye Genesis",
-    desc: "Protocollo perioculare su gonfiore, segni e micro-rughe.",
+    desc: "Focus sul contorno occhi: gonfiore, segni e micro-rughe.",
     price: "EUR 120",
   },
   {
     name: "Catalysis Ritual",
-    desc: "Reset cutaneo con maschere enzimatiche e biostimolatori.",
+    desc: "Quando la pelle è spenta o disordinata: reset e comfort, senza eccessi.",
     price: "EUR 150",
   },
   {
     name: "Collagen Code",
-    desc: "Sostegno cosmetico della matrice dermica e rimpolpamento.",
+    desc: "Supporto su compattezza e rimpolpamento, con lavoro progressivo.",
     price: "EUR 135",
   },
   {
     name: "Rebel Cell Regeneration",
-    desc: "Percorso intensivo viso/corpo per rigenerazione progressiva.",
+    desc: "Percorso intensivo viso/corpo per una rigenerazione progressiva.",
     price: "EUR 159",
   },
 ];
@@ -35,27 +35,27 @@ export const methodSteps = [
   {
     step: "Step 1",
     title: "Lettura iniziale",
-    text: "Analisi viso/corpo, ascolto obiettivi e definizione delle priorità con metriche reali.",
+    text: "Partiamo da pelle, obiettivi e tempi: decidiamo una priorità e un ritmo che abbia senso.",
   },
   {
     step: "Step 2",
     title: "Attivi intelligenti",
-    text: "Selezione biomimetica personalizzata per tono, densità, drenaggio e fotoinvecchiamento.",
+    text: "Scegliamo attivi e manualità in base al punto di partenza, senza stratificare a caso.",
   },
   {
     step: "Step 3",
     title: "Attivazione tecnologica",
-    text: "Integrazione Thory solo dove serve per amplificare l'efficacia dei protocolli.",
+    text: "La tecnologia entra solo quando aggiunge valore, non per riempire la seduta.",
   },
   {
     step: "Step 4",
     title: "Riprogrammazione",
-    text: "Riequilibrio funzionale della pelle e della percezione corporea, con risultati visibili.",
+    text: "Costruiamo continuità e progressione: la parte che rende i risultati più stabili.",
   },
   {
     step: "Step 5",
     title: "Mantenimento",
-    text: "Piano personale a casa e richiami in cabina per consolidare i risultati nel tempo.",
+    text: "Pochi gesti a casa + richiami in cabina: così non riparti da zero ogni volta.",
   },
 ];
 
@@ -118,11 +118,11 @@ export const laserListino = [
 export const thoryDevices = [
   {
     name: "Thory RF",
-    role: "Compattezza ed elasticita.",
+    role: "Compattezza ed elasticità.",
   },
   {
     name: "Thory Analys Visage AI",
-    role: "Diagnosi oggettiva e monitoraggio progressi.",
+    role: "Analisi e monitoraggio dei progressi nel tempo.",
   },
   {
     name: "Thory Pressodren",

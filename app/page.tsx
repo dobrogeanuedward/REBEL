@@ -3,7 +3,7 @@ import Image from "next/image";
 import { InstagramFeed } from "@/components/instagram-feed";
 import { JsonLd } from "@/components/json-ld";
 import { localAreaPages } from "@/lib/local-pages";
-import { buildItemListSchema, createPageMetadata } from "@/lib/seo";
+import { buildItemListSchema, buildWebPageSchema, createPageMetadata } from "@/lib/seo";
 import { competencePages } from "@/lib/seo-content";
 import { siteConfig } from "@/lib/site-config";
 import type { Metadata } from "next";
@@ -146,25 +146,11 @@ export default function HomePage() {
       { name: "Contatti", path: "/contatti" },
     ],
   });
-  const homepageSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": `${siteConfig.siteUrl}/#homepage`,
-    url: siteConfig.siteUrl,
-    name: "Rebel Carmagnola | Centro Estetico Epigenetico",
+  const homepageSchema = buildWebPageSchema({
+    name: "Rebel Carmagnola | Centro estetico epigenetico",
     description: siteConfig.description,
-    inLanguage: siteConfig.locale,
-    primaryImageOfPage: siteConfig.assets.ogImage,
-    isPartOf: {
-      "@id": `${siteConfig.siteUrl}/#website`,
-    },
-    about: [
-      "Centro estetico Carmagnola",
-      "Estetica Epigenetica",
-      "Epilazione laser",
-      "Trattamenti viso e corpo",
-    ],
-  };
+    path: "/",
+  });
 
   return (
     <main className="page-shell page-home">

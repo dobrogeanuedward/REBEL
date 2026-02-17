@@ -113,6 +113,8 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="" />
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+        <link rel="preconnect" href="https://epikey.rebelepigenetica.it" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://epikey.rebelepigenetica.it" />
         <link rel="preconnect" href="https://www.instagram.com" crossOrigin="" />
         <link rel="dns-prefetch" href="https://www.instagram.com" />
         <link rel="preconnect" href="https://www.treatwell.it" crossOrigin="" />
