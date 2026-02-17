@@ -53,11 +53,13 @@ export const localAreaPages: LocalAreaPage[] = [
     focus: {
       heading: "Carmagnola: viso più in ordine, laser impostato bene (senza confusione)",
       paragraphs: [
-        "A Carmagnola spesso si parte da una richiesta semplice: vedersi più curate, ma senza incastrarsi in dieci cose diverse. È un obiettivo sacrosanto, e si può fare se scegliamo bene l'ordine.",
-        "Sul viso lavoriamo per step: prima rimettiamo al centro comfort, grana e luminosità, poi (se serve) passiamo a protocolli più avanzati che hanno una progressione vera e non ti fanno cambiare strada ogni mese.",
-        "Se invece la priorità è il laser, la chiave è una: zone e calendario realistici. Inguine e ascelle, per esempio, sono due aree che meritano una gestione precisa (sia per comfort, sia per la costanza tra una seduta e l'altra).",
-        "E sì: seguiamo anche percorsi laser uomo (barba/collo e aree ampie come schiena/torace). Sono richieste frequenti, ma con logiche un po' diverse: densità del pelo, ricrescita e organizzazione fanno più della fretta.",
-        "In pratica: poche scelte fatte bene, portate avanti con continuità. Se vuoi, da qui puoi leggere due guide rapide prima di scriverci.",
+        "A Carmagnola spesso si parte da una richiesta semplice: vedersi più curate, ma senza sentirsi \"ingolfate\" da dieci cose diverse. È un obiettivo normalissimo, e si ottiene scegliendo bene l'ordine.",
+        "Se il tema è il viso, di solito rimettiamo al centro comfort, grana e luminosità (con un primo step fatto bene, non aggressivo). Poi, solo se serve davvero, si passa a un percorso più avanzato con progressione e mantenimento chiari.",
+        "Se invece la priorità è il laser, la chiave è scegliere l'ordine delle zone e un calendario realistico. Inguine e ascelle, per esempio, cambiano tanto la gestione quotidiana, ma vanno impostate con regole pratiche semplici tra una seduta e l'altra.",
+        "Una cosa che consigliamo spesso è partire in inverno: è il periodo più facile per essere costanti (meno sole, meno imprevisti). Quando il calendario è stabile, tutto il resto diventa più semplice.",
+        "E se ti alleni spesso (palestra, corsa, sport), non è un problema: si pianifica. Basta sapere cosa evitare nelle prime 24-48 ore e incastrare sedute e allenamenti con un minimo di margine.",
+        "Seguiamo anche percorsi laser uomo (barba/collo e aree ampie come schiena/torace). Logiche un po' diverse, stessa regola: progressione, controllo e un piano che riesci a tenere.",
+        "In pratica: poche scelte fatte bene, portate avanti con continuità. Se ti aiuta, qui sotto trovi guide e pagine dedicate per partire con le idee già più chiare.",
       ],
       links: [
         {
@@ -155,6 +157,21 @@ export const localAreaPages: LocalAreaPage[] = [
           href: "/servizi/epilazione-laser-corpo-uomo-carmagnola",
           description: "Scheda servizio dedicata alle aree ampie (schiena, torace, addome) con piano ordinato.",
         },
+        {
+          label: "Estetica epigenetica: cosa significa",
+          href: "/competenze/estetica-epigenetica-carmagnola-cosa-significa",
+          description: "Una spiegazione chiara dei protocolli epigenetici e di come si sceglie il primo step.",
+        },
+        {
+          label: "Laser in inverno: guida pratica",
+          href: "/competenze/epilazione-laser-inverno-carmagnola",
+          description: "Per partire con costanza e arrivare ai mesi luminosi con un percorso già avviato.",
+        },
+        {
+          label: "Laser e palestra: guida pratica",
+          href: "/competenze/laser-e-palestra-sport-carmagnola",
+          description: "Sport, doccia, calore e sfregamenti: cosa fare nel post-seduta senza paranoia.",
+        },
       ],
     },
     faqs: [
@@ -203,6 +220,8 @@ export const localAreaPages: LocalAreaPage[] = [
       paragraphs: [
         "Da Carignano arrivano spesso persone con un'idea chiara: fare il laser in modo seguito e non \"a tentativi\". Il primo passo, per noi, è scegliere le zone giuste e un calendario che riesci a rispettare davvero.",
         "Inguine e ascelle, per esempio, sono due aree che sembrano \"semplici\" ma richiedono metodo: tempi corretti, gestione pratica tra le sedute e aspettative realistiche già da subito.",
+        "Se vuoi impostarlo senza stress, l'inverno è spesso il momento perfetto: meno esposizione, meno imprevisti, più continuità. È una scelta concreta, non una regola rigida.",
+        "Se ti alleni (palestra, corsa, sport), si può fare lo stesso: basta pianificare e sapere cosa evitare nelle prime 24-48 ore, soprattutto sulle zone dove c'è più sfregamento.",
         "E capita spesso che, mentre si imposta il laser, esca anche un tema viso: pelle più spenta, texture che non regge più bene sotto il make-up, sensazione di perdita di tono. In questi casi Collagen Code è uno dei protocolli che ci chiedono spesso: progressione pulita e obiettivo chiaro.",
         "Se ti interessa il laser uomo (barba/collo o zone ampie), vale la stessa regola: organizzazione prima di tutto. Meglio un piano ordinato che sedute sparse senza direzione.",
         "E per l'estetica classica? La inseriamo quando ti semplifica la vita: una pulizia viso fatta bene, uno scrub corpo o una manicure ordinata possono stare nello stesso percorso, ma con timing sensato.",
@@ -238,6 +257,21 @@ export const localAreaPages: LocalAreaPage[] = [
           label: "Laser con Ice Polar",
           href: "/epilazione-laser-ice-polar-carmagnola",
           description: "Cosa cambia sul comfort durante la seduta, nella pratica.",
+        },
+        {
+          label: "Laser in inverno: guida pratica",
+          href: "/competenze/epilazione-laser-inverno-carmagnola",
+          description: "Per partire con costanza e tenere il calendario senza incasinarsi.",
+        },
+        {
+          label: "Laser e palestra: guida pratica",
+          href: "/competenze/laser-e-palestra-sport-carmagnola",
+          description: "Sport, doccia, calore e attrito: come gestire il post-seduta sulle zone sensibili.",
+        },
+        {
+          label: "Estetica epigenetica: cosa significa",
+          href: "/competenze/estetica-epigenetica-carmagnola-cosa-significa",
+          description: "Se vuoi capire l'approccio (prima di scegliere un protocollo): lettura, progressione e mantenimento.",
         },
         {
           label: "Laser diodo: differenze e criteri di scelta",
@@ -469,6 +503,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "La parte più importante non è \"fare presto\": è avere un calendario coerente e adattabile. Se in un periodo ti esponi di più o cambiano le abitudini, il percorso si può ritarare senza perdere la direzione.",
         "In studio lavoriamo anche con manipolo Ice Polar per migliorare il comfort durante la seduta. È un aiuto concreto, ma resta un pezzo del metodo: parametri impostati con competenza e una progressione che puoi seguire con serenità.",
         "Quando invece la richiesta è viso più fresco (ovale, tono, luminosità), spesso consigliamo Rebel Lift Protocol: è un protocollo epigenetico orientato a tono e luce, pensato per risultati progressivi e non solo \"bella in giornata\".",
+        "Se invece sai già che in estate sei sempre fuori, un trucco semplice è partire in inverno: è più facile essere costanti e arrivare alla primavera con il percorso già impostato (senza corse dell'ultimo minuto).",
         "Se arrivi da Sommariva del Bosco, l'idea è ottimizzare: o parti dal laser e poi inseriamo il viso, oppure fai il contrario. L'importante è scegliere una priorità e tenere il filo.",
         "E se vuoi aggiungere un classico mentre sei in studio (senza complicarti la giornata), spesso funziona bene abbinare una manicure ordinata o una laminazione, giusto per uscire \"a posto\" senza fare due viaggi.",
         "Se arrivi da Sommariva del Bosco e vuoi capire se questo è il momento giusto (e da quali zone partire), scrivici: ti diciamo come impostarlo senza fretta.",
@@ -524,6 +559,11 @@ export const localAreaPages: LocalAreaPage[] = [
           label: "Laser e sole: cosa sapere davvero",
           href: "/competenze/epilazione-laser-estate-sole-carmagnola",
           description: "Regole pratiche e buonsenso: quando si può, quando conviene aspettare, e come organizzarsi.",
+        },
+        {
+          label: "Laser in inverno: guida pratica",
+          href: "/competenze/epilazione-laser-inverno-carmagnola",
+          description: "Per partire quando è più facile essere costanti e non rimandare fino all'estate.",
         },
         {
           label: "Guida laser ascelle",
@@ -601,6 +641,8 @@ export const localAreaPages: LocalAreaPage[] = [
         "La differenza la fa l'organizzazione: parametri su misura, intervalli coerenti e piccoli aggiustamenti quando la pelle o la risposta cambiano. Il laser funziona meglio quando lo segui con serenità, non quando lo rincorri.",
         "Ice Polar è un aiuto concreto sul comfort durante la seduta, ma il risultato non è \"una macchina\": è metodo + calendario + cosa fare tra una seduta e l'altra.",
         "Se invece la richiesta è viso (pelle che cambia, più secca, più sottile o semplicemente meno piena), un protocollo molto richiesto è Rebirth 60+: è pensato per pelli mature, su densità e nutrimento, con un'idea chiara di progressione.",
+        "Se ti alleni spesso o hai settimane molto attive, vale una regola pratica: evitare di sovraccaricare la pelle subito dopo la seduta (calore, sfregamenti). Non serve fermarsi, serve solo pianificare bene.",
+        "E se vuoi fare le cose con calma e continuità, l'inverno è spesso il periodo più comodo per iniziare: meno esposizione, più facilità nel tenere il ritmo.",
         "Anche qui vale la regola d'oro: una priorità alla volta. Se inizi dal laser, il viso lo inseriamo quando serve; se inizi dal viso, il laser lo programmiamo con la stessa logica, senza accavallare tutto.",
         "Se vuoi restare su servizi classici, lo stesso approccio vale anche per mani e corpo: manicure ordinata, massaggio relax o linfodrenante, ma sempre con un calendario che non ti stressa.",
         "Se arrivi da Poirino e vuoi capire da quali zone partire (anche in base a tempo e budget), scrivici: ti diciamo subito una strategia semplice e realistica.",
@@ -641,6 +683,21 @@ export const localAreaPages: LocalAreaPage[] = [
           label: "Laser con Ice Polar",
           href: "/epilazione-laser-ice-polar-carmagnola",
           description: "Comfort durante la seduta e progressione impostata con criterio.",
+        },
+        {
+          label: "Laser in inverno: guida pratica",
+          href: "/competenze/epilazione-laser-inverno-carmagnola",
+          description: "Per partire quando è più facile essere costanti e arrivare avanti senza fretta.",
+        },
+        {
+          label: "Laser e palestra: guida pratica",
+          href: "/competenze/laser-e-palestra-sport-carmagnola",
+          description: "Allenamento, doccia e calore: cosa fare nelle prime 24-48 ore, soprattutto su zone sensibili.",
+        },
+        {
+          label: "Estetica epigenetica: cosa significa",
+          href: "/competenze/estetica-epigenetica-carmagnola-cosa-significa",
+          description: "Se vuoi capire l'approccio dei protocolli prima di sceglierne uno (viso o corpo).",
         },
         {
           label: "Laser corpo: zone, tempi e piano sedute",
@@ -735,6 +792,8 @@ export const localAreaPages: LocalAreaPage[] = [
       paragraphs: [
         "Se vivi a Villastellone e stai pensando al laser, capiamo benissimo il dubbio più comune: \"Sarò a mio agio durante la seduta?\". Per questo in studio lavoriamo con manipolo Ice Polar, che aiuta a rendere il trattamento più confortevole.",
         "Ma il comfort da solo non basta. Quello che fa davvero la differenza è la competenza con cui si impostano parametri e calendario: zona per zona, pelle per pelle, con una progressione chiara e senza corse.",
+        "Se ti alleni spesso o fai sport, lo diciamo subito: si può fare. Basta pianificare la seduta e gestire bene le prime 24-48 ore (calore, sudore e sfregamenti), soprattutto su ascelle e inguine.",
+        "E se vuoi impostare il laser con il ritmo più semplice possibile, l'inverno è spesso il periodo ideale: meno esposizione, più costanza, meno interruzioni.",
         "E succede spesso che, mentre si parla di laser, emerga anche un desiderio più ampio: pelle più compatta, più luminosa, più uniforme. In questi casi un protocollo molto richiesto è Rebel Cell Regeneration, un percorso intensivo viso/corpo pensato per rigenerazione progressiva.",
         "Un'altra richiesta tipica (anche in coppia) è il laser uomo: schiena e torace, oppure barba/collo. In quel caso si ragiona ancora di più per strategia, perché densità e ricrescita chiedono un calendario ordinato.",
         "Se invece vuoi partire da qualcosa di classico (ma fatto bene), spesso il massaggio rilassante è il primo step: ti rimette in ordine schiena e spalle, e non ti incastra in un percorso infinito.",
@@ -765,6 +824,16 @@ export const localAreaPages: LocalAreaPage[] = [
           label: "Laser con Ice Polar",
           href: "/epilazione-laser-ice-polar-carmagnola",
           description: "Comfort durante la seduta e progressione seguita nel tempo.",
+        },
+        {
+          label: "Laser e palestra: guida pratica",
+          href: "/competenze/laser-e-palestra-sport-carmagnola",
+          description: "Come gestire sport, doccia e calore dopo la seduta, senza complicarti la settimana.",
+        },
+        {
+          label: "Laser in inverno: guida pratica",
+          href: "/competenze/epilazione-laser-inverno-carmagnola",
+          description: "Per partire quando è più facile essere costanti e tenere il calendario senza corse.",
         },
         {
           label: "Epilazione laser viso",
@@ -860,7 +929,9 @@ export const localAreaPages: LocalAreaPage[] = [
         "Il laser non è solo quello che succede in cabina: è anche come gestisci la pelle tra una seduta e l'altra. Quando sai cosa fare, la pelle resta più tranquilla e il percorso scorre meglio (soprattutto su zone come ascelle e inguine).",
         "In studio impostiamo il lavoro in modo progressivo: valutazione iniziale, parametri su misura e un calendario coerente. Se cambiano abitudini, stagione o sensibilità, si adatta anche il piano.",
         "Ice Polar aiuta molto il comfort durante la seduta, ma non è l'unica variabile. La differenza vera è una gestione ordinata: niente promesse esagerate, solo una progressione chiara.",
+        "Se ti alleni spesso, questo è ancora più importante: sudore, calore e tessuti stretti possono irritare nelle prime 24-48 ore. Non serve fermarsi, serve solo incastrare bene seduta e sport.",
         "E spesso, mentre si fa il laser, nasce anche una richiesta viso molto concreta: pelle più opaca, grana più spessa, sensazione di disordine (anche con prodotti a casa). In questi casi un protocollo richiesto spesso è Catalysis Ritual: un reset cutaneo con maschere enzimatiche e biostimolatori, pensato per rimettere la pelle in carreggiata.",
+        "Se vuoi partire nel modo più semplice possibile (e non arrivare all'estate con l'ansia), l'inverno è spesso il periodo più comodo: meno sole, più costanza, più continuità.",
         "Se arrivi da Pancalieri, l'idea è non mischiare tutto: scegliamo una priorità (laser su una zona oppure viso) e poi costruiamo il resto intorno, con un calendario che si regge.",
         "E se vuoi un classico che funziona sempre come primo step sul viso, spesso partiamo dalla pulizia viso: fatta bene, ti rimette la pelle in ordine e ti fa capire da dove iniziare davvero.",
         "Se arrivi da Pancalieri e vuoi iniziare senza dubbi confusi, scrivici: ti spieghiamo cosa aspettarti e da dove partire (viso, corpo o una zona alla volta).",
@@ -896,6 +967,16 @@ export const localAreaPages: LocalAreaPage[] = [
           label: "Laser con Ice Polar",
           href: "/epilazione-laser-ice-polar-carmagnola",
           description: "Cosa cambia sul comfort durante la seduta, nella pratica.",
+        },
+        {
+          label: "Laser e palestra: guida pratica",
+          href: "/competenze/laser-e-palestra-sport-carmagnola",
+          description: "Allenamento, doccia e calore: indicazioni pratiche per le prime 24-48 ore post-seduta.",
+        },
+        {
+          label: "Laser in inverno: guida pratica",
+          href: "/competenze/epilazione-laser-inverno-carmagnola",
+          description: "Per iniziare con costanza e arrivare ai mesi luminosi con il percorso già avviato.",
         },
         {
           label: "Guida laser ascelle",
