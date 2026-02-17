@@ -63,7 +63,9 @@ export default function ProtocolliPage() {
     "trattamenti-viso-carmagnola",
     "trattamenti-corpo-carmagnola",
     "beauty-routine-carmagnola",
-    "pulizia-viso-carmagnola-frequenza-benefici",
+    "pelle-opaca-grana-irregolare-carmagnola",
+    "tono-viso-ovale-carmagnola-percorso",
+    "contorno-occhi-gonfiore-occhiaie-carmagnola",
   ];
   const guides = guideSlugs
     .map((slug) => competencePages.find((item) => item.slug === slug))
@@ -126,7 +128,7 @@ export default function ProtocolliPage() {
           <h2 className="page-title">Come scegliere il protocollo giusto</h2>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             <article className="card-light">
-              <h3 style={{ marginTop: 0 }}>Se hai bisogno di capire prima</h3>
+              <h3 style={{ marginTop: 0 }}>Se vuoi leggere 5 minuti prima</h3>
               <p
                 style={{
                   margin: 0,
@@ -135,12 +137,12 @@ export default function ProtocolliPage() {
                   color: "rgba(39,31,56,0.76)",
                 }}
               >
-                Leggi le schede: trovi cosa fa il protocollo, per chi è pensato e come si
-                organizza nel tempo.
+                Apri una scheda: trovi cosa fa il protocollo, per chi è pensato e come si organizza nel tempo (con
+                un&apos;idea chiara di progressione).
               </p>
             </article>
             <article className="card-light">
-              <h3 style={{ marginTop: 0 }}>Se vuoi partire subito</h3>
+              <h3 style={{ marginTop: 0 }}>Se preferisci parlarne e basta</h3>
               <p
                 style={{
                   margin: 0,
@@ -149,8 +151,8 @@ export default function ProtocolliPage() {
                   color: "rgba(39,31,56,0.76)",
                 }}
               >
-                Scrivici su WhatsApp o prenota: facciamo una lettura iniziale e ti diciamo
-                cosa conviene fare per prima (e con che ritmo).
+                Scrivici su WhatsApp o prenota: facciamo una lettura iniziale e ti diciamo cosa conviene fare per prima
+                (e con che ritmo), senza mischiare tutto.
               </p>
             </article>
           </div>
@@ -173,11 +175,11 @@ export default function ProtocolliPage() {
           <div className="container">
             <p className="eyebrow">Per orientarti</p>
             <h2 className="page-title" style={{ marginTop: "0.6rem" }}>
-              Due letture fatte bene valgono più di dieci trattamenti scelti a caso.
+              Se ti serve chiarezza: parti da queste guide.
             </h2>
             <p className="lead" style={{ marginTop: "0.6rem", maxWidth: "74ch" }}>
-              Se sei indecisa tra più protocolli, parti da queste guide: ti aiutano a chiarire obiettivo, ritmo e primo step
-              (senza trasformare la skincare in un lavoro).
+              Se sei indecisa tra più protocolli, parti da queste: ti aiutano a chiarire obiettivo, ritmo e primo step
+              senza trasformare la skincare in un lavoro.
             </p>
             <div className="grid grid-2" style={{ marginTop: "1rem" }}>
               {guides.map((guide) => (

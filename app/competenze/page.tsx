@@ -24,6 +24,19 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default function CompetenzeHubPage() {
+  const compactTitle = (value: string) => value.replace(/\s+a Carmagnola$/i, "").trim();
+  const featuredSlugs = [
+    "epilazione-laser-ascelle-carmagnola-guida-pratica",
+    "epilazione-laser-inguine-carmagnola-guida-pratica",
+    "laser-uomo-carmagnola-guida-pratica",
+    "peli-incarniti-laser-carmagnola",
+    "pelle-opaca-grana-irregolare-carmagnola",
+    "contorno-occhi-gonfiore-occhiaie-carmagnola",
+  ];
+  const featuredGuides = featuredSlugs
+    .map((slug) => competencePages.find((item) => item.slug === slug))
+    .filter((item): item is (typeof competencePages)[number] => Boolean(item));
+
   const breadcrumb = buildBreadcrumbSchema([
     { name: "Home", path: "/" },
     { name: "Competenze", path: "/competenze" },
@@ -51,7 +64,7 @@ export default function CompetenzeHubPage() {
       <PageHero
         eyebrow="Approfondimenti"
         title="Guide Rebel: le domande che ci fate più spesso, messe nero su bianco."
-        lead="Qui trovi criteri pratici e approfondimenti su viso, corpo e laser. Quando serve citiamo anche fonti pubbliche, così ti fai un'idea e decidi con calma."
+        lead="Qui trovi criteri pratici e approfondimenti su viso, corpo e laser. L'idea è semplice: farti arrivare in studio con le domande giuste e un quadro più chiaro."
         badge="Informazioni pratiche prima di prenotare"
         tone="ocean"
       />
@@ -83,19 +96,51 @@ export default function CompetenzeHubPage() {
           <aside className="card">
             <h2 style={{ marginTop: 0 }}>Da dove iniziare</h2>
             <ul className="list-clean">
-              <li>- scegli una guida che senti vicina al tuo caso</li>
-              <li>- scorri fino ai servizi consigliati: spesso ti chiariscono il primo passo</li>
-              <li>- se preferisci, scrivici e la scegliamo insieme</li>
-              <li>- prenota quando ti senti sicura della direzione</li>
+              <li>- scegli una guida che ti somiglia (zona, obiettivo, tempi)</li>
+              <li>- guarda i servizi consigliati: spesso chiariscono il primo passo</li>
+              <li>- se preferisci, scrivici due righe e la scegliamo insieme</li>
+              <li>- prenota quando ti senti tranquilla sulla direzione</li>
             </ul>
             <div style={{ marginTop: "0.9rem", display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
               <Link className="button button-secondary" href="/epilazione-laser-carmagnola">
                 Epilazione laser Carmagnola
               </Link>
+              <Link className="button button-secondary" href="/competenze/laser-uomo-carmagnola-guida-pratica">
+                Laser uomo
+              </Link>
             </div>
           </aside>
         </div>
       </section>
+
+      {featuredGuides.length > 0 ? (
+        <section className="section section-light">
+          <div className="container">
+            <p className="eyebrow" style={{ color: "rgba(39,31,56,0.68)" }}>
+              Per partire subito
+            </p>
+            <h2 className="page-title" style={{ marginTop: "0.55rem" }}>
+              Le guide più richieste (laser e viso).
+            </h2>
+            <p className="lead" style={{ marginTop: "0.5rem", color: "rgba(39,31,56,0.78)", maxWidth: "72ch" }}>
+              Se vuoi una risposta veloce e concreta, parti da queste: sono quelle che mandiamo più spesso anche su WhatsApp.
+            </p>
+            <div className="grid grid-2" style={{ marginTop: "1rem" }}>
+              {featuredGuides.map((item) => (
+                <Link key={item.slug} href={`/competenze/${item.slug}`} className="card glow-card">
+                  <h3 style={{ marginTop: 0 }}>{compactTitle(item.title)}</h3>
+                  <p className="lead" style={{ marginTop: 0 }}>
+                    {item.shortDescription}
+                  </p>
+                  <small style={{ fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.65)" }}>
+                    Apri la guida
+                  </small>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="section section-light">
         <div className="container">

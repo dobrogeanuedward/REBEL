@@ -3,6 +3,7 @@ import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
 import { localAreaPages } from "@/lib/local-pages";
+import { siteConfig } from "@/lib/site-config";
 import {
   buildBreadcrumbSchema,
   buildItemListSchema,
@@ -27,7 +28,7 @@ export default function LocalitaHubPage() {
     {
       key: "asse-carmagnola" as const,
       title: "Asse Carmagnola",
-      lead: "Comuni dell'area più vicina allo studio.",
+      lead: "I comuni più vicini allo studio (e quelli da cui arrivano più spesso).",
     },
     {
       key: "torino-sud" as const,
@@ -46,9 +47,9 @@ export default function LocalitaHubPage() {
     { name: "Località", path: "/localita" },
   ]);
   const webPageSchema = buildWebPageSchema({
-    name: "Localita servite da Rebel",
+    name: "Località servite da Rebel",
     description:
-      "Pagine dedicate alle localita da cui ci raggiungono: focus e link utili per iniziare (laser, protocolli, servizi).",
+      "Pagine dedicate alle località da cui ci raggiungono: focus e link utili per iniziare (laser, protocolli, servizi).",
     path: "/localita",
   });
   const localAreaListSchema = buildItemListSchema({
@@ -67,11 +68,59 @@ export default function LocalitaHubPage() {
       <JsonLd data={webPageSchema} />
       <PageHero
         eyebrow="Aree servite"
-        title="Aree servite: Rebel per Carmagnola, Torino Sud e provincia di Cuneo."
-        lead="Qui trovi una pagina per ogni località da cui ci raggiungono: in ciascuna trovi un focus diverso (laser, viso/corpo, protocolli) e una selezione di servizi classici da abbinare quando serve."
+        title="Aree servite: Carmagnola, Torino Sud e provincia di Cuneo."
+        lead="Qui trovi una pagina per ogni località da cui ci raggiungono. Ogni pagina ha un taglio diverso: laser, viso/corpo, protocolli e servizi classici utili per completare il percorso."
         badge={`${localAreaPages.length} località coperte`}
         tone="rose"
       />
+
+      <section className="section">
+        <div className="container grid grid-2">
+          <article className="card glow-card">
+            <h2 style={{ marginTop: 0 }}>Se sei di fretta: da dove partire in 30 secondi</h2>
+            <p className="lead" style={{ marginTop: "0.45rem", maxWidth: "72ch" }}>
+              Se l&apos;obiettivo è chiaro (laser, viso o corpo), parti da una pagina &quot;pilastro&quot; e poi scendi nel dettaglio.
+              Se invece sei indecisa, scrivici: ti aiutiamo a scegliere il primo passo, senza incasinarti.
+            </p>
+            <div style={{ marginTop: "0.9rem", display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
+              <Link className="button button-primary" href="/contatti">
+                Contatti e mappa
+              </Link>
+              <a className="button button-secondary" href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer">
+                WhatsApp
+              </a>
+            </div>
+          </article>
+          <aside className="card">
+            <h2 style={{ marginTop: 0 }}>Percorsi principali</h2>
+            <p className="lead" style={{ marginTop: "0.35rem", color: "rgba(39,31,56,0.78)" }}>
+              Tre pagine utili per orientarti subito (poi puoi tornare qui e scegliere la tua località).
+            </p>
+            <div style={{ marginTop: "0.85rem", display: "grid", gap: "0.55rem" }}>
+              <Link className="link-card" href="/epilazione-laser-carmagnola">
+                <span className="link-card-content">
+                  <span className="link-card-title">Epilazione laser a Carmagnola</span>
+                  <small className="link-card-desc">Sedute, calendario e cosa aspettarti senza promesse strane.</small>
+                </span>
+              </Link>
+              <Link className="link-card" href="/protocolli-epigenetici">
+                <span className="link-card-content">
+                  <span className="link-card-title">Protocolli epigenetici</span>
+                  <small className="link-card-desc">
+                    Percorsi viso/corpo quando vuoi una progressione (non una singola seduta).
+                  </small>
+                </span>
+              </Link>
+              <Link className="link-card" href="/listino-estetica-laser">
+                <span className="link-card-content">
+                  <span className="link-card-title">Listino Estetica + Laser</span>
+                  <small className="link-card-desc">Prezzi chiari, categorie e link alle pagine dedicate.</small>
+                </span>
+              </Link>
+            </div>
+          </aside>
+        </div>
+      </section>
 
       <section className="section">
         <div className="container">
