@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { competencePages, servicePages } from "@/lib/seo-content";
 import { localAreaPages } from "@/lib/local-pages";
+import { protocolPages } from "@/lib/protocol-pages";
 import { siteConfig } from "@/lib/site-config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -50,6 +51,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
   );
 
+  const protocolEntries: MetadataRoute.Sitemap = protocolPages.map((protocol) => ({
+    url: `${siteConfig.siteUrl}/protocolli/${protocol.slug}`,
+    lastModified,
+    changeFrequency: "weekly",
+    priority: 0.76,
+    images: [defaultImage],
+  }));
+
   const localEntries: MetadataRoute.Sitemap = localAreaPages.map((area) => ({
     url: `${siteConfig.siteUrl}/localita/${area.slug}`,
     lastModified,
@@ -59,6 +68,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     images: [defaultImage],
   }));
 
-  return [...staticEntries, ...serviceEntries, ...competenceEntries, ...localEntries];
+  return [
+    ...staticEntries,
+    ...serviceEntries,
+    ...competenceEntries,
+    ...protocolEntries,
+    ...localEntries,
+  ];
 }
 

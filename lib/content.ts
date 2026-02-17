@@ -1,35 +1,11 @@
-export const protocolCards = [
-  {
-    name: "Rebel Lift Protocol",
-    desc: "Pensato per tono, ovale e luminosità, con una progressione pulita.",
-    price: "EUR 148",
-  },
-  {
-    name: "Rebirth 60+",
-    desc: "Un protocollo dedicato alle pelli mature: nutrimento e densità percepita.",
-    price: "EUR 148",
-  },
-  {
-    name: "Eye Genesis",
-    desc: "Focus sul contorno occhi: gonfiore, segni e micro-rughe.",
-    price: "EUR 120",
-  },
-  {
-    name: "Catalysis Ritual",
-    desc: "Quando la pelle è spenta o disordinata: reset e comfort, senza eccessi.",
-    price: "EUR 150",
-  },
-  {
-    name: "Collagen Code",
-    desc: "Supporto su compattezza e rimpolpamento, con lavoro progressivo.",
-    price: "EUR 135",
-  },
-  {
-    name: "Rebel Cell Regeneration",
-    desc: "Percorso intensivo viso/corpo per una rigenerazione progressiva.",
-    price: "EUR 159",
-  },
-];
+import { protocolPages } from "@/lib/protocol-pages";
+
+export const protocolCards = protocolPages.map((protocol) => ({
+  slug: protocol.slug,
+  name: protocol.name,
+  desc: protocol.shortDescription,
+  price: protocol.price,
+}));
 
 export const methodSteps = [
   {

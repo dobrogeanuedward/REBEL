@@ -6,6 +6,7 @@ import { protocolCards } from "@/lib/content";
 import {
   buildArticleSchema,
   buildBreadcrumbSchema,
+  buildItemListSchema,
   buildServiceSchema,
   buildWebPageSchema,
   createPageMetadata,
@@ -48,6 +49,14 @@ export default function ProtocolliPage() {
     keywords: ["protocolli epigenetici", "estetica epigenetica", "Carmagnola"],
     section: "Protocolli",
   });
+  const protocolsSchema = buildItemListSchema({
+    name: "Protocolli epigenetici Rebel",
+    path: "/protocolli-epigenetici",
+    items: protocolCards.map((protocol) => ({
+      name: protocol.name,
+      path: `/protocolli/${protocol.slug}`,
+    })),
+  });
 
   return (
     <main className="page-shell page-protocolli">
@@ -55,6 +64,7 @@ export default function ProtocolliPage() {
       <JsonLd data={webPageSchema} />
       <JsonLd data={service} />
       <JsonLd data={articleSchema} />
+      <JsonLd data={protocolsSchema} />
 
       <PageHero
         eyebrow="Protocolli Rebel"
@@ -68,7 +78,7 @@ export default function ProtocolliPage() {
         <div className="container">
           <div className="grid grid-3">
             {protocolCards.map((protocol) => (
-              <article key={protocol.name} className="card">
+              <Link key={protocol.slug} href={`/protocolli/${protocol.slug}`} className="card">
                 <h2 style={{ marginTop: 0, fontSize: "1.35rem" }}>{protocol.name}</h2>
                 <p className="lead" style={{ marginTop: 0 }}>
                   {protocol.desc}
@@ -82,7 +92,7 @@ export default function ProtocolliPage() {
                 >
                   {protocol.price}
                 </p>
-              </article>
+              </Link>
             ))}
           </div>
         </div>
