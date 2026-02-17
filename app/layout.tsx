@@ -119,6 +119,18 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.instagram.com" />
         <link rel="preconnect" href="https://www.treatwell.it" crossOrigin="" />
         <link rel="dns-prefetch" href="https://www.treatwell.it" />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="Rebel Carmagnola - Guide e protocolli"
+          href="/feed.xml"
+        />
+        <link
+          rel="alternate"
+          type="application/feed+json"
+          title="Rebel Carmagnola - Feed JSON"
+          href="/feed.json"
+        />
         <link rel="me" href={siteConfig.social.instagram} />
         <link rel="me" href={siteConfig.social.treatwell} />
       </head>
