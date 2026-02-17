@@ -30,6 +30,8 @@ export type CompetencePage = {
   faqs: Array<{ q: string; a: string }>;
   keywords: string[];
   relatedServiceSlugs: string[];
+  // Curated guide-to-guide links (fallbacks to auto-related if missing).
+  relatedCompetenceSlugs?: string[];
   heroImage?: {
     src: string;
     alt: string;
@@ -892,23 +894,36 @@ export const competencePages: CompetencePage[] = [
     shortDescription:
       "Chiarimenti su sedute, tempi e aspettative: cosa aspettarti davvero dal laser.",
     longDescription:
-      "Qui trovi come lavoriamo sul laser da Rebel: prima valutazione, poi settaggio su misura e un calendario pensato per te.",
+      "Una guida per capire come impostiamo un percorso laser da Rebel: valutazione iniziale, settaggio su misura e calendario che puoi tenere. Dentro trovi anche le regole pratiche tra una seduta e l'altra (sole, rasoio, prodotti) e come scegliere le zone da cui partire senza fare confusione.",
     localAngle:
       "Utile se sei in fase di scelta e vuoi capire cosa aspettarti davvero.",
     intent: "commercial",
     benefits: [
-      "Chiarezza prima della prenotazione",
-      "Aspettative chiare sui tempi",
-      "Riduzione incertezze sul trattamento",
+      "Capisci da quali zone conviene partire (e perché)",
+      "Hai regole pratiche tra una seduta e l'altra, senza ansie",
+      "Imposti aspettative realistiche su tempi, progressione e mantenimento",
+      "Sai cosa chiedere in consulenza per capire se il percorso è impostato bene",
     ],
     faqs: [
       {
-        q: "Quante sedute sono necessarie?",
-        a: "Mediamente 8-12, con variabilità in base alla persona e alla zona.",
+        q: "Quante sedute servono davvero per vedere un cambiamento?",
+        a: "Dipende da zona, tipo di pelo e risposta individuale. I risultati sono progressivi: spesso si vede una ricrescita più gestibile già nelle prime fasi, poi si lavora su continuità e stabilità. In consulenza ti diamo una stima realistica, e la ritaramo seduta dopo seduta.",
       },
       {
-        q: "Posso iniziare il laser in ogni periodo dell'anno?",
-        a: "Sì, pianificando correttamente esposizione solare e follow-up.",
+        q: "Posso iniziare anche se è estate o mi espongo al sole?",
+        a: "Spesso sì, ma va gestita l'esposizione in modo sensato: protezione, attenzione ai tempi e scelta delle zone. Se hai dubbi, la guida su laser e sole chiarisce cosa fare senza complicarti la vita.",
+      },
+      {
+        q: "Devo radermi prima della seduta? E ceretta/epilatore?",
+        a: "Di solito sì: il rasoio è l'opzione più semplice prima del laser. Durante un percorso laser, in genere si evita l'epilazione a strappo (ceretta/epilatore/pinzette) perché interferisce con il ciclo del pelo. Ti diciamo noi tempistiche e regole in base alle zone.",
+      },
+      {
+        q: "Fa male? Ho paura del fastidio su alcune zone.",
+        a: "La percezione cambia da persona a persona e da zona a zona. In studio lavoriamo in modo graduale e su misura; Ice Polar aiuta molto sul comfort, ma la differenza vera la fa il settaggio corretto e la progressione.",
+      },
+      {
+        q: "Quando serve il mantenimento?",
+        a: "Il mantenimento non è uguale per tutti: dipende da ormoni, zona e risposta individuale. Per noi la regola è semplice: prima si costruisce la progressione, poi si decide un ritmo che ti viene naturale e che puoi tenere senza stress.",
       },
     ],
     keywords: [
@@ -921,6 +936,14 @@ export const competencePages: CompetencePage[] = [
     relatedServiceSlugs: [
       "epilazione-laser-viso-carmagnola",
       "epilazione-laser-corpo-carmagnola",
+    ],
+    relatedCompetenceSlugs: [
+      "laser-diodo-carmagnola",
+      "epilazione-laser-viso-carmagnola-guida-realistica",
+      "epilazione-laser-corpo-carmagnola-zone-tempi",
+      "epilazione-laser-estate-sole-carmagnola",
+      "peli-incarniti-laser-carmagnola",
+      "come-scegliere-centro-estetico-carmagnola",
     ],
     editorialSections: [
       {
@@ -951,6 +974,13 @@ export const competencePages: CompetencePage[] = [
           "Un centro serio ti risponde con chiarezza, senza promesse esagerate. La trasparenza è già parte del risultato.",
         ],
       },
+      {
+        heading: "Tra una seduta e l'altra: la gestione pratica fa metà del lavoro",
+        paragraphs: [
+          "Il percorso non è solo quello che succede in cabina. Conta anche cosa fai nei giorni successivi: come gestisci sole e protezione, che prodotti usi, e come tieni la pelle tranquilla.",
+          "Noi preferiamo poche regole pratiche (chiare e applicabili): sono quelle che rendono il laser più facile da seguire e più stabile nel tempo.",
+        ],
+      },
     ],
     sourceLinks: [
       {
@@ -978,18 +1008,31 @@ export const competencePages: CompetencePage[] = [
       "Ideale se stai confrontando diverse tecnologie prima di iniziare.",
     intent: "informational",
     benefits: [
-      "Spiega differenze tra tecnologie",
-      "Aiuta a scegliere in modo consapevole",
-      "Migliora qualità dei lead in ingresso",
+      "Capisci la differenza tra laser e IPL senza marketing",
+      "Sai quali domande fare in consulenza (parametri, calendario, post-seduta)",
+      "Metti a fuoco limiti e aspettative (zone, tempi, risposta individuale)",
+      "Scegli con più lucidità da dove partire (viso, corpo, zone prioritarie)",
     ],
     faqs: [
       {
         q: "Laser diodo e luce pulsata sono la stessa cosa?",
-        a: "No: sono tecnologie diverse e si usano in modo diverso.",
+        a: "No. L'IPL è una luce a spettro ampio; il laser lavora con una lunghezza d'onda più specifica. Tradotto: cambiano impostazione, sensazioni e criteri di trattamento. Per questo non ha senso confrontarli solo a colpi di slogan.",
       },
       {
         q: "Il laser diodo è sempre adatto?",
-        a: "Va valutato per fototipo, colore/struttura del pelo e obiettivo.",
+        a: "Va valutato su pelle e pelo reali: fototipo, colore e spessore del pelo, zona e obiettivo. In alcune situazioni serve adattare parametri e calendario, e a volte è meglio rimandare (ad esempio dopo un'esposizione solare recente).",
+      },
+      {
+        q: "Funziona anche sui peli molto chiari o sottili?",
+        a: "In generale il laser è più efficace quando c'è contrasto tra pelo e pelle. Se il pelo è molto chiaro o molto fine, la risposta può essere diversa: in studio lo valutiamo e ti diciamo subito cosa aspettarti, senza promesse.",
+      },
+      {
+        q: "Perché servono più sedute?",
+        a: "Perché il pelo ha cicli diversi nel tempo e nelle diverse zone. Un percorso serio lavora per step: sedute distanziate, controllo e adattamenti. La costanza conta più della singola seduta \"forte\".",
+      },
+      {
+        q: "Come capisco se un centro è affidabile, oltre alla tecnologia?",
+        a: "Guarda metodo e chiarezza: valutazione iniziale, spiegazione di parametri e calendario, regole pratiche tra le sedute, e disponibilità a rispondere ai dubbi. La tecnologia da sola non basta se manca la gestione.",
       },
     ],
     keywords: [
@@ -1000,6 +1043,14 @@ export const competencePages: CompetencePage[] = [
     relatedServiceSlugs: [
       "epilazione-laser-viso-carmagnola",
       "epilazione-laser-corpo-carmagnola",
+    ],
+    relatedCompetenceSlugs: [
+      "epilazione-laser-carmagnola",
+      "epilazione-laser-viso-carmagnola-guida-realistica",
+      "epilazione-laser-corpo-carmagnola-zone-tempi",
+      "epilazione-laser-estate-sole-carmagnola",
+      "peli-incarniti-laser-carmagnola",
+      "come-scegliere-centro-estetico-carmagnola",
     ],
     editorialSections: [
       {
@@ -1097,6 +1148,12 @@ export const competencePages: CompetencePage[] = [
       "pulizia-viso-carmagnola",
       "laminazione-ciglia-sopracciglia-carmagnola",
     ],
+    relatedCompetenceSlugs: [
+      "beauty-routine-carmagnola",
+      "pulizia-viso-carmagnola-frequenza-benefici",
+      "laminazione-ciglia-sopracciglia-carmagnola-durata-cura",
+      "estetica-avanzata-carmagnola",
+    ],
     editorialSections: [
       {
         heading: "Prima lettura: pelle di oggi, non pelle \"di sempre\"",
@@ -1193,6 +1250,13 @@ export const competencePages: CompetencePage[] = [
       "massaggio-linfodrenante-carmagnola",
       "massaggio-rilassante-carmagnola",
     ],
+    relatedCompetenceSlugs: [
+      "drenaggio-corpo-carmagnola",
+      "linfodrenante-carmagnola-guida-pratica",
+      "scrub-corpo-carmagnola-quando-farlo",
+      "massaggio-rilassante-carmagnola-cervicale-stress",
+      "beauty-routine-carmagnola",
+    ],
     editorialSections: [
       {
         heading: "Obiettivo reale: leggerezza, tono, o semplicemente sentirti meglio nel corpo",
@@ -1278,6 +1342,12 @@ export const competencePages: CompetencePage[] = [
       "massaggio-rilassante-carmagnola",
       "scrub-corpo-carmagnola",
     ],
+    relatedCompetenceSlugs: [
+      "trattamenti-corpo-carmagnola",
+      "linfodrenante-carmagnola-guida-pratica",
+      "scrub-corpo-carmagnola-quando-farlo",
+      "massaggio-rilassante-carmagnola-cervicale-stress",
+    ],
     editorialSections: [
       {
         heading: "Drenaggio: cosa intendiamo davvero (e cosa no)",
@@ -1357,6 +1427,13 @@ export const competencePages: CompetencePage[] = [
       "pulizia-viso-carmagnola",
       "laminazione-ciglia-sopracciglia-carmagnola",
       "manicure-semipermanente-carmagnola",
+    ],
+    relatedCompetenceSlugs: [
+      "trattamenti-viso-carmagnola",
+      "trattamenti-corpo-carmagnola",
+      "pulizia-viso-carmagnola-frequenza-benefici",
+      "scrub-corpo-carmagnola-quando-farlo",
+      "epilazione-laser-estate-sole-carmagnola",
     ],
     editorialSections: [
       {
@@ -2243,6 +2320,13 @@ function validateSeoContent(): SeoContentValidation {
     for (const related of competence.relatedServiceSlugs ?? []) {
       if (!serviceSlugSet.has(related))
         warnings.push(`[competenze/${competence.slug}] missing service reference: ${related}`);
+    }
+
+    for (const related of competence.relatedCompetenceSlugs ?? []) {
+      if (related === competence.slug)
+        warnings.push(`[competenze/${competence.slug}] relatedCompetenceSlugs references itself`);
+      else if (!competenceSlugSet.has(related))
+        warnings.push(`[competenze/${competence.slug}] missing competence reference: ${related}`);
     }
   }
 

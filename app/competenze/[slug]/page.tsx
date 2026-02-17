@@ -116,12 +116,18 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
     .sort((a, b) => b.score - a.score)
     .slice(0, 4)
     .map(({ item }) => item);
-  const siblingCompetencesSchema =
-    siblingCompetences.length > 0
+  const curatedCompetences = (competence.relatedCompetenceSlugs ?? [])
+    .map((relatedSlug) => competencePages.find((item) => item.slug === relatedSlug))
+    .filter((item): item is (typeof competencePages)[number] => Boolean(item))
+    .filter((item) => item.slug !== competence.slug)
+    .slice(0, 6);
+  const relatedCompetences = curatedCompetences.length > 0 ? curatedCompetences : siblingCompetences;
+  const relatedCompetencesSchema =
+    relatedCompetences.length > 0
       ? buildItemListSchema({
-          name: `Altre guide correlate a ${competence.title}`,
+          name: `Guide correlate a ${competence.title}`,
           path: `/competenze/${competence.slug}`,
-          items: siblingCompetences.map((item) => ({
+          items: relatedCompetences.map((item) => ({
             name: item.title,
             path: `/competenze/${item.slug}`,
           })),
@@ -154,7 +160,7 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
       <JsonLd data={articleSchema} />
       <JsonLd data={faqSchema} />
       {relatedServicesSchema ? <JsonLd data={relatedServicesSchema} /> : null}
-      {siblingCompetencesSchema ? <JsonLd data={siblingCompetencesSchema} /> : null}
+      {relatedCompetencesSchema ? <JsonLd data={relatedCompetencesSchema} /> : null}
       {featuredAreasSchema ? <JsonLd data={featuredAreasSchema} /> : null}
       <PageHero
         eyebrow="Approfondimento"
@@ -291,9 +297,11 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
 
       <section className="section">
         <div className="container">
-          <h2 className="page-title">Altre guide simili</h2>
+          <h2 className="page-title">
+            {curatedCompetences.length > 0 ? "Guide correlate" : "Altre guide simili"}
+          </h2>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
-            {siblingCompetences.map((item) => (
+            {relatedCompetences.map((item) => (
               <Link key={item.slug} href={`/competenze/${item.slug}`} className="card">
                 <h3 style={{ marginTop: 0 }}>{item.title}</h3>
                 <p className="lead" style={{ marginTop: 0 }}>
