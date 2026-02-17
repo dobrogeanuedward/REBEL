@@ -1086,6 +1086,100 @@ export const competencePages: CompetencePage[] = [
     ],
   },
   {
+    slug: "estetica-epigenetica-carmagnola-cosa-significa",
+    title: "Estetica epigenetica a Carmagnola: cosa intendiamo e da dove partire",
+    shortDescription:
+      "Una spiegazione chiara (e senza fumo) dei protocolli epigenetici Rebel: che approccio è e come scegliere il primo step su viso o corpo.",
+    longDescription:
+      "Se senti parlare di estetica epigenetica e ti chiedi cosa significhi davvero, la risposta è più semplice di quanto sembri: per noi è un modo di impostare i percorsi con ordine. Si parte dalla lettura iniziale, si definisce un obiettivo concreto e si costruisce una progressione con pochi step, controlli e mantenimento. Qui trovi come orientarti e cosa chiedere prima di iniziare, senza rincorrere trattamenti \"a caso\".",
+    localAngle:
+      "Utile se sei a Carmagnola (o arrivi dai comuni vicini) e vuoi capire se un protocollo epigenetico può essere il passo giusto, con aspettative sane.",
+    intent: "informational",
+    benefits: [
+      "Capisci cosa intendiamo per \"protocolli epigenetici\" in modo pratico",
+      "Ti aiuta a scegliere un primo step sensato (viso o corpo) senza fare confusione",
+      "Ti dà criteri semplici per valutare metodo, calendario e mantenimento",
+    ],
+    faqs: [
+      {
+        q: "È un trattamento singolo o un percorso?",
+        a: "Dipende dall'obiettivo. Alcune persone partono con un singolo step per \"capire\" la pelle, altre scelgono subito un percorso. La differenza la fa il piano: priorità, ritmo e controlli.",
+      },
+      {
+        q: "Serve per forza una lettura iniziale?",
+        a: "Sì, perché evita tentativi: capire punto di partenza, abitudini e tempi cambia tutto. Anche quando l'obiettivo è semplice, partire ordinati fa risparmiare tempo e sedute inutili.",
+      },
+      {
+        q: "Posso abbinarlo a pulizia viso o servizi più \"classici\"?",
+        a: "Certo. Spesso la parte classica è quella che tiene la pelle in equilibrio: pulizia viso fatta bene, routine semplice, e poi si inserisce il protocollo quando serve davvero.",
+      },
+      {
+        q: "Quanto tempo serve per vedere qualcosa?",
+        a: "Dipende da obiettivo e costanza. Noi preferiamo parlare di progressione: cosa ti aspetti dopo il primo step, cosa cambia dopo qualche settimana, e come mantenere senza rincorrere.",
+      },
+    ],
+    keywords: [
+      "estetica epigenetica Carmagnola",
+      "protocolli epigenetici Carmagnola",
+      "trattamenti epigenetici viso Carmagnola",
+      "trattamenti epigenetici corpo Carmagnola",
+    ],
+    relatedServiceSlugs: [
+      "pulizia-viso-carmagnola",
+      "massaggio-linfodrenante-carmagnola",
+      "scrub-corpo-carmagnola",
+    ],
+    relatedCompetenceSlugs: [
+      "estetica-avanzata-carmagnola",
+      "trattamenti-viso-carmagnola",
+      "trattamenti-corpo-carmagnola",
+      "beauty-routine-carmagnola",
+      "come-scegliere-centro-estetico-carmagnola",
+    ],
+    relatedProtocolSlugs: [
+      "catalysis-ritual",
+      "collagen-code",
+      "rebel-cell-regeneration",
+      "rebel-lift-protocol",
+    ],
+    editorialSections: [
+      {
+        heading: "Partiamo dal concreto: non è una parola magica, è un metodo",
+        paragraphs: [
+          "Quando senti \"epigenetica\" è facile immaginare cose complicate. In realtà, per noi vuol dire solo una cosa: impostare i percorsi con ordine e continuità.",
+          "Lettura iniziale, obiettivo chiaro, progressione e controlli. Poche cose fatte bene, invece di cambiare strada ogni mese.",
+        ],
+      },
+      {
+        heading: "Da dove partire: viso o corpo (dipende da cosa ti pesa di più)",
+        paragraphs: [
+          "Se il tema è il viso, di solito si parte da comfort, grana e luminosità. Se il tema è il corpo, spesso la priorità è leggerezza, tono o una sensazione di \"ordine\" che duri.",
+          "Non serve fare tutto insieme. Scegliere una priorità rende il percorso più semplice e anche più leggibile.",
+        ],
+      },
+      {
+        heading: "Calendario e mantenimento: la parte che decide se dura",
+        paragraphs: [
+          "Un protocollo non vive solo in cabina. Vive anche nella routine tra una seduta e l'altra: pochi accorgimenti, sostenibili, che non ti complicano la giornata.",
+          "Per questo parliamo sempre di ritmo: quanto spesso, per quanto tempo, e cosa cambia quando la stagione o la settimana cambiano.",
+        ],
+      },
+      {
+        heading: "La domanda giusta in consulenza",
+        paragraphs: [
+          "Non chiedere solo \"che trattamento fate\". Chiedi: qual è l'obiettivo, come si misura, cosa succede tra le sedute e come si adatta il piano se la pelle cambia.",
+          "Se le risposte sono chiare e pratiche, di solito anche il percorso lo sarà.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "NHS - Choosing who will do your cosmetic procedure",
+        url: "https://www.nhs.uk/tests-and-treatments/cosmetic-procedures/advice/choosing-who-will-do-your-procedure/",
+      },
+    ],
+  },
+  {
     slug: "epilazione-laser-carmagnola",
     title: "Epilazione laser a Carmagnola: come funziona e da dove partire",
     shortDescription:
@@ -1138,6 +1232,8 @@ export const competencePages: CompetencePage[] = [
       "laser-diodo-carmagnola",
       "epilazione-laser-viso-carmagnola-guida-realistica",
       "epilazione-laser-corpo-carmagnola-zone-tempi",
+      "epilazione-laser-inverno-carmagnola",
+      "laser-e-palestra-sport-carmagnola",
       "epilazione-laser-estate-sole-carmagnola",
       "peli-incarniti-laser-carmagnola",
       "come-scegliere-centro-estetico-carmagnola",
@@ -2425,6 +2521,14 @@ export const competencePages: CompetencePage[] = [
       "epilazione-laser-corpo-carmagnola",
       "epilazione-laser-viso-carmagnola",
     ],
+    relatedCompetenceSlugs: [
+      "epilazione-laser-carmagnola",
+      "epilazione-laser-inverno-carmagnola",
+      "laser-e-palestra-sport-carmagnola",
+      "laser-gambe-carmagnola-guida-pratica",
+      "epilazione-laser-inguine-carmagnola-guida-pratica",
+      "epilazione-laser-ascelle-carmagnola-guida-pratica",
+    ],
     heroImage: {
       src: "/editoriali/laser-corpo-rebel.svg",
       alt: "Illustrazione Rebel con linee luminose dedicate a calendario laser e stagioni",
@@ -2471,6 +2575,215 @@ export const competencePages: CompetencePage[] = [
       {
         label: "NHS - Laser hair removal",
         url: "https://www.nhs.uk/conditions/cosmetic-procedures/non-surgical-cosmetic-procedures/laser-hair-removal/",
+      },
+    ],
+  },
+  {
+    slug: "epilazione-laser-inverno-carmagnola",
+    title: "Laser in inverno a Carmagnola: perché conviene e come impostare il calendario",
+    shortDescription:
+      "In inverno è spesso il periodo più facile per essere costanti: meno sole, meno imprevisti e più continuità. Qui trovi come partire bene e tenere il filo fino alla primavera.",
+    longDescription:
+      "Molte persone iniziano il laser in inverno perché è il periodo più semplice per tenere un calendario: meno esposizione, meno weekend \"al sole\" e più margine per fare le cose con calma. In questa guida trovi come scegliere le zone da cui partire, come gestire rasatura e pelle secca, e come collegare inverno e primavera senza perdere la direzione.",
+    localAngle:
+      "Pensata per chi vive a Carmagnola e dintorni e vuole arrivare ai mesi più luminosi con un percorso già impostato (senza corse all'ultimo).",
+    intent: "informational",
+    benefits: [
+      "Ti aiuta a scegliere le zone prioritarie senza fare tutto insieme",
+      "Chiarisce come gestire pelle secca, rasatura e post-seduta in inverno",
+      "Rende più semplice pianificare primavera/estate senza interrompere il percorso",
+    ],
+    faqs: [
+      {
+        q: "Quanto prima dell'estate conviene iniziare?",
+        a: "Prima inizi con un calendario coerente, più arrivi avanti. Non esiste una data magica: in consulenza si decide in base a zone, esposizione e abitudini, senza ansia e senza promesse veloci.",
+      },
+      {
+        q: "In inverno la pelle è più secca: è un problema?",
+        a: "Non per forza, ma va gestita. In studio ti diciamo come tenere la pelle confortevole tra una seduta e l'altra (senza caricarla di prodotti inutili).",
+      },
+      {
+        q: "Che zone conviene fare per prime?",
+        a: "Spesso ascelle e inguine sono ottime priorità, perché cambiano davvero la gestione quotidiana. Se vuoi partire dalle gambe, si può: l'importante è scegliere un ordine e seguirlo.",
+      },
+      {
+        q: "Se faccio sport posso comunque iniziare in inverno?",
+        a: "Sì. L'idea è pianificare bene e gestire calore/sfregamenti nel post-seduta. Se ti alleni spesso, la guida su laser e palestra entra nei dettagli pratici.",
+      },
+      {
+        q: "In inverno posso ignorare la protezione?",
+        a: "Meglio di no: anche nei mesi freddi la pelle va trattata con buon senso (soprattutto se ti esponi o usi attivi). Ti diamo indicazioni semplici e adatte alla tua routine.",
+      },
+    ],
+    keywords: [
+      "laser inverno Carmagnola",
+      "epilazione laser inverno Carmagnola",
+      "quando iniziare laser Carmagnola",
+      "laser primavera Carmagnola",
+      "calendario sedute laser Carmagnola",
+    ],
+    relatedServiceSlugs: [
+      "epilazione-laser-corpo-carmagnola",
+      "epilazione-laser-viso-carmagnola",
+    ],
+    relatedCompetenceSlugs: [
+      "epilazione-laser-carmagnola",
+      "laser-diodo-carmagnola",
+      "laser-e-palestra-sport-carmagnola",
+      "epilazione-laser-estate-sole-carmagnola",
+      "epilazione-laser-inguine-carmagnola-guida-pratica",
+      "epilazione-laser-ascelle-carmagnola-guida-pratica",
+      "laser-gambe-carmagnola-guida-pratica",
+      "peli-incarniti-laser-carmagnola",
+    ],
+    heroImage: {
+      src: "/editoriali/laser-corpo-rebel.svg",
+      alt: "Illustrazione Rebel con linee luminose sul tema calendario laser in inverno",
+    },
+    editorialSections: [
+      {
+        heading: "Perché tante persone partono in inverno (ed è una scelta intelligente)",
+        paragraphs: [
+          "In inverno è più facile essere costanti: la pelle è meno esposta al sole e la vita ha meno \"interruzioni\" legate a vacanze e weekend lunghi. Questo rende più semplice tenere il calendario.",
+          "Il laser premia la continuità. Iniziare in inverno vuol dire dare tempo al percorso di ingranare, senza fare tutto di fretta a ridosso dell'estate.",
+        ],
+      },
+      {
+        heading: "Scegliere l'ordine delle zone: la parte che evita confusione",
+        paragraphs: [
+          "La tentazione è partire da tutto insieme. Funziona meglio scegliere una priorità (o due) e impostare un ritmo che puoi rispettare davvero.",
+          "Ascelle e inguine sono spesso scelte molto pratiche. Se invece il tuo obiettivo sono le gambe, si lavora su calendario e gestione della stagione: l'importante è non perdere il filo.",
+        ],
+      },
+      {
+        heading: "Pelle secca, docce calde e attrito: come gestire l'inverno senza stress",
+        paragraphs: [
+          "Tra freddo, docce calde e tessuti più pesanti, la pelle può essere più reattiva. Non è un problema: basta gestirlo con poche regole chiare.",
+          "Noi puntiamo al comfort: se la pelle cambia, si adatta anche il piano (parametri, timing e accorgimenti tra le sedute).",
+        ],
+      },
+      {
+        heading: "Dall'inverno alla primavera: mantenere direzione e flessibilità",
+        paragraphs: [
+          "Quando la stagione cambia, non si butta via tutto: si ritarano sedute e abitudini con buon senso. Così arrivi ai mesi più luminosi con un percorso già stabile.",
+          "Se ti esponi di più o hai sport all'aperto, lo si mette nel piano. L'obiettivo è rendere il percorso sostenibile, non perfetto sulla carta.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - Laser hair removal FAQs",
+        url: "https://www.aad.org/public/cosmetic/hair-removal/laser-hair-removal-faqs",
+      },
+      {
+        label: "Mayo Clinic - Laser hair removal (after the procedure)",
+        url: "https://www.mayoclinic.org/tests-procedures/laser-hair-removal/about/pac-20394555",
+      },
+      {
+        label: "NHS - Laser hair removal",
+        url: "https://www.nhs.uk/conditions/cosmetic-procedures/non-surgical-cosmetic-procedures/laser-hair-removal/",
+      },
+    ],
+  },
+  {
+    slug: "laser-e-palestra-sport-carmagnola",
+    title: "Laser e palestra a Carmagnola: sport, doccia e calore (senza paranoia)",
+    shortDescription:
+      "Allenamento, doccia, sauna, leggings e sudore: cosa fare nelle prime 24-48 ore e come pianificare le sedute se ti alleni spesso.",
+    longDescription:
+      "Se ti alleni con costanza, la domanda è normale: posso andare in palestra dopo il laser? La risposta non è un divieto, ma una gestione. Qui trovi indicazioni pratiche su calore, sudore e sfregamento (soprattutto su ascelle e inguine), e come programmare sedute e allenamenti senza complicarti la settimana.",
+    localAngle:
+      "Pensata per chi si allena tra Carmagnola e Torino Sud e vuole un percorso laser compatibile con sport e routine reali.",
+    intent: "informational",
+    benefits: [
+      "Riduce dubbi su sport, doccia e calore nel post-seduta",
+      "Ti aiuta a evitare irritazioni da sudore e sfregamenti su zone sensibili",
+      "Ti dà un modo semplice per pianificare sedute e allenamenti senza saltare",
+    ],
+    faqs: [
+      {
+        q: "Posso allenarmi lo stesso il giorno della seduta?",
+        a: "Se puoi, meglio evitare attività che scaldano molto e aumentano sudore/sfregamento nelle prime 24 ore. Se hai un allenamento fisso, lo dici in consulenza e pianifichiamo in modo sensato.",
+      },
+      {
+        q: "Doccia calda, sauna e bagno turco?",
+        a: "Nel dubbio, meglio evitare il calore intenso subito dopo: la pelle può essere arrossata e più sensibile. Ti diamo indicazioni pratiche in base alla zona trattata e a come reagisci.",
+      },
+      {
+        q: "Quali zone risentono di più dello sport?",
+        a: "Di solito ascelle e inguine (sudore + attrito). Anche sulle gambe, se usi leggings stretti o fai sport con sfregamento, serve un po' di attenzione nel post.",
+      },
+      {
+        q: "Se mi alleno tutti i giorni, ha senso iniziare?",
+        a: "Sì. Non serve fermarti: serve un calendario furbo e qualche accorgimento nel post-seduta. Molte persone iniziano proprio per semplificare la gestione quotidiana.",
+      },
+      {
+        q: "Quanto dura il rossore dopo il laser?",
+        a: "Dipende da pelle e zona. Spesso è temporaneo. Se hai una pelle reattiva, si imposta il percorso in modo più graduale e si gestisce il post con buon senso.",
+      },
+    ],
+    keywords: [
+      "laser e palestra Carmagnola",
+      "sport dopo laser Carmagnola",
+      "doccia dopo laser Carmagnola",
+      "sauna dopo laser Carmagnola",
+      "laser e sudore ascelle inguine",
+    ],
+    relatedServiceSlugs: [
+      "epilazione-laser-corpo-carmagnola",
+      "epilazione-laser-viso-carmagnola",
+    ],
+    relatedCompetenceSlugs: [
+      "epilazione-laser-carmagnola",
+      "epilazione-laser-inverno-carmagnola",
+      "epilazione-laser-estate-sole-carmagnola",
+      "epilazione-laser-ascelle-carmagnola-guida-pratica",
+      "epilazione-laser-inguine-carmagnola-guida-pratica",
+      "laser-gambe-carmagnola-guida-pratica",
+      "peli-incarniti-laser-carmagnola",
+    ],
+    editorialSections: [
+      {
+        heading: "La regola semplice: nelle prime 24-48 ore abbassa calore e sfregamenti",
+        paragraphs: [
+          "Dopo una seduta la pelle può essere arrossata e un po' più sensibile. Se aggiungi subito sudore, tessuti stretti e calore, è più facile irritarsi (soprattutto su ascelle e inguine).",
+          "Non serve paranoia: basta un minimo di gestione. Se hai allenamenti importanti, li mettiamo nel calendario e si evita di incastrare tutto nello stesso giorno.",
+        ],
+      },
+      {
+        heading: "Zone e sport: ascelle e inguine sono le più \"esposte\"",
+        paragraphs: [
+          "Ascelle e inguine sommano tutto: sudore, frizione, deodoranti, tessuti. Qui è dove conviene essere più ordinati nel post-seduta.",
+          "Se hai dubbi, preferiamo una domanda in più (anche su WhatsApp) piuttosto che una gestione a tentativi.",
+        ],
+      },
+      {
+        heading: "Se ti alleni spesso: come pianificare sedute e settimana",
+        paragraphs: [
+          "Il modo più semplice è scegliere un giorno \"comodo\" e lasciare un piccolo margine per il post. Non serve sospendere lo sport, serve non sovraccaricare la pelle nello stesso momento.",
+          "Quando il calendario è sensato, è anche più facile essere costanti. E la costanza è una parte grossa del risultato.",
+        ],
+      },
+      {
+        heading: "Cosa osservare dopo la seduta (e quando scriverci)",
+        paragraphs: [
+          "Un po' di rossore e una sensazione di calore possono essere normali. Quello che ci interessa è che la pelle torni tranquilla senza trascinarsi irritazione per giorni.",
+          "Se noti qualcosa che non ti convince, scrivici: aggiustare in tempo è sempre meglio che ignorare e poi interrompere il percorso.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "Cleveland Clinic - Laser hair removal",
+        url: "https://my.clevelandclinic.org/health/treatments/21757-laser-hair-removal",
+      },
+      {
+        label: "Mayo Clinic - Laser hair removal (after the procedure)",
+        url: "https://www.mayoclinic.org/tests-procedures/laser-hair-removal/about/pac-20394555",
+      },
+      {
+        label: "NHS - After your laser treatment (Leeds Teaching Hospitals)",
+        url: "https://www.leedsth.nhs.uk/patients/resources/after-your-laser-treatment/",
       },
     ],
   },

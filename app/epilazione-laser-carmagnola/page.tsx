@@ -180,7 +180,7 @@ export default function EpilazioneLaserCarmagnolaPage() {
           </h2>
           <p className="lead" style={{ marginTop: "0.5rem", color: "rgba(39,31,56,0.78)", maxWidth: "74ch" }}>
             Se vuoi partire con un po&apos; di chiarezza, queste sono le letture più utili: ascelle e inguine (zone piccole ma
-            intense), gambe (zona ampia) e gestione sole/stagionalità.
+            intense), gambe (zona ampia), gestione sole/stagionalità e due temi super pratici: inverno e palestra.
           </p>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             <Link href="/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica" className="card-light">
@@ -205,6 +205,18 @@ export default function EpilazioneLaserCarmagnolaPage() {
               <h3 style={{ marginTop: 0 }}>Laser e sole: cosa sapere davvero</h3>
               <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.78)" }}>
                 Come organizzare calendario e esposizione senza bloccarti.
+              </p>
+            </Link>
+            <Link href="/competenze/epilazione-laser-inverno-carmagnola" className="card-light">
+              <h3 style={{ marginTop: 0 }}>Laser in inverno: perché conviene</h3>
+              <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.78)" }}>
+                Un periodo perfetto per essere costanti e arrivare ai mesi luminosi con un percorso già avviato.
+              </p>
+            </Link>
+            <Link href="/competenze/laser-e-palestra-sport-carmagnola" className="card-light">
+              <h3 style={{ marginTop: 0 }}>Laser e palestra: guida pratica</h3>
+              <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.78)" }}>
+                Sport, doccia, calore e tessuti: cosa fare nelle prime 24-48 ore senza paranoie.
               </p>
             </Link>
           </div>
