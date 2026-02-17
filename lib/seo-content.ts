@@ -1178,6 +1178,10 @@ export const competencePages: CompetencePage[] = [
       "pulizia-viso-carmagnola-frequenza-benefici",
       "laminazione-ciglia-sopracciglia-carmagnola-durata-cura",
       "estetica-avanzata-carmagnola",
+      "contorno-occhi-gonfiore-occhiaie-carmagnola",
+      "pelle-matura-carmagnola-trattamenti-routine",
+      "pelle-opaca-grana-irregolare-carmagnola",
+      "tono-viso-ovale-carmagnola-percorso",
     ],
     relatedProtocolSlugs: ["catalysis-ritual", "rebel-lift-protocol", "collagen-code", "eye-genesis"],
     editorialSections: [
@@ -2128,6 +2132,302 @@ export const competencePages: CompetencePage[] = [
       {
         label: "AAD - Laser hair removal overview",
         url: "https://www.aad.org/public/cosmetic/hair-removal/laser-hair-removal-overview",
+      },
+    ],
+  },
+  {
+    slug: "contorno-occhi-gonfiore-occhiaie-carmagnola",
+    title: "Contorno occhi a Carmagnola: gonfiore, occhiaie e cosa fare davvero",
+    shortDescription:
+      "Una guida pratica sul contorno occhi: perché cambia, cosa peggiora gonfiore/occhiaie e quali scelte sono sensate (senza eccessi).",
+    longDescription:
+      "Il contorno occhi è una delle zone che tradisce subito stanchezza, stress e abitudini (struccaggio, sfregamenti, sonno). Qui trovi un orientamento concreto: cosa puoi fare a casa, quando ha senso un trattamento in studio e come impostare un percorso ordinato.",
+    localAngle:
+      "Utile se vuoi uno sguardo più riposato e \"in ordine\" senza inseguire effetti finti.",
+    intent: "informational",
+    benefits: [
+      "Chiarisce cosa influenza gonfiore e occhiaie nella vita reale",
+      "Ti aiuta a evitare errori comuni (sfregamenti, attivi a caso, routine pesanti)",
+      "Ti orienta su quando serve un percorso mirato e quando basta semplificare",
+    ],
+    faqs: [
+      {
+        q: "Occhiaie e gonfiore sono la stessa cosa?",
+        a: "No. Il gonfiore è spesso legato a ritenzione e abitudini (sonno, sale, stress); le occhiaie possono dipendere anche da pigmentazione e struttura. La cosa utile è capire cosa vedi e quando cambia: da lì si sceglie il primo step.",
+      },
+      {
+        q: "Posso usare qualunque crema occhi?",
+        a: "Meglio no: sul contorno occhi l'eccesso si paga. Preferiamo pochi passaggi e prodotti delicati. Se stai facendo trattamenti, ti diciamo cosa tenere e cosa evitare per non stressare la zona.",
+      },
+      {
+        q: "Struccaggio: quanto incide davvero?",
+        a: "Tantissimo. Sfregamenti e fretta possono irritare e rendere la zona più \"stanca\". In studio ti diamo consigli pratici per struccare bene senza trasformarlo in un rituale infinito.",
+      },
+      {
+        q: "Quando ha senso un percorso in studio?",
+        a: "Quando vuoi un risultato più ordinato e progressivo, soprattutto se gonfiore e segni sono ricorrenti. In questi casi un protocollo mirato contorno occhi può essere la scelta più pulita.",
+      },
+    ],
+    keywords: [
+      "contorno occhi Carmagnola",
+      "occhiaie Carmagnola trattamento",
+      "gonfiore contorno occhi Carmagnola",
+      "trattamento occhi Carmagnola",
+    ],
+    relatedServiceSlugs: ["laminazione-ciglia-sopracciglia-carmagnola", "pulizia-viso-carmagnola"],
+    relatedCompetenceSlugs: [
+      "trattamenti-viso-carmagnola",
+      "beauty-routine-carmagnola",
+      "estetica-avanzata-carmagnola",
+    ],
+    relatedProtocolSlugs: ["eye-genesis"],
+    editorialSections: [
+      {
+        heading: "La zona più delicata: meglio precisione che \"tanto prodotto\"",
+        paragraphs: [
+          "Sul contorno occhi la pelle è più sottile e più reattiva: se fai troppo, spesso ottieni l'effetto opposto (irritazione, sensibilità, instabilità).",
+          "La strategia che funziona davvero è semplice: pochi gesti coerenti e, quando serve, un percorso mirato in studio.",
+        ],
+      },
+      {
+        heading: "Gonfiore: abitudini e routine contano più dei miracoli",
+        paragraphs: [
+          "Il gonfiore cambia da un giorno all'altro: sonno, stress, sale e postura contano. Per questo preferiamo ragionare su cosa succede nella tua settimana, non su promesse generiche.",
+          "Quando la gestione è chiara, anche la scelta del trattamento diventa più sensata e sostenibile.",
+        ],
+      },
+      {
+        heading: "Quando serve un protocollo mirato (e perché il risultato migliore è naturale)",
+        paragraphs: [
+          "Un risultato elegante sul contorno occhi è quello che ti fa sembrare riposata, non diversa. Si ottiene con progressione, non con una singola seduta \"forte\".",
+          "Se vuoi un percorso mirato, Eye Genesis è pensato proprio per questo: ordine e continuità, con una gestione rispettosa della zona.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - Basic skin care",
+        url: "https://www.aad.org/public/everyday-care/skin-care-basics/care",
+      },
+    ],
+  },
+  {
+    slug: "pelle-matura-carmagnola-trattamenti-routine",
+    title: "Pelle matura a Carmagnola: comfort, densità e routine che regge",
+    shortDescription:
+      "Guida per pelli mature: cosa cambia davvero, come scegliere un percorso viso e come evitare eccessi che irritano.",
+    longDescription:
+      "Quando la pelle cambia (più secca, più sottile, più \"sensibile\"), la qualità non è fare di più: è fare meglio. Qui trovi un orientamento pratico su comfort, densità percepita e progressione, con scelte sostenibili anche a casa.",
+    localAngle:
+      "Pensata per chi vuole un percorso viso serio e rispettoso, senza inseguire mode o trattamenti random.",
+    intent: "commercial",
+    benefits: [
+      "Aiuta a impostare aspettative realistiche e un calendario sostenibile",
+      "Riduce errori tipici: attivi troppo aggressivi e routine troppo complicate",
+      "Ti orienta su percorsi mirati per comfort e densità percepita",
+    ],
+    faqs: [
+      {
+        q: "Che cosa vuol dire davvero \"pelle matura\"?",
+        a: "Non è solo una questione di età: è come si comporta la pelle oggi. Può essere più secca, più reattiva, meno piena o più sottile. Per questo la lettura iniziale è il primo passo utile.",
+      },
+      {
+        q: "Serve per forza fare tanti trattamenti?",
+        a: "No. Spesso la qualità è scegliere poche cose, ma quelle giuste, e seguirle con un ritmo realistico. Il percorso migliore è quello che riesci a tenere.",
+      },
+      {
+        q: "Se la pelle è reattiva conviene evitare tutto?",
+        a: "No: conviene essere più precise. Si lavora su comfort e barriera, con intensità e calendario adattati. L'obiettivo è una pelle più stabile, non una pelle stressata.",
+      },
+      {
+        q: "Che cosa posso fare a casa senza complicarmi la vita?",
+        a: "Pochi passaggi coerenti: detersione delicata, idratazione e protezione. Se serve, un solo attivo mirato. La costanza vale più del prodotto perfetto usato due volte.",
+      },
+    ],
+    keywords: [
+      "pelle matura Carmagnola",
+      "trattamenti viso pelli mature Carmagnola",
+      "routine pelle matura Carmagnola",
+      "comfort pelle viso Carmagnola",
+    ],
+    relatedServiceSlugs: ["pulizia-viso-carmagnola"],
+    relatedCompetenceSlugs: [
+      "trattamenti-viso-carmagnola",
+      "beauty-routine-carmagnola",
+      "estetica-avanzata-carmagnola",
+    ],
+    relatedProtocolSlugs: ["rebirth-60-plus", "collagen-code"],
+    editorialSections: [
+      {
+        heading: "Meno aggressività, più continuità",
+        paragraphs: [
+          "Quando la pelle è più sottile o più sensibile, l'eccesso è la cosa che rovina tutto. Qui funziona la precisione: poche scelte fatte bene, distanziate con criterio.",
+          "Il risultato migliore è quello che rende la pelle più comoda e più stabile nel tempo.",
+        ],
+      },
+      {
+        heading: "Progressione: la parte che fa la differenza",
+        paragraphs: [
+          "Una seduta può darti una bella sensazione, ma la qualità vera arriva con un percorso: calendario realistico e piccoli aggiustamenti quando serve.",
+          "Se vuoi un protocollo pensato per queste esigenze, Rebirth 60+ è orientato proprio a comfort e densità percepita, con metodo e rispetto della pelle.",
+        ],
+      },
+      {
+        heading: "Routine a casa: il minimo efficace",
+        paragraphs: [
+          "Non serve avere dieci prodotti. Serve coerenza. Se la routine è troppo complicata, smette di funzionare perché non la segui.",
+          "In studio, dopo la seduta, possiamo consigliarti una micro-routine che ti viene naturale e che sostiene il percorso.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - Basic skin care",
+        url: "https://www.aad.org/public/everyday-care/skin-care-basics/care",
+      },
+    ],
+  },
+  {
+    slug: "pelle-opaca-grana-irregolare-carmagnola",
+    title: "Pelle opaca a Carmagnola: grana irregolare, comfort e reset sensato",
+    shortDescription:
+      "Quando la pelle è spenta o \"disordinata\": cosa peggiora la situazione e come rimetterla in carreggiata con una progressione pulita.",
+    longDescription:
+      "Se ti sembra che la pelle sia opaca, più ruvida o fuori equilibrio, spesso non serve aggiungere: serve semplificare e scegliere un reset fatto bene. Qui trovi come impostiamo un primo step sensato e cosa evitare per non irritare.",
+    localAngle:
+      "Utile se hai provato tanti prodotti e ti senti più confusa di prima.",
+    intent: "commercial",
+    benefits: [
+      "Ti aiuta a capire perché la pelle diventa opaca (spesso per eccessi)",
+      "Imposta un primo step chiaro per comfort e luminosità",
+      "Riduce tentativi casuali tra prodotti, attivi e trattamenti",
+    ],
+    faqs: [
+      {
+        q: "Perché la pelle diventa opaca anche se la idrato?",
+        a: "Perché l'opacità non è solo idratazione: entrano in gioco routine, esfoliazione, sensibilità e stress della pelle. A volte stai facendo troppo e la pelle si difende.",
+      },
+      {
+        q: "Devo esfoliare di più per avere più luce?",
+        a: "Non per forza. Esfoliare troppo può irritare e rendere la pelle instabile. La regola che funziona è delicatezza + ritmo, non intensità.",
+      },
+      {
+        q: "La pulizia viso basta?",
+        a: "Spesso è un primo step ottimo quando serve mettere ordine. Se però la pelle è davvero disordinata o opaca da tempo, può avere senso un protocollo reset impostato in progressione.",
+      },
+      {
+        q: "Cosa posso fare a casa senza impazzire?",
+        a: "Pochi passaggi coerenti e niente esperimenti aggressivi. Se serve, ti indichiamo un solo attivo mirato, ma prima viene la costanza.",
+      },
+    ],
+    keywords: [
+      "pelle opaca Carmagnola",
+      "grana pelle irregolare Carmagnola",
+      "pelle spenta Carmagnola trattamento",
+      "reset pelle Carmagnola",
+    ],
+    relatedServiceSlugs: ["pulizia-viso-carmagnola"],
+    relatedCompetenceSlugs: ["trattamenti-viso-carmagnola", "beauty-routine-carmagnola"],
+    relatedProtocolSlugs: ["catalysis-ritual"],
+    editorialSections: [
+      {
+        heading: "Opacità e disordine: spesso è questione di \"troppo\"",
+        paragraphs: [
+          "Molte pelli diventano opache perché fanno troppo: troppi attivi insieme, troppi cambi di routine, troppe prove. La pelle si stressa e diventa instabile.",
+          "La soluzione più elegante è semplificare e costruire continuità: un reset sensato e un calendario che regge.",
+        ],
+      },
+      {
+        heading: "Reset in studio: quando ha senso (e quando basta un primo step)",
+        paragraphs: [
+          "Se la pelle è solo un po' spenta, spesso una pulizia viso fatta bene rimette ordine. Se invece l'opacità è ricorrente e la grana è disordinata, ha senso un protocollo più strutturato.",
+          "Catalysis Ritual nasce proprio per questo: riportare comfort e luce senza inseguire l'effetto forte.",
+        ],
+      },
+      {
+        heading: "Progressione: la parte che rende il risultato più stabile",
+        paragraphs: [
+          "Il risultato bello è quello che non dura solo un giorno. Per questo parliamo sempre di progressione e mantenimento, anche minimale.",
+          "Pochi gesti a casa, scelti bene, valgono più di una routine piena di prodotti che non riesci a seguire.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - Basic skin care",
+        url: "https://www.aad.org/public/everyday-care/skin-care-basics/care",
+      },
+    ],
+  },
+  {
+    slug: "tono-viso-ovale-carmagnola-percorso",
+    title: "Tono viso e ovale a Carmagnola: come impostare un percorso che si vede",
+    shortDescription:
+      "Quando cerchi tono e \"tenuta\": cosa aspettarti davvero e come costruire una progressione pulita (senza rincorrere trattamenti a caso).",
+    longDescription:
+      "Se l'obiettivo è un viso più compatto e luminoso, la differenza la fa la progressione: sedute distanziate bene, poche scelte coerenti e un mantenimento semplice. Qui trovi come orientarti e quali segnali cercare in consulenza.",
+    localAngle:
+      "Utile se vuoi un risultato elegante e progressivo, non un effetto \"solo in giornata\".",
+    intent: "commercial",
+    benefits: [
+      "Imposta aspettative realistiche su tono, tempi e mantenimento",
+      "Ti aiuta a scegliere una priorità e tenere il filo del percorso",
+      "Riduce tentativi casuali e sedute scollegate tra loro",
+    ],
+    faqs: [
+      {
+        q: "Quanto tempo ci vuole per vedere un cambiamento sul tono?",
+        a: "Dipende da pelle e punto di partenza. Il tono è una progressione: si costruisce seduta dopo seduta, con un ritmo coerente. In studio ti diciamo cosa aspettarti in modo realistico.",
+      },
+      {
+        q: "Serve fare tante cose insieme?",
+        a: "No. Spesso funziona meglio il contrario: poche cose fatte bene e tenute nel tempo. La pelle ama la coerenza.",
+      },
+      {
+        q: "Da cosa si parte di solito?",
+        a: "Spesso da una lettura iniziale e da un primo step che rimette comfort e ordine (anche una pulizia viso fatta bene). Poi si decide la progressione in base a priorità e tempi reali.",
+      },
+      {
+        q: "Che cosa posso fare a casa per non perdere il filo?",
+        a: "Pochi gesti coerenti: detersione, idratazione e protezione. Se serve, un attivo mirato. La costanza è la parte che fa durare.",
+      },
+    ],
+    keywords: [
+      "tono viso Carmagnola",
+      "ovale viso Carmagnola",
+      "viso compatto Carmagnola",
+      "trattamento tono viso Carmagnola",
+    ],
+    relatedServiceSlugs: ["pulizia-viso-carmagnola"],
+    relatedCompetenceSlugs: ["trattamenti-viso-carmagnola", "estetica-avanzata-carmagnola"],
+    relatedProtocolSlugs: ["rebel-lift-protocol", "collagen-code"],
+    editorialSections: [
+      {
+        heading: "Tono: si costruisce, non si compra",
+        paragraphs: [
+          "Quando l'obiettivo è \"tenuta\" e luminosità, la cosa più importante è avere una direzione chiara e seguirla nel tempo.",
+          "La differenza tra un percorso serio e una sequenza casuale di sedute è proprio questa: progressione e controllo, non promesse veloci.",
+        ],
+      },
+      {
+        heading: "La progressione giusta è quella che riesci a seguire",
+        paragraphs: [
+          "Un calendario impossibile ti porta a mollare. Un calendario realistico ti porta risultati più stabili.",
+          "In studio impostiamo una proposta semplice e la adattiamo: la pelle cambia, e anche il percorso deve saper cambiare senza perdere il filo.",
+        ],
+      },
+      {
+        heading: "Quando ha senso un protocollo dedicato",
+        paragraphs: [
+          "Se cerchi un lavoro progressivo su tono e ovale, Rebel Lift Protocol è pensato proprio per questo. Se invece vuoi un focus più su compattezza e densità percepita, Collagen Code è spesso la strada più pulita.",
+          "La scelta migliore è sempre quella coerente con la pelle di oggi e con il ritmo che puoi tenere.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - Basic skin care",
+        url: "https://www.aad.org/public/everyday-care/skin-care-basics/care",
       },
     ],
   },
