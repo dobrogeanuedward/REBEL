@@ -2013,9 +2013,10 @@ export const localAreaPages: LocalAreaPage[] = [
       heading: "Da Alba: come organizzare gli appuntamenti quando vieni da più lontano",
       paragraphs: [
         "Quando la distanza aumenta, l'organizzazione diventa parte della qualità. Per questo, con chi arriva da Alba, partiamo sempre da una cosa semplice: quali sono le priorità e quante sedute puoi gestire davvero.",
-        "Se ha senso, possiamo concentrare alcuni servizi nella stessa giornata (ad esempio viso + mani, oppure una consulenza + prima seduta): così riduci gli spostamenti e il percorso resta sostenibile.",
-        "Anche nel laser, la continuità conta: meglio un calendario chiaro e realistico che una sequenza di appuntamenti improvvisati.",
-        "Se vuoi un passo più avanti sul viso, Collagen Code è uno dei protocolli epigenetici che ci chiedono spesso quando l'obiettivo è tono e compattezza in modo progressivo. Se invece vuoi restare sui classici, manicure e massaggio relax sono perfetti da abbinare quando sei già in studio.",
+        "Se ha senso, concentriamo più cose nella stessa giornata (ad esempio viso + mani, oppure consulenza + prima seduta): così non fai viaggi inutili e non vivi il percorso come una corsa.",
+        "Sul laser, quando vieni da fuori, conviene essere ancora più pratiche: scegliere 1-2 zone (ascelle, inguine o gambe sono le più richieste) e impostare un ritmo che regge nel tempo. Meglio fare meno, ma farlo con continuità.",
+        "Se invece la tua priorità è \"mettere in ordine\" il viso, Collagen Code è uno dei protocolli che ci chiedono spesso quando si cerca tono e compattezza in modo progressivo. E se vuoi restare sui classici, manicure e massaggio relax sono due servizi perfetti da abbinare quando sei già in studio.",
+        "Se ti aiuta, qui trovi anche alcune guide pratiche: chiariscono cosa aspettarti e ti fanno arrivare più tranquilla alla prima valutazione.",
       ],
       links: [
         {
@@ -2033,6 +2034,36 @@ export const localAreaPages: LocalAreaPage[] = [
           label: "Laser con Ice Polar",
           href: "/epilazione-laser-ice-polar-carmagnola",
           description: "Comfort durante la seduta e progressione impostata bene.",
+        },
+        {
+          label: "Laser e sole: cosa sapere davvero",
+          href: "/competenze/epilazione-laser-estate-sole-carmagnola",
+          description: "Regole pratiche per gestire sedute, weekend e vacanze senza bloccarti.",
+        },
+        {
+          label: "Guida laser gambe",
+          href: "/competenze/laser-gambe-carmagnola-guida-pratica",
+          description: "Strategia, stagionalità e mantenimento quando la priorità sono le gambe.",
+        },
+        {
+          label: "Guida laser ascelle",
+          href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
+          description: "Una zona piccola ma intensa: tempi, comfort e gestione tra le sedute.",
+        },
+        {
+          label: "Guida laser inguine",
+          href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
+          description: "Regole semplici per una zona delicata (e per non stressare la pelle).",
+        },
+        {
+          label: "Peli incarniti e laser: guida pratica",
+          href: "/competenze/peli-incarniti-laser-carmagnola",
+          description: "Per capire cause, errori tipici e cosa cambia con un percorso impostato bene.",
+        },
+        {
+          label: "Laser uomo: guida pratica",
+          href: "/competenze/laser-uomo-carmagnola-guida-pratica",
+          description: "Barba/collo e aree ampie: strategia e calendario realistico.",
         },
         {
           label: "Collagen Code",
@@ -2120,7 +2151,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "In Rebel impostiamo il percorso con chiarezza: calendario realistico, regole pratiche e attenzione al comfort. Ice Polar aiuta, ma la differenza vera è il metodo: settaggio su misura e monitoraggio.",
         "Se oltre al laser vuoi lavorare sul viso, spesso la richiesta è molto concreta: sguardo più riposato e pelle più \"in ordine\". Eye Genesis è uno dei protocolli epigenetici che ci chiedono spesso per la zona occhi (gonfiore, micro-segni, stanchezza).",
         "E se vuoi restare sui classici, laminazione e pulizia viso sono due step che funzionano sempre: ti fanno uscire curata senza trasformare il percorso in una maratona.",
-        "Se arrivi da Bra, l'obiettivo è semplice: avere un piano ordinato che puoi seguire senza ansia e senza cambiare idea ogni mese.",
+        "Se arrivi da Bra, l'obiettivo è semplice: avere un piano ordinato che puoi seguire senza ansia e senza cambiare idea ogni mese. Spesso si parte da una zona \"smart\" (ascelle o inguine) oppure si decide una priorità chiara sulle gambe.",
       ],
       links: [
         {
@@ -2138,6 +2169,31 @@ export const localAreaPages: LocalAreaPage[] = [
           label: "Laser con Ice Polar",
           href: "/epilazione-laser-ice-polar-carmagnola",
           description: "Cosa cambia sul comfort durante la seduta, nella pratica.",
+        },
+        {
+          label: "Laser e sole: cosa sapere davvero",
+          href: "/competenze/epilazione-laser-estate-sole-carmagnola",
+          description: "Regole pratiche per non farti bloccare da sole e stagionalità.",
+        },
+        {
+          label: "Guida laser ascelle",
+          href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
+          description: "Tempi, comfort e gestione pratica dopo le prime sedute.",
+        },
+        {
+          label: "Guida laser inguine",
+          href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
+          description: "Strategia e regole semplici su una zona delicata.",
+        },
+        {
+          label: "Guida laser gambe",
+          href: "/competenze/laser-gambe-carmagnola-guida-pratica",
+          description: "Calendario realistico e mantenimento quando la priorità sono le gambe.",
+        },
+        {
+          label: "Laser uomo: guida pratica",
+          href: "/competenze/laser-uomo-carmagnola-guida-pratica",
+          description: "Percorsi uomo: barba/collo e schiena/torace, con piano ordinato.",
         },
         {
           label: "Eye Genesis",
@@ -2163,6 +2219,11 @@ export const localAreaPages: LocalAreaPage[] = [
           label: "Epilazione laser corpo",
           href: "/servizi/epilazione-laser-corpo-carmagnola",
           description: "Zone corpo e organizzazione del ciclo, con percorso su misura.",
+        },
+        {
+          label: "Listino completo",
+          href: "/listino-estetica-laser",
+          description: "Prezzi e panoramica dei servizi disponibili in studio.",
         },
         {
           label: "Contatti",
@@ -2222,8 +2283,9 @@ export const localAreaPages: LocalAreaPage[] = [
       heading: "Savigliano: pelle più tranquilla tra le sedute (e meno improvvisazione)",
       paragraphs: [
         "Un percorso laser fatto bene non riguarda solo la seduta: riguarda anche quello che fai tra una seduta e l'altra. È lì che spesso nascono i dubbi (e gli errori).",
-        "In Rebel ti diamo consigli pratici: come gestire la pelle, cosa evitare e quando ha senso fare uno scrub delicato per mantenere comfort e uniformità.",
-        "Se arrivi da Savigliano, l'obiettivo è costruire un percorso ordinato fin dall'inizio: meno improvvisazione, più continuità.",
+        "In Rebel ti diamo consigli pratici: come gestire la pelle, cosa evitare e quando ha senso fare uno scrub delicato per mantenere comfort e uniformità. Su zone come ascelle e inguine, la gestione quotidiana conta tantissimo.",
+        "Se il tema sono i peli incarniti (gambe e inguine soprattutto), lo diciamo subito: non serve \"grattare\" la pelle ogni due giorni. Serve un percorso impostato bene e qualche accorgimento semplice, fatto nel momento giusto.",
+        "Se arrivi da Savigliano, l'obiettivo è costruire un percorso ordinato fin dall'inizio: meno improvvisazione, più continuità. E se hai in mente sole e weekend fuori, si pianifica: non è una condanna, è solo calendario.",
         "Se vuoi aggiungere estetica avanzata, Rebel Cell Regeneration è uno dei protocolli epigenetici più richiesti quando l'obiettivo è rigenerazione progressiva (viso o corpo). Se invece vuoi restare sui classici, scrub corpo e massaggio rilassante sono spesso la coppia più semplice: pelle più uniforme e schiena più leggera, senza complicazioni.",
       ],
       links: [
@@ -2242,6 +2304,31 @@ export const localAreaPages: LocalAreaPage[] = [
           label: "Laser con Ice Polar",
           href: "/epilazione-laser-ice-polar-carmagnola",
           description: "Comfort durante la seduta e progressione impostata bene.",
+        },
+        {
+          label: "Peli incarniti e laser: guida pratica",
+          href: "/competenze/peli-incarniti-laser-carmagnola",
+          description: "Cause comuni, errori tipici e gestione più pulita nel quotidiano.",
+        },
+        {
+          label: "Guida laser ascelle",
+          href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
+          description: "Tempi, comfort e gestione pratica tra le sedute.",
+        },
+        {
+          label: "Guida laser inguine",
+          href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
+          description: "Regole semplici per una zona delicata (e aspettative realistiche).",
+        },
+        {
+          label: "Laser e sole: cosa sapere davvero",
+          href: "/competenze/epilazione-laser-estate-sole-carmagnola",
+          description: "Per organizzare calendario e esposizione in modo sensato.",
+        },
+        {
+          label: "Guida laser gambe",
+          href: "/competenze/laser-gambe-carmagnola-guida-pratica",
+          description: "Strategia e mantenimento quando la priorità sono le gambe.",
         },
         {
           label: "Rebel Cell Regeneration",
@@ -2267,6 +2354,11 @@ export const localAreaPages: LocalAreaPage[] = [
           label: "Laser a Carmagnola",
           href: "/epilazione-laser-carmagnola",
           description: "Valutazione iniziale, parametri su misura e calendario.",
+        },
+        {
+          label: "Listino completo",
+          href: "/listino-estetica-laser",
+          description: "Prezzi e panoramica dei servizi in studio.",
         },
         {
           label: "Contatti",
@@ -2327,6 +2419,7 @@ export const localAreaPages: LocalAreaPage[] = [
       paragraphs: [
         "Quando si arriva da fuori, la cosa migliore è avere una direzione: cosa facciamo nei prossimi 2-3 mesi? Qual è la priorità? Con che ritmo riesci davvero a venire in studio?",
         "In Rebel impostiamo un piano semplice: scegliamo l'obiettivo principale (laser, viso o corpo) e costruiamo una progressione con controlli. Se serve, aggiungiamo un secondo servizio solo quando ha senso.",
+        "Sul laser, spesso il modo più furbo per non perdersi è partire da una zona alla volta (ascelle, inguine o gambe) e capire bene cosa fare tra le sedute. La costanza, qui, vale più di qualsiasi promessa.",
         "Se l'obiettivo è viso e vuoi un percorso davvero avanzato, Rebirth 60+ è uno dei protocolli epigenetici più richiesti sulle pelli mature (densità, nutrimento, progressione). Se invece vuoi restare sui classici, pulizia viso e manicure semipermanente sono spesso le scelte più pratiche quando vuoi ottimizzare la giornata.",
         "Così il percorso resta chiaro, e tu non hai la sensazione di ripartire da zero ogni volta.",
       ],
@@ -2351,6 +2444,36 @@ export const localAreaPages: LocalAreaPage[] = [
           label: "Laser con Ice Polar",
           href: "/epilazione-laser-ice-polar-carmagnola",
           description: "Comfort durante la seduta e progressione impostata con criterio.",
+        },
+        {
+          label: "Guida laser ascelle",
+          href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
+          description: "Tempi, comfort e gestione pratica dopo le prime sedute.",
+        },
+        {
+          label: "Guida laser inguine",
+          href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
+          description: "Regole semplici per una zona delicata (e aspettative realistiche).",
+        },
+        {
+          label: "Guida laser gambe",
+          href: "/competenze/laser-gambe-carmagnola-guida-pratica",
+          description: "Strategia, stagionalità e mantenimento quando la priorità sono le gambe.",
+        },
+        {
+          label: "Laser e sole: cosa sapere davvero",
+          href: "/competenze/epilazione-laser-estate-sole-carmagnola",
+          description: "Come organizzare calendario e esposizione senza bloccarti.",
+        },
+        {
+          label: "Peli incarniti e laser: guida pratica",
+          href: "/competenze/peli-incarniti-laser-carmagnola",
+          description: "Cause comuni, errori tipici e gestione più pulita nel quotidiano.",
+        },
+        {
+          label: "Laser uomo: guida pratica",
+          href: "/competenze/laser-uomo-carmagnola-guida-pratica",
+          description: "Barba/collo e aree ampie: strategia e calendario realistico.",
         },
         {
           label: "Rebirth 60+",
@@ -2436,6 +2559,7 @@ export const localAreaPages: LocalAreaPage[] = [
       paragraphs: [
         "Quando inizi un percorso, soprattutto sul laser, la cosa più importante è sapere cosa aspettarti: progressione, tempi e gestione tra le sedute.",
         "In Rebel preferiamo spiegarti bene subito: cosa stiamo facendo, perché, e come si mantiene la pelle tranquilla. Ice Polar aiuta il comfort, ma la parte decisiva resta il metodo e il calendario coerente.",
+        "Se vieni da Saluzzo e vuoi partire in modo semplice, spesso la scelta migliore è una priorità chiara: ascelle o inguine (zone piccole ma \"intense\"), oppure gambe se vuoi lavorare su una zona ampia e vedere una routine più ordinata nel tempo.",
         "Se oltre al laser vuoi lavorare sul viso in modo avanzato, Catalysis Ritual è uno dei protocolli epigenetici richiesti spesso quando la pelle è opaca, \"spessa\" o disordinata. Se invece vuoi restare sui classici, pulizia viso e laminazione sono due scelte semplici e molto efficaci per uscire curata (e capire subito da dove partire).",
         "Se arrivi da Saluzzo e vuoi un percorso seguito e leggibile, scrivici: ti diciamo da dove partire e come organizzare le prime sedute in modo comodo.",
       ],
@@ -2455,6 +2579,36 @@ export const localAreaPages: LocalAreaPage[] = [
           label: "Laser con Ice Polar",
           href: "/epilazione-laser-ice-polar-carmagnola",
           description: "Cosa cambia sul comfort durante la seduta, nella pratica.",
+        },
+        {
+          label: "Laser e sole: cosa sapere davvero",
+          href: "/competenze/epilazione-laser-estate-sole-carmagnola",
+          description: "Regole pratiche per gestire calendario e esposizione senza ansia.",
+        },
+        {
+          label: "Guida laser ascelle",
+          href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
+          description: "Tempi, comfort e gestione pratica tra le sedute.",
+        },
+        {
+          label: "Guida laser inguine",
+          href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
+          description: "Regole semplici per una zona delicata (e aspettative realistiche).",
+        },
+        {
+          label: "Guida laser gambe",
+          href: "/competenze/laser-gambe-carmagnola-guida-pratica",
+          description: "Strategia, stagionalità e mantenimento quando la priorità sono le gambe.",
+        },
+        {
+          label: "Peli incarniti e laser: guida pratica",
+          href: "/competenze/peli-incarniti-laser-carmagnola",
+          description: "Cause comuni, errori tipici e gestione più pulita nel quotidiano.",
+        },
+        {
+          label: "Laser uomo: guida pratica",
+          href: "/competenze/laser-uomo-carmagnola-guida-pratica",
+          description: "Barba/collo e aree ampie: strategia e calendario realistico.",
         },
         {
           label: "Catalysis Ritual",
