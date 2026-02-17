@@ -580,6 +580,7 @@ export const servicePages: ServicePage[] = [
       "laser-diodo-carmagnola",
       "epilazione-laser-viso-carmagnola-guida-realistica",
       "epilazione-laser-estate-sole-carmagnola",
+      "laser-uomo-carmagnola-guida-pratica",
     ],
     editorialSections: [
       {
@@ -676,6 +677,9 @@ export const servicePages: ServicePage[] = [
       "epilazione-laser-corpo-carmagnola-zone-tempi",
       "epilazione-laser-estate-sole-carmagnola",
       "peli-incarniti-laser-carmagnola",
+      "epilazione-laser-inguine-carmagnola-guida-pratica",
+      "epilazione-laser-ascelle-carmagnola-guida-pratica",
+      "laser-uomo-carmagnola-guida-pratica",
     ],
     editorialSections: [
       {
