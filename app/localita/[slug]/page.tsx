@@ -93,7 +93,9 @@ export default async function LocalAreaDetailPage({ params }: PageProps) {
   const isLaserLink = (href: string) =>
     href.includes("/epilazione-laser") || (href.startsWith("/servizi/") && href.includes("laser"));
   const isAdvancedLink = (href: string) =>
-    href === "/protocolli-epigenetici" || href.includes("/competenze/estetica-avanzata");
+    href === "/protocolli-epigenetici" ||
+    href.startsWith("/protocolli/") ||
+    href.includes("/competenze/estetica-avanzata");
   const isClassicServiceLink = (href: string) =>
     href.startsWith("/servizi/") && !href.includes("laser") && !href.includes("epilazione-laser");
 

@@ -177,9 +177,9 @@ export const localAreaPages: LocalAreaPage[] = [
       ],
       links: [
         {
-          label: "Protocolli epigenetici",
-          href: "/protocolli-epigenetici",
-          description: "Tutti i protocolli (incluso Collagen Code) e come scegliamo il più adatto.",
+          label: "Collagen Code",
+          href: "/protocolli/collagen-code",
+          description: "Protocollo su compattezza e rimpolpamento, con lavoro progressivo e calendario pulito.",
         },
         {
           label: "Estetica avanzata a Carmagnola",
@@ -291,9 +291,9 @@ export const localAreaPages: LocalAreaPage[] = [
       ],
       links: [
         {
-          label: "Protocolli epigenetici",
-          href: "/protocolli-epigenetici",
-          description: "Eye Genesis e gli altri protocolli: cosa fanno e come si scelgono.",
+          label: "Eye Genesis",
+          href: "/protocolli/eye-genesis",
+          description: "Protocollo contorno occhi: focus su gonfiore, segni e stanchezza, con progressione ordinata.",
         },
         {
           label: "Estetica avanzata a Carmagnola",
@@ -402,9 +402,9 @@ export const localAreaPages: LocalAreaPage[] = [
       ],
       links: [
         {
-          label: "Protocolli epigenetici",
-          href: "/protocolli-epigenetici",
-          description: "Rebel Lift Protocol e gli altri protocolli: obiettivi, durata e logica del percorso.",
+          label: "Rebel Lift Protocol",
+          href: "/protocolli/rebel-lift-protocol",
+          description: "Protocollo su tono, ovale e luminosità, con progressione pulita e ritmo realistico.",
         },
         {
           label: "Estetica avanzata a Carmagnola",
@@ -519,9 +519,9 @@ export const localAreaPages: LocalAreaPage[] = [
       ],
       links: [
         {
-          label: "Protocolli epigenetici",
-          href: "/protocolli-epigenetici",
-          description: "Rebirth 60+ e gli altri protocolli: obiettivo, durata e percorso.",
+          label: "Rebirth 60+",
+          href: "/protocolli/rebirth-60-plus",
+          description: "Dedicato alle pelli mature: nutrimento e densità percepita con metodo e continuità.",
         },
         {
           label: "Estetica avanzata a Carmagnola",
@@ -638,9 +638,9 @@ export const localAreaPages: LocalAreaPage[] = [
       ],
       links: [
         {
-          label: "Protocolli epigenetici",
-          href: "/protocolli-epigenetici",
-          description: "Rebel Cell Regeneration e gli altri protocolli: quando hanno senso e come si impostano.",
+          label: "Rebel Cell Regeneration",
+          href: "/protocolli/rebel-cell-regeneration",
+          description: "Protocollo intensivo viso/corpo per rigenerazione progressiva, con percorso seguito nel tempo.",
         },
         {
           label: "Estetica avanzata a Carmagnola",
@@ -748,9 +748,9 @@ export const localAreaPages: LocalAreaPage[] = [
       ],
       links: [
         {
-          label: "Protocolli epigenetici",
-          href: "/protocolli-epigenetici",
-          description: "Catalysis Ritual e gli altri protocolli: obiettivo, logica e percorso.",
+          label: "Catalysis Ritual",
+          href: "/protocolli/catalysis-ritual",
+          description: "Quando la pelle è opaca o disordinata: reset e comfort, senza eccessi.",
         },
         {
           label: "Estetica avanzata a Carmagnola",
@@ -2281,7 +2281,9 @@ function validateLocalAreaPages(pages: LocalAreaPage[]): LocalPagesValidation {
       );
       const hasAdvanced = hrefs.some(
         (href) =>
-          href === "/protocolli-epigenetici" || href.includes("/competenze/estetica-avanzata"),
+          href === "/protocolli-epigenetici" ||
+          href.startsWith("/protocolli/") ||
+          href.includes("/competenze/estetica-avanzata"),
       );
       const hasClassic = hrefs.some(
         (href) =>
