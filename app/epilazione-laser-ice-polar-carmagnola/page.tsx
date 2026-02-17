@@ -11,7 +11,7 @@ import {
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Epilazione laser con Ice Polar a Carmagnola | Rebel",
+  title: "Epilazione laser con Ice Polar a Carmagnola",
   description:
     "Ice Polar e comfort durante l'epilazione laser: cosa cambia in seduta, come lo usiamo in studio e cosa aspettarti da un percorso laser a Carmagnola.",
   path: "/epilazione-laser-ice-polar-carmagnola",

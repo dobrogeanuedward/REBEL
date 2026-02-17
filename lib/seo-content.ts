@@ -1,3 +1,5 @@
+import { protocolPages } from "@/lib/protocol-pages";
+
 export type ServicePage = {
   slug: string;
   name: string;
@@ -9,6 +11,8 @@ export type ServicePage = {
   faqs: Array<{ q: string; a: string }>;
   keywords: string[];
   relatedCompetenceSlugs: string[];
+  // Curated links to protocol detail pages (advanced next step).
+  relatedProtocolSlugs?: string[];
   editorialSections?: Array<{
     heading: string;
     paragraphs: string[];
@@ -32,6 +36,8 @@ export type CompetencePage = {
   relatedServiceSlugs: string[];
   // Curated guide-to-guide links (fallbacks to auto-related if missing).
   relatedCompetenceSlugs?: string[];
+  // Curated links to protocol detail pages (advanced next step).
+  relatedProtocolSlugs?: string[];
   heroImage?: {
     src: string;
     alt: string;
@@ -86,6 +92,7 @@ export const servicePages: ServicePage[] = [
       "estetica-avanzata-carmagnola",
       "beauty-routine-carmagnola",
     ],
+    relatedProtocolSlugs: ["catalysis-ritual", "rebel-lift-protocol", "collagen-code"],
     editorialSections: [
       {
         heading: "Pulizia viso: cosa facciamo davvero (senza aggressività)",
@@ -847,6 +854,20 @@ export const competencePages: CompetencePage[] = [
       "massaggio-linfodrenante-carmagnola",
       "epilazione-laser-corpo-carmagnola",
     ],
+    relatedCompetenceSlugs: [
+      "trattamenti-viso-carmagnola",
+      "trattamenti-corpo-carmagnola",
+      "beauty-routine-carmagnola",
+      "come-scegliere-centro-estetico-carmagnola",
+      "epilazione-laser-carmagnola",
+    ],
+    relatedProtocolSlugs: [
+      "catalysis-ritual",
+      "rebel-lift-protocol",
+      "collagen-code",
+      "rebel-cell-regeneration",
+      "rebirth-60-plus",
+    ],
     editorialSections: [
       {
         heading: "Estetica avanzata: non è \"più forte\", è più precisa",
@@ -1154,6 +1175,7 @@ export const competencePages: CompetencePage[] = [
       "laminazione-ciglia-sopracciglia-carmagnola-durata-cura",
       "estetica-avanzata-carmagnola",
     ],
+    relatedProtocolSlugs: ["catalysis-ritual", "rebel-lift-protocol", "collagen-code", "eye-genesis"],
     editorialSections: [
       {
         heading: "Prima lettura: pelle di oggi, non pelle \"di sempre\"",
@@ -1257,6 +1279,7 @@ export const competencePages: CompetencePage[] = [
       "massaggio-rilassante-carmagnola-cervicale-stress",
       "beauty-routine-carmagnola",
     ],
+    relatedProtocolSlugs: ["rebel-cell-regeneration"],
     editorialSections: [
       {
         heading: "Obiettivo reale: leggerezza, tono, o semplicemente sentirti meglio nel corpo",
@@ -2308,11 +2331,17 @@ function validateSeoContent(): SeoContentValidation {
   // Cross-link integrity (warn only).
   const competenceSlugSet = new Set(competencePages.map((c) => c.slug));
   const serviceSlugSet = new Set(servicePages.map((s) => s.slug));
+  const protocolSlugSet = new Set(protocolPages.map((p) => p.slug));
 
   for (const service of servicePages) {
     for (const related of service.relatedCompetenceSlugs ?? []) {
       if (!competenceSlugSet.has(related))
         warnings.push(`[servizi/${service.slug}] missing competence reference: ${related}`);
+    }
+
+    for (const related of service.relatedProtocolSlugs ?? []) {
+      if (!protocolSlugSet.has(related))
+        warnings.push(`[servizi/${service.slug}] missing protocol reference: ${related}`);
     }
   }
 
@@ -2327,6 +2356,11 @@ function validateSeoContent(): SeoContentValidation {
         warnings.push(`[competenze/${competence.slug}] relatedCompetenceSlugs references itself`);
       else if (!competenceSlugSet.has(related))
         warnings.push(`[competenze/${competence.slug}] missing competence reference: ${related}`);
+    }
+
+    for (const related of competence.relatedProtocolSlugs ?? []) {
+      if (!protocolSlugSet.has(related))
+        warnings.push(`[competenze/${competence.slug}] missing protocol reference: ${related}`);
     }
   }
 

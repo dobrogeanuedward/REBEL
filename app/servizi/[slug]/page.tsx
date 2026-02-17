@@ -9,6 +9,7 @@ import {
   servicePages,
   competencePages,
 } from "@/lib/seo-content";
+import { protocolPages } from "@/lib/protocol-pages";
 import {
   buildArticleSchema,
   buildBreadcrumbSchema,
@@ -42,7 +43,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     });
   }
   return createPageMetadata({
-    title: `${service.name} | Rebel`,
+    title: service.name,
     description: service.shortDescription,
     path: `/servizi/${service.slug}`,
     keywords: service.keywords,
@@ -106,6 +107,21 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       : null;
   const editorialSections = service.editorialSections ?? [];
   const sourceLinks = service.sourceLinks ?? [];
+  const relatedProtocols = (service.relatedProtocolSlugs ?? [])
+    .map((protocolSlug) => protocolPages.find((item) => item.slug === protocolSlug))
+    .filter((item): item is (typeof protocolPages)[number] => Boolean(item))
+    .slice(0, 4);
+  const relatedProtocolsSchema =
+    relatedProtocols.length > 0
+      ? buildItemListSchema({
+          name: `Protocolli epigenetici utili dopo ${service.name}`,
+          path: `/servizi/${service.slug}`,
+          items: relatedProtocols.map((protocol) => ({
+            name: protocol.name,
+            path: `/protocolli/${protocol.slug}`,
+          })),
+        })
+      : null;
   const siblingServices = servicePages
     .filter((item) => item.slug !== service.slug && item.category === service.category)
     .map((item) => ({
@@ -154,6 +170,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       <JsonLd data={articleSchema} />
       <JsonLd data={faqSchema} />
       {relatedCompetencesSchema ? <JsonLd data={relatedCompetencesSchema} /> : null}
+      {relatedProtocolsSchema ? <JsonLd data={relatedProtocolsSchema} /> : null}
       {siblingServicesSchema ? <JsonLd data={siblingServicesSchema} /> : null}
       {featuredAreasSchema ? <JsonLd data={featuredAreasSchema} /> : null}
       <PageHero
@@ -284,6 +301,37 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      {relatedProtocols.length > 0 ? (
+        <section className="section">
+          <div className="container">
+            <h2 className="page-title">Se vuoi fare un passo più avanzato</h2>
+            <p className="lead" style={{ marginTop: "0.5rem", maxWidth: "74ch" }}>
+              Alcune persone partono da {service.name} e poi scelgono un protocollo più completo.
+              Qui trovi due o tre opzioni sensate per continuare in modo ordinato.
+            </p>
+            <div className="grid grid-2" style={{ marginTop: "1rem" }}>
+              {relatedProtocols.map((protocol) => (
+                <Link key={protocol.slug} href={`/protocolli/${protocol.slug}`} className="card glow-card">
+                  <h3 style={{ marginTop: 0 }}>{protocol.name}</h3>
+                  <p className="lead" style={{ marginTop: 0 }}>
+                    {protocol.shortDescription}
+                  </p>
+                  <strong style={{ fontFamily: "var(--font-inter), sans-serif" }}>{protocol.price}</strong>
+                </Link>
+              ))}
+            </div>
+            <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
+              <Link className="button button-primary" href="/contatti">
+                Chiedi un consiglio
+              </Link>
+              <Link className="button button-secondary" href="/protocolli-epigenetici">
+                Vedi tutti i protocolli
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="section">
         <div className="container">

@@ -10,6 +10,7 @@ import {
   servicePages,
 } from "@/lib/seo-content";
 import { localAreaPages } from "@/lib/local-pages";
+import { protocolPages } from "@/lib/protocol-pages";
 import {
   buildArticleSchema,
   buildBreadcrumbSchema,
@@ -103,6 +104,21 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
       : null;
   const editorialSections = competence.editorialSections ?? [];
   const sourceLinks = competence.sourceLinks ?? [];
+  const relatedProtocols = (competence.relatedProtocolSlugs ?? [])
+    .map((protocolSlug) => protocolPages.find((item) => item.slug === protocolSlug))
+    .filter((item): item is (typeof protocolPages)[number] => Boolean(item))
+    .slice(0, 6);
+  const relatedProtocolsSchema =
+    relatedProtocols.length > 0
+      ? buildItemListSchema({
+          name: `Protocolli epigenetici utili per ${competence.title}`,
+          path: `/competenze/${competence.slug}`,
+          items: relatedProtocols.map((protocol) => ({
+            name: protocol.name,
+            path: `/protocolli/${protocol.slug}`,
+          })),
+        })
+      : null;
   const siblingCompetences = competencePages
     .filter((item) => item.slug !== competence.slug)
     .map((item) => ({
@@ -161,6 +177,7 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
       <JsonLd data={faqSchema} />
       {relatedServicesSchema ? <JsonLd data={relatedServicesSchema} /> : null}
       {relatedCompetencesSchema ? <JsonLd data={relatedCompetencesSchema} /> : null}
+      {relatedProtocolsSchema ? <JsonLd data={relatedProtocolsSchema} /> : null}
       {featuredAreasSchema ? <JsonLd data={featuredAreasSchema} /> : null}
       <PageHero
         eyebrow="Approfondimento"
@@ -294,6 +311,39 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      {relatedProtocols.length > 0 ? (
+        <section className="section">
+          <div className="container">
+            <h2 className="page-title">Se vuoi fare un passo più avanzato</h2>
+            <p className="lead" style={{ marginTop: "0.5rem", maxWidth: "74ch" }}>
+              Questi protocolli sono spesso sensati quando l&apos;obiettivo è una progressione (non una singola seduta).
+              Se sei indecisa, scrivici: ti diciamo qual è il primo step più pulito per la tua pelle.
+            </p>
+            <div className="grid grid-2" style={{ marginTop: "1rem" }}>
+              {relatedProtocols.map((protocol) => (
+                <Link key={protocol.slug} href={`/protocolli/${protocol.slug}`} className="card glow-card">
+                  <h3 style={{ marginTop: 0 }}>{protocol.name}</h3>
+                  <p className="lead" style={{ marginTop: 0 }}>
+                    {protocol.shortDescription}
+                  </p>
+                  <strong style={{ fontFamily: "var(--font-inter), sans-serif" }}>
+                    {protocol.price}
+                  </strong>
+                </Link>
+              ))}
+            </div>
+            <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
+              <Link className="button button-primary" href="/contatti">
+                Chiedi un consiglio
+              </Link>
+              <Link className="button button-secondary" href="/protocolli-epigenetici">
+                Vedi tutti i protocolli
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="section">
         <div className="container">

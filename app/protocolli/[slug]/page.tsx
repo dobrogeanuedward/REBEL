@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     });
   }
   return createPageMetadata({
-    title: `${protocol.name} a Carmagnola | Rebel`,
+    title: `${protocol.name} a Carmagnola`,
     description: protocol.shortDescription,
     path: `/protocolli/${protocol.slug}`,
     keywords: protocol.keywords,

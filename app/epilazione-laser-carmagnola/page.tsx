@@ -10,7 +10,7 @@ import {
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Epilazione Laser Carmagnola | Rebel Estetica Epigenetica",
+  title: "Epilazione laser a Carmagnola (Thory + Ice Polar)",
   description:
     "Epilazione laser a Carmagnola con tecnologia Thory e percorso personalizzato. Valutazione iniziale, protocollo su misura e supporto continuo da Rebel.",
   path: "/epilazione-laser-carmagnola",
@@ -82,7 +82,7 @@ export default function EpilazioneLaserCarmagnolaPage() {
     "@type": "WebPage",
     "@id": `${siteConfig.siteUrl}/epilazione-laser-carmagnola#webpage`,
     url: `${siteConfig.siteUrl}/epilazione-laser-carmagnola`,
-    name: "Epilazione Laser Carmagnola | Rebel",
+    name: "Epilazione laser a Carmagnola",
     description:
       "Pagina dedicata all'epilazione laser a Carmagnola con percorso personalizzato e orientamento pratico.",
     inLanguage: "it-IT",
