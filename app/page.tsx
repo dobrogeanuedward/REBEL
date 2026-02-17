@@ -28,8 +28,7 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default function HomePage() {
-  const heroPhotoCinematic =
-    "https://res.cloudinary.com/dx8tfq82f/image/upload/v1770780624/vetrtina2_krgcys.png";
+  const heroPhotoCinematic = siteConfig.assets.heroStorefront;
   const heroPhotoSquare =
     "https://res.cloudinary.com/dx8tfq82f/image/upload/v1770780833/vetrin3_ejnx5c.webp";
 
@@ -180,7 +179,7 @@ export default function HomePage() {
               <div className="home-hero-brand">
                 <span className="logo-glow logo-glow--lg">
                   <Image
-                    src="https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769422/rebel-logo-light_fvlqgi.webp"
+                    src={siteConfig.assets.logoLight}
                     alt="Rebel Estetica Epigenetica"
                     width={220}
                     height={72}

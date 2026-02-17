@@ -11,7 +11,7 @@ export function SiteFooter() {
             <div className="footer-brand-head">
               <span className="logo-glow logo-glow--xl">
                 <Image
-                  src="https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769422/rebel-logo-light_fvlqgi.webp"
+                  src={siteConfig.assets.logoLight}
                   alt="Rebel Estetica Epigenetica"
                   width={180}
                   height={62}
@@ -161,7 +161,7 @@ export function SiteFooter() {
           <div className="footer-bottom-left">
             <span className="logo-glow logo-glow--xs">
               <Image
-                src="https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769422/rebel-logo-light_fvlqgi.webp"
+                src={siteConfig.assets.logoLight}
                 alt=""
                 width={70}
                 height={24}

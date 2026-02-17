@@ -5,7 +5,13 @@ import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
 import { protocolCards } from "@/lib/content";
 import { competencePages, servicePages } from "@/lib/seo-content";
-import { buildBreadcrumbSchema, buildItemListSchema, createPageMetadata } from "@/lib/seo";
+import {
+  buildBreadcrumbSchema,
+  buildItemListSchema,
+  buildWebPageSchema,
+  createPageMetadata,
+} from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Servizi Estetici a Carmagnola | Viso, Corpo ed Epilazione Laser",
@@ -50,11 +56,18 @@ export default function ServiziHubPage() {
       path: `/servizi/${service.slug}`,
     })),
   });
+  const webPageSchema = buildWebPageSchema({
+    name: "Servizi Rebel a Carmagnola",
+    description:
+      "Panoramica dei servizi Rebel: estetica classica e benessere, laser e protocolli epigenetici.",
+    path: "/servizi",
+  });
 
   return (
     <main className="page-shell page-servizi">
       <JsonLd data={breadcrumb} />
       <JsonLd data={serviceListSchema} />
+      <JsonLd data={webPageSchema} />
       <PageHero
         eyebrow="I nostri servizi"
         title="Tutti i servizi Rebel a Carmagnola, organizzati per obiettivo reale."
@@ -74,7 +87,7 @@ export default function ServiziHubPage() {
             </p>
             <div className="hero-visual" style={{ marginTop: "1rem", borderRadius: 16 }}>
               <Image
-                src="https://res.cloudinary.com/dx8tfq82f/image/upload/v1770780624/vetrtina2_krgcys.png"
+                src={siteConfig.assets.heroStorefront}
                 alt="Studio Rebel a Carmagnola"
                 width={1200}
                 height={900}
@@ -93,10 +106,10 @@ export default function ServiziHubPage() {
           <aside className="card">
             <h2 style={{ marginTop: 0 }}>Come usare questa pagina</h2>
             <ul className="list-clean">
-              <li>- scegli prima la macro categoria</li>
-              <li>- apri il servizio specifico per dettagli e FAQ</li>
-              <li>- confronta in 2 minuti opzioni e prezzo indicativo</li>
-              <li>- poi fissiamo insieme il tuo piano in studio</li>
+              <li>- parti da quello che ti interessa di più (viso, corpo o laser)</li>
+              <li>- apri la scheda e scorri: trovi dettagli, FAQ e prezzo indicativo</li>
+              <li>- se hai un dubbio, scrivici due righe e ti orientiamo</li>
+              <li>- poi fissiamo insieme il primo step, senza correre</li>
             </ul>
             <div className="services-hub-shortcuts">
               <Link className="services-hub-shortcut" href="/epilazione-laser-carmagnola">Epilazione laser Carmagnola</Link>

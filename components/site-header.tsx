@@ -39,7 +39,7 @@ export function SiteHeader() {
         <Link href="/" className="header-logo desktop-logo" aria-label="Rebel Home">
           <span className="logo-glow logo-glow--lg">
             <Image
-              src="https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769422/rebel-logo-light_fvlqgi.webp"
+              src={siteConfig.assets.logoLight}
               alt="Rebel Estetica Epigenetica"
               width={132}
               height={46}
@@ -76,7 +76,7 @@ export function SiteHeader() {
           <Link href="/" className="mobile-brand" aria-label="Rebel Home">
             <span className="logo-glow logo-glow--sm">
               <Image
-                src="https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769422/rebel-logo-light_fvlqgi.webp"
+                src={siteConfig.assets.logoLight}
                 alt="Rebel Estetica Epigenetica"
                 width={140}
                 height={46}
@@ -124,7 +124,7 @@ export function SiteHeader() {
           <div className="mobile-nav-hero">
             <span className="mobile-nav-logo-glow logo-glow logo-glow--xl">
               <Image
-                src="https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769422/rebel-logo-light_fvlqgi.webp"
+                src={siteConfig.assets.logoLight}
                 alt="Rebel Estetica Epigenetica"
                 width={340}
                 height={118}

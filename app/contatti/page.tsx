@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ContactForm } from "@/components/contact-form";
 import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
-import { buildBreadcrumbSchema, createPageMetadata } from "@/lib/seo";
+import { buildBreadcrumbSchema, buildWebPageSchema, createPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
 type ContactIconKind = "whatsapp" | "phone" | "email" | "pin";
@@ -60,6 +60,12 @@ export default function ContattiPage() {
     { name: "Home", path: "/" },
     { name: "Contatti", path: "/contatti" },
   ]);
+  const webPageSchema = buildWebPageSchema({
+    name: "Contatti Rebel Carmagnola",
+    description:
+      "WhatsApp, telefono, email e mappa per raggiungere Rebel a Carmagnola.",
+    path: "/contatti",
+  });
 
   const contactSchema = {
     "@context": "https://schema.org",
@@ -126,6 +132,7 @@ export default function ContattiPage() {
   return (
     <main className="page-shell page-contatti">
       <JsonLd data={breadcrumb} />
+      <JsonLd data={webPageSchema} />
       <JsonLd data={contactSchema} />
       <PageHero
         eyebrow="Contatti locali Carmagnola"

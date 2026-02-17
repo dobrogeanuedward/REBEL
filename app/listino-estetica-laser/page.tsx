@@ -7,7 +7,7 @@ import { servicePages } from "@/lib/seo-content";
 import {
   buildBreadcrumbSchema,
   buildItemListSchema,
-  buildServiceSchema,
+  buildWebPageSchema,
   createPageMetadata,
 } from "@/lib/seo";
 
@@ -35,11 +35,12 @@ export default function ListinoPage() {
     { name: "Home", path: "/" },
     { name: "Listino estetica e laser", path: "/listino-estetica-laser" },
   ]);
-  const service = buildServiceSchema(
-    "Listino estetica classica ed epilazione laser a Carmagnola",
-    "Prezzi chiari per servizi estetici ed epilazione laser a Carmagnola.",
-    "/listino-estetica-laser",
-  );
+  const webPageSchema = buildWebPageSchema({
+    name: "Listino Rebel: estetica e laser a Carmagnola",
+    description:
+      "Prezzi e categorie principali: estetica classica e benessere, laser e protocolli epigenetici.",
+    path: "/listino-estetica-laser",
+  });
   const listinoItemListSchema = buildItemListSchema({
     name: "Listino Rebel Estetica e Laser",
     path: "/listino-estetica-laser",
@@ -52,7 +53,7 @@ export default function ListinoPage() {
   return (
     <main className="page-shell page-listino">
       <JsonLd data={breadcrumb} />
-      <JsonLd data={service} />
+      <JsonLd data={webPageSchema} />
       <JsonLd data={listinoItemListSchema} />
 
       <PageHero

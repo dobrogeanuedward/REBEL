@@ -4,7 +4,12 @@ import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
 import { competencePages } from "@/lib/seo-content";
-import { buildBreadcrumbSchema, buildItemListSchema, createPageMetadata } from "@/lib/seo";
+import {
+  buildBreadcrumbSchema,
+  buildItemListSchema,
+  buildWebPageSchema,
+  createPageMetadata,
+} from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Competenze ed Editoriali Estetici Locali | Carmagnola e Dintorni",
@@ -31,11 +36,18 @@ export default function CompetenzeHubPage() {
       path: `/competenze/${competence.slug}`,
     })),
   });
+  const webPageSchema = buildWebPageSchema({
+    name: "Guide e competenze Rebel",
+    description:
+      "Guide pratiche su laser, viso e corpo: cosa aspettarti e come scegliere da dove partire.",
+    path: "/competenze",
+  });
 
   return (
     <main className="page-shell page-competenze">
       <JsonLd data={breadcrumb} />
       <JsonLd data={competenceListSchema} />
+      <JsonLd data={webPageSchema} />
       <PageHero
         eyebrow="Approfondimenti"
         title="Guide Rebel: le domande che ci fate più spesso, messe nero su bianco."
@@ -71,10 +83,10 @@ export default function CompetenzeHubPage() {
           <aside className="card">
             <h2 style={{ marginTop: 0 }}>Da dove iniziare</h2>
             <ul className="list-clean">
-              <li>- leggi il tema che senti più vicino al tuo caso</li>
-              <li>- guarda i servizi consigliati in fondo pagina</li>
-              <li>- se vuoi, scrivici e ti orientiamo noi</li>
-              <li>- prenota quando ti è chiaro da dove partire</li>
+              <li>- scegli una guida che senti vicina al tuo caso</li>
+              <li>- scorri fino ai servizi consigliati: spesso ti chiariscono il primo passo</li>
+              <li>- se preferisci, scrivici e la scegliamo insieme</li>
+              <li>- prenota quando ti senti sicura della direzione</li>
             </ul>
             <div style={{ marginTop: "0.9rem", display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
               <Link className="button button-secondary" href="/epilazione-laser-carmagnola">

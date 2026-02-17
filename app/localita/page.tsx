@@ -3,7 +3,12 @@ import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
 import { localAreaPages } from "@/lib/local-pages";
-import { buildBreadcrumbSchema, buildItemListSchema, createPageMetadata } from "@/lib/seo";
+import {
+  buildBreadcrumbSchema,
+  buildItemListSchema,
+  buildWebPageSchema,
+  createPageMetadata,
+} from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Località servite da Rebel | Carmagnola, Torino Sud e Cuneo",
@@ -40,6 +45,12 @@ export default function LocalitaHubPage() {
     { name: "Home", path: "/" },
     { name: "Località", path: "/localita" },
   ]);
+  const webPageSchema = buildWebPageSchema({
+    name: "Localita servite da Rebel",
+    description:
+      "Pagine dedicate alle localita da cui ci raggiungono: focus e link utili per iniziare (laser, protocolli, servizi).",
+    path: "/localita",
+  });
   const localAreaListSchema = buildItemListSchema({
     name: "Aree servite Rebel",
     path: "/localita",
@@ -53,6 +64,7 @@ export default function LocalitaHubPage() {
     <main className="page-shell page-localita">
       <JsonLd data={breadcrumb} />
       <JsonLd data={localAreaListSchema} />
+      <JsonLd data={webPageSchema} />
       <PageHero
         eyebrow="Aree servite"
         title="Aree servite: Rebel per Carmagnola, Torino Sud e provincia di Cuneo."

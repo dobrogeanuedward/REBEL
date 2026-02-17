@@ -11,10 +11,9 @@ export const siteConfig = {
   assets: {
     logoLight:
       "https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769422/rebel-logo-light_fvlqgi.webp",
-    heroStorefront:
-      "https://res.cloudinary.com/dx8tfq82f/image/upload/v1770780624/vetrtina2_krgcys.png",
-    ogImage:
-      "https://res.cloudinary.com/dx8tfq82f/image/upload/v1770780624/vetrtina2_krgcys.png",
+    // Keep this in one place: used in hero blocks and OpenGraph.
+    heroStorefront: "https://epikey.rebelepigenetica.it/assets/rebel/vetrina2.webp",
+    ogImage: "https://epikey.rebelepigenetica.it/assets/rebel/vetrina2.webp",
   },
   phoneDisplay: "+39 351 691 9416",
   phoneRaw: "+393516919416",
