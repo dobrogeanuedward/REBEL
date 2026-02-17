@@ -9,6 +9,7 @@ import {
   getCompetenceBySlug,
   servicePages,
 } from "@/lib/seo-content";
+import { localAreaPages } from "@/lib/local-pages";
 import {
   buildArticleSchema,
   buildBreadcrumbSchema,
@@ -126,6 +127,19 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
         })
       : null;
 
+  const featuredAreas = localAreaPages.filter((area) => area.cluster === "asse-carmagnola").slice(0, 4);
+  const featuredAreasSchema =
+    featuredAreas.length > 0
+      ? buildItemListSchema({
+          name: `Localita vicine per ${competence.title}`,
+          path: `/competenze/${competence.slug}`,
+          items: featuredAreas.map((area) => ({
+            name: area.city,
+            path: `/localita/${area.slug}`,
+          })),
+        })
+      : null;
+
   return (
     <main
       className={`page-shell page-competenza-detail ${
@@ -140,6 +154,7 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
       <JsonLd data={faqSchema} />
       {relatedServicesSchema ? <JsonLd data={relatedServicesSchema} /> : null}
       {siblingCompetencesSchema ? <JsonLd data={siblingCompetencesSchema} /> : null}
+      {featuredAreasSchema ? <JsonLd data={featuredAreasSchema} /> : null}
       <PageHero
         eyebrow="Approfondimento"
         title={competence.title}
@@ -288,6 +303,36 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      {featuredAreas.length > 0 ? (
+        <section className="section section-light">
+          <div className="container">
+            <h2 className="page-title">Se arrivi dai comuni vicini</h2>
+            <p className="lead" style={{ marginTop: "0.5rem", color: "rgba(39,31,56,0.78)", maxWidth: "74ch" }}>
+              Per ogni localita abbiamo una pagina dedicata con focus diverso. Se vuoi orientarti in base alla tua zona,
+              qui trovi alcune localita vicine a Carmagnola.
+            </p>
+            <div className="grid grid-2" style={{ marginTop: "1rem" }}>
+              {featuredAreas.map((area) => (
+                <Link key={area.slug} href={`/localita/${area.slug}`} className="card-light">
+                  <h3 style={{ marginTop: 0 }}>{area.city}</h3>
+                  <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.78)" }}>
+                    {area.description}
+                  </p>
+                </Link>
+              ))}
+            </div>
+            <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
+              <Link className="button button-primary" href="/contatti">
+                Contatti
+              </Link>
+              <Link className="button button-secondary" href="/localita">
+                Vedi tutte le localita
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
     </main>
   );
 }

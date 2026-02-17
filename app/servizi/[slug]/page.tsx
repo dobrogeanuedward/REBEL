@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
+import { localAreaPages } from "@/lib/local-pages";
 import {
   getServiceBySlug,
   servicePages,
@@ -128,6 +129,19 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         })
       : null;
 
+  const featuredAreas = localAreaPages.filter((area) => area.cluster === "asse-carmagnola").slice(0, 4);
+  const featuredAreasSchema =
+    featuredAreas.length > 0
+      ? buildItemListSchema({
+          name: `Localita vicine per ${service.name}`,
+          path: `/servizi/${service.slug}`,
+          items: featuredAreas.map((area) => ({
+            name: area.city,
+            path: `/localita/${area.slug}`,
+          })),
+        })
+      : null;
+
   return (
     <main
       className={`page-shell page-servizio-detail ${
@@ -141,6 +155,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       <JsonLd data={faqSchema} />
       {relatedCompetencesSchema ? <JsonLd data={relatedCompetencesSchema} /> : null}
       {siblingServicesSchema ? <JsonLd data={siblingServicesSchema} /> : null}
+      {featuredAreasSchema ? <JsonLd data={featuredAreasSchema} /> : null}
       <PageHero
         eyebrow="Servizio"
         title={service.name}
@@ -285,6 +300,36 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      {featuredAreas.length > 0 ? (
+        <section className="section section-light">
+          <div className="container">
+            <h2 className="page-title">Se arrivi da fuori: localita vicine e percorsi</h2>
+            <p className="lead" style={{ marginTop: "0.5rem", color: "rgba(39,31,56,0.78)", maxWidth: "74ch" }}>
+              Molte clienti arrivano anche dai comuni vicini. Se ti e&apos; comodo, qui trovi le pagine dedicate:
+              hanno un focus diverso (laser, viso/corpo, protocolli) e ti aiutano a scegliere il primo passo.
+            </p>
+            <div className="grid grid-2" style={{ marginTop: "1rem" }}>
+              {featuredAreas.map((area) => (
+                <Link key={area.slug} href={`/localita/${area.slug}`} className="card-light">
+                  <h3 style={{ marginTop: 0 }}>{area.city}</h3>
+                  <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.78)" }}>
+                    {area.description}
+                  </p>
+                </Link>
+              ))}
+            </div>
+            <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
+              <Link className="button button-primary" href="/contatti">
+                Contatti e mappa
+              </Link>
+              <Link className="button button-secondary" href="/localita">
+                Vedi tutte le localita
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
     </main>
   );
 }
