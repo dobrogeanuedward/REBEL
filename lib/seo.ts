@@ -9,6 +9,7 @@ type CreatePageMetadataInput = {
   keywords?: string[];
   indexable?: boolean;
   openGraphType?: "website" | "article";
+  image?: string;
 };
 
 const dayMap: Record<string, string> = {
@@ -47,12 +48,13 @@ export function createPageMetadata({
   keywords = [],
   indexable = true,
   openGraphType = "website",
+  image,
 }: CreatePageMetadataInput): Metadata {
   const canonical = new URL(path, siteConfig.siteUrl).toString();
   const mergedKeywords = Array.from(
     new Set([...brandSeoKeywords, ...localSeoKeywords, ...keywords]),
   );
-  const ogImage = siteConfig.assets.ogImage;
+  const ogImage = new URL(image ?? siteConfig.assets.ogImage, siteConfig.siteUrl).toString();
   const ogAlt = `${siteConfig.name} | ${siteConfig.shortName} Carmagnola`;
 
   return {
@@ -123,6 +125,7 @@ export function buildOrganizationSchema() {
     sameAs: [
       ...primaryActivityProfiles,
       siteConfig.social.tiktok,
+      siteConfig.social.maps,
       siteConfig.social.googleCard,
     ],
     contactPoint: [
@@ -148,7 +151,12 @@ export function buildWebsiteSchema() {
     name: siteConfig.name,
     alternateName: [siteConfig.shortName, "Rebel Carmagnola"],
     inLanguage: siteConfig.locale,
-    sameAs: primaryActivityProfiles,
+    sameAs: [
+      ...primaryActivityProfiles,
+      siteConfig.social.maps,
+      siteConfig.social.googleCard,
+      siteConfig.social.tiktok,
+    ],
     publisher: {
       "@id": `${siteConfig.siteUrl}/#organization`,
     },

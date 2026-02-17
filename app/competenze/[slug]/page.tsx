@@ -47,6 +47,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     path: `/competenze/${competence.slug}`,
     keywords: competence.keywords,
     openGraphType: "article",
+    image: competence.heroImage?.src,
   });
 }
 
