@@ -231,8 +231,8 @@ export default function ServiziHubPage() {
           </h2>
           <p className="lead" style={{ marginTop: "0.5rem", color: "rgba(39,31,56,0.78)", maxWidth: "72ch" }}>
             Se stai valutando il laser o vuoi capire meglio cosa aspettarti da un percorso,
-            qui trovi testi positivi, chiari e tecnici dove serve. L&apos;idea e semplice: farti
-            arrivare alla consulenza con le domande giuste e con meno confusione.
+            qui trovi testi chiari e concreti, con dettagli tecnici quando servono. L&apos;idea è semplice:
+            arrivare alla consulenza con le domande giuste e un quadro più pulito.
           </p>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             {featuredEditorials.map((item) => (

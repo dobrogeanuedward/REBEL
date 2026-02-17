@@ -11,7 +11,9 @@ import {
 import {
   buildArticleSchema,
   buildBreadcrumbSchema,
+  buildItemListSchema,
   buildServiceSchema,
+  buildWebPageSchema,
   createPageMetadata,
 } from "@/lib/seo";
 
@@ -43,6 +45,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: service.shortDescription,
     path: `/servizi/${service.slug}`,
     keywords: service.keywords,
+    openGraphType: "article",
   });
 }
 
@@ -56,6 +59,11 @@ export default async function ServiceDetailPage({ params }: PageProps) {
     { name: "Servizi", path: "/servizi" },
     { name: service.name, path: `/servizi/${service.slug}` },
   ]);
+  const webPageSchema = buildWebPageSchema({
+    name: service.name,
+    description: service.shortDescription,
+    path: `/servizi/${service.slug}`,
+  });
   const serviceSchema = buildServiceSchema(
     service.name,
     service.longDescription,
@@ -84,6 +92,17 @@ export default async function ServiceDetailPage({ params }: PageProps) {
   const relatedCompetences = competencePages.filter((competence) =>
     service.relatedCompetenceSlugs.includes(competence.slug),
   );
+  const relatedCompetencesSchema =
+    relatedCompetences.length > 0
+      ? buildItemListSchema({
+          name: `Competenze correlate a ${service.name}`,
+          path: `/servizi/${service.slug}`,
+          items: relatedCompetences.map((item) => ({
+            name: item.title,
+            path: `/competenze/${item.slug}`,
+          })),
+        })
+      : null;
   const editorialSections = service.editorialSections ?? [];
   const sourceLinks = service.sourceLinks ?? [];
   const siblingServices = servicePages
@@ -97,6 +116,17 @@ export default async function ServiceDetailPage({ params }: PageProps) {
     .sort((a, b) => b.score - a.score)
     .slice(0, 4)
     .map(({ item }) => item);
+  const siblingServicesSchema =
+    siblingServices.length > 0
+      ? buildItemListSchema({
+          name: `Altri servizi simili a ${service.name}`,
+          path: `/servizi/${service.slug}`,
+          items: siblingServices.map((item) => ({
+            name: item.name,
+            path: `/servizi/${item.slug}`,
+          })),
+        })
+      : null;
 
   return (
     <main
@@ -105,9 +135,12 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       }`}
     >
       <JsonLd data={breadcrumb} />
+      <JsonLd data={webPageSchema} />
       <JsonLd data={serviceSchema} />
       <JsonLd data={articleSchema} />
       <JsonLd data={faqSchema} />
+      {relatedCompetencesSchema ? <JsonLd data={relatedCompetencesSchema} /> : null}
+      {siblingServicesSchema ? <JsonLd data={siblingServicesSchema} /> : null}
       <PageHero
         eyebrow="Servizio"
         title={service.name}
@@ -119,7 +152,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       <section className="section">
         <div className="container grid grid-2">
           <article className="card">
-            <h2 style={{ marginTop: 0 }}>Benefici principali</h2>
+            <h2 style={{ marginTop: 0 }}>Benefici: cosa puoi notare con {service.name}</h2>
             <ul className="list-clean">
               {service.benefits.map((benefit) => (
                 <li key={benefit}>- {benefit}</li>
@@ -143,7 +176,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           </article>
 
           <aside className="card">
-            <h2 style={{ marginTop: 0 }}>FAQ rapide</h2>
+            <h2 style={{ marginTop: 0 }}>Domande frequenti su {service.name}</h2>
             {service.faqs.map((faq) => (
               <div key={faq.q} className="faq-item">
                 <h3>{faq.q}</h3>
@@ -159,7 +192,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           <div className="container split">
             <article className="card glow-card">
               <p className="eyebrow">Da sapere</p>
-              <h2 style={{ marginTop: "0.45rem" }}>Prima di prenotare: qualche dettaglio utile</h2>
+              <h2 style={{ marginTop: "0.45rem" }}>Prima di prenotare {service.name}: qualche dettaglio utile</h2>
               {editorialSections.map((section) => (
                 <div key={section.heading} style={{ marginTop: "0.95rem" }}>
                   <h3 style={{ marginTop: 0 }}>{section.heading}</h3>
@@ -213,7 +246,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
       <section className="section section-light">
         <div className="container">
-          <h2 className="page-title">Competenze correlate</h2>
+          <h2 className="page-title">Guide utili se stai valutando {service.name}</h2>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             {relatedCompetences.map((competence) => (
               <Link
@@ -239,7 +272,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
       <section className="section">
         <div className="container">
-          <h2 className="page-title">Altri servizi simili</h2>
+          <h2 className="page-title">Se ti interessa {service.name}, guarda anche</h2>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             {siblingServices.map((item) => (
               <Link key={item.slug} href={`/servizi/${item.slug}`} className="card">

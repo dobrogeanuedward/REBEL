@@ -54,7 +54,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${siteConfig.siteUrl}/localita/${area.slug}`,
     lastModified,
     changeFrequency: "weekly",
-    priority: 0.74,
+    // Slightly higher priority for closer areas.
+    priority: area.cluster === "asse-carmagnola" ? 0.79 : area.cluster === "torino-sud" ? 0.77 : 0.75,
     images: [defaultImage],
   }));
 

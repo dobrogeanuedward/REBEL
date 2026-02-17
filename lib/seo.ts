@@ -8,6 +8,7 @@ type CreatePageMetadataInput = {
   path: string;
   keywords?: string[];
   indexable?: boolean;
+  openGraphType?: "website" | "article";
 };
 
 const dayMap: Record<string, string> = {
@@ -45,6 +46,7 @@ export function createPageMetadata({
   path,
   keywords = [],
   indexable = true,
+  openGraphType = "website",
 }: CreatePageMetadataInput): Metadata {
   const canonical = new URL(path, siteConfig.siteUrl).toString();
   const mergedKeywords = Array.from(
@@ -86,7 +88,7 @@ export function createPageMetadata({
       url: canonical,
       siteName: siteConfig.name,
       locale: "it_IT",
-      type: "website",
+      type: openGraphType,
       images: [
         {
           url: ogImage,
@@ -274,18 +276,19 @@ export function buildServiceSchema(
   serviceDescription: string,
   path: string,
 ) {
+  const url = new URL(path, siteConfig.siteUrl).toString();
   return {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": `${url}#service`,
+    name: serviceName,
     serviceType: serviceName,
     description: serviceDescription,
     areaServed: siteConfig.areasServed,
     provider: {
-      "@type": "BeautySalon",
-      name: siteConfig.name,
-      url: siteConfig.siteUrl,
+      "@id": `${siteConfig.siteUrl}/#beauty-salon`,
     },
-    url: new URL(path, siteConfig.siteUrl).toString(),
+    url,
   };
 }
 
@@ -295,6 +298,7 @@ type BuildArticleSchemaInput = {
   path: string;
   keywords?: string[];
   section?: string;
+  image?: string;
 };
 
 export function buildArticleSchema({
@@ -303,29 +307,39 @@ export function buildArticleSchema({
   path,
   keywords = [],
   section,
+  image,
 }: BuildArticleSchemaInput) {
   const url = new URL(path, siteConfig.siteUrl).toString();
+  const imageUrl = new URL(image ?? siteConfig.assets.ogImage, siteConfig.siteUrl).toString();
 
   return {
     "@context": "https://schema.org",
     "@type": "Article",
+    "@id": `${url}#article`,
     headline,
     description,
     inLanguage: "it-IT",
-    mainEntityOfPage: url,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${url}#webpage`,
+    },
     url,
     articleSection: section,
     keywords: keywords.join(", "),
     datePublished: siteConfig.lastUpdated,
     dateModified: siteConfig.lastUpdated,
+    image: [imageUrl],
+    isPartOf: {
+      "@id": `${siteConfig.siteUrl}/#website`,
+    },
+    about: {
+      "@id": `${siteConfig.siteUrl}/#beauty-salon`,
+    },
     author: {
-      "@type": "Organization",
-      name: siteConfig.name,
+      "@id": `${siteConfig.siteUrl}/#organization`,
     },
     publisher: {
-      "@type": "Organization",
-      name: siteConfig.name,
-      url: siteConfig.siteUrl,
+      "@id": `${siteConfig.siteUrl}/#organization`,
     },
   };
 }
@@ -349,6 +363,36 @@ export function buildItemListSchema({ name, path, items }: BuildItemListSchemaIn
       name: item.name,
       url: new URL(item.path, siteConfig.siteUrl).toString(),
     })),
+  };
+}
+
+export function buildWebPageSchema({
+  name,
+  description,
+  path,
+}: {
+  name: string;
+  description: string;
+  path: string;
+}) {
+  const url = new URL(path, siteConfig.siteUrl).toString();
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${url}#webpage`,
+    url,
+    name,
+    description,
+    inLanguage: siteConfig.locale,
+    isPartOf: {
+      "@id": `${siteConfig.siteUrl}/#website`,
+    },
+    about: {
+      "@id": `${siteConfig.siteUrl}/#beauty-salon`,
+    },
+    publisher: {
+      "@id": `${siteConfig.siteUrl}/#organization`,
+    },
   };
 }
 

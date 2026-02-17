@@ -14,6 +14,7 @@ export const metadata: Metadata = createPageMetadata({
   description:
     "Epilazione laser a Carmagnola con tecnologia Thory e percorso personalizzato. Valutazione iniziale, protocollo su misura e supporto continuo da Rebel.",
   path: "/epilazione-laser-carmagnola",
+  openGraphType: "article",
   keywords: [
     "epilazione laser Carmagnola",
     "laser Carmagnola",
@@ -96,11 +97,10 @@ export default function EpilazioneLaserCarmagnolaPage() {
     },
     mainEntity: {
       "@type": "Service",
+      "@id": `${siteConfig.siteUrl}/epilazione-laser-carmagnola#service`,
       name: "Epilazione laser a Carmagnola",
       provider: {
-        "@type": "BeautySalon",
-        name: siteConfig.name,
-        url: siteConfig.siteUrl,
+        "@id": `${siteConfig.siteUrl}/#beauty-salon`,
       },
     },
   };

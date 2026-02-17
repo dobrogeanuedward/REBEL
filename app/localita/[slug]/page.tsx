@@ -3,8 +3,14 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
+import type { LocalAreaPage } from "@/lib/local-pages";
 import { getLocalAreaBySlug, localAreaPages } from "@/lib/local-pages";
-import { buildArticleSchema, buildBreadcrumbSchema, createPageMetadata } from "@/lib/seo";
+import {
+  buildArticleSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+  createPageMetadata,
+} from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
 type Params = {
@@ -35,6 +41,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: area.description,
     path: `/localita/${area.slug}`,
     keywords: area.keywords,
+    openGraphType: "article",
   });
 }
 
@@ -51,6 +58,11 @@ export default async function LocalAreaDetailPage({ params }: PageProps) {
     { name: "Località", path: "/localita" },
     { name: area.city, path: `/localita/${area.slug}` },
   ]);
+  const webPageSchema = buildWebPageSchema({
+    name: area.title,
+    description: area.description,
+    path: `/localita/${area.slug}`,
+  });
 
   // Keep structured data aligned with what the user can actually read on the page.
   const pageFaqs = area.faqs ?? [];
@@ -76,12 +88,52 @@ export default async function LocalAreaDetailPage({ params }: PageProps) {
     keywords: area.keywords,
     section: "Aree servite",
   });
+  const focusLinks = area.focus?.links ?? [];
+  type FocusLink = NonNullable<NonNullable<LocalAreaPage["focus"]>["links"]>[number];
+  const isLaserLink = (href: string) =>
+    href.includes("/epilazione-laser") || (href.startsWith("/servizi/") && href.includes("laser"));
+  const isAdvancedLink = (href: string) =>
+    href === "/protocolli-epigenetici" || href.includes("/competenze/estetica-avanzata");
+  const isClassicServiceLink = (href: string) =>
+    href.startsWith("/servizi/") && !href.includes("laser") && !href.includes("epilazione-laser");
+
+  const pickFirst = (predicate: (href: string) => boolean) =>
+    focusLinks.find((link) => predicate(link.href));
+  const suggestedLinksRaw: Array<FocusLink | undefined> = [
+    pickFirst(isLaserLink),
+    pickFirst(isAdvancedLink),
+    pickFirst(isClassicServiceLink),
+  ];
+  const suggestedLinksFiltered: FocusLink[] = suggestedLinksRaw.filter(
+    (item): item is FocusLink => Boolean(item),
+  );
+  const suggestedLinks = Array.from(
+    new Map(suggestedLinksFiltered.map((item) => [item.href, item])).values(),
+  );
+  const toAbsoluteUrl = (href: string) =>
+    href.startsWith("http") ? href : `${siteConfig.siteUrl}${href.startsWith("/") ? href : `/${href}`}`;
+  const focusLinksSchema =
+    focusLinks.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: `Link utili per ${area.city}`,
+          itemListElement: focusLinks.map((item, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            name: item.label,
+            url: toAbsoluteUrl(item.href),
+          })),
+        }
+      : null;
 
   return (
     <main className="page-shell page-localita-detail">
       <JsonLd data={breadcrumb} />
+      <JsonLd data={webPageSchema} />
       <JsonLd data={articleSchema} />
       {faqSchema ? <JsonLd data={faqSchema} /> : null}
+      {focusLinksSchema ? <JsonLd data={focusLinksSchema} /> : null}
       <PageHero
         eyebrow="Rebel vicino a te"
         title={area.title}
@@ -93,7 +145,7 @@ export default async function LocalAreaDetailPage({ params }: PageProps) {
       <section className="section">
         <div className="container grid grid-2">
           <article className="card glow-card">
-            <h2 style={{ marginTop: 0 }}>Perché molte clienti scelgono Rebel</h2>
+            <h2 style={{ marginTop: 0 }}>Perché chi arriva da {area.city} sceglie Rebel</h2>
             <ul className="list-clean">
               {area.whyRebel.map((point) => (
                 <li key={point}>- {point}</li>
@@ -101,12 +153,26 @@ export default async function LocalAreaDetailPage({ params }: PageProps) {
             </ul>
           </article>
           <aside className="card">
-            <h2 style={{ marginTop: 0 }}>Prossimo passo consigliato</h2>
+            <h2 style={{ marginTop: 0 }}>Se arrivi da {area.city}: da dove partire</h2>
             <p className="lead" style={{ marginTop: 0 }}>
-              Se stai confrontando più centri estetici tra {area.city} e dintorni, la scelta
-              migliore è partire da una lettura iniziale seria e capire quale percorso ha
-              davvero senso per te (viso, corpo o laser), senza improvvisare.
+              Se vieni da {area.city} e vuoi partire con un percorso fatto bene, scegliamo insieme
+              una priorità (laser, viso o corpo) e impostiamo ritmo e obiettivo. Se vuoi, da qui
+              puoi dare uno sguardo ai passaggi più richiesti da chi arriva dalla tua zona.
             </p>
+            {suggestedLinks.length > 0 ? (
+              <div style={{ marginTop: "0.85rem", display: "grid", gap: "0.55rem" }}>
+                {suggestedLinks.map((item) => (
+                  <Link key={item.href} className="link-card" href={item.href}>
+                    <span className="link-card-content">
+                      <span className="link-card-title">{item.label}</span>
+                      {item.description ? (
+                        <small className="link-card-desc">{item.description}</small>
+                      ) : null}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            ) : null}
             <div
               style={{
                 marginTop: "1rem",
@@ -244,7 +310,7 @@ export default async function LocalAreaDetailPage({ params }: PageProps) {
       {pageFaqs.length > 0 && (
         <section className="section section-light">
           <div className="container">
-            <h2 className="page-title">Domande frequenti</h2>
+            <h2 className="page-title">Domande frequenti (da {area.city})</h2>
             <div className="grid grid-2" style={{ marginTop: "1rem" }}>
               {pageFaqs.map((faq) => (
                 <article key={faq.q} className="card-light">
@@ -269,7 +335,7 @@ export default async function LocalAreaDetailPage({ params }: PageProps) {
       {relatedAreas.length > 0 && (
         <section className="section section-light">
           <div className="container">
-            <h2 className="page-title">Comuni vicini già serviti</h2>
+            <h2 className="page-title">Comuni vicini a {area.city}</h2>
             <p className="lead" style={{ marginTop: "0.5rem", color: "rgba(39,31,56,0.78)" }}>
               Se vuoi, puoi vedere anche le pagine dedicate ai comuni più vicini a {area.city}.
             </p>

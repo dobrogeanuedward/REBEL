@@ -15,6 +15,7 @@ export const metadata: Metadata = createPageMetadata({
   description:
     "Ice Polar e comfort durante l'epilazione laser: cosa cambia in seduta, come lo usiamo in studio e cosa aspettarti da un percorso laser a Carmagnola.",
   path: "/epilazione-laser-ice-polar-carmagnola",
+  openGraphType: "article",
   keywords: [
     "Ice Polar Carmagnola",
     "laser con Ice Polar Carmagnola",
@@ -43,7 +44,7 @@ export default function EpilazioneLaserIcePolarCarmagnolaPage() {
   const articleSchema = buildArticleSchema({
     headline: "Epilazione laser con Ice Polar a Carmagnola",
     description:
-      "Una guida chiara sul manipolo Ice Polar: comfort, metodo e indicazioni pratiche prima di iniziare un percorso laser.",
+      "Una guida chiara sul manipolo Ice Polar: comfort, metodo e consigli pratici prima di iniziare un percorso laser.",
     path: "/epilazione-laser-ice-polar-carmagnola",
     keywords: [
       "Ice Polar",
@@ -71,7 +72,7 @@ export default function EpilazioneLaserIcePolarCarmagnolaPage() {
         name: "Perché il comfort è importante in un percorso laser?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Perché un percorso laser funziona meglio quando riesci a seguirlo con serenità: un trattamento più confortevole rende più semplice mantenere il calendario e rispettare le indicazioni tra una seduta e l'altra.",
+          text: "Perché un percorso laser funziona meglio quando riesci a seguirlo con serenità: un trattamento più confortevole rende più semplice mantenere il calendario e rispettare le poche regole tra una seduta e l'altra.",
         },
       },
       {
@@ -111,7 +112,7 @@ export default function EpilazioneLaserIcePolarCarmagnolaPage() {
             </p>
             <p className="lead">
               Il laser si fa in più sedute: se stai più comoda, è più facile tenere il calendario
-              e rispettare le indicazioni tra un appuntamento e l&apos;altro.
+              e rispettare le poche regole tra un appuntamento e l&apos;altro.
             </p>
           </article>
 

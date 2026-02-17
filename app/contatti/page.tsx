@@ -130,7 +130,7 @@ export default function ContattiPage() {
       <PageHero
         eyebrow="Contatti locali Carmagnola"
         title="Contattaci quando vuoi: ti rispondiamo in modo rapido e chiaro."
-        lead="Puoi scriverci su WhatsApp, chiamarci o compilare il form qui sotto. Ti aiutiamo a capire da dove partire, con indicazioni semplici e utili."
+        lead="Puoi scriverci su WhatsApp, chiamarci o compilare il form qui sotto. Ti aiutiamo a capire da dove partire, con consigli pratici e utili."
         badge="Viale Barbaroux 20, Carmagnola"
         tone="emerald"
       />
@@ -236,7 +236,7 @@ export default function ContattiPage() {
 
       <section className="section section-light">
         <div className="container">
-          <h2 className="page-title">Mappa e indicazioni rapide</h2>
+          <h2 className="page-title">Mappa e come arrivare</h2>
           <p
             className="lead"
             style={{ color: "rgba(39,31,56,0.78)", marginTop: "0.8rem" }}

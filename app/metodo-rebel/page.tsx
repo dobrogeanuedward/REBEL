@@ -4,8 +4,10 @@ import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
 import { methodSteps } from "@/lib/content";
 import {
+  buildArticleSchema,
   buildBreadcrumbSchema,
   buildServiceSchema,
+  buildWebPageSchema,
   createPageMetadata,
 } from "@/lib/seo";
 
@@ -14,6 +16,7 @@ export const metadata: Metadata = createPageMetadata({
   description:
     "Il Metodo Rebel a Carmagnola: lettura iniziale, attivi intelligenti, tecnologia Thory, riprogrammazione e piano di mantenimento.",
   path: "/metodo-rebel",
+  openGraphType: "article",
   keywords: [
     "metodo estetica Carmagnola",
     "analisi pelle Carmagnola",
@@ -26,16 +29,32 @@ export default function MetodoPage() {
     { name: "Home", path: "/" },
     { name: "Metodo Rebel", path: "/metodo-rebel" },
   ]);
+  const webPageSchema = buildWebPageSchema({
+    name: "Metodo Rebel in 5 Step",
+    description:
+      "Il Metodo Rebel: lettura iniziale, protocollo, tecnologia quando serve e mantenimento.",
+    path: "/metodo-rebel",
+  });
   const service = buildServiceSchema(
     "Metodo estetico epigenetico personalizzato",
     "Percorso in 5 step per riattivare tono, luminosità e qualità cutanea.",
     "/metodo-rebel",
   );
+  const articleSchema = buildArticleSchema({
+    headline: "Metodo Rebel in 5 step",
+    description:
+      "Come lavoriamo in studio: lettura iniziale, protocollo, tecnologia quando serve e mantenimento.",
+    path: "/metodo-rebel",
+    keywords: ["metodo Rebel", "metodo estetico Carmagnola", "percorso estetico"],
+    section: "Metodo",
+  });
 
   return (
     <main className="page-shell page-metodo">
       <JsonLd data={breadcrumb} />
+      <JsonLd data={webPageSchema} />
       <JsonLd data={service} />
+      <JsonLd data={articleSchema} />
 
       <PageHero
         eyebrow="Metodo proprietario"

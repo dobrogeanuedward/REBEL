@@ -5,13 +5,19 @@ import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
 import { StoreGallery } from "@/components/store-gallery";
 import { storeGalleryImages } from "@/lib/content";
-import { buildBreadcrumbSchema, createPageMetadata } from "@/lib/seo";
+import {
+  buildArticleSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+  createPageMetadata,
+} from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Chi Siamo: Centro Estetico Avanzato a Carmagnola",
   description:
     "Conosci Rebel: studio estetico a Carmagnola con estetica epigenetica, trattamenti viso/corpo e laser, impostati con metodo e seguiti nel tempo.",
   path: "/chi-siamo",
+  openGraphType: "article",
   keywords: [
     "chi siamo centro estetico Carmagnola",
     "Rebel estetica Carmagnola",
@@ -24,10 +30,26 @@ export default function ChiSiamoPage() {
     { name: "Home", path: "/" },
     { name: "Chi siamo", path: "/chi-siamo" },
   ]);
+  const webPageSchema = buildWebPageSchema({
+    name: "Chi siamo: Rebel Carmagnola",
+    description:
+      "Chi siamo, come lavoriamo e cosa puoi aspettarti da un percorso Rebel (viso, corpo o laser).",
+    path: "/chi-siamo",
+  });
+  const articleSchema = buildArticleSchema({
+    headline: "Chi siamo: Rebel a Carmagnola",
+    description:
+      "Identità Rebel, metodo e atmosfera dello studio: cosa facciamo e come impostiamo i percorsi.",
+    path: "/chi-siamo",
+    keywords: ["chi siamo Rebel", "centro estetico Carmagnola", "estetica epigenetica"],
+    section: "Chi siamo",
+  });
 
   return (
     <main className="page-shell page-chi-siamo">
       <JsonLd data={breadcrumb} />
+      <JsonLd data={webPageSchema} />
+      <JsonLd data={articleSchema} />
       <PageHero
         eyebrow="Identità Rebel"
         title="Rebel è un centro estetico a Carmagnola dove la pelle si guarda davvero."

@@ -4,8 +4,10 @@ import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
 import { protocolCards } from "@/lib/content";
 import {
+  buildArticleSchema,
   buildBreadcrumbSchema,
   buildServiceSchema,
+  buildWebPageSchema,
   createPageMetadata,
 } from "@/lib/seo";
 
@@ -14,6 +16,7 @@ export const metadata: Metadata = createPageMetadata({
   description:
     "Scopri i protocolli epigenetici Rebel a Carmagnola: percorsi viso e corpo su tono, densità, luminosità, drenaggio e rigenerazione.",
   path: "/protocolli-epigenetici",
+  openGraphType: "article",
   keywords: [
     "protocolli epigenetici Carmagnola",
     "trattamenti viso avanzati Carmagnola",
@@ -26,16 +29,32 @@ export default function ProtocolliPage() {
     { name: "Home", path: "/" },
     { name: "Protocolli epigenetici", path: "/protocolli-epigenetici" },
   ]);
+  const webPageSchema = buildWebPageSchema({
+    name: "Protocolli epigenetici a Carmagnola",
+    description:
+      "Una panoramica dei protocolli Rebel: viso e corpo, con focus su tono, densità, luminosità e rigenerazione.",
+    path: "/protocolli-epigenetici",
+  });
   const service = buildServiceSchema(
     "Trattamenti epigenetici viso e corpo",
     "Protocolli personalizzati con attivi funzionali e tecnologia calibrata.",
     "/protocolli-epigenetici",
   );
+  const articleSchema = buildArticleSchema({
+    headline: "Protocolli epigenetici a Carmagnola",
+    description:
+      "Cosa sono i protocolli Rebel e come si scelgono: direzione, progressione e lettura iniziale.",
+    path: "/protocolli-epigenetici",
+    keywords: ["protocolli epigenetici", "estetica epigenetica", "Carmagnola"],
+    section: "Protocolli",
+  });
 
   return (
     <main className="page-shell page-protocolli">
       <JsonLd data={breadcrumb} />
+      <JsonLd data={webPageSchema} />
       <JsonLd data={service} />
+      <JsonLd data={articleSchema} />
 
       <PageHero
         eyebrow="Protocolli Rebel"

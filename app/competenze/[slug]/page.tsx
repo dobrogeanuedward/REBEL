@@ -12,7 +12,8 @@ import {
 import {
   buildArticleSchema,
   buildBreadcrumbSchema,
-  buildServiceSchema,
+  buildItemListSchema,
+  buildWebPageSchema,
   createPageMetadata,
 } from "@/lib/seo";
 
@@ -44,6 +45,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: competence.shortDescription,
     path: `/competenze/${competence.slug}`,
     keywords: competence.keywords,
+    openGraphType: "article",
   });
 }
 
@@ -57,17 +59,18 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
     { name: "Competenze", path: "/competenze" },
     { name: competence.title, path: `/competenze/${competence.slug}` },
   ]);
-  const serviceSchema = buildServiceSchema(
-    competence.title,
-    competence.longDescription,
-    `/competenze/${competence.slug}`,
-  );
+  const webPageSchema = buildWebPageSchema({
+    name: competence.title,
+    description: competence.shortDescription,
+    path: `/competenze/${competence.slug}`,
+  });
   const articleSchema = buildArticleSchema({
     headline: competence.title,
     description: competence.longDescription,
     path: `/competenze/${competence.slug}`,
     keywords: competence.keywords,
     section: competence.intent === "commercial" ? "Guide commerciali" : "Guide informative",
+    image: competence.heroImage?.src,
   });
   const faqSchema = {
     "@context": "https://schema.org",
@@ -85,6 +88,17 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
   const relatedServices = servicePages.filter((service) =>
     competence.relatedServiceSlugs.includes(service.slug),
   );
+  const relatedServicesSchema =
+    relatedServices.length > 0
+      ? buildItemListSchema({
+          name: `Servizi consigliati per ${competence.title}`,
+          path: `/competenze/${competence.slug}`,
+          items: relatedServices.map((service) => ({
+            name: service.name,
+            path: `/servizi/${service.slug}`,
+          })),
+        })
+      : null;
   const editorialSections = competence.editorialSections ?? [];
   const sourceLinks = competence.sourceLinks ?? [];
   const siblingCompetences = competencePages
@@ -100,6 +114,17 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
     .sort((a, b) => b.score - a.score)
     .slice(0, 4)
     .map(({ item }) => item);
+  const siblingCompetencesSchema =
+    siblingCompetences.length > 0
+      ? buildItemListSchema({
+          name: `Altre guide correlate a ${competence.title}`,
+          path: `/competenze/${competence.slug}`,
+          items: siblingCompetences.map((item) => ({
+            name: item.title,
+            path: `/competenze/${item.slug}`,
+          })),
+        })
+      : null;
 
   return (
     <main
@@ -110,9 +135,11 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
       }`}
     >
       <JsonLd data={breadcrumb} />
-      <JsonLd data={serviceSchema} />
+      <JsonLd data={webPageSchema} />
       <JsonLd data={articleSchema} />
       <JsonLd data={faqSchema} />
+      {relatedServicesSchema ? <JsonLd data={relatedServicesSchema} /> : null}
+      {siblingCompetencesSchema ? <JsonLd data={siblingCompetencesSchema} /> : null}
       <PageHero
         eyebrow="Approfondimento"
         title={competence.title}
@@ -124,11 +151,11 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
       <section className="section">
         <div className="container grid grid-2">
           <article className="card">
-            <h2 style={{ marginTop: 0 }}>Perché è rilevante a Carmagnola</h2>
+            <h2 style={{ marginTop: 0 }}>Perché {competence.title} conta a Carmagnola</h2>
             <p className="lead" style={{ marginTop: 0 }}>
               {competence.localAngle}
             </p>
-            <h3 style={{ marginBottom: "0.5rem" }}>Benefici principali</h3>
+            <h3 style={{ marginBottom: "0.5rem" }}>Cosa ti porti a casa da questa guida</h3>
             <ul className="list-clean">
               {competence.benefits.map((benefit) => (
                 <li key={benefit}>- {benefit}</li>
@@ -136,7 +163,7 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
             </ul>
           </article>
           <aside className="card">
-            <h2 style={{ marginTop: 0 }}>FAQ</h2>
+            <h2 style={{ marginTop: 0 }}>Domande frequenti su {competence.title}</h2>
             {competence.faqs.map((faq) => (
               <div key={faq.q} className="faq-item">
                 <h3>{faq.q}</h3>
@@ -152,7 +179,7 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
           <div className="container split">
             <article className="card glow-card">
               <p className="eyebrow">Dal nostro studio</p>
-              <h2 style={{ marginTop: "0.45rem" }}>Cosa conta davvero (e cosa no)</h2>
+              <h2 style={{ marginTop: "0.45rem" }}>Su {competence.title}: cosa conta davvero</h2>
               {editorialSections.map((section) => (
                 <div key={section.heading} style={{ marginTop: "0.95rem" }}>
                   <h3 style={{ marginTop: 0 }}>{section.heading}</h3>
@@ -218,7 +245,7 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
 
       <section className="section section-light">
         <div className="container">
-          <h2 className="page-title">Servizi consigliati</h2>
+          <h2 className="page-title">Servizi che si abbinano a {competence.title}</h2>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             {relatedServices.map((service) => (
               <Link key={service.slug} href={`/servizi/${service.slug}`} className="card-light">
@@ -248,7 +275,7 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
 
       <section className="section">
         <div className="container">
-          <h2 className="page-title">Altre competenze</h2>
+          <h2 className="page-title">Altre guide simili</h2>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             {siblingCompetences.map((item) => (
               <Link key={item.slug} href={`/competenze/${item.slug}`} className="card">

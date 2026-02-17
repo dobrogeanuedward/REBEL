@@ -62,7 +62,7 @@ export const servicePages: ServicePage[] = [
     faqs: [
       {
         q: "Ogni quanto conviene fare una pulizia viso?",
-        a: "Spesso tra 4 e 6 settimane, ma la frequenza giusta dipende da pelle, stagione e routine a casa. Dopo la prima seduta ti diciamo un ritmo semplice da seguire.",
+        a: "Spesso tra 4 e 6 settimane, ma la frequenza giusta dipende da pelle, stagione e routine a casa. Dopo la prima seduta ti proponiamo un ritmo realistico, coerente con la tua pelle.",
       },
       {
         q: "Dopo la pulizia viso avrò rossore?",
@@ -70,7 +70,7 @@ export const servicePages: ServicePage[] = [
       },
       {
         q: "Cosa conviene fare (e non fare) dopo la seduta?",
-        a: "Ti diamo indicazioni semplici: detersione delicata, idratazione e protezione solare. In generale evitiamo di sovraccaricare la pelle con troppi attivi aggressivi nei giorni immediatamente successivi.",
+        a: "Ti lasciamo due consigli pratici: detersione delicata, idratazione e protezione solare. In generale evitiamo di sovraccaricare la pelle con troppi attivi aggressivi nei giorni immediatamente successivi.",
       },
     ],
     keywords: [
@@ -103,7 +103,7 @@ export const servicePages: ServicePage[] = [
         heading: "Frequenza e mantenimento: la parte che fa durare il risultato",
         paragraphs: [
           "La seduta in studio dà direzione, ma il mantenimento fa durare. Non servono dieci prodotti: servono pochi passaggi coerenti (detersione, idratazione, protezione).",
-          "Dopo la prima pulizia viso ti proponiamo un ritmo semplice e sostenibile: così non rincorri la pelle, la accompagni.",
+          "Dopo la prima pulizia viso ti proponiamo un ritmo realistico: così non rincorri la pelle, la accompagni.",
         ],
       },
     ],
@@ -151,7 +151,7 @@ export const servicePages: ServicePage[] = [
       },
       {
         q: "Dopo lo scrub corpo posso fare palestra o sauna?",
-        a: "Dipende da come risponde la tua pelle. In genere, nelle prime ore è meglio evitare calore eccessivo e sfregamenti intensi; ti diamo indicazioni semplici in base alle zone trattate.",
+        a: "Dipende da come risponde la tua pelle. In genere, nelle prime ore è meglio evitare calore eccessivo e sfregamenti intensi; ti lasciamo due dritte in base alle zone trattate.",
       },
     ],
     keywords: [
@@ -179,7 +179,7 @@ export const servicePages: ServicePage[] = [
         heading: "Frequenza: il risultato migliore arriva quando non si esagera",
         paragraphs: [
           "Esfoliare troppo spesso può rendere la pelle più sensibile e meno stabile. Il nostro approccio è l'opposto: poche sedute, distanziate bene, e mantenimento semplice.",
-          "Dopo la prima seduta ti diciamo una frequenza realistica, che riesci a seguire senza trasformare la routine corpo in un lavoro.",
+          "Dopo la prima seduta ti diciamo una frequenza realistica, senza trasformare la routine corpo in un lavoro.",
         ],
       },
       {
@@ -213,7 +213,7 @@ export const servicePages: ServicePage[] = [
     benefits: [
       "Aiuta a ridurre la sensazione di gonfiore e pesantezza",
       "Sensazione di leggerezza più stabile quando inserito con un ritmo coerente",
-      "Supporta percorsi corpo con un piano personalizzato e sostenibile",
+      "Supporta percorsi corpo con un piano personalizzato che puoi mantenere nel tempo",
     ],
     faqs: [
       {
@@ -230,7 +230,7 @@ export const servicePages: ServicePage[] = [
       },
       {
         q: "C'è qualcosa da fare dopo la seduta?",
-        a: "Ti consigliamo indicazioni semplici: idratarti, muoverti con calma e non sovraccaricare subito il corpo con calore eccessivo o attività troppo intensa se ti senti già \"scarica\". Ti orientiamo in base alla tua giornata.",
+        a: "Ti lasciamo due dritte pratiche: idratarti, muoverti con calma e non sovraccaricare subito il corpo con calore eccessivo o attività troppo intensa se ti senti già \"scarica\". Poi adattiamo tutto alla tua giornata.",
       },
       {
         q: "Se ho una condizione specifica, posso farlo comunque?",
@@ -264,7 +264,7 @@ export const servicePages: ServicePage[] = [
         ],
       },
       {
-        heading: "Quanto spesso farlo: il ritmo che riesci a seguire",
+        heading: "Quanto spesso farlo: un ritmo che ti viene naturale",
         paragraphs: [
           "C'è chi lo sceglie come seduta singola nei periodi più carichi, e chi preferisce una serie di sedute per dare continuità. La scelta dipende da tempo, obiettivo e risposta del corpo.",
           "La regola che usiamo è pratica: meglio poche sedute fatte con costanza e buon senso che un'intensità difficile da mantenere.",
@@ -274,7 +274,7 @@ export const servicePages: ServicePage[] = [
         heading: "Piccoli gesti che aiutano tra una seduta e l'altra",
         paragraphs: [
           "Il drenaggio in studio è un pezzo del puzzle. Tra una seduta e l'altra, anche solo camminare un po' di più, idratarsi e non stare sempre ferma può aiutare la sensazione di leggerezza.",
-          "Se vuoi, ti diamo indicazioni semplici (senza stravolgerti la routine) per far durare meglio l'effetto percepito.",
+          "Se vuoi, ti lasciamo due dritte (senza stravolgerti la routine) per far durare meglio l'effetto percepito.",
         ],
       },
     ],
@@ -464,7 +464,7 @@ export const servicePages: ServicePage[] = [
       },
       {
         q: "Cosa conviene evitare per farlo durare meglio?",
-        a: "Piccole cose: non usare le unghie come \"attrezzi\", idratare mani e cuticole e proteggere le mani quando fai lavori domestici. Ti diamo indicazioni semplici, non una lista infinita di regole.",
+        a: "Piccole cose: non usare le unghie come \"attrezzi\", idratare mani e cuticole e proteggere le mani quando fai lavori domestici. Ti lasciamo due dritte, non una lista infinita di regole.",
       },
     ],
     keywords: [
@@ -538,11 +538,11 @@ export const servicePages: ServicePage[] = [
       },
       {
         q: "Devo radermi prima della seduta?",
-        a: "Di solito sì: il rasoio è la scelta più semplice prima del laser. In fase di prenotazione ti diamo indicazioni pratiche su tempistiche e cosa evitare.",
+        a: "Di solito sì: il rasoio è la scelta più semplice prima del laser. In fase di prenotazione ti diciamo tempistiche e cosa evitare, senza complicazioni.",
       },
       {
         q: "Tra una seduta e l'altra posso fare ceretta o pinzetta?",
-        a: "In generale, durante un percorso laser si evita l'epilazione a strappo perché interferisce con il ciclo del pelo. Per mantenere ordine tra le sedute, di solito si usa il rasoio e si seguono indicazioni mirate per la zona viso.",
+        a: "In generale, durante un percorso laser si evita l'epilazione a strappo perché interferisce con il ciclo del pelo. Per mantenere ordine tra le sedute, di solito si usa il rasoio e si seguono poche regole mirate per la zona viso.",
       },
       {
         q: "Quando iniziano a vedersi cambiamenti?",
@@ -671,7 +671,7 @@ export const servicePages: ServicePage[] = [
         ],
       },
       {
-        heading: "Preparazione e post-seduta: indicazioni pratiche, senza liste infinite",
+        heading: "Preparazione e post-seduta: consigli pratici, senza liste infinite",
         paragraphs: [
           "Prima della seduta ti diciamo cosa fare e cosa evitare. Dopo, puntiamo a una pelle tranquilla: poche regole, protezione e niente esperimenti aggressivi nei giorni immediatamente successivi.",
           "Se hai dubbi su sport, doccia, prodotti o routine, ci scrivi: meglio una gestione ordinata che una gestione \"a tentativi\".",
@@ -733,7 +733,7 @@ export const competencePages: CompetencePage[] = [
       },
       {
         q: "Il prezzo più basso è sempre la scelta migliore?",
-        a: "Non sempre. A parità di servizio, conta molto la qualità dell'esecuzione, la chiarezza delle indicazioni e la continuità del percorso. Un prezzo più basso può diventare più caro se ti costringe a ripartire da zero ogni volta.",
+        a: "Non sempre. A parità di servizio, conta molto la qualità dell'esecuzione, la chiarezza su cosa viene fatto e la continuità del percorso. Un prezzo più basso può diventare più caro se ti costringe a ripartire da zero ogni volta.",
       },
       {
         q: "Come capisco se un percorso è davvero \"su misura\"?",
@@ -754,13 +754,13 @@ export const competencePages: CompetencePage[] = [
         heading: "Prima di scegliere: chiarisci obiettivo e priorità (non il nome del trattamento)",
         paragraphs: [
           "La domanda più utile non è \"che trattamento fate?\", ma \"cosa voglio ottenere e in che tempi?\". Luminosità, comfort della pelle, gestione della ricrescita, mani ordinate: sono obiettivi diversi e richiedono strade diverse.",
-          "Quando un centro ti aiuta a chiarire priorità e ritmo, la scelta diventa più semplice e anche il percorso è più sostenibile.",
+          "Quando un centro ti aiuta a chiarire priorità e ritmo, la scelta diventa più semplice e anche il percorso è più realistico.",
         ],
       },
       {
         heading: "Le domande che cambiano la decisione (anche con un messaggio su WhatsApp)",
         paragraphs: [
-          "Chiedi chi imposta il protocollo, come vengono date le indicazioni post-trattamento e cosa succede se devi spostare una seduta. Un centro serio risponde con chiarezza e ti fa capire il perché delle scelte.",
+          "Chiedi chi imposta il protocollo, come ti spiegano cosa fare dopo e cosa succede se devi spostare una seduta. Un centro serio risponde con chiarezza e ti fa capire il perché delle scelte.",
           "Se invece la risposta è vaga o solo commerciale, spesso significa che anche il percorso sarà poco chiaro. La chiarezza, in estetica, è parte della qualità.",
         ],
       },
@@ -837,7 +837,7 @@ export const competencePages: CompetencePage[] = [
         heading: "Estetica avanzata: non è \"più forte\", è più precisa",
         paragraphs: [
           "Per noi avanzata significa precisione: capire cosa serve davvero, evitare eccessi e lavorare con una progressione sensata. Non è un trattamento \"standard\" uguale per tutti.",
-          "La qualità si vede quando il percorso è chiaro da spiegare e facile da seguire: poche cose fatte bene, con continuità.",
+          "La qualità si vede quando il percorso resta lineare: poche cose fatte bene, con continuità.",
         ],
       },
       {
@@ -958,7 +958,7 @@ export const competencePages: CompetencePage[] = [
     slug: "laser-diodo-carmagnola",
     title: "Laser diodo a Carmagnola",
     shortDescription:
-      "Spiegazione pratica del laser diodo, chiara e concreta.",
+      "Guida pratica al laser diodo: cosa significa e cosa aspettarti.",
     longDescription:
       "Cosa significa davvero \"laser diodo\" per l'epilazione: differenze con IPL, cosa aspettarsi, come valutare un centro serio e come impostare un percorso coerente.",
     localAngle:
@@ -972,7 +972,7 @@ export const competencePages: CompetencePage[] = [
     faqs: [
       {
         q: "Laser diodo e luce pulsata sono la stessa cosa?",
-        a: "No, hanno caratteristiche tecniche e indicazioni differenti.",
+        a: "No: sono tecnologie diverse e si usano in modo diverso.",
       },
       {
         q: "Il laser diodo è sempre adatto?",
@@ -1046,7 +1046,7 @@ export const competencePages: CompetencePage[] = [
     shortDescription:
       "Trattamenti viso su luminosità, grana della pelle e comfort, con percorso su misura.",
     longDescription:
-      "Una guida pratica per scegliere il trattamento viso giusto partendo dalla pelle di oggi (non dalla moda del momento). In Rebel lavoriamo per step: lettura iniziale, trattamento mirato e indicazioni semplici per mantenere il risultato anche a casa.",
+      "Una guida pratica per scegliere il trattamento viso giusto partendo dalla pelle di oggi (non dalla moda del momento). In Rebel lavoriamo per step: lettura iniziale, trattamento mirato e pochi consigli per mantenere il risultato anche a casa.",
     localAngle:
       "Utile se cerchi a Carmagnola un trattamento viso fatto bene e vuoi capire da dove partire.",
     intent: "commercial",
@@ -1066,7 +1066,7 @@ export const competencePages: CompetencePage[] = [
       },
       {
         q: "Ogni quanto conviene fare un trattamento viso?",
-        a: "Spesso tra 4 e 6 settimane, ma il ritmo giusto dipende da pelle, stagione e obiettivo. In studio lo rendiamo semplice: ti diciamo una frequenza sostenibile, non una tabella impossibile.",
+        a: "Spesso tra 4 e 6 settimane, ma il ritmo giusto dipende da pelle, stagione e obiettivo. In studio lo rendiamo semplice: ti diciamo una frequenza che sta nella tua settimana, non una tabella impossibile.",
       },
       {
         q: "Cosa posso fare a casa per far durare di più il risultato?",
@@ -1678,7 +1678,7 @@ export const competencePages: CompetencePage[] = [
         heading: "Partiamo da una verità semplice: il drenaggio non è una bacchetta magica",
         paragraphs: [
           "Il linfodrenante può dare una sensazione di leggerezza concreta e aiutare nella gestione del gonfiore, ma non sostituisce tutto il resto.",
-          "Quando viene inserito in un piano coerente, con tempi adeguati e monitoraggio, diventa molto più utile e sostenibile.",
+          "Quando viene inserito in un piano coerente, con tempi adeguati e monitoraggio, diventa molto più utile nel tempo.",
         ],
       },
       {
@@ -1692,7 +1692,7 @@ export const competencePages: CompetencePage[] = [
         heading: "Approccio professionale: ascolto, adattamento, continuità",
         paragraphs: [
           "Un percorso drenante efficace nasce da osservazione e adattamento: non tutte le settimane sono uguali e non tutte le persone rispondono allo stesso modo.",
-          "La qualità del risultato dipende da quanto il piano resta umano: chiaro da capire, facile da seguire.",
+          "La qualità del risultato dipende da quanto il piano resta umano: chiaro da capire e lineare da portare avanti.",
         ],
       },
     ],
@@ -1708,6 +1708,77 @@ export const competencePages: CompetencePage[] = [
     ],
   },
 ];
+
+type SeoContentValidation = {
+  errors: string[];
+  warnings: string[];
+};
+
+function validateSeoContent(): SeoContentValidation {
+  const errors: string[] = [];
+  const warnings: string[] = [];
+
+  const seenServiceSlugs = new Set<string>();
+  const seenCompetenceSlugs = new Set<string>();
+
+  for (const service of servicePages) {
+    if (seenServiceSlugs.has(service.slug)) errors.push(`Duplicate service slug: ${service.slug}`);
+    seenServiceSlugs.add(service.slug);
+
+    if ((service.benefits || []).length < 3) warnings.push(`[servizi/${service.slug}] benefits < 3`);
+    if ((service.faqs || []).length < 2) warnings.push(`[servizi/${service.slug}] faqs < 2`);
+    if ((service.keywords || []).length < 3) warnings.push(`[servizi/${service.slug}] keywords < 3`);
+
+    if ((service.editorialSections ?? []).length < 2)
+      warnings.push(`[servizi/${service.slug}] editorialSections < 2 (may be thin)`);
+  }
+
+  for (const competence of competencePages) {
+    if (seenCompetenceSlugs.has(competence.slug))
+      errors.push(`Duplicate competence slug: ${competence.slug}`);
+    seenCompetenceSlugs.add(competence.slug);
+
+    if ((competence.benefits || []).length < 3)
+      warnings.push(`[competenze/${competence.slug}] benefits < 3`);
+    if ((competence.faqs || []).length < 2)
+      warnings.push(`[competenze/${competence.slug}] faqs < 2`);
+    if ((competence.keywords || []).length < 3)
+      warnings.push(`[competenze/${competence.slug}] keywords < 3`);
+
+    if ((competence.editorialSections ?? []).length < 2)
+      warnings.push(`[competenze/${competence.slug}] editorialSections < 2 (may be thin)`);
+  }
+
+  // Cross-link integrity (warn only).
+  const competenceSlugSet = new Set(competencePages.map((c) => c.slug));
+  const serviceSlugSet = new Set(servicePages.map((s) => s.slug));
+
+  for (const service of servicePages) {
+    for (const related of service.relatedCompetenceSlugs ?? []) {
+      if (!competenceSlugSet.has(related))
+        warnings.push(`[servizi/${service.slug}] missing competence reference: ${related}`);
+    }
+  }
+
+  for (const competence of competencePages) {
+    for (const related of competence.relatedServiceSlugs ?? []) {
+      if (!serviceSlugSet.has(related))
+        warnings.push(`[competenze/${competence.slug}] missing service reference: ${related}`);
+    }
+  }
+
+  return { errors, warnings };
+}
+
+const seoContentValidation = validateSeoContent();
+if (seoContentValidation.errors.length > 0) {
+  throw new Error(`[seo-content] Invalid content:\n${seoContentValidation.errors.join("\n")}`);
+}
+
+if (process.env.NODE_ENV !== "production" && seoContentValidation.warnings.length > 0) {
+  // eslint-disable-next-line no-console
+  console.warn(`[seo-content] Quality warnings:\n${seoContentValidation.warnings.join("\n")}\n`);
+}
 
 export function getServiceBySlug(slug: string) {
   return servicePages.find((item) => item.slug === slug);

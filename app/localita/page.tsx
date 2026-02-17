@@ -6,9 +6,9 @@ import { localAreaPages } from "@/lib/local-pages";
 import { buildBreadcrumbSchema, buildItemListSchema, createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Rebel per Carmagnola e Dintorni | Aree Servite",
+  title: "Località servite da Rebel | Carmagnola, Torino Sud e Cuneo",
   description:
-    "Scopri tutte le localita servite da Rebel tra asse Carmagnola, Torino Sud e provincia di Cuneo.",
+    "Pagine dedicate alle località da cui ci raggiungono: percorsi laser, estetica avanzata e servizi classici, con link utili per orientarti e prenotare.",
   path: "/localita",
   keywords: [
     "centro estetico Carmagnola e dintorni",
@@ -56,8 +56,8 @@ export default function LocalitaHubPage() {
       <PageHero
         eyebrow="Aree servite"
         title="Aree servite: Rebel per Carmagnola, Torino Sud e provincia di Cuneo."
-        lead="Qui trovi le pagine dedicate per ogni comune servito, organizzate per zona geografica e con indicazioni utili per iniziare."
-        badge={`${localAreaPages.length} localita coperte`}
+        lead="Qui trovi una pagina per ogni località da cui ci raggiungono: in ciascuna trovi un focus diverso (laser, viso/corpo, protocolli) e una selezione di servizi classici da abbinare quando serve."
+        badge={`${localAreaPages.length} località coperte`}
         tone="rose"
       />
 
