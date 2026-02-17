@@ -57,7 +57,7 @@ export const servicePages: ServicePage[] = [
     slug: "pulizia-viso-carmagnola",
     name: "Pulizia viso a Carmagnola",
     shortDescription:
-      "Pulizia viso completa per pelle impura, spenta o appesantita.",
+      "Pulizia viso completa e delicata per pelle impura, spenta o appesantita: comfort, pori più puliti e grana più uniforme.",
     longDescription:
       "Una pulizia viso fatta bene parte dall'osservazione della pelle e lavora per step: detersione, esfoliazione delicata, pulizia mirata e fase lenitiva. L'obiettivo non è stressare, ma lasciare la pelle più pulita, luminosa e comoda nei giorni successivi.",
     priceHint: "da EUR 49",
@@ -135,7 +135,7 @@ export const servicePages: ServicePage[] = [
     slug: "scrub-corpo-carmagnola",
     name: "Scrub corpo a Carmagnola",
     shortDescription:
-      "Esfoliazione corpo per pelle liscia, morbida e uniforme.",
+      "Scrub corpo con esfoliazione controllata per pelle più liscia e uniforme, utile per semplificare idratazione e mantenimento.",
     longDescription:
       "Lo scrub corpo è un'esfoliazione controllata: rimuove le cellule superficiali in eccesso e lascia la pelle più uniforme al tatto. In studio lo impostiamo in modo sensato (zone, pressione, prodotto e tempi) per evitare irritazioni e ottenere un risultato piacevole anche nei giorni successivi.",
     priceHint: "da EUR 49",
@@ -218,7 +218,7 @@ export const servicePages: ServicePage[] = [
     slug: "massaggio-linfodrenante-carmagnola",
     name: "Massaggio linfodrenante a Carmagnola",
     shortDescription:
-      "Massaggio drenante delicato per alleggerire e ritrovare leggerezza.",
+      "Massaggio linfodrenante drenante e progressivo per gonfiore e pesantezza: manualità delicata, ritmo realistico e comfort.",
     longDescription:
       "Il linfodrenante è un massaggio drenante delicato e progressivo: aiuta a ridurre la sensazione di gonfiore e pesantezza e a ritrovare una percezione più leggera del corpo (soprattutto su gambe e addome). In studio lo impostiamo con manualità graduali, ascolto e un piano coerente: l'obiettivo è farti stare meglio, senza esagerare e senza promesse.",
     priceHint: "da EUR 69",
