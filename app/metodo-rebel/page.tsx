@@ -40,7 +40,7 @@ export default function MetodoPage() {
       <PageHero
         eyebrow="Metodo proprietario"
         title="Dal primo ascolto alla riprogrammazione cutanea: il Metodo Rebel."
-        lead="Un percorso semplice in 5 passaggi, pensato per adattarsi davvero alla tua pelle e ai tuoi obiettivi."
+        lead="Cinque passaggi, sempre gli stessi: ascolto, lettura iniziale, protocollo, tecnologia quando serve e mantenimento."
         badge="Metodo orientato alla continuità"
         tone="ocean"
       />
@@ -69,14 +69,14 @@ export default function MetodoPage() {
 
       <section className="section section-light">
         <div className="container">
-          <h2 className="page-title">Perché questo metodo funziona nella pratica.</h2>
+          <h2 className="page-title">Perché questo metodo funziona, nella pratica</h2>
           <p
             className="lead"
             style={{ color: "rgba(39,31,56,0.8)", maxWidth: "74ch" }}
           >
-            Quando hai chiari i passaggi, anche i risultati diventano più facili da
-            seguire. Sai sempre cosa stiamo facendo, perché lo facciamo e in quanto
-            tempo puoi aspettarti un cambiamento.
+            Con un metodo non si va a tentativi. Ti diciamo cosa facciamo oggi e cosa ci
+            aspettiamo nelle prossime settimane, con tempi realistici e scelte coerenti
+            con la tua pelle e la tua agenda.
           </p>
           <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
             <Link className="button button-primary" href="/protocolli-epigenetici">

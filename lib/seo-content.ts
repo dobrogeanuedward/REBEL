@@ -178,7 +178,7 @@ export const servicePages: ServicePage[] = [
       {
         heading: "Frequenza: il risultato migliore arriva quando non si esagera",
         paragraphs: [
-          "Esfoliare troppo spesso può rendere la pelle più sensibile e meno stabile. Il nostro approccio è l'opposto: ritmo sostenibile, sedute ben distanziate e mantenimento semplice.",
+          "Esfoliare troppo spesso può rendere la pelle più sensibile e meno stabile. Il nostro approccio è l'opposto: poche sedute, distanziate bene, e mantenimento semplice.",
           "Dopo la prima seduta ti diciamo una frequenza realistica, che riesci a seguire senza trasformare la routine corpo in un lavoro.",
         ],
       },
@@ -352,7 +352,7 @@ export const servicePages: ServicePage[] = [
         heading: "Quanto spesso farlo: singola seduta o ritmo regolare",
         paragraphs: [
           "C'è chi lo fa ogni tanto, quando sente di averne bisogno. E c'è chi preferisce un ritmo più regolare, soprattutto nei periodi stressanti o quando la tensione torna sempre nelle stesse zone.",
-          "La scelta dipende da tempo e obiettivo. La regola che consigliamo è semplice: meglio un ritmo sostenibile che una corsa fatta una volta e poi dimenticata.",
+          "La scelta dipende da tempo e obiettivo. La regola che consigliamo è semplice: meglio un ritmo che riesci a tenere che una corsa fatta una volta e poi dimenticata.",
         ],
       },
       {
@@ -420,7 +420,7 @@ export const servicePages: ServicePage[] = [
         ],
       },
       {
-        heading: "Ciglia e sopracciglia: cosa cambia nella vita reale",
+        heading: "Ciglia e sopracciglia: cosa cambia quando ti prepari (anche senza trucco)",
         paragraphs: [
           "Quando ciglia e sopracciglia sono più disciplinate, cambia anche il modo in cui ti prepari: meno tempo, meno correzioni, una sensazione di ordine che resta anche senza trucco.",
           "È un trattamento ideale se vuoi un look curato e pulito, ma non ami l'effetto artificiale.",
@@ -429,8 +429,8 @@ export const servicePages: ServicePage[] = [
       {
         heading: "Durata e mantenimento: farlo restare bello più a lungo",
         paragraphs: [
-          "La durata dipende da crescita naturale e abitudini. Dopo la seduta ti diamo indicazioni semplici per proteggere il risultato e mantenere la zona confortevole.",
-          "Se vuoi, possiamo anche consigliarti un ritmo di mantenimento che sia sostenibile e coerente con la tua routine.",
+          "La durata dipende da crescita naturale e abitudini. Dopo la seduta ti diciamo come trattare la zona nelle prime ore, così il risultato resta più stabile e confortevole.",
+          "Se vuoi, ti consigliamo anche ogni quanto rifarla in base alla tua crescita e alle tue abitudini.",
         ],
       },
     ],
@@ -456,7 +456,7 @@ export const servicePages: ServicePage[] = [
       },
       {
         q: "Ogni quanto è consigliato rifarlo?",
-        a: "Spesso ogni 2-3 settimane, ma dipende da ricrescita e da quanto usi le mani nella vita reale. In studio ti consigliamo un ritmo sostenibile (e bello da vedere).",
+        a: "Spesso ogni 2-3 settimane, ma dipende da ricrescita e da quanto usi le mani (lavoro, casa, sport). In studio ti consigliamo una frequenza che tenga il risultato ordinato e l'unghia in forma.",
       },
       {
         q: "Posso scegliere un effetto molto naturale?",
@@ -520,63 +520,189 @@ export const servicePages: ServicePage[] = [
     slug: "epilazione-laser-viso-carmagnola",
     name: "Epilazione laser viso a Carmagnola",
     shortDescription:
-      "Laser viso per ridurre progressivamente la ricrescita.",
+      "Laser viso (baffetti, mento e altre zone) con percorso su misura e comfort Ice Polar.",
     longDescription:
-      "Con Thory impostiamo il laser in base a fototipo, zona e obiettivo. Il manipolo Ice Polar aiuta a rendere la seduta più confortevole. Il percorso è graduale, con controlli regolari e attenzione al comfort.",
+      "L'epilazione laser viso da Rebel è pensata per chi vuole mettere ordine nella ricrescita su zone delicate. Impostiamo parametri e calendario in base a fototipo, zona e obiettivo, con manipolo Ice Polar per un comfort migliore. Tra una seduta e l'altra ti lasciamo poche regole pratiche per tenere la pelle tranquilla.",
     priceHint: "da EUR 25.90 per zona",
     category: "laser",
     benefits: [
-      "Ricrescita progressivamente ridotta",
-      "Migliore gestione dei peli incarniti",
-      "Protocollo personalizzato e monitorato",
+      "Ricrescita progressivamente più gestibile nel tempo",
+      "Approccio delicato e graduale su una zona sensibile",
+      "Percorso seguito, con consigli pratici tra una seduta e l'altra",
+      "Comfort migliorato con Ice Polar e settaggio su misura",
     ],
     faqs: [
       {
         q: "Il laser viso è adatto alle pelli sensibili?",
-        a: "Sì, dopo valutazione iniziale e settaggio corretto.",
+        a: "Spesso sì, ma dipende dalla tua pelle oggi e dalla zona. Facciamo sempre una valutazione iniziale e impostiamo in modo graduale, adattando intensità e calendario alla risposta cutanea.",
       },
       {
-        q: "Quante sedute servono?",
-        a: "Dipende da zona e risposta personale. In genere serve un ciclo completo per un risultato stabile.",
+        q: "Devo radermi prima della seduta?",
+        a: "Di solito sì: il rasoio è la scelta più semplice prima del laser. In fase di prenotazione ti diamo indicazioni pratiche su tempistiche e cosa evitare.",
+      },
+      {
+        q: "Tra una seduta e l'altra posso fare ceretta o pinzetta?",
+        a: "In generale, durante un percorso laser si evita l'epilazione a strappo perché interferisce con il ciclo del pelo. Per mantenere ordine tra le sedute, di solito si usa il rasoio e si seguono indicazioni mirate per la zona viso.",
+      },
+      {
+        q: "Quando iniziano a vedersi cambiamenti?",
+        a: "I cambiamenti sono progressivi e dipendono da zona e risposta individuale. In studio preferiamo darti aspettative chiare (seduta dopo seduta) piuttosto che promesse veloci.",
       },
     ],
     keywords: [
+      "epilazione laser viso Carmagnola",
       "laser viso Carmagnola",
       "epilazione baffetti Carmagnola",
       "epilazione mento Carmagnola",
+      "laser basette Carmagnola",
     ],
-    relatedCompetenceSlugs: ["epilazione-laser-carmagnola", "laser-diodo-carmagnola"],
+    relatedCompetenceSlugs: [
+      "epilazione-laser-carmagnola",
+      "laser-diodo-carmagnola",
+      "epilazione-laser-viso-carmagnola-guida-realistica",
+    ],
+    editorialSections: [
+      {
+        heading: "Zone viso: come scegliamo la priorità (senza fare tutto insieme a caso)",
+        paragraphs: [
+          "Sul viso la differenza la fa l'ordine: scegliamo prima la zona che ti dà più fastidio nella quotidianità e impostiamo un piano che riesci a portare avanti.",
+          "Se vuoi trattare più aree (ad esempio baffetti e mento), lo decidiamo insieme in base a sensibilità cutanea, obiettivo e tollerabilità: meglio un piano chiaro che mille tentativi.",
+        ],
+      },
+      {
+        heading: "Comfort: Ice Polar come aiuto, settaggio graduale come metodo",
+        paragraphs: [
+          "Il viso è una zona delicata e la percezione può cambiare molto da persona a persona. Ice Polar aiuta a rendere la seduta più confortevole, soprattutto su aree più sensibili.",
+          "La parte più importante, però, resta il settaggio: lavoriamo in modo graduale, così la pelle resta più tranquilla e il percorso è più facile da portare avanti.",
+        ],
+      },
+      {
+        heading: "Preparazione e post-seduta: poche regole, ma fatte bene",
+        paragraphs: [
+          "Prima della seduta ti diciamo cosa fare (e cosa evitare), così arrivi preparata senza ansia. Dopo, l'obiettivo è tenere la pelle confortevole: niente eccessi, niente esperimenti, solo accorgimenti pratici.",
+          "Se hai dubbi tra una seduta e l'altra, ci scrivi: preferiamo una domanda in più a una gestione improvvisata.",
+        ],
+      },
+      {
+        heading: "Calendario: perché la costanza conta più della singola seduta",
+        paragraphs: [
+          "Il laser è un percorso: per questo il calendario viene impostato e poi adattato in base alla risposta della pelle e alla progressione della ricrescita.",
+          "Saltare spesso o cambiare ritmo ogni mese rende più difficile leggere i risultati. Noi puntiamo a un calendario coerente, che riesci a tenere.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - Laser hair removal: Preparation",
+        url: "https://www.aad.org/public/cosmetic/hair-removal/laser-hair-removal-preparation",
+      },
+      {
+        label: "AAD - Laser hair removal FAQs",
+        url: "https://www.aad.org/public/cosmetic/hair-removal/laser-hair-removal-faqs",
+      },
+      {
+        label: "Mayo Clinic - Laser hair removal",
+        url: "https://www.mayoclinic.org/tests-procedures/laser-hair-removal/about/pac-20394555",
+      },
+      {
+        label: "NHS - Laser hair removal",
+        url: "https://www.nhs.uk/conditions/cosmetic-procedures/non-surgical-cosmetic-procedures/laser-hair-removal/",
+      },
+    ],
   },
   {
     slug: "epilazione-laser-corpo-carmagnola",
     name: "Epilazione laser corpo a Carmagnola",
     shortDescription:
-      "Laser corpo su aree singole o multiple, con percorso su misura.",
+      "Laser corpo su aree singole o multiple, con piano sedute organizzato e comfort Ice Polar.",
     longDescription:
-      "Il laser corpo viene pianificato sulle zone che vuoi trattare, con Thory e manipolo Ice Polar per migliorare la tollerabilità durante la seduta.",
+      "Il laser corpo da Rebel si pianifica sulle zone che vuoi trattare, mettendo in fila priorità, calendario e controlli. Usiamo Thory con manipolo Ice Polar per migliorare il comfort durante la seduta e lavoriamo con settaggio su misura. Tra una seduta e l'altra ti lasciamo regole pratiche per non irritare la pelle.",
     priceHint: "da EUR 25.90 a 103.60",
     category: "laser",
     benefits: [
-      "Riduzione progressiva della ricrescita",
-      "Migliore comfort nel tempo",
-      "Piano strutturato su zone e stagionalità",
+      "Riduzione progressiva della ricrescita con percorso seguito",
+      "Organizzazione sensata: zone, calendario e priorità chiare",
+      "Comfort migliorato durante la seduta con Ice Polar",
+      "Indicazioni pratiche pre/post per una pelle più tranquilla",
     ],
     faqs: [
       {
         q: "Il laser corpo è doloroso?",
-        a: "Dipende dalla sensibilità personale, ma impostiamo sempre il trattamento per renderlo tollerabile.",
+        a: "Dipende da zona e sensibilità personale. In studio lavoriamo sempre in modo graduale e su misura; Ice Polar aiuta a migliorare il comfort durante la seduta.",
       },
       {
         q: "Posso trattare più zone nello stesso appuntamento?",
-        a: "Sì, con pianificazione adeguata.",
+        a: "Sì. Decidiamo insieme in base a zone, tempi e tollerabilità: a volte conviene fare più aree, altre volte è meglio impostare una priorità per mantenere il percorso più semplice.",
+      },
+      {
+        q: "Cosa conviene fare prima della seduta?",
+        a: "Ti diciamo come preparare la zona e cosa evitare. In generale, il rasoio è la scelta più comune, mentre l'epilazione a strappo di solito si evita durante il percorso.",
+      },
+      {
+        q: "Tra una seduta e l'altra posso fare scrub o trattamenti corpo?",
+        a: "Spesso sì, ma con timing e delicatezza. Ti indichiamo quando è ok farlo e quando invece è meglio aspettare, così la pelle resta confortevole e non si irrita inutilmente.",
       },
     ],
     keywords: [
+      "epilazione laser corpo Carmagnola",
       "laser corpo Carmagnola",
       "epilazione laser ascelle Carmagnola",
       "epilazione laser inguine Carmagnola",
+      "epilazione laser gambe Carmagnola",
     ],
-    relatedCompetenceSlugs: ["epilazione-laser-carmagnola", "laser-diodo-carmagnola"],
+    relatedCompetenceSlugs: [
+      "epilazione-laser-carmagnola",
+      "laser-diodo-carmagnola",
+      "epilazione-laser-corpo-carmagnola-zone-tempi",
+    ],
+    editorialSections: [
+      {
+        heading: "Zone corpo: come organizziamo il ciclo (una zona alla volta o più zone)",
+        paragraphs: [
+          "Sul corpo la domanda più comune è: meglio fare tante zone insieme o partire da una? Non esiste una regola unica: dipende da obiettivo, tempo e tollerabilità.",
+          "Noi preferiamo una strategia pulita: priorità chiare, calendario realistico e controlli regolari. Così il percorso resta gestibile e non diventa un puzzle.",
+        ],
+      },
+      {
+        heading: "Calendario e stagioni: il percorso funziona quando è coerente",
+        paragraphs: [
+          "Il laser non è una singola seduta: è una sequenza. Per questo il calendario viene impostato e poi adattato in base alla risposta della pelle e alla progressione della ricrescita.",
+          "Se cambia la stagione o il tuo ritmo di vita, non si \"butta\" tutto: si ritarano le sedute in modo sensato, mantenendo continuità.",
+        ],
+      },
+      {
+        heading: "Preparazione e post-seduta: indicazioni pratiche, senza liste infinite",
+        paragraphs: [
+          "Prima della seduta ti diciamo cosa fare e cosa evitare. Dopo, puntiamo a una pelle tranquilla: poche regole, protezione e niente esperimenti aggressivi nei giorni immediatamente successivi.",
+          "Se hai dubbi su sport, doccia, prodotti o routine, ci scrivi: meglio una gestione ordinata che una gestione \"a tentativi\".",
+        ],
+      },
+      {
+        heading: "Comfort: Ice Polar aiuta, ma la vera differenza è il settaggio su misura",
+        paragraphs: [
+          "Ice Polar migliora il comfort durante la seduta, ma la parte più importante è sempre come viene impostato il trattamento: parametri, zona, risposta della pelle e progressione.",
+          "Lavoriamo con attenzione e gradualità: così il corpo si adatta meglio, e tu riesci a seguire il percorso con più serenità.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - Laser hair removal: Preparation",
+        url: "https://www.aad.org/public/cosmetic/hair-removal/laser-hair-removal-preparation",
+      },
+      {
+        label: "AAD - Laser hair removal FAQs",
+        url: "https://www.aad.org/public/cosmetic/hair-removal/laser-hair-removal-faqs",
+      },
+      {
+        label: "Mayo Clinic - Laser hair removal",
+        url: "https://www.mayoclinic.org/tests-procedures/laser-hair-removal/about/pac-20394555",
+      },
+      {
+        label: "NHS - Laser hair removal",
+        url: "https://www.nhs.uk/conditions/cosmetic-procedures/non-surgical-cosmetic-procedures/laser-hair-removal/",
+      },
+    ],
   },
 ];
 
@@ -599,11 +725,19 @@ export const competencePages: CompetencePage[] = [
     faqs: [
       {
         q: "Quali segnali indicano un centro estetico affidabile?",
-        a: "Metodo chiaro, comunicazione trasparente, obiettivi concreti e continuita nel tempo.",
+        a: "Metodo chiaro, comunicazione trasparente, obiettivi concreti e continuità nel tempo. Se ti spiegano cosa fanno e perché, senza promesse esagerate, sei già su una buona strada.",
+      },
+      {
+        q: "Cosa conviene chiedere durante la prima consulenza?",
+        a: "Chiedi come viene impostato il percorso, cosa succede tra le sedute, come si gestisce il post-trattamento e come si adatta il piano se la risposta della pelle cambia. Sono domande semplici, ma fanno emergere subito quanto un centro è organizzato.",
       },
       {
         q: "Il prezzo più basso è sempre la scelta migliore?",
-        a: "Non sempre: conta il valore complessivo del percorso e la qualità dell'esecuzione.",
+        a: "Non sempre. A parità di servizio, conta molto la qualità dell'esecuzione, la chiarezza delle indicazioni e la continuità del percorso. Un prezzo più basso può diventare più caro se ti costringe a ripartire da zero ogni volta.",
+      },
+      {
+        q: "Come capisco se un percorso è davvero \"su misura\"?",
+        a: "Quando non ti propongono una formula identica per tutti. Un percorso su misura parte da una lettura iniziale, definisce priorità e ritmo, e viene aggiustato nel tempo in base alla risposta reale.",
       },
     ],
     keywords: [
@@ -614,6 +748,49 @@ export const competencePages: CompetencePage[] = [
     relatedServiceSlugs: [
       "pulizia-viso-carmagnola",
       "epilazione-laser-corpo-carmagnola",
+    ],
+    editorialSections: [
+      {
+        heading: "Prima di scegliere: chiarisci obiettivo e priorità (non il nome del trattamento)",
+        paragraphs: [
+          "La domanda più utile non è \"che trattamento fate?\", ma \"cosa voglio ottenere e in che tempi?\". Luminosità, comfort della pelle, gestione della ricrescita, mani ordinate: sono obiettivi diversi e richiedono strade diverse.",
+          "Quando un centro ti aiuta a chiarire priorità e ritmo, la scelta diventa più semplice e anche il percorso è più sostenibile.",
+        ],
+      },
+      {
+        heading: "Le domande che cambiano la decisione (anche con un messaggio su WhatsApp)",
+        paragraphs: [
+          "Chiedi chi imposta il protocollo, come vengono date le indicazioni post-trattamento e cosa succede se devi spostare una seduta. Un centro serio risponde con chiarezza e ti fa capire il perché delle scelte.",
+          "Se invece la risposta è vaga o solo commerciale, spesso significa che anche il percorso sarà poco chiaro. La chiarezza, in estetica, è parte della qualità.",
+        ],
+      },
+      {
+        heading: "Prezzi e trasparenza: cosa dovrebbe essere chiaro fin dall'inizio",
+        paragraphs: [
+          "Non serve una lista infinita, ma serve capire cosa include il servizio, come si organizza il calendario e quali sono le variabili (zona, frequenza, mantenimento).",
+          "Diffida delle promesse \"tutto e subito\": meglio un prezzo chiaro e un percorso realistico che un'offerta che cambia ogni settimana.",
+        ],
+      },
+      {
+        heading: "Tecnologia e parole nuove: quando aiutano davvero (e quando distraggono)",
+        paragraphs: [
+          "Tecnologia e attivi possono essere un grande aiuto, ma solo se inseriti con criterio. La domanda giusta è: \"cosa migliora davvero per me?\".",
+          "Un centro affidabile non ti riempie di termini: ti spiega cosa fa, come lo fa, e cosa puoi aspettarti in modo umano e comprensibile.",
+        ],
+      },
+      {
+        heading: "Il consiglio più semplice: scegli un centro che ti fa capire, non un centro che ti confonde",
+        paragraphs: [
+          "Se dopo la consulenza esci più serena e con un piano in testa (anche minimale), probabilmente hai trovato l'approccio giusto.",
+          "Se vuoi, puoi partire anche con un singolo servizio (ad esempio una pulizia viso o una valutazione laser) e poi decidere con calma il resto.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "NHS - Choosing who will do your cosmetic procedure",
+        url: "https://www.nhs.uk/tests-and-treatments/cosmetic-procedures/advice/choosing-who-will-do-your-procedure/",
+      },
     ],
   },
   {
@@ -634,11 +811,15 @@ export const competencePages: CompetencePage[] = [
     faqs: [
       {
         q: "Qual è la differenza con un trattamento estetico standard?",
-        a: "La differenza è nella personalizzazione e nella logica di percorso.",
+        a: "La differenza è nella personalizzazione e nella logica di percorso: priorità chiare, progressione e mantenimento, invece di sedute scollegate tra loro.",
       },
       {
         q: "Serve sempre tecnologia?",
-        a: "No, viene inserita solo quando migliora realmente il risultato.",
+        a: "No. La tecnologia viene inserita solo quando aggiunge valore reale. A volte la scelta migliore è una manualità fatta bene, con attivi coerenti e un calendario sostenibile.",
+      },
+      {
+        q: "Da cosa si parte se non so cosa scegliere?",
+        a: "Dalla lettura iniziale: pelle, obiettivo, tempi e abitudini. Poi costruiamo una proposta semplice (anche minima), così sai subito cosa fare e cosa aspettarti.",
       },
     ],
     keywords: [
@@ -651,6 +832,46 @@ export const competencePages: CompetencePage[] = [
       "massaggio-linfodrenante-carmagnola",
       "epilazione-laser-corpo-carmagnola",
     ],
+    editorialSections: [
+      {
+        heading: "Estetica avanzata: non è \"più forte\", è più precisa",
+        paragraphs: [
+          "Per noi avanzata significa precisione: capire cosa serve davvero, evitare eccessi e lavorare con una progressione sensata. Non è un trattamento \"standard\" uguale per tutti.",
+          "La qualità si vede quando il percorso è chiaro da spiegare e facile da seguire: poche cose fatte bene, con continuità.",
+        ],
+      },
+      {
+        heading: "Manualità, attivi e tecnologia: come decidiamo cosa usare",
+        paragraphs: [
+          "La tecnologia può aiutare, ma non è un fine. Prima guardiamo pelle, obiettivo e tempi; poi scegliamo gli strumenti che migliorano davvero il risultato.",
+          "Se una scelta non aggiunge valore, non la facciamo. Questo ti evita sedute inutili e ti dà un piano più pulito.",
+        ],
+      },
+      {
+        heading: "Percorso: ritmo, controllo e mantenimento (la parte che fa durare)",
+        paragraphs: [
+          "Un buon percorso non è quello più complesso: è quello che riesci a portare avanti. Per questo parliamo sempre di ritmo e mantenimento, oltre alla seduta singola.",
+          "Quando serve, aggiustiamo: la pelle cambia con stagione, stress e abitudini. Un metodo serio si adatta, senza ricominciare ogni volta.",
+        ],
+      },
+      {
+        heading: "Quando iniziare: il momento giusto è quando puoi essere costante",
+        paragraphs: [
+          "Non serve partire \"perfetta\": serve partire con calma e con un piano realistico. Anche un solo appuntamento al mese può avere senso, se è coerente e ben impostato.",
+          "Se vuoi orientarti subito, puoi iniziare da un servizio base (come la pulizia viso) oppure da una consulenza: da lì costruiamo la progressione.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - Basic skin care",
+        url: "https://www.aad.org/public/everyday-care/skin-care-basics/care",
+      },
+      {
+        label: "NHS - Choosing who will do your cosmetic procedure",
+        url: "https://www.nhs.uk/tests-and-treatments/cosmetic-procedures/advice/choosing-who-will-do-your-procedure/",
+      },
+    ],
   },
   {
     slug: "epilazione-laser-carmagnola",
@@ -658,7 +879,7 @@ export const competencePages: CompetencePage[] = [
     shortDescription:
       "Chiarimenti su sedute, tempi e aspettative: cosa aspettarti davvero dal laser.",
     longDescription:
-      "Qui trovi spiegato bene come funziona il laser da Rebel: prima valutazione, poi impostazioni su misura e un calendario sensato.",
+      "Qui trovi come lavoriamo sul laser da Rebel: prima valutazione, poi settaggio su misura e un calendario pensato per te.",
     localAngle:
       "Utile se sei in fase di scelta e vuoi capire cosa aspettarti davvero.",
     intent: "commercial",
@@ -693,13 +914,13 @@ export const competencePages: CompetencePage[] = [
         heading: "Prima consulenza: la parte più importante del percorso",
         paragraphs: [
           "Quando una persona ci contatta per il laser, spesso chiede subito: \"quante sedute servono?\". È una domanda normale, ma la risposta migliore arriva dopo una valutazione: zona, pelle, tipo di pelo e abitudini contano davvero.",
-          "In studio impostiamo parametri e calendario in modo chiaro. L'obiettivo è farti capire cosa stiamo facendo e perché, così il percorso resta sereno e facile da seguire.",
+          "In studio impostiamo parametri e calendario e ti diciamo cosa stiamo facendo e perché. Così sai cosa aspettarti tra una seduta e l'altra, senza ansia.",
         ],
       },
       {
         heading: "Calendario e costanza: perché non è una corsa",
         paragraphs: [
-          "Il laser lavora meglio quando le sedute seguono un ritmo coerente. Saltare troppo spesso o cambiare piano di continuo non aiuta: crea solo confusione e rende più difficile leggere i risultati.",
+          "Il laser lavora meglio quando le sedute hanno un ritmo coerente. Saltare spesso o cambiare piano di continuo non aiuta: ti fa perdere il filo e rende più difficile capire come sta andando.",
           "Per questo preferiamo un approccio semplice: poche regole chiare, controlli regolari e piccoli aggiustamenti quando la pelle o la risposta cambiano.",
         ],
       },
@@ -713,7 +934,7 @@ export const competencePages: CompetencePage[] = [
       {
         heading: "Cosa chiedere a un centro prima di iniziare",
         paragraphs: [
-          "Domande semplici, ma decisive: chi imposta i parametri, come si gestisce il post-seduta, come si adatta il piano se la pelle reagisce in modo diverso, e quali indicazioni ti vengono date tra un appuntamento e l'altro.",
+          "Domande semplici, ma decisive: chi imposta i parametri, come si gestisce il post-seduta, come si adatta il piano se la pelle reagisce in modo diverso, e cosa ti dicono di fare tra un appuntamento e l'altro.",
           "Un centro serio ti risponde con chiarezza, senza promesse esagerate. La trasparenza è già parte del risultato.",
         ],
       },
@@ -793,14 +1014,14 @@ export const competencePages: CompetencePage[] = [
         heading: "Come riconoscere un centro affidabile a Carmagnola (prima di iniziare)",
         paragraphs: [
           "Fai domande semplici: chi imposta i parametri, come viene gestito il post-seduta, come si adatta il piano se la pelle cambia, e cosa succede se salti una seduta.",
-          "Se la comunicazione è chiara prima, lo sarà anche dopo. E la chiarezza, in un percorso laser, è un vantaggio enorme: ti aiuta a seguire le indicazioni con serenità e a mantenere un ritmo sostenibile.",
+          "Se prima ti rispondono senza giri di parole, di solito lo fanno anche dopo. Nel laser fa la differenza: ti aiuta a tenere il calendario e a gestire bene la pelle tra una seduta e l'altra, senza ansia.",
         ],
       },
       {
         heading: "Il nostro approccio in studio: tecnologia + metodo (non trattamenti standard)",
         paragraphs: [
           "Da Rebel a Carmagnola impostiamo l'epilazione laser come un percorso: valutazione iniziale, settaggio su misura e monitoraggio. La tecnologia serve a rendere il lavoro più preciso, ma il cuore resta il metodo.",
-          "Se vuoi approfondire, trovi anche le guide dedicate a laser viso e laser corpo, oltre alle schede servizio con FAQ pratiche e indicazioni chiare su come iniziare.",
+          "Se vuoi andare più nel dettaglio, trovi anche le guide su laser viso e laser corpo, oltre alle schede servizio con FAQ pratiche per partire senza dubbi.",
         ],
       },
     ],
@@ -823,111 +1044,271 @@ export const competencePages: CompetencePage[] = [
     slug: "trattamenti-viso-carmagnola",
     title: "Trattamenti viso a Carmagnola",
     shortDescription:
-      "Trattamenti viso su tono, luminosità e qualità della pelle.",
+      "Trattamenti viso su luminosità, grana della pelle e comfort, con percorso su misura.",
     longDescription:
-      "In questa guida trovi i trattamenti viso disponibili e capisci quale può essere più adatto a te in base alla situazione della tua pelle.",
+      "Una guida pratica per scegliere il trattamento viso giusto partendo dalla pelle di oggi (non dalla moda del momento). In Rebel lavoriamo per step: lettura iniziale, trattamento mirato e indicazioni semplici per mantenere il risultato anche a casa.",
     localAngle:
-      "Perfetta se stai cercando un trattamento viso mirato a Carmagnola.",
+      "Utile se cerchi a Carmagnola un trattamento viso fatto bene e vuoi capire da dove partire.",
     intent: "commercial",
     benefits: [
-      "Selezione trattamento più rapida",
-      "Progressione chiara del percorso",
-      "Migliore coerenza tra obiettivo e protocollo",
+      "Ti aiuta a capire da dove partire (pulizia, luminosità, comfort, routine)",
+      "Ti aiuta a impostare una progressione sensata, senza fare tentativi a caso",
+      "Migliora coerenza tra obiettivo, sedute in studio e mantenimento a casa",
     ],
     faqs: [
       {
-        q: "Come capisco quale trattamento viso fare?",
-        a: "Con una valutazione iniziale su pelle, obiettivi e tempi disponibili.",
+        q: "Da cosa si parte se ho la pelle spenta o opaca?",
+        a: "Di solito partiamo da una lettura iniziale e da un trattamento che riporti comfort e luminosità senza stressare. Spesso la differenza non è fare \"di più\": è fare la cosa giusta con un ritmo sensato.",
       },
       {
-        q: "Ogni quanto va ripetuto un trattamento viso?",
-        a: "Dipende dal protocollo, di solito tra 4 e 6 settimane.",
+        q: "La pulizia viso è sempre il primo passo?",
+        a: "Non sempre. Per molte persone è un ottimo inizio, ma se la pelle è molto reattiva o in un momento delicato possiamo impostare una seduta più soft e lavorare prima su comfort e barriera.",
+      },
+      {
+        q: "Ogni quanto conviene fare un trattamento viso?",
+        a: "Spesso tra 4 e 6 settimane, ma il ritmo giusto dipende da pelle, stagione e obiettivo. In studio lo rendiamo semplice: ti diciamo una frequenza sostenibile, non una tabella impossibile.",
+      },
+      {
+        q: "Cosa posso fare a casa per far durare di più il risultato?",
+        a: "Pochi passaggi coerenti: detersione delicata, idratazione e protezione. Se serve, aggiungiamo uno o due attivi mirati (senza sovraccaricare).",
       },
     ],
     keywords: [
       "trattamenti viso Carmagnola",
       "centro viso Carmagnola",
       "estetista viso Carmagnola",
+      "trattamento viso luminosità Carmagnola",
+      "pulizia viso Carmagnola",
     ],
     relatedServiceSlugs: [
       "pulizia-viso-carmagnola",
       "laminazione-ciglia-sopracciglia-carmagnola",
+    ],
+    editorialSections: [
+      {
+        heading: "Prima lettura: pelle di oggi, non pelle \"di sempre\"",
+        paragraphs: [
+          "Spesso ci si descrive con un'etichetta (pelle grassa, pelle secca), ma la pelle cambia: stagione, stress, sonno e routine fanno tantissimo. Per questo partiamo sempre da come sta la pelle oggi.",
+          "Da lì scegliamo un trattamento mirato e un calendario che puoi tenere, così il risultato non è solo \"bello in giornata\": diventa più stabile nel tempo.",
+        ],
+      },
+      {
+        heading: "Pulizia viso: quando è la scelta più sensata",
+        paragraphs: [
+          "La pulizia viso non è aggressività: è ordine. Ha senso quando senti pelle appesantita, opaca, piena di micro-impurità o semplicemente fuori equilibrio.",
+          "Se la pelle è reattiva, cambiamo strategia: lavoriamo in modo più delicato e chiudiamo sempre con una fase lenitiva. L'obiettivo è comfort, non stress.",
+        ],
+      },
+      {
+        heading: "Luminosità e grana della pelle: progressione, non trattamenti \"random\"",
+        paragraphs: [
+          "Se cerchi luminosità e una grana più uniforme, la chiave è la progressione: trattamenti mirati, distanziati correttamente, e mantenimento a casa con pochi passaggi coerenti.",
+          "La cosa che rovina tutto è cambiare continuamente: prodotti, attivi, sedute. Noi preferiamo una strada pulita che puoi seguire davvero.",
+        ],
+      },
+      {
+        heading: "Frequenza: perché 4-6 settimane è spesso un buon ritmo (ma non per tutti)",
+        paragraphs: [
+          "Molto spesso un ritmo tra 4 e 6 settimane funziona bene perché rispetta i tempi della pelle e non ti sballa la routine. Ma è un punto di partenza, non una regola rigida.",
+          "In studio adattiamo: se la pelle è sensibile rallentiamo; se serve continuità, impostiamo un calendario semplice e lo monitoriamo.",
+        ],
+      },
+      {
+        heading: "Routine a casa: pochi passaggi, ma fatti bene",
+        paragraphs: [
+          "Non serve avere dieci prodotti. Serve coerenza: una detersione fatta bene, idratazione e protezione solare quando serve.",
+          "Se vuoi, dopo la seduta ti indichiamo una micro-routine adatta a te: non ti complica la giornata, anche nelle settimane più piene.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - Face washing 101",
+        url: "https://www.aad.org/public/everyday-care/skin-care-basics/care/face-washing-101",
+      },
+      {
+        label: "AAD - Basic skin care",
+        url: "https://www.aad.org/public/everyday-care/skin-care-basics/care",
+      },
+      {
+        label: "AAD - How to safely exfoliate at home",
+        url: "https://www.aad.org/public/everyday-care/skin-care-secrets/routine/safely-exfoliate-at-home",
+      },
     ],
   },
   {
     slug: "trattamenti-corpo-carmagnola",
     title: "Trattamenti corpo a Carmagnola",
     shortDescription:
-      "Percorsi corpo su drenaggio, tono e benessere quotidiano.",
+      "Percorsi corpo per leggerezza, tono e benessere, con un calendario che sta nella tua settimana.",
     longDescription:
-      "I percorsi corpo Rebel uniscono manualità e tecnologie selezionate per aiutarti a sentirti più leggera, tonica e a tuo agio.",
+      "Una panoramica per orientarti tra trattamenti corpo: drenaggio/linfodrenante, relax, scrub e percorsi progressivi. In Rebel scegliamo insieme priorità e calendario, così il percorso sta nella tua settimana.",
     localAngle:
       "Per chi cerca un percorso corpo concreto a Carmagnola e dintorni.",
     intent: "commercial",
     benefits: [
-      "Programma basato su obiettivi reali",
-      "Approccio progressivo e monitorato",
-      "Integrazione con routine quotidiana",
+      "Ti aiuta a scegliere tra drenaggio, relax e scrub in base a quello che senti",
+      "Aiuta a impostare un calendario realistico, che riesci davvero a tenere",
+      "Ti dà aspettative concrete, seduta dopo seduta",
     ],
     faqs: [
       {
-        q: "Quanto tempo serve per vedere risultati corpo?",
-        a: "I primi segnali possono comparire presto, con consolidamento su ciclo completo.",
+        q: "Meglio linfodrenante o massaggio rilassante?",
+        a: "Dipende dall'obiettivo. Se cerchi leggerezza e gestione del gonfiore, spesso ha senso il linfodrenante; se vuoi sciogliere tensione e \"staccare\", il rilassante è perfetto. In studio ti aiutiamo a scegliere senza giri di parole.",
       },
       {
-        q: "Meglio trattamento singolo o pacchetto?",
-        a: "Dipende dall'obiettivo, ma il percorso strutturato è spesso più efficace.",
+        q: "Quanto tempo serve per vedere cambiamenti sul corpo?",
+        a: "Dipende da obiettivo, costanza e situazione di partenza. Parliamo sempre di progressione: alcune sensazioni migliorano presto, altri risultati richiedono un ciclo più lungo e un mantenimento coerente.",
+      },
+      {
+        q: "Posso combinare scrub e massaggio nello stesso periodo?",
+        a: "Sì, spesso è una combinazione sensata: lo scrub aiuta la pelle a essere più uniforme, il massaggio lavora su benessere e leggerezza. Decidiamo insieme timing e intensità per non irritare la pelle.",
+      },
+      {
+        q: "Meglio una seduta singola o un percorso?",
+        a: "Una singola seduta può essere piacevole, ma se vuoi un cambiamento più stabile di solito serve un percorso con calendario e controlli. Lo impostiamo in modo realistico: poche cose fatte bene.",
       },
     ],
     keywords: [
       "trattamenti corpo Carmagnola",
       "centro corpo Carmagnola",
       "rimodellamento corpo Carmagnola",
+      "massaggio drenante Carmagnola",
     ],
     relatedServiceSlugs: [
       "scrub-corpo-carmagnola",
       "massaggio-linfodrenante-carmagnola",
+      "massaggio-rilassante-carmagnola",
+    ],
+    editorialSections: [
+      {
+        heading: "Obiettivo reale: leggerezza, tono, o semplicemente sentirti meglio nel corpo",
+        paragraphs: [
+          "Molte persone cercano un trattamento corpo pensando a un singolo risultato. In realtà la domanda utile è: cosa vuoi sentire nella tua giornata? Più leggerezza, meno gonfiore, più comfort, più ordine nella routine.",
+          "Quando l'obiettivo è chiaro, anche la scelta dei trattamenti diventa più semplice e il percorso si regge meglio nel tempo.",
+        ],
+      },
+      {
+        heading: "Drenaggio e massaggi: scegliere la manualità giusta",
+        paragraphs: [
+          "Il linfodrenante è spesso scelto quando c'è pesantezza o gonfiore; il rilassante quando serve staccare e sciogliere tensioni. Non è una gara: sono strumenti diversi.",
+          "In studio ti consigliamo la scelta più sensata per il tuo periodo (lavoro, sport, stress, stagione), senza complicazioni.",
+        ],
+      },
+      {
+        heading: "Scrub corpo: quando aiuta davvero (e quando è meglio essere delicati)",
+        paragraphs: [
+          "Lo scrub è un dettaglio semplice ma utile: se la pelle è ruvida o \"spessa\" può migliorare la sensazione al tatto e rendere più piacevole anche la routine a casa.",
+          "Se invece la pelle è irritata o molto sensibile, si lavora con più delicatezza. Il nostro obiettivo è comfort, non aggressività.",
+        ],
+      },
+      {
+        heading: "Calendario: se lo tieni, funziona",
+        paragraphs: [
+          "La cosa che fa davvero la differenza è la costanza. Non serve fare tutto: serve un ritmo realistico che si incastra nella tua settimana.",
+          "Per questo impostiamo sempre un piano semplice: quante sedute, con che frequenza, e cosa fare tra un appuntamento e l'altro.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "Cleveland Clinic - Lymphatic Drainage Massage",
+        url: "https://my.clevelandclinic.org/health/treatments/21768-lymphatic-drainage-massage",
+      },
+      {
+        label: "NHS - Choosing who will do your cosmetic procedure",
+        url: "https://www.nhs.uk/tests-and-treatments/cosmetic-procedures/advice/choosing-who-will-do-your-procedure/",
+      },
     ],
   },
   {
     slug: "drenaggio-corpo-carmagnola",
     title: "Drenaggio corpo a Carmagnola",
     shortDescription:
-      "Drenaggio su misura quando senti gambe pesanti o gonfiore.",
+      "Drenaggio su misura quando senti gambe pesanti, gonfiore o poca leggerezza.",
     longDescription:
-      "Qui spieghiamo come impostare un percorso drenante sensato, considerando stagione, abitudini e continuità.",
+      "Una guida rapida e concreta per capire cosa intendiamo davvero per \"drenaggio\" e come impostare un percorso sensato: obiettivo, calendario, e cosa fare tra una seduta e l'altra per rendere il risultato più stabile.",
     localAngle:
       "Utile soprattutto nei periodi in cui gonfiore e pesantezza si fanno sentire di più.",
     intent: "commercial",
     benefits: [
-      "Aiuta a ridurre la sensazione di gonfiore",
-      "Sostiene benessere e leggerezza",
-      "Percorso regolabile nel tempo",
+      "Aiuta a gestire la sensazione di pesantezza in modo più ordinato",
+      "Imposta un ritmo che puoi tenere e aggiustare nel tempo",
+      "Chiarisce limiti e aspettative, senza promesse gonfiate",
     ],
     faqs: [
       {
         q: "Il drenaggio è utile solo nei mesi caldi?",
-        a: "No, è utile tutto l'anno con intensità diversa secondo periodo.",
+        a: "No. Molte persone lo richiedono di più quando fa caldo, ma può essere utile tutto l'anno: cambiano ritmo e intensità in base al periodo e alle abitudini.",
       },
       {
         q: "Il drenaggio sostituisce sport e alimentazione?",
-        a: "No, li integra e ne potenzia i benefici percepiti.",
+        a: "No. È un aiuto che si integra con abitudini coerenti. Quando lo inserisci in un piano realistico, la sensazione di leggerezza tende a essere più stabile.",
+      },
+      {
+        q: "Quante sedute servono per sentirne l'effetto?",
+        a: "Dipende da situazione e obiettivo. Spesso la sensazione migliora già dopo le prime sedute, ma la parte importante è la continuità: un ritmo che riesci a tenere vale più di una corsa di una settimana.",
+      },
+      {
+        q: "Meglio drenaggio generico o linfodrenante?",
+        a: "Se cerchi un approccio più specifico, il linfodrenante è spesso la scelta più mirata. Se vuoi, abbiamo anche una guida dedicata: ti aiuta a capire quando ha davvero senso e come impostarlo bene.",
       },
     ],
     keywords: [
       "drenaggio corpo Carmagnola",
       "massaggio drenante Carmagnola",
       "gambe gonfie Carmagnola trattamento",
+      "gambe pesanti Carmagnola",
     ],
-    relatedServiceSlugs: ["massaggio-linfodrenante-carmagnola"],
+    relatedServiceSlugs: [
+      "massaggio-linfodrenante-carmagnola",
+      "massaggio-rilassante-carmagnola",
+      "scrub-corpo-carmagnola",
+    ],
+    editorialSections: [
+      {
+        heading: "Drenaggio: cosa intendiamo davvero (e cosa no)",
+        paragraphs: [
+          "Quando una persona dice \"mi serve drenaggio\", spesso intende una cosa semplice: sentirsi più leggera e meno gonfia. È un obiettivo reale, ma va impostato con aspettative corrette.",
+          "Non parliamo di miracoli: parliamo di un percorso che aiuta la sensazione di comfort, soprattutto se inserito in un ritmo coerente.",
+        ],
+      },
+      {
+        heading: "Calendario: la parte che rende il percorso sostenibile",
+        paragraphs: [
+          "La domanda non è solo quante sedute, ma come distribuirle. Un calendario realistico evita l'effetto \"tutto subito\" e ti permette di capire cosa funziona davvero su di te.",
+          "In studio adattiamo intensità e frequenza in base al periodo e alla risposta: un percorso serio si aggiusta, non si improvvisa.",
+        ],
+      },
+      {
+        heading: "Tra una seduta e l'altra: cosa aiuta davvero",
+        paragraphs: [
+          "Spesso basta poco: movimento regolare, idratazione e routine semplici. Non ti riempiamo di regole: scegliamo insieme due o tre cose che riesci a fare davvero.",
+          "Se vuoi un approfondimento più specifico, la guida sul linfodrenante entra nei dettagli e ti aiuta a capire quando è la scelta migliore.",
+        ],
+      },
+      {
+        heading: "Da Rebel: drenaggio come parte di un percorso corpo (non come seduta isolata)",
+        paragraphs: [
+          "Quando serve, integriamo il drenaggio con trattamenti corpo semplici (ad esempio scrub) o con sedute di relax, per un approccio più completo e piacevole.",
+          "Il punto è sempre lo stesso: creare un piano che ti faccia stare meglio e che tu riesca a seguire nel tempo.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "Cleveland Clinic - Lymphatic Drainage Massage",
+        url: "https://my.clevelandclinic.org/health/treatments/21768-lymphatic-drainage-massage",
+      },
+    ],
   },
   {
     slug: "beauty-routine-carmagnola",
     title: "Beauty routine professionale a Carmagnola",
     shortDescription:
-      "Come mantenere bene i risultati anche a casa.",
+      "Come mantenere bene i risultati anche a casa, senza complicarti la vita.",
     longDescription:
-      "Una guida semplice per costruire una routine sostenibile: pochi passaggi fatti bene, con costanza.",
+      "Una guida semplice per costruire una routine sostenibile: pochi passaggi fatti bene, con costanza. Non serve avere dieci prodotti: serve coerenza e scelte sensate, soprattutto tra una seduta e l'altra.",
     localAngle:
       "Pensata per chi vuole risultati più stabili anche tra una seduta e l'altra.",
     intent: "informational",
@@ -939,11 +1320,19 @@ export const competencePages: CompetencePage[] = [
     faqs: [
       {
         q: "Quanti prodotti servono davvero?",
-        a: "Pochi e coerenti: detersione, trattamento mirato, protezione.",
+        a: "Pochi e coerenti: detersione, idratazione e protezione. Poi si aggiunge un attivo mirato solo se serve davvero (e se lo usi con costanza).",
       },
       {
         q: "Quando aggiornare la routine?",
-        a: "Quando cambiano stagione, obiettivo o risposta della pelle.",
+        a: "Quando cambiano stagione, obiettivo o risposta della pelle. Anche un trattamento in studio può cambiare le priorità: per questo è utile avere una routine flessibile ma semplice.",
+      },
+      {
+        q: "È meglio cambiare spesso prodotti o restare costante?",
+        a: "La costanza vince quasi sempre. Meglio pochi prodotti che funzionano e che usi bene, rispetto a una routine che cambia ogni settimana.",
+      },
+      {
+        q: "La protezione solare serve anche in città?",
+        a: "Spesso sì: è uno dei gesti più semplici per proteggere la pelle nel tempo. Se stai facendo trattamenti o usi attivi specifici, diventa ancora più importante: ti diciamo noi come gestirla in modo pratico.",
       },
     ],
     keywords: [
@@ -955,6 +1344,61 @@ export const competencePages: CompetencePage[] = [
       "pulizia-viso-carmagnola",
       "laminazione-ciglia-sopracciglia-carmagnola",
       "manicure-semipermanente-carmagnola",
+    ],
+    editorialSections: [
+      {
+        heading: "La routine che funziona davvero: poche cose, fatte bene",
+        paragraphs: [
+          "La routine perfetta non esiste. Esiste la routine che riesci a seguire. Per questo noi partiamo sempre dal minimo efficace: detersione, idratazione, protezione.",
+          "Se serve, aggiungiamo un attivo mirato. Ma prima viene la costanza: è lì che si vede la differenza, settimana dopo settimana.",
+        ],
+      },
+      {
+        heading: "Detersione: meglio delicata e costante che aggressiva e sporadica",
+        paragraphs: [
+          "Molti problemi nascono da detersioni troppo aggressive o fatte male. La pelle, quando è stressata, diventa instabile: rossori, secchezza, impurità che vanno e vengono.",
+          "Una detersione sensata e ripetibile è una base semplice che rende più efficaci anche i trattamenti in studio.",
+        ],
+      },
+      {
+        heading: "Attivi: meno ma meglio (e con un ritmo che puoi sostenere)",
+        paragraphs: [
+          "Se metti troppi attivi insieme, spesso la pelle si ribella. Noi preferiamo scegliere una priorità e lavorare con gradualità.",
+          "Se vuoi cambiare routine, lo facciamo in modo ordinato: un passaggio alla volta, così capiamo cosa funziona davvero su di te.",
+        ],
+      },
+      {
+        heading: "Quando cambiare: i segnali che ti dicono che è ora di adattare",
+        paragraphs: [
+          "Cambio stagione, stress, sonno e sport cambiano la pelle. Se ti sembra \"diversa\" da un mese all'altro, è normale.",
+          "La soluzione non è buttare tutto: è adattare con piccoli aggiustamenti. In studio, dopo una seduta, possiamo dirti cosa tenere e cosa semplificare.",
+        ],
+      },
+      {
+        heading: "Protezione: la parte semplice che fa la differenza nel tempo",
+        paragraphs: [
+          "La protezione solare non è una regola da influencer: è un gesto pratico. Ti aiuta a proteggere la pelle e a mantenere più stabili alcuni risultati.",
+          "Se ti sembra complicata, la rendiamo facile: scegliamo una soluzione che userai davvero, non quella più teorica.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - Basic skin care",
+        url: "https://www.aad.org/public/everyday-care/skin-care-basics/care",
+      },
+      {
+        label: "AAD - Face washing 101",
+        url: "https://www.aad.org/public/everyday-care/skin-care-basics/care/face-washing-101",
+      },
+      {
+        label: "AAD - How to safely exfoliate at home",
+        url: "https://www.aad.org/public/everyday-care/skin-care-secrets/routine/safely-exfoliate-at-home",
+      },
+      {
+        label: "AAD - How to apply sunscreen",
+        url: "https://www.aad.org/public/everyday-care/sun-protection/shade-clothing-sunscreen/how-to-apply-sunscreen",
+      },
     ],
   },
   {
@@ -1009,7 +1453,7 @@ export const competencePages: CompetencePage[] = [
         heading: "Aspettative reali: risultati progressivi, non magie",
         paragraphs: [
           "Le fonti cliniche più autorevoli spiegano che il laser riduce la ricrescita nel tempo, ma richiede più sedute e spesso mantenimento. È un percorso, non una promessa lampo.",
-          "Tradotto nella vita vera: se cerchi un risultato elegante e stabile, la costanza vince sempre sulla fretta. È qui che si vede la differenza tra protocollo improvvisato e metodo professionale.",
+          "In pratica: se cerchi un risultato elegante e stabile, la costanza vince sempre sulla fretta. È qui che si vede la differenza tra protocollo improvvisato e metodo professionale.",
         ],
       },
       {
@@ -1046,7 +1490,7 @@ export const competencePages: CompetencePage[] = [
       "Ideale se arrivi da Carmagnola o comuni vicini e vuoi un programma coerente, non standard.",
     intent: "commercial",
     benefits: [
-      "Ti fa scegliere le zone in base a priorità e vita reale, non a pacchetti",
+      "Ti fa scegliere le zone in base alle tue priorità, non ai pacchetti",
       "Ti aiuta a impostare un calendario che riesci a seguire",
       "Spiega cosa considerare con sole, routine e piccoli accorgimenti",
     ],
@@ -1171,7 +1615,7 @@ export const competencePages: CompetencePage[] = [
         heading: "Routine casa + cabina: il duo che fa la differenza",
         paragraphs: [
           "La cabina dà direzione, la routine casa consolida. Anche pochi passaggi fatti con costanza possono migliorare molto la resa del trattamento professionale.",
-          "Il nostro approccio resta semplice: leggere la pelle, scegliere priorità, e costruire un ritmo sostenibile nella vita vera.",
+          "Il nostro approccio resta semplice: leggere la pelle, scegliere priorità e costruire una routine che non ti complichi la giornata.",
         ],
       },
     ],
@@ -1202,7 +1646,7 @@ export const competencePages: CompetencePage[] = [
     intent: "commercial",
     benefits: [
       "Chiarisce quando può essere utile (e quando no)",
-      "Spiega come inserirlo in un percorso corpo con un ritmo sostenibile",
+      "Spiega come inserirlo in un percorso corpo con un ritmo che puoi tenere",
       "Aiuta a fare scelte più serene, senza aspettative gonfiate",
     ],
     faqs: [

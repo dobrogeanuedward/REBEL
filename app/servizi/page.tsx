@@ -66,11 +66,11 @@ export default function ServiziHubPage() {
       <section className="section">
         <div className="container split">
           <div className="card glow-card">
-            <h2 style={{ marginTop: 0 }}>Un unico hub per scegliere senza confusione</h2>
+            <h2 style={{ marginTop: 0 }}>Una panoramica fatta per scegliere in due minuti</h2>
             <p className="lead" style={{ marginTop: 0 }}>
               In Rebel ogni percorso parte dall&apos;ascolto e si costruisce in base
-              ai tuoi obiettivi. Qui trovi tutti i servizi con logica chiara, così
-              sai subito da dove iniziare e cosa aspettarti.
+              ai tuoi obiettivi. Qui trovi tutti i servizi ordinati per categoria: apri quello che
+              ti interessa e trovi dettagli, FAQ e prezzo indicativo.
             </p>
             <div className="hero-visual" style={{ marginTop: "1rem", borderRadius: 16 }}>
               <Image
@@ -116,7 +116,7 @@ export default function ServiziHubPage() {
             Percorsi
           </p>
           <h2 className="page-title" style={{ marginTop: "0.55rem" }}>
-            Scegli per obiettivo e passa subito alla sezione giusta.
+            Scegli l&apos;area che ti interessa e vai dritta al punto.
           </h2>
           <div className="grid grid-3" style={{ marginTop: "1rem" }}>
             <a className="card-light" href="#servizi-estetica">
@@ -128,13 +128,13 @@ export default function ServiziHubPage() {
             <a className="card-light" href="#servizi-laser">
               <h3 style={{ marginTop: 0 }}>Epilazione laser</h3>
               <p className="lead" style={{ marginTop: "0.35rem", marginBottom: 0, color: "rgba(39,31,56,0.78)" }}>
-                Percorsi personalizzati su area, fototipo e obiettivo, con monitoraggio progressivo.
+                Zone viso e corpo: valutazione iniziale, parametri su misura e calendario.
               </p>
             </a>
             <a className="card-light" href="#servizi-epigenetica">
               <h3 style={{ marginTop: 0 }}>Estetica Epigenetica</h3>
               <p className="lead" style={{ marginTop: "0.35rem", marginBottom: 0, color: "rgba(39,31,56,0.78)" }}>
-                Protocolli mirati con attivi intelligenti e tecnologie integrate in modo calibrato.
+                Protocolli viso/corpo costruiti per qualità cutanea, tono e luminosità.
               </p>
             </a>
           </div>
@@ -171,7 +171,7 @@ export default function ServiziHubPage() {
           <h2 className="page-title">Epilazione laser a Carmagnola</h2>
           <p className="lead" style={{ marginTop: "0.5rem", maxWidth: "70ch", color: "rgba(39,31,56,0.78)" }}>
             Percorsi programmati su zona, fototipo e risposta della pelle, con
-            progressione chiara e sostenibile.
+            progressione graduale e calendario realistico.
           </p>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             {laser.map((item) => (

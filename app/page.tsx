@@ -196,12 +196,11 @@ export default function HomePage() {
               <span className="home-hero-badge">Viso, corpo e laser</span>
             </div>
             <h1 className="home-hero-title">
-              Luce per la Tua Pelle con l&apos;Estetica Epigenetica e Avanzata
+              Rebel a Carmagnola: estetica epigenetica, viso, corpo e laser.
             </h1>
             <p className="home-hero-lead">
-              In Rebel partiamo dall&apos;ascolto, definiamo il metodo e lavoriamo con
-              Tecnologie Mirate, Attivi Epigenetici e i Migliori Trattamenti per la
-              Cura e il Benessere.
+              Ci racconti cosa vuoi ottenere e guardiamo la tua pelle da vicino. Poi impostiamo
+              il percorso con manualità, attivi epigenetici e tecnologia quando serve.
             </p>
             <div className="home-hero-cta">
               <Link className="button button-primary" href="/contatti">
@@ -219,7 +218,7 @@ export default function HomePage() {
               ogni percorso Rebel.
             </p>
             <div className="home-hero-chips">
-              <span className="home-chip">Percorsi personalizzati 1:1</span>
+              <span className="home-chip">Consulenza 1:1</span>
               <span className="home-chip">Epilazione laser a Carmagnola</span>
               <span className="home-chip">Carmagnola, Viale Barbaroux 20</span>
             </div>
@@ -249,13 +248,13 @@ export default function HomePage() {
             </div>
             <div className="home-hero-side-panel">
               <p className="home-hero-caption">
-                Ti accompagniamo con passaggi semplici: ascolto iniziale, scelta del
-                percorso, trattamento e monitoraggio costante.
+                Si parte da una lettura iniziale, poi si decide cosa fare e con che ritmo.
+                Seduta dopo seduta aggiustiamo il piano in base a come risponde la pelle.
               </p>
               <div className="home-hero-side-points">
-                <span>Analisi iniziale accurata</span>
-                <span>Protocollo su misura</span>
-                <span>Risultati progressivi</span>
+                <span>Lettura iniziale</span>
+                <span>Piano su misura</span>
+                <span>Progressione</span>
               </div>
             </div>
           </aside>
@@ -310,8 +309,8 @@ export default function HomePage() {
             ))}
           </div>
           <p className="lead" style={{ marginTop: "0.95rem" }}>
-            Tutte le pagine sono organizzate per categoria così trovi rapidamente
-            contenuti utili, servizi e percorsi locali nell&apos;ecosistema Rebel.
+            Se vuoi orientarti in fretta: qui trovi i servizi, i prezzi, le guide e le pagine
+            dedicate alle località da cui ci raggiungono più spesso.
           </p>
         </div>
       </section>
@@ -331,7 +330,7 @@ export default function HomePage() {
             Oltre a Carmagnola, arrivano clienti da Carignano, Racconigi,
             Sommariva del Bosco, Torino Sud e Alba. Se vuoi capire se Rebel è la
             scelta giusta per te, il modo migliore è scriverci: ti rispondiamo
-            presto con indicazioni chiare su come iniziare.
+            e ti diciamo da dove conviene partire.
           </p>
           <div style={{ display: "flex", gap: "0.7rem", flexWrap: "wrap", marginTop: "1rem" }}>
             {siteConfig.areasServed.map((area) => (

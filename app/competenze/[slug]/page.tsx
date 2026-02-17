@@ -124,7 +124,7 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
       <section className="section">
         <div className="container grid grid-2">
           <article className="card">
-            <h2 style={{ marginTop: 0 }}>Perche e rilevante a Carmagnola</h2>
+            <h2 style={{ marginTop: 0 }}>Perché è rilevante a Carmagnola</h2>
             <p className="lead" style={{ marginTop: 0 }}>
               {competence.localAngle}
             </p>
@@ -152,7 +152,7 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
           <div className="container split">
             <article className="card glow-card">
               <p className="eyebrow">Dal nostro studio</p>
-              <h2 style={{ marginTop: "0.45rem" }}>Cosa conta davvero, spiegato bene</h2>
+              <h2 style={{ marginTop: "0.45rem" }}>Cosa conta davvero (e cosa no)</h2>
               {editorialSections.map((section) => (
                 <div key={section.heading} style={{ marginTop: "0.95rem" }}>
                   <h3 style={{ marginTop: 0 }}>{section.heading}</h3>
@@ -177,16 +177,16 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
                     />
                   </div>
                   <p className="lead" style={{ marginTop: "0.8rem", marginBottom: 0 }}>
-                    Un&apos;immagine in stile Rebel per accompagnare la lettura e rendere
-                    la pagina più piacevole.
+                    Un&apos;immagine in stile Rebel per accompagnare la lettura di{" "}
+                    {competence.title} e rendere la pagina più piacevole.
                   </p>
                 </>
               ) : (
                 <>
                   <h2 style={{ marginTop: 0 }}>In breve</h2>
                   <p className="lead" style={{ marginTop: 0 }}>
-                    Linguaggio naturale, orientamento pratico e criteri concreti
-                    da usare nella vita reale.
+                    Una guida chiara su {competence.title}: orientamento pratico e criteri concreti
+                    da usare ogni giorno.
                   </p>
                 </>
               )}
@@ -194,38 +194,6 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
           </div>
         </section>
       )}
-
-      <section className="section">
-        <div className="container grid grid-2">
-          <article className="card glow-card">
-            <h2 style={{ marginTop: 0 }}>Cosa vediamo ogni giorno in studio</h2>
-            <p className="lead" style={{ marginTop: 0 }}>
-              Su questo tema ci confrontiamo spesso con clienti che arrivano da
-              Carmagnola e dai comuni vicini. Quasi sempre il bisogno è lo stesso:
-              trovare un percorso serio, comprensibile e coerente con la vita reale.
-            </p>
-            <p className="lead">
-              Per questo preferiamo spiegarti subito cosa possiamo fare, in quanto
-              tempo e con quale intensità. Ti accompagniamo con obiettivi concreti
-              e una visione chiara.
-            </p>
-          </article>
-
-          <article className="card">
-            <h2 style={{ marginTop: 0 }}>Errori comuni da evitare</h2>
-            <ul className="list-clean">
-              <li>- cambiare percorso troppo spesso e perdere continuità</li>
-              <li>- aspettarsi tutto in una singola seduta</li>
-              <li>- scegliere solo in base al prezzo</li>
-              <li>- trascurare mantenimento e routine a casa</li>
-            </ul>
-            <p className="lead" style={{ marginTop: "0.9rem" }}>
-              Se vuoi, al primo incontro costruiamo insieme una tabella semplice:
-              obiettivo, tempi, frequenza e mantenimento.
-            </p>
-          </article>
-        </div>
-      </section>
 
       {sourceLinks.length > 0 && (
         <section className="section section-light">

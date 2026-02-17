@@ -70,7 +70,7 @@ export default function EpilazioneLaserCarmagnolaPage() {
         name: "Come prenoto una valutazione laser da Rebel?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Puoi prenotare via WhatsApp o dalla pagina contatti. Ti rispondiamo rapidamente con indicazioni chiare sul primo passo.",
+          text: "Puoi prenotare via WhatsApp o dalla pagina contatti. Ti rispondiamo e ti diciamo da dove conviene partire (zona, calendario e preparazione).",
         },
       },
     ],

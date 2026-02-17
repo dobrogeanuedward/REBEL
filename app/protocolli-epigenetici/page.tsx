@@ -38,10 +38,10 @@ export default function ProtocolliPage() {
       <JsonLd data={service} />
 
       <PageHero
-        eyebrow="Percorsi ad alto valore"
-        title="Protocolli epigenetici Rebel: precisione su viso e corpo."
-        lead="Ogni protocollo parte da una valutazione iniziale e viene adattato a ciò che ti serve davvero: tono, luminosità, drenaggio o rigenerazione."
-        badge="Attivo + manualità + tecnologia"
+        eyebrow="Protocolli Rebel"
+        title="Protocolli epigenetici: viso e corpo, con una direzione chiara."
+        lead="Ogni protocollo parte da una lettura iniziale e viene adattato a quello che ti serve davvero in questo periodo: tono, luminosità, drenaggio o rigenerazione."
+        badge="Attivi • manualità • tecnologia"
         tone="violet"
       />
 
@@ -71,7 +71,7 @@ export default function ProtocolliPage() {
 
       <section className="section section-light">
         <div className="container">
-          <h2 className="page-title">Come scegliere il protocollo giusto.</h2>
+          <h2 className="page-title">Come scegliere il protocollo giusto</h2>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             <article className="card-light">
               <h3 style={{ marginTop: 0 }}>Se hai bisogno di capire prima</h3>
@@ -83,8 +83,8 @@ export default function ProtocolliPage() {
                   color: "rgba(39,31,56,0.76)",
                 }}
               >
-                Guarda le schede e le FAQ: in pochi minuti capisci differenze,
-                obiettivi e tempi di ogni percorso.
+                Leggi le schede: trovi cosa fa il protocollo, per chi è pensato e come si
+                organizza nel tempo.
               </p>
             </article>
             <article className="card-light">
@@ -97,14 +97,14 @@ export default function ProtocolliPage() {
                   color: "rgba(39,31,56,0.76)",
                 }}
               >
-                Scrivici su WhatsApp o prenota una valutazione: costruiamo insieme
-                un piano concreto, con obiettivi chiari e tempi sensati.
+                Scrivici su WhatsApp o prenota: facciamo una lettura iniziale e ti diciamo
+                cosa conviene fare per prima (e con che ritmo).
               </p>
             </article>
           </div>
           <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
             <Link className="button button-primary" href="/contatti">
-              Richiedi diagnosi personalizzata
+              Prenota lettura iniziale
             </Link>
             <Link className="button button-secondary" href="/listino-estetica-laser">
               Vai al listino completo

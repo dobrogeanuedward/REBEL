@@ -38,8 +38,8 @@ export default function CompetenzeHubPage() {
       <JsonLd data={competenceListSchema} />
       <PageHero
         eyebrow="Approfondimenti"
-        title="Competenze Rebel: spiegate in modo semplice, concreto e utile."
-        lead="Qui trovi articoli su servizi reali, scritti in modo chiaro e con fonti autorevoli. Così scegli con calma e con le idee chiare."
+        title="Guide Rebel: le domande che ci fate più spesso, messe nero su bianco."
+        lead="Qui trovi criteri pratici e approfondimenti su viso, corpo e laser. Quando serve citiamo anche fonti pubbliche, così ti fai un'idea e decidi con calma."
         badge="Informazioni pratiche prima di prenotare"
         tone="ocean"
       />
@@ -49,9 +49,9 @@ export default function CompetenzeHubPage() {
           <article className="card glow-card">
             <h2 style={{ marginTop: 0 }}>Perché abbiamo creato queste guide</h2>
             <p className="lead" style={{ marginTop: 0 }}>
-              Quando si parla di pelle o corpo è normale avere dubbi. Preferiamo
-              spiegare bene le cose prima, così arrivi al primo appuntamento più
-              tranquilla e con aspettative chiare.
+              Quando si parla di pelle e corpo, i dubbi sono normali. Qui abbiamo messo le
+              risposte che di solito diamo in studio: cosa aspettarti, cosa evitare e
+              come scegliere un percorso che riesci davvero a portare avanti.
             </p>
             <div className="hero-visual" style={{ marginTop: "1rem", borderRadius: 16 }}>
               <Image
@@ -74,7 +74,7 @@ export default function CompetenzeHubPage() {
               <li>- leggi il tema che senti più vicino al tuo caso</li>
               <li>- guarda i servizi consigliati in fondo pagina</li>
               <li>- se vuoi, scrivici e ti orientiamo noi</li>
-              <li>- prenota solo quando hai chiaro il percorso</li>
+              <li>- prenota quando ti è chiaro da dove partire</li>
             </ul>
             <div style={{ marginTop: "0.9rem", display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
               <Link className="button button-secondary" href="/epilazione-laser-carmagnola">

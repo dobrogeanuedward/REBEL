@@ -154,43 +154,12 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="section">
-        <div className="container grid grid-2">
-          <article className="card glow-card">
-            <h2 style={{ marginTop: 0 }}>Per chi è indicato</h2>
-            <p className="lead" style={{ marginTop: 0 }}>
-              {service.name} è ideale se vuoi un trattamento concreto, con passaggi
-              chiari e obiettivi concreti. In studio valutiamo sempre il tuo
-              punto di partenza prima di suggerire frequenza e combinazioni.
-            </p>
-            <p className="lead">
-              Molte clienti arrivano con domande precise: quanto tempo serve, quando
-              iniziare, cosa aspettarsi. Ti diamo risposte semplici e un piano
-              sostenibile nel tempo.
-            </p>
-          </article>
-
-          <article className="card">
-            <h2 style={{ marginTop: 0 }}>Come si svolge una seduta da Rebel</h2>
-            <ol className="list-clean">
-              <li>1. Ascolto iniziale e verifica dell&apos;obiettivo.</li>
-              <li>2. Trattamento eseguito con protocollo personalizzato.</li>
-              <li>3. Indicazioni post-seduta chiare e sensate.</li>
-            </ol>
-            <p className="lead" style={{ marginTop: "0.9rem" }}>
-              Il nostro obiettivo non è solo il risultato immediato, ma la continuità
-              nel tempo. Per questo ogni seduta si collega sempre alla successiva.
-            </p>
-          </article>
-        </div>
-      </section>
-
       {editorialSections.length > 0 && (
         <section className="section">
           <div className="container split">
             <article className="card glow-card">
               <p className="eyebrow">Da sapere</p>
-              <h2 style={{ marginTop: "0.45rem" }}>Dettagli utili, spiegati bene</h2>
+              <h2 style={{ marginTop: "0.45rem" }}>Prima di prenotare: qualche dettaglio utile</h2>
               {editorialSections.map((section) => (
                 <div key={section.heading} style={{ marginTop: "0.95rem" }}>
                   <h3 style={{ marginTop: 0 }}>{section.heading}</h3>
@@ -205,8 +174,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             <aside className="card">
               <h2 style={{ marginTop: 0 }}>Vuoi iniziare con calma?</h2>
               <p className="lead" style={{ marginTop: 0 }}>
-                Se hai dubbi o vuoi capire se questo servizio è adatto a te, puoi scriverci e
-                ti orientiamo in modo semplice. Preferiamo una scelta chiara a una scelta di fretta.
+                Se sei indecisa o hai una domanda prima di prenotare, scrivici due righe (zona/obiettivo/tempi).
+                Ti diciamo noi se {service.name} ha senso adesso o se conviene partire da altro.
               </p>
               <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
                 <Link className="button button-primary" href="/contatti">

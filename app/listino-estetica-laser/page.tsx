@@ -58,7 +58,7 @@ export default function ListinoPage() {
       <PageHero
         eyebrow="Listino unico"
         title="Listino Rebel: estetica avanzata, laser ed epigenetica nella stessa pagina."
-        lead="Qui trovi i prezzi in modo semplice e trasparente. Se non sai quale trattamento scegliere, ti aiutiamo noi a orientarti."
+        lead="Prezzi e trattamenti Rebel, ordinati per categoria. Se sei indecisa, scrivici: ti aiutiamo a scegliere da dove partire."
         badge="Listino Rebel - Centro Estetico a Carmagnola"
         tone="gold"
       />

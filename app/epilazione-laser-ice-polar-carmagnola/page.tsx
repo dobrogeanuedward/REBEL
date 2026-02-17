@@ -13,7 +13,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = createPageMetadata({
   title: "Epilazione laser con Ice Polar a Carmagnola | Rebel",
   description:
-    "Una pagina chiara e completa sul manipolo Ice Polar: perché aiuta il comfort durante l'epilazione laser, come lo usiamo in studio e cosa aspettarti da un percorso ben impostato a Carmagnola.",
+    "Ice Polar e comfort durante l'epilazione laser: cosa cambia in seduta, come lo usiamo in studio e cosa aspettarti da un percorso laser a Carmagnola.",
   path: "/epilazione-laser-ice-polar-carmagnola",
   keywords: [
     "Ice Polar Carmagnola",
@@ -94,8 +94,8 @@ export default function EpilazioneLaserIcePolarCarmagnolaPage() {
 
       <PageHero
         eyebrow="Laser più confortevole"
-        title="Ice Polar: il dettaglio che rende il laser più facile da seguire."
-        lead="Ice Polar è un manipolo che aiuta il comfort durante la seduta. Qui ti spieghiamo cosa significa nella pratica, come lo usiamo in studio e come si costruisce un percorso laser ben impostato a Carmagnola."
+        title="Ice Polar: più comfort durante il laser, soprattutto nelle zone sensibili."
+        lead="Ice Polar è un aiuto concreto sul comfort durante la seduta. In questa pagina trovi cosa cambia davvero, come impostiamo calendario e parametri e come gestire la pelle tra una seduta e l'altra."
         badge="Rebel Carmagnola • Viale Barbaroux 20"
         tone="violet"
       />
@@ -103,17 +103,15 @@ export default function EpilazioneLaserIcePolarCarmagnolaPage() {
       <section className="section">
         <div className="container split">
           <article className="card glow-card">
-            <h2 style={{ marginTop: 0 }}>Cos&apos;è Ice Polar, spiegato bene</h2>
+            <h2 style={{ marginTop: 0 }}>Ice Polar: cos&apos;è e cosa cambia durante la seduta</h2>
             <p className="lead" style={{ marginTop: 0 }}>
-              In parole semplici: Ice Polar è un aiuto al comfort. Non cambia la tua
-              pelle, non è una &quot;magia&quot; e non sostituisce il metodo. Serve a rendere
-              la seduta più tollerabile, soprattutto nelle zone in cui la sensibilità
-              può essere maggiore.
+              Ice Polar è un sistema di raffreddamento che aiuta a rendere la seduta più
+              tollerabile. Non è una &quot;magia&quot; e non sostituisce il settaggio: è un aiuto
+              in più, soprattutto quando la zona è delicata o quando hai una sensibilità alta.
             </p>
             <p className="lead">
-              Questo conta perché il laser non è una singola seduta: è un percorso.
-              Quando l&apos;esperienza è più serena, diventa più facile seguire calendario
-              e indicazioni tra un appuntamento e l&apos;altro.
+              Il laser si fa in più sedute: se stai più comoda, è più facile tenere il calendario
+              e rispettare le indicazioni tra un appuntamento e l&apos;altro.
             </p>
           </article>
 
@@ -144,16 +142,16 @@ export default function EpilazioneLaserIcePolarCarmagnolaPage() {
             <h2 style={{ marginTop: 0 }}>Metodo: parametri e calendario</h2>
             <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", lineHeight: 1.7, color: "rgba(39,31,56,0.78)" }}>
               Comfort e risultato vanno insieme quando il percorso è impostato bene:
-              valutazione iniziale, settaggio su misura e un calendario che riesci a seguire.
-              Se la pelle cambia, si adatta anche il piano.
+              valutazione iniziale, settaggio su misura e un calendario che sta nella tua settimana.
+              Se la pelle cambia, aggiustiamo anche il piano.
             </p>
           </article>
           <article className="card-light">
-            <h2 style={{ marginTop: 0 }}>Indicazioni semplici tra le sedute</h2>
+            <h2 style={{ marginTop: 0 }}>Tra una seduta e l&apos;altra</h2>
             <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", lineHeight: 1.7, color: "rgba(39,31,56,0.78)" }}>
-              Una buona seduta non finisce quando esci dallo studio. Ti diamo indicazioni
-              chiare (senza ansia) su cosa fare e cosa evitare, così la pelle resta tranquilla
-              e il percorso resta scorrevole.
+              Una buona seduta non finisce quando esci dallo studio. Ti diciamo cosa fare e cosa evitare
+              nei giorni successivi, senza ansia e senza liste infinite: così la pelle resta tranquilla
+              e non ti viene voglia di rimandare la seduta dopo.
             </p>
           </article>
         </div>

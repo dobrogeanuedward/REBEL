@@ -52,32 +52,23 @@ export default async function LocalAreaDetailPage({ params }: PageProps) {
     { name: area.city, path: `/localita/${area.slug}` },
   ]);
 
-  const defaultFaqs = [
-    {
-      q: `Perche scegliere Rebel se arrivo da ${area.city}?`,
-      a: `${area.city} rientra nelle aree servite di Rebel: puoi accedere a percorsi viso, corpo e laser con approccio personalizzato.`,
-    },
-    {
-      q: "Come prenoto un primo appuntamento?",
-      a: "Puoi prenotare rapidamente via WhatsApp o telefono dalla pagina contatti.",
-    },
-  ];
-  const pageFaqs = Array.from(
-    new Map([...(area.faqs ?? []), ...defaultFaqs].map((item) => [item.q, item])).values(),
-  );
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: pageFaqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.a,
-      },
-    })),
-  };
+  // Keep structured data aligned with what the user can actually read on the page.
+  const pageFaqs = area.faqs ?? [];
+  const faqSchema =
+    pageFaqs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: pageFaqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.q,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: faq.a,
+            },
+          })),
+        }
+      : null;
   const articleSchema = buildArticleSchema({
     headline: area.title,
     description: area.description,
@@ -90,7 +81,7 @@ export default async function LocalAreaDetailPage({ params }: PageProps) {
     <main className="page-shell page-localita-detail">
       <JsonLd data={breadcrumb} />
       <JsonLd data={articleSchema} />
-      <JsonLd data={faqSchema} />
+      {faqSchema ? <JsonLd data={faqSchema} /> : null}
       <PageHero
         eyebrow="Rebel vicino a te"
         title={area.title}
@@ -112,9 +103,9 @@ export default async function LocalAreaDetailPage({ params }: PageProps) {
           <aside className="card">
             <h2 style={{ marginTop: 0 }}>Prossimo passo consigliato</h2>
             <p className="lead" style={{ marginTop: 0 }}>
-              Se stai confrontando più centri estetici nella zona, la scelta migliore
-              è partire da una lettura iniziale seria e capire quale percorso ha
-              davvero senso per te.
+              Se stai confrontando più centri estetici tra {area.city} e dintorni, la scelta
+              migliore è partire da una lettura iniziale seria e capire quale percorso ha
+              davvero senso per te (viso, corpo o laser), senza improvvisare.
             </p>
             <div
               style={{
@@ -250,12 +241,12 @@ export default async function LocalAreaDetailPage({ params }: PageProps) {
         </section>
       )}
 
-      {area.faqs && area.faqs.length > 0 && (
+      {pageFaqs.length > 0 && (
         <section className="section section-light">
           <div className="container">
             <h2 className="page-title">Domande frequenti</h2>
             <div className="grid grid-2" style={{ marginTop: "1rem" }}>
-              {area.faqs.map((faq) => (
+              {pageFaqs.map((faq) => (
                 <article key={faq.q} className="card-light">
                   <h3 style={{ marginTop: 0 }}>{faq.q}</h3>
                   <p

@@ -272,8 +272,8 @@ export default function ContattiPage() {
           <article className="card glow-card">
             <h2 style={{ marginTop: 0 }}>Scrivici dal form</h2>
             <p className="lead" style={{ marginTop: "0.35rem" }}>
-              Compila il form e ti ricontattiamo via email o telefono. Il sistema
-              è già predisposto per inoltrare le richieste anche verso Gmail.
+              Compila il form e ti ricontattiamo via email o telefono. Se hai fretta,
+              WhatsApp resta il modo più veloce.
             </p>
             <ContactForm />
           </article>
@@ -282,12 +282,12 @@ export default function ContattiPage() {
             <ul className="list-clean">
               <li>- ci racconti il tuo obiettivo</li>
               <li>- facciamo una valutazione iniziale</li>
-              <li>- ti proponiamo un percorso chiaro e sostenibile</li>
+              <li>- ti proponiamo un piano con priorità e tempi</li>
               <li>- decidi tu se e quando iniziare</li>
             </ul>
             <p className="lead" style={{ marginTop: "0.9rem" }}>
-              Nessun linguaggio complicato: preferiamo spiegarti tutto in modo
-              semplice, così sai esattamente cosa aspettarti.
+              Niente parole complicate: ti diciamo cosa facciamo, cosa aspettarti e
+              cosa conviene fare tra un appuntamento e l&apos;altro.
             </p>
           </aside>
         </div>

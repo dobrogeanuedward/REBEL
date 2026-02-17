@@ -10,7 +10,7 @@ import { buildBreadcrumbSchema, createPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = createPageMetadata({
   title: "Chi Siamo: Centro Estetico Avanzato a Carmagnola",
   description:
-    "Scopri la visione Rebel: centro estetico a Carmagnola focalizzato su estetica epigenetica, metodo personalizzato e risultati misurabili.",
+    "Conosci Rebel: studio estetico a Carmagnola con estetica epigenetica, trattamenti viso/corpo e laser, impostati con metodo e seguiti nel tempo.",
   path: "/chi-siamo",
   keywords: [
     "chi siamo centro estetico Carmagnola",
@@ -30,9 +30,9 @@ export default function ChiSiamoPage() {
       <JsonLd data={breadcrumb} />
       <PageHero
         eyebrow="Identità Rebel"
-        title="Un centro estetico a Carmagnola costruito su scienza, misura e ascolto."
-        lead="Rebel nasce per superare l'estetica standardizzata: ogni percorso parte da lettura iniziale, obiettivi reali e metodo replicabile. Lavoriamo per generare fiducia, non promesse generiche."
-        badge="Centro estetico locale ad alta specializzazione"
+        title="Rebel è un centro estetico a Carmagnola dove la pelle si guarda davvero."
+        lead="Qui si parte da una cosa semplice: capire la tua pelle oggi e cosa vuoi ottenere. Poi impostiamo un percorso (viso, corpo o laser) con metodo, calma e continuità."
+        badge="Viale Barbaroux 20 • Carmagnola"
         tone="rose"
       />
 
@@ -41,20 +41,20 @@ export default function ChiSiamoPage() {
           <article className="card glow-card">
             <h2 style={{ marginTop: 0 }}>Visione</h2>
             <p className="lead" style={{ marginTop: 0 }}>
-              Per noi la bellezza non è una correzione esterna. È un equilibrio
-              biologico che può essere riattivato con protocolli pertinenti,
-              continuità e precisione esecutiva.
+              Per noi la bellezza non è una correzione di facciata. È pelle che sta bene:
+              più luminosa, più comoda, più stabile. Ci arriviamo con scelte precise e con
+              un percorso che puoi seguire davvero.
             </p>
           </article>
           <article className="card mission-card">
             <p className="eyebrow">Chi siamo</p>
             <h2 style={{ marginTop: "0.55rem" }}>
-              Siamo pionieri dell&apos;estetica epigenetica in Italia.
+              Un modo diverso di fare estetica: meno frenesia, più metodo.
             </h2>
             <p className="lead" style={{ marginTop: "0.6rem" }}>
-              Rebel è un punto di riferimento per l&apos;estetica avanzata a Carmagnola,
-              offrendo percorsi avanzati e trasparenti per residenti e clienti
-              dell&apos;area Torino Sud.
+              Rebel è uno studio a Carmagnola. Lavoriamo con estetica epigenetica, trattamenti
+              viso/corpo e laser: l&apos;obiettivo è darti un piano ordinato fin dall&apos;inizio,
+              senza promesse e senza corse.
             </p>
             <div className="mission-actions">
               <Link href="/servizi" className="button button-primary">
@@ -74,7 +74,7 @@ export default function ChiSiamoPage() {
             Instagram
           </p>
           <h2 className="page-title" style={{ marginTop: "0.6rem", color: "#271f38" }}>
-            Post dal centro estetico Rebel.
+            Dal nostro studio
           </h2>
           <p className="lead" style={{ color: "rgba(39,31,56,0.78)", marginTop: "0.8rem" }}>
             Scatti e aggiornamenti dal nostro studio a Carmagnola.
@@ -86,13 +86,13 @@ export default function ChiSiamoPage() {
       <section className="section section-light">
         <div className="container">
           <p className="eyebrow" style={{ color: "rgba(39,31,56,0.66)" }}>
-            Rebel- Estetica Epigenetica
+            Rebel • Estetica Epigenetica
           </p>
           <h2 className="page-title" style={{ marginTop: "0.58rem", color: "#271f38" }}>
-            Le foto del nostro centro estetico a Carmagnola.
+            Dentro Rebel
           </h2>
           <p className="lead" style={{ color: "rgba(39,31,56,0.78)" }}>
-            Per mostrarvi la luce, gli spazi, i dettagli e l&apos;atmosfera di Rebel.
+            Qualche scatto per farti vedere spazi, luce e atmosfera.
           </p>
           <StoreGallery images={storeGalleryImages} />
         </div>
@@ -100,10 +100,10 @@ export default function ChiSiamoPage() {
 
       <section className="section">
         <div className="container">
-          <h2 className="page-title">Cosa rende Rebel differente.</h2>
+          <h2 className="page-title">Il nostro modo di lavorare</h2>
           <div className="grid grid-3" style={{ marginTop: "1rem" }}>
             <article className="card glow-card">
-              <h3 style={{ marginTop: 0 }}>Ascolto profondo</h3>
+              <h3 style={{ marginTop: 0 }}>Ascolto</h3>
               <p
                 style={{
                   margin: 0,
@@ -112,7 +112,7 @@ export default function ChiSiamoPage() {
                   color: "var(--muted)",
                 }}
               >
-                L&apos;analisi parte dalla persona, non dal trattamento da vendere.
+                Si parte da te, non dal pacchetto: obiettivo, tempi, pelle di oggi.
               </p>
             </article>
             <article className="card glow-card">
@@ -125,11 +125,11 @@ export default function ChiSiamoPage() {
                   color: "var(--muted)",
                 }}
               >
-                Attivi, manualità e tecnologia integrati con logica e criterio.
+                Manualità, attivi e tecnologia: li scegliamo con criterio, senza eccessi.
               </p>
             </article>
             <article className="card glow-card">
-              <h3 style={{ marginTop: 0 }}>Risultati misurabili</h3>
+              <h3 style={{ marginTop: 0 }}>Progressi reali</h3>
               <p
                 style={{
                   margin: 0,
@@ -138,7 +138,7 @@ export default function ChiSiamoPage() {
                   color: "var(--muted)",
                 }}
               >
-                Definiamo obiettivi, monitoriamo progressi e ottimizziamo il piano.
+                Ci diamo un obiettivo e lo seguiamo con costanza. Se serve, cambiamo rotta.
               </p>
             </article>
           </div>
