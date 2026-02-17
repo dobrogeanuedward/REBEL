@@ -732,6 +732,170 @@ export const servicePages: ServicePage[] = [
       },
     ],
   },
+  {
+    slug: "epilazione-laser-viso-uomo-carmagnola",
+    name: "Epilazione laser viso uomo a Carmagnola",
+    shortDescription:
+      "Laser viso uomo su barba/collo/zigomi: percorso su misura, con gestione pratica della rasatura.",
+    longDescription:
+      "Il laser viso uomo da Rebel è pensato per chi vuole ridurre o rendere più gestibile la ricrescita su barba e collo, oppure mettere ordine in zone specifiche (zigomi, baffi, contorni). Impostiamo parametri e calendario in base a pelle, pelo e obiettivo reale, con manipolo Ice Polar per migliorare il comfort. Tra una seduta e l'altra ti diciamo come gestire rasatura e pelle senza improvvisare.",
+    priceHint: "EUR 51.80 / EUR 25.90 per zona",
+    category: "laser",
+    benefits: [
+      "Percorso su misura su barba/collo e zone viso più richieste",
+      "Gestione pratica della rasatura tra le sedute (senza confusione)",
+      "Progressione chiara e monitorata: parametri adattati alla risposta della pelle",
+      "Comfort migliorato con Ice Polar e settaggio graduale",
+    ],
+    faqs: [
+      {
+        q: "Si può fare laser su barba e collo?",
+        a: "Dipende dall'obiettivo: riduzione, ordine della ricrescita o gestione delle irritazioni. In consulenza capiamo cosa vuoi ottenere e impostiamo zone, parametri e calendario in modo coerente.",
+      },
+      {
+        q: "Tra una seduta e l'altra posso radermi?",
+        a: "Di solito sì: il rasoio è la scelta più semplice durante un percorso laser. In genere si evita invece l'epilazione a strappo perché interferisce con il ciclo del pelo.",
+      },
+      {
+        q: "Fa male sul collo o sulla linea barba?",
+        a: "La percezione cambia molto da zona a zona. In studio lavoriamo in modo graduale e su misura; Ice Polar aiuta sul comfort, e il settaggio viene adattato alla risposta della pelle.",
+      },
+      {
+        q: "Posso iniziare anche se faccio sport all'aperto o mi espongo al sole?",
+        a: "Spesso sì, ma va gestita l'esposizione in modo sensato. Se vuoi, la guida su laser e sole chiarisce cosa fare e quando conviene distanziare una seduta.",
+      },
+    ],
+    keywords: [
+      "epilazione laser viso uomo Carmagnola",
+      "laser barba Carmagnola",
+      "laser collo uomo Carmagnola",
+      "laser zigomi uomo Carmagnola",
+      "laser viso uomo Carmagnola",
+    ],
+    relatedCompetenceSlugs: [
+      "laser-uomo-carmagnola-guida-pratica",
+      "laser-barba-collo-carmagnola-guida-pratica",
+      "epilazione-laser-estate-sole-carmagnola",
+      "laser-diodo-carmagnola",
+      "epilazione-laser-carmagnola",
+    ],
+    editorialSections: [
+      {
+        heading: "Barba e collo: l'obiettivo prima del trattamento",
+        paragraphs: [
+          "Sul viso uomo la domanda non è solo \"si può fare?\": è cosa vuoi ottenere. Ridurre? Mettere ordine? Alleggerire irritazioni da rasatura? La scelta delle zone e del calendario cambia in base a questo.",
+          "Noi partiamo sempre da una valutazione e da un piano pulito: priorità chiare e progressione che puoi seguire, senza corse.",
+        ],
+      },
+      {
+        heading: "Rasatura tra le sedute: la gestione che rende il percorso sostenibile",
+        paragraphs: [
+          "Se non sai come gestire la rasatura tra una seduta e l'altra, il percorso diventa stressante. Preferiamo darti poche regole pratiche e adattarle alla tua routine (lavoro, sport, esposizione).",
+          "Il risultato migliore arriva quando la pelle resta tranquilla e il calendario resta coerente.",
+        ],
+      },
+      {
+        heading: "Comfort: Ice Polar e settaggio graduale",
+        paragraphs: [
+          "Ice Polar aiuta il comfort, soprattutto su collo e contorni. Ma la parte decisiva è sempre il metodo: settaggio su misura e progressione, non intensità a caso.",
+          "Se la pelle cambia, cambiamo anche noi: piccoli aggiustamenti seduta dopo seduta, senza perdere la direzione.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - Laser hair removal FAQs",
+        url: "https://www.aad.org/public/cosmetic/hair-removal/laser-hair-removal-faqs",
+      },
+      {
+        label: "Mayo Clinic - Laser hair removal",
+        url: "https://www.mayoclinic.org/tests-procedures/laser-hair-removal/about/pac-20394555",
+      },
+    ],
+  },
+  {
+    slug: "epilazione-laser-corpo-uomo-carmagnola",
+    name: "Epilazione laser corpo uomo a Carmagnola",
+    shortDescription:
+      "Laser corpo uomo su schiena, torace e aree ampie: strategia, calendario e percorso su misura.",
+    longDescription:
+      "Il laser corpo uomo da Rebel viene impostato come un percorso: scegliamo priorità, calendario e controlli, in base a zone e obiettivo (schiena, torace, addome, spalle). Usiamo Thory con manipolo Ice Polar per migliorare il comfort durante la seduta e lavoriamo con settaggio su misura. Tra una seduta e l'altra ti diciamo cosa fare per tenere la pelle tranquilla e rendere il risultato più stabile.",
+    priceHint: "da EUR 25.90 a 103.60",
+    category: "laser",
+    benefits: [
+      "Strategia chiara su aree ampie (schiena/torace): priorità e calendario",
+      "Percorso monitorato e adattato alla risposta individuale",
+      "Comfort migliorato durante la seduta con Ice Polar",
+      "Regole pratiche pre/post per evitare irritazioni inutili",
+    ],
+    faqs: [
+      {
+        q: "Schiena e torace richiedono più sedute?",
+        a: "Sono zone ampie e la risposta cambia molto da persona a persona. Per questo la cosa più utile è impostare un calendario realistico e adattarlo nel tempo, invece di inseguire promesse veloci.",
+      },
+      {
+        q: "Posso trattare più zone nello stesso appuntamento?",
+        a: "Spesso sì, se ha senso per tempi e tollerabilità. A volte conviene partire da una zona prioritaria (per leggere meglio la risposta), poi aggiungere il resto.",
+      },
+      {
+        q: "Tra una seduta e l'altra posso fare ceretta o epilatore?",
+        a: "In generale si evita l'epilazione a strappo durante un percorso laser. Di solito si usa il rasoio e si seguono poche regole pratiche per la pelle.",
+      },
+      {
+        q: "Laser e sole: devo sospendere se lavoro all'aperto?",
+        a: "Non per forza, ma va gestito con criterio. In consulenza valutiamo esposizione e zone, così il percorso resta sostenibile senza complicarti la vita.",
+      },
+    ],
+    keywords: [
+      "epilazione laser corpo uomo Carmagnola",
+      "laser schiena Carmagnola",
+      "laser torace Carmagnola",
+      "laser uomo Carmagnola",
+      "laser spalle Carmagnola",
+    ],
+    relatedCompetenceSlugs: [
+      "laser-uomo-carmagnola-guida-pratica",
+      "laser-schiena-carmagnola-guida-pratica",
+      "laser-gambe-carmagnola-guida-pratica",
+      "epilazione-laser-corpo-carmagnola-zone-tempi",
+      "epilazione-laser-estate-sole-carmagnola",
+      "laser-diodo-carmagnola",
+      "epilazione-laser-carmagnola",
+    ],
+    editorialSections: [
+      {
+        heading: "Aree ampie: la differenza la fa l'organizzazione",
+        paragraphs: [
+          "Sulle zone grandi la tentazione è fare tutto insieme e subito. In realtà funziona meglio una strategia pulita: priorità, calendario realistico e controlli.",
+          "Quando il percorso è organizzato, si vive meglio anche la parte pratica: appuntamenti, sport, sole e gestione della pelle tra le sedute.",
+        ],
+      },
+      {
+        heading: "Preparazione e post: poche regole pratiche",
+        paragraphs: [
+          "Prima della seduta ti diciamo cosa fare e cosa evitare. Dopo, l'obiettivo è tenere la pelle tranquilla: niente esperimenti aggressivi e attenzione a calore/sfregamenti se sei sensibile.",
+          "Se hai dubbi, ci scrivi: preferiamo una domanda in più a una gestione improvvisata.",
+        ],
+      },
+      {
+        heading: "Comfort: Ice Polar aiuta, ma è il settaggio che conta",
+        paragraphs: [
+          "Ice Polar migliora il comfort durante la seduta, ma la vera differenza è il settaggio su misura: parametri, zona e progressione.",
+          "Un percorso serio si adatta: se la pelle risponde in modo diverso, si corregge la rotta senza perdere la direzione.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - Laser hair removal FAQs",
+        url: "https://www.aad.org/public/cosmetic/hair-removal/laser-hair-removal-faqs",
+      },
+      {
+        label: "Mayo Clinic - Laser hair removal",
+        url: "https://www.mayoclinic.org/tests-procedures/laser-hair-removal/about/pac-20394555",
+      },
+    ],
+  },
 ];
 
 export const competencePages: CompetencePage[] = [
@@ -1909,13 +2073,21 @@ export const competencePages: CompetencePage[] = [
       "laser barba Carmagnola",
       "laser schiena Carmagnola",
     ],
-    relatedServiceSlugs: ["epilazione-laser-viso-carmagnola", "epilazione-laser-corpo-carmagnola"],
+    relatedServiceSlugs: [
+      "epilazione-laser-viso-uomo-carmagnola",
+      "epilazione-laser-corpo-uomo-carmagnola",
+      "epilazione-laser-viso-carmagnola",
+      "epilazione-laser-corpo-carmagnola",
+    ],
     relatedCompetenceSlugs: [
       "epilazione-laser-carmagnola",
       "laser-diodo-carmagnola",
       "epilazione-laser-estate-sole-carmagnola",
       "peli-incarniti-laser-carmagnola",
       "epilazione-laser-corpo-carmagnola-zone-tempi",
+      "laser-barba-collo-carmagnola-guida-pratica",
+      "laser-schiena-carmagnola-guida-pratica",
+      "laser-gambe-carmagnola-guida-pratica",
     ],
     editorialSections: [
       {
@@ -1937,6 +2109,258 @@ export const competencePages: CompetencePage[] = [
         paragraphs: [
           "Tra una seduta e l'altra contano le cose semplici: sole, prodotti, rasatura, sport. Se sai cosa fare, la pelle resta più tranquilla e il percorso scorre.",
           "Noi puntiamo a regole pratiche, non a divieti inutili: così riesci davvero a essere costante.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - Laser hair removal FAQs",
+        url: "https://www.aad.org/public/cosmetic/hair-removal/laser-hair-removal-faqs",
+      },
+      {
+        label: "Mayo Clinic - Laser hair removal",
+        url: "https://www.mayoclinic.org/tests-procedures/laser-hair-removal/about/pac-20394555",
+      },
+    ],
+  },
+  {
+    slug: "laser-barba-collo-carmagnola-guida-pratica",
+    title: "Laser barba e collo a Carmagnola: ordine, rasatura e calendario",
+    shortDescription:
+      "Guida pratica su barba/collo: cosa aspettarti, come gestire la rasatura e come impostare un percorso coerente.",
+    longDescription:
+      "Il laser su barba e collo si imposta in base all'obiettivo (riduzione, ordine della ricrescita, gestione irritazioni da rasatura). Qui trovi una guida concreta: cosa chiedere in consulenza, come prepararti, cosa fare tra una seduta e l'altra e come evitare errori che complicano il percorso.",
+    localAngle:
+      "Pensata per chi vuole una gestione più comoda della rasatura e uno stile più ordinato, senza improvvisare.",
+    intent: "commercial",
+    benefits: [
+      "Ti aiuta a chiarire obiettivo: ridurre o mettere ordine sulla ricrescita",
+      "Spiega come gestire rasatura e pelle tra le sedute senza confusione",
+      "Imposta aspettative realistiche su tempi, progressione e mantenimento",
+    ],
+    faqs: [
+      {
+        q: "È possibile fare laser sulla barba senza \"rovinare\" la forma?",
+        a: "Sì, quando l'obiettivo è ordine e gestione della ricrescita: si scelgono zone e priorità in modo preciso. In consulenza capiamo insieme cosa vuoi ottenere e cosa è sensato fare.",
+      },
+      {
+        q: "Tra una seduta e l'altra posso radermi?",
+        a: "Di solito sì: il rasoio è la scelta più semplice durante un percorso laser. In genere si evita invece l'epilazione a strappo perché interferisce con il ciclo del pelo.",
+      },
+      {
+        q: "Come si gestiscono irritazioni e follicolite da rasatura?",
+        a: "Prima si mette ordine: routine più semplice, niente prodotti aggressivi, e regole pratiche tra le sedute. Se la pelle è irritata, si imposta il percorso con gradualità e si adatta il calendario.",
+      },
+      {
+        q: "È una zona più sensibile?",
+        a: "Spesso sì, soprattutto su collo e contorni. Ice Polar aiuta il comfort, e noi lavoriamo in modo graduale: settaggio su misura e progressione pulita.",
+      },
+    ],
+    keywords: [
+      "laser barba Carmagnola",
+      "laser collo uomo Carmagnola",
+      "epilazione laser barba Carmagnola",
+      "laser barba e collo Carmagnola",
+    ],
+    relatedServiceSlugs: [
+      "epilazione-laser-viso-uomo-carmagnola",
+      "epilazione-laser-viso-carmagnola",
+    ],
+    relatedCompetenceSlugs: [
+      "laser-uomo-carmagnola-guida-pratica",
+      "peli-incarniti-laser-carmagnola",
+      "epilazione-laser-estate-sole-carmagnola",
+      "laser-diodo-carmagnola",
+      "epilazione-laser-carmagnola",
+    ],
+    editorialSections: [
+      {
+        heading: "Prima di tutto: obiettivo e confini della zona",
+        paragraphs: [
+          "Sulla barba non esiste una soluzione uguale per tutti. C'è chi vuole ridurre molto, chi vuole solo mettere ordine su collo e contorni, chi vuole gestire irritazioni ricorrenti.",
+          "La parte importante è decidere una priorità e impostare un percorso coerente: zone scelte bene + calendario sostenibile.",
+        ],
+      },
+      {
+        heading: "Rasatura tra le sedute: la gestione che rende il percorso vivibile",
+        paragraphs: [
+          "Se la gestione tra le sedute è confusa, il percorso si inceppa. Noi preferiamo poche regole pratiche: cosa fare, cosa evitare e come tenere la pelle tranquilla.",
+          "È la differenza tra un percorso ordinato e una sequenza di tentativi.",
+        ],
+      },
+      {
+        heading: "Comfort e progressione: Ice Polar aiuta, ma il metodo decide",
+        paragraphs: [
+          "Ice Polar migliora il comfort, ma la vera differenza è il settaggio: gradualità e adattamento alla risposta della pelle.",
+          "Se la pelle cambia (stagione, stress, sport), si ritarano parametri e ritmo senza perdere la direzione.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - Laser hair removal FAQs",
+        url: "https://www.aad.org/public/cosmetic/hair-removal/laser-hair-removal-faqs",
+      },
+      {
+        label: "Mayo Clinic - Laser hair removal",
+        url: "https://www.mayoclinic.org/tests-procedures/laser-hair-removal/about/pac-20394555",
+      },
+    ],
+  },
+  {
+    slug: "laser-schiena-carmagnola-guida-pratica",
+    title: "Laser schiena a Carmagnola: strategia, tempi e gestione delle aree ampie",
+    shortDescription:
+      "Una guida concreta per la schiena: come impostare il percorso, cosa aspettarti e come organizzare il calendario.",
+    longDescription:
+      "Sulla schiena la differenza la fa l'organizzazione: zona ampia, risposta individuale variabile e bisogno di un calendario realistico. Qui trovi come impostiamo un percorso serio (priorità, controlli, post-seduta) e cosa chiedere prima di iniziare.",
+    localAngle:
+      "Utile se vuoi smettere di inseguire la ricrescita e preferisci un percorso chiaro e seguito nel tempo.",
+    intent: "commercial",
+    benefits: [
+      "Ti aiuta a impostare un calendario realistico sulle aree ampie",
+      "Chiarisce cosa fare tra una seduta e l'altra per tenere la pelle tranquilla",
+      "Riduce confusione su tempi e aspettative (progressione reale)",
+    ],
+    faqs: [
+      {
+        q: "Devo radermi prima della seduta schiena?",
+        a: "Di solito sì: il rasoio è l'opzione più semplice. Se serve, ti diciamo tempistiche e cosa evitare, così non improvvisi.",
+      },
+      {
+        q: "Quanto dura una seduta su una zona ampia?",
+        a: "Dipende dall'estensione e dalle zone incluse (schiena alta/bassa/spalle). In consulenza ti diciamo tempi realistici e cosa conviene trattare per primo.",
+      },
+      {
+        q: "Il laser schiena è doloroso?",
+        a: "La percezione varia. Lavoriamo in modo graduale e su misura; Ice Polar aiuta sul comfort, e il settaggio viene adattato alla risposta della pelle.",
+      },
+      {
+        q: "Posso fare più zone nello stesso appuntamento?",
+        a: "Spesso sì, ma conviene farlo con criterio: priorità e tempi. A volte è più utile partire da una zona e poi aggiungere il resto.",
+      },
+    ],
+    keywords: [
+      "laser schiena Carmagnola",
+      "epilazione laser schiena Carmagnola",
+      "laser spalle Carmagnola",
+      "laser corpo uomo Carmagnola",
+    ],
+    relatedServiceSlugs: [
+      "epilazione-laser-corpo-uomo-carmagnola",
+      "epilazione-laser-corpo-carmagnola",
+    ],
+    relatedCompetenceSlugs: [
+      "laser-uomo-carmagnola-guida-pratica",
+      "epilazione-laser-corpo-carmagnola-zone-tempi",
+      "epilazione-laser-estate-sole-carmagnola",
+      "laser-diodo-carmagnola",
+      "epilazione-laser-carmagnola",
+    ],
+    editorialSections: [
+      {
+        heading: "Aree ampie: calendario prima di tutto",
+        paragraphs: [
+          "Sulla schiena la cosa più importante è non improvvisare. Un percorso serio parte da una strategia: cosa trattare per primo, con che ritmo, e come gestire i periodi con più sole o sport.",
+          "Un calendario realistico è quello che puoi seguire: è lì che si costruiscono risultati più stabili.",
+        ],
+      },
+      {
+        heading: "Post-seduta e vita reale: sport, doccia, sole",
+        paragraphs: [
+          "Tra una seduta e l'altra contano le abitudini: calore, sfregamenti, esposizione. Ti diamo indicazioni pratiche in base a come vivi la settimana.",
+          "Il punto è tenere la pelle tranquilla, così il percorso scorre senza intoppi.",
+        ],
+      },
+      {
+        heading: "Progressione: parametri su misura e controlli",
+        paragraphs: [
+          "La risposta cambia da persona a persona. Per questo monitoriamo e aggiustiamo: la qualità sta nella continuità e nella precisione, non nella singola seduta.",
+          "Se vuoi, puoi partire dalla schiena e poi includere altre aree: l'importante è tenere il filo del piano.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - Laser hair removal preparation",
+        url: "https://www.aad.org/public/cosmetic/hair-removal/laser-hair-removal-preparation",
+      },
+      {
+        label: "AAD - Laser hair removal FAQs",
+        url: "https://www.aad.org/public/cosmetic/hair-removal/laser-hair-removal-faqs",
+      },
+    ],
+  },
+  {
+    slug: "laser-gambe-carmagnola-guida-pratica",
+    title: "Laser gambe a Carmagnola: tempi, ricrescita e mantenimento",
+    shortDescription:
+      "Guida pratica sulle gambe: calendario, cosa aspettarti davvero e come gestire sole, sport e routine tra le sedute.",
+    longDescription:
+      "Il laser gambe è spesso scelto per comodità: meno ricrescita da inseguire e gestione più semplice nel tempo. Qui trovi cosa aspettarti, come impostare un calendario realistico e come gestire il percorso nei mesi più luminosi senza stress.",
+    localAngle:
+      "Utile se vuoi iniziare dalle gambe e avere un piano pulito che sta nella tua routine.",
+    intent: "commercial",
+    benefits: [
+      "Chiarisce tempi e progressione (senza promesse veloci)",
+      "Aiuta a impostare un calendario realistico su gambe (mezze o intere)",
+      "Spiega come gestire sole e post-seduta con buon senso",
+    ],
+    faqs: [
+      {
+        q: "Meglio partire da mezza gamba o gamba intera?",
+        a: "Dipende da obiettivo e budget. Spesso partire da una priorità è più facile da seguire, poi si amplia. In consulenza ti diciamo cosa conviene fare per te.",
+      },
+      {
+        q: "Quante sedute servono per le gambe?",
+        a: "Dipende da risposta individuale e dalla zona. I cambiamenti sono progressivi: conta la costanza del calendario e l'adattamento dei parametri nel tempo.",
+      },
+      {
+        q: "Posso fare il laser gambe in estate?",
+        a: "Spesso sì, ma va gestita l'esposizione. La guida su laser e sole ti aiuta a capire quando programmare e quando distanziare una seduta.",
+      },
+      {
+        q: "Tra una seduta e l'altra posso fare ceretta?",
+        a: "In genere si evita l'epilazione a strappo durante un percorso laser. Di solito si usa il rasoio e si seguono poche regole pratiche per la pelle.",
+      },
+    ],
+    keywords: [
+      "laser gambe Carmagnola",
+      "epilazione laser gambe Carmagnola",
+      "laser mezza gamba Carmagnola",
+      "laser gamba intera Carmagnola",
+    ],
+    relatedServiceSlugs: [
+      "epilazione-laser-corpo-carmagnola",
+      "epilazione-laser-corpo-uomo-carmagnola",
+    ],
+    relatedCompetenceSlugs: [
+      "epilazione-laser-corpo-carmagnola-zone-tempi",
+      "epilazione-laser-estate-sole-carmagnola",
+      "peli-incarniti-laser-carmagnola",
+      "laser-diodo-carmagnola",
+      "epilazione-laser-carmagnola",
+    ],
+    editorialSections: [
+      {
+        heading: "Gambe: la comodità arriva quando il calendario è coerente",
+        paragraphs: [
+          "Sulle gambe è facile partire con entusiasmo e poi mollare. Il modo migliore per evitarlo è impostare un calendario realistico fin da subito.",
+          "Noi preferiamo poche regole chiare e una progressione leggibile: così sai sempre dove sei nel percorso.",
+        ],
+      },
+      {
+        heading: "Estate e routine: come non incasinarsi",
+        paragraphs: [
+          "Tra sole, weekend fuori e sport, il percorso va pianificato. Non serve ansia: serve buon senso e indicazioni pratiche.",
+          "Se hai periodi di esposizione intensa, si ritarano sedute e zone, mantenendo la direzione.",
+        ],
+      },
+      {
+        heading: "Post-seduta: pelle tranquilla = percorso più semplice",
+        paragraphs: [
+          "La pelle resta più comoda quando eviti eccessi: niente prodotti aggressivi, attenzione a calore e sfregamenti se sei sensibile.",
+          "Se hai dubbi, ci scrivi: è così che il percorso resta pulito e senza intoppi.",
         ],
       },
     ],
