@@ -903,9 +903,9 @@ export const competencePages: CompetencePage[] = [
     slug: "come-scegliere-centro-estetico-carmagnola",
     title: "Come scegliere un centro estetico a Carmagnola",
     shortDescription:
-      "Una guida semplice per scegliere bene, con criteri pratici.",
+      "Una guida concreta per scegliere bene: domande da fare, segnali da evitare e come capire se ti stanno proponendo un percorso serio.",
     longDescription:
-      "Quando confronti più centri estetici è facile perdersi. Qui trovi criteri pratici per scegliere con lucidità: metodo, chiarezza prezzi, competenze reali e continuità del percorso.",
+      "Quando confronti più centri estetici è facile perdersi tra promesse, pacchetti e parole nuove. Qui trovi una checklist pratica per scegliere con lucidità: metodo, chiarezza sui prezzi, competenze reali, regole tra le sedute e continuità del percorso.",
     localAngle:
       "Perfetta se stai confrontando più opzioni a Carmagnola prima di prenotare.",
     intent: "informational",
@@ -940,6 +940,12 @@ export const competencePages: CompetencePage[] = [
     relatedServiceSlugs: [
       "pulizia-viso-carmagnola",
       "epilazione-laser-corpo-carmagnola",
+    ],
+    relatedCompetenceSlugs: [
+      "estetica-avanzata-carmagnola",
+      "epilazione-laser-carmagnola",
+      "laser-diodo-carmagnola",
+      "beauty-routine-carmagnola",
     ],
     editorialSections: [
       {
@@ -989,9 +995,9 @@ export const competencePages: CompetencePage[] = [
     slug: "estetica-avanzata-carmagnola",
     title: "Estetica avanzata a Carmagnola",
     shortDescription:
-      "Percorsi estetici costruiti su misura, con metodo e ascolto.",
+      "Percorsi estetici evoluti su viso e corpo: lettura iniziale, progressione e mantenimento, con scelte sensate e risultati misurabili.",
     longDescription:
-      "Per noi estetica avanzata significa lavorare in modo preciso: mani esperte, attivi mirati e tecnologia solo quando serve davvero.",
+      "Per noi estetica avanzata significa una cosa semplice: lavorare con precisione e continuità. Si parte dalla lettura iniziale (pelle, obiettivo, tempi), si sceglie un trattamento mirato e si costruisce una progressione che puoi mantenere davvero. Manualità, attivi e tecnologia entrano solo quando aggiungono valore reale: niente sedute \"random\", niente formule identiche per tutti.",
     localAngle:
       "Pensata per chi cerca a Carmagnola un centro serio, non improvvisato.",
     intent: "commercial",
@@ -1192,7 +1198,7 @@ export const competencePages: CompetencePage[] = [
     slug: "laser-diodo-carmagnola",
     title: "Laser diodo a Carmagnola",
     shortDescription:
-      "Guida pratica al laser diodo: cosa significa e cosa aspettarti.",
+      "Guida pratica al laser diodo: cosa significa davvero, differenze con IPL e cosa guardare in consulenza (parametri, calendario, post-seduta).",
     longDescription:
       "Cosa significa davvero \"laser diodo\" per l'epilazione: differenze con IPL, cosa aspettarsi, come valutare un centro serio e come impostare un percorso coerente.",
     localAngle:
@@ -2938,7 +2944,7 @@ export const competencePages: CompetencePage[] = [
     shortDescription:
       "Quanto dura davvero, cosa evitare subito dopo e come farla restare ordinata più a lungo.",
     longDescription:
-      "Una guida pratica sulla laminazione: cosa aspettarti, cosa cambia nelle prime ore e quali piccole attenzioni fanno la differenza sulla durata del risultato.",
+      "Una guida pratica sulla laminazione: cosa aspettarti, cosa cambia nelle prime ore e quali piccole attenzioni fanno la differenza sulla durata del risultato. L'obiettivo è un effetto pulito e naturale, che ti semplifica la mattina: per questo ti diciamo cosa fare subito dopo e come mantenere ciglia e sopracciglia ordinate senza stressare la zona.",
     localAngle:
       "Scritta per chi cerca a Carmagnola un effetto naturale e pulito, senza eccessi e senza sorprese.",
     intent: "informational",
@@ -2973,6 +2979,11 @@ export const competencePages: CompetencePage[] = [
       "laminazione effetto naturale Carmagnola",
     ],
     relatedServiceSlugs: ["laminazione-ciglia-sopracciglia-carmagnola"],
+    relatedCompetenceSlugs: [
+      "trattamenti-viso-carmagnola",
+      "beauty-routine-carmagnola",
+      "come-scegliere-centro-estetico-carmagnola",
+    ],
     editorialSections: [
       {
         heading: "Perché dura di più quando l'effetto è 'giusto' (non eccessivo)",
@@ -2994,6 +3005,16 @@ export const competencePages: CompetencePage[] = [
           "Detersione delicata, struccaggio senza sfregare e prodotti scelti con criterio. Non servono rituali lunghi: serve non stressare la zona.",
           "Se vuoi, ti consigliamo anche quando rifarla, così non aspetti che l'effetto 'collassi'.",
         ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAO - Eyelash extension facts and safety",
+        url: "https://www.aao.org/eye-health/tips-prevention/eyelash-extension-facts-safety",
+      },
+      {
+        label: "FDA - Use eye cosmetics safely",
+        url: "https://www.fda.gov/consumers/consumer-updates/use-eye-cosmetics-safely",
       },
     ],
   },
@@ -3143,7 +3164,7 @@ export const competencePages: CompetencePage[] = [
     shortDescription:
       "Frequenza, pelle sensibile, errori comuni e come mantenere bene il risultato.",
     longDescription:
-      "Una guida naturale e concreta per capire quando la pulizia viso serve davvero, come integrarla nella routine e come evitare eccessi che irritano la pelle.",
+      "Una guida naturale e concreta per capire quando la pulizia viso serve davvero, come integrarla nella routine e come evitare eccessi che irritano la pelle. Dentro trovi anche criteri pratici per decidere il ritmo (non uguale per tutti) e cosa chiedere in consulenza se hai pelle reattiva o un periodo \"strano\" per la tua pelle.",
     localAngle:
       "Scritta per chi cerca a Carmagnola un approccio viso professionale, delicato e progressivo.",
     intent: "commercial",
@@ -3161,6 +3182,14 @@ export const competencePages: CompetencePage[] = [
         q: "Più trattamenti ravvicinati danno risultati migliori?",
         a: "Non sempre. Frequenza e intensità vanno adattate, perché l'eccesso può aumentare irritazione e instabilità.",
       },
+      {
+        q: "Meglio farla prima di un evento importante?",
+        a: "Se hai un evento, meglio non arrivare all'ultimo: ogni pelle reagisce a modo suo. In studio ti diciamo tempi e aspettative in base al tuo punto di partenza, così eviti sorprese.",
+      },
+      {
+        q: "Se ho brufoli infiammati o una situazione particolare, cosa faccio?",
+        a: "Scrivici prima e raccontaci due righe: preferiamo capire bene la situazione e, se serve, rendere la seduta più delicata o chiederti un parere medico prima di procedere.",
+      },
     ],
     keywords: [
       "pulizia viso Carmagnola ogni quanto",
@@ -3171,6 +3200,14 @@ export const competencePages: CompetencePage[] = [
     relatedServiceSlugs: [
       "pulizia-viso-carmagnola",
       "laminazione-ciglia-sopracciglia-carmagnola",
+    ],
+    relatedCompetenceSlugs: [
+      "trattamenti-viso-carmagnola",
+      "beauty-routine-carmagnola",
+      "pelle-opaca-grana-irregolare-carmagnola",
+      "pelle-matura-carmagnola-trattamenti-routine",
+      "contorno-occhi-gonfiore-occhiaie-carmagnola",
+      "estetica-avanzata-carmagnola",
     ],
     heroImage: {
       src: "/editoriali/pulizia-viso-rebel.svg",
@@ -3220,7 +3257,7 @@ export const competencePages: CompetencePage[] = [
     shortDescription:
       "Massaggio linfodrenante: benefici percepiti, limiti e criteri per impostare un piano fatto bene.",
     longDescription:
-      "Un articolo pratico e onesto per capire quando il linfodrenante può aiutarti davvero, quali aspettative avere e come inserirlo in un percorso corpo coerente.",
+      "Un articolo pratico e onesto per capire quando il linfodrenante può aiutarti davvero, quali aspettative avere e come inserirlo in un percorso corpo coerente. Parliamo di sensazioni (leggerezza, gonfiore, \"gambe pesanti\") e di organizzazione: quante sedute ha senso fare, con che ritmo, e cosa cambia nei periodi in cui stai molte ore in piedi, viaggi o fa caldo.",
     localAngle:
       "Dedicata a chi cerca a Carmagnola un trattamento drenante serio e personalizzato.",
     intent: "commercial",
@@ -3248,6 +3285,13 @@ export const competencePages: CompetencePage[] = [
     relatedServiceSlugs: [
       "massaggio-linfodrenante-carmagnola",
       "scrub-corpo-carmagnola",
+    ],
+    relatedCompetenceSlugs: [
+      "drenaggio-corpo-carmagnola",
+      "trattamenti-corpo-carmagnola",
+      "beauty-routine-carmagnola",
+      "scrub-corpo-carmagnola-quando-farlo",
+      "massaggio-rilassante-carmagnola-cervicale-stress",
     ],
     heroImage: {
       src: "/editoriali/linfodrenante-rebel.svg",
