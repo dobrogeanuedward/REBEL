@@ -39,12 +39,12 @@ export default function ServiziHubPage() {
   );
   const laser = servicePages.filter((service) => service.category === "laser");
   const editorialSlugs = [
-    "epilazione-laser-viso-carmagnola-guida-realistica",
-    "epilazione-laser-corpo-carmagnola-zone-tempi",
+    "epilazione-laser-ascelle-carmagnola-guida-pratica",
+    "epilazione-laser-inguine-carmagnola-guida-pratica",
+    "laser-uomo-carmagnola-guida-pratica",
     "epilazione-laser-estate-sole-carmagnola",
     "peli-incarniti-laser-carmagnola",
     "pulizia-viso-carmagnola-frequenza-benefici",
-    "linfodrenante-carmagnola-guida-pratica",
   ];
   const featuredEditorials = editorialSlugs
     .map((slug) => competencePages.find((item) => item.slug === slug))
@@ -82,8 +82,8 @@ export default function ServiziHubPage() {
       <PageHero
         eyebrow="I nostri servizi"
         title="Tutti i servizi Rebel a Carmagnola, organizzati per obiettivo reale."
-        lead="In questa pagina trovi una panoramica completa di trattamenti viso, corpo, epilazione laser e protocolli epigenetici: chiara, ordinata e subito utile."
-        badge="Hub servizi completo"
+        lead="In questa pagina trovi trattamenti viso e corpo, epilazione laser e protocolli epigenetici. Se hai poco tempo: scegli una priorità e parti da lì."
+        badge="Panoramica completa (con link rapidi)"
         tone="emerald"
       />
 
@@ -111,16 +111,16 @@ export default function ServiziHubPage() {
               />
             </div>
             <p className="lead" style={{ marginTop: "0.9rem", marginBottom: 0 }}>
-              &quot;La bellezza non si aggiunge, si riattiva!&quot;
+              Se vuoi partire senza confusione: zona + obiettivo + tempi. E il percorso diventa semplice.
             </p>
           </div>
           <aside className="card">
             <h2 style={{ marginTop: 0 }}>Come usare questa pagina</h2>
             <ul className="list-clean">
-              <li>- parti da quello che ti interessa di più (viso, corpo o laser)</li>
-              <li>- apri la scheda e scorri: trovi dettagli, FAQ e prezzo indicativo</li>
-              <li>- se hai un dubbio, scrivici due righe e ti orientiamo</li>
-              <li>- poi fissiamo insieme il primo step, senza correre</li>
+              <li>- scegli una categoria (viso/corpo/laser)</li>
+              <li>- apri una scheda: trovi dettagli, FAQ e prezzo indicativo</li>
+              <li>- se sei indecisa, scrivici e decidiamo insieme il primo passo</li>
+              <li>- poi si imposta un calendario che riesci a tenere</li>
             </ul>
             <div className="services-hub-shortcuts">
               <Link className="services-hub-shortcut" href="/epilazione-laser-carmagnola">Epilazione laser Carmagnola</Link>

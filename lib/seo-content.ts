@@ -3328,6 +3328,18 @@ function validateSeoContent(): SeoContentValidation {
   const dupCompetenceShort = new Map<string, string[]>();
   const dupCompetenceLong = new Map<string, string[]>();
 
+  const editorialCharCount = (
+    sections?: Array<{
+      heading: string;
+      paragraphs: string[];
+    }>,
+  ) =>
+    (sections ?? [])
+      .flatMap((s) => s.paragraphs ?? [])
+      .join(" ")
+      .replace(/\s+/g, " ")
+      .trim().length;
+
   for (const service of servicePages) {
     if (seenServiceSlugs.has(service.slug)) errors.push(`Duplicate service slug: ${service.slug}`);
     seenServiceSlugs.add(service.slug);
@@ -3338,6 +3350,13 @@ function validateSeoContent(): SeoContentValidation {
 
     if ((service.editorialSections ?? []).length < 2)
       warnings.push(`[servizi/${service.slug}] editorialSections < 2 (may be thin)`);
+
+    if ((service.shortDescription || "").trim().length < 70)
+      warnings.push(`[servizi/${service.slug}] shortDescription looks short (may be thin)`);
+    if ((service.longDescription || "").trim().length < 160)
+      warnings.push(`[servizi/${service.slug}] longDescription looks short (may be thin)`);
+    if (editorialCharCount(service.editorialSections) < 420)
+      warnings.push(`[servizi/${service.slug}] editorial content looks short (may be thin)`);
 
     trackDuplicates(dupServiceShort, service.shortDescription, "servizi", service.slug);
     trackDuplicates(dupServiceLong, service.longDescription, "servizi", service.slug);
@@ -3357,6 +3376,13 @@ function validateSeoContent(): SeoContentValidation {
 
     if ((competence.editorialSections ?? []).length < 2)
       warnings.push(`[competenze/${competence.slug}] editorialSections < 2 (may be thin)`);
+
+    if ((competence.shortDescription || "").trim().length < 70)
+      warnings.push(`[competenze/${competence.slug}] shortDescription looks short (may be thin)`);
+    if ((competence.longDescription || "").trim().length < 160)
+      warnings.push(`[competenze/${competence.slug}] longDescription looks short (may be thin)`);
+    if (editorialCharCount(competence.editorialSections) < 520)
+      warnings.push(`[competenze/${competence.slug}] editorial content looks short (may be thin)`);
 
     trackDuplicates(dupCompetenceShort, competence.shortDescription, "competenze", competence.slug);
     trackDuplicates(dupCompetenceLong, competence.longDescription, "competenze", competence.slug);

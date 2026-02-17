@@ -68,7 +68,7 @@ export default function ListinoPage() {
       <PageHero
         eyebrow="Listino unico"
         title="Listino Rebel: estetica avanzata, laser ed epigenetica nella stessa pagina."
-        lead="Prezzi e trattamenti Rebel, ordinati per categoria. Se sei indecisa, scrivici: ti aiutiamo a scegliere da dove partire."
+        lead="Prezzi e trattamenti Rebel, ordinati per categoria. Se vuoi partire bene, scegli una categoria e poi una priorità: zona (laser), viso o corpo. Al resto ci pensiamo insieme."
         badge="Listino Rebel - Centro Estetico a Carmagnola"
         tone="gold"
       />
@@ -165,6 +165,33 @@ export default function ListinoPage() {
                 </strong>
               </article>
             ))}
+          </div>
+          <div className="card-light" style={{ marginTop: "1rem" }}>
+            <h3 style={{ marginTop: 0 }}>Se stai decidendo le zone (5 minuti utili)</h3>
+            <p className="lead" style={{ marginTop: "0.35rem", color: "rgba(39,31,56,0.78)", maxWidth: "74ch" }}>
+              Le richieste più frequenti sono ascelle, inguine e gambe. Qui trovi guide pratiche che chiariscono tempi,
+              comfort, stagionalità e gestione tra una seduta e l&apos;altra.
+            </p>
+            <div style={{ display: "flex", gap: "0.65rem", flexWrap: "wrap", marginTop: "0.75rem" }}>
+              <Link className="button button-secondary" href="/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica">
+                Guida ascelle
+              </Link>
+              <Link className="button button-secondary" href="/competenze/epilazione-laser-inguine-carmagnola-guida-pratica">
+                Guida inguine
+              </Link>
+              <Link className="button button-secondary" href="/competenze/laser-gambe-carmagnola-guida-pratica">
+                Guida gambe
+              </Link>
+              <Link className="button button-secondary" href="/epilazione-laser-ice-polar-carmagnola">
+                Ice Polar (comfort)
+              </Link>
+              <Link className="button button-secondary" href="/competenze/epilazione-laser-estate-sole-carmagnola">
+                Laser e sole
+              </Link>
+              <Link className="button button-secondary" href="/competenze/peli-incarniti-laser-carmagnola">
+                Peli incarniti
+              </Link>
+            </div>
           </div>
           <div className="card" style={{ marginTop: "1rem" }}>
             <h3 style={{ marginTop: 0 }}>Laser uomo: pagine dedicate</h3>
