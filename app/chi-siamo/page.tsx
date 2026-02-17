@@ -90,6 +90,32 @@ export default function ChiSiamoPage() {
         </div>
       </section>
 
+      <section className="section">
+        <div className="container grid grid-3">
+          <Link href="/epilazione-laser-carmagnola" className="card glow-card" aria-label="Vai alla pagina laser Carmagnola">
+            <p className="eyebrow">Percorso</p>
+            <h2 style={{ marginTop: "0.55rem" }}>Laser a Carmagnola</h2>
+            <p className="lead" style={{ marginTop: "0.55rem" }}>
+              Zona, fototipo, obiettivo: qui trovi come impostiamo calendario e sedute, senza pacchetti uguali per tutti.
+            </p>
+          </Link>
+          <Link href="/protocolli-epigenetici" className="card glow-card" aria-label="Vai ai protocolli epigenetici">
+            <p className="eyebrow">Percorso</p>
+            <h2 style={{ marginTop: "0.55rem" }}>Protocolli epigenetici</h2>
+            <p className="lead" style={{ marginTop: "0.55rem" }}>
+              Percorsi viso e corpo quando vuoi una progressione vera: tono, densità, luminosità, rigenerazione.
+            </p>
+          </Link>
+          <Link href="/contatti" className="card glow-card" aria-label="Vai alla pagina contatti">
+            <p className="eyebrow">Inizia</p>
+            <h2 style={{ marginTop: "0.55rem" }}>Scrivici due righe</h2>
+            <p className="lead" style={{ marginTop: "0.55rem" }}>
+              Zona + obiettivo + tempi. Ti rispondiamo e ti diciamo qual è il primo passo più pulito.
+            </p>
+          </Link>
+        </div>
+      </section>
+
       <section className="section section-light">
         <div className="container">
           <p className="eyebrow" style={{ color: "rgba(39,31,56,0.68)" }}>
@@ -134,7 +160,7 @@ export default function ChiSiamoPage() {
                   color: "var(--muted)",
                 }}
               >
-                Si parte da te, non dal pacchetto: obiettivo, tempi, pelle di oggi.
+                Si parte da te, non dal pacchetto: obiettivo, tempi, pelle di oggi (quella reale).
               </p>
             </article>
             <article className="card glow-card">
@@ -147,7 +173,7 @@ export default function ChiSiamoPage() {
                   color: "var(--muted)",
                 }}
               >
-                Manualità, attivi e tecnologia: li scegliamo con criterio, senza eccessi.
+                Manualità, attivi e tecnologia: li scegliamo con criterio e li teniamo coerenti nel tempo.
               </p>
             </article>
             <article className="card glow-card">
@@ -160,7 +186,7 @@ export default function ChiSiamoPage() {
                   color: "var(--muted)",
                 }}
               >
-                Ci diamo un obiettivo e lo seguiamo con costanza. Se serve, cambiamo rotta.
+                Ci diamo un obiettivo e lo seguiamo con costanza. Se serve, si aggiusta la rotta senza drammi.
               </p>
             </article>
           </div>

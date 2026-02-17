@@ -38,43 +38,36 @@ export default function EpilazioneLaserCarmagnolaPage() {
     "/epilazione-laser-carmagnola",
   );
 
+  const faqs = [
+    {
+      q: "L'epilazione laser a Carmagnola è adatta a tutte le zone?",
+      a: "Sì, il percorso viene impostato per zona, fototipo e obiettivo. In studio definiamo un piano personalizzato per viso e corpo.",
+    },
+    {
+      q: "Quante sedute servono per l'epilazione laser?",
+      a: "Dipende da area, pelo e risposta individuale. In media si lavora su un ciclo progressivo, con calendario definito in fase iniziale.",
+    },
+    {
+      q: "Quanto costa l'epilazione laser a Carmagnola da Rebel?",
+      a: "I prezzi partono da 25.90 EUR per area, con possibilità di percorsi strutturati. Il listino completo è disponibile nella pagina dedicata.",
+    },
+    {
+      q: "Come prenoto una valutazione laser da Rebel?",
+      a: "Puoi prenotare via WhatsApp o dalla pagina contatti. Ti rispondiamo e ti diciamo da dove conviene partire (zona, calendario e preparazione).",
+    },
+  ];
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "L'epilazione laser a Carmagnola è adatta a tutte le zone?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Sì, il percorso viene impostato per zona, fototipo e obiettivo. In studio definiamo un piano personalizzato per viso e corpo.",
-        },
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.a,
       },
-      {
-        "@type": "Question",
-        name: "Quante sedute servono per l'epilazione laser?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Dipende da area, pelo e risposta individuale. In media si lavora su un ciclo progressivo, con calendario definito in fase iniziale.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Quanto costa l'epilazione laser a Carmagnola da Rebel?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "I prezzi partono da 25.90 EUR per area, con possibilità di percorsi strutturati. Il listino completo è disponibile nella pagina dedicata.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Come prenoto una valutazione laser da Rebel?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Puoi prenotare via WhatsApp o dalla pagina contatti. Ti rispondiamo e ti diciamo da dove conviene partire (zona, calendario e preparazione).",
-        },
-      },
-    ],
+    })),
   };
 
   const localLandingSchema = {
@@ -115,7 +108,7 @@ export default function EpilazioneLaserCarmagnolaPage() {
       <PageHero
         eyebrow="Rebel Laser Carmagnola"
         title="Epilazione laser a Carmagnola: percorso su misura, risultati progressivi."
-        lead="In Rebel impostiamo il laser in base a zona, fototipo e obiettivo reale. Nessun protocollo standard: prima valutazione, poi piano personalizzato e monitoraggio costante."
+        lead="In Rebel impostiamo il laser in base a zona, fototipo e obiettivo reale. Prima valutazione, poi un piano che riesci a seguire: chiaro, progressivo e con monitoraggio nel tempo."
         badge="Da 25.90 EUR • Viale Barbaroux 20, Carmagnola"
         tone="violet"
       />
@@ -179,20 +172,71 @@ export default function EpilazioneLaserCarmagnolaPage() {
 
       <section className="section section-light">
         <div className="container">
-          <h2 className="page-title">Domande frequenti prima di iniziare</h2>
+          <p className="eyebrow" style={{ color: "rgba(39,31,56,0.68)" }}>
+            Approfondimenti rapidi
+          </p>
+          <h2 className="page-title" style={{ marginTop: "0.55rem" }}>
+            Le zone più richieste (e le guide che chiariscono i dubbi).
+          </h2>
+          <p className="lead" style={{ marginTop: "0.5rem", color: "rgba(39,31,56,0.78)", maxWidth: "74ch" }}>
+            Se vuoi partire con un po&apos; di chiarezza, queste sono le letture più utili: ascelle e inguine (zone piccole ma
+            intense), gambe (zona ampia) e gestione sole/stagionalità.
+          </p>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
-            <article className="card-light">
-              <h3 style={{ marginTop: 0 }}>Il laser è doloroso?</h3>
+            <Link href="/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica" className="card-light">
+              <h3 style={{ marginTop: 0 }}>Laser ascelle: guida pratica</h3>
               <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.78)" }}>
-                La percezione varia da persona a persona. Il manipolo Ice Polar aiuta a migliorare il comfort durante la seduta.
+                Comfort, tempi e gestione tra una seduta e la successiva (senza ansia).
               </p>
-            </article>
-            <article className="card-light">
-              <h3 style={{ marginTop: 0 }}>Quando conviene iniziare?</h3>
+            </Link>
+            <Link href="/competenze/epilazione-laser-inguine-carmagnola-guida-pratica" className="card-light">
+              <h3 style={{ marginTop: 0 }}>Laser inguine: guida pratica</h3>
               <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.78)" }}>
-                Puoi iniziare tutto l&apos;anno, pianificando esposizione e calendario in modo corretto con il team Rebel.
+                Regole semplici per una zona delicata e aspettative realistiche.
               </p>
-            </article>
+            </Link>
+            <Link href="/competenze/laser-gambe-carmagnola-guida-pratica" className="card-light">
+              <h3 style={{ marginTop: 0 }}>Laser gambe: guida pratica</h3>
+              <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.78)" }}>
+                Strategia, stagionalità e mantenimento quando la priorità sono le gambe.
+              </p>
+            </Link>
+            <Link href="/competenze/epilazione-laser-estate-sole-carmagnola" className="card-light">
+              <h3 style={{ marginTop: 0 }}>Laser e sole: cosa sapere davvero</h3>
+              <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.78)" }}>
+                Come organizzare calendario e esposizione senza bloccarti.
+              </p>
+            </Link>
+          </div>
+          <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
+            <Link className="button button-primary" href="/contatti">
+              Prenota valutazione
+            </Link>
+            <Link className="button button-secondary" href="/listino-estetica-laser">
+              Vedi prezzi e listino
+            </Link>
+            <Link className="button button-secondary" href="/competenze/laser-uomo-carmagnola-guida-pratica">
+              Laser uomo
+            </Link>
+            <Link className="button button-secondary" href="/competenze/peli-incarniti-laser-carmagnola">
+              Peli incarniti
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <h2 className="page-title">Domande frequenti (quelle vere, prima di iniziare)</h2>
+          <div className="grid grid-2" style={{ marginTop: "1rem" }}>
+            {faqs.map((faq) => (
+              <article key={faq.q} className="card">
+                <h3 style={{ marginTop: 0 }}>{faq.q}</h3>
+                <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.78)" }}>
+                  {faq.a}
+                </p>
+              </article>
+            ))}
           </div>
         </div>
       </section>

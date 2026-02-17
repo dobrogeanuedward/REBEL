@@ -12,9 +12,9 @@ import {
 } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Metodo Rebel in 5 Step: Analisi, Protocollo, Tecnologia, Mantenimento",
+  title: "Metodo Rebel: 5 passaggi per un percorso fatto bene",
   description:
-    "Il Metodo Rebel a Carmagnola: lettura iniziale, attivi intelligenti, tecnologia Thory, riprogrammazione e piano di mantenimento.",
+    "Come lavoriamo in studio a Carmagnola: ascolto, lettura iniziale, protocollo su misura, tecnologia quando serve e mantenimento.",
   path: "/metodo-rebel",
   openGraphType: "article",
   keywords: [
@@ -57,10 +57,10 @@ export default function MetodoPage() {
       <JsonLd data={articleSchema} />
 
       <PageHero
-        eyebrow="Metodo proprietario"
-        title="Dal primo ascolto alla riprogrammazione cutanea: il Metodo Rebel."
-        lead="Cinque passaggi, sempre gli stessi: ascolto, lettura iniziale, protocollo, tecnologia quando serve e mantenimento."
-        badge="Metodo orientato alla continuità"
+        eyebrow="Come lavoriamo"
+        title="Metodo Rebel: cinque passaggi, un filo unico."
+        lead="Partiamo dall'ascolto e dalla lettura iniziale, poi scegliamo cosa fare e con che ritmo. La parte importante è che il percorso resti semplice da seguire, non perfetto sulla carta."
+        badge="Chiarezza • continuità • progressione"
         tone="ocean"
       />
 
@@ -88,24 +88,26 @@ export default function MetodoPage() {
 
       <section className="section section-light">
         <div className="container">
-          <h2 className="page-title">Perché questo metodo funziona, nella pratica</h2>
+          <h2 className="page-title">Perché funziona (nella vita vera)</h2>
           <p
             className="lead"
             style={{ color: "rgba(39,31,56,0.8)", maxWidth: "74ch" }}
           >
-            Con un metodo non si va a tentativi. Ti diciamo cosa facciamo oggi e cosa ci
-            aspettiamo nelle prossime settimane, con tempi realistici e scelte coerenti
-            con la tua pelle e la tua agenda.
+            Un metodo ti evita di andare a tentativi. Ti diciamo cosa facciamo adesso e cosa ci aspettiamo nelle prossime
+            settimane, con tempi realistici e scelte coerenti con la tua pelle e con la tua agenda.
           </p>
           <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
             <Link className="button button-primary" href="/protocolli-epigenetici">
               Esplora i protocolli
             </Link>
             <Link className="button button-secondary" href="/contatti">
-              Prenota lettura iniziale
+              Scrivici per iniziare
             </Link>
             <Link className="button button-secondary" href="/competenze">
               Leggi le guide utili
+            </Link>
+            <Link className="button button-secondary" href="/epilazione-laser-carmagnola">
+              Laser a Carmagnola
             </Link>
           </div>
         </div>

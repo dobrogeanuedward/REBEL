@@ -136,8 +136,8 @@ export default function ContattiPage() {
       <JsonLd data={contactSchema} />
       <PageHero
         eyebrow="Contatti locali Carmagnola"
-        title="Contattaci quando vuoi: ti rispondiamo in modo rapido e chiaro."
-        lead="Puoi scriverci su WhatsApp, chiamarci o compilare il form qui sotto. Ti aiutiamo a capire da dove partire, con consigli pratici e utili."
+        title="Scrivici due righe: ti rispondiamo con una direzione chiara."
+        lead="WhatsApp è il modo più rapido. Se preferisci, puoi chiamare o usare il form. Se ci dici zona, obiettivo e tempi, ti guidiamo senza giri strani."
         badge="Viale Barbaroux 20, Carmagnola"
         tone="emerald"
       />
@@ -193,11 +193,27 @@ export default function ContattiPage() {
                 target="_blank"
                 rel="noreferrer"
               >
-                WhatsApp Live
+                Apri WhatsApp
               </a>
               <a className="button button-secondary" href={`tel:${siteConfig.phoneRaw}`}>
                 Chiamaci ora
               </a>
+            </div>
+            <div className="card-light" style={{ marginTop: "1.1rem" }}>
+              <h3 style={{ marginTop: 0 }}>Cosa scrivere su WhatsApp (per partire bene)</h3>
+              <ul className="list-clean" style={{ marginTop: "0.5rem" }}>
+                <li>- zona (es. ascelle / inguine / gambe / viso / schiena)</li>
+                <li>- obiettivo (ridurre ricrescita, peli incarniti, tono viso, ecc.)</li>
+                <li>- quando vuoi iniziare e che orari ti sono comodi</li>
+              </ul>
+              <div style={{ marginTop: "0.75rem", display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
+                <Link className="button button-secondary" href="/epilazione-laser-carmagnola">
+                  Laser a Carmagnola
+                </Link>
+                <Link className="button button-secondary" href="/protocolli-epigenetici">
+                  Protocolli epigenetici
+                </Link>
+              </div>
             </div>
           </article>
 
@@ -234,8 +250,7 @@ export default function ContattiPage() {
               </div>
             </div>
             <p className="lead" style={{ marginTop: "1.1rem", fontSize: "0.9rem" }}>
-              Se ci scrivi su WhatsApp, indicaci anche la fascia oraria in cui
-              preferisci essere ricontattata.
+              Se ci scrivi su WhatsApp, indicaci anche una fascia oraria comoda: ti rispondiamo appena possiamo.
             </p>
           </aside>
         </div>
@@ -259,16 +274,21 @@ export default function ContattiPage() {
               referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
-          <div style={{ marginTop: "1rem" }}>
+          <div style={{ marginTop: "1rem", display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
             <Link href="/listino-estetica-laser" className="button button-primary">
               Vedi listino completo
             </Link>
             <Link
               href="/epilazione-laser-carmagnola"
               className="button button-secondary"
-              style={{ marginLeft: "0.6rem" }}
             >
               Epilazione laser Carmagnola
+            </Link>
+            <Link className="button button-secondary" href="/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica">
+              Guida ascelle
+            </Link>
+            <Link className="button button-secondary" href="/competenze/epilazione-laser-inguine-carmagnola-guida-pratica">
+              Guida inguine
             </Link>
           </div>
         </div>
@@ -287,15 +307,29 @@ export default function ContattiPage() {
           <aside className="card">
             <h2 style={{ marginTop: 0 }}>Prima visita: come funziona</h2>
             <ul className="list-clean">
-              <li>- ci racconti il tuo obiettivo</li>
-              <li>- facciamo una valutazione iniziale</li>
-              <li>- ti proponiamo un piano con priorità e tempi</li>
-              <li>- decidi tu se e quando iniziare</li>
+              <li>- ci racconti obiettivo e priorità</li>
+              <li>- facciamo una valutazione iniziale (pelle, zona, abitudini)</li>
+              <li>- ti proponiamo un piano con tempi realistici</li>
+              <li>- decidi tu se iniziare e da cosa partire</li>
             </ul>
             <p className="lead" style={{ marginTop: "0.9rem" }}>
               Niente parole complicate: ti diciamo cosa facciamo, cosa aspettarti e
               cosa conviene fare tra un appuntamento e l&apos;altro.
             </p>
+            <div style={{ marginTop: "0.9rem", display: "grid", gap: "0.55rem" }}>
+              <Link className="link-card" href="/competenze/laser-uomo-carmagnola-guida-pratica">
+                <span className="link-card-content">
+                  <span className="link-card-title">Laser uomo (guida pratica)</span>
+                  <small className="link-card-desc">Barba/collo e aree ampie: strategia, calendario, ricrescita.</small>
+                </span>
+              </Link>
+              <Link className="link-card" href="/competenze/peli-incarniti-laser-carmagnola">
+                <span className="link-card-content">
+                  <span className="link-card-title">Peli incarniti e laser</span>
+                  <small className="link-card-desc">Cosa cambia davvero nel quotidiano e quali errori evitare.</small>
+                </span>
+              </Link>
+            </div>
           </aside>
         </div>
       </section>
