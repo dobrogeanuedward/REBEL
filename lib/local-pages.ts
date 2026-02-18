@@ -35,7 +35,7 @@ export const localAreaPages: LocalAreaPage[] = [
     description:
       "Rebel è a Carmagnola: trattamenti viso e corpo, epilazione laser a Carmagnola e percorsi costruiti su misura.",
     intro:
-      "Se sei di Carmagnola e cerchi un centro estetico serio, qui trovi un modo di lavorare molto concreto: ti ascoltiamo, leggiamo la pelle da vicino e poi decidiamo cosa fare (e con che ritmo).",
+      "Se sei a Carmagnola e cerchi un centro estetico serio, qui trovi un modo di lavorare molto concreto: ti ascoltiamo, leggiamo la pelle da vicino e poi scegliamo un primo step che abbia senso per te (con un ritmo che riesci a seguire davvero).",
     whyRebel: [
       "Ti seguiamo in modo personalizzato, non con pacchetti preconfezionati",
       "Un unico studio per estetica classica, percorsi avanzati ed epilazione laser",
@@ -54,6 +54,7 @@ export const localAreaPages: LocalAreaPage[] = [
       heading: "Carmagnola: viso più in ordine, laser impostato bene (senza confusione)",
       paragraphs: [
         "A Carmagnola spesso si parte da una richiesta semplice: vedersi più curate, ma senza sentirsi \"ingolfate\" da dieci cose diverse. È un obiettivo normalissimo, e si ottiene scegliendo bene l'ordine.",
+        "Se vuoi iniziare in modo semplice (senza confonderti), di solito funziona così: pulizia viso per rimettere comfort e luminosità; manicure semipermanente per mani ordinate; laminazione per uno sguardo più definito ma naturale; un massaggio rilassante per staccare davvero. Sono servizi richiesti spesso perché cambiano la sensazione subito, senza complicarti la settimana.",
         "Se il tema è il viso, di solito rimettiamo al centro comfort, grana e luminosità (con un primo step fatto bene, non aggressivo). Poi, solo se serve davvero, si passa a un percorso più avanzato con progressione e mantenimento chiari.",
         "Se invece la priorità è il laser, la chiave è scegliere l'ordine delle zone e un calendario realistico. Inguine e ascelle, per esempio, cambiano tanto la gestione quotidiana, ma vanno impostate con regole pratiche semplici tra una seduta e l'altra.",
         "Una cosa che consigliamo spesso è partire in inverno: è il periodo più facile per essere costanti (meno sole, meno imprevisti). Quando il calendario è stabile, tutto il resto diventa più semplice.",
@@ -73,19 +74,19 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Prezzi chiari e panoramica dei percorsi disponibili a Carmagnola.",
         },
         {
-          label: "Trattamenti viso",
-          href: "/competenze/trattamenti-viso-carmagnola",
-          description: "Un punto di partenza utile per orientarti tra obiettivi e opzioni.",
-        },
-        {
-          label: "Estetica avanzata a Carmagnola",
-          href: "/competenze/estetica-avanzata-carmagnola",
-          description: "Cosa significa davvero avanzata e come si costruisce un percorso fatto bene.",
+          label: "Come scegliere il centro estetico (prima di prenotare)",
+          href: "/competenze/come-scegliere-centro-estetico-carmagnola",
+          description: "Checklist pratica per scegliere bene e arrivare con domande giuste, non dubbi confusi.",
         },
         {
           label: "Pulizia viso",
           href: "/servizi/pulizia-viso-carmagnola",
           description: "Quando ha senso e come la impostiamo in modo delicato.",
+        },
+        {
+          label: "Manicure semipermanente",
+          href: "/servizi/manicure-semipermanente-carmagnola",
+          description: "Mani curate e ordinate, con un risultato pulito che dura.",
         },
         {
           label: "Laminazione ciglia e sopracciglia",
@@ -98,19 +99,24 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "50 minuti dedicati a schiena, spalle e cervicale, con ritmo graduale.",
         },
         {
+          label: "Massaggio linfodrenante",
+          href: "/servizi/massaggio-linfodrenante-carmagnola",
+          description: "Per alleggerire la sensazione di gonfiore e impostare un calendario che non ti stressi.",
+        },
+        {
           label: "Scrub corpo",
           href: "/servizi/scrub-corpo-carmagnola",
           description: "Esfoliazione controllata per pelle più uniforme e una routine corpo più semplice.",
         },
         {
-          label: "Manicure semipermanente",
-          href: "/servizi/manicure-semipermanente-carmagnola",
-          description: "Mani curate e ordinate, con un risultato pulito che dura.",
+          label: "Trattamenti viso",
+          href: "/competenze/trattamenti-viso-carmagnola",
+          description: "Un punto di partenza utile per orientarti tra obiettivi e opzioni.",
         },
         {
-          label: "Massaggio linfodrenante",
-          href: "/servizi/massaggio-linfodrenante-carmagnola",
-          description: "Per alleggerire la sensazione di gonfiore e impostare un calendario che non ti stressi.",
+          label: "Estetica avanzata a Carmagnola",
+          href: "/competenze/estetica-avanzata-carmagnola",
+          description: "Cosa significa davvero avanzata e come si costruisce un percorso fatto bene.",
         },
         {
           label: "Collagen Code",
@@ -187,11 +193,18 @@ export const localAreaPages: LocalAreaPage[] = [
         q: "Pulizia viso e semipermanente: ha senso inserirli mentre faccio il laser?",
         a: "Spesso sì, se li incastri bene nel calendario. La pulizia viso aiuta a rimettere ordine e comfort sul viso; il semipermanente è un servizio pratico per sentirti curata senza aggiungere complessità. Ti diciamo noi cosa abbinare e con che ritmo, in base alla tua settimana.",
       },
+      {
+        q: "Non so da dove partire: cosa mi consigliate?",
+        a: "Dipende dalla tua priorità. Se vuoi rimettere ordine sul viso, spesso si parte dalla pulizia viso (delicata e completa). Se vuoi sentirti subito \"a posto\" senza pensieri, semipermanente o laminazione sono ottime scelte pratiche. Se invece vuoi staccare e sciogliere tensione, un massaggio rilassante è perfetto. Se ci scrivi, ti orientiamo in due messaggi.",
+      },
     ],
     keywords: [
       "centro estetico Carmagnola",
       "estetista Carmagnola",
       "epilazione laser Carmagnola",
+      "pulizia viso Carmagnola",
+      "manicure semipermanente Carmagnola",
+      "laminazione Carmagnola",
     ],
   },
   {

@@ -264,17 +264,28 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
             {competence.heroImage ? (
               <div className="card">
                 <div className="editorial-cover">
-                  <Image
-                    src={competence.heroImage.src}
-                    alt={competence.heroImage.alt}
-                    width={1600}
-                    height={900}
-                    style={{ width: "100%", height: "auto" }}
-                  />
+                  {(() => {
+                    const isPlaceholder = competence.heroImage?.src === "/editoriali/placeholder-editoriale.svg";
+                    const imageAlt = isPlaceholder ? "Immagine segnaposto" : competence.heroImage.alt;
+                    const caption = isPlaceholder ? `Visual in arrivo: ${competence.heroImage.alt}` : null;
+                    return (
+                      <>
+                        <Image
+                          src={competence.heroImage.src}
+                          alt={imageAlt}
+                          width={1600}
+                          height={900}
+                          style={{ width: "100%", height: "auto" }}
+                        />
+                        {caption ? (
+                          <p className="lead" style={{ marginTop: "0.8rem", marginBottom: 0 }}>
+                            {caption}
+                          </p>
+                        ) : null}
+                      </>
+                    );
+                  })()}
                 </div>
-                <p className="lead" style={{ marginTop: "0.8rem", marginBottom: 0 }}>
-                  Illustrazione Rebel: {competence.heroImage.alt}.
-                </p>
               </div>
             ) : null}
             <InlineCTA

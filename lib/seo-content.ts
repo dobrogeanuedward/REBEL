@@ -59,7 +59,7 @@ export const servicePages: ServicePage[] = [
     shortDescription:
       "Pulizia viso completa e delicata per pelle impura, spenta o appesantita: comfort, pori più puliti e grana più uniforme.",
     longDescription:
-      "Una pulizia viso fatta bene parte dall'osservazione della pelle e lavora per step: detersione, esfoliazione delicata, pulizia mirata e fase lenitiva. L'obiettivo non è stressare, ma lasciare la pelle più pulita, luminosa e comoda nei giorni successivi.",
+      "Una pulizia viso fatta bene parte dall'osservazione della pelle e lavora per step: detersione, esfoliazione delicata, pulizia mirata e fase lenitiva. L'obiettivo non è stressare, ma lasciare la pelle più pulita, luminosa e comoda nei giorni successivi. È anche uno dei servizi migliori se vuoi iniziare con chiarezza: ti fa vedere subito il metodo (e ci permette di leggere la pelle prima di impostare qualsiasi percorso).",
     priceHint: "da EUR 49",
     category: "estetica-classica",
     benefits: [
@@ -73,6 +73,10 @@ export const servicePages: ServicePage[] = [
         a: "Spesso tra 4 e 6 settimane, ma la frequenza giusta dipende da pelle, stagione e routine a casa. Dopo la prima seduta ti proponiamo un ritmo realistico, coerente con la tua pelle.",
       },
       {
+        q: "Non so da cosa partire: la pulizia viso ha senso?",
+        a: "Sì: è uno dei modi più semplici per rimettere ordine e capire la pelle. Dopo la seduta hai una direzione chiara (routine e ritmo) e, se serve, ti proponiamo un passo successivo coerente, senza confusione.",
+      },
+      {
         q: "Dopo la pulizia viso avrò rossore?",
         a: "Può succedere un lieve rossore, soprattutto se la pelle è reattiva. Lavoriamo in modo graduale e chiudiamo sempre con una fase lenitiva per lasciare la pelle il più tranquilla possibile.",
       },
@@ -83,7 +87,9 @@ export const servicePages: ServicePage[] = [
     ],
     keywords: [
       "pulizia viso Carmagnola",
+      "pulizia del viso Carmagnola",
       "trattamento viso pelle impura Carmagnola",
+      "pulizia viso pelle sensibile Carmagnola",
       "estetista viso Carmagnola",
     ],
     relatedCompetenceSlugs: [
@@ -113,6 +119,13 @@ export const servicePages: ServicePage[] = [
         paragraphs: [
           "La seduta in studio dà direzione, ma il mantenimento fa durare. Non servono dieci prodotti: servono pochi passaggi coerenti (detersione, idratazione, protezione).",
           "Dopo la prima pulizia viso ti proponiamo un ritmo realistico: così non rincorri la pelle, la accompagni.",
+        ],
+      },
+      {
+        heading: "Primo appuntamento: il gancio più intelligente (se vuoi iniziare bene)",
+        paragraphs: [
+          "Se non sai da cosa partire, la pulizia viso è spesso la scelta più \"pulita\": ti fa stare meglio subito e, soprattutto, ci permette di leggere la pelle con calma.",
+          "Da lì il percorso diventa semplice: o mantieni con un ritmo distanziato e routine essenziale, oppure (se serve davvero) costruiamo una progressione più avanzata con obiettivo chiaro.",
         ],
       },
     ],
@@ -454,9 +467,9 @@ export const servicePages: ServicePage[] = [
     slug: "manicure-semipermanente-carmagnola",
     name: "Manicure semipermanente a Carmagnola",
     shortDescription:
-      "Manicure semipermanente curata e ordinata, con un risultato pulito che dura.",
+      "Manicure semipermanente curata e ordinata: effetto pulito, durata stabile e mani subito \"a posto\".",
     longDescription:
-      "La manicure semipermanente è un servizio di precisione: preparazione accurata, rifinitura pulita e applicazione colore con attenzione ai dettagli. L'obiettivo non è solo \"durare\": è avere un risultato ordinato, elegante e confortevole, che ti piaccia anche da vicino.",
+      "La manicure semipermanente è un servizio di precisione: preparazione accurata, rifinitura pulita e applicazione colore con attenzione ai dettagli. L'obiettivo non è solo \"durare\": è avere un risultato ordinato, elegante e confortevole, che ti piaccia anche da vicino. Se vuoi partire con qualcosa di pratico (per sentirti subito curata, senza stravolgerti), è una delle scelte più semplici e soddisfacenti.",
     priceHint: "da EUR 26",
     category: "estetica-classica",
     benefits: [
@@ -478,6 +491,10 @@ export const servicePages: ServicePage[] = [
         a: "Sì. Se ti piace un look pulito e discreto, possiamo orientarti su colori e finiture che valorizzano senza essere troppo evidenti.",
       },
       {
+        q: "Voglio sentirmi subito in ordine: è una buona scelta?",
+        a: "Sì: è un servizio immediato e molto \"utile\" nella vita reale. Se vuoi, puoi partire con un effetto naturale e poi valutare con calma se fare anche altri servizi (viso, laminazione o laser) in base al tuo periodo.",
+      },
+      {
         q: "Cosa conviene evitare per farlo durare meglio?",
         a: "Piccole cose: non usare le unghie come \"attrezzi\", idratare mani e cuticole e proteggere le mani quando fai lavori domestici. Ti lasciamo due dritte, non una lista infinita di regole.",
       },
@@ -486,10 +503,12 @@ export const servicePages: ServicePage[] = [
       "manicure semipermanente Carmagnola",
       "centro unghie Carmagnola",
       "semipermanente Carmagnola prezzi",
+      "unghie semipermanente Carmagnola",
       "manicure Carmagnola",
       "semipermanente naturale Carmagnola",
     ],
     relatedCompetenceSlugs: [
+      "come-scegliere-centro-estetico-carmagnola",
       "beauty-routine-carmagnola",
       "trattamenti-viso-carmagnola",
       "manicure-semipermanente-carmagnola-durata-rimozione",
@@ -521,6 +540,13 @@ export const servicePages: ServicePage[] = [
         paragraphs: [
           "Un effetto naturale non significa \"anonimo\": significa mani curate, pulite, armoniose. Possiamo scegliere insieme colore e finitura per valorizzare la tua mano senza eccessi.",
           "È una scelta perfetta se vuoi un look ordinato anche senza trucco o se ti piace l'eleganza semplice.",
+        ],
+      },
+      {
+        heading: "Se vuoi partire semplice: semplifica la vita (e alza subito la percezione di cura)",
+        paragraphs: [
+          "Molte persone iniziano da qui perché è un servizio che non richiede \"ristrutturazioni\": esci curata e ordinata, senza dover imparare regole nuove o gestire post complessi.",
+          "Se poi vuoi impostare anche viso o laser, lo fai con calma e con un piano. L'idea è partire bene, non fare tutto insieme.",
         ],
       },
     ],
@@ -912,7 +938,7 @@ export const competencePages: CompetencePage[] = [
     benefits: [
       "Riduce confusione nella fase di confronto",
       "Aiuta a scegliere su criteri oggettivi",
-      "Migliora la qualità della decisione prima del primo appuntamento",
+      "Migliora la qualità della decisione prima di prenotare",
     ],
     faqs: [
       {
@@ -939,6 +965,8 @@ export const competencePages: CompetencePage[] = [
     ],
     relatedServiceSlugs: [
       "pulizia-viso-carmagnola",
+      "manicure-semipermanente-carmagnola",
+      "laminazione-ciglia-sopracciglia-carmagnola",
       "epilazione-laser-corpo-carmagnola",
     ],
     relatedCompetenceSlugs: [
@@ -953,6 +981,13 @@ export const competencePages: CompetencePage[] = [
         paragraphs: [
           "La domanda più utile non è \"che trattamento fate?\", ma \"cosa voglio ottenere e in che tempi?\". Luminosità, comfort della pelle, gestione della ricrescita, mani ordinate: sono obiettivi diversi e richiedono strade diverse.",
           "Quando un centro ti aiuta a chiarire priorità e ritmo, la scelta diventa più semplice e anche il percorso è più realistico.",
+        ],
+      },
+      {
+        heading: "Se sei indecisa: scegli un \"gancio\" che ti faccia capire il metodo",
+        paragraphs: [
+          "Se sei indecisa, la prima seduta dovrebbe fare due cose: farti stare meglio subito e darti una direzione chiara (anche minima).",
+          "Per questo spesso consigliamo di partire da servizi richiesti e molto pratici: pulizia viso (per rimettere ordine), manicure semipermanente (per mani curate), laminazione (per uno sguardo più ordinato). Sono scelte semplici, ma dicono tanto su come lavora un centro.",
         ],
       },
       {
@@ -1863,8 +1898,8 @@ export const competencePages: CompetencePage[] = [
       "laser-uomo-carmagnola-guida-pratica",
     ],
     heroImage: {
-      src: "/editoriali/laser-viso-rebel.svg",
-      alt: "Illustrazione Rebel con linee di luce dedicate al laser viso",
+      src: "/editoriali/placeholder-editoriale.svg",
+      alt: "Laser viso: estetista in cabina, focus su zone delicate (baffetti/mento), atmosfera pulita e rassicurante.",
     },
     editorialSections: [
       {
@@ -1975,8 +2010,8 @@ export const competencePages: CompetencePage[] = [
       "epilazione-laser-ascelle-carmagnola-guida-pratica",
     ],
     heroImage: {
-      src: "/editoriali/laser-corpo-rebel.svg",
-      alt: "Illustrazione Rebel con linee luminose dinamiche dedicate al laser corpo",
+      src: "/editoriali/placeholder-editoriale.svg",
+      alt: "Laser corpo: manipolo e cabina, concetto di progressione zona per zona e calendario sedute ordinato.",
     },
     editorialSections: [
       {
@@ -2599,8 +2634,8 @@ export const competencePages: CompetencePage[] = [
       "epilazione-laser-ascelle-carmagnola-guida-pratica",
     ],
     heroImage: {
-      src: "/editoriali/laser-corpo-rebel.svg",
-      alt: "Illustrazione Rebel con linee luminose dedicate a calendario laser e stagioni",
+      src: "/editoriali/placeholder-editoriale.svg",
+      alt: "Laser e sole: agenda/calendario, SPF e luce estiva, concetto di gestione stagionalità senza ansia.",
     },
     editorialSections: [
       {
@@ -2706,8 +2741,8 @@ export const competencePages: CompetencePage[] = [
       "peli-incarniti-laser-carmagnola",
     ],
     heroImage: {
-      src: "/editoriali/laser-corpo-rebel.svg",
-      alt: "Illustrazione Rebel con linee luminose sul tema calendario laser in inverno",
+      src: "/editoriali/placeholder-editoriale.svg",
+      alt: "Laser in inverno: calendario sedute, luce invernale morbida, concetto di costanza e continuità.",
     },
     editorialSections: [
       {
@@ -2901,8 +2936,8 @@ export const competencePages: CompetencePage[] = [
       "scrub-corpo-carmagnola",
     ],
     heroImage: {
-      src: "/editoriali/laser-corpo-rebel.svg",
-      alt: "Illustrazione Rebel con glow morbido sul tema pelle uniforme e ricrescita più gestibile",
+      src: "/editoriali/placeholder-editoriale.svg",
+      alt: "Peli incarniti e comfort: pelle più uniforme, texture naturale, focus su ricrescita più gestibile (gambe/inguine).",
     },
     editorialSections: [
       {
@@ -3655,8 +3690,8 @@ export const competencePages: CompetencePage[] = [
       "estetica-avanzata-carmagnola",
     ],
     heroImage: {
-      src: "/editoriali/pulizia-viso-rebel.svg",
-      alt: "Illustrazione Rebel con onde luminose e texture delicate sul tema pulizia viso",
+      src: "/editoriali/placeholder-editoriale.svg",
+      alt: "Pulizia viso in cabina: manualità delicata, pelle luminosa, texture morbida, atmosfera rilassante.",
     },
     editorialSections: [
       {
@@ -3765,8 +3800,8 @@ export const competencePages: CompetencePage[] = [
       "massaggio-rilassante-carmagnola-cervicale-stress",
     ],
     heroImage: {
-      src: "/editoriali/linfodrenante-rebel.svg",
-      alt: "Illustrazione Rebel con linee fluide e glow morbido dedicato al drenaggio corpo",
+      src: "/editoriali/placeholder-editoriale.svg",
+      alt: "Massaggio linfodrenante: manualità su gambe, sensazione di leggerezza, luce calda e calma.",
     },
     editorialSections: [
       {
