@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { ReactNode } from "react";
 import { siteConfig } from "@/lib/site-config";
 
 type PageHeroProps = {
@@ -7,6 +8,7 @@ type PageHeroProps = {
   lead: string;
   badge?: string;
   tone?: "violet" | "rose" | "ocean" | "gold" | "emerald";
+  children?: ReactNode;
 };
 
 export function PageHero({
@@ -15,6 +17,7 @@ export function PageHero({
   lead,
   badge,
   tone = "violet",
+  children,
 }: PageHeroProps) {
   return (
     <section className={`page-hero page-hero-tone-${tone}`}>
@@ -42,6 +45,7 @@ export function PageHero({
               <span className="badge">{badge}</span>
             </div>
           ) : null}
+          {children ? <div className="page-hero-extra">{children}</div> : null}
         </div>
       </div>
     </section>

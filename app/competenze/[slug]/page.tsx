@@ -2,8 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { EditorialSection } from "@/components/editorial-section";
+import { FAQAccordion } from "@/components/faq-accordion";
+import { InlineCTA } from "@/components/inline-cta";
 import { JsonLd } from "@/components/json-ld";
+import { KeyPointsGrid } from "@/components/key-points-grid";
 import { PageHero } from "@/components/page-hero";
+import { TableOfContents } from "@/components/table-of-contents";
 import {
   competencePages,
   getCompetenceBySlug,
@@ -18,6 +23,7 @@ import {
   buildWebPageSchema,
   createPageMetadata,
 } from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
 
 type Params = {
   slug: string;
@@ -57,6 +63,32 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
   const competence = getCompetenceBySlug(slug);
   if (!competence) notFound();
   const compactTitle = competence.title.replace(/\s+a Carmagnola$/i, "").trim();
+
+  const toWords = (value: string) => value.trim().split(/\s+/).filter(Boolean);
+  const readingMinutes = Math.max(
+    2,
+    Math.round(
+      toWords(
+        [
+          competence.longDescription,
+          competence.shortDescription,
+          competence.localAngle,
+          competence.benefits.join(" "),
+          competence.faqs.map((f) => `${f.q} ${f.a}`).join(" "),
+          (competence.editorialSections ?? []).flatMap((s) => s.paragraphs).join(" "),
+        ].join(" "),
+      ).length / 190,
+    ),
+  );
+
+  const slugifyId = (value: string) =>
+    value
+      .toLowerCase()
+      .trim()
+      .replace(/[’']/g, "")
+      .replace(/[^\p{L}\p{N}]+/gu, "-")
+      .replace(/-+/g, "-")
+      .replace(/(^-|-$)/g, "");
 
   const breadcrumb = buildBreadcrumbSchema([
     { name: "Home", path: "/" },
@@ -164,6 +196,17 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
         })
       : null;
 
+  const tocItems = [
+    { id: "punti-chiave", label: "Punti chiave" },
+    ...(editorialSections.length > 0 ? [{ id: "guida", label: "Guida dal nostro studio" }] : []),
+    { id: "faq", label: "Domande frequenti" },
+    { id: "servizi", label: "Servizi abbinati" },
+    ...(sourceLinks.length > 0 ? [{ id: "fonti", label: "Fonti e riferimenti" }] : []),
+    ...(relatedProtocols.length > 0 ? [{ id: "protocolli", label: "Passo più avanzato" }] : []),
+    { id: "correlate", label: "Guide correlate" },
+    ...(featuredAreas.length > 0 ? [{ id: "localita", label: "Comuni vicini" }] : []),
+  ];
+
   return (
     <main
       className={`page-shell page-competenza-detail ${
@@ -186,85 +229,106 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
         lead={competence.longDescription}
         badge={competence.localAngle}
         tone={competence.intent === "commercial" ? "rose" : "ocean"}
-      />
+      >
+        <div className="hero-meta">
+          <span className="hero-pill">
+            {competence.intent === "commercial" ? "Percorso e prenotazione" : "Guida e criteri pratici"}
+          </span>
+          <span className="hero-pill">{readingMinutes} min lettura</span>
+          <span className="hero-pill">Aggiornato {siteConfig.lastUpdated}</span>
+        </div>
+        <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
+          <Link className="button button-primary" href="/contatti">
+            Chiedi un consiglio
+          </Link>
+          <a className="button button-secondary" href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer">
+            WhatsApp
+          </a>
+        </div>
+      </PageHero>
 
       <section className="section">
-        <div className="container grid grid-2">
-          <article className="card">
-            <h2 style={{ marginTop: 0 }}>
-              {competence.intent === "commercial" ? `Prima di prenotare: ${compactTitle}` : `Guida pratica: ${compactTitle}`}
-            </h2>
-            <p className="lead" style={{ marginTop: 0 }}>
-              {competence.localAngle}
+        <div className="container editorial-layout">
+          <article id="punti-chiave" className="card glow-card">
+            <p className="eyebrow">
+              {competence.intent === "commercial" ? "Prima di prenotare" : "Guida pratica"}
             </p>
-            <h3 style={{ marginBottom: "0.5rem" }}>Punti chiave (pratici)</h3>
-            <ul className="list-clean">
-              {competence.benefits.map((benefit) => (
-                <li key={benefit}>- {benefit}</li>
-              ))}
-            </ul>
+            <h2 style={{ marginTop: "0.45rem" }}>{compactTitle}</h2>
+            <p className="lead" style={{ marginTop: "0.6rem" }}>
+              {competence.shortDescription}
+            </p>
+            <KeyPointsGrid title="Punti chiave (pratici)" points={competence.benefits} />
           </article>
-          <aside className="card">
-            <h2 style={{ marginTop: 0 }}>Domande frequenti su {competence.title}</h2>
-            {competence.faqs.map((faq) => (
-              <div key={faq.q} className="faq-item">
-                <h3>{faq.q}</h3>
-                <p>{faq.a}</p>
+          <aside className="editorial-aside">
+            <TableOfContents items={tocItems} />
+            {competence.heroImage ? (
+              <div className="card">
+                <div className="editorial-cover">
+                  <Image
+                    src={competence.heroImage.src}
+                    alt={competence.heroImage.alt}
+                    width={1600}
+                    height={900}
+                    style={{ width: "100%", height: "auto" }}
+                  />
+                </div>
+                <p className="lead" style={{ marginTop: "0.8rem", marginBottom: 0 }}>
+                  Illustrazione Rebel: {competence.heroImage.alt}.
+                </p>
               </div>
-            ))}
+            ) : null}
+            <InlineCTA
+              title="Vuoi scegliere con calma?"
+              lead={`Scrivici due righe (zona/obiettivo/tempi). Ti diciamo se ${compactTitle} ha senso adesso o se conviene partire da altro.`}
+              primaryLabel="Contatti"
+              primaryHref="/contatti"
+              secondaryLabel="Vedi servizi"
+              secondaryHref="/servizi"
+            />
           </aside>
         </div>
       </section>
 
       {editorialSections.length > 0 && (
-        <section className="section">
-          <div className="container split">
-            <article className="card glow-card">
+        <section id="guida" className="section section-light">
+          <div className="container editorial-layout">
+            <article className="card-light">
               <p className="eyebrow">Dal nostro studio</p>
-              <h2 style={{ marginTop: "0.45rem" }}>Su {competence.title}: cosa conta davvero</h2>
+              <h2 style={{ marginTop: "0.45rem" }}>
+                Su {competence.title}: cosa conta davvero
+              </h2>
               {editorialSections.map((section) => (
-                <div key={section.heading} style={{ marginTop: "0.95rem" }}>
-                  <h3 style={{ marginTop: 0 }}>{section.heading}</h3>
-                  {section.paragraphs.map((paragraph, index) => (
-                    <p key={`${section.heading}-${index}`} className="lead" style={{ marginTop: "0.45rem" }}>
-                      {paragraph}
-                    </p>
-                  ))}
-                </div>
+                <EditorialSection
+                  key={section.heading}
+                  id={slugifyId(section.heading)}
+                  heading={section.heading}
+                  paragraphs={section.paragraphs}
+                />
               ))}
             </article>
-            <aside className="card">
-              {competence.heroImage ? (
-                <>
-                  <div className="editorial-cover">
-                    <Image
-                      src={competence.heroImage.src}
-                      alt={competence.heroImage.alt}
-                      width={1600}
-                      height={900}
-                      style={{ width: "100%", height: "auto" }}
-                    />
-                  </div>
-                  <p className="lead" style={{ marginTop: "0.8rem", marginBottom: 0 }}>
-                    Illustrazione Rebel: {competence.heroImage.alt}.
-                  </p>
-                </>
-              ) : (
-                <>
-                  <h2 style={{ marginTop: 0 }}>In breve</h2>
-                  <p className="lead" style={{ marginTop: 0 }}>
-                    Una guida chiara su {competence.title}: orientamento pratico e criteri concreti
-                    da usare ogni giorno.
-                  </p>
-                </>
-              )}
+            <aside className="editorial-aside">
+              <InlineCTA
+                eyebrow="Un passo alla volta"
+                title="Vuoi un percorso più ordinato?"
+                lead="Se sei indecisa, non serve scegliere tutto oggi. Ti aiutiamo a definire una priorità e un calendario che riesci a seguire."
+                primaryLabel="Prenota consulenza"
+                primaryHref="/contatti"
+                secondaryLabel="Vedi servizi"
+                secondaryHref="/servizi"
+              />
             </aside>
           </div>
         </section>
       )}
 
+      <section id="faq" className="section">
+        <div className="container">
+          <FAQAccordion title={`Domande frequenti su ${competence.title}`} items={competence.faqs} />
+        </div>
+      </section>
+
       {sourceLinks.length > 0 && (
-        <section className="section section-light">
+        <section id="fonti" className="section section-light">
           <div className="container">
             <h2 className="page-title">Fonti e riferimenti</h2>
             <p className="lead" style={{ marginTop: "0.45rem", color: "rgba(39,31,56,0.78)" }}>
@@ -283,20 +347,14 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
         </section>
       )}
 
-      <section className="section section-light">
+      <section id="servizi" className="section section-light">
         <div className="container">
           <h2 className="page-title">Servizi che si abbinano a {competence.title}</h2>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             {relatedServices.map((service) => (
               <Link key={service.slug} href={`/servizi/${service.slug}`} className="card-light">
                 <h3 style={{ marginTop: 0 }}>{service.name}</h3>
-                <p
-                  style={{
-                    margin: "0.35rem 0",
-                    fontFamily: "var(--font-inter), sans-serif",
-                    color: "rgba(39,31,56,0.78)",
-                  }}
-                >
+                <p className="lead" style={{ margin: "0.35rem 0", color: "rgba(39,31,56,0.78)" }}>
                   {service.shortDescription}
                 </p>
               </Link>
@@ -314,7 +372,7 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
       </section>
 
       {relatedProtocols.length > 0 ? (
-        <section className="section">
+        <section id="protocolli" className="section">
           <div className="container">
             <h2 className="page-title">Se vuoi fare un passo più avanzato</h2>
             <p className="lead" style={{ marginTop: "0.5rem", maxWidth: "74ch" }}>
@@ -346,7 +404,7 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
         </section>
       ) : null}
 
-      <section className="section">
+      <section id="correlate" className="section">
         <div className="container">
           <h2 className="page-title">
             {curatedCompetences.length > 0 ? "Guide correlate" : "Altre guide simili"}
@@ -365,7 +423,7 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
       </section>
 
       {featuredAreas.length > 0 ? (
-        <section className="section section-light">
+        <section id="localita" className="section section-light">
           <div className="container">
             <h2 className="page-title">Se arrivi dai comuni vicini</h2>
             <p className="lead" style={{ marginTop: "0.5rem", color: "rgba(39,31,56,0.78)", maxWidth: "74ch" }}>

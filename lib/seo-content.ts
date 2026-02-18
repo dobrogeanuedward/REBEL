@@ -1808,11 +1808,23 @@ export const competencePages: CompetencePage[] = [
     faqs: [
       {
         q: "L'epilazione laser viso è definitiva?",
-        a: "Parliamo di riduzione progressiva e prolungata della ricrescita: in molti casi servono anche richiami nel tempo.",
+        a: "Parliamo di riduzione progressiva e prolungata della ricrescita. In molti casi ci sono richiami nel tempo: non è una promessa \"una volta e via\", è un percorso gestito bene.",
       },
       {
         q: "Ogni quanto si fanno le sedute viso?",
-        a: "Di solito il calendario viene impostato in intervalli di alcune settimane e adattato in base alla risposta individuale.",
+        a: "Il calendario si imposta su intervalli di alcune settimane e si adatta in base a zona, tipo di pelo e risposta della pelle. Il punto è la costanza: un ritmo chiaro batte una seduta \"a caso\".",
+      },
+      {
+        q: "Come mi preparo prima della seduta (viso)?",
+        a: "Ti diamo indicazioni semplici in base alla zona: di solito si arriva con pelle pulita e senza improvvisare con ceretta/epilatore nei giorni prima. Se usi attivi forti in skincare, diccelo: preferiamo gestirli in modo ordinato, non a intuito.",
+      },
+      {
+        q: "Cosa succede dopo la seduta? Posso truccarmi?",
+        a: "Dipende da come reagisce la tua pelle. In genere puntiamo a un post semplice: comfort, pochi prodotti e protezione. Se hai un evento, lo pianifichiamo: sul viso la serenità vale più della fretta.",
+      },
+      {
+        q: "E se ho pelle sensibile o una zona già irritata?",
+        a: "Non è un \"no\" automatico, ma è una valutazione: si decide intensità, parametri e timing con prudenza. Se serve, si rimanda o si rende la seduta più soft: l'obiettivo è una pelle tranquilla, non una pelle stressata.",
       },
     ],
     keywords: [
@@ -1850,6 +1862,20 @@ export const competencePages: CompetencePage[] = [
         paragraphs: [
           "Le fonti cliniche più autorevoli spiegano che il laser riduce la ricrescita nel tempo, ma richiede più sedute e spesso mantenimento. È un percorso, non una promessa lampo.",
           "In pratica: se cerchi un risultato elegante e stabile, la costanza vince sempre sulla fretta. È qui che si vede la differenza tra protocollo improvvisato e metodo professionale.",
+        ],
+      },
+      {
+        heading: "Zone viso: baffetti, mento, basette (e perché i tempi possono cambiare)",
+        paragraphs: [
+          "Sul viso non esiste una sola \"zona\". Ogni area ha densità, sensibilità e abitudini diverse (rasatura, skincare, trucco). È normale che il percorso venga personalizzato anche solo cambiando punto di partenza.",
+          "Il nostro lavoro è rendere tutto chiaro: cosa trattiamo, con che priorità, e come leggiamo i progressi seduta dopo seduta.",
+        ],
+      },
+      {
+        heading: "Preparazione e post: poche regole, ma pensate per la tua pelle",
+        paragraphs: [
+          "La qualità del percorso si vede anche tra le sedute: niente esperimenti aggressivi, attenzione al sole e una routine più semplice quando serve.",
+          "Ti diciamo noi cosa fare (e cosa evitare) in modo pratico: il laser deve semplificarti la vita, non complicartela.",
         ],
       },
       {
@@ -1893,11 +1919,23 @@ export const competencePages: CompetencePage[] = [
     faqs: [
       {
         q: "Si possono trattare più zone nello stesso periodo?",
-        a: "Sì, con priorità e timing corretti definiti in consulenza, in base a tollerabilità e obiettivo.",
+        a: "Sì, quando c'è una strategia: priorità, timing e gestione della pelle. In consulenza definiamo cosa ha senso fare insieme e cosa conviene scaglionare per restare costanti.",
       },
       {
         q: "Estate e laser sono incompatibili?",
-        a: "Non in assoluto: serve una gestione attenta di esposizione e protezione solare, con linee guida precise.",
+        a: "Non in assoluto. Serve una gestione attenta di esposizione e protezione, e soprattutto un calendario pensato. Se hai vacanze o sport all'aperto, lo impostiamo insieme senza stress.",
+      },
+      {
+        q: "Da quali zone conviene partire se ho poco tempo o budget?",
+        a: "Da quelle che ti cambiano davvero la routine: zone più visibili, più fastidiose o con peli incarniti frequenti. Partire bene è meglio che partire da tutto e mollare dopo due sedute.",
+      },
+      {
+        q: "Tra una seduta e l'altra posso fare ceretta o epilatore?",
+        a: "In genere no, perché l'epilazione a strappo interferisce con il ciclo del pelo. Per tenere ordine tra le sedute si usa di solito il rasoio: ti spieghiamo noi il perché e le tempistiche.",
+      },
+      {
+        q: "Quante sedute servono per il laser corpo?",
+        a: "Dipende da zona, tipo di pelo e risposta individuale. La cosa importante è leggere i cambiamenti nel tempo e non inseguire promesse: un percorso serio è progressivo e si adatta.",
       },
     ],
     keywords: [
@@ -1936,6 +1974,20 @@ export const competencePages: CompetencePage[] = [
         paragraphs: [
           "Le sedute non sono casuali: rispettano cicli di crescita diversi per area. Per questo i risultati migliori arrivano quando si segue il calendario senza salti continui.",
           "Un piano serio resta flessibile: se la pelle reagisce in modo diverso, i parametri si aggiornano. Il metodo è vivo, non rigido.",
+        ],
+      },
+      {
+        heading: "Stagionalità, sole e vacanze: come si gestiscono senza ansia",
+        paragraphs: [
+          "Il punto non è \"si può\" o \"non si può\". Il punto è come lo gestisci: esposizione, protezione, timing e buon senso nei giorni vicini alla seduta.",
+          "Se hai già in mente mare, montagna o sport intenso, lo mettiamo sul tavolo subito: un calendario realistico vale più di un calendario perfetto sulla carta.",
+        ],
+      },
+      {
+        heading: "Post-seduta e routine corpo: la semplicità è la scelta più elegante",
+        paragraphs: [
+          "Tra una seduta e l'altra non serve fare mille cose: serve evitare gli errori classici e tenere la pelle tranquilla. È così che il percorso scorre senza intoppi.",
+          "Quando vuoi, ti suggeriamo una micro-routine corpo che riesci a mantenere davvero: pochi gesti, coerenti con la stagione.",
         ],
       },
       {
@@ -3470,6 +3522,16 @@ export const competencePages: CompetencePage[] = [
         ],
       },
     ],
+    sourceLinks: [
+      {
+        label: "Cleveland Clinic - Massage therapy",
+        url: "https://my.clevelandclinic.org/departments/wellness/integrative/treatments-services/massage-therapy",
+      },
+      {
+        label: "NHS - Neck pain and stiff neck",
+        url: "https://www.nhs.uk/symptoms/neck-pain-and-stiff-neck/",
+      },
+    ],
   },
   {
     slug: "pulizia-viso-carmagnola-frequenza-benefici",
@@ -3582,11 +3644,23 @@ export const competencePages: CompetencePage[] = [
     faqs: [
       {
         q: "Il linfodrenante risolve tutto da solo?",
-        a: "No, funziona meglio come parte di un piano più ampio con abitudini coerenti e monitoraggio nel tempo.",
+        a: "No. Funziona meglio come parte di un piano più ampio: calendario coerente, abitudini sostenibili e un minimo di continuità. La sensazione di leggerezza diventa più stabile quando non è un episodio isolato.",
       },
       {
         q: "Quante sedute servono?",
-        a: "Dipende da situazione e obiettivo: la progressione si valuta seduta dopo seduta, con adattamenti reali.",
+        a: "Dipende da situazione e obiettivo. Di solito si parte con un ciclo breve e poi si decide insieme il mantenimento: il percorso migliore è quello che riesci a tenere davvero.",
+      },
+      {
+        q: "Quanto dura la sensazione dopo una seduta?",
+        a: "Varia molto: stile di vita, periodo (caldo, viaggi, molte ore in piedi) e risposta personale contano. Il nostro obiettivo è costruire un effetto più stabile con progressione e non con una seduta \"miracolosa\".",
+      },
+      {
+        q: "Cosa conviene fare dopo il linfodrenante?",
+        a: "Semplificare: bere acqua, evitare stress eccessivo immediato e ascoltare il corpo. Se vuoi, ti diamo due dritte pratiche in base a lavoro/sport/stagione, così la sensazione di leggerezza dura di più.",
+      },
+      {
+        q: "Ci sono momenti in cui è meglio rimandare o chiedere un parere medico?",
+        a: "Se hai condizioni cliniche particolari o situazioni recenti importanti, preferiamo essere prudenti: ci scrivi e valutiamo insieme (o ti chiediamo un via libera medico). La qualità, per noi, è anche saper dire quando non è il momento giusto.",
       },
     ],
     keywords: [
@@ -3626,10 +3700,24 @@ export const competencePages: CompetencePage[] = [
         ],
       },
       {
+        heading: "Calendario: progressione e mantenimento (senza trasformarlo in un impegno infinito)",
+        paragraphs: [
+          "Il calendario è la parte che fa la differenza: un ciclo breve impostato bene ti permette di capire come rispondi e di leggere i cambiamenti in modo più chiaro.",
+          "Poi si decide il mantenimento: alcune persone preferiscono richiami periodici, altre un ritmo più concentrato in certi mesi. L'importante è che sia sostenibile per la tua vita reale.",
+        ],
+      },
+      {
         heading: "Approccio professionale: ascolto, adattamento, continuità",
         paragraphs: [
           "Un percorso drenante efficace nasce da osservazione e adattamento: non tutte le settimane sono uguali e non tutte le persone rispondono allo stesso modo.",
           "La qualità del risultato dipende da quanto il piano resta umano: chiaro da capire e lineare da portare avanti.",
+        ],
+      },
+      {
+        heading: "Dopo la seduta: far durare il comfort con pochi gesti",
+        paragraphs: [
+          "Se subito dopo corri, stringi di nuovo tutto e torni a mille, spesso la sensazione si spegne prima. È normale: il corpo ti sta solo dicendo di rallentare un attimo.",
+          "Noi preferiamo consigli semplici: una camminata leggera, acqua, e una routine corpo essenziale. Il risultato più bello è quello che senti anche nei giorni successivi, non solo all'uscita.",
         ],
       },
     ],
