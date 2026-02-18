@@ -41,6 +41,7 @@ export default function HomePage() {
     "epilazione-laser-estate-sole-carmagnola",
     "peli-incarniti-laser-carmagnola",
     "pulizia-viso-carmagnola-frequenza-benefici",
+    "manicure-semipermanente-carmagnola-durata-rimozione",
     "epilazione-laser-inguine-carmagnola-guida-pratica",
     "epilazione-laser-ascelle-carmagnola-guida-pratica",
     "laser-uomo-carmagnola-guida-pratica",

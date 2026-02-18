@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { EditorialSection } from "@/components/editorial-section";
+import { FAQAccordion } from "@/components/faq-accordion";
+import { InlineCTA } from "@/components/inline-cta";
 import { JsonLd } from "@/components/json-ld";
+import { KeyPointsGrid } from "@/components/key-points-grid";
 import { PageHero } from "@/components/page-hero";
+import { TableOfContents } from "@/components/table-of-contents";
 import { localAreaPages } from "@/lib/local-pages";
 import {
   getServiceBySlug,
@@ -18,6 +23,7 @@ import {
   buildWebPageSchema,
   createPageMetadata,
 } from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
 
 type Params = {
   slug: string;
@@ -55,6 +61,31 @@ export default async function ServiceDetailPage({ params }: PageProps) {
   const { slug } = await params;
   const service = getServiceBySlug(slug);
   if (!service) notFound();
+
+  const toWords = (value: string) => value.trim().split(/\s+/).filter(Boolean);
+  const readingMinutes = Math.max(
+    2,
+    Math.round(
+      toWords(
+        [
+          service.longDescription,
+          service.shortDescription,
+          service.benefits.join(" "),
+          service.faqs.map((f) => `${f.q} ${f.a}`).join(" "),
+          (service.editorialSections ?? []).flatMap((s) => s.paragraphs).join(" "),
+        ].join(" "),
+      ).length / 190,
+    ),
+  );
+
+  const slugifyId = (value: string) =>
+    value
+      .toLowerCase()
+      .trim()
+      .replace(/[’']/g, "")
+      .replace(/[^\p{L}\p{N}]+/gu, "-")
+      .replace(/-+/g, "-")
+      .replace(/(^-|-$)/g, "");
 
   const breadcrumb = buildBreadcrumbSchema([
     { name: "Home", path: "/" },
@@ -158,6 +189,17 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         })
       : null;
 
+  const tocItems = [
+    { id: "benefici", label: "Benefici" },
+    ...(editorialSections.length > 0 ? [{ id: "dettagli", label: "Dettagli utili" }] : []),
+    { id: "faq", label: "Domande frequenti" },
+    { id: "guide", label: "Guide utili" },
+    ...(sourceLinks.length > 0 ? [{ id: "fonti", label: "Fonti e riferimenti" }] : []),
+    ...(relatedProtocols.length > 0 ? [{ id: "protocolli", label: "Passo più avanzato" }] : []),
+    { id: "anche", label: "Guarda anche" },
+    ...(featuredAreas.length > 0 ? [{ id: "localita", label: "Località vicine" }] : []),
+  ];
+
   return (
     <main
       className={`page-shell page-servizio-detail ${
@@ -179,84 +221,89 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         lead={service.longDescription}
         badge={service.priceHint}
         tone={service.category === "laser" ? "violet" : "gold"}
-      />
+      >
+        <div className="hero-meta">
+          <span className="hero-pill">{service.category === "laser" ? "Laser" : "Estetica classica"}</span>
+          <span className="hero-pill">{readingMinutes} min lettura</span>
+          <span className="hero-pill">Aggiornato {siteConfig.lastUpdated}</span>
+        </div>
+        <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
+          <Link href="/contatti" className="button button-primary">
+            Prenota consulenza
+          </Link>
+          <a className="button button-secondary" href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer">
+            WhatsApp
+          </a>
+          <Link href="/listino-estetica-laser" className="button button-secondary">
+            Listino
+          </Link>
+        </div>
+      </PageHero>
 
       <section className="section">
-        <div className="container grid grid-2">
-          <article className="card">
-            <h2 style={{ marginTop: 0 }}>Benefici: cosa puoi notare con {service.name}</h2>
-            <ul className="list-clean">
-              {service.benefits.map((benefit) => (
-                <li key={benefit}>- {benefit}</li>
-              ))}
-            </ul>
-            <div
-              style={{
-                marginTop: "1rem",
-                display: "flex",
-                gap: "0.6rem",
-                flexWrap: "wrap",
-              }}
-            >
-              <Link href="/contatti" className="button button-primary">
-                Prenota consulenza
-              </Link>
-              <Link href="/listino-estetica-laser" className="button button-secondary">
-                Torna al listino
-              </Link>
-            </div>
+        <div className="container editorial-layout">
+          <article id="benefici" className="card glow-card">
+            <p className="eyebrow">Cosa puoi notare</p>
+            <h2 style={{ marginTop: "0.45rem" }}>Benefici di {service.name}</h2>
+            <p className="lead" style={{ marginTop: "0.6rem" }}>
+              {service.shortDescription}
+            </p>
+            <KeyPointsGrid points={service.benefits} />
           </article>
-
-          <aside className="card">
-            <h2 style={{ marginTop: 0 }}>Domande frequenti su {service.name}</h2>
-            {service.faqs.map((faq) => (
-              <div key={faq.q} className="faq-item">
-                <h3>{faq.q}</h3>
-                <p>{faq.a}</p>
-              </div>
-            ))}
+          <aside className="editorial-aside">
+            <TableOfContents items={tocItems} />
+            <InlineCTA
+              title="Vuoi iniziare con calma?"
+              lead={`Scrivici due righe (zona/obiettivo/tempi). Ti diciamo se ${service.name} ha senso adesso o se conviene partire da altro.`}
+              primaryLabel="Contatti"
+              primaryHref="/contatti"
+              secondaryLabel="Vedi servizi"
+              secondaryHref="/servizi"
+            />
           </aside>
         </div>
       </section>
 
       {editorialSections.length > 0 && (
-        <section className="section">
-          <div className="container split">
-            <article className="card glow-card">
+        <section id="dettagli" className="section section-light">
+          <div className="container editorial-layout">
+            <article className="card-light">
               <p className="eyebrow">Da sapere</p>
-              <h2 style={{ marginTop: "0.45rem" }}>Prima di prenotare {service.name}: qualche dettaglio utile</h2>
+              <h2 style={{ marginTop: "0.45rem" }}>
+                Prima di prenotare {service.name}: dettagli utili
+              </h2>
               {editorialSections.map((section) => (
-                <div key={section.heading} style={{ marginTop: "0.95rem" }}>
-                  <h3 style={{ marginTop: 0 }}>{section.heading}</h3>
-                  {section.paragraphs.map((paragraph, index) => (
-                    <p key={`${section.heading}-${index}`} className="lead" style={{ marginTop: "0.45rem" }}>
-                      {paragraph}
-                    </p>
-                  ))}
-                </div>
+                <EditorialSection
+                  key={section.heading}
+                  id={slugifyId(section.heading)}
+                  heading={section.heading}
+                  paragraphs={section.paragraphs}
+                />
               ))}
             </article>
-            <aside className="card">
-              <h2 style={{ marginTop: 0 }}>Vuoi iniziare con calma?</h2>
-              <p className="lead" style={{ marginTop: 0 }}>
-                Se sei indecisa o hai una domanda prima di prenotare, scrivici due righe (zona/obiettivo/tempi).
-                Ti diciamo noi se {service.name} ha senso adesso o se conviene partire da altro.
-              </p>
-              <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
-                <Link className="button button-primary" href="/contatti">
-                  Contatti
-                </Link>
-                <Link className="button button-secondary" href="/listino-estetica-laser">
-                  Vedi listino
-                </Link>
-              </div>
+            <aside className="editorial-aside">
+              <InlineCTA
+                eyebrow="Domanda semplice, risposta chiara"
+                title="Vuoi un consiglio rapido?"
+                lead="Scrivici: ti diciamo se il primo passo è questo servizio o se conviene partire da altro (senza giri di parole)."
+                primaryLabel="Contatti"
+                primaryHref="/contatti"
+                secondaryLabel="Listino"
+                secondaryHref="/listino-estetica-laser"
+              />
             </aside>
           </div>
         </section>
       )}
 
+      <section id="faq" className="section">
+        <div className="container">
+          <FAQAccordion title={`Domande frequenti su ${service.name}`} items={service.faqs} />
+        </div>
+      </section>
+
       {sourceLinks.length > 0 && (
-        <section className="section section-light">
+        <section id="fonti" className="section section-light">
           <div className="container">
             <h2 className="page-title">Fonti e riferimenti</h2>
             <p className="lead" style={{ marginTop: "0.45rem", color: "rgba(39,31,56,0.78)" }}>
@@ -276,7 +323,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         </section>
       )}
 
-      <section className="section section-light">
+      <section id="guide" className="section section-light">
         <div className="container">
           <h2 className="page-title">Guide utili se stai valutando {service.name}</h2>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
@@ -287,13 +334,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                 className="card-light"
               >
                 <h3 style={{ marginTop: 0 }}>{competence.title}</h3>
-                <p
-                  style={{
-                    margin: 0,
-                    fontFamily: "var(--font-inter), sans-serif",
-                    color: "rgba(39,31,56,0.78)",
-                  }}
-                >
+                <p className="lead" style={{ margin: 0, color: "rgba(39,31,56,0.78)" }}>
                   {competence.shortDescription}
                 </p>
               </Link>
@@ -303,7 +344,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       </section>
 
       {relatedProtocols.length > 0 ? (
-        <section className="section">
+        <section id="protocolli" className="section">
           <div className="container">
             <h2 className="page-title">Se vuoi fare un passo più avanzato</h2>
             <p className="lead" style={{ marginTop: "0.5rem", maxWidth: "74ch" }}>
@@ -333,7 +374,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         </section>
       ) : null}
 
-      <section className="section">
+      <section id="anche" className="section">
         <div className="container">
           <h2 className="page-title">Se ti interessa {service.name}, guarda anche</h2>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
@@ -350,7 +391,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       </section>
 
       {featuredAreas.length > 0 ? (
-        <section className="section section-light">
+        <section id="localita" className="section section-light">
           <div className="container">
             <h2 className="page-title">Se arrivi da fuori: località vicine e percorsi</h2>
             <p className="lead" style={{ marginTop: "0.5rem", color: "rgba(39,31,56,0.78)", maxWidth: "74ch" }}>
@@ -361,7 +402,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               {featuredAreas.map((area) => (
                 <Link key={area.slug} href={`/localita/${area.slug}`} className="card-light">
                   <h3 style={{ marginTop: 0 }}>{area.city}</h3>
-                  <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.78)" }}>
+                  <p className="lead" style={{ margin: 0, color: "rgba(39,31,56,0.78)" }}>
                     {area.description}
                   </p>
                 </Link>

@@ -160,6 +160,10 @@ img {
     radial-gradient(60% 50% at 100% 20%, rgba(167, 139, 250, 0.1), transparent 62%),
     #fdfbf8;
   color: #271f38;
+  /* In light sections we need dark "muted" text too, otherwise `.lead` / `.eyebrow`
+     inherit the dark theme `--muted` and become low-contrast (seen in guide cards). */
+  --text: #271f38;
+  --muted: rgba(39, 31, 56, 0.78);
 }
 
 .eyebrow {

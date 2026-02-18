@@ -26,10 +26,12 @@ export const metadata: Metadata = createPageMetadata({
 export default function CompetenzeHubPage() {
   const compactTitle = (value: string) => value.replace(/\s+a Carmagnola$/i, "").trim();
   const featuredSlugs = [
+    "pulizia-viso-carmagnola-frequenza-benefici",
     "epilazione-laser-ascelle-carmagnola-guida-pratica",
     "epilazione-laser-inguine-carmagnola-guida-pratica",
     "laser-uomo-carmagnola-guida-pratica",
     "peli-incarniti-laser-carmagnola",
+    "manicure-semipermanente-carmagnola-durata-rimozione",
     "pelle-opaca-grana-irregolare-carmagnola",
     "contorno-occhi-gonfiore-occhiaie-carmagnola",
   ];

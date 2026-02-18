@@ -37,6 +37,14 @@ export default function ServiziHubPage() {
   const estetica = servicePages.filter(
     (service) => service.category === "estetica-classica",
   );
+  // Surface high-conversion services early (without removing categories).
+  const esteticaSorted = estetica
+    .slice()
+    .sort((a, b) => {
+      const score = (slug: string) =>
+        slug === "pulizia-viso-carmagnola" ? 2 : slug === "manicure-semipermanente-carmagnola" ? 1 : 0;
+      return score(b.slug) - score(a.slug);
+    });
   const laser = servicePages.filter((service) => service.category === "laser");
   const editorialSlugs = [
     "epilazione-laser-ascelle-carmagnola-guida-pratica",
@@ -45,6 +53,7 @@ export default function ServiziHubPage() {
     "epilazione-laser-estate-sole-carmagnola",
     "peli-incarniti-laser-carmagnola",
     "pulizia-viso-carmagnola-frequenza-benefici",
+    "manicure-semipermanente-carmagnola-durata-rimozione",
   ];
   const featuredEditorials = editorialSlugs
     .map((slug) => competencePages.find((item) => item.slug === slug))
@@ -169,7 +178,7 @@ export default function ServiziHubPage() {
         <div className="container">
           <h2 className="page-title">Estetica classica e benessere</h2>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
-            {estetica.map((item) => (
+            {esteticaSorted.map((item) => (
               <Link key={item.slug} href={`/servizi/${item.slug}`} className="card-light">
                 <h3 style={{ marginTop: 0 }}>{item.name}</h3>
                 <p

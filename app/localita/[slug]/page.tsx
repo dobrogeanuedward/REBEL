@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { FAQAccordion } from "@/components/faq-accordion";
+import { InlineCTA } from "@/components/inline-cta";
 import { JsonLd } from "@/components/json-ld";
+import { KeyPointsGrid } from "@/components/key-points-grid";
 import { PageHero } from "@/components/page-hero";
+import { TableOfContents } from "@/components/table-of-contents";
 import type { LocalAreaPage } from "@/lib/local-pages";
 import { getLocalAreaBySlug, localAreaPages } from "@/lib/local-pages";
 import {
@@ -49,6 +53,25 @@ export default async function LocalAreaDetailPage({ params }: PageProps) {
   const { slug } = await params;
   const area = getLocalAreaBySlug(slug);
   if (!area) notFound();
+  const toWords = (value: string) => value.trim().split(/\s+/).filter(Boolean);
+  const readingMinutes = Math.max(
+    2,
+    Math.round(
+      toWords(
+        [
+          area.intro,
+          area.description,
+          area.whyRebel.join(" "),
+          area.directions?.heading ?? "",
+          (area.directions?.paragraphs ?? []).join(" "),
+          area.focus?.heading ?? "",
+          (area.focus?.paragraphs ?? []).join(" "),
+          (area.faqs ?? []).map((f) => `${f.q} ${f.a}`).join(" "),
+        ].join(" "),
+      ).length / 190,
+    ),
+  );
+
   const relatedAreas = localAreaPages
     .filter((item) => item.slug !== area.slug && item.cluster === area.cluster)
     .slice(0, 6);
@@ -129,6 +152,15 @@ export default async function LocalAreaDetailPage({ params }: PageProps) {
         }
       : null;
 
+  const tocItems = [
+    { id: "perche", label: `Perché Rebel (${area.city})` },
+    { id: "partire", label: "Da dove partire" },
+    ...(area.directions ? [{ id: "come-arrivare", label: "Come arrivare" }] : []),
+    ...(area.focus ? [{ id: "focus", label: "Approfondimento locale" }] : []),
+    ...(pageFaqs.length > 0 ? [{ id: "faq", label: "Domande frequenti" }] : []),
+    ...(relatedAreas.length > 0 ? [{ id: "vicini", label: "Comuni vicini" }] : []),
+  ];
+
   return (
     <main className="page-shell page-localita-detail">
       <JsonLd data={breadcrumb} />
@@ -142,68 +174,70 @@ export default async function LocalAreaDetailPage({ params }: PageProps) {
         lead={area.intro}
         badge={`${area.city} e zone limitrofe`}
         tone="rose"
-      />
+      >
+        <div className="hero-meta">
+          <span className="hero-pill">Località servita</span>
+          <span className="hero-pill">{readingMinutes} min lettura</span>
+          <span className="hero-pill">Aggiornato {siteConfig.lastUpdated}</span>
+        </div>
+        <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
+          <Link className="button button-primary" href="/contatti">
+            Prenota ora
+          </Link>
+          <a className="button button-secondary" href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer">
+            WhatsApp
+          </a>
+          <a className="button button-secondary" href={siteConfig.social.maps} target="_blank" rel="noreferrer">
+            Apri Maps
+          </a>
+        </div>
+      </PageHero>
 
       <section className="section">
-        <div className="container grid grid-2">
-          <article className="card glow-card">
-            <h2 style={{ marginTop: 0 }}>Perché chi arriva da {area.city} sceglie Rebel</h2>
-            <ul className="list-clean">
-              {area.whyRebel.map((point) => (
-                <li key={point}>- {point}</li>
-              ))}
-            </ul>
+        <div className="container editorial-layout">
+          <article id="perche" className="card glow-card">
+            <p className="eyebrow">Perché Rebel</p>
+            <h2 style={{ marginTop: "0.45rem" }}>
+              Perché chi arriva da {area.city} sceglie Rebel
+            </h2>
+            <KeyPointsGrid points={area.whyRebel} />
           </article>
-          <aside className="card">
-            <h2 style={{ marginTop: 0 }}>Se arrivi da {area.city}: da dove partire</h2>
-            <p className="lead" style={{ marginTop: 0 }}>
-              Se vieni da {area.city} e vuoi partire con un percorso fatto bene, scegliamo insieme
-              una priorità (laser, viso o corpo) e impostiamo ritmo e obiettivo. Se vuoi, da qui
-              puoi dare uno sguardo ai passaggi più richiesti da chi arriva dalla tua zona.
-            </p>
-            {suggestedLinks.length > 0 ? (
-              <div style={{ marginTop: "0.85rem", display: "grid", gap: "0.55rem" }}>
-                {suggestedLinks.map((item) => (
-                  <Link key={item.href} className="link-card" href={item.href}>
-                    <span className="link-card-content">
-                      <span className="link-card-title">{item.label}</span>
-                      {item.description ? (
-                        <small className="link-card-desc">{item.description}</small>
-                      ) : null}
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            ) : null}
-            <div
-              style={{
-                marginTop: "1rem",
-                display: "flex",
-                gap: "0.6rem",
-                flexWrap: "wrap",
-              }}
-            >
-              <Link className="button button-primary" href="/contatti">
-                Prenota ora
-              </Link>
-              <Link className="button button-secondary" href="/servizi">
-                Vedi servizi
-              </Link>
-              <a
-                className="button button-secondary"
-                href={siteConfig.social.whatsapp}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Scrivi su WhatsApp
-              </a>
+          <aside className="editorial-aside">
+            <TableOfContents items={tocItems} />
+            <div id="partire" className="card">
+              <h2 style={{ marginTop: 0 }}>Se arrivi da {area.city}: da dove partire</h2>
+              <p className="lead" style={{ marginTop: 0 }}>
+                Se vieni da {area.city} e vuoi partire con un percorso fatto bene, scegliamo insieme
+                una priorità (laser, viso o corpo) e impostiamo ritmo e obiettivo. Qui trovi i passaggi
+                più richiesti da chi arriva dalla tua zona.
+              </p>
+              {suggestedLinks.length > 0 ? (
+                <div style={{ marginTop: "0.85rem", display: "grid", gap: "0.55rem" }}>
+                  {suggestedLinks.map((item) => (
+                    <Link key={item.href} className="link-card" href={item.href}>
+                      <span className="link-card-content">
+                        <span className="link-card-title">{item.label}</span>
+                        {item.description ? <small className="link-card-desc">{item.description}</small> : null}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              ) : null}
             </div>
+            <InlineCTA
+              title="Vuoi scegliere il primo step?"
+              lead={`Scrivici due righe (zona/obiettivo/tempi). Ti diciamo qual è la scelta più pulita per partire, anche se arrivi da ${area.city}.`}
+              primaryLabel="Contatti"
+              primaryHref="/contatti"
+              secondaryLabel="Vedi servizi"
+              secondaryHref="/servizi"
+            />
           </aside>
         </div>
       </section>
 
       {area.directions && (
-        <section className="section section-light">
+        <section id="come-arrivare" className="section section-light">
           <div className="container split">
             <article className="card-light">
               <h2 style={{ marginTop: 0 }}>{area.directions.heading}</h2>
@@ -254,8 +288,8 @@ export default async function LocalAreaDetailPage({ params }: PageProps) {
       )}
 
       {area.focus && (
-        <section className="section">
-          <div className="container split">
+        <section id="focus" className="section">
+          <div className="container editorial-layout">
             <article className="card glow-card">
               <p className="eyebrow">Approfondimento locale</p>
               <h2 style={{ marginTop: "0.45rem" }}>{area.focus.heading}</h2>
@@ -265,77 +299,53 @@ export default async function LocalAreaDetailPage({ params }: PageProps) {
                 </p>
               ))}
             </article>
-            {area.focus.links && area.focus.links.length > 0 && (
-              <aside className="card">
-                <h2 style={{ marginTop: 0 }}>Link utili</h2>
-                <div style={{ display: "grid", gap: "0.75rem", marginTop: "0.9rem" }}>
-                  {area.focus.links.map((item) => {
-                    const isExternal = item.external || item.href.startsWith("http");
-                    const content = (
-                      <span className="link-card-content">
-                        <span className="link-card-title">{item.label}</span>
-                        {item.description ? (
-                          <small className="link-card-desc">{item.description}</small>
-                        ) : null}
-                      </span>
-                    );
-                    if (isExternal) {
-                      return (
-                        <a
-                          key={item.href}
-                          className="link-card"
-                          href={item.href}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          {content}
-                        </a>
+            {area.focus.links && area.focus.links.length > 0 ? (
+              <aside className="editorial-aside">
+                <div className="card">
+                  <h2 style={{ marginTop: 0 }}>Link utili</h2>
+                  <div style={{ display: "grid", gap: "0.75rem", marginTop: "0.9rem" }}>
+                    {area.focus.links.map((item) => {
+                      const isExternal = item.external || item.href.startsWith("http");
+                      const content = (
+                        <span className="link-card-content">
+                          <span className="link-card-title">{item.label}</span>
+                          {item.description ? <small className="link-card-desc">{item.description}</small> : null}
+                        </span>
                       );
-                    }
-                    return (
-                      <Link
-                        key={item.href}
-                        className="link-card"
-                        href={item.href}
-                      >
-                        {content}
-                      </Link>
-                    );
-                  })}
+                      if (isExternal) {
+                        return (
+                          <a key={item.href} className="link-card" href={item.href} target="_blank" rel="noreferrer">
+                            {content}
+                          </a>
+                        );
+                      }
+                      return (
+                        <Link key={item.href} className="link-card" href={item.href}>
+                          {content}
+                        </Link>
+                      );
+                    })}
+                  </div>
                 </div>
               </aside>
-            )}
+            ) : null}
           </div>
         </section>
       )}
 
       {pageFaqs.length > 0 && (
-        <section className="section section-light">
+        <section id="faq" className="section section-light">
           <div className="container">
             <h2 className="page-title">Domande frequenti (da {area.city})</h2>
-            <div className="grid grid-2" style={{ marginTop: "1rem" }}>
-              {pageFaqs.map((faq) => (
-                <article key={faq.q} className="card-light">
-                  <h3 style={{ marginTop: 0 }}>{faq.q}</h3>
-                  <p
-                    style={{
-                      margin: 0,
-                      fontFamily: "var(--font-inter), sans-serif",
-                      lineHeight: 1.7,
-                      color: "rgba(39,31,56,0.78)",
-                    }}
-                  >
-                    {faq.a}
-                  </p>
-                </article>
-              ))}
+            <div style={{ marginTop: "1rem" }}>
+              <FAQAccordion items={pageFaqs} />
             </div>
           </div>
         </section>
       )}
 
       {relatedAreas.length > 0 && (
-        <section className="section section-light">
+        <section id="vicini" className="section section-light">
           <div className="container">
             <h2 className="page-title">Comuni vicini a {area.city}</h2>
             <p className="lead" style={{ marginTop: "0.5rem", color: "rgba(39,31,56,0.78)" }}>
