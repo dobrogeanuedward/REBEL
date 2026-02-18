@@ -220,6 +220,408 @@ export const localAreaPages: LocalAreaPage[] = [
     ],
   },
   {
+    slug: "lombriasco",
+    city: "Lombriasco",
+    cluster: "asse-carmagnola",
+    title: "Da Lombriasco a Rebel Carmagnola: laser e cura pelle con metodo",
+    description:
+      "Se vivi a Lombriasco e cerchi un centro estetico organizzato, Rebel a Carmagnola ti segue con laser, viso/corpo e servizi base curati, con un piano semplice da mantenere.",
+    intro:
+      "Da Lombriasco arrivano persone che vogliono fare le cose bene, ma senza perdere tempo: un percorso chiaro (laser o viso/corpo) e un metodo che si sente già dalla prima seduta.",
+    whyRebel: [
+      "Valutazione iniziale e obiettivo chiaro prima di iniziare",
+      "Percorso laser seguito nel tempo con regole pratiche tra le sedute",
+      "Servizi base curati (viso, unghie, piedi) utili come primo step semplice",
+      "Supporto rapido su WhatsApp per organizzare calendario e dubbi",
+    ],
+    directions: {
+      heading: "Come arrivare da Lombriasco a Rebel (Carmagnola)",
+      mapsUrl:
+        "https://www.google.com/maps/dir/?api=1&origin=Lombriasco&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
+      embedUrl:
+        "https://www.google.com/maps?f=d&source=s_d&saddr=Lombriasco&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
+      paragraphs: [
+        "Apri Google Maps per tempi e traffico aggiornati: la destinazione è Rebel, in Viale Barbaroux 20 a Carmagnola.",
+        "Se vuoi partire con una direzione semplice (una priorità, non dieci cose insieme), scrivici su WhatsApp: ti diciamo in due messaggi il primo passo più sensato.",
+      ],
+    },
+    focus: {
+      heading: "Lombriasco: un percorso che si regge (anche quando la settimana è piena)",
+      paragraphs: [
+        "Il punto non è scegliere “il trattamento perfetto”: è scegliere l'ordine giusto. Se l'obiettivo è il laser, si parte dalle zone che ti cambiano davvero la gestione quotidiana e si imposta un calendario realistico.",
+        "Se invece vuoi vederti più curata subito, spesso funziona partire da un gancio semplice: pulizia viso (comfort e luminosità), semipermanente (mani ordinate), laminazione (sguardo più definito ma naturale), pedicure (piedi più comodi e in ordine).",
+        "E se senti pesantezza o gonfiore, ha senso leggere bene la situazione: linfodrenante e pressoterapia non sono “magie”, ma strumenti che funzionano quando sono inseriti con ritmo e buonsenso.",
+      ],
+      links: [
+        {
+          label: "Contatti",
+          href: "/contatti",
+          description: "Per prenotare o chiedere un consiglio prima di iniziare.",
+        },
+        {
+          label: "Listino completo",
+          href: "/listino-estetica-laser",
+          description: "Panoramica servizi e percorsi, con prezzi chiari.",
+        },
+        {
+          label: "Laser a Carmagnola",
+          href: "/epilazione-laser-carmagnola",
+          description: "Metodo, calendario e cosa aspettarti senza promesse strane.",
+        },
+        {
+          label: "Protocolli epigenetici",
+          href: "/protocolli-epigenetici",
+          description: "Percorsi viso/corpo quando vuoi una progressione ordinata.",
+        },
+        {
+          label: "Pulizia viso",
+          href: "/servizi/pulizia-viso-carmagnola",
+          description: "Un primo step semplice per rimettere comfort e luminosità.",
+        },
+        {
+          label: "Manicure semipermanente",
+          href: "/servizi/manicure-semipermanente-carmagnola",
+          description: "Per mani subito ordinate, con risultato pulito e curato.",
+        },
+        {
+          label: "Laminazione ciglia e sopracciglia",
+          href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola",
+          description: "Sguardo più definito, naturale e armonioso.",
+        },
+        {
+          label: "Pedicure VIP",
+          href: "/servizi/pedicure-carmagnola",
+          description: "Piedi più comodi e in ordine, con lavoro delicato e sensato.",
+        },
+        {
+          label: "Pressoterapia: guida pratica",
+          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          description: "Quando ha senso e come inserirla in un percorso drenante ordinato.",
+        },
+      ],
+    },
+    faqs: [
+      {
+        q: "Da Lombriasco: da cosa conviene partire?",
+        a: "Dipende dalla priorità. Se vuoi ridurre la gestione quotidiana, spesso si parte dal laser su una zona e da un calendario realistico. Se vuoi vederti più curata subito, un gancio base (pulizia viso, semipermanente, laminazione, pedicure) è un ottimo primo step.",
+      },
+      {
+        q: "Prenotazione: posso scrivere su WhatsApp?",
+        a: "Sì. È il modo più rapido: ci dici zona/obiettivo/tempi e ti rispondiamo con la proposta più semplice e coerente.",
+      },
+      {
+        q: "Posso vedere servizi e prezzi prima di venire?",
+        a: "Sì: trovi il listino online. Poi, se vuoi, lo traduciamo in un percorso su misura in base alla tua situazione.",
+      },
+    ],
+    keywords: [
+      "centro estetico Lombriasco",
+      "estetista Lombriasco",
+      "laser Lombriasco",
+      "epilazione laser Lombriasco",
+      "trattamenti viso Lombriasco",
+    ],
+  },
+  {
+    slug: "caramagna-piemonte",
+    city: "Caramagna Piemonte",
+    cluster: "asse-carmagnola",
+    title: "Da Caramagna Piemonte a Rebel Carmagnola: laser e percorsi viso/corpo ordinati",
+    description:
+      "Se vivi a Caramagna Piemonte e cerchi un centro estetico organizzato vicino, Rebel a Carmagnola unisce laser, servizi base curati e percorsi viso/corpo con progressione chiara.",
+    intro:
+      "Da Caramagna Piemonte ci raggiungono persone che vogliono smettere di improvvisare: preferiscono un metodo chiaro, con appuntamenti realistici e indicazioni pratiche tra una seduta e l'altra.",
+    whyRebel: [
+      "Un solo studio per laser, servizi classici e percorsi avanzati viso/corpo",
+      "Impostazione graduale: obiettivo, calendario, mantenimento",
+      "Approccio trasparente (cosa aspettarti e cosa evitare, senza ansia)",
+      "Supporto rapido su WhatsApp per organizzarti senza perdite di tempo",
+    ],
+    directions: {
+      heading: "Come arrivare da Caramagna Piemonte a Rebel (Carmagnola)",
+      mapsUrl:
+        "https://www.google.com/maps/dir/?api=1&origin=Caramagna+Piemonte&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
+      embedUrl:
+        "https://www.google.com/maps?f=d&source=s_d&saddr=Caramagna+Piemonte&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
+      paragraphs: [
+        "Per tempi e traffico aggiornati, apri il link Maps: ti porta direttamente in Viale Barbaroux 20 (Rebel, Carmagnola).",
+        "Se vuoi evitare giri a vuoto, scrivici su WhatsApp: ci dici cosa vuoi ottenere e ti proponiamo un primo passo pulito, senza confusione.",
+      ],
+    },
+    focus: {
+      heading: "Caramagna Piemonte: estetica fatta bene, senza percorsi standard",
+      paragraphs: [
+        "Il laser funziona quando è un percorso: zone scelte bene, parametri su misura e calendario coerente. È qui che spesso si fa la differenza, non nella singola seduta.",
+        "Se l'obiettivo è il viso (luminosità, grana, tono o contorno occhi), i protocolli epigenetici aiutano perché danno progressione: un metodo che si regge nel tempo.",
+        "E quando vuoi un risultato subito percepibile (senza stravolgerti), i servizi base sono perfetti: pulizia viso, semipermanente, laminazione e pedicure sono ganci semplici ma molto concreti.",
+      ],
+      links: [
+        {
+          label: "Contatti",
+          href: "/contatti",
+          description: "Per prenotare o chiedere un consiglio prima di iniziare.",
+        },
+        {
+          label: "Listino completo",
+          href: "/listino-estetica-laser",
+          description: "Panoramica servizi e percorsi, con prezzi chiari.",
+        },
+        {
+          label: "Laser a Carmagnola",
+          href: "/epilazione-laser-carmagnola",
+          description: "Punto di partenza: metodo, calendario e gestione pratica.",
+        },
+        {
+          label: "Protocolli epigenetici",
+          href: "/protocolli-epigenetici",
+          description: "Percorsi viso/corpo con progressione e mantenimento.",
+        },
+        {
+          label: "Pulizia viso",
+          href: "/servizi/pulizia-viso-carmagnola",
+          description: "Ordine e comfort: spesso è il primo passo più sensato.",
+        },
+        {
+          label: "Manicure semipermanente",
+          href: "/servizi/manicure-semipermanente-carmagnola",
+          description: "Per mani curate e ordinate, senza complicazioni.",
+        },
+        {
+          label: "Pedicure VIP",
+          href: "/servizi/pedicure-carmagnola",
+          description: "Piedi più comodi e in ordine: base concreta tutto l'anno.",
+        },
+        {
+          label: "Pressoterapia: guida pratica",
+          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          description: "Se cerchi leggerezza sulle gambe: criteri pratici e aspettative sane.",
+        },
+      ],
+    },
+    faqs: [
+      {
+        q: "Da Caramagna Piemonte: posso fare laser e viso nello stesso percorso?",
+        a: "Sì. Molte clienti combinano laser e viso/corpo: la sequenza la decidiamo in base a priorità, tempi e tollerabilità, così il piano resta ordinato.",
+      },
+      {
+        q: "Non so da dove partire: come mi orientate?",
+        a: "Ti chiediamo una priorità e i tempi che hai. Poi scegliamo un primo step semplice (un servizio base o una zona laser) e costruiamo il resto intorno, senza fare tutto insieme.",
+      },
+      {
+        q: "Prenotazione rapida: posso scrivere su WhatsApp?",
+        a: "Sì. È il modo più veloce: ci dici zona/obiettivo e ti proponiamo la strada più lineare.",
+      },
+    ],
+    keywords: [
+      "centro estetico Caramagna Piemonte",
+      "estetista Caramagna Piemonte",
+      "laser Caramagna Piemonte",
+      "epilazione laser Caramagna Piemonte",
+      "trattamenti viso Caramagna Piemonte",
+    ],
+  },
+  {
+    slug: "osasio",
+    city: "Osasio",
+    cluster: "asse-carmagnola",
+    title: "Da Osasio a Rebel Carmagnola: percorsi laser e servizi base, senza confusione",
+    description:
+      "Se sei a Osasio e cerchi un centro estetico vicino e organizzato, Rebel a Carmagnola ti segue con laser, viso/corpo e servizi base curati, con un piano realistico.",
+    intro:
+      "Da Osasio arrivano clienti che vogliono una cosa semplice: capire cosa fare prima, cosa fare dopo e come incastrare gli appuntamenti nella vita reale.",
+    whyRebel: [
+      "Calendario laser costruito su zona, pelle e obiettivo",
+      "Percorsi viso/corpo con progressione chiara (non sedute a caso)",
+      "Servizi base di qualità per sentirti più in ordine già da subito",
+      "Comunicazione chiara e supporto rapido su WhatsApp",
+    ],
+    directions: {
+      heading: "Come arrivare da Osasio a Rebel (Carmagnola)",
+      mapsUrl:
+        "https://www.google.com/maps/dir/?api=1&origin=Osasio&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
+      embedUrl:
+        "https://www.google.com/maps?f=d&source=s_d&saddr=Osasio&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
+      paragraphs: [
+        "Apri Google Maps e segui la navigazione aggiornata: la destinazione è Rebel, Viale Barbaroux 20 (Carmagnola).",
+        "Se vuoi ottimizzare tempi e appuntamenti, scrivici su WhatsApp: ti aiutiamo a scegliere un primo passo comodo.",
+      ],
+    },
+    focus: {
+      heading: "Osasio: un metodo che ti evita i “tentativi”",
+      paragraphs: [
+        "La differenza tra un percorso che funziona e uno che stanca è spesso l'ordine: scegliere una priorità (laser, viso o corpo) e dare continuità con un calendario realistico.",
+        "Se sei indecisa, partire da un gancio base è la scelta più intelligente: pulizia viso, semipermanente, laminazione o pedicure ti danno un risultato curato e ti fanno capire il metodo in studio.",
+        "Se il tema è la leggerezza sulle gambe, si ragiona con buonsenso: drenaggio e pressoterapia si inseriscono bene quando sono gestiti con ritmo e aspettative sane.",
+      ],
+      links: [
+        {
+          label: "Contatti",
+          href: "/contatti",
+          description: "Per prenotare o chiedere un consiglio prima di iniziare.",
+        },
+        {
+          label: "Listino completo",
+          href: "/listino-estetica-laser",
+          description: "Panoramica servizi e percorsi, con prezzi chiari.",
+        },
+        {
+          label: "Laser a Carmagnola",
+          href: "/epilazione-laser-carmagnola",
+          description: "Metodo e calendario: come impostiamo il percorso.",
+        },
+        {
+          label: "Pulizia viso",
+          href: "/servizi/pulizia-viso-carmagnola",
+          description: "Per comfort e luminosità, con approccio delicato.",
+        },
+        {
+          label: "Manicure semipermanente",
+          href: "/servizi/manicure-semipermanente-carmagnola",
+          description: "Mani ordinate e risultato pulito, curato nei dettagli.",
+        },
+        {
+          label: "Pedicure VIP",
+          href: "/servizi/pedicure-carmagnola",
+          description: "Cura piedi concreta: ordine e comfort, senza aggressività.",
+        },
+        {
+          label: "Protocolli epigenetici",
+          href: "/protocolli-epigenetici",
+          description: "Percorsi viso/corpo quando vuoi progressione e controllo.",
+        },
+        {
+          label: "Pressoterapia: guida pratica",
+          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          description: "Per capire se ha senso e come inserirla nel percorso.",
+        },
+      ],
+    },
+    faqs: [
+      {
+        q: "Da Osasio: quanto serve per iniziare?",
+        a: "Basta avere una priorità. Se ci scrivi, in pochi messaggi ti orientiamo sul primo step più sensato e sugli appuntamenti più comodi.",
+      },
+      {
+        q: "Posso vedere servizi e prezzi prima di prenotare?",
+        a: "Sì: trovi il listino online. Poi, se vuoi, in studio lo traduciamo in un percorso adatto a te.",
+      },
+      {
+        q: "Se ho poco tempo, conviene partire da laser o da un servizio base?",
+        a: "Dipende dall'obiettivo. Se la priorità è ridurre la gestione, spesso il laser è la strada più diretta. Se vuoi sentirti più curata subito, un gancio base (viso/unghie/piedi/sguardo) è perfetto.",
+      },
+    ],
+    keywords: [
+      "centro estetico Osasio",
+      "estetista Osasio",
+      "laser Osasio",
+      "epilazione laser Osasio",
+      "centro estetico vicino Osasio",
+    ],
+  },
+  {
+    slug: "casalgrasso",
+    city: "Casalgrasso",
+    cluster: "asse-carmagnola",
+    title: "Da Casalgrasso a Rebel Carmagnola: laser organizzato e servizi base curati",
+    description:
+      "Se vivi a Casalgrasso e cerchi un centro estetico vicino e organizzato, Rebel a Carmagnola ti segue con laser, viso/corpo e servizi base (viso, unghie, piedi, sguardo) con metodo.",
+    intro:
+      "Da Casalgrasso ci raggiungono persone che vogliono un percorso che non le stanchi: calendario chiaro, aspettative sane e servizi curati anche nei dettagli.",
+    whyRebel: [
+      "Laser con metodo: progressione, controllo e calendario realistico",
+      "Percorsi viso/corpo quando vuoi una direzione (non sedute casuali)",
+      "Servizi base “gancio” per sentirti più in ordine senza complicazioni",
+      "Disponibilità su WhatsApp per dubbi pratici e organizzazione",
+    ],
+    directions: {
+      heading: "Come arrivare da Casalgrasso a Rebel (Carmagnola)",
+      mapsUrl:
+        "https://www.google.com/maps/dir/?api=1&origin=Casalgrasso&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
+      embedUrl:
+        "https://www.google.com/maps?f=d&source=s_d&saddr=Casalgrasso&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
+      paragraphs: [
+        "Apri il link Maps per una stima aggiornata di tempi e traffico: la destinazione è Rebel (Viale Barbaroux 20, Carmagnola).",
+        "Se vuoi partire senza fare tentativi, scrivici su WhatsApp: ci dici obiettivo e tempi e ti proponiamo il primo passo più lineare.",
+      ],
+    },
+    focus: {
+      heading: "Casalgrasso: ordine, comfort, progressione (e scelte semplici)",
+      paragraphs: [
+        "Molte persone cercano una soluzione “vicina”, ma la vera differenza è trovare un metodo. Noi partiamo dall'ordine: una priorità e un calendario che riesci a tenere davvero.",
+        "Se vuoi un risultato subito percepibile, spesso conviene partire da un gancio base: pulizia viso (pelle più comoda), semipermanente (mani più curate), laminazione (sguardo più ordinato), pedicure (piedi più comodi).",
+        "Se invece l'obiettivo è un percorso corpo più “di continuità”, si valuta bene cosa inserire e quando: drenaggio e pressoterapia funzionano quando sono gestiti con buonsenso, non con eccessi.",
+      ],
+      links: [
+        {
+          label: "Contatti",
+          href: "/contatti",
+          description: "Per prenotare o chiedere un consiglio prima di iniziare.",
+        },
+        {
+          label: "Listino completo",
+          href: "/listino-estetica-laser",
+          description: "Panoramica servizi e percorsi, con prezzi chiari.",
+        },
+        {
+          label: "Laser a Carmagnola",
+          href: "/epilazione-laser-carmagnola",
+          description: "Punto di partenza per capire metodo e calendario.",
+        },
+        {
+          label: "Pulizia viso",
+          href: "/servizi/pulizia-viso-carmagnola",
+          description: "Ordine e luminosità con approccio delicato.",
+        },
+        {
+          label: "Manicure semipermanente",
+          href: "/servizi/manicure-semipermanente-carmagnola",
+          description: "Un gancio pratico: mani ordinate e look più curato.",
+        },
+        {
+          label: "Laminazione ciglia e sopracciglia",
+          href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola",
+          description: "Sguardo più definito con effetto naturale.",
+        },
+        {
+          label: "Pedicure VIP",
+          href: "/servizi/pedicure-carmagnola",
+          description: "Cura piedi concreta: comfort e ordine, senza aggressività.",
+        },
+        {
+          label: "Protocolli epigenetici",
+          href: "/protocolli-epigenetici",
+          description: "Percorsi viso/corpo quando vuoi progressione e controllo.",
+        },
+        {
+          label: "Pressoterapia: guida pratica",
+          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          description: "Per orientarti su quando ha senso e come inserirla bene.",
+        },
+      ],
+    },
+    faqs: [
+      {
+        q: "Da Casalgrasso: come prenoto?",
+        a: "Puoi prenotare dal sito o scriverci su WhatsApp. Se ci dici obiettivo e tempi, ti aiutiamo a scegliere l'appuntamento più sensato.",
+      },
+      {
+        q: "Se faccio il laser, posso inserire anche servizi base?",
+        a: "Sì, spesso. L'importante è incastrarli con timing sensato: così ti senti più curata senza creare confusione nel calendario.",
+      },
+      {
+        q: "Non so cosa scegliere: mi consigliate voi?",
+        a: "Sì. Partiamo dalla tua priorità e proponiamo un primo step semplice: o una zona laser, oppure un servizio base che ti rimette subito in ordine.",
+      },
+    ],
+    keywords: [
+      "centro estetico Casalgrasso",
+      "estetista Casalgrasso",
+      "laser Casalgrasso",
+      "epilazione laser Casalgrasso",
+      "centro estetico vicino Casalgrasso",
+    ],
+  },
+  {
     slug: "carignano",
     city: "Carignano",
     cluster: "asse-carmagnola",
