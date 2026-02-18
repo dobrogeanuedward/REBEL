@@ -27,6 +27,7 @@ export default function CompetenzeHubPage() {
   const compactTitle = (value: string) => value.replace(/\s+a Carmagnola$/i, "").trim();
   const featuredSlugs = [
     "pulizia-viso-carmagnola-frequenza-benefici",
+    "pedicure-carmagnola-ogni-quanto-talloni",
     "epilazione-laser-ascelle-carmagnola-guida-pratica",
     "epilazione-laser-inguine-carmagnola-guida-pratica",
     "laser-uomo-carmagnola-guida-pratica",

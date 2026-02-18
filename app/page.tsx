@@ -4,7 +4,7 @@ import { InstagramFeed } from "@/components/instagram-feed";
 import { JsonLd } from "@/components/json-ld";
 import { localAreaPages } from "@/lib/local-pages";
 import { buildItemListSchema, buildWebPageSchema, createPageMetadata } from "@/lib/seo";
-import { competencePages } from "@/lib/seo-content";
+import { competencePages, servicePages } from "@/lib/seo-content";
 import { siteConfig } from "@/lib/site-config";
 import type { Metadata } from "next";
 
@@ -42,6 +42,7 @@ export default function HomePage() {
     "peli-incarniti-laser-carmagnola",
     "pulizia-viso-carmagnola-frequenza-benefici",
     "manicure-semipermanente-carmagnola-durata-rimozione",
+    "pedicure-carmagnola-ogni-quanto-talloni",
     "epilazione-laser-inguine-carmagnola-guida-pratica",
     "epilazione-laser-ascelle-carmagnola-guida-pratica",
     "laser-uomo-carmagnola-guida-pratica",
@@ -52,6 +53,18 @@ export default function HomePage() {
   const featuredGuides = featuredGuideSlugs
     .map((slug) => competencePages.find((item) => item.slug === slug))
     .filter((item): item is (typeof competencePages)[number] => Boolean(item));
+
+  const baseServiceSlugs = [
+    "pulizia-viso-carmagnola",
+    "manicure-semipermanente-carmagnola",
+    "laminazione-ciglia-sopracciglia-carmagnola",
+    "massaggio-rilassante-carmagnola",
+    "massaggio-linfodrenante-carmagnola",
+    "pedicure-carmagnola",
+  ];
+  const baseServices = baseServiceSlugs
+    .map((slug) => servicePages.find((item) => item.slug === slug))
+    .filter((item): item is (typeof servicePages)[number] => Boolean(item));
 
   const ecosystemGroups: Array<{
     key: string;
@@ -170,12 +183,24 @@ export default function HomePage() {
     description: siteConfig.description,
     path: "/",
   });
+  const baseServicesSchema =
+    baseServices.length > 0
+      ? buildItemListSchema({
+          name: "Trattamenti base più richiesti a Carmagnola",
+          path: "/",
+          items: baseServices.map((service) => ({
+            name: service.name,
+            path: `/servizi/${service.slug}`,
+          })),
+        })
+      : null;
 
   return (
     <main className="page-shell page-home">
       <JsonLd data={faqSchema} />
       <JsonLd data={hubSchema} />
       <JsonLd data={homepageSchema} />
+      {baseServicesSchema ? <JsonLd data={baseServicesSchema} /> : null}
 
       <section className="home-hero">
         <div className="container home-hero-grid">
@@ -264,6 +289,47 @@ export default function HomePage() {
           </aside>
         </div>
       </section>
+
+      {baseServices.length > 0 ? (
+        <section className="section section-light">
+          <div className="container">
+            <p className="eyebrow" style={{ color: "rgba(39,31,56,0.68)" }}>
+              Carmagnola - servizi base
+            </p>
+            <h2 className="page-title" style={{ marginTop: "0.55rem" }}>
+              Trattamenti base, richiesti spesso in studio (viso, unghie, sguardo, benessere).
+            </h2>
+            <p className="lead" style={{ marginTop: "0.6rem", color: "rgba(39,31,56,0.78)", maxWidth: "78ch" }}>
+              Se vuoi iniziare in modo semplice e ordinato, qui trovi una selezione di trattamenti base richiesti spesso
+              a Carmagnola: viso, unghie, sguardo, massaggi e cura piedi. Apri una scheda e trovi dettagli, FAQ e indicazioni pratiche.
+            </p>
+            <div className="grid grid-3" style={{ marginTop: "1rem" }}>
+              {baseServices.map((item) => (
+                <Link key={item.slug} href={`/servizi/${item.slug}`} className="card-light">
+                  <h3 style={{ marginTop: 0 }}>{item.name}</h3>
+                  <p className="lead" style={{ marginTop: "0.35rem", marginBottom: 0, color: "rgba(39,31,56,0.78)" }}>
+                    {item.shortDescription}
+                  </p>
+                  <p style={{ marginTop: "0.65rem", marginBottom: 0, fontFamily: "var(--font-inter), sans-serif" }}>
+                    <strong>{item.priceHint}</strong>
+                  </p>
+                </Link>
+              ))}
+            </div>
+            <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
+              <Link className="button button-primary" href="/contatti">
+                Consulenza e prenotazioni
+              </Link>
+              <Link className="button button-secondary" href="/servizi">
+                Vedi tutti i servizi
+              </Link>
+              <Link className="button button-secondary" href="/listino-estetica-laser">
+                Listino completo
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
 
       <section className="section section-light">

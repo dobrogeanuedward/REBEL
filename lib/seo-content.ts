@@ -562,6 +562,245 @@ export const servicePages: ServicePage[] = [
     ],
   },
   {
+    slug: "pedicure-carmagnola",
+    name: "Pedicure VIP con scrub a Carmagnola",
+    shortDescription:
+      "Pedicure VIP con scrub: piedi più ordinati, pelle più liscia e una sensazione di comfort che dura (senza eccessi).",
+    longDescription:
+      "Il pedicure VIP con scrub, quando è fatto bene, non è solo estetica: è ordine e comfort. In studio lavoriamo in modo pulito e concreto: valutiamo pelle e unghie, scegliamo intensità e passaggi sensati e chiudiamo con una rifinitura che ti fa uscire davvero \"a posto\". Se hai talloni secchi o pelle più ispessita, impostiamo il lavoro con delicatezza: l'obiettivo è migliorare nel tempo, non stressare in una sola seduta.",
+    priceHint: "EUR 44",
+    category: "estetica-classica",
+    benefits: [
+      "Piedi più ordinati e curati, anche da vicino",
+      "Pelle più liscia e confortevole (soprattutto su talloni secchi)",
+      "Riduce la sensazione di \"piede trascurato\" nella routine quotidiana",
+    ],
+    faqs: [
+      {
+        q: "Quanto dura il Pedicure VIP?",
+        a: "Circa 1 ora e 15 minuti. È una durata comoda perché ci permette di lavorare con calma su ordine, pelle e rifinitura, senza fare le cose di corsa.",
+      },
+      {
+        q: "Ogni quanto conviene fare il pedicure?",
+        a: "Dipende da pelle, abitudini e stagione. Alcune persone stanno bene con un ritmo distanziato, altre preferiscono un mantenimento più regolare nei mesi in cui portano scarpe aperte. In studio ti consigliamo una finestra realistica, non un calendario fisso uguale per tutte.",
+      },
+      {
+        q: "Se ho talloni secchi o pelle ispessita, si può fare?",
+        a: "Sì: si lavora con buonsenso e delicatezza. Preferiamo migliorare progressivamente e lasciare la pelle comoda, piuttosto che essere aggressivi e irritare.",
+      },
+      {
+        q: "Posso mettere lo smalto dopo il pedicure?",
+        a: "Sì. Se vuoi un effetto molto naturale, possiamo anche orientarti su finiture pulite e discrete. Se preferisci colore, lo scegliamo insieme in base allo stile che ti piace.",
+      },
+      {
+        q: "Se ho una situazione dolorosa o sospetta (unghia, infezione), cosa devo fare?",
+        a: "Se c'è dolore importante o un dubbio clinico, preferiamo essere prudenti: ci scrivi e valutiamo insieme, e se serve ti consigliamo un parere medico/podologico prima di procedere. Il nostro focus qui è il pedicure estetico, fatto bene e in sicurezza.",
+      },
+    ],
+    keywords: [
+      "pedicure Carmagnola",
+      "pedicure VIP Carmagnola",
+      "pedicure VIP con scrub Carmagnola",
+      "pedicure estetico Carmagnola",
+      "cura piedi Carmagnola",
+      "talloni secchi Carmagnola",
+      "piedi curati Carmagnola",
+    ],
+    relatedCompetenceSlugs: [
+      "come-scegliere-centro-estetico-carmagnola",
+      "beauty-routine-carmagnola",
+      "trattamenti-corpo-carmagnola",
+      "pedicure-carmagnola-ogni-quanto-talloni",
+    ],
+    editorialSections: [
+      {
+        heading: "Pedicure: la differenza tra \"bello\" e \"comodo\"",
+        paragraphs: [
+          "Un pedicure ben fatto si vede, ma soprattutto si sente: pelle più confortevole, unghie ordinate, piedi che non ti \"distraggono\" durante la giornata.",
+          "Noi preferiamo un risultato pulito e naturale: ordine vero, senza esagerazioni e senza stressare la pelle.",
+        ],
+      },
+      {
+        heading: "Talloni secchi e pelle ispessita: meglio progressione che aggressività",
+        paragraphs: [
+          "Quando la pelle è molto secca, la tentazione è fare troppo in una volta. Funziona meglio l'opposto: un lavoro sensato in studio e un mantenimento semplice a casa.",
+          "Se vuoi, ti lasciamo due indicazioni pratiche su idratazione e abitudini: poche cose, ma quelle giuste.",
+        ],
+      },
+      {
+        heading: "Quando farlo: stagione, scarpe e routine reale",
+        paragraphs: [
+          "Nei mesi caldi spesso lo si desidera di più, ma in realtà il pedicure funziona tutto l'anno: ti fa sentire più ordinata e ti semplifica la gestione dei piedi.",
+          "In studio ti consigliamo un ritmo realistico in base alle tue abitudini (sport, lavoro, scarpe chiuse o aperte).",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - Nail care basics",
+        url: "https://www.aad.org/public/everyday-care/nail-care-secrets/basics/nail-care-basics",
+      },
+    ],
+  },
+  {
+    slug: "pedicure-estetico-carmagnola",
+    name: "Pedicure estetico a Carmagnola",
+    shortDescription:
+      "Pedicure estetico (45 min) per piedi più ordinati e una sensazione di comfort immediata, con rifinitura pulita.",
+    longDescription:
+      "Il pedicure estetico è la scelta più semplice per rimettere in ordine i piedi: lavoriamo in modo pulito e preciso su unghie e pelle, con una rifinitura che resta bella anche da vicino. È un servizio utile tutto l'anno, soprattutto se vuoi sentirti più a posto senza trasformarlo in un percorso complicato.",
+    priceHint: "EUR 33",
+    category: "estetica-classica",
+    benefits: [
+      "Piedi più ordinati e curati in poco tempo",
+      "Rifinitura pulita e naturale, senza eccessi",
+      "Ottimo come mantenimento tra una seduta e l'altra",
+    ],
+    faqs: [
+      {
+        q: "Quanto dura il pedicure estetico?",
+        a: "Circa 45 minuti.",
+      },
+      {
+        q: "È adatto anche se ho pelle secca?",
+        a: "Sì, ma lavoriamo con delicatezza. Se la secchezza è importante, può essere più adatto un Pedicure VIP con scrub o una progressione più ordinata nel tempo.",
+      },
+      {
+        q: "Ogni quanto conviene farlo?",
+        a: "Dipende da abitudini e stagione. In studio ti consigliamo una finestra realistica in base a come risponde la pelle e a quanto vuoi tenere i piedi sempre \"in ordine\".",
+      },
+    ],
+    keywords: [
+      "pedicure estetico Carmagnola",
+      "pedicure Carmagnola",
+      "cura piedi Carmagnola",
+      "piedi curati Carmagnola",
+    ],
+    relatedCompetenceSlugs: [
+      "pedicure-carmagnola-ogni-quanto-talloni",
+      "beauty-routine-carmagnola",
+      "trattamenti-corpo-carmagnola",
+    ],
+  },
+  {
+    slug: "pedicure-estetico-con-smalto-carmagnola",
+    name: "Pedicure estetico con smalto a Carmagnola",
+    shortDescription:
+      "Pedicure estetico con smalto (50 min): ordine e rifinitura, con un risultato curato e coerente con il tuo stile.",
+    longDescription:
+      "Se vuoi un pedicure ordinato e anche lo smalto, questa versione unisce cura del piede e finitura estetica. L'obiettivo è un risultato pulito, non \"pesante\": ti guidiamo su colore e finitura in base alla stagione e a quanto lo vuoi naturale.",
+    priceHint: "EUR 35",
+    category: "estetica-classica",
+    benefits: [
+      "Piedi più ordinati + smalto applicato con precisione",
+      "Risultato curato e naturale (se lo vuoi)",
+      "Comodo prima di periodi in cui porti scarpe più aperte",
+    ],
+    faqs: [
+      {
+        q: "Quanto dura il trattamento?",
+        a: "Circa 50 minuti.",
+      },
+      {
+        q: "Posso scegliere un colore discreto?",
+        a: "Sì. Possiamo orientarti su finiture e colori molto naturali, puliti e facili da portare.",
+      },
+      {
+        q: "Se ho poco tempo, conviene questa versione o il pedicure estetico?",
+        a: "Se la priorità è l'ordine del piede, il pedicure estetico è già ottimo. Se vuoi anche lo smalto, questa è la scelta più diretta.",
+      },
+    ],
+    keywords: [
+      "pedicure con smalto Carmagnola",
+      "pedicure Carmagnola",
+      "piedi curati Carmagnola",
+    ],
+    relatedCompetenceSlugs: [
+      "pedicure-carmagnola-ogni-quanto-talloni",
+      "beauty-routine-carmagnola",
+    ],
+  },
+  {
+    slug: "pedicure-semipermanente-carmagnola",
+    name: "Pedicure estetico semipermanente a Carmagnola",
+    shortDescription:
+      "Pedicure estetico con semipermanente (1 ora): piedi ordinati e finitura più stabile rispetto allo smalto classico.",
+    longDescription:
+      "Il pedicure estetico con semipermanente è pensato per chi vuole piedi curati più a lungo, con una finitura ordinata e stabile. Anche qui vale la regola Rebel: precisione e rispetto. La parte che protegge davvero è una gestione corretta, inclusa la rimozione (senza strappi o improvvisazioni).",
+    priceHint: "EUR 39",
+    category: "estetica-classica",
+    benefits: [
+      "Finitura più stabile rispetto allo smalto classico",
+      "Piedi ordinati e curati, anche nei periodi pieni",
+      "Risultato pulito, non eccessivo",
+    ],
+    faqs: [
+      {
+        q: "Quanto dura il trattamento?",
+        a: "Circa 1 ora.",
+      },
+      {
+        q: "Il semipermanente rovina l'unghia del piede?",
+        a: "Non dovrebbe, se applicazione e rimozione sono fatte correttamente. Il punto è evitare strappi e rimozioni aggressive.",
+      },
+      {
+        q: "Posso fare una pausa tra un semipermanente e l'altro?",
+        a: "Sì. Se vuoi fare una pausa, la facciamo in modo ordinato e rispettoso dell'unghia.",
+      },
+    ],
+    keywords: [
+      "pedicure semipermanente Carmagnola",
+      "semipermanente piedi Carmagnola",
+      "pedicure Carmagnola",
+    ],
+    relatedCompetenceSlugs: [
+      "manicure-semipermanente-carmagnola-durata-rimozione",
+      "pedicure-carmagnola-ogni-quanto-talloni",
+      "beauty-routine-carmagnola",
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - Gel manicures: Tips for healthy nails",
+        url: "https://www.aad.org/media/news-releases/gel-manicures-dermatologists-share-tips-to-keep-nails-healthy",
+      },
+    ],
+  },
+  {
+    slug: "taglio-unghie-piedi-carmagnola",
+    name: "Taglio unghie piedi a Carmagnola",
+    shortDescription:
+      "Taglio unghie piedi (15 min): servizio rapido e preciso per rimettere ordine con una rifinitura pulita.",
+    longDescription:
+      "A volte non serve un trattamento lungo: serve solo rimettere ordine. Il taglio unghie piedi è un servizio rapido e preciso, utile come mantenimento o quando vuoi sistemarti senza perdere tempo.",
+    priceHint: "EUR 17",
+    category: "estetica-classica",
+    benefits: [
+      "Servizio veloce e concreto",
+      "Unghie più ordinate e rifinite",
+      "Utile come mantenimento tra pedicure",
+    ],
+    faqs: [
+      {
+        q: "Quanto dura?",
+        a: "Circa 15 minuti.",
+      },
+      {
+        q: "Quando conviene farlo?",
+        a: "Quando vuoi rimettere ordine senza fare un pedicure completo, oppure come mantenimento tra una seduta e l'altra.",
+      },
+      {
+        q: "Se ho dolore o un dubbio clinico, posso farlo lo stesso?",
+        a: "Se c'è dolore importante o una situazione sospetta, preferiamo valutare prima: ci scrivi e, se serve, ti consigliamo un parere medico/podologico.",
+      },
+    ],
+    keywords: [
+      "taglio unghie piedi Carmagnola",
+      "taglio unghie Carmagnola",
+      "cura piedi Carmagnola",
+    ],
+    relatedCompetenceSlugs: ["pedicure-carmagnola-ogni-quanto-talloni", "beauty-routine-carmagnola"],
+  },
+  {
     slug: "epilazione-laser-viso-carmagnola",
     name: "Epilazione laser viso a Carmagnola",
     shortDescription:
@@ -966,6 +1205,7 @@ export const competencePages: CompetencePage[] = [
     relatedServiceSlugs: [
       "pulizia-viso-carmagnola",
       "manicure-semipermanente-carmagnola",
+      "pedicure-carmagnola",
       "laminazione-ciglia-sopracciglia-carmagnola",
       "epilazione-laser-corpo-carmagnola",
     ],
@@ -987,7 +1227,7 @@ export const competencePages: CompetencePage[] = [
         heading: "Se sei indecisa: scegli un \"gancio\" che ti faccia capire il metodo",
         paragraphs: [
           "Se sei indecisa, la prima seduta dovrebbe fare due cose: farti stare meglio subito e darti una direzione chiara (anche minima).",
-          "Per questo spesso consigliamo di partire da servizi richiesti e molto pratici: pulizia viso (per rimettere ordine), manicure semipermanente (per mani curate), laminazione (per uno sguardo più ordinato). Sono scelte semplici, ma dicono tanto su come lavora un centro.",
+          "Per questo spesso consigliamo di partire da servizi richiesti e molto pratici: pulizia viso (per rimettere ordine), manicure semipermanente (per mani curate), pedicure (per piedi più comodi e ordinati), laminazione (per uno sguardo più ordinato). Sono scelte semplici, ma dicono tanto su come lavora un centro.",
         ],
       },
       {
@@ -1778,6 +2018,7 @@ export const competencePages: CompetencePage[] = [
       "pulizia-viso-carmagnola",
       "laminazione-ciglia-sopracciglia-carmagnola",
       "manicure-semipermanente-carmagnola",
+      "pedicure-carmagnola",
     ],
     relatedCompetenceSlugs: [
       "trattamenti-viso-carmagnola",
@@ -3848,6 +4089,98 @@ export const competencePages: CompetencePage[] = [
       {
         label: "NHS - Choosing who will do your cosmetic procedure",
         url: "https://www.nhs.uk/tests-and-treatments/cosmetic-procedures/advice/choosing-who-will-do-your-procedure/",
+      },
+    ],
+  },
+  {
+    slug: "pedicure-carmagnola-ogni-quanto-talloni",
+    title: "Pedicure a Carmagnola: ogni quanto farlo e come gestire talloni secchi",
+    shortDescription:
+      "Frequenza, mantenimento e piccoli accorgimenti pratici per piedi più in ordine (senza essere aggressive).",
+    longDescription:
+      "Il pedicure non è solo un dettaglio estetico: quando è fatto bene, è comfort. In questa guida trovi criteri pratici per capire ogni quanto farlo, come gestire talloni secchi e pelle più ispessita senza stressarla e come mantenere l'effetto con poche abitudini sostenibili. L'obiettivo è semplice: piedi più ordinati e comodi, con un ritmo che riesci a tenere nel tempo.",
+    localAngle:
+      "Scritta per chi cerca a Carmagnola un pedicure curato e vuole capire come impostarlo senza improvvisare.",
+    intent: "commercial",
+    benefits: [
+      "Ti aiuta a scegliere una frequenza realistica per la tua pelle e le tue abitudini",
+      "Riduce errori comuni su talloni secchi (troppa aggressività, troppa fretta)",
+      "Rende più semplice il mantenimento tra una seduta e l'altra",
+    ],
+    faqs: [
+      {
+        q: "Ogni quanto conviene fare un pedicure?",
+        a: "Dipende da pelle, scarpe, sport e stagione. Alcune persone stanno bene con un ritmo distanziato, altre preferiscono un mantenimento più regolare nei periodi in cui i piedi sono più esposti. In studio ti consigliamo una finestra realistica, non un calendario fisso uguale per tutte.",
+      },
+      {
+        q: "Talloni secchi: cosa aiuta davvero?",
+        a: "Di solito aiutano due cose: un pedicure fatto con delicatezza (senza eccessi) e un mantenimento semplice a casa. La costanza vince sulla forza: meglio poco e spesso che troppo una volta e poi stop.",
+      },
+      {
+        q: "È meglio \"togliere tutto\" in una seduta sola?",
+        a: "Quasi mai. Quando la pelle è molto secca o ispessita, l'eccesso può irritare e rendere il problema più fastidioso. Funziona meglio una progressione pulita: sedute sensate e mantenimento.",
+      },
+      {
+        q: "Posso fare pedicure e poi mettere lo smalto?",
+        a: "Sì. Se vuoi un effetto naturale, puoi scegliere un finish pulito e discreto; se preferisci colore, lo decidiamo insieme in base allo stile e alla stagione.",
+      },
+      {
+        q: "Se ho una situazione dolorosa o sospetta, come mi comporto?",
+        a: "Se c'è dolore importante o un dubbio clinico, preferiamo essere prudenti: ci scrivi e valutiamo insieme, e se serve ti consigliamo un parere medico/podologico prima di procedere. Il nostro focus qui è il pedicure estetico, fatto bene e in sicurezza.",
+      },
+    ],
+    keywords: [
+      "pedicure Carmagnola",
+      "pedicure VIP Carmagnola",
+      "pedicure Carmagnola ogni quanto",
+      "talloni secchi Carmagnola",
+      "cura piedi Carmagnola",
+      "piedi curati Carmagnola",
+    ],
+    relatedServiceSlugs: ["pedicure-carmagnola"],
+    relatedCompetenceSlugs: [
+      "beauty-routine-carmagnola",
+      "trattamenti-corpo-carmagnola",
+      "scrub-corpo-carmagnola-quando-farlo",
+    ],
+    heroImage: {
+      src: "/editoriali/placeholder-editoriale.svg",
+      alt: "Pedicure: piedi ordinati, pelle più liscia, atmosfera pulita e rilassante in cabina.",
+    },
+    editorialSections: [
+      {
+        heading: "Pedicure: quando e perché ha senso (anche se non porti scarpe aperte)",
+        paragraphs: [
+          "Il punto non è solo \"piedi belli\": è piedi comodi. Quando la pelle è più liscia e le unghie sono ordinate, cambia anche la sensazione nella giornata.",
+          "Per questo molte persone lo inseriscono come base: un servizio semplice, che ti rimette a posto senza complicarti la settimana.",
+        ],
+      },
+      {
+        heading: "Talloni secchi: il metodo migliore è delicato e ripetibile",
+        paragraphs: [
+          "Se la pelle è molto secca, la tentazione è fare troppo. Funziona meglio l'opposto: un lavoro sensato in studio, poi un mantenimento minimo che riesci a fare davvero.",
+          "La regola che ripetiamo spesso è semplice: non serve \"grattare\", serve migliorare nel tempo.",
+        ],
+      },
+      {
+        heading: "Frequenza: la risposta giusta dipende da abitudini e stagione",
+        paragraphs: [
+          "Sport, docce, scarpe chiuse, piedi che sudano di più: sono tutte variabili che cambiano la frequenza ideale.",
+          "In studio non ti diamo un calendario standard: ti proponiamo una finestra realistica e poi la aggiustiamo in base a come risponde la pelle.",
+        ],
+      },
+      {
+        heading: "Mantenimento a casa: due gesti che fanno davvero la differenza",
+        paragraphs: [
+          "Non servono rituali lunghi. Di solito basta idratazione costante e un po' di attenzione alle abitudini che seccano (detergenti aggressivi, attrito, scarpe).",
+          "Se vuoi, dopo la seduta ti diciamo cosa fare in modo semplice: una micro-routine che non ti stanca.",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "AAD - Nail care basics",
+        url: "https://www.aad.org/public/everyday-care/nail-care-secrets/basics/nail-care-basics",
       },
     ],
   },

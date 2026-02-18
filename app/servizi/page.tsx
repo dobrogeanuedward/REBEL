@@ -16,7 +16,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = createPageMetadata({
   title: "Servizi Estetici a Carmagnola | Viso, Corpo ed Epilazione Laser",
   description:
-    "Tutti i servizi Rebel a Carmagnola: trattamenti viso e corpo, manicure, laminazione ed epilazione laser a Carmagnola con percorsi personalizzati.",
+    "Tutti i servizi Rebel a Carmagnola: trattamenti viso e corpo, manicure, pedicure, laminazione, massaggi ed epilazione laser a Carmagnola con percorsi personalizzati.",
   path: "/servizi",
   keywords: [
     "servizi centro estetico Carmagnola",
@@ -41,8 +41,15 @@ export default function ServiziHubPage() {
   const esteticaSorted = estetica
     .slice()
     .sort((a, b) => {
-      const score = (slug: string) =>
-        slug === "pulizia-viso-carmagnola" ? 2 : slug === "manicure-semipermanente-carmagnola" ? 1 : 0;
+      const score = (slug: string) => {
+        if (slug === "pulizia-viso-carmagnola") return 6;
+        if (slug === "manicure-semipermanente-carmagnola") return 5;
+        if (slug === "laminazione-ciglia-sopracciglia-carmagnola") return 4;
+        if (slug === "pedicure-carmagnola") return 3;
+        if (slug === "massaggio-rilassante-carmagnola") return 2;
+        if (slug === "massaggio-linfodrenante-carmagnola") return 1;
+        return 0;
+      };
       return score(b.slug) - score(a.slug);
     });
   const laser = servicePages.filter((service) => service.category === "laser");
@@ -54,6 +61,10 @@ export default function ServiziHubPage() {
     "peli-incarniti-laser-carmagnola",
     "pulizia-viso-carmagnola-frequenza-benefici",
     "manicure-semipermanente-carmagnola-durata-rimozione",
+    "laminazione-ciglia-sopracciglia-carmagnola-durata-cura",
+    "massaggio-rilassante-carmagnola-cervicale-stress",
+    "scrub-corpo-carmagnola-quando-farlo",
+    "pedicure-carmagnola-ogni-quanto-talloni",
   ];
   const featuredEditorials = editorialSlugs
     .map((slug) => competencePages.find((item) => item.slug === slug))
@@ -155,7 +166,7 @@ export default function ServiziHubPage() {
             <a className="card-light" href="#servizi-estetica">
               <h3 style={{ marginTop: 0 }}>Estetica avanzata e benessere</h3>
               <p className="lead" style={{ marginTop: "0.35rem", marginBottom: 0, color: "rgba(39,31,56,0.78)" }}>
-                Trattamenti viso, corpo e cura mani per riequilibrio, tono e luminosità.
+                Trattamenti viso, corpo, mani e piedi per riequilibrio, tono e luminosità.
               </p>
             </a>
             <a className="card-light" href="#servizi-laser">

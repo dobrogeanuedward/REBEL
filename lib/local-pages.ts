@@ -54,7 +54,7 @@ export const localAreaPages: LocalAreaPage[] = [
       heading: "Carmagnola: viso più in ordine, laser impostato bene (senza confusione)",
       paragraphs: [
         "A Carmagnola spesso si parte da una richiesta semplice: vedersi più curate, ma senza sentirsi \"ingolfate\" da dieci cose diverse. È un obiettivo normalissimo, e si ottiene scegliendo bene l'ordine.",
-        "Se vuoi iniziare in modo semplice (senza confonderti), di solito funziona così: pulizia viso per rimettere comfort e luminosità; manicure semipermanente per mani ordinate; laminazione per uno sguardo più definito ma naturale; un massaggio rilassante per staccare davvero. Sono servizi richiesti spesso perché cambiano la sensazione subito, senza complicarti la settimana.",
+        "Se vuoi iniziare in modo semplice (senza confonderti), di solito funziona così: pulizia viso per rimettere comfort e luminosità; manicure semipermanente per mani ordinate; laminazione per uno sguardo più definito ma naturale; pedicure per piedi più in ordine; un massaggio rilassante per staccare davvero. Sono servizi richiesti spesso perché cambiano la sensazione subito, senza complicarti la settimana.",
         "Se il tema è il viso, di solito rimettiamo al centro comfort, grana e luminosità (con un primo step fatto bene, non aggressivo). Poi, solo se serve davvero, si passa a un percorso più avanzato con progressione e mantenimento chiari.",
         "Se invece la priorità è il laser, la chiave è scegliere l'ordine delle zone e un calendario realistico. Inguine e ascelle, per esempio, cambiano tanto la gestione quotidiana, ma vanno impostate con regole pratiche semplici tra una seduta e l'altra.",
         "Una cosa che consigliamo spesso è partire in inverno: è il periodo più facile per essere costanti (meno sole, meno imprevisti). Quando il calendario è stabile, tutto il resto diventa più semplice.",
@@ -87,6 +87,11 @@ export const localAreaPages: LocalAreaPage[] = [
           label: "Manicure semipermanente",
           href: "/servizi/manicure-semipermanente-carmagnola",
           description: "Mani curate e ordinate, con un risultato pulito che dura.",
+        },
+        {
+          label: "Pedicure VIP",
+          href: "/servizi/pedicure-carmagnola",
+          description: "Piedi più ordinati e una sensazione di comfort che dura, con passaggi sensati.",
         },
         {
           label: "Laminazione ciglia e sopracciglia",
@@ -195,7 +200,7 @@ export const localAreaPages: LocalAreaPage[] = [
       },
       {
         q: "Non so da dove partire: cosa mi consigliate?",
-        a: "Dipende dalla tua priorità. Se vuoi rimettere ordine sul viso, spesso si parte dalla pulizia viso (delicata e completa). Se vuoi sentirti subito \"a posto\" senza pensieri, semipermanente o laminazione sono ottime scelte pratiche. Se invece vuoi staccare e sciogliere tensione, un massaggio rilassante è perfetto. Se ci scrivi, ti orientiamo in due messaggi.",
+        a: "Dipende dalla tua priorità. Se vuoi rimettere ordine sul viso, spesso si parte dalla pulizia viso (delicata e completa). Se vuoi sentirti subito \"a posto\" senza pensieri, semipermanente, laminazione o pedicure sono scelte pratiche. Se invece vuoi staccare e sciogliere tensione, un massaggio rilassante è perfetto. Se ci scrivi, ti orientiamo in due messaggi.",
       },
     ],
     keywords: [
@@ -204,6 +209,8 @@ export const localAreaPages: LocalAreaPage[] = [
       "epilazione laser Carmagnola",
       "pulizia viso Carmagnola",
       "manicure semipermanente Carmagnola",
+      "pedicure Carmagnola",
+      "pedicure VIP Carmagnola",
       "laminazione Carmagnola",
     ],
   },
