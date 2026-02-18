@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { InstagramFeed } from "@/components/instagram-feed";
 import { JsonLd } from "@/components/json-ld";
+import { HeroPhotoSlider } from "@/components/hero-photo-slider";
+import { storeGalleryImages } from "@/lib/content";
 import { localAreaPages } from "@/lib/local-pages";
 import { buildItemListSchema, buildWebPageSchema, createPageMetadata } from "@/lib/seo";
 import { competencePages, servicePages } from "@/lib/seo-content";
@@ -28,10 +30,6 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default function HomePage() {
-  const heroPhotoCinematic = siteConfig.assets.heroStorefront;
-  const heroPhotoSquare =
-    "https://res.cloudinary.com/dx8tfq82f/image/upload/v1770780833/vetrin3_ejnx5c.webp";
-
   const compactCompetenceTitle = (value: string) =>
     value.replace(/\s+a Carmagnola$/i, "").replace(/\s+per chi arriva da$/i, "").trim();
 
@@ -203,8 +201,9 @@ export default function HomePage() {
       <JsonLd data={homepageSchema} />
       {baseServicesSchema ? <JsonLd data={baseServicesSchema} /> : null}
 
-      <section className="home-hero">
-        <div className="container home-hero-grid">
+      <section className="home-hero home-hero--slider">
+        <HeroPhotoSlider images={storeGalleryImages.slice(2)} intervalMs={5200} />
+        <div className="container">
           <article className="home-hero-main">
             <div className="home-hero-brandline">
               <div className="home-hero-brand">
@@ -243,6 +242,15 @@ export default function HomePage() {
                 Epilazione laser Carmagnola
               </Link>
             </div>
+            <p className="home-hero-caption">
+              Si parte da una lettura iniziale, poi si decide cosa fare e con che ritmo. Seduta dopo
+              seduta aggiustiamo il piano in base a come risponde la pelle.
+            </p>
+            <div className="home-hero-side-points" aria-hidden="true">
+              <span>Lettura iniziale</span>
+              <span>Piano su misura</span>
+              <span>Progressione</span>
+            </div>
             <p className="home-hero-footnote">
               &quot;La bellezza non si aggiunge, si riattiva!&quot; e questo principio guida
               ogni percorso Rebel.
@@ -253,41 +261,6 @@ export default function HomePage() {
               <span className="home-chip">Carmagnola, Viale Barbaroux 20</span>
             </div>
           </article>
-
-          <aside className="home-hero-side">
-            <div className="home-hero-media">
-              <Image
-                src={heroPhotoCinematic}
-                alt="Ingresso Rebel Carmagnola in stile fotografico"
-                width={1280}
-                height={820}
-                style={{ width: "100%", height: "auto" }}
-                priority
-              />
-              <div className="home-hero-photo-chip" aria-hidden="true">
-                <span className="home-hero-photo-chip-ring">
-                  <Image
-                    src={heroPhotoSquare}
-                    alt=""
-                    width={168}
-                    height={168}
-                    className="home-hero-photo-chip-image"
-                  />
-                </span>
-              </div>
-            </div>
-            <div className="home-hero-side-panel">
-              <p className="home-hero-caption">
-                Si parte da una lettura iniziale, poi si decide cosa fare e con che ritmo.
-                Seduta dopo seduta aggiustiamo il piano in base a come risponde la pelle.
-              </p>
-              <div className="home-hero-side-points">
-                <span>Lettura iniziale</span>
-                <span>Piano su misura</span>
-                <span>Progressione</span>
-              </div>
-            </div>
-          </aside>
         </div>
       </section>
 
