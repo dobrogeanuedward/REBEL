@@ -202,7 +202,7 @@ export default function HomePage() {
       {baseServicesSchema ? <JsonLd data={baseServicesSchema} /> : null}
 
       <section className="home-hero home-hero--slider">
-        <HeroPhotoSlider images={storeGalleryImages.slice(2)} intervalMs={4400} />
+        <HeroPhotoSlider images={storeGalleryImages.slice(2)} intervalMs={3900} />
         <div className="container">
           <article className="home-hero-main">
             <div className="home-hero-brandline">
