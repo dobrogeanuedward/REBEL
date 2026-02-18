@@ -1556,9 +1556,9 @@ body.mobile-menu-open .wa-live {
   background:
     linear-gradient(
       180deg,
-      rgba(8, 6, 14, 0.78) 0%,
-      rgba(8, 6, 14, 0.48) 42%,
-      rgba(8, 6, 14, 0.86) 100%
+      rgba(8, 6, 14, 0.56) 0%,
+      rgba(8, 6, 14, 0.28) 42%,
+      rgba(8, 6, 14, 0.66) 100%
     ),
     radial-gradient(60% 56% at 12% 6%, rgba(167, 139, 250, 0.28), transparent 70%),
     radial-gradient(58% 52% at 92% 10%, rgba(228, 72, 150, 0.22), transparent 72%),
@@ -1755,10 +1755,10 @@ body.mobile-menu-open .wa-live {
   border-radius: 30px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   background:
-    radial-gradient(70% 60% at 12% 10%, rgba(228, 72, 150, 0.24), transparent 62%),
-    radial-gradient(64% 56% at 88% 18%, rgba(167, 139, 250, 0.22), transparent 62%),
-    radial-gradient(60% 70% at 42% 120%, rgba(124, 58, 237, 0.16), transparent 64%),
-    linear-gradient(145deg, rgba(10, 8, 18, 0.94), rgba(18, 10, 34, 0.92) 54%, rgba(12, 9, 22, 0.94));
+    radial-gradient(70% 60% at 12% 10%, rgba(228, 72, 150, 0.18), transparent 62%),
+    radial-gradient(64% 56% at 88% 18%, rgba(167, 139, 250, 0.16), transparent 62%),
+    radial-gradient(60% 70% at 42% 120%, rgba(124, 58, 237, 0.12), transparent 64%),
+    linear-gradient(145deg, rgba(10, 8, 18, 0.62), rgba(18, 10, 34, 0.56) 54%, rgba(12, 9, 22, 0.62));
   padding: 2.1rem;
   box-shadow:
     0 30px 90px rgba(0, 0, 0, 0.58),
@@ -1797,15 +1797,16 @@ body.mobile-menu-open .wa-live {
 .home-hero-main::after {
   content: "";
   position: absolute;
-  right: -42px;
-  top: -26px;
-  width: 360px;
-  height: 360px;
+  right: -96px;
+  top: 52%;
+  width: 560px;
+  height: 560px;
+  transform: translateY(-50%);
   background-image: url("https://res.cloudinary.com/dx8tfq82f/image/upload/v1770787721/Rebel-girl-CARMAGNOLA_c21e9b.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  opacity: 0.75;
+  opacity: 0.42;
   filter:
     saturate(2.6)
     brightness(1.18)
@@ -1853,6 +1854,7 @@ body.mobile-menu-open .wa-live {
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: rgba(255, 255, 255, 0.78);
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.46);
 }
 
 .home-hero-brand-text small {
@@ -1860,6 +1862,7 @@ body.mobile-menu-open .wa-live {
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: rgba(255, 255, 255, 0.58);
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.46);
 }
 
 .home-hero-kicker {
@@ -1886,6 +1889,7 @@ body.mobile-menu-open .wa-live {
   box-shadow:
     0 0 0 1px rgba(255, 255, 255, 0.06),
     0 0 22px rgba(228, 72, 150, 0.18);
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.46);
 }
 
 .home-hero-title {
@@ -1924,6 +1928,7 @@ body.mobile-menu-open .wa-live {
   color: rgba(255, 255, 255, 0.72);
   line-height: 1.7;
   max-width: 56ch;
+  text-shadow: 0 12px 34px rgba(0, 0, 0, 0.52);
 }
 
 .home-hero-cta {
@@ -1958,6 +1963,7 @@ body.mobile-menu-open .wa-live {
   font-size: 0.9rem;
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.64);
+  text-shadow: 0 12px 34px rgba(0, 0, 0, 0.52);
 }
 
 .home-hero-chips {
@@ -1977,6 +1983,7 @@ body.mobile-menu-open .wa-live {
   font-size: 0.71rem;
   font-family: var(--font-inter), sans-serif;
   color: rgba(255, 255, 255, 0.78);
+  text-shadow: 0 10px 26px rgba(0, 0, 0, 0.48);
 }
 
 .home-hero-stats {
