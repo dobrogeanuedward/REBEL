@@ -109,6 +109,11 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Per alleggerire la sensazione di gonfiore e impostare un calendario che non ti stressi.",
         },
         {
+          label: "Pressoterapia: guida pratica",
+          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          description: "Quando può aiutare davvero e come inserirla in un percorso drenante ordinato.",
+        },
+        {
           label: "Scrub corpo",
           href: "/servizi/scrub-corpo-carmagnola",
           description: "Esfoliazione controllata per pelle più uniforme e una routine corpo più semplice.",
@@ -1176,6 +1181,31 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Un classico che rimette ordine quando la pelle è spenta o appesantita.",
         },
         {
+          label: "Manicure semipermanente",
+          href: "/servizi/manicure-semipermanente-carmagnola",
+          description: "Un gancio pratico: mani ordinate e look più curato, senza complicarti la settimana.",
+        },
+        {
+          label: "Laminazione ciglia e sopracciglia",
+          href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola",
+          description: "Sguardo più definito ma naturale, con un risultato pulito e armonioso.",
+        },
+        {
+          label: "Pedicure VIP",
+          href: "/servizi/pedicure-carmagnola",
+          description: "Piedi più in ordine e più comodi: ottimo come base, anche se non porti scarpe aperte.",
+        },
+        {
+          label: "Massaggio linfodrenante",
+          href: "/servizi/massaggio-linfodrenante-carmagnola",
+          description: "Quando cerchi leggerezza e vuoi impostare un percorso drenante sensato.",
+        },
+        {
+          label: "Pressoterapia: guida pratica",
+          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          description: "Quando ha senso, cosa aspettarti e come inserirla in modo ordinato nel percorso corpo.",
+        },
+        {
           label: "Massaggio rilassante",
           href: "/servizi/massaggio-rilassante-carmagnola",
           description: "Per sciogliere tensioni su schiena e spalle (ottimo anche come primo step).",
@@ -1436,6 +1466,16 @@ export const localAreaPages: LocalAreaPage[] = [
           label: "Massaggio linfodrenante",
           href: "/servizi/massaggio-linfodrenante-carmagnola",
           description: "Per leggerezza e gonfiore, con un ritmo che riesci a tenere.",
+        },
+        {
+          label: "Pressoterapia: guida pratica",
+          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          description: "Se cerchi leggerezza sulle gambe: quando può aiutare davvero e come inserirla bene.",
+        },
+        {
+          label: "Pedicure VIP",
+          href: "/servizi/pedicure-carmagnola",
+          description: "Un gancio semplice e molto concreto: piedi più ordinati e più comodi nella vita reale.",
         },
         {
           label: "Massaggio rilassante",

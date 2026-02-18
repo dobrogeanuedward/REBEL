@@ -43,6 +43,7 @@ export default function HomePage() {
     "pulizia-viso-carmagnola-frequenza-benefici",
     "manicure-semipermanente-carmagnola-durata-rimozione",
     "pedicure-carmagnola-ogni-quanto-talloni",
+    "pressoterapia-carmagnola-guida-pratica",
     "epilazione-laser-inguine-carmagnola-guida-pratica",
     "epilazione-laser-ascelle-carmagnola-guida-pratica",
     "laser-uomo-carmagnola-guida-pratica",

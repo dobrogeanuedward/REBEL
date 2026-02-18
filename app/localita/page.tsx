@@ -122,6 +122,69 @@ export default function LocalitaHubPage() {
         </div>
       </section>
 
+      <section className="section section-light">
+        <div className="container">
+          <p className="eyebrow">Se vuoi iniziare subito</p>
+          <h2 className="page-title" style={{ marginTop: "0.55rem" }}>
+            Percorsi e servizi più richiesti (Carmagnola e dintorni)
+          </h2>
+          <p className="lead" style={{ marginTop: "0.6rem", color: "rgba(39,31,56,0.78)", maxWidth: "78ch" }}>
+            Se arrivi da fuori, spesso serve una direzione semplice: una priorità e un primo passo ordinato. Qui trovi
+            i percorsi pilastro e alcuni servizi base molto richiesti, utili anche come &quot;ganci&quot; pratici prima
+            di impostare un percorso più lungo.
+          </p>
+          <div className="grid grid-3" style={{ marginTop: "1rem" }}>
+            <Link className="card-light" href="/localita/carmagnola">
+              <h3 style={{ marginTop: 0 }}>Carmagnola: pagina locale</h3>
+              <p className="lead" style={{ marginTop: "0.35rem", marginBottom: 0, color: "rgba(39,31,56,0.78)" }}>
+                Mappa, consigli e link utili per partire senza confusione.
+              </p>
+            </Link>
+            <Link className="card-light" href="/epilazione-laser-carmagnola">
+              <h3 style={{ marginTop: 0 }}>Epilazione laser</h3>
+              <p className="lead" style={{ marginTop: "0.35rem", marginBottom: 0, color: "rgba(39,31,56,0.78)" }}>
+                Metodo, calendario e aspettative sane (senza promesse strane).
+              </p>
+            </Link>
+            <Link className="card-light" href="/protocolli-epigenetici">
+              <h3 style={{ marginTop: 0 }}>Protocolli epigenetici</h3>
+              <p className="lead" style={{ marginTop: "0.35rem", marginBottom: 0, color: "rgba(39,31,56,0.78)" }}>
+                Percorsi viso/corpo quando vuoi progressione e controllo.
+              </p>
+            </Link>
+            <Link className="card-light" href="/servizi/pulizia-viso-carmagnola">
+              <h3 style={{ marginTop: 0 }}>Pulizia viso</h3>
+              <p className="lead" style={{ marginTop: "0.35rem", marginBottom: 0, color: "rgba(39,31,56,0.78)" }}>
+                Un primo step semplice per rimettere comfort e luminosità.
+              </p>
+            </Link>
+            <Link className="card-light" href="/servizi/manicure-semipermanente-carmagnola">
+              <h3 style={{ marginTop: 0 }}>Semipermanente</h3>
+              <p className="lead" style={{ marginTop: "0.35rem", marginBottom: 0, color: "rgba(39,31,56,0.78)" }}>
+                Mani ordinate e look curato: pratico, immediato, pulito.
+              </p>
+            </Link>
+            <Link className="card-light" href="/competenze/pressoterapia-carmagnola-guida-pratica">
+              <h3 style={{ marginTop: 0 }}>Pressoterapia (guida)</h3>
+              <p className="lead" style={{ marginTop: "0.35rem", marginBottom: 0, color: "rgba(39,31,56,0.78)" }}>
+                Quando ha senso e come inserirla bene in un percorso drenante.
+              </p>
+            </Link>
+          </div>
+          <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
+            <Link className="button button-primary" href="/contatti">
+              Contatti e mappa
+            </Link>
+            <Link className="button button-secondary" href="/servizi">
+              Tutti i servizi
+            </Link>
+            <Link className="button button-secondary" href="/competenze">
+              Tutte le guide
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="section">
         <div className="container">
           {areaGroups.map((group) => {

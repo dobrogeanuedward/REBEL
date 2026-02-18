@@ -3592,7 +3592,7 @@ export const competencePages: CompetencePage[] = [
       "semipermanente unghie Carmagnola",
       "semipermanente rovina unghie",
     ],
-    relatedServiceSlugs: ["manicure-semipermanente-carmagnola"],
+    relatedServiceSlugs: ["manicure-semipermanente-carmagnola", "pedicure-semipermanente-carmagnola"],
     editorialSections: [
       {
         heading: "Durata: non è solo 'quanto dura', è come resta dopo una settimana",
@@ -4093,6 +4093,102 @@ export const competencePages: CompetencePage[] = [
     ],
   },
   {
+    slug: "pressoterapia-carmagnola-guida-pratica",
+    title: "Pressoterapia a Carmagnola: quando ha senso e cosa aspettarti",
+    shortDescription:
+      "Guida pratica: a chi può essere utile, che sensazioni aspettarti e come inserirla in un percorso drenante ordinato.",
+    longDescription:
+      "La pressoterapia viene spesso cercata quando si sente pesantezza, gonfiore o bisogno di \"leggerezza\" sulle gambe. Qui trovi una guida concreta: cosa aspettarti davvero, come si inserisce in un percorso fatto bene (senza esagerare) e quando invece conviene essere prudenti. L'obiettivo è semplice: scegliere con lucidità e costruire un calendario sostenibile, non inseguire promesse.",
+    localAngle:
+      "Scritta per chi cerca pressoterapia a Carmagnola e vuole capire se e come inserirla in un percorso corpo.",
+    intent: "commercial",
+    benefits: [
+      "Chiarisce quando ha senso e quali aspettative avere",
+      "Aiuta a impostare un calendario realistico e sostenibile",
+      "Ti orienta su prudenza e controindicazioni, con buonsenso",
+    ],
+    faqs: [
+      {
+        q: "La pressoterapia è uguale al linfodrenante?",
+        a: "No: sono strumenti diversi. Il linfodrenante è manualità; la pressoterapia è una compressione controllata. In studio scegliamo quello più coerente con il tuo obiettivo e con la risposta del corpo.",
+      },
+      {
+        q: "Quante sedute servono?",
+        a: "Dipende da obiettivo e periodo. Di solito si parte con un ciclo breve e poi si decide insieme il mantenimento: la scelta migliore è quella che riesci davvero a tenere.",
+      },
+      {
+        q: "Che sensazione devo aspettarmi durante e dopo?",
+        a: "In genere una sensazione di compressione ritmica e poi di leggerezza. La percezione cambia da persona a persona: per noi conta che tu stia comoda e che il percorso resti gestibile nel tempo.",
+      },
+      {
+        q: "Ci sono casi in cui è meglio essere prudenti?",
+        a: "Sì. Se hai condizioni cliniche particolari o situazioni recenti importanti, preferiamo valutare con attenzione e, se serve, chiederti un via libera medico. La qualità è anche sapere quando non è il momento giusto.",
+      },
+      {
+        q: "Si può abbinare ad altri trattamenti corpo?",
+        a: "Spesso sì. In molti casi ha senso abbinarla a un percorso drenante (manualità) o a una routine corpo semplice. L'importante è non fare tutto insieme: scegliamo una priorità e teniamo il filo.",
+      },
+    ],
+    keywords: [
+      "pressoterapia Carmagnola",
+      "pressoterapia gambe Carmagnola",
+      "pressodren Carmagnola",
+      "gambe pesanti Carmagnola pressoterapia",
+      "trattamento drenante Carmagnola",
+    ],
+    relatedServiceSlugs: ["massaggio-linfodrenante-carmagnola"],
+    relatedCompetenceSlugs: [
+      "drenaggio-corpo-carmagnola",
+      "linfodrenante-carmagnola-guida-pratica",
+      "trattamenti-corpo-carmagnola",
+      "beauty-routine-carmagnola",
+    ],
+    heroImage: {
+      src: "/editoriali/placeholder-editoriale.svg",
+      alt: "Pressoterapia: gambali e compressione ritmica, sensazione di leggerezza, atmosfera pulita e confortevole.",
+    },
+    editorialSections: [
+      {
+        heading: "Perché viene richiesta spesso: leggerezza nella vita reale",
+        paragraphs: [
+          "Molte persone non cercano una parola tecnica: cercano una sensazione. Gambe più leggere, meno gonfiore percepito, più comfort nella giornata.",
+          "Il punto è scegliere lo strumento giusto e inserirlo in un ritmo sostenibile: è così che un trattamento corpo diventa utile davvero.",
+        ],
+      },
+      {
+        heading: "Metodo: ciclo breve, poi mantenimento (senza trasformarlo in un impegno infinito)",
+        paragraphs: [
+          "Preferiamo partire con un ciclo breve e poi decidere insieme il mantenimento. Un percorso serio si adatta: periodo, lavoro, sport e risposta del corpo cambiano.",
+          "Il calendario migliore è quello che riesci a seguire: la costanza vale più della corsa.",
+        ],
+      },
+      {
+        heading: "Pressoterapia e manualità: come scegliere (senza confondere tutto)",
+        paragraphs: [
+          "La pressoterapia è compressione controllata; il linfodrenante è manualità. A volte si integrano, altre volte conviene scegliere una priorità e tenere il percorso più pulito.",
+          "In studio ti spieghiamo il perché della scelta, in modo semplice: così sai cosa stai facendo e cosa aspettarti.",
+        ],
+      },
+      {
+        heading: "Prudenza: quando è meglio fermarsi un attimo e valutare",
+        paragraphs: [
+          "Se c'è una condizione clinica particolare o una situazione recente importante, preferiamo essere prudenti. Ci scrivi, capiamo insieme e, se serve, chiediamo un via libera medico.",
+          "Per noi qualità significa anche sicurezza e trasparenza: non fare trattamenti \"a tutti i costi\".",
+        ],
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "Cleveland Clinic - Intermittent Pneumatic Compression (IPC) Device",
+        url: "https://my.clevelandclinic.org/health/treatments/14791-intermittent-pneumatic-compression-ipc-device",
+      },
+      {
+        label: "Cleveland Clinic - Lymphatic Drainage Massage",
+        url: "https://my.clevelandclinic.org/health/treatments/21768-lymphatic-drainage-massage",
+      },
+    ],
+  },
+  {
     slug: "pedicure-carmagnola-ogni-quanto-talloni",
     title: "Pedicure a Carmagnola: ogni quanto farlo e come gestire talloni secchi",
     shortDescription:
@@ -4137,7 +4233,13 @@ export const competencePages: CompetencePage[] = [
       "cura piedi Carmagnola",
       "piedi curati Carmagnola",
     ],
-    relatedServiceSlugs: ["pedicure-carmagnola"],
+    relatedServiceSlugs: [
+      "pedicure-carmagnola",
+      "pedicure-estetico-carmagnola",
+      "pedicure-estetico-con-smalto-carmagnola",
+      "pedicure-semipermanente-carmagnola",
+      "taglio-unghie-piedi-carmagnola",
+    ],
     relatedCompetenceSlugs: [
       "beauty-routine-carmagnola",
       "trattamenti-corpo-carmagnola",
