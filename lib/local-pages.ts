@@ -1307,6 +1307,16 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Sguardo più ordinato con un effetto naturale (perfetta da abbinare).",
         },
         {
+          label: "Pedicure VIP",
+          href: "/servizi/pedicure-carmagnola",
+          description: "Un gancio concreto quando vuoi sentirti più in ordine (e più comoda) senza complicarti il percorso.",
+        },
+        {
+          label: "Pressoterapia: guida pratica",
+          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          description: "Se cerchi leggerezza sulle gambe: criteri pratici e aspettative sane.",
+        },
+        {
           label: "Beauty routine",
           href: "/competenze/beauty-routine-carmagnola",
           description: "Routine semplice per mantenere meglio i risultati tra una seduta e l'altra.",
@@ -1610,6 +1620,16 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Sguardo più ordinato con effetto naturale.",
         },
         {
+          label: "Pedicure VIP",
+          href: "/servizi/pedicure-carmagnola",
+          description: "Piedi più comodi e ordinati: un servizio base molto richiesto quando vuoi semplificarti la gestione.",
+        },
+        {
+          label: "Pressoterapia: guida pratica",
+          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          description: "Quando ha senso e come inserirla bene in un percorso corpo (senza fare confusione).",
+        },
+        {
           label: "Epilazione laser viso",
           href: "/servizi/epilazione-laser-viso-carmagnola",
           description: "Dettagli e domande frequenti sulle zone del viso.",
@@ -1722,6 +1742,16 @@ export const localAreaPages: LocalAreaPage[] = [
           label: "Pulizia viso",
           href: "/servizi/pulizia-viso-carmagnola",
           description: "Un classico fatto bene: ordine, comfort e base giusta per il resto.",
+        },
+        {
+          label: "Pedicure VIP",
+          href: "/servizi/pedicure-carmagnola",
+          description: "Quando vuoi un risultato subito percepibile: piedi più in ordine e più comodi, con metodo e delicatezza.",
+        },
+        {
+          label: "Pressoterapia: guida pratica",
+          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          description: "Se cerchi leggerezza: cosa aspettarti e quando conviene essere prudenti.",
         },
         {
           label: "Laser diodo: differenze e criteri di scelta",
@@ -1846,6 +1876,16 @@ export const localAreaPages: LocalAreaPage[] = [
           label: "Massaggio rilassante",
           href: "/servizi/massaggio-rilassante-carmagnola",
           description: "50 minuti su schiena e spalle, per staccare davvero.",
+        },
+        {
+          label: "Pedicure VIP",
+          href: "/servizi/pedicure-carmagnola",
+          description: "Un servizio base molto concreto: piedi più ordinati e più comodi, senza complicazioni.",
+        },
+        {
+          label: "Pressoterapia: guida pratica",
+          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          description: "Per orientarti con chiarezza su quando ha senso e come inserirla nel percorso corpo.",
         },
         {
           label: "Laser diodo: differenze e criteri di scelta",

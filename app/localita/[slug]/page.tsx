@@ -124,10 +124,14 @@ export default async function LocalAreaDetailPage({ params }: PageProps) {
 
   const pickFirst = (predicate: (href: string) => boolean) =>
     focusLinks.find((link) => predicate(link.href));
+  const classicServiceLinks = focusLinks.filter((link) => isClassicServiceLink(link.href));
+  // On local pages, showing more than one "classic" entry point improves navigation
+  // without changing the editorial tone of the page.
   const suggestedLinksRaw: Array<FocusLink | undefined> = [
     pickFirst(isLaserLink),
     pickFirst(isAdvancedLink),
-    pickFirst(isClassicServiceLink),
+    classicServiceLinks[0],
+    classicServiceLinks[1],
   ];
   const suggestedLinksFiltered: FocusLink[] = suggestedLinksRaw.filter(
     (item): item is FocusLink => Boolean(item),
