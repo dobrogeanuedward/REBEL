@@ -5,11 +5,21 @@
   --card-border: rgba(255, 255, 255, 0.18);
   --text: #f8f7f4;
   --muted: rgba(248, 247, 244, 0.78);
-  --brand-1: #a78bfa;
+  /* Slightly hotter palette: more saturation site-wide. */
+  --brand-1: #b8a1ff;
   --brand-2: #7c3aed;
-  --brand-3: #c084fc;
-  --pink-1: #e44896;
+  --brand-3: #d1a6ff;
+  --pink-1: #ff4fa6;
   --pink-2: #f472b6;
+  --rebel-underline-gradient: linear-gradient(90deg, var(--brand-1), var(--pink-1), var(--brand-2));
+  --rebel-underline-gradient-hot: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    var(--brand-1) 18%,
+    var(--pink-1) 52%,
+    var(--brand-2) 82%,
+    #ffffff 100%
+  );
   --max: 1180px;
   --radius: 18px;
   --site-bg-desktop: url("https://res.cloudinary.com/dx8tfq82f/image/upload/v1771038930/rebel-bgd_sji8pu.webp");
@@ -49,9 +59,9 @@ body {
   color: var(--text);
   background:
     radial-gradient(1200px 760px at 50% -18%, rgba(255, 255, 255, 0.08), transparent 68%),
-    radial-gradient(1100px 700px at 12% -6%, rgba(167, 139, 250, 0.24), transparent 65%),
-    radial-gradient(880px 540px at 84% 8%, rgba(228, 72, 150, 0.19), transparent 62%),
-    radial-gradient(900px 620px at 100% 0%, rgba(124, 58, 237, 0.2), transparent 62%),
+    radial-gradient(1100px 700px at 12% -6%, rgba(184, 161, 255, 0.3), transparent 65%),
+    radial-gradient(880px 540px at 84% 8%, rgba(255, 79, 166, 0.22), transparent 62%),
+    radial-gradient(900px 620px at 100% 0%, rgba(124, 58, 237, 0.24), transparent 62%),
     linear-gradient(180deg, #0e0918 0%, #0f0a1b 48%, #130d21 100%);
   font-family: var(--font-inter), sans-serif;
   min-height: 100vh;
@@ -836,8 +846,8 @@ img {
 .top-progress-bar {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, #a78bfa, #e44896, #7c3aed);
-  box-shadow: 0 0 20px rgba(228, 72, 150, 0.5);
+  background: var(--rebel-underline-gradient);
+  box-shadow: 0 0 22px rgba(255, 79, 166, 0.52);
   transition: width 0.08s linear;
 }
 
@@ -1082,8 +1092,38 @@ h4 {
   z-index: 70;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(16px);
-  background: rgba(10, 8, 18, 0.68);
+  background: rgba(10, 8, 18, 0.72);
+  isolation: isolate;
+  overflow: hidden;
   transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  pointer-events: none;
+  background: var(--rebel-underline-gradient-hot);
+  opacity: 0.34;
+  filter: blur(18px) saturate(1.85);
+  mix-blend-mode: screen;
+  z-index: 0;
+}
+
+.site-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--rebel-underline-gradient);
+  opacity: 0.75;
+  pointer-events: none;
+  box-shadow:
+    0 0 16px rgba(255, 79, 166, 0.18),
+    0 0 26px rgba(184, 161, 255, 0.14);
+  z-index: 1;
 }
 
 
@@ -1093,12 +1133,22 @@ h4 {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
 }
 
+.site-header.is-scrolled::before {
+  opacity: 0.34;
+}
+
+.site-header.is-scrolled::after {
+  opacity: 0.9;
+}
+
 .site-header-inner {
   min-height: 76px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.4rem;
+  position: relative;
+  z-index: 2;
   transition: padding 0.2s ease, min-height 0.2s ease;
 }
 
@@ -1148,7 +1198,7 @@ h4 {
   bottom: 0.36rem;
   height: 2px;
   border-radius: 999px;
-  background: linear-gradient(90deg, #a78bfa, #e44896, #7c3aed);
+  background: var(--rebel-underline-gradient);
   transform: scaleX(0);
   transform-origin: left center;
   opacity: 0;
@@ -1167,6 +1217,9 @@ h4 {
 .header-nav-link.is-active::after {
   transform: scaleX(1);
   opacity: 1;
+  box-shadow:
+    0 0 10px rgba(255, 79, 166, 0.22),
+    0 0 18px rgba(184, 161, 255, 0.18);
 }
 
 .header-actions {
@@ -4045,11 +4098,19 @@ body.mobile-menu-open .wa-live {
     border-radius: 16px;
   }
   .home-hero-main::after {
-    width: 240px;
-    height: 240px;
-    right: -74px;
-    top: -56px;
-    opacity: 0.09;
+    width: clamp(300px, 82vw, 440px);
+    height: clamp(300px, 82vw, 440px);
+    right: -120px;
+    top: 18%;
+    transform: none;
+    opacity: 0.22;
+    mix-blend-mode: screen;
+    filter:
+      saturate(2.2)
+      brightness(1.08)
+      contrast(1.12)
+      drop-shadow(0 0 14px rgba(228, 72, 150, 0.26))
+      drop-shadow(0 0 26px rgba(167, 139, 250, 0.2));
   }
   .home-hero-photo-chip {
     right: 0.54rem;
