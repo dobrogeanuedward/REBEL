@@ -183,6 +183,10 @@ export const localAreaPages: LocalAreaPage[] = [
         q: "Posso vedere prezzi e servizi prima di prenotare?",
         a: "Sì: trovi il listino completo online. Poi, se vuoi, in studio lo traduciamo in un percorso su misura.",
       },
+      {
+        q: "Pulizia viso e semipermanente: ha senso inserirli mentre faccio il laser?",
+        a: "Spesso sì, se li incastri bene nel calendario. La pulizia viso aiuta a rimettere ordine e comfort sul viso; il semipermanente è un servizio pratico per sentirti curata senza aggiungere complessità. Ti diciamo noi cosa abbinare e con che ritmo, in base alla tua settimana.",
+      },
     ],
     keywords: [
       "centro estetico Carmagnola",
@@ -579,6 +583,11 @@ export const localAreaPages: LocalAreaPage[] = [
           label: "Epilazione laser corpo",
           href: "/servizi/epilazione-laser-corpo-carmagnola",
           description: "Dettagli sulle zone corpo e su come organizziamo il percorso.",
+        },
+        {
+          label: "Listino completo",
+          href: "/listino-estetica-laser",
+          description: "Prezzi chiari per scegliere con calma (laser, viso, corpo e classici).",
         },
         {
           label: "Contatti",
@@ -1014,6 +1023,11 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Per capire cosa chiedere (e cosa guardare) prima di iniziare.",
         },
         {
+          label: "Listino completo",
+          href: "/listino-estetica-laser",
+          description: "Prezzi chiari e panoramica dei servizi disponibili in studio.",
+        },
+        {
           label: "Contatti",
           href: "/contatti",
           description: "Per prenotare la prima valutazione o chiedere un consiglio.",
@@ -1414,6 +1428,11 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Per orientarti tra tecnologie e scelte sensate, senza promesse.",
         },
         {
+          label: "Listino completo",
+          href: "/listino-estetica-laser",
+          description: "Prezzi chiari e panoramica dei servizi disponibili in studio.",
+        },
+        {
           label: "Contatti",
           href: "/contatti",
           description: "Per prenotare o chiedere un consiglio prima di iniziare.",
@@ -1544,6 +1563,11 @@ export const localAreaPages: LocalAreaPage[] = [
           label: "Listino completo",
           href: "/listino-estetica-laser",
           description: "Prezzi chiari e panoramica dei servizi in studio.",
+        },
+        {
+          label: "Contatti",
+          href: "/contatti",
+          description: "Per prenotare o chiedere un consiglio rapido prima di iniziare.",
         },
       ],
     },
@@ -1782,6 +1806,11 @@ export const localAreaPages: LocalAreaPage[] = [
           label: "Epilazione laser corpo",
           href: "/servizi/epilazione-laser-corpo-carmagnola",
           description: "Zone corpo, organizzazione delle sedute e percorso su misura.",
+        },
+        {
+          label: "Listino completo",
+          href: "/listino-estetica-laser",
+          description: "Prezzi chiari e panoramica completa (laser, viso, corpo e classici).",
         },
         {
           label: "Contatti",

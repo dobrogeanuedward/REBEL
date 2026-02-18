@@ -1599,18 +1599,19 @@ export const competencePages: CompetencePage[] = [
   },
   {
     slug: "drenaggio-corpo-carmagnola",
-    title: "Drenaggio corpo a Carmagnola",
+    title: "Drenaggio corpo a Carmagnola: gambe più leggere e percorso realistico",
     shortDescription:
-      "Drenaggio su misura quando senti gambe pesanti, gonfiore o poca leggerezza.",
+      "Quando senti pesantezza o gonfiore: cosa facciamo, con che ritmo e cosa aspettarti (senza promesse gonfiate).",
     longDescription:
-      "Una guida rapida e concreta per capire cosa intendiamo davvero per \"drenaggio\" e come impostare un percorso sensato: obiettivo, calendario, e cosa fare tra una seduta e l'altra per rendere il risultato più stabile.",
+      "La parola \"drenaggio\" viene usata per tante cose diverse: per noi significa aiutarti a ritrovare una sensazione di leggerezza reale (soprattutto su gambe e corpo), con manualità e calendario coerenti con la tua vita. Qui trovi una guida concreta: come capire se è il trattamento giusto per il tuo periodo, quante sedute ha senso fare, cosa evitare tra una seduta e l'altra e come proteggere il risultato nel tempo. Nessuna corsa \"tutto e subito\": solo un percorso ordinato e sostenibile.",
     localAngle:
-      "Utile soprattutto nei periodi in cui gonfiore e pesantezza si fanno sentire di più.",
+      "Utile soprattutto nei periodi in cui gonfiore e pesantezza si fanno sentire di più (caldo, molte ore in piedi, viaggi, settimane stressanti).",
     intent: "commercial",
     benefits: [
-      "Aiuta a gestire la sensazione di pesantezza in modo più ordinato",
-      "Imposta un ritmo che puoi tenere e aggiustare nel tempo",
-      "Chiarisce limiti e aspettative, senza promesse gonfiate",
+      "Ti aiuta a capire se il drenaggio ha senso per te (ora, non in teoria)",
+      "Imposta un calendario realistico che riesci davvero a seguire",
+      "Riduce gli errori più comuni che \"spengono\" l'effetto in poche ore",
+      "Chiarisce differenze tra drenaggio, linfodrenante e massaggi più rilassanti",
     ],
     faqs: [
       {
@@ -1626,8 +1627,20 @@ export const competencePages: CompetencePage[] = [
         a: "Dipende da situazione e obiettivo. Spesso la sensazione migliora già dopo le prime sedute, ma la parte importante è la continuità: un ritmo che riesci a tenere vale più di una corsa di una settimana.",
       },
       {
+        q: "Deve fare male per \"funzionare\"?",
+        a: "No. Un drenaggio ben fatto non è una prova di resistenza: l'obiettivo è migliorare comfort e leggerezza senza lasciare il corpo in difesa. In studio regoliamo sempre intensità e manualità in base alla tua sensibilità.",
+      },
+      {
         q: "Meglio drenaggio generico o linfodrenante?",
         a: "Se cerchi un approccio più specifico, il linfodrenante è spesso la scelta più mirata. Se vuoi, abbiamo anche una guida dedicata: ti aiuta a capire quando ha davvero senso e come impostarlo bene.",
+      },
+      {
+        q: "Cosa conviene fare nelle ore dopo la seduta?",
+        a: "Semplificare: acqua, un minimo di movimento (anche una passeggiata) e niente eccessi immediati. Se ti alleni, ti diciamo come incastrarlo senza stressarti: spesso basta un po' di buon senso nelle prime ore.",
+      },
+      {
+        q: "Ci sono casi in cui è meglio essere prudenti o chiedere un parere medico?",
+        a: "Sì. Se hai condizioni cliniche particolari o situazioni recenti importanti, preferiamo valutare con attenzione e, se serve, chiederti un via libera medico. La qualità, per noi, è anche saper dire quando non è il momento giusto.",
       },
     ],
     keywords: [
@@ -1651,29 +1664,29 @@ export const competencePages: CompetencePage[] = [
       {
         heading: "Drenaggio: cosa intendiamo davvero (e cosa no)",
         paragraphs: [
-          "Quando una persona dice \"mi serve drenaggio\", spesso intende una cosa semplice: sentirsi più leggera e meno gonfia. È un obiettivo reale, ma va impostato con aspettative corrette.",
-          "Non parliamo di miracoli: parliamo di un percorso che aiuta la sensazione di comfort, soprattutto se inserito in un ritmo coerente.",
+          "Quando una persona dice \"mi serve drenaggio\", spesso intende una cosa semplice: sentirsi più leggera e meno gonfia, soprattutto su gambe e corpo. È un obiettivo reale, ma va impostato con aspettative corrette.",
+          "Da Rebel non vendiamo miracoli o \"centimetri in un giorno\": impostiamo un percorso che migliora comfort e gestione quotidiana, con una progressione che puoi seguire davvero.",
         ],
       },
       {
-        heading: "Calendario: la parte che rende il percorso sostenibile",
+        heading: "Calendario: il segreto non è fare tanto, è fare giusto",
         paragraphs: [
-          "La domanda non è solo quante sedute, ma come distribuirle. Un calendario realistico evita l'effetto \"tutto subito\" e ti permette di capire cosa funziona davvero su di te.",
-          "In studio adattiamo intensità e frequenza in base al periodo e alla risposta: un percorso serio si aggiusta, non si improvvisa.",
+          "La domanda non è solo quante sedute, ma come distribuirle. Un calendario realistico evita l'effetto \"tutto subito\" e ti permette di capire cosa cambia davvero su di te.",
+          "In studio impostiamo un ritmo iniziale e lo adattiamo: stagione, stress, lavoro e sport cambiano il corpo. Un percorso serio si aggiusta senza perdere il filo.",
         ],
       },
       {
-        heading: "Tra una seduta e l'altra: cosa aiuta davvero",
+        heading: "Tra una seduta e l'altra: 3 cose che salvano l'effetto",
         paragraphs: [
-          "Spesso basta poco: movimento regolare, idratazione e routine semplici. Non ti riempiamo di regole: scegliamo insieme due o tre cose che riesci a fare davvero.",
-          "Se vuoi un approfondimento più specifico, la guida sul linfodrenante entra nei dettagli e ti aiuta a capire quando è la scelta migliore.",
+          "Spesso basta poco: acqua, un minimo di movimento e una routine corpo essenziale. Non ti riempiamo di regole: scegliamo insieme due o tre accorgimenti che riesci a fare davvero.",
+          "Se vuoi un approfondimento più specifico, la guida sul linfodrenante entra nei dettagli e ti aiuta a capire quando è la scelta migliore e come impostarla in modo ordinato.",
         ],
       },
       {
         heading: "Da Rebel: drenaggio come parte di un percorso corpo (non come seduta isolata)",
         paragraphs: [
           "Quando serve, integriamo il drenaggio con trattamenti corpo semplici (ad esempio scrub) o con sedute di relax, per un approccio più completo e piacevole.",
-          "Il punto è sempre lo stesso: creare un piano che ti faccia stare meglio e che tu riesca a seguire nel tempo.",
+          "Il punto è sempre lo stesso: creare un piano che ti faccia stare meglio e che tu riesca a seguire nel tempo, senza trasformarlo in un impegno infinito.",
         ],
       },
     ],
@@ -1681,6 +1694,10 @@ export const competencePages: CompetencePage[] = [
       {
         label: "Cleveland Clinic - Lymphatic Drainage Massage",
         url: "https://my.clevelandclinic.org/health/treatments/21768-lymphatic-drainage-massage",
+      },
+      {
+        label: "NHS - Oedema (swelling)",
+        url: "https://www.nhs.uk/conditions/oedema/",
       },
     ],
   },
@@ -3012,9 +3029,9 @@ export const competencePages: CompetencePage[] = [
     slug: "pelle-matura-carmagnola-trattamenti-routine",
     title: "Pelle matura a Carmagnola: comfort, densità e routine che regge",
     shortDescription:
-      "Guida per pelli mature: cosa cambia davvero, come scegliere un percorso viso e come evitare eccessi che irritano.",
+      "Cosa cambia davvero, come scegliere un percorso viso e come evitare eccessi che irritano e \"assottigliano\" la costanza.",
     longDescription:
-      "Quando la pelle cambia (più secca, più sottile, più \"sensibile\"), la qualità non è fare di più: è fare meglio. Qui trovi un orientamento pratico su comfort, densità percepita e progressione, con scelte sostenibili anche a casa.",
+      "Quando la pelle cambia (più secca, meno elastica, più reattiva, a volte più \"sottile\" al tatto), la qualità non è fare di più: è fare meglio. Qui trovi un orientamento pratico e molto concreto su comfort, densità percepita e progressione: come scegliere un primo step che non stressa, come costruire un calendario che regge e quali micro-gesti a casa fanno davvero la differenza. L'obiettivo è una pelle più stabile e più \"comoda\" nel tempo, non un effetto forte di un giorno.",
     localAngle:
       "Pensata per chi vuole un percorso viso serio e rispettoso, senza inseguire mode o trattamenti random.",
     intent: "commercial",
@@ -3037,8 +3054,16 @@ export const competencePages: CompetencePage[] = [
         a: "No: conviene essere più precise. Si lavora su comfort e barriera, con intensità e calendario adattati. L'obiettivo è una pelle più stabile, non una pelle stressata.",
       },
       {
+        q: "Da cosa conviene partire se mi vedo più secca e \"spenta\"?",
+        a: "Spesso dal riportare comfort e ordine: una pulizia viso fatta bene (delicata) e una routine casa essenziale. Poi si valuta se ha senso un protocollo dedicato per densità e tono, con progressione.",
+      },
+      {
         q: "Che cosa posso fare a casa senza complicarmi la vita?",
         a: "Pochi passaggi coerenti: detersione delicata, idratazione e protezione. Se serve, un solo attivo mirato. La costanza vale più del prodotto perfetto usato due volte.",
+      },
+      {
+        q: "È meglio fare tutto ravvicinato per \"recuperare\"?",
+        a: "Di solito no. Sulle pelli più mature e reattive l'eccesso è il modo più veloce per irritare e perdere continuità. Preferiamo una progressione pulita: poche sedute ben distanziate e un mantenimento semplice.",
       },
     ],
     keywords: [
@@ -3056,24 +3081,31 @@ export const competencePages: CompetencePage[] = [
     relatedProtocolSlugs: ["rebirth-60-plus", "collagen-code"],
     editorialSections: [
       {
-        heading: "Meno aggressività, più continuità",
+        heading: "La pelle matura non chiede \"più forte\": chiede \"più intelligente\"",
         paragraphs: [
-          "Quando la pelle è più sottile o più sensibile, l'eccesso è la cosa che rovina tutto. Qui funziona la precisione: poche scelte fatte bene, distanziate con criterio.",
-          "Il risultato migliore è quello che rende la pelle più comoda e più stabile nel tempo.",
+          "Quando la pelle è più sottile o più reattiva, l'eccesso è la cosa che rovina tutto: attivi aggressivi, troppi cambi e sedute \"forti\" possono renderla instabile.",
+          "Qui funziona la precisione: poche scelte fatte bene, distanziate con criterio. Il risultato migliore è quello che rende la pelle più comoda e più stabile nel tempo.",
         ],
       },
       {
-        heading: "Progressione: la parte che fa la differenza",
+        heading: "Progressione: comfort prima, densità poi (e luce come conseguenza)",
         paragraphs: [
           "Una seduta può darti una bella sensazione, ma la qualità vera arriva con un percorso: calendario realistico e piccoli aggiustamenti quando serve.",
-          "Se vuoi un protocollo pensato per queste esigenze, Rebirth 60+ è orientato proprio a comfort e densità percepita, con metodo e rispetto della pelle.",
+          "Noi ragioniamo spesso in questa sequenza: comfort/barriera, poi densità percepita e tono, poi luminosità più stabile. Se vuoi un protocollo pensato per queste esigenze, Rebirth 60+ è orientato proprio a comfort e densità percepita, con metodo e rispetto della pelle.",
         ],
       },
       {
-        heading: "Routine a casa: il minimo efficace",
+        heading: "Routine a casa: il minimo efficace che non ti stanca",
         paragraphs: [
           "Non serve avere dieci prodotti. Serve coerenza. Se la routine è troppo complicata, smette di funzionare perché non la segui.",
           "In studio, dopo la seduta, possiamo consigliarti una micro-routine che ti viene naturale e che sostiene il percorso.",
+        ],
+      },
+      {
+        heading: "Quando ha senso un protocollo dedicato (e quando basta semplificare)",
+        paragraphs: [
+          "Se la pelle è solo \"un po' stanca\", spesso basta rimettere ordine e comfort: detersione delicata, idratazione, protezione e un primo step professionale fatto bene.",
+          "Se invece la sensazione di secchezza, svuotamento o perdita di tono è più stabile, ha senso un protocollo dedicato: Collagen Code è spesso scelto quando si cerca compattezza e densità percepita con una progressione pulita.",
         ],
       },
     ],
@@ -3081,6 +3113,10 @@ export const competencePages: CompetencePage[] = [
       {
         label: "AAD - Basic skin care",
         url: "https://www.aad.org/public/everyday-care/skin-care-basics/care",
+      },
+      {
+        label: "AAD - Skin aging",
+        url: "https://www.aad.org/public/everyday-care/skin-care-basics/skin/skin-aging",
       },
     ],
   },
@@ -3234,7 +3270,7 @@ export const competencePages: CompetencePage[] = [
     shortDescription:
       "Cosa incide sulla durata e come si rimuove bene (senza strappi o limature aggressive).",
     longDescription:
-      "Una guida pratica per chi vuole un semipermanente bello e ordinato nel tempo: cosa fa durare di più il risultato, quando conviene rifarlo e perché la rimozione è la parte che protegge davvero l'unghia.",
+      "Una guida pratica (e concreta) per chi vuole un semipermanente bello e ordinato nel tempo: cosa fa durare di più il risultato, come gestire ricrescita e piccoli sollevamenti, quando conviene rifarlo e perché la rimozione è la parte che protegge davvero l'unghia. Il nostro obiettivo è un effetto pulito, curato da vicino, che ti semplifica la vita senza rovinare la base.",
     localAngle:
       "Utile se cerchi a Carmagnola un servizio unghie curato e vuoi capire come mantenerlo senza rovinare l'unghia.",
     intent: "informational",
@@ -3249,6 +3285,10 @@ export const competencePages: CompetencePage[] = [
         a: "In media 2-3 settimane, ma dipende da ricrescita e da quanto usi le mani. Anche detergenti e lavori manuali incidono molto.",
       },
       {
+        q: "È normale che si sollevi prima su alcune unghie?",
+        a: "Sì: alcune unghie vengono \"stressate\" di più (mani dominanti, lavori manuali, detersivi, sport). La cosa importante è non staccare o strappare: se succede, meglio una sistemazione piccola fatta bene.",
+      },
+      {
         q: "La rimozione è quella che rovina l'unghia?",
         a: "Spesso sì, se viene fatta male. Strappare o limare troppo assottiglia l'unghia. La rimozione corretta è paziente e rispettosa.",
       },
@@ -3257,8 +3297,16 @@ export const competencePages: CompetencePage[] = [
         a: "Si può, ma se non hai pratica rischi di strappare. Se vuoi farlo a casa, ti consigliamo di farlo con calma e senza forzare.",
       },
       {
+        q: "Posso fare una pausa tra un semipermanente e l'altro?",
+        a: "Sì. Se vuoi fare una pausa, la cosa più importante è farla bene: rimozione corretta, unghia non assottigliata e una fase di \"riposo\" con idratazione semplice. In studio ti consigliamo il ritmo più sensato per te.",
+      },
+      {
         q: "Se un'unghia si scheggia cosa faccio?",
         a: "Meglio non 'aggiustare' a tentativi con limate aggressive. Scrivici o passa in studio: spesso basta una sistemazione piccola fatta bene.",
+      },
+      {
+        q: "Cosa posso fare a casa per farlo durare di più?",
+        a: "Guanti con detersivi e lavori aggressivi, cuticole idratate e niente gesto \"strappa\" quando vedi un angolino sollevato. Sono piccole cose, ma fanno durare moltissimo l'ordine delle mani.",
       },
     ],
     keywords: [
@@ -3278,6 +3326,13 @@ export const competencePages: CompetencePage[] = [
         ],
       },
       {
+        heading: "Le 7 cose che più spesso accorciano la durata (e come evitarle)",
+        paragraphs: [
+          "Detersivi senza guanti, lavori manuali intensi, uso \"strumentale\" delle unghie (apri-chiudi), cuticole secche, sollevamenti ignorati, rimozioni fai-da-te aggressive e ritocchi improvvisati.",
+          "Non serve essere perfette: serve solo sapere cosa incide davvero, così il servizio resta bello più a lungo.",
+        ],
+      },
+      {
         heading: "Ricrescita: il momento giusto per rifarlo non è uguale per tutte",
         paragraphs: [
           "C'è chi ha ricrescita veloce e preferisce tenere sempre un look perfetto. C'è chi vuole semplicemente mani ordinate e torna quando sente che è il momento.",
@@ -3289,6 +3344,13 @@ export const competencePages: CompetencePage[] = [
         paragraphs: [
           "Molti danni non arrivano dal semipermanente in sé, ma da rimozioni aggressive: strappi, fretta, limature eccessive.",
           "La regola è semplice: mai forzare. Se vuoi fare una pausa, la facciamo in modo che l'unghia resti sana e bella.",
+        ],
+      },
+      {
+        heading: "Se lavori tanto con le mani (o fai sport): come tenere il risultato più ordinato",
+        paragraphs: [
+          "Se usi molto le mani, non è un problema: significa solo che il tuo calendario e la tua gestione devono essere più intelligenti. A volte basta accorciare leggermente la lunghezza o programmare i richiami nel momento giusto.",
+          "Il semipermanente migliore non è quello che \"dura per forza\": è quello che resta bello e ti semplifica davvero la vita.",
         ],
       },
     ],
@@ -3558,12 +3620,20 @@ export const competencePages: CompetencePage[] = [
         a: "Non sempre. Frequenza e intensità vanno adattate, perché l'eccesso può aumentare irritazione e instabilità.",
       },
       {
+        q: "La pulizia viso elimina davvero i punti neri?",
+        a: "Può aiutare molto a ridurre impurità e a rendere la pelle più pulita e uniforme, ma serve un approccio realistico: costanza, routine semplice e, se necessario, una progressione. L'obiettivo è migliorare la situazione nel tempo, non \"svuotare tutto\" in una seduta.",
+      },
+      {
         q: "Meglio farla prima di un evento importante?",
         a: "Se hai un evento, meglio non arrivare all'ultimo: ogni pelle reagisce a modo suo. In studio ti diciamo tempi e aspettative in base al tuo punto di partenza, così eviti sorprese.",
       },
       {
         q: "Se ho brufoli infiammati o una situazione particolare, cosa faccio?",
         a: "Scrivici prima e raccontaci due righe: preferiamo capire bene la situazione e, se serve, rendere la seduta più delicata o chiederti un parere medico prima di procedere.",
+      },
+      {
+        q: "Ogni quanto ha senso farla, in pratica?",
+        a: "Dipende da sebo, sensibilità, stagione e obiettivo. Alcune persone stanno bene con un ritmo più distanziato, altre beneficiano di una fase iniziale più ravvicinata e poi mantenimento. In consulenza ti proponiamo una finestra realistica, non un calendario fisso uguale per tutte.",
       },
     ],
     keywords: [
@@ -3604,10 +3674,24 @@ export const competencePages: CompetencePage[] = [
         ],
       },
       {
+        heading: "Le 48 ore dopo: come non rovinare il lavoro fatto in cabina",
+        paragraphs: [
+          "Dopo una pulizia viso fatta bene, la pelle va trattata con calma: niente esperimenti aggressivi, niente attivi \"a caso\" e soprattutto niente fretta nello struccaggio o nella detersione.",
+          "Noi preferiamo indicazioni semplici e pratiche: cosa usare, cosa sospendere e quando tornare alla routine normale. Così l'effetto resta più stabile e la pelle non si irrita.",
+        ],
+      },
+      {
         heading: "Routine casa + cabina: il duo che fa la differenza",
         paragraphs: [
           "La cabina dà direzione, la routine casa consolida. Anche pochi passaggi fatti con costanza possono migliorare molto la resa del trattamento professionale.",
           "Il nostro approccio resta semplice: leggere la pelle, scegliere priorità e costruire una routine che non ti complichi la giornata.",
+        ],
+      },
+      {
+        heading: "Quando conviene fare un passo in più (senza esagerare)",
+        paragraphs: [
+          "A volte la pulizia viso è esattamente il primo step giusto. Altre volte è il primo step che ti fa capire che serve un percorso più strutturato (per grana, opacità o instabilità ricorrente).",
+          "In quel caso non si \"aggiunge a caso\": si costruisce una progressione pulita, con mantenimento chiaro e un ritmo che riesci a sostenere.",
         ],
       },
     ],

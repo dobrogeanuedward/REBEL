@@ -88,6 +88,23 @@ const pick = (re, s) => {
   return m ? m[1] : "";
 };
 
+const pickStringField = (field, s) => {
+  // Match a TS string literal for `field: "..."` handling escaped quotes.
+  // Assumption: content uses plain double-quoted string literals (no template strings).
+  const re = new RegExp(
+    `${field}:\\s*(?:\\n\\s*)?"((?:\\\\\\\\.|\\\\.|[^"\\\\\\\\])*)"`,
+    "m",
+  );
+  const m = s.match(re);
+  if (!m) return "";
+  // We only need stable length/dup checks; a light unescape improves signal a bit.
+  return m[1]
+    .replace(/\\n/g, "\n")
+    .replace(/\\t/g, "\t")
+    .replace(/\\"/g, '"')
+    .replace(/\\\\/g, "\\");
+};
+
 const normalize = (s) =>
   s
     .toLowerCase()
@@ -105,19 +122,13 @@ const firstWords = (s, count = 14) =>
 
 const pages = objects
   .map((obj) => {
-    const slug = pick(/slug:\s*"([^"]+)"/, obj);
-    const title = pick(/title:\s*"([^"]+)"/, obj);
-    const intent = pick(/intent:\s*"([^"]+)"/, obj);
+    const slug = pickStringField("slug", obj);
+    const title = pickStringField("title", obj);
+    const intent = pickStringField("intent", obj);
 
-    const shortDescription =
-      pick(/shortDescription:\s*\n\s*"([^"]+)/, obj) ||
-      pick(/shortDescription:\s*"([^"]+)/, obj);
-    const longDescription =
-      pick(/longDescription:\s*\n\s*"([^"]+)/, obj) ||
-      pick(/longDescription:\s*"([^"]+)/, obj);
-    const localAngle =
-      pick(/localAngle:\s*\n\s*"([^"]+)/, obj) ||
-      pick(/localAngle:\s*"([^"]+)/, obj);
+    const shortDescription = pickStringField("shortDescription", obj);
+    const longDescription = pickStringField("longDescription", obj);
+    const localAngle = pickStringField("localAngle", obj);
 
     const benefitsBlock = (obj.match(/benefits:\s*\[[\s\S]*?\]/) || [""])[0];
     const benefitsCount = (benefitsBlock.match(/"/g) || []).length / 2;
