@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactForm } from "@/components/contact-form";
+import { InstagramFeed } from "@/components/instagram-feed";
 import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
 import { buildBreadcrumbSchema, buildWebPageSchema, createPageMetadata } from "@/lib/seo";
@@ -137,7 +138,7 @@ export default function ContattiPage() {
       <PageHero
         eyebrow="Contatti locali Carmagnola"
         title="Scrivici due righe: ti rispondiamo con una direzione chiara."
-        lead="WhatsApp è il modo più rapido. Se preferisci, puoi chiamare o usare il form. Se ci dici zona, obiettivo e tempi, ti guidiamo senza giri strani."
+        lead="WhatsApp è il modo più rapido. Se preferisci, puoi chiamare o usare il form. Se ci dici zona, obiettivo e tempi, ti guidiamo con chiarezza."
         badge="Viale Barbaroux 20, Carmagnola"
         tone="emerald"
       />
@@ -290,6 +291,16 @@ export default function ContattiPage() {
             <Link className="button button-secondary" href="/competenze/epilazione-laser-inguine-carmagnola-guida-pratica">
               Guida inguine
             </Link>
+          </div>
+
+          <div style={{ marginTop: "1.5rem" }}>
+            <p className="eyebrow" style={{ color: "rgba(39,31,56,0.68)" }}>
+              Instagram
+            </p>
+            <p className="lead" style={{ color: "rgba(39,31,56,0.78)", marginTop: "0.55rem" }}>
+              Se vuoi dare un&apos;occhiata al centro e al mood Rebel: qui trovi alcuni reel in evidenza.
+            </p>
+            <InstagramFeed showReels={true} showPosts={false} maxReels={4} />
           </div>
         </div>
       </section>

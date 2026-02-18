@@ -1533,7 +1533,7 @@ body.mobile-menu-open .wa-live {
 }
 
 .home-hero--slider .home-hero-main {
-  max-width: 780px;
+  max-width: 920px;
 }
 
 .home-hero::before {
@@ -1734,16 +1734,23 @@ body.mobile-menu-open .wa-live {
 
 .home-hero-main {
   border-radius: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.56);
+  border: 1px solid rgba(255, 255, 255, 0.48);
   background:
-    radial-gradient(90% 86% at 8% -4%, rgba(167, 139, 250, 0.25), transparent 72%),
-    radial-gradient(76% 66% at 100% 16%, rgba(228, 72, 150, 0.2), transparent 74%),
-    linear-gradient(155deg, rgba(255, 255, 255, 0.96), rgba(251, 243, 255, 0.93), rgba(255, 245, 251, 0.9));
+    radial-gradient(90% 86% at 8% -4%, rgba(167, 139, 250, 0.26), transparent 72%),
+    radial-gradient(76% 66% at 100% 16%, rgba(228, 72, 150, 0.22), transparent 74%),
+    linear-gradient(
+      155deg,
+      rgba(255, 255, 255, 0.78),
+      rgba(251, 243, 255, 0.58),
+      rgba(255, 245, 251, 0.46)
+    );
+  -webkit-backdrop-filter: blur(18px) saturate(1.35);
+  backdrop-filter: blur(18px) saturate(1.35);
   padding: 2.1rem;
   box-shadow:
     0 30px 80px rgba(56, 31, 92, 0.24),
-    0 0 0 1px rgba(255, 255, 255, 0.5),
-    0 0 72px rgba(228, 72, 150, 0.2);
+    0 0 0 1px rgba(255, 255, 255, 0.42),
+    0 0 82px rgba(228, 72, 150, 0.22);
   position: relative;
   overflow: hidden;
   color: #2a1f3d;
@@ -1774,9 +1781,14 @@ body.mobile-menu-open .wa-live {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  opacity: 0.1;
-  filter: grayscale(1) saturate(0.65) contrast(1.05);
-  mix-blend-mode: multiply;
+  opacity: 0.22;
+  filter:
+    saturate(1.35)
+    brightness(1.06)
+    contrast(1.1)
+    drop-shadow(0 0 18px rgba(228, 72, 150, 0.22))
+    drop-shadow(0 0 28px rgba(167, 139, 250, 0.2));
+  mix-blend-mode: soft-light;
   pointer-events: none;
 }
 
