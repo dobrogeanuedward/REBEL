@@ -1090,11 +1090,17 @@ h4 {
   left: 0;
   right: 0;
   z-index: 70;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(16px);
-  background: rgba(10, 8, 18, 0.72);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  backdrop-filter: blur(18px) saturate(1.2);
+  background:
+    linear-gradient(180deg, rgba(8, 6, 14, 0.94), rgba(9, 6, 16, 0.82)),
+    rgba(8, 6, 14, 0.82);
   isolation: isolate;
   overflow: hidden;
+  box-shadow:
+    0 10px 34px rgba(0, 0, 0, 0.38),
+    0 0 28px rgba(124, 58, 237, 0.14);
   transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -1128,9 +1134,13 @@ h4 {
 
 
 .site-header.is-scrolled {
-  border-bottom-color: rgba(255, 255, 255, 0.16);
-  background: rgba(10, 8, 18, 0.9);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+  border-bottom-color: rgba(255, 255, 255, 0.24);
+  background:
+    linear-gradient(180deg, rgba(8, 6, 14, 0.98), rgba(8, 6, 14, 0.92)),
+    rgba(8, 6, 14, 0.95);
+  box-shadow:
+    0 14px 38px rgba(0, 0, 0, 0.44),
+    0 0 34px rgba(228, 72, 150, 0.14);
 }
 
 .site-header.is-scrolled::before {
@@ -1142,7 +1152,7 @@ h4 {
 }
 
 .site-header-inner {
-  min-height: 76px;
+  min-height: 82px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1163,18 +1173,41 @@ h4 {
   align-items: center;
   gap: 0.35rem;
   flex-wrap: wrap;
+  padding: 0.36rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.03)),
+    rgba(7, 6, 14, 0.44);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 10px 26px rgba(0, 0, 0, 0.28);
 }
 
 .header-logo {
   display: inline-flex;
   align-items: center;
   position: relative;
+  transition: transform 0.24s ease;
+}
+
+.header-logo:hover {
+  transform: translateY(-1px) scale(1.02);
+}
+
+.header-logo .logo-glow::before {
+  transition: opacity 0.24s ease, transform 0.24s ease;
+}
+
+.header-logo:hover .logo-glow::before {
+  opacity: 0.88;
+  transform: scale(1.02);
 }
 
 .header-logo-image {
   width: auto;
-  height: 64px;
-  max-height: 64px;
+  height: 74px;
+  max-height: 74px;
 }
 
 
@@ -1187,7 +1220,9 @@ h4 {
   font-weight: 600;
   color: rgba(248, 247, 244, 0.76);
   padding: 0.6rem 0.8rem;
-  transition: color 0.24s ease, transform 0.24s ease;
+  border-radius: 999px;
+  text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  transition: color 0.24s ease, transform 0.24s ease, background 0.24s ease, text-shadow 0.24s ease;
 }
 
 .header-nav-link::after {
@@ -1207,7 +1242,11 @@ h4 {
 
 .header-nav-link:hover {
   color: #fff !important;
+  background: rgba(255, 255, 255, 0.08);
   transform: translateY(-1px);
+  text-shadow:
+    0 0 12px rgba(255, 255, 255, 0.36),
+    0 0 18px rgba(228, 72, 150, 0.26);
 }
 
 .header-nav-link.is-active {
@@ -1285,6 +1324,7 @@ h4 {
 
 .mobile-menu-toggle {
   display: none;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .mobile-menu-icon {
@@ -1305,6 +1345,15 @@ h4 {
 .mobile-menu-toggle.is-open {
   border-color: rgba(255, 255, 255, 0.28);
   background: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu-toggle:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 14px 30px rgba(27, 14, 51, 0.36),
+    0 0 22px rgba(228, 72, 150, 0.2);
 }
 
 .mobile-menu-toggle.is-open .mobile-menu-icon span:first-child {
@@ -1486,6 +1535,16 @@ h4 {
   font-size: 0.94rem;
   letter-spacing: 0.04em;
   padding: 0.8rem 0.85rem;
+  transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+}
+
+.mobile-nav-link:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 12px 26px rgba(17, 10, 32, 0.32),
+    0 0 20px rgba(167, 139, 250, 0.2);
 }
 
 .mobile-nav-link.is-active {
@@ -3646,8 +3705,12 @@ body.mobile-menu-open .wa-live {
 
 @media (max-width: 980px) {
   .site-header {
-    --mobile-header-scale: 1.55;
+    --mobile-header-scale: 1.62;
     --mobile-menu-scale: 1.06;
+  }
+
+  .site-header.is-open {
+    overflow: visible;
   }
 
   .site-header.is-scrolled {
@@ -3697,7 +3760,7 @@ body.mobile-menu-open .wa-live {
     display: block;
     position: fixed;
     inset: 0;
-    z-index: 80;
+    z-index: 140;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
