@@ -48,12 +48,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       indexable: false,
     });
   }
+  const fallbackImage =
+    service.category === "laser"
+      ? "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/fa3dd7a8-be13-478b-ef90-02ff30dc1d00/public"
+      : "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/7dc5354b-33e1-4a9e-a21d-ff321ecf4500/public";
   return createPageMetadata({
     title: service.name,
     description: service.shortDescription,
     path: `/servizi/${service.slug}`,
     keywords: service.keywords,
     openGraphType: "article",
+    image: service.heroImage?.src ?? fallbackImage,
   });
 }
 
@@ -108,6 +113,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
     path: `/servizi/${service.slug}`,
     keywords: service.keywords,
     section: service.category === "laser" ? "Laser" : "Estetica classica",
+    image: service.heroImage?.src,
   });
   const faqSchema = {
     "@context": "https://schema.org",

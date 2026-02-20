@@ -38,7 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified,
     changeFrequency: "weekly",
     priority: service.category === "laser" ? 0.84 : 0.82,
-    images: [defaultImage],
+    images: [service.heroImage?.src ?? defaultImage],
   }));
 
   const competenceEntries: MetadataRoute.Sitemap = competencePages.map(
@@ -47,7 +47,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "weekly",
       priority: competence.intent === "commercial" ? 0.8 : 0.78,
-      images: [defaultImage],
+      images: [competence.heroImage?.src ?? defaultImage],
     }),
   );
 

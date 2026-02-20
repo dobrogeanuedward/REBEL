@@ -4,7 +4,7 @@ import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
 import { protocolCards } from "@/lib/content";
-import { competencePages, servicePages } from "@/lib/seo-content";
+import { competencePages, editorialImageAssets, servicePages } from "@/lib/seo-content";
 import {
   buildBreadcrumbSchema,
   buildItemListSchema,
@@ -18,6 +18,7 @@ export const metadata: Metadata = createPageMetadata({
   description:
     "Tutti i servizi Rebel a Carmagnola: trattamenti viso e corpo, manicure, pedicure, laminazione, massaggi ed epilazione laser a Carmagnola con percorsi personalizzati.",
   path: "/servizi",
+  image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/fa3dd7a8-be13-478b-ef90-02ff30dc1d00/public",
   keywords: [
     "servizi centro estetico Carmagnola",
     "trattamenti estetici Carmagnola",
@@ -71,6 +72,16 @@ export default function ServiziHubPage() {
     .map((slug) => competencePages.find((item) => item.slug === slug))
     .filter((item): item is (typeof competencePages)[number] => Boolean(item));
   const featuredProtocols = protocolCards.slice(0, 6);
+  const categoryVisuals = {
+    estetica: {
+      src: editorialImageAssets.puliziaViso,
+      alt: "Trattamento viso professionale Rebel in ambiente luminoso",
+    },
+    laser: {
+      src: editorialImageAssets.laserCorpo,
+      alt: "Epilazione laser Rebel in cabina a Carmagnola",
+    },
+  } as const;
   const serviceListSchema = buildItemListSchema({
     name: "Servizi Rebel Carmagnola",
     path: "/servizi",
@@ -189,9 +200,34 @@ export default function ServiziHubPage() {
       <section className="section" id="servizi-estetica">
         <div className="container">
           <h2 className="page-title">Estetica classica e benessere</h2>
+          <div className="card-light" style={{ marginTop: "0.85rem" }}>
+            <div className="hero-visual" style={{ borderRadius: 14 }}>
+              <Image
+                src={categoryVisuals.estetica.src}
+                alt={categoryVisuals.estetica.alt}
+                width={1600}
+                height={900}
+                style={{ width: "100%", height: "auto", borderRadius: 14 }}
+              />
+            </div>
+            <p className="lead" style={{ marginTop: "0.75rem", color: "rgba(39,31,56,0.78)" }}>
+              Viso, corpo, mani e piedi con approccio pulito: priorità chiare, progressione reale e comfort.
+            </p>
+          </div>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             {esteticaSorted.map((item) => (
               <Link key={item.slug} href={`/servizi/${item.slug}`} className="card-light">
+                {item.heroImage ? (
+                  <div className="editorial-cover" style={{ marginBottom: "0.7rem" }}>
+                    <Image
+                      src={item.heroImage.src}
+                      alt={item.heroImage.alt}
+                      width={1200}
+                      height={675}
+                      style={{ width: "100%", height: "auto" }}
+                    />
+                  </div>
+                ) : null}
                 <h3 style={{ marginTop: 0 }}>{item.name}</h3>
                 <p
                   style={{
@@ -218,9 +254,34 @@ export default function ServiziHubPage() {
             Percorsi programmati su zona, fototipo e risposta della pelle, con
             progressione graduale e calendario realistico.
           </p>
+          <div className="card" style={{ marginTop: "0.85rem" }}>
+            <div className="hero-visual" style={{ borderRadius: 14 }}>
+              <Image
+                src={categoryVisuals.laser.src}
+                alt={categoryVisuals.laser.alt}
+                width={1600}
+                height={900}
+                style={{ width: "100%", height: "auto", borderRadius: 14 }}
+              />
+            </div>
+            <p className="lead" style={{ marginTop: "0.75rem" }}>
+              Metodo laser Rebel: valutazione iniziale, zone prioritarie e calendario sostenibile.
+            </p>
+          </div>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             {laser.map((item) => (
               <Link key={item.slug} href={`/servizi/${item.slug}`} className="card">
+                {item.heroImage ? (
+                  <div className="editorial-cover" style={{ marginBottom: "0.7rem" }}>
+                    <Image
+                      src={item.heroImage.src}
+                      alt={item.heroImage.alt}
+                      width={1200}
+                      height={675}
+                      style={{ width: "100%", height: "auto" }}
+                    />
+                  </div>
+                ) : null}
                 <h3 style={{ marginTop: 0 }}>{item.name}</h3>
                 <p className="lead" style={{ marginTop: "0.35rem" }}>
                   {item.shortDescription}

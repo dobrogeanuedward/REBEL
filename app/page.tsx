@@ -3,7 +3,7 @@ import Image from "next/image";
 import { InstagramFeed } from "@/components/instagram-feed";
 import { JsonLd } from "@/components/json-ld";
 import { HeroPhotoSlider } from "@/components/hero-photo-slider";
-import { storeGalleryImages } from "@/lib/content";
+import { homeHeroImages, storeGalleryImages } from "@/lib/content";
 import { localAreaPages } from "@/lib/local-pages";
 import { buildItemListSchema, buildWebPageSchema, createPageMetadata } from "@/lib/seo";
 import { competencePages, servicePages } from "@/lib/seo-content";
@@ -202,7 +202,7 @@ export default function HomePage() {
       {baseServicesSchema ? <JsonLd data={baseServicesSchema} /> : null}
 
       <section className="home-hero home-hero--slider">
-        <HeroPhotoSlider images={storeGalleryImages.slice(2)} intervalMs={3900} />
+        <HeroPhotoSlider images={homeHeroImages} intervalMs={3900} />
         <div className="container">
           <article className="home-hero-main">
             <div className="home-hero-brandline">

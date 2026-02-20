@@ -149,5 +149,44 @@ export const storeGalleryImages = [
   },
 ];
 
+export const homeHeroImages = [
+  {
+    src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/ca27abea-0dc0-4891-39de-6ccf6608c400/public",
+    alt: "Rebel Carmagnola - Epilazione laser viso in cabina",
+  },
+  {
+    src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/fa3dd7a8-be13-478b-ef90-02ff30dc1d00/public",
+    alt: "Rebel Carmagnola - Epilazione laser corpo su misura",
+  },
+  {
+    src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/d3b7108e-12c1-4ae2-0bc1-63f7d5723e00/public",
+    alt: "Rebel Carmagnola - Laser e gestione estate con approccio professionale",
+  },
+  {
+    src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/2b9d922f-bd03-4b99-3e66-e868fcf15b00/public",
+    alt: "Rebel Carmagnola - Percorso laser impostato con continuita in inverno",
+  },
+  {
+    src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/7dc5354b-33e1-4a9e-a21d-ff321ecf4500/public",
+    alt: "Rebel Carmagnola - Pulizia viso professionale",
+  },
+  {
+    src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/36432583-2164-4715-5276-befc4368bd00/public",
+    alt: "Rebel Carmagnola - Gestione peli incarniti e comfort della pelle",
+  },
+  {
+    src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/2f7921c2-f3d2-482b-eb26-4ae779f3fd00/public",
+    alt: "Rebel Carmagnola - Massaggio linfodrenante",
+  },
+  {
+    src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/ba59e49d-5727-4c34-4b78-5ed055fb6f00/public",
+    alt: "Rebel Carmagnola - Pressoterapia in cabina",
+  },
+  {
+    src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/a25446d3-35ce-4a03-1111-2196f55d6900/public",
+    alt: "Rebel Carmagnola - Pedicure professionale",
+  },
+];
+
 
 

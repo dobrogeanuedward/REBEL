@@ -16,6 +16,7 @@ export const metadata: Metadata = createPageMetadata({
   description:
     "Approfondimenti e articoli editoriali Rebel sulle principali competenze estetiche a Carmagnola: estetica avanzata, trattamenti viso/corpo, laser e beauty routine professionale.",
   path: "/competenze",
+  image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/ca27abea-0dc0-4891-39de-6ccf6608c400/public",
   keywords: [
     "competenze centro estetico Carmagnola",
     "estetica avanzata Carmagnola",
@@ -132,6 +133,17 @@ export default function CompetenzeHubPage() {
             <div className="grid grid-2" style={{ marginTop: "1rem" }}>
               {featuredGuides.map((item) => (
                 <Link key={item.slug} href={`/competenze/${item.slug}`} className="card glow-card">
+                  {item.heroImage ? (
+                    <div className="editorial-cover" style={{ marginBottom: "0.75rem" }}>
+                      <Image
+                        src={item.heroImage.src}
+                        alt={item.heroImage.alt}
+                        width={1200}
+                        height={675}
+                        style={{ width: "100%", height: "auto" }}
+                      />
+                    </div>
+                  ) : null}
                   <h3 style={{ marginTop: 0 }}>{compactTitle(item.title)}</h3>
                   <p className="lead" style={{ marginTop: 0 }}>
                     {item.shortDescription}
@@ -152,6 +164,17 @@ export default function CompetenzeHubPage() {
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             {competencePages.map((item) => (
               <Link key={item.slug} href={`/competenze/${item.slug}`} className="card-light">
+                {item.heroImage ? (
+                  <div className="editorial-cover" style={{ marginBottom: "0.7rem" }}>
+                    <Image
+                      src={item.heroImage.src}
+                      alt={item.heroImage.alt}
+                      width={1200}
+                      height={675}
+                      style={{ width: "100%", height: "auto" }}
+                    />
+                  </div>
+                ) : null}
                 <h3 style={{ marginTop: 0 }}>{item.title}</h3>
                 <p
                   style={{

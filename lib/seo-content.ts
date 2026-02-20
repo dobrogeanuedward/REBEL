@@ -1,5 +1,17 @@
 import { protocolPages } from "@/lib/protocol-pages";
 
+export const editorialImageAssets = {
+  pedicure: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/a25446d3-35ce-4a03-1111-2196f55d6900/public",
+  linfodrenante: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/2f7921c2-f3d2-482b-eb26-4ae779f3fd00/public",
+  laserInverno: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/2b9d922f-bd03-4b99-3e66-e868fcf15b00/public",
+  pressoterapia: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/ba59e49d-5727-4c34-4b78-5ed055fb6f00/public",
+  peliIncarniti: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/36432583-2164-4715-5276-befc4368bd00/public",
+  puliziaViso: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/7dc5354b-33e1-4a9e-a21d-ff321ecf4500/public",
+  laserViso: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/ca27abea-0dc0-4891-39de-6ccf6608c400/public",
+  laserCorpo: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/fa3dd7a8-be13-478b-ef90-02ff30dc1d00/public",
+  laserEstate: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/d3b7108e-12c1-4ae2-0bc1-63f7d5723e00/public",
+} as const;
+
 export type ServicePage = {
   slug: string;
   name: string;
@@ -21,6 +33,10 @@ export type ServicePage = {
     label: string;
     url: string;
   }>;
+  heroImage?: {
+    src: string;
+    alt: string;
+  };
 };
 
 export type CompetencePage = {
@@ -92,6 +108,10 @@ export const servicePages: ServicePage[] = [
       "pulizia viso pelle sensibile Carmagnola",
       "estetista viso Carmagnola",
     ],
+    heroImage: {
+      src: editorialImageAssets.puliziaViso,
+      alt: "Pulizia viso professionale in cabina Rebel a Carmagnola",
+    },
     relatedCompetenceSlugs: [
       "pulizia-viso-carmagnola-frequenza-benefici",
       "trattamenti-viso-carmagnola",
@@ -269,6 +289,10 @@ export const servicePages: ServicePage[] = [
       "trattamento drenante Carmagnola",
       "gambe gonfie Carmagnola",
     ],
+    heroImage: {
+      src: editorialImageAssets.linfodrenante,
+      alt: "Massaggio linfodrenante professionale Rebel a Carmagnola",
+    },
     relatedCompetenceSlugs: [
       "drenaggio-corpo-carmagnola",
       "trattamenti-corpo-carmagnola",
@@ -606,6 +630,10 @@ export const servicePages: ServicePage[] = [
       "talloni secchi Carmagnola",
       "piedi curati Carmagnola",
     ],
+    heroImage: {
+      src: editorialImageAssets.pedicure,
+      alt: "Pedicure professionale Rebel con finish naturale a Carmagnola",
+    },
     relatedCompetenceSlugs: [
       "come-scegliere-centro-estetico-carmagnola",
       "beauty-routine-carmagnola",
@@ -676,6 +704,10 @@ export const servicePages: ServicePage[] = [
       "cura piedi Carmagnola",
       "piedi curati Carmagnola",
     ],
+    heroImage: {
+      src: editorialImageAssets.pedicure,
+      alt: "Pedicure estetico Rebel a Carmagnola",
+    },
     relatedCompetenceSlugs: [
       "pedicure-carmagnola-ogni-quanto-talloni",
       "beauty-routine-carmagnola",
@@ -715,6 +747,10 @@ export const servicePages: ServicePage[] = [
       "pedicure Carmagnola",
       "piedi curati Carmagnola",
     ],
+    heroImage: {
+      src: editorialImageAssets.pedicure,
+      alt: "Pedicure con smalto naturale Rebel a Carmagnola",
+    },
     relatedCompetenceSlugs: [
       "pedicure-carmagnola-ogni-quanto-talloni",
       "beauty-routine-carmagnola",
@@ -753,6 +789,10 @@ export const servicePages: ServicePage[] = [
       "semipermanente piedi Carmagnola",
       "pedicure Carmagnola",
     ],
+    heroImage: {
+      src: editorialImageAssets.pedicure,
+      alt: "Pedicure semipermanente Rebel a Carmagnola",
+    },
     relatedCompetenceSlugs: [
       "manicure-semipermanente-carmagnola-durata-rimozione",
       "pedicure-carmagnola-ogni-quanto-talloni",
@@ -798,6 +838,10 @@ export const servicePages: ServicePage[] = [
       "taglio unghie Carmagnola",
       "cura piedi Carmagnola",
     ],
+    heroImage: {
+      src: editorialImageAssets.pedicure,
+      alt: "Taglio unghie piedi professionale Rebel a Carmagnola",
+    },
     relatedCompetenceSlugs: ["pedicure-carmagnola-ogni-quanto-talloni", "beauty-routine-carmagnola"],
   },
   {
@@ -840,6 +884,10 @@ export const servicePages: ServicePage[] = [
       "epilazione mento Carmagnola",
       "laser basette Carmagnola",
     ],
+    heroImage: {
+      src: editorialImageAssets.laserViso,
+      alt: "Epilazione laser viso in cabina Rebel a Carmagnola",
+    },
     relatedCompetenceSlugs: [
       "epilazione-laser-carmagnola",
       "laser-diodo-carmagnola",
@@ -937,6 +985,10 @@ export const servicePages: ServicePage[] = [
       "epilazione laser inguine Carmagnola",
       "epilazione laser gambe Carmagnola",
     ],
+    heroImage: {
+      src: editorialImageAssets.laserCorpo,
+      alt: "Epilazione laser corpo in cabina Rebel a Carmagnola",
+    },
     relatedCompetenceSlugs: [
       "epilazione-laser-carmagnola",
       "laser-diodo-carmagnola",
@@ -1037,6 +1089,10 @@ export const servicePages: ServicePage[] = [
       "laser zigomi uomo Carmagnola",
       "laser viso uomo Carmagnola",
     ],
+    heroImage: {
+      src: editorialImageAssets.laserViso,
+      alt: "Epilazione laser viso uomo Rebel a Carmagnola",
+    },
     relatedCompetenceSlugs: [
       "laser-uomo-carmagnola-guida-pratica",
       "laser-barba-collo-carmagnola-guida-pratica",
@@ -1118,6 +1174,10 @@ export const servicePages: ServicePage[] = [
       "laser uomo Carmagnola",
       "laser spalle Carmagnola",
     ],
+    heroImage: {
+      src: editorialImageAssets.laserCorpo,
+      alt: "Epilazione laser corpo uomo Rebel a Carmagnola",
+    },
     relatedCompetenceSlugs: [
       "laser-uomo-carmagnola-guida-pratica",
       "laser-schiena-carmagnola-guida-pratica",
@@ -2139,7 +2199,7 @@ export const competencePages: CompetencePage[] = [
       "laser-uomo-carmagnola-guida-pratica",
     ],
     heroImage: {
-      src: "/editoriali/placeholder-editoriale.svg",
+      src: editorialImageAssets.laserViso,
       alt: "Laser viso: estetista in cabina, focus su zone delicate (baffetti/mento), atmosfera pulita e rassicurante.",
     },
     editorialSections: [
@@ -2251,7 +2311,7 @@ export const competencePages: CompetencePage[] = [
       "epilazione-laser-ascelle-carmagnola-guida-pratica",
     ],
     heroImage: {
-      src: "/editoriali/placeholder-editoriale.svg",
+      src: editorialImageAssets.laserCorpo,
       alt: "Laser corpo: manipolo e cabina, concetto di progressione zona per zona e calendario sedute ordinato.",
     },
     editorialSections: [
@@ -2875,7 +2935,7 @@ export const competencePages: CompetencePage[] = [
       "epilazione-laser-ascelle-carmagnola-guida-pratica",
     ],
     heroImage: {
-      src: "/editoriali/placeholder-editoriale.svg",
+      src: editorialImageAssets.laserEstate,
       alt: "Laser e sole: agenda/calendario, SPF e luce estiva, concetto di gestione stagionalità senza ansia.",
     },
     editorialSections: [
@@ -2982,7 +3042,7 @@ export const competencePages: CompetencePage[] = [
       "peli-incarniti-laser-carmagnola",
     ],
     heroImage: {
-      src: "/editoriali/placeholder-editoriale.svg",
+      src: editorialImageAssets.laserInverno,
       alt: "Laser in inverno: calendario sedute, luce invernale morbida, concetto di costanza e continuità.",
     },
     editorialSections: [
@@ -3177,7 +3237,7 @@ export const competencePages: CompetencePage[] = [
       "scrub-corpo-carmagnola",
     ],
     heroImage: {
-      src: "/editoriali/placeholder-editoriale.svg",
+      src: editorialImageAssets.peliIncarniti,
       alt: "Peli incarniti e comfort: pelle più uniforme, texture naturale, focus su ricrescita più gestibile (gambe/inguine).",
     },
     editorialSections: [
@@ -3931,7 +3991,7 @@ export const competencePages: CompetencePage[] = [
       "estetica-avanzata-carmagnola",
     ],
     heroImage: {
-      src: "/editoriali/placeholder-editoriale.svg",
+      src: editorialImageAssets.puliziaViso,
       alt: "Pulizia viso in cabina: manualità delicata, pelle luminosa, texture morbida, atmosfera rilassante.",
     },
     editorialSections: [
@@ -4041,7 +4101,7 @@ export const competencePages: CompetencePage[] = [
       "massaggio-rilassante-carmagnola-cervicale-stress",
     ],
     heroImage: {
-      src: "/editoriali/placeholder-editoriale.svg",
+      src: editorialImageAssets.linfodrenante,
       alt: "Massaggio linfodrenante: manualità su gambe, sensazione di leggerezza, luce calda e calma.",
     },
     editorialSections: [
@@ -4144,7 +4204,7 @@ export const competencePages: CompetencePage[] = [
       "beauty-routine-carmagnola",
     ],
     heroImage: {
-      src: "/editoriali/placeholder-editoriale.svg",
+      src: editorialImageAssets.pressoterapia,
       alt: "Pressoterapia: gambali e compressione ritmica, sensazione di leggerezza, atmosfera pulita e confortevole.",
     },
     editorialSections: [
@@ -4246,7 +4306,7 @@ export const competencePages: CompetencePage[] = [
       "scrub-corpo-carmagnola-quando-farlo",
     ],
     heroImage: {
-      src: "/editoriali/placeholder-editoriale.svg",
+      src: editorialImageAssets.pedicure,
       alt: "Pedicure: piedi ordinati, pelle più liscia, atmosfera pulita e rilassante in cabina.",
     },
     editorialSections: [
