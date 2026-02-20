@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
@@ -106,6 +107,15 @@ export default function EpilazioneLaserIcePolarCarmagnolaPage() {
         <div className="container split">
           <article className="card glow-card">
             <h2 style={{ marginTop: 0 }}>Ice Polar: cos&apos;è e cosa cambia durante la seduta</h2>
+            <div className="hero-visual" style={{ marginTop: "0.75rem", borderRadius: 14 }}>
+              <Image
+                src="https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/8d07afc2-b036-4eff-d34e-523a6c656d00/public"
+                alt="Comfort durante epilazione laser con Ice Polar a Carmagnola"
+                width={1600}
+                height={900}
+                style={{ width: "100%", height: "auto", borderRadius: 14 }}
+              />
+            </div>
             <p className="lead" style={{ marginTop: 0 }}>
               Ice Polar è un sistema di raffreddamento che rende la seduta più tollerabile. Non sostituisce il settaggio:
               è un aiuto in più, soprattutto quando la zona è delicata (ascelle, inguine) o quando sai già di essere
@@ -119,6 +129,15 @@ export default function EpilazioneLaserIcePolarCarmagnolaPage() {
 
           <aside className="card">
             <h2 style={{ marginTop: 0 }}>Da dove partire (se ti interessa il comfort)</h2>
+            <div className="hero-visual" style={{ marginTop: "0.75rem", borderRadius: 14 }}>
+              <Image
+                src="https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e3635dd7-e046-46af-56a5-cf36d8239c00/public"
+                alt="Percorso epilazione laser corpo con Ice Polar a Carmagnola"
+                width={1600}
+                height={900}
+                style={{ width: "100%", height: "auto", borderRadius: 14 }}
+              />
+            </div>
             <p className="lead" style={{ marginTop: 0 }}>
               Se vuoi andare dritta al punto, queste sono le pagine più utili: schede servizio e guide pratiche sulle
               zone più richieste.

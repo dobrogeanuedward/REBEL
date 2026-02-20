@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
@@ -14,6 +15,7 @@ export const metadata: Metadata = createPageMetadata({
   description:
     "Epilazione laser a Carmagnola con tecnologia Thory e percorso personalizzato. Valutazione iniziale, protocollo su misura e supporto continuo da Rebel.",
   path: "/epilazione-laser-carmagnola",
+  image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e3635dd7-e046-46af-56a5-cf36d8239c00/public",
   openGraphType: "article",
   keywords: [
     "epilazione laser Carmagnola",
@@ -117,6 +119,15 @@ export default function EpilazioneLaserCarmagnolaPage() {
         <div className="container grid grid-2">
           <article className="card glow-card">
             <h2 style={{ marginTop: 0 }}>Perché scegliere Rebel per il laser a Carmagnola</h2>
+            <div className="hero-visual" style={{ marginTop: "0.75rem", borderRadius: 14 }}>
+              <Image
+                src="https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e3635dd7-e046-46af-56a5-cf36d8239c00/public"
+                alt="Epilazione laser corpo in cabina Rebel a Carmagnola"
+                width={1600}
+                height={900}
+                style={{ width: "100%", height: "auto", borderRadius: 14 }}
+              />
+            </div>
             <ul className="list-clean">
               <li>- valutazione iniziale chiara, prima di iniziare il ciclo</li>
               <li>- parametri calibrati su zona e risposta della pelle</li>
@@ -140,6 +151,15 @@ export default function EpilazioneLaserCarmagnolaPage() {
 
           <aside className="card">
             <h2 style={{ marginTop: 0 }}>Viso e corpo: schede rapide</h2>
+            <div className="hero-visual" style={{ marginTop: "0.75rem", borderRadius: 14 }}>
+              <Image
+                src="https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/8d07afc2-b036-4eff-d34e-523a6c656d00/public"
+                alt="Epilazione laser viso in cabina Rebel a Carmagnola"
+                width={1600}
+                height={900}
+                style={{ width: "100%", height: "auto", borderRadius: 14 }}
+              />
+            </div>
             <p className="lead" style={{ marginTop: 0 }}>
               Se vuoi vedere subito i dettagli per area, puoi partire da queste due pagine:
             </p>
@@ -183,6 +203,36 @@ export default function EpilazioneLaserCarmagnolaPage() {
             intense), gambe (zona ampia), gestione sole/stagionalità e due temi super pratici: inverno e palestra.
           </p>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
+            <article className="card-light">
+              <div className="hero-visual" style={{ borderRadius: 14 }}>
+                <Image
+                  src="https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/02c98ad7-1a83-4d09-0d43-9b3b2184ac00/public"
+                  alt="Laser e gestione estate a Carmagnola"
+                  width={1600}
+                  height={900}
+                  style={{ width: "100%", height: "auto", borderRadius: 14 }}
+                />
+              </div>
+              <h3 style={{ marginTop: "0.65rem" }}>Laser in estate: organizzazione e buon senso</h3>
+              <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.78)" }}>
+                Il percorso resta sostenibile quando calendario e sole vengono gestiti in modo pratico.
+              </p>
+            </article>
+            <article className="card-light">
+              <div className="hero-visual" style={{ borderRadius: 14 }}>
+                <Image
+                  src="https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/b01b968e-9ca9-4bd9-62eb-41cfea80bb00/public"
+                  alt="Laser in inverno con percorso continuativo a Carmagnola"
+                  width={1600}
+                  height={900}
+                  style={{ width: "100%", height: "auto", borderRadius: 14 }}
+                />
+              </div>
+              <h3 style={{ marginTop: "0.65rem" }}>Laser in inverno: costanza e progressione</h3>
+              <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.78)" }}>
+                Periodo ideale per avviare un ciclo ordinato e arrivare preparata ai mesi luminosi.
+              </p>
+            </article>
             <Link href="/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica" className="card-light">
               <h3 style={{ marginTop: 0 }}>Laser ascelle: guida pratica</h3>
               <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.78)" }}>

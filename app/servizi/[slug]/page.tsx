@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { EditorialSection } from "@/components/editorial-section";
@@ -251,6 +252,17 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           <article id="benefici" className="card glow-card">
             <p className="eyebrow">Cosa puoi notare</p>
             <h2 style={{ marginTop: "0.45rem" }}>Benefici di {service.name}</h2>
+            {service.heroImage ? (
+              <div className="editorial-cover" style={{ marginTop: "0.7rem" }}>
+                <Image
+                  src={service.heroImage.src}
+                  alt={service.heroImage.alt}
+                  width={1600}
+                  height={900}
+                  style={{ width: "100%", height: "auto" }}
+                />
+              </div>
+            ) : null}
             <p className="lead" style={{ marginTop: "0.6rem" }}>
               {service.shortDescription}
             </p>
