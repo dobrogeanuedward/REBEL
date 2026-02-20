@@ -16,7 +16,7 @@ export const metadata: Metadata = createPageMetadata({
   description:
     "Approfondimenti e articoli editoriali Rebel sulle principali competenze estetiche a Carmagnola: estetica avanzata, trattamenti viso/corpo, laser e beauty routine professionale.",
   path: "/competenze",
-  image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/ca27abea-0dc0-4891-39de-6ccf6608c400/public",
+  image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/8d07afc2-b036-4eff-d34e-523a6c656d00/public",
   keywords: [
     "competenze centro estetico Carmagnola",
     "estetica avanzata Carmagnola",

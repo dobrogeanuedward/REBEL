@@ -18,7 +18,7 @@ export const metadata: Metadata = createPageMetadata({
   description:
     "Tutti i servizi Rebel a Carmagnola: trattamenti viso e corpo, manicure, pedicure, laminazione, massaggi ed epilazione laser a Carmagnola con percorsi personalizzati.",
   path: "/servizi",
-  image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/fa3dd7a8-be13-478b-ef90-02ff30dc1d00/public",
+  image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e3635dd7-e046-46af-56a5-cf36d8239c00/public",
   keywords: [
     "servizi centro estetico Carmagnola",
     "trattamenti estetici Carmagnola",

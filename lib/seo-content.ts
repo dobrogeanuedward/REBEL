@@ -1,15 +1,19 @@
 import { protocolPages } from "@/lib/protocol-pages";
 
 export const editorialImageAssets = {
-  pedicure: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/a25446d3-35ce-4a03-1111-2196f55d6900/public",
-  linfodrenante: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/2f7921c2-f3d2-482b-eb26-4ae779f3fd00/public",
-  laserInverno: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/2b9d922f-bd03-4b99-3e66-e868fcf15b00/public",
+  pedicure: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/0d01138f-a507-4cb2-4c48-a70aa8b5ad00/public",
+  linfodrenante: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/965f95e4-c556-424d-abca-77a5c7b1ae00/public",
+  laserInverno: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/b01b968e-9ca9-4bd9-62eb-41cfea80bb00/public",
   pressoterapia: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/ba59e49d-5727-4c34-4b78-5ed055fb6f00/public",
-  peliIncarniti: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/36432583-2164-4715-5276-befc4368bd00/public",
+  peliIncarniti: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/b0f43f31-21d2-4834-4ddc-36a50a511200/public",
   puliziaViso: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/7dc5354b-33e1-4a9e-a21d-ff321ecf4500/public",
-  laserViso: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/ca27abea-0dc0-4891-39de-6ccf6608c400/public",
-  laserCorpo: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/fa3dd7a8-be13-478b-ef90-02ff30dc1d00/public",
-  laserEstate: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/d3b7108e-12c1-4ae2-0bc1-63f7d5723e00/public",
+  laserViso: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/8d07afc2-b036-4eff-d34e-523a6c656d00/public",
+  laserCorpo: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e3635dd7-e046-46af-56a5-cf36d8239c00/public",
+  laserEstate: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/02c98ad7-1a83-4d09-0d43-9b3b2184ac00/public",
+  scrubCorpo: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/9d9033f2-f11f-4485-f69c-38d05556bb00/public",
+  manicureSemipermanente: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e63a6c84-f777-4f2d-995b-eef9c7e09900/public",
+  laminazione: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/5ed3dbec-4e69-449d-548c-d9d28b4fb100/public",
+  massaggioRilassante: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/965f95e4-c556-424d-abca-77a5c7b1ae00/public",
 } as const;
 
 export type ServicePage = {
@@ -201,6 +205,10 @@ export const servicePages: ServicePage[] = [
       "esfoliazione corpo Carmagnola",
       "trattamento corpo levigante Carmagnola",
     ],
+    heroImage: {
+      src: editorialImageAssets.scrubCorpo,
+      alt: "Scrub corpo professionale Rebel a Carmagnola",
+    },
     relatedCompetenceSlugs: [
       "trattamenti-corpo-carmagnola",
       "beauty-routine-carmagnola",
@@ -379,6 +387,10 @@ export const servicePages: ServicePage[] = [
       "massaggio cervicale Carmagnola",
       "massaggio distensivo Carmagnola",
     ],
+    heroImage: {
+      src: editorialImageAssets.massaggioRilassante,
+      alt: "Massaggio rilassante professionale Rebel a Carmagnola",
+    },
     relatedCompetenceSlugs: [
       "trattamenti-corpo-carmagnola",
       "beauty-routine-carmagnola",
@@ -458,6 +470,10 @@ export const servicePages: ServicePage[] = [
       "sopracciglia ordinate Carmagnola",
       "trattamento sguardo Carmagnola",
     ],
+    heroImage: {
+      src: editorialImageAssets.laminazione,
+      alt: "Laminazione ciglia e sopracciglia Rebel a Carmagnola",
+    },
     relatedCompetenceSlugs: [
       "trattamenti-viso-carmagnola",
       "beauty-routine-carmagnola",
@@ -531,6 +547,10 @@ export const servicePages: ServicePage[] = [
       "manicure Carmagnola",
       "semipermanente naturale Carmagnola",
     ],
+    heroImage: {
+      src: editorialImageAssets.manicureSemipermanente,
+      alt: "Manicure semipermanente Rebel a Carmagnola",
+    },
     relatedCompetenceSlugs: [
       "come-scegliere-centro-estetico-carmagnola",
       "beauty-routine-carmagnola",
