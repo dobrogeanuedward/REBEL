@@ -8,6 +8,7 @@ import {
   buildServiceSchema,
   createPageMetadata,
 } from "@/lib/seo";
+import { getCompetenceBySlug } from "@/lib/seo-content";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = createPageMetadata({
@@ -99,6 +100,57 @@ export default function EpilazioneLaserCarmagnolaPage() {
       },
     },
   };
+
+  const laserGuideHighlights = [
+    {
+      slug: "epilazione-laser-estate-sole-carmagnola",
+      href: "/competenze/epilazione-laser-estate-sole-carmagnola",
+      title: "Laser in estate: organizzazione e buon senso",
+      description: "Il percorso resta sostenibile quando calendario e sole vengono gestiti in modo pratico.",
+    },
+    {
+      slug: "epilazione-laser-inverno-carmagnola",
+      href: "/competenze/epilazione-laser-inverno-carmagnola",
+      title: "Laser in inverno: costanza e progressione",
+      description: "Periodo ideale per avviare un ciclo ordinato e arrivare preparata ai mesi luminosi.",
+    },
+    {
+      slug: "epilazione-laser-ascelle-carmagnola-guida-pratica",
+      href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
+      title: "Laser ascelle: guida pratica",
+      description: "Comfort, tempi e gestione tra una seduta e la successiva (senza ansia).",
+    },
+    {
+      slug: "epilazione-laser-inguine-carmagnola-guida-pratica",
+      href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
+      title: "Laser inguine: guida pratica",
+      description: "Regole semplici per una zona delicata e aspettative realistiche.",
+    },
+    {
+      slug: "laser-gambe-carmagnola-guida-pratica",
+      href: "/competenze/laser-gambe-carmagnola-guida-pratica",
+      title: "Laser gambe: guida pratica",
+      description: "Strategia, stagionalità e mantenimento quando la priorità sono le gambe.",
+    },
+    {
+      slug: "epilazione-laser-estate-sole-carmagnola",
+      href: "/competenze/epilazione-laser-estate-sole-carmagnola",
+      title: "Laser e sole: cosa sapere davvero",
+      description: "Come organizzare calendario e esposizione senza bloccarti.",
+    },
+    {
+      slug: "epilazione-laser-inverno-carmagnola",
+      href: "/competenze/epilazione-laser-inverno-carmagnola",
+      title: "Laser in inverno: perché conviene",
+      description: "Un periodo perfetto per essere costanti e arrivare ai mesi luminosi con un percorso già avviato.",
+    },
+    {
+      slug: "laser-e-palestra-sport-carmagnola",
+      href: "/competenze/laser-e-palestra-sport-carmagnola",
+      title: "Laser e palestra: guida pratica",
+      description: "Sport, doccia, calore e tessuti: cosa fare nelle prime 24-48 ore senza paranoie.",
+    },
+  ] as const;
 
   return (
     <main className="page-shell page-laser-local">
@@ -203,72 +255,30 @@ export default function EpilazioneLaserCarmagnolaPage() {
             intense), gambe (zona ampia), gestione sole/stagionalità e due temi super pratici: inverno e palestra.
           </p>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
-            <article className="card-light">
-              <div className="hero-visual" style={{ borderRadius: 14 }}>
-                <Image
-                  src="https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/02c98ad7-1a83-4d09-0d43-9b3b2184ac00/public"
-                  alt="Laser e gestione estate a Carmagnola"
-                  width={1600}
-                  height={900}
-                  style={{ width: "100%", height: "auto", borderRadius: 14 }}
-                />
-              </div>
-              <h3 style={{ marginTop: "0.65rem" }}>Laser in estate: organizzazione e buon senso</h3>
-              <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.78)" }}>
-                Il percorso resta sostenibile quando calendario e sole vengono gestiti in modo pratico.
-              </p>
-            </article>
-            <article className="card-light">
-              <div className="hero-visual" style={{ borderRadius: 14 }}>
-                <Image
-                  src="https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/b01b968e-9ca9-4bd9-62eb-41cfea80bb00/public"
-                  alt="Laser in inverno con percorso continuativo a Carmagnola"
-                  width={1600}
-                  height={900}
-                  style={{ width: "100%", height: "auto", borderRadius: 14 }}
-                />
-              </div>
-              <h3 style={{ marginTop: "0.65rem" }}>Laser in inverno: costanza e progressione</h3>
-              <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.78)" }}>
-                Periodo ideale per avviare un ciclo ordinato e arrivare preparata ai mesi luminosi.
-              </p>
-            </article>
-            <Link href="/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica" className="card-light">
-              <h3 style={{ marginTop: 0 }}>Laser ascelle: guida pratica</h3>
-              <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.78)" }}>
-                Comfort, tempi e gestione tra una seduta e la successiva (senza ansia).
-              </p>
-            </Link>
-            <Link href="/competenze/epilazione-laser-inguine-carmagnola-guida-pratica" className="card-light">
-              <h3 style={{ marginTop: 0 }}>Laser inguine: guida pratica</h3>
-              <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.78)" }}>
-                Regole semplici per una zona delicata e aspettative realistiche.
-              </p>
-            </Link>
-            <Link href="/competenze/laser-gambe-carmagnola-guida-pratica" className="card-light">
-              <h3 style={{ marginTop: 0 }}>Laser gambe: guida pratica</h3>
-              <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.78)" }}>
-                Strategia, stagionalità e mantenimento quando la priorità sono le gambe.
-              </p>
-            </Link>
-            <Link href="/competenze/epilazione-laser-estate-sole-carmagnola" className="card-light">
-              <h3 style={{ marginTop: 0 }}>Laser e sole: cosa sapere davvero</h3>
-              <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.78)" }}>
-                Come organizzare calendario e esposizione senza bloccarti.
-              </p>
-            </Link>
-            <Link href="/competenze/epilazione-laser-inverno-carmagnola" className="card-light">
-              <h3 style={{ marginTop: 0 }}>Laser in inverno: perché conviene</h3>
-              <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.78)" }}>
-                Un periodo perfetto per essere costanti e arrivare ai mesi luminosi con un percorso già avviato.
-              </p>
-            </Link>
-            <Link href="/competenze/laser-e-palestra-sport-carmagnola" className="card-light">
-              <h3 style={{ marginTop: 0 }}>Laser e palestra: guida pratica</h3>
-              <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.78)" }}>
-                Sport, doccia, calore e tessuti: cosa fare nelle prime 24-48 ore senza paranoie.
-              </p>
-            </Link>
+            {laserGuideHighlights.map((item) => {
+              const guide = getCompetenceBySlug(item.slug);
+              const guideHero = guide?.heroImage;
+
+              return (
+                <Link key={`${item.slug}-${item.title}`} href={item.href} className="card-light">
+                  {guideHero ? (
+                    <div className="hero-visual" style={{ borderRadius: 14 }}>
+                      <Image
+                        src={guideHero.src}
+                        alt={guideHero.alt}
+                        width={1600}
+                        height={900}
+                        style={{ width: "100%", height: "auto", borderRadius: 14 }}
+                      />
+                    </div>
+                  ) : null}
+                  <h3 style={{ marginTop: guideHero ? "0.65rem" : 0 }}>{item.title}</h3>
+                  <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.78)" }}>
+                    {item.description}
+                  </p>
+                </Link>
+              );
+            })}
           </div>
           <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
             <Link className="button button-primary" href="/contatti">
