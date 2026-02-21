@@ -7,7 +7,7 @@ export const siteConfig = {
   lastUpdated: "2026-02-21",
   description:
     "Centro estetico avanzato a Carmagnola specializzato in estetica epigenetica, protocolli viso/corpo ed epilazione laser a Carmagnola con percorsi Rebel.",
-  siteUrl: "https://rebelepigenetica.it",
+  siteUrl: "https://www.rebelepigenetica.it",
   assets: {
     logoLight:
       "https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769422/rebel-logo-light_fvlqgi.webp",
