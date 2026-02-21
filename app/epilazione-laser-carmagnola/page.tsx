@@ -30,6 +30,17 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default function EpilazioneLaserCarmagnolaPage() {
+  type LaserGuideHighlight = {
+    slug: string;
+    href: string;
+    title: string;
+    description: string;
+    image?: {
+      src: string;
+      alt: string;
+    };
+  };
+
   const breadcrumb = buildBreadcrumbSchema([
     { name: "Home", path: "/" },
     { name: "Epilazione laser Carmagnola", path: "/epilazione-laser-carmagnola" },
@@ -101,7 +112,7 @@ export default function EpilazioneLaserCarmagnolaPage() {
     },
   };
 
-  const laserGuideHighlights = [
+  const laserGuideHighlights: LaserGuideHighlight[] = [
     {
       slug: "epilazione-laser-estate-sole-carmagnola",
       href: "/competenze/epilazione-laser-estate-sole-carmagnola",
@@ -158,7 +169,7 @@ export default function EpilazioneLaserCarmagnolaPage() {
       title: "Laser e palestra: guida pratica",
       description: "Sport, doccia, calore e tessuti: cosa fare nelle prime 24-48 ore senza paranoie.",
     },
-  ] as const;
+  ];
 
   return (
     <main className="page-shell page-laser-local">

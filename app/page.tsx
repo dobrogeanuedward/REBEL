@@ -3,7 +3,7 @@ import Image from "next/image";
 import { InstagramFeed } from "@/components/instagram-feed";
 import { JsonLd } from "@/components/json-ld";
 import { HeroPhotoSlider } from "@/components/hero-photo-slider";
-import { homeHeroImages, storeGalleryImages } from "@/lib/content";
+import { homeHeroImages } from "@/lib/content";
 import { localAreaPages } from "@/lib/local-pages";
 import { buildItemListSchema, buildWebPageSchema, createPageMetadata } from "@/lib/seo";
 import { competencePages, servicePages } from "@/lib/seo-content";
