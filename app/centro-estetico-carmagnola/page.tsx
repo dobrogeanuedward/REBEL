@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
@@ -9,7 +10,7 @@ import {
   buildWebPageSchema,
   createPageMetadata,
 } from "@/lib/seo";
-import { servicePages } from "@/lib/seo-content";
+import { editorialImageAssets, servicePages } from "@/lib/seo-content";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Centro Estetico a Carmagnola | Rebel Estetica Epigenetica",
@@ -40,14 +41,78 @@ export default function CentroEsteticoCarmagnolaPage() {
   });
 
   const queryTargets = [
-    { label: "Pedicure a Carmagnola", href: "/servizi/pedicure-carmagnola" },
-    { label: "Scrub corpo a Carmagnola", href: "/servizi/scrub-corpo-carmagnola" },
-    { label: "Epilazione laser a Carmagnola", href: "/epilazione-laser-carmagnola" },
-    { label: "Manicure semipermanente a Carmagnola", href: "/servizi/manicure-semipermanente-carmagnola" },
-    { label: "Laminazione ciglia a Carmagnola", href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola" },
-    { label: "Pulizia viso a Carmagnola", href: "/servizi/pulizia-viso-carmagnola" },
-    { label: "Massaggio rilassante a Carmagnola", href: "/servizi/massaggio-rilassante-carmagnola" },
-    { label: "Linfodrenante a Carmagnola", href: "/servizi/massaggio-linfodrenante-carmagnola" },
+    {
+      label: "Pedicure a Carmagnola",
+      href: "/servizi/pedicure-carmagnola",
+      description: "Se vuoi piedi ordinati e più comodi nella vita di tutti i giorni, qui trovi la scheda completa.",
+      image: {
+        src: editorialImageAssets.pedicure,
+        alt: "Pedicure professionale in studio a Carmagnola",
+      },
+    },
+    {
+      label: "Scrub corpo a Carmagnola",
+      href: "/servizi/scrub-corpo-carmagnola",
+      description: "Una soluzione pratica se senti la pelle ruvida o spenta e vuoi un risultato pulito, senza eccessi.",
+      image: {
+        src: editorialImageAssets.scrubCorpo,
+        alt: "Scrub corpo professionale Rebel a Carmagnola",
+      },
+    },
+    {
+      label: "Epilazione laser a Carmagnola",
+      href: "/epilazione-laser-carmagnola",
+      description: "Guida principale per capire zone, tempi e gestione reale del percorso laser.",
+      image: {
+        src: editorialImageAssets.laserCorpo,
+        alt: "Epilazione laser corpo in cabina a Carmagnola",
+      },
+    },
+    {
+      label: "Manicure semipermanente a Carmagnola",
+      href: "/servizi/manicure-semipermanente-carmagnola",
+      description: "Ideale se cerchi mani curate e un effetto ordinato che resta bello anche da vicino.",
+      image: {
+        src: editorialImageAssets.manicureSemipermanente,
+        alt: "Manicure semipermanente con finish naturale",
+      },
+    },
+    {
+      label: "Laminazione ciglia a Carmagnola",
+      href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola",
+      description: "Per uno sguardo più definito ma naturale, senza stravolgere la tua base.",
+      image: {
+        src: editorialImageAssets.laminazione,
+        alt: "Laminazione ciglia e sopracciglia a Carmagnola",
+      },
+    },
+    {
+      label: "Pulizia viso a Carmagnola",
+      href: "/servizi/pulizia-viso-carmagnola",
+      description: "Una buona partenza quando vuoi rimettere ordine alla pelle e capire come mantenerla bene.",
+      image: {
+        src: editorialImageAssets.puliziaViso,
+        alt: "Pulizia viso professionale in cabina Rebel",
+      },
+    },
+    {
+      label: "Massaggio rilassante a Carmagnola",
+      href: "/servizi/massaggio-rilassante-carmagnola",
+      description: "Perfetto quando senti schiena e spalle sempre in tensione e vuoi staccare davvero.",
+      image: {
+        src: editorialImageAssets.massaggioRilassante,
+        alt: "Massaggio rilassante professionale a Carmagnola",
+      },
+    },
+    {
+      label: "Linfodrenante a Carmagnola",
+      href: "/servizi/massaggio-linfodrenante-carmagnola",
+      description: "Se senti gonfiore o pesantezza, qui trovi un approccio progressivo e realistico.",
+      image: {
+        src: editorialImageAssets.linfodrenante,
+        alt: "Massaggio linfodrenante professionale in studio",
+      },
+    },
   ] as const;
 
   const querySchema = buildItemListSchema({
@@ -111,9 +176,9 @@ export default function CentroEsteticoCarmagnolaPage() {
       <JsonLd data={querySchema} />
       <JsonLd data={faqSchema} />
       <PageHero
-        eyebrow="Head term locale"
-        title="Centro estetico a Carmagnola: percorsi chiari, prezzi leggibili, risultati progressivi."
-        lead="Se stai cercando un centro estetico a Carmagnola, qui trovi i trattamenti più richiesti, le pagine prezzi e i percorsi laser/viso/corpo per partire senza confusione."
+        eyebrow="Centro estetico a Carmagnola"
+        title="Cerchi un centro estetico a Carmagnola? Ti aiutiamo a capire da dove partire."
+        lead="Se vuoi orientarti in fretta, qui trovi i trattamenti che ci chiedono più spesso in studio: laser, pedicure, scrub corpo, viso e benessere. Ogni scheda è chiara e concreta."
         badge="Carmagnola - Viale Barbaroux 20"
         tone="emerald"
       >
@@ -133,17 +198,26 @@ export default function CentroEsteticoCarmagnolaPage() {
       <section className="section section-light">
         <div className="container">
           <p className="eyebrow" style={{ color: "rgba(39,31,56,0.68)" }}>
-            Ricerche frequenti
+            Da dove iniziare
           </p>
           <h2 className="page-title" style={{ marginTop: "0.6rem" }}>
-            Le query più cercate nel settore estetico a Carmagnola.
+            Le richieste che arrivano più spesso in studio.
           </h2>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             {queryTargets.map((item) => (
               <Link key={item.href} href={item.href} className="card-light">
+                <div className="editorial-cover" style={{ marginBottom: "0.7rem" }}>
+                  <Image
+                    src={item.image.src}
+                    alt={item.image.alt}
+                    width={1200}
+                    height={675}
+                    style={{ width: "100%", height: "auto" }}
+                  />
+                </div>
                 <h3 style={{ marginTop: 0 }}>{item.label}</h3>
                 <p className="lead" style={{ marginTop: "0.35rem", marginBottom: 0, color: "rgba(39,31,56,0.78)" }}>
-                  Apri la pagina dedicata con dettagli utili, FAQ e orientamento pratico.
+                  {item.description}
                 </p>
               </Link>
             ))}
@@ -153,13 +227,24 @@ export default function CentroEsteticoCarmagnolaPage() {
 
       <section className="section">
         <div className="container">
-          <h2 className="page-title">Servizi ad alta priorità locale</h2>
+          <h2 className="page-title">Servizi scelti spesso da chi ci scrive per la prima volta</h2>
           <p className="lead" style={{ maxWidth: "74ch" }}>
-            Queste sono le pagine che lavorano meglio sulle intenzioni commerciali: servizio + città + prezzo.
+            Se vuoi un primo passo semplice ma efficace, queste sono le pagine da aprire prima.
           </p>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             {keyServices.map((service) => (
               <Link key={service.slug} href={`/servizi/${service.slug}`} className="card">
+                {service.heroImage ? (
+                  <div className="editorial-cover" style={{ marginBottom: "0.75rem" }}>
+                    <Image
+                      src={service.heroImage.src}
+                      alt={service.heroImage.alt}
+                      width={1200}
+                      height={675}
+                      style={{ width: "100%", height: "auto" }}
+                    />
+                  </div>
+                ) : null}
                 <h3 style={{ marginTop: 0 }}>{service.name}</h3>
                 <p className="lead" style={{ marginTop: "0.35rem" }}>
                   {service.shortDescription}
@@ -173,9 +258,9 @@ export default function CentroEsteticoCarmagnolaPage() {
 
       <section className="section section-light">
         <div className="container">
-          <h2 className="page-title">Comuni vicini con forte traffico locale</h2>
+          <h2 className="page-title">Non sei di Carmagnola? Ecco le pagine per i comuni vicini</h2>
           <p className="lead" style={{ marginTop: "0.45rem", color: "rgba(39,31,56,0.78)", maxWidth: "74ch" }}>
-            Se non cerchi solo Carmagnola, abbiamo pagine dedicate anche per le zone limitrofe.
+            Così trovi subito info utili su distanza, percorso consigliato e primo step più sensato per la tua zona.
           </p>
           <div className="grid grid-3" style={{ marginTop: "1rem" }}>
             {featuredLocalAreas.map((area) => (
