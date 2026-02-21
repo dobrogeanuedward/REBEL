@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-config";
 
 export default function robots(): MetadataRoute.Robots {
+  const hostname = new URL(siteConfig.siteUrl).hostname;
   return {
     rules: [
       {
@@ -9,19 +10,9 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: ["/api/", "/api/*"],
       },
-      {
-        userAgent: "Googlebot",
-        allow: "/",
-        disallow: ["/api/", "/api/*"],
-      },
-      {
-        userAgent: "Bingbot",
-        allow: "/",
-        disallow: ["/api/", "/api/*"],
-      },
     ],
     sitemap: [`${siteConfig.siteUrl}/sitemap.xml`],
-    host: siteConfig.siteUrl,
+    host: hostname,
   };
 }
 

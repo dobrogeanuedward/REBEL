@@ -5,7 +5,7 @@ import { protocolPages } from "@/lib/protocol-pages";
 import { siteConfig } from "@/lib/site-config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date(siteConfig.lastUpdated);
+  const lastModified = new Date();
   const defaultImage = siteConfig.assets.ogImage;
   const createEntry = (
     path: string,

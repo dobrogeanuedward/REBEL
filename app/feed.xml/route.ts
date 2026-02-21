@@ -70,6 +70,7 @@ export async function GET() {
   return new Response(xml, {
     headers: {
       "content-type": "application/rss+xml; charset=utf-8",
+      "x-robots-tag": "noindex, follow",
       // Cache on the edge, but let it refresh regularly.
       "cache-control": "public, max-age=0, s-maxage=43200, stale-while-revalidate=86400",
     },

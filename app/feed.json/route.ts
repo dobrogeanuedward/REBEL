@@ -50,6 +50,7 @@ export async function GET() {
 
   return Response.json(feed, {
     headers: {
+      "x-robots-tag": "noindex, follow",
       "cache-control": "public, max-age=0, s-maxage=43200, stale-while-revalidate=86400",
     },
   });
