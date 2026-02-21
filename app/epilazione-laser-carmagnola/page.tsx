@@ -8,7 +8,7 @@ import {
   buildServiceSchema,
   createPageMetadata,
 } from "@/lib/seo";
-import { getCompetenceBySlug } from "@/lib/seo-content";
+import { editorialImageAssets, getCompetenceBySlug } from "@/lib/seo-content";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = createPageMetadata({
@@ -107,12 +107,20 @@ export default function EpilazioneLaserCarmagnolaPage() {
       href: "/competenze/epilazione-laser-estate-sole-carmagnola",
       title: "Laser in estate: organizzazione e buon senso",
       description: "Il percorso resta sostenibile quando calendario e sole vengono gestiti in modo pratico.",
+      image: {
+        src: editorialImageAssets.laserEstate,
+        alt: "Laser in estate: visual teaser su gestione stagionale e sole.",
+      },
     },
     {
       slug: "epilazione-laser-inverno-carmagnola",
       href: "/competenze/epilazione-laser-inverno-carmagnola",
       title: "Laser in inverno: costanza e progressione",
       description: "Periodo ideale per avviare un ciclo ordinato e arrivare preparata ai mesi luminosi.",
+      image: {
+        src: editorialImageAssets.laserInverno,
+        alt: "Laser in inverno: visual teaser su costanza e calendario.",
+      },
     },
     {
       slug: "epilazione-laser-ascelle-carmagnola-guida-pratica",
@@ -257,22 +265,22 @@ export default function EpilazioneLaserCarmagnolaPage() {
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             {laserGuideHighlights.map((item) => {
               const guide = getCompetenceBySlug(item.slug);
-              const guideHero = guide?.heroImage;
+              const cardHero = item.image ?? guide?.heroImage;
 
               return (
                 <Link key={`${item.slug}-${item.title}`} href={item.href} className="card-light">
-                  {guideHero ? (
+                  {cardHero ? (
                     <div className="hero-visual" style={{ borderRadius: 14 }}>
                       <Image
-                        src={guideHero.src}
-                        alt={guideHero.alt}
+                        src={cardHero.src}
+                        alt={cardHero.alt}
                         width={1600}
                         height={900}
                         style={{ width: "100%", height: "auto", borderRadius: 14 }}
                       />
                     </div>
                   ) : null}
-                  <h3 style={{ marginTop: guideHero ? "0.65rem" : 0 }}>{item.title}</h3>
+                  <h3 style={{ marginTop: cardHero ? "0.65rem" : 0 }}>{item.title}</h3>
                   <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.78)" }}>
                     {item.description}
                   </p>
@@ -299,12 +307,12 @@ export default function EpilazioneLaserCarmagnolaPage() {
 
       <section className="section">
         <div className="container">
-          <h2 className="page-title">Domande frequenti (quelle vere, prima di iniziare)</h2>
+          <h2 className="page-title">Domande frequenti (prima di iniziare)</h2>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             {faqs.map((faq) => (
               <article key={faq.q} className="card">
                 <h3 style={{ marginTop: 0 }}>{faq.q}</h3>
-                <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.78)" }}>
+                <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "var(--muted)" }}>
                   {faq.a}
                 </p>
               </article>
