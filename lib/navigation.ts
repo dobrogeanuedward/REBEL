@@ -1,6 +1,6 @@
 export const mainNavigation = [
   { href: "/", label: "Home" },
-  { href: "/centro-estetico-carmagnola", label: "Centro Carmagnola" },
+  { href: "/centro-estetico-carmagnola", label: "Centro" },
   { href: "/chi-siamo", label: "Chi siamo" },
   { href: "/metodo-rebel", label: "Metodo Rebel" },
   { href: "/epilazione-laser-carmagnola", label: "Laser Carmagnola" },
