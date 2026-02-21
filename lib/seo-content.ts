@@ -1,8 +1,8 @@
 import { protocolPages } from "@/lib/protocol-pages";
 
 export const editorialImageAssets = {
-  pedicure: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/0d01138f-a507-4cb2-4c48-a70aa8b5ad00/public",
-  linfodrenante: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/965f95e4-c556-424d-abca-77a5c7b1ae00/public",
+  pedicure: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/dd34e324-2953-4a98-18ee-ef36b7c59e00/public",
+  linfodrenante: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/0d01138f-a507-4cb2-4c48-a70aa8b5ad00/public",
   laserInverno: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/b01b968e-9ca9-4bd9-62eb-41cfea80bb00/public",
   pressoterapia: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/ba59e49d-5727-4c34-4b78-5ed055fb6f00/public",
   peliIncarniti: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/b0f43f31-21d2-4834-4ddc-36a50a511200/public",
@@ -10,6 +10,12 @@ export const editorialImageAssets = {
   laserViso: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/8d07afc2-b036-4eff-d34e-523a6c656d00/public",
   laserCorpo: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e3635dd7-e046-46af-56a5-cf36d8239c00/public",
   laserEstate: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/02c98ad7-1a83-4d09-0d43-9b3b2184ac00/public",
+  laserSoleGuida: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/f8320c32-3b0a-4496-4564-e3ebf421b500/public",
+  laserAscelleGuida: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/2db75699-255f-4361-1071-45f4378af100/public",
+  laserInguineGuida: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/3c13dc18-0615-4e12-1da0-254ed590c800/public",
+  laserGambeGuida: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/d31436bd-c15a-47b4-6ce8-1f050a376500/public",
+  laserPalestraGuida: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/2e6108a2-6286-4732-fb18-d54b51500000/public",
+  laserInvernoGuida: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e2911bf3-8fce-4bd5-4a04-112386f17b00/public",
   scrubCorpo: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/9d9033f2-f11f-4485-f69c-38d05556bb00/public",
   manicureSemipermanente: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e63a6c84-f777-4f2d-995b-eef9c7e09900/public",
   laminazione: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/5ed3dbec-4e69-449d-548c-d9d28b4fb100/public",
@@ -2437,6 +2443,10 @@ export const competencePages: CompetencePage[] = [
       "laser-diodo-carmagnola",
       "epilazione-laser-carmagnola",
     ],
+    heroImage: {
+      src: editorialImageAssets.laserInguineGuida,
+      alt: "Laser inguine: guida pratica con focus su comfort, preparazione e aspettative realistiche.",
+    },
     editorialSections: [
       {
         heading: "Perché l'inguine è una zona particolare (e perché serve metodo)",
@@ -2527,6 +2537,10 @@ export const competencePages: CompetencePage[] = [
       "laser-diodo-carmagnola",
       "epilazione-laser-carmagnola",
     ],
+    heroImage: {
+      src: editorialImageAssets.laserAscelleGuida,
+      alt: "Laser ascelle: gestione pratica tra sedute, comfort e calendario sostenibile.",
+    },
     editorialSections: [
       {
         heading: "Perché le ascelle sono una zona \"furba\" da cui partire",
@@ -2868,6 +2882,10 @@ export const competencePages: CompetencePage[] = [
       "laser-diodo-carmagnola",
       "epilazione-laser-carmagnola",
     ],
+    heroImage: {
+      src: editorialImageAssets.laserGambeGuida,
+      alt: "Laser gambe: strategia, stagionalita e mantenimento con piano realistico.",
+    },
     editorialSections: [
       {
         heading: "Gambe: la comodità arriva quando il calendario è coerente",
@@ -2955,7 +2973,7 @@ export const competencePages: CompetencePage[] = [
       "epilazione-laser-ascelle-carmagnola-guida-pratica",
     ],
     heroImage: {
-      src: editorialImageAssets.laserEstate,
+      src: editorialImageAssets.laserSoleGuida,
       alt: "Laser e sole: agenda/calendario, SPF e luce estiva, concetto di gestione stagionalità senza ansia.",
     },
     editorialSections: [
@@ -3062,7 +3080,7 @@ export const competencePages: CompetencePage[] = [
       "peli-incarniti-laser-carmagnola",
     ],
     heroImage: {
-      src: editorialImageAssets.laserInverno,
+      src: editorialImageAssets.laserInvernoGuida,
       alt: "Laser in inverno: calendario sedute, luce invernale morbida, concetto di costanza e continuità.",
     },
     editorialSections: [
@@ -3167,6 +3185,10 @@ export const competencePages: CompetencePage[] = [
       "laser-gambe-carmagnola-guida-pratica",
       "peli-incarniti-laser-carmagnola",
     ],
+    heroImage: {
+      src: editorialImageAssets.laserPalestraGuida,
+      alt: "Laser e palestra: regole pratiche su sport, doccia, calore e tessuti nelle prime 24-48 ore.",
+    },
     editorialSections: [
       {
         heading: "La regola semplice: nelle prime 24-48 ore abbassa calore e sfregamenti",

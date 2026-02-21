@@ -195,7 +195,7 @@ export const homeHeroImages = [
     alt: "Rebel Carmagnola - Pressoterapia in cabina",
   },
   {
-    src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/0d01138f-a507-4cb2-4c48-a70aa8b5ad00/public",
+    src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/dd34e324-2953-4a98-18ee-ef36b7c59e00/public",
     alt: "Rebel Carmagnola - Pedicure professionale (nuova variante)",
   },
 ];
