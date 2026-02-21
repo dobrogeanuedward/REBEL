@@ -21,9 +21,12 @@ export const metadata: Metadata = createPageMetadata({
     "Rebel Carmagnola",
     "Rebel Estetica Epigenetica",
     "centro estetico avanzato Carmagnola",
+    "centro estetico Carmagnola",
     "centro estetico Rebel Carmagnola",
     "epigenetica viso Carmagnola",
     "epilazione laser Carmagnola",
+    "pedicure Carmagnola",
+    "scrub corpo Carmagnola",
     "epilazione laser Rebel",
     "laser Carmagnola",
   ],
@@ -64,6 +67,17 @@ export default function HomePage() {
   const baseServices = baseServiceSlugs
     .map((slug) => servicePages.find((item) => item.slug === slug))
     .filter((item): item is (typeof servicePages)[number] => Boolean(item));
+  const localMoneyQueries = [
+    { label: "Centro estetico Carmagnola", href: "/centro-estetico-carmagnola" },
+    { label: "Epilazione laser Carmagnola", href: "/epilazione-laser-carmagnola" },
+    { label: "Pedicure Carmagnola", href: "/servizi/pedicure-carmagnola" },
+    { label: "Scrub corpo Carmagnola", href: "/servizi/scrub-corpo-carmagnola" },
+    { label: "Manicure semipermanente Carmagnola", href: "/servizi/manicure-semipermanente-carmagnola" },
+    { label: "Laminazione ciglia Carmagnola", href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola" },
+    { label: "Pulizia viso Carmagnola", href: "/servizi/pulizia-viso-carmagnola" },
+    { label: "Massaggio rilassante Carmagnola", href: "/servizi/massaggio-rilassante-carmagnola" },
+    { label: "Linfodrenante Carmagnola", href: "/servizi/massaggio-linfodrenante-carmagnola" },
+  ] as const;
 
   const ecosystemGroups: Array<{
     key: string;
@@ -78,6 +92,7 @@ export default function HomePage() {
       subtitle: "Pagine identitarie per capire metodo, approccio e visione.",
       tone: "violet",
       links: [
+        { href: "/centro-estetico-carmagnola", label: "Centro estetico Carmagnola" },
         { href: "/chi-siamo", label: "Chi siamo" },
         { href: "/metodo-rebel", label: "Metodo Rebel" },
         { href: "/protocolli-epigenetici", label: "Protocolli epigenetici" },
@@ -193,6 +208,14 @@ export default function HomePage() {
           })),
         })
       : null;
+  const localMoneyQueriesSchema = buildItemListSchema({
+    name: "Ricerche commerciali principali a Carmagnola",
+    path: "/",
+    items: localMoneyQueries.map((query) => ({
+      name: query.label,
+      path: query.href,
+    })),
+  });
 
   return (
     <main className="page-shell page-home">
@@ -200,6 +223,7 @@ export default function HomePage() {
       <JsonLd data={hubSchema} />
       <JsonLd data={homepageSchema} />
       {baseServicesSchema ? <JsonLd data={baseServicesSchema} /> : null}
+      <JsonLd data={localMoneyQueriesSchema} />
 
       <section className="home-hero home-hero--slider">
         <HeroPhotoSlider images={homeHeroImages} intervalMs={3900} />
@@ -304,6 +328,29 @@ export default function HomePage() {
           </div>
         </section>
       ) : null}
+
+      <section className="section">
+        <div className="container">
+          <p className="eyebrow">Query locali ad alta intenzione</p>
+          <h2 className="page-title" style={{ marginTop: "0.55rem" }}>
+            Se stai cercando un servizio specifico a Carmagnola, parti da qui.
+          </h2>
+          <p className="lead" style={{ marginTop: "0.55rem", maxWidth: "74ch" }}>
+            Abbiamo raggruppato le ricerche più frequenti del settore: ogni pagina va dritta al punto
+            con dettagli pratici, prezzo indicativo e call-to-action rapida.
+          </p>
+          <div className="grid grid-3" style={{ marginTop: "1rem" }}>
+            {localMoneyQueries.map((query) => (
+              <Link key={query.href} href={query.href} className="card">
+                <h3 style={{ marginTop: 0 }}>{query.label}</h3>
+                <p className="lead" style={{ marginTop: "0.35rem" }}>
+                  Apri pagina dedicata e orientati in pochi minuti.
+                </p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
 
       <section className="section section-light">

@@ -209,6 +209,9 @@ export default function EpilazioneLaserCarmagnolaPage() {
               <Link className="button button-primary" href="/contatti">
                 Prenota valutazione laser
               </Link>
+              <Link className="button button-secondary" href="/centro-estetico-carmagnola">
+                Centro estetico Carmagnola
+              </Link>
               <a
                 className="button button-secondary"
                 href={siteConfig.social.whatsapp}

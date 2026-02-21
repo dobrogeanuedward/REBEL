@@ -53,11 +53,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     service.category === "laser"
       ? "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e3635dd7-e046-46af-56a5-cf36d8239c00/public"
       : "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/7dc5354b-33e1-4a9e-a21d-ff321ecf4500/public";
+  const baseServiceName = service.name.replace(/\s+a Carmagnola$/i, "").trim();
+  const priceIntentKeywords = [
+    `${baseServiceName} prezzi Carmagnola`,
+    `prezzi ${baseServiceName} Carmagnola`,
+    `${baseServiceName} Carmagnola`,
+  ];
   return createPageMetadata({
     title: service.name,
     description: service.shortDescription,
     path: `/servizi/${service.slug}`,
-    keywords: service.keywords,
+    keywords: [...service.keywords, ...priceIntentKeywords],
     openGraphType: "article",
     image: service.heroImage?.src ?? fallbackImage,
   });
@@ -198,6 +204,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
   const tocItems = [
     { id: "benefici", label: "Benefici" },
+    { id: "prezzi", label: "Prezzi" },
     ...(editorialSections.length > 0 ? [{ id: "dettagli", label: "Dettagli utili" }] : []),
     { id: "faq", label: "Domande frequenti" },
     { id: "guide", label: "Guide utili" },
@@ -244,6 +251,9 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           <Link href="/listino-estetica-laser" className="button button-secondary">
             Listino
           </Link>
+          <Link href="/centro-estetico-carmagnola" className="button button-secondary">
+            Centro estetico Carmagnola
+          </Link>
         </div>
       </PageHero>
 
@@ -279,6 +289,40 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               secondaryHref="/servizi"
             />
           </aside>
+        </div>
+      </section>
+
+      <section id="prezzi" className="section section-light">
+        <div className="container">
+          <h2 className="page-title">Prezzi {service.name} a Carmagnola</h2>
+          <p className="lead" style={{ marginTop: "0.5rem", color: "rgba(39,31,56,0.78)", maxWidth: "76ch" }}>
+            Per {service.name} il riferimento in studio parte da <strong>{service.priceHint}</strong>.
+            Usiamo sempre una valutazione iniziale pratica: obiettivo, frequenza e mantenimento, così hai un piano coerente e non un prezzo scollegato dal risultato.
+          </p>
+          <div className="grid grid-2" style={{ marginTop: "1rem" }}>
+            <article className="card-light">
+              <h3 style={{ marginTop: 0 }}>Come leggere il prezzo in modo corretto</h3>
+              <ul className="list-clean" style={{ marginTop: "0.5rem" }}>
+                <li>- Prezzo indicativo trasparente, senza giri di parole.</li>
+                <li>- Intensità e progressione vengono adattate a pelle/obiettivo.</li>
+                <li>- Se stai confrontando più opzioni, ti aiutiamo a scegliere la priorità.</li>
+              </ul>
+            </article>
+            <article className="card-light">
+              <h3 style={{ marginTop: 0 }}>Vuoi il quadro completo?</h3>
+              <p className="lead" style={{ marginTop: "0.35rem", color: "rgba(39,31,56,0.78)" }}>
+                Nella pagina listino trovi tutti i trattamenti Rebel (estetica, laser, protocolli) con prezzi indicativi aggiornati.
+              </p>
+              <div style={{ marginTop: "0.75rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
+                <Link className="button button-primary" href="/listino-estetica-laser">
+                  Vedi listino completo
+                </Link>
+                <Link className="button button-secondary" href="/contatti">
+                  Richiedi orientamento
+                </Link>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 

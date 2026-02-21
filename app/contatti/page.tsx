@@ -208,6 +208,9 @@ export default function ContattiPage() {
                 <li>- quando vuoi iniziare e che orari ti sono comodi</li>
               </ul>
               <div style={{ marginTop: "0.75rem", display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
+                <Link className="button button-secondary" href="/centro-estetico-carmagnola">
+                  Centro estetico Carmagnola
+                </Link>
                 <Link className="button button-secondary" href="/epilazione-laser-carmagnola">
                   Laser a Carmagnola
                 </Link>

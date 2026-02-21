@@ -88,6 +88,10 @@ export default function ListinoPage() {
               <span aria-hidden="true">↗</span>
               Epilazione Laser Carmagnola
             </Link>
+            <Link className="listino-switch-btn" href="/centro-estetico-carmagnola">
+              <span aria-hidden="true">⌂</span>
+              Centro Estetico Carmagnola
+            </Link>
             <a className="listino-switch-btn" href="#estetica-epigenetica">
               <span aria-hidden="true">⬡</span>
               Estetica Epigenetica

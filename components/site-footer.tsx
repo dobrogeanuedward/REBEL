@@ -69,6 +69,12 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
+                <Link href="/centro-estetico-carmagnola">
+                  <span className="footer-link-bullet" aria-hidden="true">✦</span>
+                  <span>Centro Estetico Carmagnola</span>
+                </Link>
+              </li>
+              <li>
                 <Link href="/chi-siamo">
                   <span className="footer-link-bullet" aria-hidden="true">✦</span>
                   <span>Chi siamo</span>
