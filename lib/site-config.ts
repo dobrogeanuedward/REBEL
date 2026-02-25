@@ -4,7 +4,7 @@ export const siteConfig = {
   tagline: "Metodo chiaro, pelle viva.",
   locale: "it-IT",
   regionCode: "IT-TO",
-  lastUpdated: "2026-02-21",
+  lastUpdated: "2026-02-25",
   description:
     "Centro estetico avanzato a Carmagnola: estetica epigenetica, protocolli viso/corpo ed epilazione laser con approccio personalizzato.",
   siteUrl: "https://www.rebelepigenetica.it",
