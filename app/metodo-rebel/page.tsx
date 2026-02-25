@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
 import { methodSteps } from "@/lib/content";
+import { editorialImageAssets } from "@/lib/seo-content";
 import {
   buildArticleSchema,
   buildBreadcrumbSchema,
@@ -48,6 +50,20 @@ export default function MetodoPage() {
     keywords: ["metodo Rebel", "metodo estetico Carmagnola", "percorso estetico"],
     section: "Metodo",
   });
+  const methodVisuals = [
+    {
+      src: editorialImageAssets.laserViso,
+      alt: "Lettura iniziale e impostazione parametri in cabina Rebel",
+      title: "Lettura iniziale reale",
+      text: "Prima di decidere il piano, osserviamo pelle, obiettivo e ritmo che puoi mantenere.",
+    },
+    {
+      src: editorialImageAssets.laserCorpo,
+      alt: "Monitoraggio del percorso laser nel tempo",
+      title: "Progressione monitorata",
+      text: "Seduta dopo seduta aggiustiamo la rotta: continuita prima di tutto.",
+    },
+  ] as const;
 
   return (
     <main className="page-shell page-metodo">
@@ -59,7 +75,7 @@ export default function MetodoPage() {
       <PageHero
         eyebrow="Come lavoriamo"
         title="Metodo Rebel: cinque passaggi, un filo unico."
-        lead="Partiamo dall'ascolto e dalla lettura iniziale, poi scegliamo cosa fare e con che ritmo. La parte importante è che il percorso resti semplice da seguire, non perfetto sulla carta."
+        lead="Partiamo dall'ascolto e dalla lettura iniziale, poi scegliamo cosa fare e con che ritmo. La parte importante è che il piano resti semplice da seguire, non perfetto sulla carta."
         badge="Chiarezza • continuità • progressione"
         tone="ocean"
       />
@@ -72,10 +88,10 @@ export default function MetodoPage() {
                 <article key={item.step} className="method-step-card">
                   <span className="method-step-index">{String(index + 1).padStart(2, "0")}</span>
                   <p className="eyebrow">{item.step}</p>
-                  <h2 style={{ margin: "0.45rem 0 0.55rem", fontSize: "1.38rem" }}>
+                  <h2 className="method-step-title">
                     {item.title}
                   </h2>
-                  <p className="lead" style={{ marginTop: 0 }}>
+                  <p className="lead mt-0">
                     {item.text}
                   </p>
                   <span className="method-step-dot" aria-hidden="true" />
@@ -86,17 +102,47 @@ export default function MetodoPage() {
         </div>
       </section>
 
+      <section className="section section-photo-story section-tight">
+        <div className="container split photo-story-split">
+          <article className="card photo-story-card">
+            <div className="section-head section-head--compact">
+              <p className="eyebrow">Metodo applicato</p>
+              <h2 className="page-title">Non facciamo sedute isolate: costruiamo una sequenza che puoi davvero seguire.</h2>
+              <p className="lead">
+                La differenza non è solo nella tecnologia. Sta nella sequenza: capire da dove parti,
+                scegliere cosa attivare e monitorare la risposta della pelle nel tempo.
+              </p>
+            </div>
+            <ul className="list-clean photo-story-points">
+              <li>- Decisioni semplici, niente stratificazioni casuali</li>
+              <li>- Obiettivi realistici e calendario sostenibile</li>
+              <li>- Correzioni leggere senza ricominciare da zero</li>
+            </ul>
+          </article>
+          <aside className="photo-story-media-grid">
+            {methodVisuals.map((item) => (
+              <article key={item.title} className="card-light photo-story-media-card">
+                <div className="hero-visual card-media mt-0">
+                  <Image src={item.src} alt={item.alt} width={1600} height={900} />
+                </div>
+                <h3 className="mt-sm">{item.title}</h3>
+                <p className="lead mt-xs text-on-light">{item.text}</p>
+              </article>
+            ))}
+          </aside>
+        </div>
+      </section>
+
       <section className="section section-light">
         <div className="container">
-          <h2 className="page-title">Perché funziona (nella vita vera)</h2>
-          <p
-            className="lead"
-            style={{ color: "rgba(39,31,56,0.8)", maxWidth: "74ch" }}
-          >
-            Un metodo ti evita di andare a tentativi. Ti diciamo cosa facciamo adesso e cosa ci aspettiamo nelle prossime
-            settimane, con tempi realistici e scelte coerenti con la tua pelle e con la tua agenda.
-          </p>
-          <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
+          <div className="section-head section-head--compact">
+            <h2 className="page-title mt-0">Perché funziona (nella vita vera)</h2>
+            <p className="lead text-on-light max-w-74ch">
+              Un metodo ti evita di andare a tentativi. Ti diciamo cosa facciamo adesso e cosa ci aspettiamo nelle prossime
+              settimane, con tempi realistici e scelte coerenti con la tua pelle e con la tua agenda.
+            </p>
+          </div>
+          <div className="actions-row">
             <Link className="button button-primary" href="/protocolli-epigenetici">
               Esplora i protocolli
             </Link>

@@ -1,12 +1,12 @@
 export const siteConfig = {
   name: "Rebel Estetica Epigenetica",
   shortName: "Rebel",
-  tagline: "La pelle che si ricorda di essere viva.",
+  tagline: "Metodo chiaro, pelle viva.",
   locale: "it-IT",
   regionCode: "IT-TO",
   lastUpdated: "2026-02-21",
   description:
-    "Centro estetico avanzato a Carmagnola specializzato in estetica epigenetica, protocolli viso/corpo ed epilazione laser a Carmagnola con percorsi Rebel.",
+    "Centro estetico avanzato a Carmagnola: estetica epigenetica, protocolli viso/corpo ed epilazione laser con approccio personalizzato.",
   siteUrl: "https://www.rebelepigenetica.it",
   assets: {
     logoLight:

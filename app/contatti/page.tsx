@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import { ContactForm } from "@/components/contact-form";
 import { InstagramFeed } from "@/components/instagram-feed";
 import { JsonLd } from "@/components/json-ld";
@@ -129,6 +130,15 @@ export default function ContattiPage() {
       border: "1px solid rgba(59, 130, 246, 0.34)",
     },
   ];
+  const openingHours: Array<{ day: string; hours: string; closed?: boolean }> = [
+    { day: "Martedì", hours: "09:00 - 19:00" },
+    { day: "Mercoledì", hours: "11:00 - 21:00" },
+    { day: "Giovedì", hours: "09:00 - 19:00" },
+    { day: "Venerdì", hours: "09:00 - 19:00" },
+    { day: "Sabato", hours: "09:00 - 14:00" },
+    { day: "Domenica", hours: "Chiuso", closed: true },
+    { day: "Lunedì", hours: "Chiuso", closed: true },
+  ];
 
   return (
     <main className="page-shell page-contatti">
@@ -138,7 +148,7 @@ export default function ContattiPage() {
       <PageHero
         eyebrow="Contatti locali Carmagnola"
         title="Scrivici due righe: ti rispondiamo con una direzione chiara."
-        lead="WhatsApp è il modo più rapido. Se preferisci, puoi chiamare o usare il form. Se ci dici zona, obiettivo e tempi, ti guidiamo con chiarezza."
+        lead="WhatsApp è il modo più rapido. In alternativa puoi chiamare o usare il form: con zona, obiettivo e tempi ti diamo subito una direzione chiara."
         badge="Viale Barbaroux 20, Carmagnola"
         tone="emerald"
       />
@@ -146,33 +156,30 @@ export default function ContattiPage() {
       <section className="section">
         <div className="container grid grid-2">
           <article className="card glow-card">
-            <h2 style={{ marginTop: 0 }}>Contatti rapidi</h2>
-            <div style={{ marginTop: "1rem", display: "grid", gap: "0.85rem" }}>
+            <h2 className="mt-0">Contatti rapidi</h2>
+            <div className="contact-quick-grid">
               {quickContacts.map((item) => (
-                <div key={item.label} style={{ display: "flex", alignItems: "center", gap: "0.7rem" }}>
+                <div key={item.label} className="contact-quick-item">
                   <div
-                    style={{
-                      width: "44px",
-                      height: "44px",
-                      borderRadius: "12px",
-                      background: item.background,
-                      border: item.border,
-                      color: item.color,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
+                    className="contact-quick-icon"
+                    style={
+                      {
+                        "--contact-icon-bg": item.background,
+                        "--contact-icon-border": item.border,
+                        "--contact-icon-color": item.color,
+                      } as CSSProperties
+                    }
                   >
                     <ContactIcon kind={item.kind} />
                   </div>
                   <div>
-                    <div style={{ fontSize: "0.72rem", color: "var(--muted)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                    <div className="contact-quick-label">
                       {item.label}
                     </div>
                     <a
                       href={item.href}
                       {...(item.external ? { target: "_blank", rel: "noreferrer" } : {})}
-                      style={{ color: "#fff", fontWeight: 500, fontSize: "1.05rem" }}
+                      className="contact-quick-link"
                     >
                       {item.value}
                     </a>
@@ -180,14 +187,7 @@ export default function ContattiPage() {
                 </div>
               ))}
             </div>
-            <div
-              style={{
-                marginTop: "1.4rem",
-                display: "flex",
-                gap: "0.7rem",
-                flexWrap: "wrap",
-              }}
-            >
+            <div className="actions-row">
               <a
                 className="button button-primary"
                 href={siteConfig.social.whatsapp}
@@ -200,14 +200,14 @@ export default function ContattiPage() {
                 Chiamaci ora
               </a>
             </div>
-            <div className="card-light" style={{ marginTop: "1.1rem" }}>
-              <h3 style={{ marginTop: 0 }}>Cosa scrivere su WhatsApp (per partire bene)</h3>
-              <ul className="list-clean" style={{ marginTop: "0.5rem" }}>
+            <div className="card-light mt-md">
+              <h3 className="mt-0">Cosa scrivere su WhatsApp (per partire bene)</h3>
+              <ul className="list-clean mt-sm">
                 <li>- zona (es. ascelle / inguine / gambe / viso / schiena)</li>
                 <li>- obiettivo (ridurre ricrescita, peli incarniti, tono viso, ecc.)</li>
                 <li>- quando vuoi iniziare e che orari ti sono comodi</li>
               </ul>
-              <div style={{ marginTop: "0.75rem", display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
+              <div className="actions-row">
                 <Link className="button button-secondary" href="/centro-estetico-carmagnola">
                   Centro estetico Carmagnola
                 </Link>
@@ -222,39 +222,24 @@ export default function ContattiPage() {
           </article>
 
           <aside className="card glow-card">
-            <h2 style={{ marginTop: 0 }}>Orari di apertura</h2>
-            <div style={{ marginTop: "1rem", display: "grid", gap: "0.65rem" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0.65rem 0", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-                <span style={{ fontFamily: "var(--font-inter), sans-serif", color: "var(--muted)", fontSize: "0.9rem" }}>Martedì</span>
-                <strong style={{ fontSize: "1rem", letterSpacing: "0.02em" }}>09:00 - 19:00</strong>
-              </div>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0.65rem 0", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-                <span style={{ fontFamily: "var(--font-inter), sans-serif", color: "var(--muted)", fontSize: "0.9rem" }}>Mercoledì</span>
-                <strong style={{ fontSize: "1rem", letterSpacing: "0.02em" }}>11:00 - 21:00</strong>
-              </div>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0.65rem 0", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-                <span style={{ fontFamily: "var(--font-inter), sans-serif", color: "var(--muted)", fontSize: "0.9rem" }}>Giovedì</span>
-                <strong style={{ fontSize: "1rem", letterSpacing: "0.02em" }}>09:00 - 19:00</strong>
-              </div>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0.65rem 0", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-                <span style={{ fontFamily: "var(--font-inter), sans-serif", color: "var(--muted)", fontSize: "0.9rem" }}>Venerdì</span>
-                <strong style={{ fontSize: "1rem", letterSpacing: "0.02em" }}>09:00 - 19:00</strong>
-              </div>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0.65rem 0", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-                <span style={{ fontFamily: "var(--font-inter), sans-serif", color: "var(--muted)", fontSize: "0.9rem" }}>Sabato</span>
-                <strong style={{ fontSize: "1rem", letterSpacing: "0.02em" }}>09:00 - 14:00</strong>
-              </div>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0.65rem 0", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-                <span style={{ fontFamily: "var(--font-inter), sans-serif", color: "rgba(248,247,244,0.5)", fontSize: "0.9rem" }}>Domenica</span>
-                <span style={{ color: "rgba(248,247,244,0.5)", fontSize: "0.9rem" }}>Chiuso</span>
-              </div>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0.65rem 0" }}>
-                <span style={{ fontFamily: "var(--font-inter), sans-serif", color: "rgba(248,247,244,0.5)", fontSize: "0.9rem" }}>Lunedì</span>
-                <span style={{ color: "rgba(248,247,244,0.5)", fontSize: "0.9rem" }}>Chiuso</span>
-              </div>
+            <h2 className="mt-0">Orari di apertura</h2>
+            <div className="opening-hours">
+              {openingHours.map((slot, index) => (
+                <div
+                  key={slot.day}
+                  className={`opening-hours-row${slot.closed ? " is-closed" : ""}${index === openingHours.length - 1 ? " is-last" : ""}`}
+                >
+                  <span className="opening-hours-day">{slot.day}</span>
+                  {slot.closed ? (
+                    <span className="opening-hours-value">{slot.hours}</span>
+                  ) : (
+                    <strong className="opening-hours-value">{slot.hours}</strong>
+                  )}
+                </div>
+              ))}
             </div>
-            <p className="lead" style={{ marginTop: "1.1rem", fontSize: "0.9rem" }}>
-              Se ci scrivi su WhatsApp, indicaci anche una fascia oraria comoda: ti rispondiamo appena possiamo.
+            <p className="lead mt-md lead-sm">
+              Quando scrivi su WhatsApp, indica anche una fascia oraria comoda: rispondiamo appena possibile.
             </p>
           </aside>
         </div>
@@ -262,15 +247,14 @@ export default function ContattiPage() {
 
       <section className="section section-light">
         <div className="container">
-          <h2 className="page-title">Mappa e come arrivare</h2>
-          <p
-            className="lead"
-            style={{ color: "rgba(39,31,56,0.78)", marginTop: "0.8rem" }}
-          >
-            Rebel si trova in posizione comoda per Carmagnola e per chi arriva da
-            Carignano, Racconigi, Sommariva del Bosco e Torino Sud.
-          </p>
-          <div className="map-wrap" style={{ marginTop: "1rem", borderColor: "rgba(39,31,56,0.2)" }}>
+          <div className="section-head section-head--compact">
+            <h2 className="page-title mt-0">Mappa e come arrivare</h2>
+            <p className="lead text-on-light">
+              Rebel si trova in posizione comoda per Carmagnola e per chi arriva da
+              Carignano, Racconigi, Sommariva del Bosco e Torino Sud.
+            </p>
+          </div>
+          <div className="map-wrap map-wrap-light mt-md">
             <iframe
               title="Mappa Rebel Carmagnola"
               src="https://www.google.com/maps?q=Viale+Barbaroux+20,+Carmagnola&output=embed"
@@ -278,7 +262,7 @@ export default function ContattiPage() {
               referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
-          <div style={{ marginTop: "1rem", display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
+          <div className="actions-row">
             <Link href="/listino-estetica-laser" className="button button-primary">
               Vedi listino completo
             </Link>
@@ -296,12 +280,12 @@ export default function ContattiPage() {
             </Link>
           </div>
 
-          <div style={{ marginTop: "1.5rem" }}>
-            <p className="eyebrow" style={{ color: "rgba(39,31,56,0.68)" }}>
+          <div className="mt-md">
+            <p className="eyebrow eyebrow-soft">
               Instagram
             </p>
-            <p className="lead" style={{ color: "rgba(39,31,56,0.78)", marginTop: "0.55rem" }}>
-              Se vuoi dare un&apos;occhiata al centro e al mood Rebel: qui trovi alcuni reel in evidenza.
+            <p className="lead text-on-light mt-sm">
+              Qui trovi alcuni reel in evidenza per vedere centro, atmosfera e lavoro in cabina.
             </p>
             <InstagramFeed showReels={true} showPosts={false} maxReels={4} />
           </div>
@@ -311,26 +295,25 @@ export default function ContattiPage() {
       <section className="section">
         <div className="container grid grid-2">
           <article className="card glow-card">
-            <h2 style={{ marginTop: 0 }}>Scrivici dal form</h2>
-            <p className="lead" style={{ marginTop: "0.35rem" }}>
-              Compila il form e ti ricontattiamo via email o telefono. Se hai fretta,
-              WhatsApp resta il modo più veloce.
+            <h2 className="mt-0">Scrivici dal form</h2>
+            <p className="lead mt-xs">
+              Compila il form e ti ricontattiamo via email o telefono. Per una risposta più rapida, WhatsApp resta il canale migliore.
             </p>
             <ContactForm />
           </article>
           <aside className="card">
-            <h2 style={{ marginTop: 0 }}>Prima visita: come funziona</h2>
+            <h2 className="mt-0">Prima visita: come funziona</h2>
             <ul className="list-clean">
               <li>- ci racconti obiettivo e priorità</li>
               <li>- facciamo una valutazione iniziale (pelle, zona, abitudini)</li>
               <li>- ti proponiamo un piano con tempi realistici</li>
               <li>- decidi tu se iniziare e da cosa partire</li>
             </ul>
-            <p className="lead" style={{ marginTop: "0.9rem" }}>
-              Niente parole complicate: ti diciamo cosa facciamo, cosa aspettarti e
-              cosa conviene fare tra un appuntamento e l&apos;altro.
+            <p className="lead mt-sm">
+              Niente parole complicate: ti spieghiamo cosa facciamo, cosa aspettarti e
+              come gestire al meglio il periodo tra un appuntamento e l&apos;altro.
             </p>
-            <div style={{ marginTop: "0.9rem", display: "grid", gap: "0.55rem" }}>
+            <div className="grid mt-sm">
               <Link className="link-card" href="/competenze/laser-uomo-carmagnola-guida-pratica">
                 <span className="link-card-content">
                   <span className="link-card-title">Laser uomo (guida pratica)</span>

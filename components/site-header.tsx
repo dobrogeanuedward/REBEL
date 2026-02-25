@@ -119,8 +119,8 @@ export function SiteHeader() {
             <Image
               src={siteConfig.assets.logoLight}
               alt="Rebel Estetica Epigenetica"
-              width={132}
-              height={46}
+              width={170}
+              height={58}
               className="header-logo-image"
               priority
             />
@@ -156,8 +156,8 @@ export function SiteHeader() {
               <Image
                 src={siteConfig.assets.logoLight}
                 alt="Rebel Estetica Epigenetica"
-                width={140}
-                height={46}
+                width={152}
+                height={52}
                 className="mobile-brand-logo"
                 priority
               />

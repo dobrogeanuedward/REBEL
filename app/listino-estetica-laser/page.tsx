@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
 import { protocolCards } from "@/lib/content";
-import { servicePages } from "@/lib/seo-content";
+import { editorialImageAssets, servicePages } from "@/lib/seo-content";
 import {
   buildBreadcrumbSchema,
   buildItemListSchema,
@@ -14,7 +15,7 @@ import {
 export const metadata: Metadata = createPageMetadata({
   title: "Listino Estetica + Epilazione Laser a Carmagnola | Prezzi Rebel",
   description:
-    "Listino completo Rebel a Carmagnola: estetica avanzata e benessere, epilazione laser ed estetica epigenetica nella stessa pagina, con prezzi chiari e percorsi personalizzati.",
+    "Listino completo Rebel a Carmagnola: estetica avanzata, epilazione laser ed estetica epigenetica in un'unica pagina con prezzi chiari.",
   path: "/listino-estetica-laser",
   keywords: [
     "listino centro estetico Carmagnola",
@@ -30,6 +31,29 @@ export default function ListinoPage() {
     (service) => service.category === "estetica-classica",
   );
   const laserListino = servicePages.filter((service) => service.category === "laser");
+  const categoryVisuals = [
+    {
+      href: "#estetica-classica",
+      title: "Estetica avanzata e benessere",
+      description: "Routine viso e corpo ordinate, pensate per continuità e comfort.",
+      src: editorialImageAssets.puliziaViso,
+      alt: "Pulizia viso professionale in cabina Rebel a Carmagnola",
+    },
+    {
+      href: "#epilazione-laser",
+      title: "Epilazione laser",
+      description: "Valutazione iniziale, zona/fototipo e percorso progressivo su misura.",
+      src: editorialImageAssets.laserCorpo,
+      alt: "Epilazione laser corpo in cabina Rebel a Carmagnola",
+    },
+    {
+      href: "#estetica-epigenetica",
+      title: "Estetica epigenetica",
+      description: "Protocolli evoluti per tono, qualità cutanea e progressione graduale.",
+      src: editorialImageAssets.pressoterapia,
+      alt: "Trattamento corpo epigenetico in cabina Rebel a Carmagnola",
+    },
+  ] as const;
 
   const breadcrumb = buildBreadcrumbSchema([
     { name: "Home", path: "/" },
@@ -68,12 +92,12 @@ export default function ListinoPage() {
       <PageHero
         eyebrow="Listino unico"
         title="Listino Rebel: estetica avanzata, laser ed epigenetica nella stessa pagina."
-        lead="Prezzi e trattamenti Rebel, ordinati per categoria. Se vuoi partire bene, scegli una categoria e poi una priorità: zona (laser), viso o corpo. Al resto ci pensiamo insieme."
+        lead="Prezzi e trattamenti Rebel ordinati per categoria. Scegli da dove iniziare (laser, viso o corpo) e poi definiamo insieme il primo passo utile."
         badge="Listino Rebel - Centro Estetico a Carmagnola"
         tone="gold"
       />
 
-      <section className="section" style={{ paddingTop: "20px", paddingBottom: "28px" }}>
+      <section className="section section-tight">
         <div className="container">
           <div className="listino-switch">
             <a className="listino-switch-btn" href="#estetica-classica">
@@ -100,6 +124,22 @@ export default function ListinoPage() {
         </div>
       </section>
 
+      <section className="section section-tight">
+        <div className="container">
+          <div className="grid grid-3 listino-visual-grid">
+            {categoryVisuals.map((item) => (
+              <a key={item.href} href={item.href} className="card-light listino-visual-card">
+                <div className="hero-visual card-media mt-0">
+                  <Image src={item.src} alt={item.alt} width={1600} height={900} />
+                </div>
+                <h3 className="mt-sm">{item.title}</h3>
+                <p className="lead mt-xs text-on-light">{item.description}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section" id="estetica-classica">
         <div className="container">
           <h2 className="page-title">Estetica classica e benessere</h2>
@@ -107,27 +147,19 @@ export default function ListinoPage() {
             Servizi utili nella routine di tutti i giorni, perfetti anche come base
             per percorsi più avanzati.
           </p>
-          <div className="grid" style={{ marginTop: "1rem" }}>
+          <div className="grid mt-md">
             {classicaListino.map((item) => (
               <article key={item.slug} className="card">
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "0.8rem",
-                    justifyContent: "space-between",
-                    flexWrap: "wrap",
-                    alignItems: "flex-start",
-                  }}
-                >
+                <div className="listino-row">
                   <div>
-                    <h3 style={{ margin: 0 }}>
+                    <h3 className="mt-0">
                       <Link href={`/servizi/${item.slug}`}>{item.name}</Link>
                     </h3>
-                    <p className="lead" style={{ marginTop: "0.3rem" }}>
+                    <p className="lead mt-xs">
                       {item.shortDescription}
                     </p>
                   </div>
-                  <strong style={{ fontFamily: "var(--font-inter), sans-serif" }}>
+                  <strong className="price-hint">
                     {item.priceHint}
                   </strong>
                 </div>
@@ -140,43 +172,33 @@ export default function ListinoPage() {
       <section className="section section-light" id="epilazione-laser">
         <div className="container">
           <h2 className="page-title">Epilazione laser a Carmagnola</h2>
-          <p
-            className="lead"
-            style={{ color: "rgba(39,31,56,0.8)", maxWidth: "72ch" }}
-          >
+          <p className="lead text-on-light">
             L&apos;epilazione laser viene impostata sul tuo caso: zona, tipo di pelle
             e obiettivo. Usiamo tecnologia Thory con manipolo Ice Polar per lavorare
             con maggiore comfort. La valutazione iniziale è inclusa.
           </p>
-          <div className="grid grid-2" style={{ marginTop: "1rem" }}>
+          <div className="grid grid-2 mt-md">
             {laserListino.map((item) => (
               <article key={item.slug} className="card-light">
-                <h3 style={{ marginTop: 0 }}>
+                <h3 className="mt-0">
                   <Link href={`/servizi/${item.slug}`}>{item.name}</Link>
                 </h3>
-                <p
-                  style={{
-                    margin: "0.35rem 0",
-                    fontFamily: "var(--font-inter), sans-serif",
-                    lineHeight: 1.6,
-                    color: "rgba(39,31,56,0.76)",
-                  }}
-                >
+                <p className="listino-desc">
                   {item.shortDescription}
                 </p>
-                <strong style={{ fontFamily: "var(--font-inter), sans-serif" }}>
+                <strong className="price-hint">
                   {item.priceHint}
                 </strong>
               </article>
             ))}
           </div>
-          <div className="card-light" style={{ marginTop: "1rem" }}>
-            <h3 style={{ marginTop: 0 }}>Se stai decidendo le zone (5 minuti utili)</h3>
-            <p className="lead" style={{ marginTop: "0.35rem", color: "rgba(39,31,56,0.78)", maxWidth: "74ch" }}>
+          <div className="card-light mt-md">
+            <h3 className="mt-0">Se stai scegliendo le zone (5 minuti utili)</h3>
+            <p className="lead mt-xs text-on-light max-w-74ch">
               Le richieste più frequenti sono ascelle, inguine e gambe. Qui trovi guide pratiche che chiariscono tempi,
               comfort, stagionalità e gestione tra una seduta e l&apos;altra.
             </p>
-            <div style={{ display: "flex", gap: "0.65rem", flexWrap: "wrap", marginTop: "0.75rem" }}>
+            <div className="actions-row">
               <Link className="button button-secondary" href="/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica">
                 Guida ascelle
               </Link>
@@ -197,13 +219,13 @@ export default function ListinoPage() {
               </Link>
             </div>
           </div>
-          <div className="card" style={{ marginTop: "1rem" }}>
-            <h3 style={{ marginTop: 0 }}>Laser uomo: pagine dedicate</h3>
-            <p className="lead" style={{ marginTop: "0.35rem" }}>
+          <div className="card mt-md">
+            <h3 className="mt-0">Laser uomo: pagine dedicate</h3>
+            <p className="lead mt-xs">
               Se stai cercando il laser uomo (barba/collo o aree ampie come schiena e torace), abbiamo due schede servizio
               dedicate e una guida per orientarti.
             </p>
-            <div style={{ display: "flex", gap: "0.65rem", flexWrap: "wrap", marginTop: "0.75rem" }}>
+            <div className="actions-row">
               <Link className="button button-secondary" href="/servizi/epilazione-laser-viso-uomo-carmagnola">
                 Laser viso uomo
               </Link>
@@ -215,7 +237,7 @@ export default function ListinoPage() {
               </Link>
             </div>
           </div>
-          <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
+          <div className="actions-row">
             <Link className="button button-primary" href="/contatti">
               Prenota valutazione laser
             </Link>
@@ -239,7 +261,7 @@ export default function ListinoPage() {
             Protocolli viso e corpo orientati a qualità cutanea, tono e rigenerazione progressiva.
             Ogni trattamento viene scelto in base al tuo punto di partenza e all&apos;obiettivo reale.
           </p>
-          <div className="grid grid-2" style={{ marginTop: "1rem" }}>
+          <div className="grid grid-2 mt-md">
             {protocolCards.map((item) => (
               <Link
                 key={item.slug}
@@ -247,15 +269,15 @@ export default function ListinoPage() {
                 className="card glow-card"
                 aria-label={`Apri ${item.name}`}
               >
-                <h3 style={{ marginTop: 0 }}>{item.name}</h3>
-                <p className="lead" style={{ marginTop: "0.28rem" }}>
+                <h3 className="mt-0">{item.name}</h3>
+                <p className="lead mt-xs">
                   {item.desc}
                 </p>
-                <strong style={{ fontFamily: "var(--font-inter), sans-serif" }}>{item.price}</strong>
+                <strong className="price-hint">{item.price}</strong>
               </Link>
             ))}
           </div>
-          <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
+          <div className="actions-row">
             <Link className="button button-primary" href="/contatti">
               Prenota lettura iniziale
             </Link>
@@ -269,10 +291,10 @@ export default function ListinoPage() {
       <section className="section">
         <div className="container">
           <article className="card listino-categories-card">
-            <h2 style={{ marginTop: 0 }}>Le 3 categorie principali a Carmagnola</h2>
-            <p className="lead" style={{ marginTop: "0.2rem" }}>
+            <h2 className="mt-0">Le 3 categorie principali a Carmagnola</h2>
+            <p className="lead mt-xs">
               Se arrivi da Carmagnola, Carignano, Racconigi o Torino Sud, parti da qui:
-              scegli la categoria più vicina al tuo obiettivo e ti guidiamo noi.
+              scegli la categoria più vicina al tuo obiettivo e imposti subito una direzione chiara.
             </p>
             <div className="listino-categories-list">
               <a href="#estetica-classica" className="listino-category-item">

@@ -45,7 +45,7 @@ export function ContactForm() {
       }
 
       setStatus("ok");
-      setFeedback("Messaggio inviato. Ti rispondiamo il prima possibile.");
+      setFeedback("Messaggio inviato. Ti ricontattiamo presto.");
       setForm(initialState);
     } catch (error) {
       const message =
@@ -97,7 +97,7 @@ export function ContactForm() {
         <input
           value={form.city}
           onChange={(e) => setForm((v) => ({ ...v, city: e.target.value }))}
-          placeholder="Carmagnola / Carignano / ..."
+          placeholder="Carmagnola, Carignano, Racconigi..."
           autoComplete="address-level2"
         />
       </label>
@@ -109,7 +109,7 @@ export function ContactForm() {
           rows={5}
           value={form.message}
           onChange={(e) => setForm((v) => ({ ...v, message: e.target.value }))}
-          placeholder="Raccontaci cosa desideri migliorare e quando vorresti iniziare."
+          placeholder="Scrivi obiettivo, zona e quando vorresti iniziare."
         />
       </label>
 
@@ -125,7 +125,7 @@ export function ContactForm() {
       />
 
       <button type="submit" className="button button-primary" disabled={status === "loading"}>
-        {status === "loading" ? "Invio in corso..." : "Invia richiesta"}
+        {status === "loading" ? "Invio..." : "Invia richiesta"}
       </button>
 
       {feedback ? (

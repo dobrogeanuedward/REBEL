@@ -26,7 +26,7 @@ export function PageHero({
           <div className="page-hero-brand">
             <span className="logo-glow logo-glow--sm">
               <Image
-                src="https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769422/rebel-logo-light_fvlqgi.webp"
+                src={siteConfig.assets.logoLight}
                 alt={siteConfig.name}
                 width={140}
                 height={46}
@@ -36,12 +36,12 @@ export function PageHero({
             <span className="page-hero-brand-text">{siteConfig.name}</span>
           </div>
           <p className="eyebrow">{eyebrow}</p>
-          <h1 className="page-title" style={{ marginTop: "0.55rem" }}>
+          <h1 className="page-title page-hero-title">
             {title}
           </h1>
           <p className="lead">{lead}</p>
           {badge ? (
-            <div style={{ marginTop: "1rem" }}>
+            <div className="page-hero-badge-wrap">
               <span className="badge">{badge}</span>
             </div>
           ) : null}

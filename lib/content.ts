@@ -153,50 +153,62 @@ export const homeHeroImages = [
   {
     src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/8d07afc2-b036-4eff-d34e-523a6c656d00/public",
     alt: "Rebel Carmagnola - Epilazione laser viso in cabina (nuova variante)",
+    objectPosition: "50% 34%",
   },
   {
     src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e3635dd7-e046-46af-56a5-cf36d8239c00/public",
     alt: "Rebel Carmagnola - Epilazione laser corpo su misura (nuova variante)",
+    objectPosition: "50% 36%",
   },
   {
     src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/02c98ad7-1a83-4d09-0d43-9b3b2184ac00/public",
     alt: "Rebel Carmagnola - Laser e gestione estate con approccio professionale (nuova variante)",
+    objectPosition: "50% 38%",
   },
   {
     src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/b01b968e-9ca9-4bd9-62eb-41cfea80bb00/public",
     alt: "Rebel Carmagnola - Percorso laser impostato con continuita in inverno (nuova variante)",
+    objectPosition: "50% 38%",
   },
   {
     src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/7dc5354b-33e1-4a9e-a21d-ff321ecf4500/public",
     alt: "Rebel Carmagnola - Pulizia viso professionale",
+    objectPosition: "50% 34%",
   },
   {
     src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/b0f43f31-21d2-4834-4ddc-36a50a511200/public",
     alt: "Rebel Carmagnola - Gestione peli incarniti e comfort della pelle (nuova variante)",
+    objectPosition: "50% 34%",
   },
   {
     src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/9d9033f2-f11f-4485-f69c-38d05556bb00/public",
     alt: "Rebel Carmagnola - Scrub corpo professionale",
+    objectPosition: "50% 34%",
   },
   {
     src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/965f95e4-c556-424d-abca-77a5c7b1ae00/public",
     alt: "Rebel Carmagnola - Massaggio rilassante",
+    objectPosition: "50% 34%",
   },
   {
     src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e63a6c84-f777-4f2d-995b-eef9c7e09900/public",
     alt: "Rebel Carmagnola - Manicure semipermanente",
+    objectPosition: "50% 34%",
   },
   {
     src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/5ed3dbec-4e69-449d-548c-d9d28b4fb100/public",
     alt: "Rebel Carmagnola - Laminazione ciglia e sopracciglia",
+    objectPosition: "50% 34%",
   },
   {
     src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/ba59e49d-5727-4c34-4b78-5ed055fb6f00/public",
     alt: "Rebel Carmagnola - Pressoterapia in cabina",
+    objectPosition: "50% 34%",
   },
   {
     src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/dd34e324-2953-4a98-18ee-ef36b7c59e00/public",
     alt: "Rebel Carmagnola - Pedicure professionale (nuova variante)",
+    objectPosition: "50% 34%",
   },
 ];
 

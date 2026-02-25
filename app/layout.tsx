@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Manrope, Playfair_Display } from "next/font/google";
 import { JsonLd } from "@/components/json-ld";
 import { ScrollProgressBar } from "@/components/scroll-progress-bar";
 import { SiteFooter } from "@/components/site-footer";
@@ -13,16 +13,16 @@ import {
 import { brandSeoKeywords, localSeoKeywords, siteConfig } from "@/lib/site-config";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
+const displayFont = Playfair_Display({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["500", "600", "700"],
   variable: "--font-cormorant",
   display: "swap",
 });
 
-const inter = Inter({
+const bodyFont = Manrope({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-inter",
   display: "swap",
 });
@@ -109,7 +109,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="it" className={`${cormorant.variable} ${inter.variable}`}>
+    <html lang="it" className={`${displayFont.variable} ${bodyFont.variable}`}>
       <head>
         <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="" />
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />

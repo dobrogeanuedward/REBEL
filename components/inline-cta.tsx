@@ -13,7 +13,7 @@ type InlineCTAProps = {
 };
 
 export function InlineCTA({
-  eyebrow = "Se vuoi, ti guidiamo noi",
+  eyebrow = "Parliamone in modo semplice",
   title,
   lead,
   primaryLabel = "Contatti",
@@ -26,7 +26,7 @@ export function InlineCTA({
     <aside className="inline-cta">
       <p className="eyebrow">{eyebrow}</p>
       <h2 className="inline-cta-title">{title}</h2>
-      <p className="lead" style={{ marginTop: "0.6rem" }}>
+      <p className="lead mt-sm">
         {lead}
       </p>
       <div className="inline-cta-actions">

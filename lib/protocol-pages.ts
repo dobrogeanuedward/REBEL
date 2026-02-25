@@ -70,12 +70,12 @@ export const protocolPages: ProtocolPage[] = [
         heading: "Mantenimento: quello che fa durare",
         paragraphs: [
           "Il mantenimento non deve diventare un lavoro. Deve diventare un'abitudine semplice che ti viene naturale.",
-          "Se vuoi, ti lasciamo un piano minimale per non perdere il filo tra una seduta e l'altra.",
+          "Se ti va, ti lasciamo un piano minimale per non perdere il filo tra una seduta e l'altra.",
         ],
       },
     ],
     relatedLinks: [
-      { label: "Prenota lettura iniziale", href: "/contatti", description: "Due righe su obiettivo e tempi, e ti orientiamo sul primo passo." },
+      { label: "Prenota lettura iniziale", href: "/contatti", description: "Due righe su obiettivo e tempi, e definiamo insieme il primo passo." },
       { label: "Protocolli epigenetici", href: "/protocolli-epigenetici", description: "Panoramica completa dei protocolli Rebel." },
       { label: "Trattamenti viso", href: "/competenze/trattamenti-viso-carmagnola", description: "Guida per orientarti tra obiettivi, comfort e luminosità." },
       { label: "Pulizia viso", href: "/servizi/pulizia-viso-carmagnola", description: "Un punto di partenza ottimo quando serve mettere ordine alla pelle." },
@@ -285,9 +285,9 @@ export const protocolPages: ProtocolPage[] = [
       },
     ],
     relatedLinks: [
-      { label: "Contatti", href: "/contatti", description: "Se vuoi lavorare su compattezza, scrivici: scegliamo insieme la direzione." },
+      { label: "Contatti", href: "/contatti", description: "Per lavorare su compattezza, scrivici: scegliamo insieme la direzione." },
       { label: "Trattamenti viso", href: "/competenze/trattamenti-viso-carmagnola", description: "Guida per scegliere il punto di partenza." },
-      { label: "Laser a Carmagnola", href: "/epilazione-laser-carmagnola", description: "Se vuoi abbinare laser, qui trovi come lo impostiamo." },
+      { label: "Laser a Carmagnola", href: "/epilazione-laser-carmagnola", description: "Se desideri abbinare laser, qui trovi come lo impostiamo." },
       { label: "Protocolli epigenetici", href: "/protocolli-epigenetici", description: "Panoramica completa protocolli." },
     ],
   },

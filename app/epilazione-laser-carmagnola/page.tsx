@@ -14,7 +14,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = createPageMetadata({
   title: "Epilazione laser a Carmagnola (Thory + Ice Polar)",
   description:
-    "Epilazione laser a Carmagnola con tecnologia Thory e percorso personalizzato. Valutazione iniziale, protocollo su misura e supporto continuo da Rebel.",
+    "Epilazione laser a Carmagnola con tecnologia Thory e Ice Polar: valutazione iniziale, piano personalizzato e monitoraggio costante.",
   path: "/epilazione-laser-carmagnola",
   image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e3635dd7-e046-46af-56a5-cf36d8239c00/public",
   openGraphType: "article",
@@ -55,11 +55,11 @@ export default function EpilazioneLaserCarmagnolaPage() {
   const faqs = [
     {
       q: "L'epilazione laser a Carmagnola è adatta a tutte le zone?",
-      a: "Sì, il percorso viene impostato per zona, fototipo e obiettivo. In studio definiamo un piano personalizzato per viso e corpo.",
+      a: "Sì. In studio impostiamo il piano in base a zona, fototipo e obiettivo reale, sia per viso sia per corpo.",
     },
     {
       q: "Quante sedute servono per l'epilazione laser?",
-      a: "Dipende da area, pelo e risposta individuale. In media si lavora su un ciclo progressivo, con calendario definito in fase iniziale.",
+      a: "Dipende da area, tipo di pelo e risposta individuale. Di solito si lavora su un ciclo progressivo con calendario definito all'inizio.",
     },
     {
       q: "Quanto costa l'epilazione laser a Carmagnola da Rebel?",
@@ -67,7 +67,7 @@ export default function EpilazioneLaserCarmagnolaPage() {
     },
     {
       q: "Come prenoto una valutazione laser da Rebel?",
-      a: "Puoi prenotare via WhatsApp o dalla pagina contatti. Ti rispondiamo e ti diciamo da dove conviene partire (zona, calendario e preparazione).",
+      a: "Puoi prenotare via WhatsApp o dalla pagina contatti. Ti rispondiamo in modo diretto e definiamo insieme zona, calendario e preparazione.",
     },
   ];
 
@@ -181,7 +181,7 @@ export default function EpilazioneLaserCarmagnolaPage() {
       <PageHero
         eyebrow="Rebel Laser Carmagnola"
         title="Epilazione laser a Carmagnola: percorso su misura, risultati progressivi."
-        lead="In Rebel impostiamo il laser in base a zona, fototipo e obiettivo reale. Prima valutazione, poi un piano che riesci a seguire: chiaro, progressivo e con monitoraggio nel tempo."
+        lead="In Rebel impostiamo il laser su zona, fototipo e obiettivo reale. Prima la valutazione, poi un piano chiaro che puoi seguire con continuità."
         badge="Da 25.90 EUR • Viale Barbaroux 20, Carmagnola"
         tone="violet"
       />
@@ -189,23 +189,22 @@ export default function EpilazioneLaserCarmagnolaPage() {
       <section className="section">
         <div className="container grid grid-2">
           <article className="card glow-card">
-            <h2 style={{ marginTop: 0 }}>Perché scegliere Rebel per il laser a Carmagnola</h2>
-            <div className="hero-visual" style={{ marginTop: "0.75rem", borderRadius: 14 }}>
+            <h2 className="mt-0">Perché scegliere Rebel per il laser a Carmagnola</h2>
+            <div className="hero-visual card-media">
               <Image
                 src="https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e3635dd7-e046-46af-56a5-cf36d8239c00/public"
                 alt="Epilazione laser corpo in cabina Rebel a Carmagnola"
                 width={1600}
                 height={900}
-                style={{ width: "100%", height: "auto", borderRadius: 14 }}
               />
             </div>
             <ul className="list-clean">
-              <li>- valutazione iniziale chiara, prima di iniziare il ciclo</li>
+              <li>- valutazione iniziale chiara prima di iniziare</li>
               <li>- parametri calibrati su zona e risposta della pelle</li>
               <li>- tecnologia Thory con manipolo Ice Polar per maggiore comfort</li>
-              <li>- percorso monitorato, senza promesse esagerate</li>
+              <li>- monitoraggio costante con aspettative realistiche</li>
             </ul>
-            <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
+            <div className="actions-row">
               <Link className="button button-primary" href="/contatti">
                 Prenota valutazione laser
               </Link>
@@ -224,20 +223,19 @@ export default function EpilazioneLaserCarmagnolaPage() {
           </article>
 
           <aside className="card">
-            <h2 style={{ marginTop: 0 }}>Viso e corpo: schede rapide</h2>
-            <div className="hero-visual" style={{ marginTop: "0.75rem", borderRadius: 14 }}>
+            <h2 className="mt-0">Viso e corpo: schede rapide</h2>
+            <div className="hero-visual card-media">
               <Image
                 src="https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/8d07afc2-b036-4eff-d34e-523a6c656d00/public"
                 alt="Epilazione laser viso in cabina Rebel a Carmagnola"
                 width={1600}
                 height={900}
-                style={{ width: "100%", height: "auto", borderRadius: 14 }}
               />
             </div>
-            <p className="lead" style={{ marginTop: 0 }}>
-              Se vuoi vedere subito i dettagli per area, puoi partire da queste due pagine:
+            <p className="lead mt-0">
+              Se preferisci entrare subito nel dettaglio per area, puoi iniziare da queste schede:
             </p>
-            <div style={{ display: "grid", gap: "0.65rem", marginTop: "0.75rem" }}>
+            <div className="grid mt-sm">
               <Link href="/servizi/epilazione-laser-viso-carmagnola" className="button button-secondary">
                 Epilazione laser viso
               </Link>
@@ -266,17 +264,15 @@ export default function EpilazioneLaserCarmagnolaPage() {
 
       <section className="section section-light">
         <div className="container">
-          <p className="eyebrow" style={{ color: "rgba(39,31,56,0.68)" }}>
-            Approfondimenti rapidi
-          </p>
-          <h2 className="page-title" style={{ marginTop: "0.55rem" }}>
-            Le zone più richieste (e le guide che chiariscono i dubbi).
-          </h2>
-          <p className="lead" style={{ marginTop: "0.5rem", color: "rgba(39,31,56,0.78)", maxWidth: "74ch" }}>
-            Se vuoi partire con un po&apos; di chiarezza, queste sono le letture più utili: ascelle e inguine (zone piccole ma
-            intense), gambe (zona ampia), gestione sole/stagionalità e due temi super pratici: inverno e palestra.
-          </p>
-          <div className="grid grid-2" style={{ marginTop: "1rem" }}>
+          <div className="section-head">
+            <p className="eyebrow eyebrow-soft">Approfondimenti rapidi</p>
+            <h2 className="page-title">Le zone più richieste (e le guide che chiariscono i dubbi).</h2>
+            <p className="lead text-on-light max-w-74ch">
+              Per orientarti rapidamente, queste sono le letture più utili: ascelle e inguine (zone piccole ma
+              intense), gambe (zona ampia), gestione sole/stagionalità e due temi pratici: inverno e palestra.
+            </p>
+          </div>
+          <div className="grid grid-2 mt-md">
             {laserGuideHighlights.map((item) => {
               const guide = getCompetenceBySlug(item.slug);
               const cardHero = item.image ?? guide?.heroImage;
@@ -284,25 +280,24 @@ export default function EpilazioneLaserCarmagnolaPage() {
               return (
                 <Link key={`${item.slug}-${item.title}`} href={item.href} className="card-light">
                   {cardHero ? (
-                    <div className="hero-visual" style={{ borderRadius: 14 }}>
+                    <div className="hero-visual card-media mt-0">
                       <Image
                         src={cardHero.src}
                         alt={cardHero.alt}
                         width={1600}
                         height={900}
-                        style={{ width: "100%", height: "auto", borderRadius: 14 }}
                       />
                     </div>
                   ) : null}
-                  <h3 style={{ marginTop: cardHero ? "0.65rem" : 0 }}>{item.title}</h3>
-                  <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "rgba(39,31,56,0.78)" }}>
+                  <h3 className={cardHero ? "mt-sm" : "mt-0"}>{item.title}</h3>
+                  <p className="text-on-light" style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif" }}>
                     {item.description}
                   </p>
                 </Link>
               );
             })}
           </div>
-          <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
+          <div className="actions-row">
             <Link className="button button-primary" href="/contatti">
               Prenota valutazione
             </Link>
@@ -322,11 +317,11 @@ export default function EpilazioneLaserCarmagnolaPage() {
       <section className="section">
         <div className="container">
           <h2 className="page-title">Domande frequenti (prima di iniziare)</h2>
-          <div className="grid grid-2" style={{ marginTop: "1rem" }}>
+          <div className="grid grid-2 mt-md">
             {faqs.map((faq) => (
               <article key={faq.q} className="card">
-                <h3 style={{ marginTop: 0 }}>{faq.q}</h3>
-                <p style={{ margin: 0, fontFamily: "var(--font-inter), sans-serif", color: "var(--muted)" }}>
+                <h3 className="mt-0">{faq.q}</h3>
+                <p className="lead mt-0">
                   {faq.a}
                 </p>
               </article>

@@ -6,7 +6,7 @@ import { HeroPhotoSlider } from "@/components/hero-photo-slider";
 import { homeHeroImages } from "@/lib/content";
 import { localAreaPages } from "@/lib/local-pages";
 import { buildItemListSchema, buildWebPageSchema, createPageMetadata } from "@/lib/seo";
-import { competencePages, servicePages } from "@/lib/seo-content";
+import { competencePages, editorialImageAssets, servicePages } from "@/lib/seo-content";
 import { siteConfig } from "@/lib/site-config";
 import type { Metadata } from "next";
 
@@ -14,7 +14,7 @@ export const metadata: Metadata = createPageMetadata({
   title:
     "Rebel Estetica Epigenetica a Carmagnola | Viso, Corpo ed Epilazione Laser",
   description:
-    "Rebel Estetica Epigenetica è il centro estetico di riferimento a Carmagnola: percorsi personalizzati viso/corpo, epilazione laser a Carmagnola e consulenza specialistica.",
+    "Rebel Estetica Epigenetica a Carmagnola: viso, corpo ed epilazione laser con metodo chiaro, consulenza iniziale e progressione personalizzata.",
   path: "/",
   keywords: [
     "Rebel",
@@ -78,6 +78,20 @@ export default function HomePage() {
     { label: "Massaggio rilassante Carmagnola", href: "/servizi/massaggio-rilassante-carmagnola" },
     { label: "Linfodrenante Carmagnola", href: "/servizi/massaggio-linfodrenante-carmagnola" },
   ] as const;
+  const photoStoryCards = [
+    {
+      src: editorialImageAssets.laserCorpo,
+      alt: "Tecnologia laser su zona corpo in cabina Rebel Carmagnola",
+      title: "Percorso laser su misura",
+      text: "Valutazione iniziale, parametri calibrati e monitoraggio nel tempo.",
+    },
+    {
+      src: editorialImageAssets.laserViso,
+      alt: "Trattamento laser viso in cabina Rebel Carmagnola",
+      title: "Comfort e precisione",
+      text: "Ice Polar e approccio progressivo: risultati senza promesse eccessive.",
+    },
+  ] as const;
 
   const ecosystemGroups: Array<{
     key: string;
@@ -102,7 +116,7 @@ export default function HomePage() {
     {
       key: "services",
       title: "Servizi e listino",
-      subtitle: "Tutti i trattamenti disponibili con prezzi e percorsi dedicati.",
+      subtitle: "Trattamenti disponibili, prezzi chiari e link rapidi alle pagine dedicate.",
       tone: "aqua",
       links: [
         { href: "/epilazione-laser-carmagnola", label: "Epilazione laser Carmagnola" },
@@ -127,7 +141,7 @@ export default function HomePage() {
     {
       key: "local",
       title: "Territorio e città servite",
-      subtitle: "Zone da cui ci raggiungono più spesso in studio.",
+      subtitle: "Comuni da cui ci raggiungono più spesso in studio.",
       tone: "gold",
       links: [
         { href: "/localita", label: "Località servite" },
@@ -253,7 +267,7 @@ export default function HomePage() {
             </h1>
             <p className="home-hero-lead">
               Ci racconti cosa vuoi ottenere e guardiamo la tua pelle da vicino. Poi impostiamo
-              il percorso con manualità, attivi epigenetici e tecnologia quando serve.
+              il piano con manualità, attivi epigenetici e tecnologia quando serve.
             </p>
             <div className="home-hero-cta">
               <Link className="button button-primary" href="/contatti">
@@ -262,26 +276,17 @@ export default function HomePage() {
               <Link className="button button-secondary" href="/listino-estetica-laser">
                 Vedi trattamenti e prezzi
               </Link>
-              <Link className="button button-secondary" href="/epilazione-laser-carmagnola">
-                Epilazione laser Carmagnola
-              </Link>
             </div>
             <p className="home-hero-caption">
               Si parte da una lettura iniziale, poi si decide cosa fare e con che ritmo. Seduta dopo
-              seduta aggiustiamo il piano in base a come risponde la pelle.
+              seduta aggiorniamo il piano in base a come risponde la pelle.
             </p>
-            <div className="home-hero-side-points" aria-hidden="true">
-              <span>Lettura iniziale</span>
-              <span>Piano su misura</span>
-              <span>Progressione</span>
-            </div>
             <p className="home-hero-footnote">
               &quot;La bellezza non si aggiunge, si riattiva!&quot; e questo principio guida
               ogni percorso Rebel.
             </p>
             <div className="home-hero-chips">
               <span className="home-chip">Consulenza 1:1</span>
-              <span className="home-chip">Epilazione laser a Carmagnola</span>
               <span className="home-chip">Carmagnola, Viale Barbaroux 20</span>
             </div>
           </article>
@@ -291,30 +296,30 @@ export default function HomePage() {
       {baseServices.length > 0 ? (
         <section className="section section-light">
           <div className="container">
-            <p className="eyebrow" style={{ color: "rgba(39,31,56,0.68)" }}>
-              Carmagnola - servizi base
-            </p>
-            <h2 className="page-title" style={{ marginTop: "0.55rem" }}>
-              Trattamenti base, richiesti spesso in studio (viso, unghie, sguardo, benessere).
-            </h2>
-            <p className="lead" style={{ marginTop: "0.6rem", color: "rgba(39,31,56,0.78)", maxWidth: "78ch" }}>
-              Se vuoi iniziare in modo semplice e ordinato, qui trovi una selezione di trattamenti base richiesti spesso
-              a Carmagnola: viso, unghie, sguardo, massaggi e cura piedi. Apri una scheda e trovi dettagli, FAQ e indicazioni pratiche.
-            </p>
-            <div className="grid grid-3" style={{ marginTop: "1rem" }}>
+            <div className="section-head">
+              <p className="eyebrow eyebrow-soft">Carmagnola - servizi base</p>
+              <h2 className="page-title">
+                Trattamenti base, richiesti spesso in studio (viso, unghie, sguardo, benessere).
+              </h2>
+              <p className="lead text-on-light">
+                Qui trovi una selezione di trattamenti base richiesti spesso in studio: viso, unghie, sguardo,
+                massaggi e cura piedi. Ogni scheda va dritta al punto con dettagli, FAQ e indicazioni pratiche.
+              </p>
+            </div>
+            <div className="grid grid-3 mt-md">
               {baseServices.map((item) => (
                 <Link key={item.slug} href={`/servizi/${item.slug}`} className="card-light">
-                  <h3 style={{ marginTop: 0 }}>{item.name}</h3>
-                  <p className="lead" style={{ marginTop: "0.35rem", marginBottom: 0, color: "rgba(39,31,56,0.78)" }}>
+                  <h3 className="mt-0">{item.name}</h3>
+                  <p className="lead mt-xs text-on-light service-card-lead">
                     {item.shortDescription}
                   </p>
-                  <p style={{ marginTop: "0.65rem", marginBottom: 0, fontFamily: "var(--font-inter), sans-serif" }}>
+                  <p className="service-card-price">
                     <strong>{item.priceHint}</strong>
                   </p>
                 </Link>
               ))}
             </div>
-            <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
+            <div className="actions-row">
               <Link className="button button-primary" href="/contatti">
                 Consulenza e prenotazioni
               </Link>
@@ -329,21 +334,60 @@ export default function HomePage() {
         </section>
       ) : null}
 
+      <section className="section section-photo-story">
+        <div className="container split photo-story-split">
+          <article className="card photo-story-card">
+            <div className="section-head section-head--compact">
+              <p className="eyebrow">Metodo in cabina</p>
+              <h2 className="page-title">In cabina lavoriamo così: chiarezza, comfort, progressione.</h2>
+              <p className="lead">
+                Qui vedi il nostro metodo in cabina: lettura iniziale, trattamento personalizzato e monitoraggio
+                nel tempo.
+              </p>
+            </div>
+            <ul className="list-clean photo-story-points">
+              <li>- Lettura iniziale prima di impostare il ciclo</li>
+              <li>- Parametri calibrati su area e risposta cutanea</li>
+              <li>- Follow-up per mantenere direzione e risultati</li>
+            </ul>
+            <div className="actions-row">
+              <Link className="button button-primary" href="/epilazione-laser-carmagnola">
+                Scopri il percorso laser
+              </Link>
+              <Link className="button button-secondary" href="/contatti">
+                Prenota consulenza
+              </Link>
+            </div>
+          </article>
+          <aside className="photo-story-media-grid">
+            {photoStoryCards.map((item) => (
+              <article key={item.title} className="card-light photo-story-media-card">
+                <div className="hero-visual card-media mt-0">
+                  <Image src={item.src} alt={item.alt} width={1600} height={900} />
+                </div>
+                <h3 className="mt-sm">{item.title}</h3>
+                <p className="lead mt-xs text-on-light">{item.text}</p>
+              </article>
+            ))}
+          </aside>
+        </div>
+      </section>
+
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Query locali ad alta intenzione</p>
-          <h2 className="page-title" style={{ marginTop: "0.55rem" }}>
-            Se stai cercando un servizio specifico a Carmagnola, parti da qui.
-          </h2>
-          <p className="lead" style={{ marginTop: "0.55rem", maxWidth: "74ch" }}>
-            Abbiamo raggruppato le ricerche più frequenti del settore: ogni pagina va dritta al punto
-            con dettagli pratici, prezzo indicativo e call-to-action rapida.
-          </p>
-          <div className="grid grid-3" style={{ marginTop: "1rem" }}>
+          <div className="section-head section-head--compact">
+            <p className="eyebrow">Query locali ad alta intenzione</p>
+            <h2 className="page-title">Se stai cercando un servizio specifico a Carmagnola, parti da qui.</h2>
+            <p className="lead max-w-74ch">
+              Abbiamo raccolto le ricerche più frequenti: ogni pagina va dritta al punto
+              con dettagli pratici, prezzo indicativo e prossima azione chiara.
+            </p>
+          </div>
+          <div className="grid grid-3 mt-md">
             {localMoneyQueries.map((query) => (
               <Link key={query.href} href={query.href} className="card">
-                <h3 style={{ marginTop: 0 }}>{query.label}</h3>
-                <p className="lead" style={{ marginTop: "0.35rem" }}>
+                <h3 className="mt-0">{query.label}</h3>
+                <p className="lead mt-xs">
                   Apri pagina dedicata e orientati in pochi minuti.
                 </p>
               </Link>
@@ -355,15 +399,11 @@ export default function HomePage() {
 
       <section className="section section-light">
         <div className="container">
-          <p className="eyebrow" style={{ color: "rgba(39,31,56,0.68)" }}>
-            Instagram
-          </p>
-          <h2 className="page-title" style={{ marginTop: "0.6rem", color: "#271f38" }}>
-            Seguici su Instagram per vedere i nostri trattamenti in azione.
-          </h2>
-          <p className="lead" style={{ color: "rgba(39,31,56,0.78)", marginTop: "0.8rem" }}>
-            Reel, post e aggiornamenti dal centro estetico Rebel a Carmagnola.
-          </p>
+          <div className="section-head">
+            <p className="eyebrow eyebrow-soft">Instagram</p>
+            <h2 className="page-title">Seguici su Instagram per vedere i nostri trattamenti in azione.</h2>
+            <p className="lead text-on-light">Reel, post e aggiornamenti dal centro estetico Rebel a Carmagnola.</p>
+          </div>
           <InstagramFeed
             showReels={true}
             showPosts={true}
@@ -376,14 +416,14 @@ export default function HomePage() {
 
       <section className="section home-ecosystem-section">
         <div className="container home-ecosystem-container">
-          <p className="eyebrow">Percorsi</p>
-          <h2 className="page-title" style={{ marginTop: "0.6rem" }}>
-            Scopri l&apos;ecosistema Rebel
-          </h2>
-          <div className="ecosystem-grid" style={{ marginTop: "1.15rem" }}>
+          <div className="section-head section-head--compact">
+            <p className="eyebrow">Percorsi</p>
+            <h2 className="page-title">Scopri l&apos;ecosistema Rebel</h2>
+          </div>
+          <div className="ecosystem-grid mt-md">
             {ecosystemGroups.map((group) => (
               <article key={group.key} className={`ecosystem-card ecosystem-card--${group.tone}`}>
-                <h3 style={{ marginTop: 0 }}>{group.title}</h3>
+                <h3 className="mt-0">{group.title}</h3>
                 <p className="ecosystem-subtitle">{group.subtitle}</p>
                 <div className={`ecosystem-links${group.key === "local" ? " ecosystem-links--local" : ""}`}>
                   {group.links.map((item) => (
@@ -399,8 +439,8 @@ export default function HomePage() {
               </article>
             ))}
           </div>
-          <p className="lead" style={{ marginTop: "0.95rem" }}>
-            Se vuoi orientarti in fretta: qui trovi i servizi, i prezzi, le guide e le pagine
+          <p className="lead mt-sm">
+            Per orientarti in fretta: qui trovi servizi, prezzi, guide e pagine
             dedicate alle località da cui ci raggiungono più spesso.
           </p>
         </div>
@@ -408,24 +448,19 @@ export default function HomePage() {
 
       <section className="section section-light">
         <div className="container">
-          <p className="eyebrow" style={{ color: "rgba(39,31,56,0.68)" }}>
-            Territorio
-          </p>
-          <h2 className="page-title" style={{ marginTop: "0.6rem" }}>
-            Siamo a Carmagnola, ma lavoriamo con tante clienti della zona.
-          </h2>
-          <p
-            className="lead"
-            style={{ color: "rgba(39,31,56,0.78)", maxWidth: "74ch" }}
-          >
-            Oltre a Carmagnola, arrivano clienti da Carignano, Racconigi,
-            Sommariva del Bosco, Torino Sud e Alba. Se vuoi capire se Rebel è la
-            scelta giusta per te, il modo migliore è scriverci: ti rispondiamo
-            e ti diciamo da dove conviene partire.
-          </p>
-          <div style={{ display: "flex", gap: "0.7rem", flexWrap: "wrap", marginTop: "1rem" }}>
+          <div className="section-head section-head--compact">
+            <p className="eyebrow eyebrow-soft">Territorio</p>
+            <h2 className="page-title">Siamo a Carmagnola, ma lavoriamo con tante clienti della zona.</h2>
+            <p className="lead text-on-light max-w-74ch">
+              Oltre a Carmagnola, arrivano clienti da Carignano, Racconigi,
+              Sommariva del Bosco, Torino Sud e Alba. Se vuoi capire se Rebel fa
+              per te, scrivici: ti rispondiamo in modo diretto e ti proponiamo
+              il primo passo più sensato.
+            </p>
+          </div>
+          <div className="areas-badges">
             {siteConfig.areasServed.map((area) => (
-              <span key={area} className="badge" style={{ borderColor: "rgba(39,31,56,0.2)", color: "rgba(39,31,56,0.72)" }}>
+              <span key={area} className="badge area-badge">
                 {area}
               </span>
             ))}

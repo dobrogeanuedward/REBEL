@@ -6,6 +6,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 type SliderImage = {
   src: string;
   alt: string;
+  objectPosition?: string;
 };
 
 type HeroPhotoSliderProps = {
@@ -100,7 +101,7 @@ export function HeroPhotoSlider({ images, intervalMs = 6200, className }: HeroPh
       onBlurCapture={() => setPaused(false)}
       role="region"
       aria-roledescription="carousel"
-      aria-label="Foto del centro"
+      aria-label="Galleria del centro"
     >
       <div className="hero-photo-slider-stage">
         {safeImages.map((img, index) => {
@@ -120,6 +121,7 @@ export function HeroPhotoSlider({ images, intervalMs = 6200, className }: HeroPh
                   priority={index === 0}
                   sizes="100vw"
                   className="hero-photo-slider-image"
+                  style={img.objectPosition ? { objectPosition: img.objectPosition } : undefined}
                 />
               ) : null}
             </div>
@@ -133,11 +135,11 @@ export function HeroPhotoSlider({ images, intervalMs = 6200, className }: HeroPh
             type="button"
             className="hero-photo-slider-arrow"
             onClick={prev}
-            aria-label="Foto precedente"
+            aria-label="Elemento precedente"
           >
             ‹
           </button>
-          <div className="hero-photo-slider-dots" role="tablist" aria-label="Seleziona foto">
+          <div className="hero-photo-slider-dots" role="tablist" aria-label="Seleziona elemento">
             {safeImages.map((img, index) => {
               const isActive = index === active;
               return (
@@ -146,7 +148,7 @@ export function HeroPhotoSlider({ images, intervalMs = 6200, className }: HeroPh
                   type="button"
                   className={`hero-photo-slider-dot${isActive ? " is-active" : ""}`}
                   onClick={() => goTo(index)}
-                  aria-label={`Vai alla foto ${index + 1}`}
+                  aria-label={`Vai all'elemento ${index + 1}`}
                   aria-current={isActive ? "true" : "false"}
                 />
               );
@@ -156,7 +158,7 @@ export function HeroPhotoSlider({ images, intervalMs = 6200, className }: HeroPh
             type="button"
             className="hero-photo-slider-arrow"
             onClick={next}
-            aria-label="Foto successiva"
+            aria-label="Elemento successivo"
           >
             ›
           </button>

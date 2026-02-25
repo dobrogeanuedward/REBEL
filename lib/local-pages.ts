@@ -35,7 +35,7 @@ export const localAreaPages: LocalAreaPage[] = [
     description:
       "Rebel è a Carmagnola: trattamenti viso e corpo, epilazione laser a Carmagnola e percorsi costruiti su misura.",
     intro:
-      "Se sei a Carmagnola e cerchi un centro estetico serio, qui trovi un modo di lavorare molto concreto: ti ascoltiamo, leggiamo la pelle da vicino e poi scegliamo un primo step che abbia senso per te (con un ritmo che riesci a seguire davvero).",
+      "Se sei a Carmagnola e cerchi un centro estetico serio, qui trovi un modo di lavorare molto concreto: ti ascoltiamo, leggiamo la pelle da vicino e poi scegliamo una prima mossa che abbia senso per te (con un ritmo che riesci a seguire davvero).",
     whyRebel: [
       "Ti seguiamo in modo personalizzato, non con pacchetti preconfezionati",
       "Un unico studio per estetica classica, percorsi avanzati ed epilazione laser",
@@ -46,7 +46,7 @@ export const localAreaPages: LocalAreaPage[] = [
       mapsUrl: "https://www.google.com/maps/search/?api=1&query=Viale+Barbaroux+20,+10022+Carmagnola+TO",
       embedUrl: "https://www.google.com/maps?q=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
-        "Rebel si trova a Carmagnola, in Viale Barbaroux 20. Se vuoi arrivare senza perdere tempo, apri la mappa: ti porta direttamente all'indirizzo.",
+        "Rebel si trova a Carmagnola, in Viale Barbaroux 20. Per arrivare senza perdere tempo, apri la mappa: ti porta direttamente all'indirizzo.",
         "Se stai scegliendo da dove partire, il consiglio più semplice è questo: raccontaci obiettivo e tempi (anche pochi), e ti proponiamo un percorso che abbia senso per te.",
       ],
     },
@@ -54,8 +54,8 @@ export const localAreaPages: LocalAreaPage[] = [
       heading: "Carmagnola: viso più in ordine, laser impostato bene (senza confusione)",
       paragraphs: [
         "A Carmagnola spesso si parte da una richiesta semplice: vedersi più curate, ma senza sentirsi \"ingolfate\" da dieci cose diverse. È un obiettivo normalissimo, e si ottiene scegliendo bene l'ordine.",
-        "Se vuoi iniziare in modo semplice (senza confonderti), di solito funziona così: pulizia viso per rimettere comfort e luminosità; manicure semipermanente per mani ordinate; laminazione per uno sguardo più definito ma naturale; pedicure per piedi più in ordine; un massaggio rilassante per staccare davvero. Sono servizi richiesti spesso perché cambiano la sensazione subito, senza complicarti la settimana.",
-        "Se il tema è il viso, di solito rimettiamo al centro comfort, grana e luminosità (con un primo step fatto bene, non aggressivo). Poi, solo se serve davvero, si passa a un percorso più avanzato con progressione e mantenimento chiari.",
+        "Per iniziare in modo semplice (senza confonderti), di solito funziona così: pulizia viso per rimettere comfort e luminosità; manicure semipermanente per mani ordinate; laminazione per uno sguardo più definito ma naturale; pedicure per piedi più in ordine; un massaggio rilassante per staccare davvero. Sono servizi richiesti spesso perché cambiano la sensazione subito, senza complicarti la settimana.",
+        "Se il tema è il viso, di solito rimettiamo al centro comfort, grana e luminosità (con una prima seduta fatta bene, non aggressiva). Poi, solo se serve davvero, si passa a un percorso più avanzato con progressione e mantenimento chiari.",
         "Se invece la priorità è il laser, la chiave è scegliere l'ordine delle zone e un calendario realistico. Inguine e ascelle, per esempio, cambiano tanto la gestione quotidiana, ma vanno impostate con regole pratiche semplici tra una seduta e l'altra.",
         "Una cosa che consigliamo spesso è partire in inverno: è il periodo più facile per essere costanti (meno sole, meno imprevisti). Quando il calendario è stabile, tutto il resto diventa più semplice.",
         "E se ti alleni spesso (palestra, corsa, sport), non è un problema: si pianifica. Basta sapere cosa evitare nelle prime 24-48 ore e incastrare sedute e allenamenti con un minimo di margine.",
@@ -176,7 +176,7 @@ export const localAreaPages: LocalAreaPage[] = [
         {
           label: "Estetica epigenetica: cosa significa",
           href: "/competenze/estetica-epigenetica-carmagnola-cosa-significa",
-          description: "Una spiegazione chiara dei protocolli epigenetici e di come si sceglie il primo step.",
+          description: "Una spiegazione chiara dei protocolli epigenetici e di come si sceglie il primo passo.",
         },
         {
           label: "Laser in inverno: guida pratica",
@@ -193,11 +193,11 @@ export const localAreaPages: LocalAreaPage[] = [
     faqs: [
       {
         q: "Sono a Carmagnola: da cosa mi consigliate di partire?",
-        a: "Dipende da obiettivo e tempi. Se vuoi un consiglio veloce, scrivici: ti orientiamo tra viso, corpo, laser e protocolli in base alla tua situazione.",
+        a: "Dipende da obiettivo e tempi. Se ti serve un consiglio veloce, scrivici: valutiamo insieme viso, corpo, laser e protocolli sulla tua situazione.",
       },
       {
         q: "Posso vedere prezzi e servizi prima di prenotare?",
-        a: "Sì: trovi il listino completo online. Poi, se vuoi, in studio lo traduciamo in un percorso su misura.",
+        a: "Sì: trovi il listino completo online. Poi, se lo desideri, in studio lo adattiamo a te.",
       },
       {
         q: "Pulizia viso e semipermanente: ha senso inserirli mentre faccio il laser?",
@@ -205,7 +205,7 @@ export const localAreaPages: LocalAreaPage[] = [
       },
       {
         q: "Non so da dove partire: cosa mi consigliate?",
-        a: "Dipende dalla tua priorità. Se vuoi rimettere ordine sul viso, spesso si parte dalla pulizia viso (delicata e completa). Se vuoi sentirti subito \"a posto\" senza pensieri, semipermanente, laminazione o pedicure sono scelte pratiche. Se invece vuoi staccare e sciogliere tensione, un massaggio rilassante è perfetto. Se ci scrivi, ti orientiamo in due messaggi.",
+        a: "Dipende dalla tua priorità. Per rimettere ordine sul viso, spesso si parte dalla pulizia viso (delicata e completa). Se preferisci sentirti subito \"a posto\" senza pensieri, semipermanente, laminazione o pedicure sono scelte pratiche. Se invece desideri staccare e sciogliere tensione, un massaggio rilassante è perfetto. Se ci scrivi, ti diamo una direzione in due messaggi.",
       },
     ],
     keywords: [
@@ -231,7 +231,7 @@ export const localAreaPages: LocalAreaPage[] = [
     whyRebel: [
       "Valutazione iniziale e obiettivo chiaro prima di iniziare",
       "Percorso laser seguito nel tempo con regole pratiche tra le sedute",
-      "Servizi base curati (viso, unghie, piedi) utili come primo step semplice",
+      "Servizi base curati (viso, unghie, piedi) utili come primo passo semplice",
       "Supporto rapido su WhatsApp per organizzare calendario e dubbi",
     ],
     directions: {
@@ -242,7 +242,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "https://www.google.com/maps?f=d&source=s_d&saddr=Lombriasco&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
         "Apri Google Maps per tempi e traffico aggiornati: la destinazione è Rebel, in Viale Barbaroux 20 a Carmagnola.",
-        "Se vuoi partire con una direzione semplice (una priorità, non dieci cose insieme), scrivici su WhatsApp: ti diciamo in due messaggi il primo passo più sensato.",
+        "Per partire con una direzione semplice (una priorità, non dieci cose insieme), scrivici su WhatsApp: ti diciamo in due messaggi il primo passo più sensato.",
       ],
     },
     focus: {
@@ -276,7 +276,7 @@ export const localAreaPages: LocalAreaPage[] = [
         {
           label: "Pulizia viso",
           href: "/servizi/pulizia-viso-carmagnola",
-          description: "Un primo step semplice per rimettere comfort e luminosità.",
+          description: "Un primo passo semplice per rimettere comfort e luminosità.",
         },
         {
           label: "Manicure semipermanente",
@@ -303,7 +303,7 @@ export const localAreaPages: LocalAreaPage[] = [
     faqs: [
       {
         q: "Da Lombriasco: da cosa conviene partire?",
-        a: "Dipende dalla priorità. Se vuoi ridurre la gestione quotidiana, spesso si parte dal laser su una zona e da un calendario realistico. Se vuoi vederti più curata subito, un gancio base (pulizia viso, semipermanente, laminazione, pedicure) è un ottimo primo step.",
+        a: "Dipende dalla priorità. Se l'obiettivo è ridurre la gestione quotidiana, spesso si parte dal laser su una zona e da un calendario realistico. Se preferisci vederti più curata subito, un gancio base (pulizia viso, semipermanente, laminazione, pedicure) è un ottimo punto di partenza.",
       },
       {
         q: "Prenotazione: posso scrivere su WhatsApp?",
@@ -311,7 +311,7 @@ export const localAreaPages: LocalAreaPage[] = [
       },
       {
         q: "Posso vedere servizi e prezzi prima di venire?",
-        a: "Sì: trovi il listino online. Poi, se vuoi, lo traduciamo in un percorso su misura in base alla tua situazione.",
+        a: "Sì: trovi il listino online. Poi, se lo desideri, lo adattiamo alla tua situazione.",
       },
     ],
     keywords: [
@@ -345,7 +345,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "https://www.google.com/maps?f=d&source=s_d&saddr=Caramagna+Piemonte&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
         "Per tempi e traffico aggiornati, apri il link Maps: ti porta direttamente in Viale Barbaroux 20 (Rebel, Carmagnola).",
-        "Se vuoi evitare giri a vuoto, scrivici su WhatsApp: ci dici cosa vuoi ottenere e ti proponiamo un primo passo pulito, senza confusione.",
+        "Per evitare giri a vuoto, scrivici su WhatsApp: ci dici cosa vuoi ottenere e ti proponiamo un primo passo pulito, senza confusione.",
       ],
     },
     focus: {
@@ -405,7 +405,7 @@ export const localAreaPages: LocalAreaPage[] = [
       },
       {
         q: "Non so da dove partire: come mi orientate?",
-        a: "Ti chiediamo una priorità e i tempi che hai. Poi scegliamo un primo step semplice (un servizio base o una zona laser) e costruiamo il resto intorno, senza fare tutto insieme.",
+        a: "Ti chiediamo una priorità e i tempi che hai. Poi scegliamo una prima mossa semplice (un servizio base o una zona laser) e costruiamo il resto intorno, senza fare tutto insieme.",
       },
       {
         q: "Prenotazione rapida: posso scrivere su WhatsApp?",
@@ -443,7 +443,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "https://www.google.com/maps?f=d&source=s_d&saddr=Osasio&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
         "Apri Google Maps e segui la navigazione aggiornata: la destinazione è Rebel, Viale Barbaroux 20 (Carmagnola).",
-        "Se vuoi ottimizzare tempi e appuntamenti, scrivici su WhatsApp: ti aiutiamo a scegliere un primo passo comodo.",
+        "Per ottimizzare tempi e appuntamenti, scrivici su WhatsApp: scegliamo insieme un primo passo comodo.",
       ],
     },
     focus: {
@@ -499,15 +499,15 @@ export const localAreaPages: LocalAreaPage[] = [
     faqs: [
       {
         q: "Da Osasio: quanto serve per iniziare?",
-        a: "Basta avere una priorità. Se ci scrivi, in pochi messaggi ti orientiamo sul primo step più sensato e sugli appuntamenti più comodi.",
+        a: "Basta avere una priorità. Se ci scrivi, in pochi messaggi definiamo il primo passo più sensato e gli appuntamenti più comodi.",
       },
       {
         q: "Posso vedere servizi e prezzi prima di prenotare?",
-        a: "Sì: trovi il listino online. Poi, se vuoi, in studio lo traduciamo in un percorso adatto a te.",
+        a: "Sì: trovi il listino online. Poi, se lo desideri, in studio lo traduciamo in un percorso adatto a te.",
       },
       {
         q: "Se ho poco tempo, conviene partire da laser o da un servizio base?",
-        a: "Dipende dall'obiettivo. Se la priorità è ridurre la gestione, spesso il laser è la strada più diretta. Se vuoi sentirti più curata subito, un gancio base (viso/unghie/piedi/sguardo) è perfetto.",
+        a: "Dipende dall'obiettivo. Se la priorità è ridurre la gestione, spesso il laser è la strada più diretta. Se preferisci sentirti più curata subito, un gancio base (viso/unghie/piedi/sguardo) è perfetto.",
       },
     ],
     keywords: [
@@ -541,14 +541,14 @@ export const localAreaPages: LocalAreaPage[] = [
         "https://www.google.com/maps?f=d&source=s_d&saddr=Casalgrasso&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
         "Apri il link Maps per una stima aggiornata di tempi e traffico: la destinazione è Rebel (Viale Barbaroux 20, Carmagnola).",
-        "Se vuoi partire senza fare tentativi, scrivici su WhatsApp: ci dici obiettivo e tempi e ti proponiamo il primo passo più lineare.",
+        "Per partire senza fare tentativi, scrivici su WhatsApp: ci dici obiettivo e tempi e ti proponiamo il primo passo più lineare.",
       ],
     },
     focus: {
       heading: "Casalgrasso: ordine, comfort, progressione (e scelte semplici)",
       paragraphs: [
         "Molte persone cercano una soluzione “vicina”, ma la vera differenza è trovare un metodo. Noi partiamo dall'ordine: una priorità e un calendario che riesci a tenere davvero.",
-        "Se vuoi un risultato subito percepibile, spesso conviene partire da un gancio base: pulizia viso (pelle più comoda), semipermanente (mani più curate), laminazione (sguardo più ordinato), pedicure (piedi più comodi).",
+        "Per un risultato subito percepibile, spesso conviene partire da un gancio base: pulizia viso (pelle più comoda), semipermanente (mani più curate), laminazione (sguardo più ordinato), pedicure (piedi più comodi).",
         "Se invece l'obiettivo è un percorso corpo più “di continuità”, si valuta bene cosa inserire e quando: drenaggio e pressoterapia funzionano quando sono gestiti con buonsenso, non con eccessi.",
       ],
       links: [
@@ -602,7 +602,7 @@ export const localAreaPages: LocalAreaPage[] = [
     faqs: [
       {
         q: "Da Casalgrasso: come prenoto?",
-        a: "Puoi prenotare dal sito o scriverci su WhatsApp. Se ci dici obiettivo e tempi, ti aiutiamo a scegliere l'appuntamento più sensato.",
+        a: "Puoi prenotare dal sito o scriverci su WhatsApp. Se ci dici obiettivo e tempi, ti proponiamo l'appuntamento più sensato.",
       },
       {
         q: "Se faccio il laser, posso inserire anche servizi base?",
@@ -610,7 +610,7 @@ export const localAreaPages: LocalAreaPage[] = [
       },
       {
         q: "Non so cosa scegliere: mi consigliate voi?",
-        a: "Sì. Partiamo dalla tua priorità e proponiamo un primo step semplice: o una zona laser, oppure un servizio base che ti rimette subito in ordine.",
+        a: "Sì. Partiamo dalla tua priorità e proponiamo un primo passo semplice: o una zona laser, oppure un servizio base che ti rimette subito in ordine.",
       },
     ],
     keywords: [
@@ -643,7 +643,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "https://www.google.com/maps?f=d&source=s_d&saddr=Carignano&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
         "Per arrivare da Carignano, il modo più semplice è aprire la mappa e seguire il percorso aggiornato in tempo reale. La destinazione è Viale Barbaroux 20, Carmagnola.",
-        "Se vuoi organizzarti bene con gli orari, scrivici su WhatsApp: ti aiutiamo a capire da dove partire e come impostare le prime sedute in modo comodo.",
+        "Per organizzarti bene con gli orari, scrivici su WhatsApp: ti diciamo da dove partire e come impostare le prime sedute in modo comodo.",
       ],
     },
     focus: {
@@ -651,7 +651,7 @@ export const localAreaPages: LocalAreaPage[] = [
       paragraphs: [
         "Da Carignano arrivano spesso persone con un'idea chiara: fare il laser in modo seguito e non \"a tentativi\". Il primo passo, per noi, è scegliere le zone giuste e un calendario che riesci a rispettare davvero.",
         "Inguine e ascelle, per esempio, sono due aree che sembrano \"semplici\" ma richiedono metodo: tempi corretti, gestione pratica tra le sedute e aspettative realistiche già da subito.",
-        "Se vuoi impostarlo senza stress, l'inverno è spesso il momento perfetto: meno esposizione, meno imprevisti, più continuità. È una scelta concreta, non una regola rigida.",
+        "Per impostarlo senza stress, l'inverno è spesso il momento perfetto: meno esposizione, meno imprevisti, più continuità. È una scelta concreta, non una regola rigida.",
         "Se ti alleni (palestra, corsa, sport), si può fare lo stesso: basta pianificare e sapere cosa evitare nelle prime 24-48 ore, soprattutto sulle zone dove c'è più sfregamento.",
         "E capita spesso che, mentre si imposta il laser, esca anche un tema viso: pelle più spenta, texture che non regge più bene sotto il make-up, sensazione di perdita di tono. In questi casi Collagen Code è uno dei protocolli che ci chiedono spesso: progressione pulita e obiettivo chiaro.",
         "Se ti interessa il laser uomo (barba/collo o zone ampie), vale la stessa regola: organizzazione prima di tutto. Meglio un piano ordinato che sedute sparse senza direzione.",
@@ -702,7 +702,7 @@ export const localAreaPages: LocalAreaPage[] = [
         {
           label: "Estetica epigenetica: cosa significa",
           href: "/competenze/estetica-epigenetica-carmagnola-cosa-significa",
-          description: "Se vuoi capire l'approccio (prima di scegliere un protocollo): lettura, progressione e mantenimento.",
+          description: "Per capire l'approccio (prima di scegliere un protocollo): lettura, progressione e mantenimento.",
         },
         {
           label: "Laser diodo: differenze e criteri di scelta",
@@ -793,7 +793,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "https://www.google.com/maps?f=d&source=s_d&saddr=Racconigi&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
         "Se arrivi da Racconigi, ti consigliamo di aprire la mappa e seguire il percorso aggiornato in tempo reale. La destinazione è Viale Barbaroux 20, Carmagnola.",
-        "Se preferisci organizzarti con anticipo (soprattutto nelle settimane più piene), scrivici su WhatsApp: ti aiutiamo a capire da dove partire e come distribuire le sedute in modo comodo.",
+        "Se preferisci organizzarti con anticipo (soprattutto nelle settimane più piene), scrivici su WhatsApp: ti diciamo da dove partire e come distribuire le sedute in modo comodo.",
       ],
     },
     focus: {
@@ -924,7 +924,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "https://www.google.com/maps?f=d&source=s_d&saddr=Sommariva+del+Bosco&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
         "Il modo più semplice è aprire Google Maps e seguire il percorso aggiornato in tempo reale: traffico e lavori possono cambiare. La destinazione è Rebel, in Viale Barbaroux 20 a Carmagnola.",
-        "Se vuoi organizzare bene le sedute rispetto a lavoro, famiglia e weekend fuori, scrivici su WhatsApp: ti aiutiamo a impostare un calendario che riesci a seguire davvero.",
+        "Per organizzare bene le sedute rispetto a lavoro, famiglia e weekend fuori, scrivici su WhatsApp: impostiamo un calendario che riesci a seguire davvero.",
       ],
     },
     focus: {
@@ -936,7 +936,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "Quando invece la richiesta è viso più fresco (ovale, tono, luminosità), spesso consigliamo Rebel Lift Protocol: è un protocollo epigenetico orientato a tono e luce, pensato per risultati progressivi e non solo \"bella in giornata\".",
         "Se invece sai già che in estate sei sempre fuori, un trucco semplice è partire in inverno: è più facile essere costanti e arrivare alla primavera con il percorso già impostato (senza corse dell'ultimo minuto).",
         "Se arrivi da Sommariva del Bosco, l'idea è ottimizzare: o parti dal laser e poi inseriamo il viso, oppure fai il contrario. L'importante è scegliere una priorità e tenere il filo.",
-        "E se vuoi aggiungere un classico mentre sei in studio (senza complicarti la giornata), spesso funziona bene abbinare una manicure ordinata o una laminazione, giusto per uscire \"a posto\" senza fare due viaggi.",
+        "Se vuoi aggiungere un classico mentre sei in studio (senza complicarti la giornata), spesso funziona bene abbinare una manicure ordinata o una laminazione, giusto per uscire \"a posto\" senza fare due viaggi.",
         "Se arrivi da Sommariva del Bosco e vuoi capire se questo è il momento giusto (e da quali zone partire), scrivici: ti diciamo come impostarlo senza fretta.",
       ],
       links: [
@@ -1067,7 +1067,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "https://www.google.com/maps?f=d&source=s_d&saddr=Poirino&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
         "Per arrivare senza perdere tempo, apri la mappa e segui il percorso aggiornato in tempo reale. La destinazione è Rebel, in Viale Barbaroux 20 a Carmagnola.",
-        "Se vuoi incastrare bene gli appuntamenti con lavoro e famiglia, scrivici su WhatsApp: ti aiutiamo a scegliere un calendario che riesci a tenere (e a non \"mollare\" dopo le prime sedute).",
+        "Per incastrare bene gli appuntamenti con lavoro e famiglia, scrivici su WhatsApp: scegliamo un calendario che riesci a tenere (e a non \"mollare\" dopo le prime sedute).",
       ],
     },
     focus: {
@@ -1078,9 +1078,9 @@ export const localAreaPages: LocalAreaPage[] = [
         "Ice Polar è un aiuto concreto sul comfort durante la seduta, ma il risultato non è \"una macchina\": è metodo + calendario + cosa fare tra una seduta e l'altra.",
         "Se invece la richiesta è viso (pelle che cambia, più secca, più sottile o semplicemente meno piena), un protocollo molto richiesto è Rebirth 60+: è pensato per pelli mature, su densità e nutrimento, con un'idea chiara di progressione.",
         "Se ti alleni spesso o hai settimane molto attive, vale una regola pratica: evitare di sovraccaricare la pelle subito dopo la seduta (calore, sfregamenti). Non serve fermarsi, serve solo pianificare bene.",
-        "E se vuoi fare le cose con calma e continuità, l'inverno è spesso il periodo più comodo per iniziare: meno esposizione, più facilità nel tenere il ritmo.",
+        "Se preferisci fare le cose con calma e continuità, l'inverno è spesso il periodo più comodo per iniziare: meno esposizione, più facilità nel tenere il ritmo.",
         "Anche qui vale la regola d'oro: una priorità alla volta. Se inizi dal laser, il viso lo inseriamo quando serve; se inizi dal viso, il laser lo programmiamo con la stessa logica, senza accavallare tutto.",
-        "Se vuoi restare su servizi classici, lo stesso approccio vale anche per mani e corpo: manicure ordinata, massaggio relax o linfodrenante, ma sempre con un calendario che non ti stressa.",
+        "Se preferisci restare su servizi classici, lo stesso approccio vale anche per mani e corpo: manicure ordinata, massaggio relax o linfodrenante, ma sempre con un calendario che non ti stressa.",
         "Se arrivi da Poirino e vuoi capire da quali zone partire (anche in base a tempo e budget), scrivici: ti diciamo subito una strategia semplice e realistica.",
       ],
       links: [
@@ -1133,7 +1133,7 @@ export const localAreaPages: LocalAreaPage[] = [
         {
           label: "Estetica epigenetica: cosa significa",
           href: "/competenze/estetica-epigenetica-carmagnola-cosa-significa",
-          description: "Se vuoi capire l'approccio dei protocolli prima di sceglierne uno (viso o corpo).",
+          description: "Per capire l'approccio dei protocolli prima di sceglierne uno (viso o corpo).",
         },
         {
           label: "Laser corpo: zone, tempi e piano sedute",
@@ -1143,7 +1143,7 @@ export const localAreaPages: LocalAreaPage[] = [
         {
           label: "Guida laser ascelle",
           href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
-          description: "Se vuoi partire da una zona \"smart\": come gestire tempi e sedute.",
+          description: "Per partire da una zona \"smart\": come gestire tempi e sedute.",
         },
         {
           label: "Guida laser inguine",
@@ -1220,7 +1220,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "https://www.google.com/maps?f=d&source=s_d&saddr=Villastellone&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
         "Se arrivi da Villastellone, il modo più semplice è aprire la mappa e seguire il percorso aggiornato in tempo reale. La destinazione è Viale Barbaroux 20, Carmagnola.",
-        "Se vuoi incastrare bene gli orari con lavoro e famiglia, scrivici su WhatsApp: ti aiutiamo a scegliere il momento più comodo per iniziare il percorso.",
+        "Per incastrare bene gli orari con lavoro e famiglia, scrivici su WhatsApp: scegliamo il momento più comodo per iniziare il percorso.",
       ],
     },
     focus: {
@@ -1229,10 +1229,10 @@ export const localAreaPages: LocalAreaPage[] = [
         "Se vivi a Villastellone e stai pensando al laser, capiamo benissimo il dubbio più comune: \"Sarò a mio agio durante la seduta?\". Per questo in studio lavoriamo con manipolo Ice Polar, che aiuta a rendere il trattamento più confortevole.",
         "Ma il comfort da solo non basta. Quello che fa davvero la differenza è la competenza con cui si impostano parametri e calendario: zona per zona, pelle per pelle, con una progressione chiara e senza corse.",
         "Se ti alleni spesso o fai sport, lo diciamo subito: si può fare. Basta pianificare la seduta e gestire bene le prime 24-48 ore (calore, sudore e sfregamenti), soprattutto su ascelle e inguine.",
-        "E se vuoi impostare il laser con il ritmo più semplice possibile, l'inverno è spesso il periodo ideale: meno esposizione, più costanza, meno interruzioni.",
+        "Se vuoi impostare il laser con il ritmo più semplice possibile, l'inverno è spesso il periodo ideale: meno esposizione, più costanza, meno interruzioni.",
         "E succede spesso che, mentre si parla di laser, emerga anche un desiderio più ampio: pelle più compatta, più luminosa, più uniforme. In questi casi un protocollo molto richiesto è Rebel Cell Regeneration, un percorso intensivo viso/corpo pensato per rigenerazione progressiva.",
         "Un'altra richiesta tipica (anche in coppia) è il laser uomo: schiena e torace, oppure barba/collo. In quel caso si ragiona ancora di più per strategia, perché densità e ricrescita chiedono un calendario ordinato.",
-        "Se invece vuoi partire da qualcosa di classico (ma fatto bene), spesso il massaggio rilassante è il primo step: ti rimette in ordine schiena e spalle, e non ti incastra in un percorso infinito.",
+        "Se invece vuoi partire da qualcosa di classico (ma fatto bene), spesso il massaggio rilassante è la prima scelta: ti rimette in ordine schiena e spalle, e non ti incastra in un percorso infinito.",
         "La scelta la facciamo insieme: se la priorità è il laser, si parte dalle zone e si costruisce calendario e gestione. Se invece vuoi lavorare prima sul viso/corpo, il laser lo programmiamo in modo coerente, senza accavallare troppe cose nello stesso periodo.",
       ],
       links: [
@@ -1279,7 +1279,7 @@ export const localAreaPages: LocalAreaPage[] = [
         {
           label: "Epilazione laser corpo",
           href: "/servizi/epilazione-laser-corpo-carmagnola",
-          description: "Zone corpo e organizzazione del ciclo, con percorso su misura.",
+          description: "Zone corpo e organizzazione del ciclo, con piano personalizzato.",
         },
         {
           label: "Laser uomo: guida pratica",
@@ -1356,7 +1356,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "https://www.google.com/maps?f=d&source=s_d&saddr=Pancalieri&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
         "Apri Google Maps e segui il percorso aggiornato in tempo reale: è il modo più comodo per arrivare a Viale Barbaroux 20, Carmagnola.",
-        "Se vuoi partire con un piano ordinato (zone + calendario), scrivici su WhatsApp: ti guidiamo passo per passo, senza accelerazioni inutili.",
+        "Per partire con un piano ordinato (zone + calendario), scrivici su WhatsApp: ti guidiamo passo per passo, senza accelerazioni inutili.",
       ],
     },
     focus: {
@@ -1367,9 +1367,9 @@ export const localAreaPages: LocalAreaPage[] = [
         "Ice Polar aiuta molto il comfort durante la seduta, ma non è l'unica variabile. La differenza vera è una gestione ordinata: niente promesse esagerate, solo una progressione chiara.",
         "Se ti alleni spesso, questo è ancora più importante: sudore, calore e tessuti stretti possono irritare nelle prime 24-48 ore. Non serve fermarsi, serve solo incastrare bene seduta e sport.",
         "E spesso, mentre si fa il laser, nasce anche una richiesta viso molto concreta: pelle più opaca, grana più spessa, sensazione di disordine (anche con prodotti a casa). In questi casi un protocollo richiesto spesso è Catalysis Ritual: un reset cutaneo con maschere enzimatiche e biostimolatori, pensato per rimettere la pelle in carreggiata.",
-        "Se vuoi partire nel modo più semplice possibile (e non arrivare all'estate con l'ansia), l'inverno è spesso il periodo più comodo: meno sole, più costanza, più continuità.",
+        "Per partire nel modo più semplice possibile (e non arrivare all'estate con l'ansia), l'inverno è spesso il periodo più comodo: meno sole, più costanza, più continuità.",
         "Se arrivi da Pancalieri, l'idea è non mischiare tutto: scegliamo una priorità (laser su una zona oppure viso) e poi costruiamo il resto intorno, con un calendario che si regge.",
-        "E se vuoi un classico che funziona sempre come primo step sul viso, spesso partiamo dalla pulizia viso: fatta bene, ti rimette la pelle in ordine e ti fa capire da dove iniziare davvero.",
+        "Se vuoi un classico che funziona sempre come primo passo sul viso, spesso partiamo dalla pulizia viso: fatta bene, ti rimette la pelle in ordine e ti fa capire da dove iniziare davvero.",
         "Se arrivi da Pancalieri e vuoi iniziare senza dubbi confusi, scrivici: ti spieghiamo cosa aspettarti e da dove partire (viso, corpo o una zona alla volta).",
       ],
       links: [
@@ -1381,7 +1381,7 @@ export const localAreaPages: LocalAreaPage[] = [
         {
           label: "Estetica avanzata a Carmagnola",
           href: "/competenze/estetica-avanzata-carmagnola",
-          description: "Per capire quando serve un protocollo e quando basta un primo step fatto bene.",
+          description: "Per capire quando serve un protocollo e quando basta un primo passo fatto bene.",
         },
         {
           label: "Pulizia viso",
@@ -1489,7 +1489,7 @@ export const localAreaPages: LocalAreaPage[] = [
     description:
       "Se vivi a Virle Piemonte e cerchi un centro estetico organizzato, Rebel a Carmagnola unisce laser, viso/corpo e servizi base curati, con indicazioni pratiche e percorsi realistici.",
     intro:
-      "Da Virle Piemonte arrivano clienti che vogliono semplicità: capire la priorità, impostare un primo step pulito e poi decidere il resto con calma (senza fare tutto insieme).",
+      "Da Virle Piemonte arrivano clienti che vogliono semplicità: capire la priorità, impostare una prima mossa pulita e poi decidere il resto con calma (senza fare tutto insieme).",
     whyRebel: [
       "Valutazione iniziale e percorso costruito su zona/pelle/obiettivo",
       "Progressione chiara: calendario realistico e aspettative sane",
@@ -1504,7 +1504,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "https://www.google.com/maps?f=d&source=s_d&saddr=Virle+Piemonte&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
         "Apri Google Maps per tempi e traffico aggiornati: la destinazione è Rebel, in Viale Barbaroux 20 a Carmagnola.",
-        "Se vuoi ottimizzare appuntamenti e priorità, scrivici su WhatsApp: ti aiutiamo a scegliere il primo passo più sensato, senza confusione.",
+        "Per ottimizzare appuntamenti e priorità, scrivici su WhatsApp: scegliamo insieme il primo passo più sensato, senza confusione.",
       ],
     },
     focus: {
@@ -1538,7 +1538,7 @@ export const localAreaPages: LocalAreaPage[] = [
         {
           label: "Pulizia viso",
           href: "/servizi/pulizia-viso-carmagnola",
-          description: "Comfort e luminosità: un primo step semplice e concreto.",
+          description: "Comfort e luminosità: un primo passo semplice e concreto.",
         },
         {
           label: "Manicure semipermanente",
@@ -1565,11 +1565,11 @@ export const localAreaPages: LocalAreaPage[] = [
     faqs: [
       {
         q: "Da Virle Piemonte: da cosa conviene partire?",
-        a: "Dipende dalla priorità. Se vuoi ridurre la gestione quotidiana, spesso si parte dal laser su una zona e da un calendario realistico. Se vuoi vederti più curata subito, un gancio base (pulizia viso, semipermanente, laminazione, pedicure) è un ottimo primo step.",
+        a: "Dipende dalla priorità. Se l'obiettivo è ridurre la gestione quotidiana, spesso si parte dal laser su una zona e da un calendario realistico. Se preferisci vederti più curata subito, un gancio base (pulizia viso, semipermanente, laminazione, pedicure) è un ottimo punto di partenza.",
       },
       {
         q: "Posso vedere servizi e prezzi prima di venire?",
-        a: "Sì: trovi il listino online. Poi, se vuoi, lo traduciamo in un percorso su misura in base alla tua situazione.",
+        a: "Sì: trovi il listino online. Poi, se lo desideri, lo adattiamo alla tua situazione.",
       },
       {
         q: "Prenoto via WhatsApp?",
@@ -1607,15 +1607,15 @@ export const localAreaPages: LocalAreaPage[] = [
         "https://www.google.com/maps?f=d&source=s_d&saddr=Pralormo&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
         "Per tempi e traffico aggiornati, apri Google Maps: la destinazione è Rebel, Viale Barbaroux 20 (Carmagnola).",
-        "Se vuoi partire con un piano ordinato, scrivici su WhatsApp: ti aiutiamo a scegliere il primo step e a incastrare gli appuntamenti.",
+        "Per partire con un piano ordinato, scrivici su WhatsApp: definiamo il primo passo e incastriamo gli appuntamenti.",
       ],
     },
     focus: {
       heading: "Pralormo: scegliere una priorità e tenere il filo (questa è la differenza)",
       paragraphs: [
         "Nel nostro lavoro la qualità non è fare mille cose: è fare la cosa giusta, nel momento giusto. Per questo partiamo sempre da una priorità (laser, viso o corpo) e impostiamo un calendario che si regge nel tempo.",
-        "Se vuoi un risultato subito percepibile, spesso conviene partire da un gancio base: pulizia viso, semipermanente, laminazione o pedicure. Sono servizi semplici, ma fatti bene cambiano davvero la sensazione.",
-        "Se il tema è la leggerezza sulle gambe, ti orientiamo con criteri pratici: drenaggio e pressoterapia si inseriscono quando hanno senso, senza trasformarli in un impegno infinito.",
+        "Per un risultato subito percepibile, spesso conviene partire da un gancio base: pulizia viso, semipermanente, laminazione o pedicure. Sono servizi semplici, ma fatti bene cambiano davvero la sensazione.",
+        "Se il tema è la leggerezza sulle gambe, ti diamo criteri pratici: drenaggio e pressoterapia si inseriscono quando hanno senso, senza trasformarli in un impegno infinito.",
       ],
       links: [
         {
@@ -1641,7 +1641,7 @@ export const localAreaPages: LocalAreaPage[] = [
         {
           label: "Pulizia viso",
           href: "/servizi/pulizia-viso-carmagnola",
-          description: "Ordine e comfort: un primo step semplice e sensato.",
+          description: "Ordine e comfort: un primo passo semplice e sensato.",
         },
         {
           label: "Manicure semipermanente",
@@ -1667,7 +1667,7 @@ export const localAreaPages: LocalAreaPage[] = [
       },
       {
         q: "Se ho poco tempo, cosa conviene come primo passo?",
-        a: "Dipende dall'obiettivo. Se vuoi ridurre la gestione, spesso conviene partire dal laser su una zona. Se vuoi sentirti più curata subito, un gancio base (pulizia viso, semipermanente, laminazione, pedicure) è perfetto.",
+        a: "Dipende dall'obiettivo. Se l'obiettivo è ridurre la gestione, spesso conviene partire dal laser su una zona. Se preferisci sentirti più curata subito, un gancio base (pulizia viso, semipermanente, laminazione, pedicure) è perfetto.",
       },
       {
         q: "Come prenoto rapidamente?",
@@ -1693,7 +1693,7 @@ export const localAreaPages: LocalAreaPage[] = [
       "Se arrivi da Torino Sud, la cosa che fa la differenza è avere un piano semplice: obiettivo chiaro, calendario realistico e una gestione umana (senza mille cambi di rotta).",
     whyRebel: [
       "Lettura iniziale: capiamo priorità e tempi prima di proporti qualcosa",
-      "Laser, viso e corpo nello stesso studio (con percorso ordinato)",
+      "Laser, viso e corpo nello stesso studio (con piano chiaro)",
       "Consigli pratici tra le sedute, così non vai a tentativi",
       "Risposte rapide su WhatsApp per gestire dubbi e calendario",
     ],
@@ -1714,7 +1714,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "Chi arriva da Torino Sud spesso ha due esigenze insieme: volersi vedere meglio e non avere tempo da perdere. Quindi il primo lavoro, prima ancora dei trattamenti, è mettere ordine.",
         "In studio ti chiediamo cose molto terra-terra: qual è la priorità (laser, viso o corpo), quante settimane riesci a essere costante e su quali zone vuoi partire. Da lì nasce un calendario che si regge, non una lista di sedute da rincorrere.",
         "Sul laser, ad esempio, le richieste più \"delicate\" sono spesso ascelle e inguine: comfort e gestione tra le sedute fanno metà del percorso. E sempre più spesso seguiamo anche percorsi laser uomo (barba/collo, schiena, torace): logica diversa, stessa regola d'oro, cioè progressione e costanza.",
-        "Se vuoi leggere qualcosa prima di scriverci, qui trovi alcune guide pratiche e le pagine dei servizi: ti chiariscono aspettative e ti aiutano a partire con domande già a fuoco.",
+        "Se preferisci leggere qualcosa prima di scriverci, qui trovi alcune guide pratiche e le pagine dei servizi: ti chiariscono aspettative e ti aiutano a partire con domande già a fuoco.",
       ],
       links: [
         {
@@ -1811,7 +1811,7 @@ export const localAreaPages: LocalAreaPage[] = [
         {
           label: "Massaggio rilassante",
           href: "/servizi/massaggio-rilassante-carmagnola",
-          description: "Per sciogliere tensioni su schiena e spalle (ottimo anche come primo step).",
+          description: "Per sciogliere tensioni su schiena e spalle (ottimo anche come primo passo).",
         },
         {
           label: "Listino completo",
@@ -1836,7 +1836,7 @@ export const localAreaPages: LocalAreaPage[] = [
       },
       {
         q: "Come prenoto?",
-        a: "Il modo più rapido è scriverci su WhatsApp: ti rispondiamo con il primo passo consigliato e ti aiutiamo a scegliere l'appuntamento più comodo.",
+        a: "Il modo più rapido è scriverci su WhatsApp: ti rispondiamo con il primo passo consigliato e scegliamo insieme l'appuntamento più comodo.",
       },
     ],
     keywords: [
@@ -1855,7 +1855,7 @@ export const localAreaPages: LocalAreaPage[] = [
     description:
       "Rebel Carmagnola è una soluzione scelta anche da clienti di Moncalieri per percorsi viso, corpo e laser.",
     intro:
-      "Da Moncalieri ci raggiungono persone che vogliono una cosa semplice: capire da dove partire e seguire un percorso ordinato, senza mille cambi di rotta.",
+      "Da Moncalieri ci raggiungono persone che vogliono una cosa semplice: capire da dove partire e seguire un piano chiaro, senza mille cambi di rotta.",
     whyRebel: [
       "Lettura iniziale e piano sedute costruito su obiettivo reale",
       "Trattamenti viso/corpo e laser nello stesso studio, con progressione",
@@ -1879,7 +1879,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "Da Moncalieri ci scrivono spesso persone con la stessa sensazione: \"faccio tanto, ma la pelle non sembra mai davvero in ordine\". Di solito non manca l'impegno, manca una direzione semplice.",
         "In Rebel partiamo dalla pelle di oggi e mettiamo giù un percorso viso pulito: una priorità (luminosità, grana, tono o contorno occhi), un calendario realistico e due o tre gesti a casa che non ti rubano tempo.",
         "Quando serve un passo più avanti, i protocolli epigenetici aiutano proprio a questo: progressione ordinata, senza saltare da una seduta all'altra. Se la pelle è opaca e la texture è \"spessa\", Catalysis Ritual è uno dei reset più richiesti.",
-        "E se vuoi restare sui classici, nessun problema: pulizia viso fatta bene e laminazione ciglia/sopracciglia sono due scelte pratiche quando vuoi vederti più curata senza trasformare la routine in un lavoro.",
+        "Se vuoi restare sui classici, nessun problema: pulizia viso fatta bene e laminazione ciglia/sopracciglia sono due scelte pratiche quando vuoi vederti più curata senza trasformare la routine in un lavoro.",
         "Se nel frattempo stai pensando anche al laser, lo integriamo con criterio: scegliamo le zone (ascelle/inguine sono le più richieste) e fissiamo un ritmo che riesci a tenere.",
       ],
       links: [
@@ -1973,11 +1973,11 @@ export const localAreaPages: LocalAreaPage[] = [
       },
       {
         q: "Posso vedere prezzi e servizi prima di prenotare?",
-        a: "Sì: trovi il listino online. Se vuoi, poi traduciamo il listino in un percorso su misura in base alla tua situazione.",
+        a: "Sì: trovi il listino online. Se lo desideri, poi lo adattiamo alla tua situazione.",
       },
       {
         q: "Prenoto via WhatsApp?",
-        a: "Sì: è il modo più rapido. Ti rispondiamo con consigli pratici e ti aiutiamo a scegliere l'appuntamento più comodo.",
+        a: "Sì: è il modo più rapido. Ti rispondiamo con consigli pratici e scegliamo insieme l'appuntamento più comodo.",
       },
     ],
     keywords: [
@@ -2010,7 +2010,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "https://www.google.com/maps?f=d&source=s_d&saddr=Nichelino&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
         "Apri Google Maps e segui il percorso aggiornato in tempo reale: la destinazione è Rebel, Viale Barbaroux 20, Carmagnola.",
-        "Se vuoi partire con un piano ordinato (zone + calendario), scrivici su WhatsApp: ti aiutiamo a scegliere il ritmo più comodo fin dall'inizio.",
+        "Per partire con un piano ordinato (zone + calendario), scrivici su WhatsApp: definiamo il ritmo più comodo fin dall'inizio.",
       ],
     },
     focus: {
@@ -2156,7 +2156,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "https://www.google.com/maps?f=d&source=s_d&saddr=Vinovo&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
         "Apri Google Maps e segui il percorso aggiornato in tempo reale: la destinazione è Rebel, in Viale Barbaroux 20 a Carmagnola.",
-        "Se vuoi impostare bene gli appuntamenti fin dall'inizio (e non perderti per strada), scrivici su WhatsApp: ti aiutiamo a scegliere un ritmo realistico.",
+        "Per impostare bene gli appuntamenti fin dall'inizio (e non perderti per strada), scrivici su WhatsApp: definiamo un ritmo realistico.",
       ],
     },
     focus: {
@@ -2167,7 +2167,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "La tecnologia conta (e Ice Polar aiuta il comfort), ma la differenza vera è il metodo: parametri su misura, monitoraggio e comunicazione chiara. Così sai sempre dove sei nel percorso e cosa aspettarti.",
         "Se nel tuo periodo ci sono weekend al sole, sport o vacanze in arrivo, non è un dramma: si ragiona per zone e tempi, e si pianifica con buonsenso.",
         "Se nel frattempo vuoi lavorare anche sul viso, spesso la richiesta è molto concreta: sguardo stanco, gonfiore, segni più evidenti. Un protocollo richiesto spesso è Eye Genesis, pensato per la zona perioculare (e perfetto se vuoi un risultato curato senza stravolgere).",
-        "E se vuoi inserire un classico che ti semplifica la vita, manicure semipermanente e laminazione sono due servizi \"puliti\": ti sistemano in fretta e si abbinano bene quando sei già in studio.",
+        "Se vuoi inserire un classico che ti semplifica la vita, manicure semipermanente e laminazione sono due servizi \"puliti\": ti sistemano in fretta e si abbinano bene quando sei già in studio.",
         "Se arrivi da Vinovo e vuoi partire con una strategia pulita (zone + calendario + aspettative), scrivici: ti diciamo da quali zone conviene partire e come organizzare le prime sedute.",
       ],
       links: [
@@ -2240,7 +2240,7 @@ export const localAreaPages: LocalAreaPage[] = [
         {
           label: "Epilazione laser corpo",
           href: "/servizi/epilazione-laser-corpo-carmagnola",
-          description: "Zone corpo e organizzazione del ciclo, con percorso su misura.",
+          description: "Zone corpo e organizzazione del ciclo, con piano personalizzato.",
         },
         {
           label: "Listino completo",
@@ -2297,7 +2297,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "https://www.google.com/maps?f=d&source=s_d&saddr=La+Loggia&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
         "Apri Google Maps e segui il percorso aggiornato in tempo reale: la destinazione è Rebel, in Viale Barbaroux 20 a Carmagnola.",
-        "Se vuoi partire con un piano ordinato (zone + calendario), scrivici su WhatsApp: ti aiutiamo a scegliere il ritmo più comodo fin dall'inizio.",
+        "Per partire con un piano ordinato (zone + calendario), scrivici su WhatsApp: definiamo il ritmo più comodo fin dall'inizio.",
       ],
     },
     focus: {
@@ -2421,7 +2421,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "https://www.google.com/maps?f=d&source=s_d&saddr=Trofarello&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
         "Il modo più semplice e affidabile è aprire Google Maps e seguire il percorso aggiornato in tempo reale (traffico e lavori cambiano spesso). La destinazione è Rebel, in Viale Barbaroux 20 a Carmagnola.",
-        "Se arrivi per la prima volta e vuoi evitare stress, scrivici su WhatsApp: ti confermiamo l'indirizzo e, se serve, ti aiutiamo a orientarti.",
+        "Se arrivi per la prima volta e vuoi evitare stress, scrivici su WhatsApp: ti confermiamo l'indirizzo e, se serve, ti guidiamo al volo.",
       ],
     },
     focus: {
@@ -2430,8 +2430,8 @@ export const localAreaPages: LocalAreaPage[] = [
         "Molte persone ci raccontano la stessa storia: hanno provato soluzioni veloci, offerte a seduta singola o percorsi poco chiari. Il punto, con il laser, non è fare \"una seduta\": è costruire una sequenza sensata, con parametri calibrati e un calendario coerente.",
         "Da Rebel lavoriamo per zone (viso e corpo), obiettivi e risposta della pelle. Spieghiamo cosa aspettarti, cosa evitare tra una seduta e l'altra e quando ha senso rallentare o ritarare. Il comfort è parte del metodo, non un dettaglio.",
         "Se oltre al laser vuoi lavorare anche sul viso con un percorso avanzato, Rebirth 60+ è uno dei protocolli più richiesti quando la pelle è più secca, più sottile o semplicemente meno piena. Non è un \"trattamento una tantum\": è una progressione pensata per durare.",
-        "E se vuoi restare sui servizi classici (che spesso fanno la differenza nella vita vera), manicure semipermanente e massaggio rilassante sono due scelte molto pratiche: esci curata, e non ti incastri in un calendario infinito.",
-        "Se vuoi farti un'idea prima di prenotare, trovi alcuni approfondimenti dedicati (laser viso, laser corpo, laser diodo) e le pagine dei trattamenti con le domande più frequenti. Così arrivi alla consulenza con domande giuste, non con dubbi confusi. Se arrivi da Trofarello, scrivici pure: ti diciamo subito da dove partire.",
+        "Se vuoi restare sui servizi classici (che spesso fanno la differenza nella vita vera), manicure semipermanente e massaggio rilassante sono due scelte molto pratiche: esci curata, e non ti incastri in un calendario infinito.",
+        "Per farti un'idea prima di prenotare, trovi alcuni approfondimenti dedicati (laser viso, laser corpo, laser diodo) e le pagine dei trattamenti con le domande più frequenti. Così arrivi alla consulenza con domande giuste, non con dubbi confusi. Se arrivi da Trofarello, scrivici pure: ti diciamo subito da dove partire.",
       ],
       links: [
         {
@@ -2508,7 +2508,7 @@ export const localAreaPages: LocalAreaPage[] = [
         {
           label: "Epilazione laser corpo",
           href: "/servizi/epilazione-laser-corpo-carmagnola",
-          description: "Zone corpo, organizzazione delle sedute e percorso su misura.",
+          description: "Zone corpo, organizzazione delle sedute e piano personalizzato.",
         },
         {
           label: "Listino completo",
@@ -2565,7 +2565,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "https://www.google.com/maps?f=d&source=s_d&saddr=Chieri&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
         "Apri Google Maps e segui il percorso aggiornato in tempo reale: la destinazione è Rebel, Viale Barbaroux 20, Carmagnola.",
-        "Se vuoi arrivare con un'idea più chiara del percorso (viso/corpo/laser), scrivici prima: ti diciamo da dove conviene partire.",
+        "Per arrivare con un'idea più chiara del percorso (viso/corpo/laser), scrivici prima: ti diciamo da dove conviene partire.",
       ],
     },
     focus: {
@@ -2573,8 +2573,8 @@ export const localAreaPages: LocalAreaPage[] = [
       paragraphs: [
         "Quando cerchi estetica \"avanzata\", la trappola è pensare che debba essere tutto complicato. In realtà la qualità spesso è il contrario: scegliere poche cose, ma quelle giuste, e tenerle nel tempo.",
         "In Rebel puntiamo a costruire una routine minimale che regge: quello che fai in cabina dà direzione, quello che fai a casa consolida. Senza sovraccaricare la pelle e senza liste infinite.",
-        "Se vuoi un protocollo epigenetico (quelli più richiesti quando si cerca tono e compattezza), Collagen Code è spesso la scelta giusta: lavora in progressione e si inserisce bene in un calendario realistico.",
-        "E se vuoi restare sui classici, pulizia viso e manicure sono spesso il combo più semplice: ti rimette in ordine senza trasformare la routine in un lavoro.",
+        "Se cerchi un protocollo epigenetico (quelli più richiesti quando si cerca tono e compattezza), Collagen Code è spesso la scelta giusta: lavora in progressione e si inserisce bene in un calendario realistico.",
+        "Se vuoi restare sui classici, pulizia viso e manicure sono spesso il combo più semplice: ti rimette in ordine senza trasformare la routine in un lavoro.",
         "Se ti interessa anche il laser, lo impostiamo come un percorso (zone + calendario + comfort), così sai sempre a che punto sei e cosa aspettarti.",
       ],
       links: [
@@ -2662,7 +2662,7 @@ export const localAreaPages: LocalAreaPage[] = [
       },
       {
         q: "Come prenoto?",
-        a: "Scrivici su WhatsApp: ti rispondiamo rapidamente e ti aiutiamo a scegliere l'appuntamento più comodo.",
+        a: "Scrivici su WhatsApp: ti rispondiamo rapidamente e scegliamo insieme l'appuntamento più comodo.",
       },
     ],
     keywords: [
@@ -2695,7 +2695,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "https://www.google.com/maps?f=d&source=s_d&saddr=Orbassano&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
         "Apri Google Maps e segui il percorso aggiornato in tempo reale: la destinazione è Rebel, Viale Barbaroux 20, Carmagnola.",
-        "Se vuoi partire con un piano ordinato (corpo o laser), scrivici su WhatsApp: ti orientiamo sul primo passo e sul ritmo più comodo.",
+        "Per partire con un piano ordinato (corpo o laser), scrivici su WhatsApp: definiamo il primo passo e il ritmo più comodo.",
       ],
     },
     focus: {
@@ -2704,7 +2704,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "Quando si parla di corpo, la cosa che fa la differenza è la costanza. Non serve un piano perfetto: serve un ritmo che riesci a seguire davvero, senza stress.",
         "In Rebel impostiamo il percorso in modo molto pratico: obiettivo (leggerezza, comfort, tono), scelta della manualità giusta e calendario realistico. Se serve, integriamo uno scrub o un drenaggio mirato con buon senso, senza eccessi.",
         "Se invece la tua priorità è il laser, lo gestiamo con lo stesso approccio: parametri su misura, comfort e cosa fare tra una seduta e l'altra. E se la zona è \"tosta\" (schiena/torace, spesso percorsi uomo), l'organizzazione conta ancora di più: calendario e post-seduta vanno tenuti puliti.",
-        "E se vuoi spostarti sull'estetica avanzata, i protocolli epigenetici sono perfetti quando cerchi risultati progressivi su viso o corpo: Rebel Cell Regeneration è uno di quelli che ci chiedono spesso quando l'obiettivo è rigenerazione e qualità cutanea, non la seduta \"forte\".",
+        "Se vuoi spostarti sull'estetica avanzata, i protocolli epigenetici sono perfetti quando cerchi risultati progressivi su viso o corpo: Rebel Cell Regeneration è uno di quelli che ci chiedono spesso quando l'obiettivo è rigenerazione e qualità cutanea, non la seduta \"forte\".",
       ],
       links: [
         {
@@ -2786,7 +2786,7 @@ export const localAreaPages: LocalAreaPage[] = [
       },
       {
         q: "Come prenoto?",
-        a: "Scrivici su WhatsApp: ti rispondiamo rapidamente e ti aiutiamo a organizzare il primo appuntamento.",
+        a: "Scrivici su WhatsApp: ti rispondiamo rapidamente e organizziamo insieme il primo appuntamento.",
       },
     ],
     keywords: [
@@ -2819,7 +2819,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "https://www.google.com/maps?f=d&source=s_d&saddr=Polonghera&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
         "Apri Google Maps per tempi e traffico aggiornati: la destinazione è Rebel, Viale Barbaroux 20 a Carmagnola.",
-        "Se vuoi ottimizzare gli appuntamenti (e magari fare più cose nella stessa giornata quando ha senso), scrivici su WhatsApp: ti aiutiamo a impostare le priorità.",
+        "Per ottimizzare gli appuntamenti (e magari fare più cose nella stessa giornata quando ha senso), scrivici su WhatsApp: impostiamo insieme le priorità.",
       ],
     },
     focus: {
@@ -2827,7 +2827,7 @@ export const localAreaPages: LocalAreaPage[] = [
       paragraphs: [
         "Quando vieni da un paese vicino, la tentazione è fare tutto subito. Noi preferiamo il contrario: scegliere una priorità e tenere il filo. È così che un percorso diventa efficace e sostenibile.",
         "Se la priorità è il laser, partiamo dalle zone che ti cambiano davvero la gestione quotidiana e impostiamo calendario e regole pratiche. Se invece vuoi vederti più curata subito, un gancio base (pulizia viso, semipermanente, laminazione, pedicure) è perfetto: risultato pulito e zero complicazioni.",
-        "E se la richiesta è la leggerezza sulle gambe, ti orientiamo con criteri concreti: drenaggio e pressoterapia hanno senso quando sono inseriti con ritmo e buonsenso, non quando diventano un impegno infinito.",
+        "E se la richiesta è la leggerezza sulle gambe, ti diamo criteri concreti: drenaggio e pressoterapia hanno senso quando sono inseriti con ritmo e buonsenso, non quando diventano un impegno infinito.",
       ],
       links: [
         {
@@ -2853,7 +2853,7 @@ export const localAreaPages: LocalAreaPage[] = [
         {
           label: "Pulizia viso",
           href: "/servizi/pulizia-viso-carmagnola",
-          description: "Comfort e luminosità: un primo step semplice e concreto.",
+          description: "Comfort e luminosità: un primo passo semplice e concreto.",
         },
         {
           label: "Manicure semipermanente",
@@ -2875,11 +2875,11 @@ export const localAreaPages: LocalAreaPage[] = [
     faqs: [
       {
         q: "Da Polonghera: da cosa conviene partire?",
-        a: "Dipende dalla priorità. Se vuoi ridurre la gestione quotidiana, spesso si parte dal laser su una zona e da un calendario realistico. Se vuoi vederti più curata subito, un gancio base (pulizia viso, semipermanente, laminazione, pedicure) è perfetto.",
+        a: "Dipende dalla priorità. Se l'obiettivo è ridurre la gestione quotidiana, spesso si parte dal laser su una zona e da un calendario realistico. Se preferisci vederti più curata subito, un gancio base (pulizia viso, semipermanente, laminazione, pedicure) è perfetto.",
       },
       {
         q: "Posso vedere servizi e prezzi prima di venire?",
-        a: "Sì: trovi il listino online. Poi, se vuoi, lo traduciamo in un percorso su misura in base alla tua situazione.",
+        a: "Sì: trovi il listino online. Poi, se lo desideri, lo adattiamo alla tua situazione.",
       },
       {
         q: "Prenotazione: posso scrivere su WhatsApp?",
@@ -2917,15 +2917,15 @@ export const localAreaPages: LocalAreaPage[] = [
         "https://www.google.com/maps?f=d&source=s_d&saddr=Ceresole+d%27Alba&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
         "Apri Google Maps per tempi e traffico aggiornati: la destinazione è Rebel, Viale Barbaroux 20 a Carmagnola.",
-        "Se vuoi organizzare il percorso con calma (priorità + calendario), scrivici su WhatsApp: ti aiutiamo a partire senza confusione.",
+        "Per organizzare il percorso con calma (priorità + calendario), scrivici su WhatsApp: parti senza confusione e con priorità chiare.",
       ],
     },
     focus: {
       heading: "Ceresole d'Alba: partire con un primo passo pulito (e costruire il resto con continuità)",
       paragraphs: [
-        "Quando hai un obiettivo chiaro, la scelta migliore è un percorso ordinato. Se l'obiettivo è il laser, si parte da 1-2 zone e si imposta una progressione sensata: è così che la gestione quotidiana cambia davvero.",
+        "Quando hai un obiettivo chiaro, la scelta migliore è una progressione chiara. Se l'obiettivo è il laser, si parte da 1-2 zone e si imposta una progressione sensata: è così che la gestione quotidiana cambia davvero.",
         "Se invece vuoi sentirti più curata subito, i ganci base funzionano perché sono semplici e concreti: pulizia viso, semipermanente, laminazione e pedicure ti danno un risultato pulito, senza post complicati.",
-        "E se il tema è il corpo (leggerezza, gonfiore, ritenzione), ti orientiamo con criteri pratici: drenaggio e pressoterapia hanno senso se inseriti in un ritmo sostenibile, non come promesse veloci.",
+        "E se il tema è il corpo (leggerezza, gonfiore, ritenzione), ti diamo criteri pratici: drenaggio e pressoterapia hanno senso se inseriti in un ritmo sostenibile, non come promesse veloci.",
       ],
       links: [
         {
@@ -3020,7 +3020,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "https://www.google.com/maps?f=d&source=s_d&saddr=Alba&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
         "Per una stima aggiornata di tempi e traffico, apri Google Maps: la destinazione è Rebel, Viale Barbaroux 20, Carmagnola.",
-        "Se vuoi pianificare il percorso con calma (zone + calendario), scrivici su WhatsApp: ti aiutiamo a impostare le priorità prima di partire.",
+        "Per pianificare il percorso con calma (zone + calendario), scrivici su WhatsApp: impostiamo insieme le priorità prima di partire.",
       ],
     },
     focus: {
@@ -3029,7 +3029,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "Quando la distanza aumenta, l'organizzazione diventa parte della qualità. Per questo, con chi arriva da Alba, partiamo sempre da una cosa semplice: quali sono le priorità e quante sedute puoi gestire davvero.",
         "Se ha senso, concentriamo più cose nella stessa giornata (ad esempio viso + mani, oppure consulenza + prima seduta): così non fai viaggi inutili e non vivi il percorso come una corsa.",
         "Sul laser, quando vieni da fuori, conviene essere ancora più pratiche: scegliere 1-2 zone (ascelle, inguine o gambe sono le più richieste) e impostare un ritmo che regge nel tempo. Meglio fare meno, ma farlo con continuità.",
-        "Se invece la tua priorità è \"mettere in ordine\" il viso, Collagen Code è uno dei protocolli che ci chiedono spesso quando si cerca tono e compattezza in modo progressivo. E se vuoi restare sui classici, manicure e massaggio relax sono due servizi perfetti da abbinare quando sei già in studio.",
+        "Se invece la tua priorità è \"mettere in ordine\" il viso, Collagen Code è uno dei protocolli che ci chiedono spesso quando si cerca tono e compattezza in modo progressivo. Se vuoi restare sui classici, manicure e massaggio relax sono due servizi perfetti da abbinare quando sei già in studio.",
         "Se ti aiuta, qui trovi anche alcune guide pratiche: chiariscono cosa aspettarti e ti fanno arrivare più tranquilla alla prima valutazione.",
       ],
       links: [
@@ -3122,7 +3122,7 @@ export const localAreaPages: LocalAreaPage[] = [
       },
       {
         q: "Come prenoto?",
-        a: "Scrivici su WhatsApp: ti rispondiamo rapidamente e ti aiutiamo a organizzare il primo passo.",
+        a: "Scrivici su WhatsApp: ti rispondiamo rapidamente e organizziamo insieme il primo passo.",
       },
     ],
     keywords: [
@@ -3155,7 +3155,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "https://www.google.com/maps?f=d&source=s_d&saddr=Bra&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
         "Apri Google Maps e segui il percorso aggiornato in tempo reale: la destinazione è Rebel, Viale Barbaroux 20, Carmagnola.",
-        "Se vuoi capire da dove partire (laser, viso o corpo), scrivici prima: ti diciamo da dove conviene iniziare, senza fretta.",
+        "Per capire da dove partire (laser, viso o corpo), scrivici prima: ti diciamo da dove conviene iniziare, senza fretta.",
       ],
     },
     focus: {
@@ -3164,7 +3164,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "Una delle domande più comuni è: \"posso iniziare il laser anche se sto spesso all'aperto?\". La risposta non è un sì/no secco: dipende da esposizione solare, zona e come ti organizzi tra una seduta e l'altra.",
         "In Rebel impostiamo il percorso con chiarezza: calendario realistico, regole pratiche e attenzione al comfort. Ice Polar aiuta, ma la differenza vera è il metodo: settaggio su misura e monitoraggio.",
         "Se oltre al laser vuoi lavorare sul viso, spesso la richiesta è molto concreta: sguardo più riposato e pelle più \"in ordine\". Eye Genesis è uno dei protocolli epigenetici che ci chiedono spesso per la zona occhi (gonfiore, micro-segni, stanchezza).",
-        "E se vuoi restare sui classici, laminazione e pulizia viso sono due step che funzionano sempre: ti fanno uscire curata senza trasformare il percorso in una maratona.",
+        "Se vuoi restare sui classici, laminazione e pulizia viso sono due step che funzionano sempre: ti fanno uscire curata senza trasformare il percorso in una maratona.",
         "Se arrivi da Bra, l'obiettivo è semplice: avere un piano ordinato che puoi seguire senza ansia e senza cambiare idea ogni mese. Spesso si parte da una zona \"smart\" (ascelle o inguine) oppure si decide una priorità chiara sulle gambe.",
       ],
       links: [
@@ -3232,7 +3232,7 @@ export const localAreaPages: LocalAreaPage[] = [
         {
           label: "Epilazione laser corpo",
           href: "/servizi/epilazione-laser-corpo-carmagnola",
-          description: "Zone corpo e organizzazione del ciclo, con percorso su misura.",
+          description: "Zone corpo e organizzazione del ciclo, con piano personalizzato.",
         },
         {
           label: "Listino completo",
@@ -3290,7 +3290,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "https://www.google.com/maps?f=d&source=s_d&saddr=Savigliano&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
         "Apri Google Maps e segui il percorso aggiornato in tempo reale: la destinazione è Rebel, Viale Barbaroux 20, Carmagnola.",
-        "Se vuoi partire con un piano ordinato (zone + calendario), scrivici su WhatsApp: ti diciamo da dove partire e come organizzare le prime sedute.",
+        "Per partire con un piano ordinato (zone + calendario), scrivici su WhatsApp: ti diciamo da dove partire e come organizzare le prime sedute.",
       ],
     },
     focus: {
@@ -3299,8 +3299,8 @@ export const localAreaPages: LocalAreaPage[] = [
         "Un percorso laser fatto bene non riguarda solo la seduta: riguarda anche quello che fai tra una seduta e l'altra. È lì che spesso nascono i dubbi (e gli errori).",
         "In Rebel ti diamo consigli pratici: come gestire la pelle, cosa evitare e quando ha senso fare uno scrub delicato per mantenere comfort e uniformità. Su zone come ascelle e inguine, la gestione quotidiana conta tantissimo.",
         "Se il tema sono i peli incarniti (gambe e inguine soprattutto), lo diciamo subito: non serve \"grattare\" la pelle ogni due giorni. Serve un percorso impostato bene e qualche accorgimento semplice, fatto nel momento giusto.",
-        "Se arrivi da Savigliano, l'obiettivo è costruire un percorso ordinato fin dall'inizio: meno improvvisazione, più continuità. E se hai in mente sole e weekend fuori, si pianifica: non è una condanna, è solo calendario.",
-        "Se vuoi aggiungere estetica avanzata, Rebel Cell Regeneration è uno dei protocolli epigenetici più richiesti quando l'obiettivo è rigenerazione progressiva (viso o corpo). Se invece vuoi restare sui classici, scrub corpo e massaggio rilassante sono spesso la coppia più semplice: pelle più uniforme e schiena più leggera, senza complicazioni.",
+        "Se arrivi da Savigliano, l'obiettivo è costruire un piano chiaro fin dall'inizio: meno improvvisazione, più continuità. E se hai in mente sole e weekend fuori, si pianifica: non è una condanna, è solo calendario.",
+        "Se desideri aggiungere estetica avanzata, Rebel Cell Regeneration è uno dei protocolli epigenetici più richiesti quando l'obiettivo è rigenerazione progressiva (viso o corpo). Se invece preferisci restare sui classici, scrub corpo e massaggio rilassante sono spesso la coppia più semplice: pelle più uniforme e schiena più leggera, senza complicazioni.",
       ],
       links: [
         {
@@ -3392,7 +3392,7 @@ export const localAreaPages: LocalAreaPage[] = [
       },
       {
         q: "Come prenoto?",
-        a: "Scrivici su WhatsApp: ti rispondiamo rapidamente e ti aiutiamo a organizzare il primo passo.",
+        a: "Scrivici su WhatsApp: ti rispondiamo rapidamente e organizziamo insieme il primo passo.",
       },
     ],
     keywords: [
@@ -3425,7 +3425,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "https://www.google.com/maps?f=d&source=s_d&saddr=Fossano&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
         "Per una stima aggiornata di tempi e traffico, apri Google Maps: la destinazione è Rebel, Viale Barbaroux 20, Carmagnola.",
-        "Se vuoi impostare un percorso con calma (priorità + calendario), scrivici su WhatsApp: ti aiutiamo a decidere da dove partire.",
+        "Per impostare un percorso con calma (priorità + calendario), scrivici su WhatsApp: decidiamo insieme da dove partire.",
       ],
     },
     focus: {
@@ -3532,7 +3532,7 @@ export const localAreaPages: LocalAreaPage[] = [
       },
       {
         q: "Come prenoto?",
-        a: "Scrivici su WhatsApp: ti rispondiamo rapidamente e ti aiutiamo a organizzare il primo passo.",
+        a: "Scrivici su WhatsApp: ti rispondiamo rapidamente e organizziamo insieme il primo passo.",
       },
     ],
     keywords: [
@@ -3565,7 +3565,7 @@ export const localAreaPages: LocalAreaPage[] = [
         "https://www.google.com/maps?f=d&source=s_d&saddr=Saluzzo&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
       paragraphs: [
         "Apri Google Maps e segui il percorso aggiornato in tempo reale: la destinazione è Rebel, Viale Barbaroux 20, Carmagnola.",
-        "Se vuoi partire con aspettative chiare (zone + calendario), scrivici su WhatsApp: ti orientiamo sul primo passo senza fretta.",
+        "Per partire con aspettative chiare (zone + calendario), scrivici su WhatsApp: definiamo il primo passo senza fretta.",
       ],
     },
     focus: {
@@ -3667,7 +3667,7 @@ export const localAreaPages: LocalAreaPage[] = [
       },
       {
         q: "Come prenoto?",
-        a: "Scrivici su WhatsApp: ti rispondiamo rapidamente e ti aiutiamo a organizzare il primo passo.",
+        a: "Scrivici su WhatsApp: ti rispondiamo rapidamente e organizziamo insieme il primo passo.",
       },
     ],
     keywords: [

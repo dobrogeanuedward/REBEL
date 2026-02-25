@@ -85,7 +85,7 @@ export const servicePages: ServicePage[] = [
     shortDescription:
       "Pulizia viso completa e delicata per pelle impura, spenta o appesantita: comfort, pori più puliti e grana più uniforme.",
     longDescription:
-      "Una pulizia viso fatta bene parte dall'osservazione della pelle e lavora per step: detersione, esfoliazione delicata, pulizia mirata e fase lenitiva. L'obiettivo non è stressare, ma lasciare la pelle più pulita, luminosa e comoda nei giorni successivi. È anche uno dei servizi migliori se vuoi iniziare con chiarezza: ti fa vedere subito il metodo (e ci permette di leggere la pelle prima di impostare qualsiasi percorso).",
+      "Una pulizia viso fatta bene parte dall'osservazione della pelle e lavora per step: detersione, esfoliazione delicata, pulizia mirata e fase lenitiva. L'obiettivo non è stressare, ma lasciare la pelle più pulita, luminosa e comoda nei giorni successivi. È anche uno dei servizi migliori per iniziare con chiarezza: ti fa vedere subito il metodo (e ci permette di leggere la pelle prima di impostare qualsiasi percorso).",
     priceHint: "da EUR 49",
     category: "estetica-classica",
     benefits: [
@@ -152,7 +152,7 @@ export const servicePages: ServicePage[] = [
         ],
       },
       {
-        heading: "Primo appuntamento: il gancio più intelligente (se vuoi iniziare bene)",
+        heading: "Primo appuntamento: il gancio più intelligente per iniziare bene",
         paragraphs: [
           "Se non sai da cosa partire, la pulizia viso è spesso la scelta più \"pulita\": ti fa stare meglio subito e, soprattutto, ci permette di leggere la pelle con calma.",
           "Da lì il percorso diventa semplice: o mantieni con un ritmo distanziato e routine essenziale, oppure (se serve davvero) costruiamo una progressione più avanzata con obiettivo chiaro.",
@@ -245,7 +245,7 @@ export const servicePages: ServicePage[] = [
       {
         heading: "Dopo la seduta: far durare la morbidezza",
         paragraphs: [
-          "Il post è semplice: idratazione e protezione. Pochi gesti, ma coerenti. Se vuoi, ti suggeriamo anche come scegliere i prodotti in base a stagione e sensazione della pelle (secca, che tira, più spessa).",
+          "Il post è semplice: idratazione e protezione. Pochi gesti, ma coerenti. Se ti fa comodo, ti suggeriamo anche come scegliere i prodotti in base a stagione e sensazione della pelle (secca, che tira, più spessa).",
           "L'obiettivo è far durare la sensazione di pelle uniforme, non viverla solo per un giorno.",
         ],
       },
@@ -338,7 +338,7 @@ export const servicePages: ServicePage[] = [
         heading: "Piccoli gesti che aiutano tra una seduta e l'altra",
         paragraphs: [
           "Il drenaggio in studio è un pezzo del puzzle. Tra una seduta e l'altra, anche solo camminare un po' di più, idratarsi e non stare sempre ferma può aiutare la sensazione di leggerezza.",
-          "Se vuoi, ti lasciamo due dritte (senza stravolgerti la routine) per far durare meglio l'effetto percepito.",
+          "Se serve, ti lasciamo due dritte (senza stravolgerti la routine) per far durare meglio l'effetto percepito.",
         ],
       },
     ],
@@ -428,7 +428,7 @@ export const servicePages: ServicePage[] = [
         heading: "Piccoli accorgimenti dopo: far durare la sensazione di leggerezza",
         paragraphs: [
           "Dopo la seduta, l'ideale è bere acqua, evitare di ripartire subito in modalità \"tutto di corsa\" e ascoltare come risponde il corpo. Anche una passeggiata lenta può aiutare a mantenere la sensazione di distensione.",
-          "Se vuoi, ti suggeriamo anche come integrare il massaggio dentro una routine più ampia di benessere (senza complicarti la vita).",
+          "Se ti va, ti suggeriamo anche come integrare il massaggio dentro una routine più ampia di benessere (senza complicarti la vita).",
         ],
       },
     ],
@@ -504,7 +504,7 @@ export const servicePages: ServicePage[] = [
         heading: "Durata e mantenimento: farlo restare bello più a lungo",
         paragraphs: [
           "La durata dipende da crescita naturale e abitudini. Dopo la seduta ti diciamo come trattare la zona nelle prime ore, così il risultato resta più stabile e confortevole.",
-          "Se vuoi, ti consigliamo anche ogni quanto rifarla in base alla tua crescita e alle tue abitudini.",
+          "Se serve, ti consigliamo anche ogni quanto rifarla in base alla tua crescita e alle tue abitudini.",
         ],
       },
     ],
@@ -515,7 +515,7 @@ export const servicePages: ServicePage[] = [
     shortDescription:
       "Manicure semipermanente curata e ordinata: effetto pulito, durata stabile e mani subito \"a posto\".",
     longDescription:
-      "La manicure semipermanente è un servizio di precisione: preparazione accurata, rifinitura pulita e applicazione colore con attenzione ai dettagli. L'obiettivo non è solo \"durare\": è avere un risultato ordinato, elegante e confortevole, che ti piaccia anche da vicino. Se vuoi partire con qualcosa di pratico (per sentirti subito curata, senza stravolgerti), è una delle scelte più semplici e soddisfacenti.",
+      "La manicure semipermanente è un servizio di precisione: preparazione accurata, rifinitura pulita e applicazione colore con attenzione ai dettagli. L'obiettivo non è solo \"durare\": è avere un risultato ordinato, elegante e confortevole, che ti piaccia anche da vicino. Se cerchi qualcosa di pratico (per sentirti subito curata, senza stravolgerti), è una delle scelte più semplici e soddisfacenti.",
     priceHint: "da EUR 26",
     category: "estetica-classica",
     benefits: [
@@ -538,7 +538,7 @@ export const servicePages: ServicePage[] = [
       },
       {
         q: "Voglio sentirmi subito in ordine: è una buona scelta?",
-        a: "Sì: è un servizio immediato e molto \"utile\" nella vita reale. Se vuoi, puoi partire con un effetto naturale e poi valutare con calma se fare anche altri servizi (viso, laminazione o laser) in base al tuo periodo.",
+        a: "Sì: è un servizio immediato e molto \"utile\" nella vita reale. Puoi partire con un effetto naturale e poi valutare con calma se fare anche altri servizi (viso, laminazione o laser) in base al tuo periodo.",
       },
       {
         q: "Cosa conviene evitare per farlo durare meglio?",
@@ -582,18 +582,18 @@ export const servicePages: ServicePage[] = [
         heading: "Rimozione e rispetto dell'unghia: la parte che protegge nel tempo",
         paragraphs: [
           "Molti danni attribuiti al semipermanente dipendono da rimozioni scorrette o troppo aggressive. La rimozione va fatta con criterio, senza strappare e senza assottigliare inutilmente.",
-          "Se vuoi alternare periodi con e senza semipermanente, possiamo organizzarlo in modo che l'unghia resti bella e stabile.",
+          "Se preferisci alternare periodi con e senza semipermanente, possiamo organizzarlo in modo che l'unghia resti bella e stabile.",
         ],
       },
       {
-        heading: "Se vuoi un effetto naturale, si può (e viene benissimo)",
+        heading: "Effetto naturale: si può (e viene benissimo)",
         paragraphs: [
           "Un effetto naturale non significa \"anonimo\": significa mani curate, pulite, armoniose. Possiamo scegliere insieme colore e finitura per valorizzare la tua mano senza eccessi.",
           "È una scelta perfetta se vuoi un look ordinato anche senza trucco o se ti piace l'eleganza semplice.",
         ],
       },
       {
-        heading: "Se vuoi partire semplice: semplifica la vita (e alza subito la percezione di cura)",
+        heading: "Per partire semplice: semplifica la vita (e alza subito la percezione di cura)",
         paragraphs: [
           "Molte persone iniziano da qui perché è un servizio che non richiede \"ristrutturazioni\": esci curata e ordinata, senza dover imparare regole nuove o gestire post complessi.",
           "Se poi vuoi impostare anche viso o laser, lo fai con calma e con un piano. L'idea è partire bene, non fare tutto insieme.",
@@ -640,7 +640,7 @@ export const servicePages: ServicePage[] = [
       },
       {
         q: "Posso mettere lo smalto dopo il pedicure?",
-        a: "Sì. Se vuoi un effetto molto naturale, possiamo anche orientarti su finiture pulite e discrete. Se preferisci colore, lo scegliamo insieme in base allo stile che ti piace.",
+        a: "Sì. Per un effetto molto naturale, possiamo orientarti su finiture pulite e discrete. Se preferisci colore, lo scegliamo insieme in base allo stile che ti piace.",
       },
       {
         q: "Se ho una situazione dolorosa o sospetta (unghia, infezione), cosa devo fare?",
@@ -678,7 +678,7 @@ export const servicePages: ServicePage[] = [
         heading: "Talloni secchi e pelle ispessita: meglio progressione che aggressività",
         paragraphs: [
           "Quando la pelle è molto secca, la tentazione è fare troppo in una volta. Funziona meglio l'opposto: un lavoro sensato in studio e un mantenimento semplice a casa.",
-          "Se vuoi, ti lasciamo due indicazioni pratiche su idratazione e abitudini: poche cose, ma quelle giuste.",
+          "Ti lasciamo due indicazioni pratiche su idratazione e abitudini: poche cose, ma quelle giuste.",
         ],
       },
       {
@@ -746,7 +746,7 @@ export const servicePages: ServicePage[] = [
     shortDescription:
       "Pedicure estetico con smalto (50 min): ordine e rifinitura, con un risultato curato e coerente con il tuo stile.",
     longDescription:
-      "Se vuoi un pedicure ordinato e anche lo smalto, questa versione unisce cura del piede e finitura estetica. L'obiettivo è un risultato pulito, non \"pesante\": ti guidiamo su colore e finitura in base alla stagione e a quanto lo vuoi naturale.",
+      "Se cerchi un pedicure ordinato con smalto, questa versione unisce cura del piede e finitura estetica. L'obiettivo è un risultato pulito, non \"pesante\": ti guidiamo su colore e finitura in base alla stagione e a quanto lo vuoi naturale.",
     priceHint: "EUR 35",
     category: "estetica-classica",
     benefits: [
@@ -765,7 +765,7 @@ export const servicePages: ServicePage[] = [
       },
       {
         q: "Se ho poco tempo, conviene questa versione o il pedicure estetico?",
-        a: "Se la priorità è l'ordine del piede, il pedicure estetico è già ottimo. Se vuoi anche lo smalto, questa è la scelta più diretta.",
+        a: "Se la priorità è l'ordine del piede, il pedicure estetico è già ottimo. Se preferisci anche lo smalto, questa è la scelta più diretta.",
       },
     ],
     keywords: [
@@ -807,7 +807,7 @@ export const servicePages: ServicePage[] = [
       },
       {
         q: "Posso fare una pausa tra un semipermanente e l'altro?",
-        a: "Sì. Se vuoi fare una pausa, la facciamo in modo ordinato e rispettoso dell'unghia.",
+        a: "Sì. Se preferisci fare una pausa, la facciamo in modo ordinato e rispettoso dell'unghia.",
       },
     ],
     keywords: [
@@ -927,7 +927,7 @@ export const servicePages: ServicePage[] = [
         heading: "Zone viso: come scegliamo la priorità (senza fare tutto insieme a caso)",
         paragraphs: [
           "Sul viso la differenza la fa l'ordine: scegliamo prima la zona che ti dà più fastidio nella quotidianità e impostiamo un piano che riesci a portare avanti.",
-          "Se vuoi trattare più aree (ad esempio baffetti e mento), lo decidiamo insieme in base a sensibilità cutanea, obiettivo e tollerabilità: meglio un piano chiaro che mille tentativi.",
+          "Se devi trattare più aree (ad esempio baffetti e mento), lo decidiamo insieme in base a sensibilità cutanea, obiettivo e tollerabilità: meglio un piano chiaro che mille tentativi.",
         ],
       },
       {
@@ -1105,7 +1105,7 @@ export const servicePages: ServicePage[] = [
       },
       {
         q: "Posso iniziare anche se faccio sport all'aperto o mi espongo al sole?",
-        a: "Spesso sì, ma va gestita l'esposizione in modo sensato. Se vuoi, la guida su laser e sole chiarisce cosa fare e quando conviene distanziare una seduta.",
+        a: "Spesso sì, ma va gestita l'esposizione in modo sensato. La guida su laser e sole chiarisce cosa fare e quando conviene distanziare una seduta.",
       },
     ],
     keywords: [
@@ -1341,7 +1341,7 @@ export const competencePages: CompetencePage[] = [
         heading: "Il consiglio più semplice: scegli un centro che ti fa capire, non un centro che ti confonde",
         paragraphs: [
           "Se dopo la consulenza esci più serena e con un piano in testa (anche minimale), probabilmente hai trovato l'approccio giusto.",
-          "Se vuoi, puoi partire anche con un singolo servizio (ad esempio una pulizia viso o una valutazione laser) e poi decidere con calma il resto.",
+          "Puoi partire anche con un singolo servizio (ad esempio una pulizia viso o una valutazione laser) e poi decidere con calma il resto.",
         ],
       },
     ],
@@ -1431,7 +1431,7 @@ export const competencePages: CompetencePage[] = [
         heading: "Quando iniziare: il momento giusto è quando puoi essere costante",
         paragraphs: [
           "Non serve partire \"perfetta\": serve partire con calma e con un piano realistico. Anche un solo appuntamento al mese può avere senso, se è coerente e ben impostato.",
-          "Se vuoi orientarti subito, puoi iniziare da un servizio base (come la pulizia viso) oppure da una consulenza: da lì costruiamo la progressione.",
+          "Per orientarti subito, puoi iniziare da un servizio base (come la pulizia viso) oppure da una consulenza: da lì costruiamo la progressione.",
         ],
       },
     ],
@@ -1739,7 +1739,7 @@ export const competencePages: CompetencePage[] = [
         heading: "Il nostro approccio in studio: tecnologia + metodo (non trattamenti standard)",
         paragraphs: [
           "Da Rebel a Carmagnola impostiamo l'epilazione laser come un percorso: valutazione iniziale, settaggio su misura e monitoraggio. La tecnologia serve a rendere il lavoro più preciso, ma il cuore resta il metodo.",
-          "Se vuoi andare più nel dettaglio, trovi anche le guide su laser viso e laser corpo, oltre alle schede servizio con FAQ pratiche per partire senza dubbi.",
+          "Se desideri andare più nel dettaglio, trovi anche le guide su laser viso e laser corpo, oltre alle schede servizio con FAQ pratiche per partire senza dubbi.",
         ],
       },
     ],
@@ -1846,7 +1846,7 @@ export const competencePages: CompetencePage[] = [
         heading: "Routine a casa: pochi passaggi, ma fatti bene",
         paragraphs: [
           "Non serve avere dieci prodotti. Serve coerenza: una detersione fatta bene, idratazione e protezione solare quando serve.",
-          "Se vuoi, dopo la seduta ti indichiamo una micro-routine adatta a te: non ti complica la giornata, anche nelle settimane più piene.",
+          "Dopo la seduta ti indichiamo una micro-routine adatta a te: non ti complica la giornata, anche nelle settimane più piene.",
         ],
       },
     ],
@@ -1883,7 +1883,7 @@ export const competencePages: CompetencePage[] = [
     faqs: [
       {
         q: "Meglio linfodrenante o massaggio rilassante?",
-        a: "Dipende dall'obiettivo. Se cerchi leggerezza e gestione del gonfiore, spesso ha senso il linfodrenante; se vuoi sciogliere tensione e \"staccare\", il rilassante è perfetto. In studio ti aiutiamo a scegliere senza giri di parole.",
+        a: "Dipende dall'obiettivo. Se cerchi leggerezza e gestione del gonfiore, spesso ha senso il linfodrenante; se vuoi sciogliere tensione e \"staccare\", il rilassante è perfetto. In studio scegliamo insieme senza giri di parole.",
       },
       {
         q: "Quanto tempo serve per vedere cambiamenti sul corpo?",
@@ -1993,7 +1993,7 @@ export const competencePages: CompetencePage[] = [
       },
       {
         q: "Meglio drenaggio generico o linfodrenante?",
-        a: "Se cerchi un approccio più specifico, il linfodrenante è spesso la scelta più mirata. Se vuoi, abbiamo anche una guida dedicata: ti aiuta a capire quando ha davvero senso e come impostarlo bene.",
+        a: "Se cerchi un approccio più specifico, il linfodrenante è spesso la scelta più mirata. Abbiamo anche una guida dedicata: ti aiuta a capire quando ha davvero senso e come impostarlo bene.",
       },
       {
         q: "Cosa conviene fare nelle ore dopo la seduta?",
@@ -2040,7 +2040,7 @@ export const competencePages: CompetencePage[] = [
         heading: "Tra una seduta e l'altra: 3 cose che salvano l'effetto",
         paragraphs: [
           "Spesso basta poco: acqua, un minimo di movimento e una routine corpo essenziale. Non ti riempiamo di regole: scegliamo insieme due o tre accorgimenti che riesci a fare davvero.",
-          "Se vuoi un approfondimento più specifico, la guida sul linfodrenante entra nei dettagli e ti aiuta a capire quando è la scelta migliore e come impostarla in modo ordinato.",
+          "Per un approfondimento più specifico, la guida sul linfodrenante entra nei dettagli e ti aiuta a capire quando è la scelta migliore e come impostarla in modo ordinato.",
         ],
       },
       {
@@ -2132,7 +2132,7 @@ export const competencePages: CompetencePage[] = [
         heading: "Attivi: meno ma meglio (e con un ritmo che puoi sostenere)",
         paragraphs: [
           "Se metti troppi attivi insieme, spesso la pelle si ribella. Noi preferiamo scegliere una priorità e lavorare con gradualità.",
-          "Se vuoi cambiare routine, lo facciamo in modo ordinato: un passaggio alla volta, così capiamo cosa funziona davvero su di te.",
+          "Se devi cambiare routine, lo facciamo in modo ordinato: un passaggio alla volta, così capiamo cosa funziona davvero su di te.",
         ],
       },
       {
@@ -2500,7 +2500,7 @@ export const competencePages: CompetencePage[] = [
     longDescription:
       "Il laser ascelle è una delle richieste più frequenti perché semplifica la quotidianità: meno ricrescita da inseguire e una pelle più tranquilla nel tempo. Qui trovi cosa aspettarti, come prepararti e come impostare un percorso ordinato.",
     localAngle:
-      "Perfetta se vuoi partire da una zona piccola ma molto \"strategica\" nella routine di tutti i giorni.",
+      "Ottima per partire da una zona piccola ma molto \"strategica\" nella routine di tutti i giorni.",
     intent: "commercial",
     benefits: [
       "Ti aiuta a impostare un calendario realistico per le ascelle",
@@ -2756,7 +2756,7 @@ export const competencePages: CompetencePage[] = [
     longDescription:
       "Sulla schiena la differenza la fa l'organizzazione: zona ampia, risposta individuale variabile e bisogno di un calendario realistico. Qui trovi come impostiamo un percorso serio (priorità, controlli, post-seduta) e cosa chiedere prima di iniziare.",
     localAngle:
-      "Utile se vuoi smettere di inseguire la ricrescita e preferisci un percorso chiaro e seguito nel tempo.",
+      "Ideale se vuoi smettere di inseguire la ricrescita e preferisci un percorso chiaro e seguito nel tempo.",
     intent: "commercial",
     benefits: [
       "Ti aiuta a impostare un calendario realistico sulle aree ampie",
@@ -2817,7 +2817,7 @@ export const competencePages: CompetencePage[] = [
         heading: "Progressione: parametri su misura e controlli",
         paragraphs: [
           "La risposta cambia da persona a persona. Per questo monitoriamo e aggiustiamo: la qualità sta nella continuità e nella precisione, non nella singola seduta.",
-          "Se vuoi, puoi partire dalla schiena e poi includere altre aree: l'importante è tenere il filo del piano.",
+          "Puoi partire dalla schiena e poi includere altre aree: l'importante è tenere il filo del piano.",
         ],
       },
     ],
@@ -2840,7 +2840,7 @@ export const competencePages: CompetencePage[] = [
     longDescription:
       "Il laser gambe è spesso scelto per comodità: meno ricrescita da inseguire e gestione più semplice nel tempo. Qui trovi cosa aspettarti, come impostare un calendario realistico e come gestire il percorso nei mesi più luminosi senza stress.",
     localAngle:
-      "Utile se vuoi iniziare dalle gambe e avere un piano pulito che sta nella tua routine.",
+      "Ideale per iniziare dalle gambe e avere un piano pulito che sta nella tua routine.",
     intent: "commercial",
     benefits: [
       "Chiarisce tempi e progressione (senza promesse veloci)",
@@ -3047,7 +3047,7 @@ export const competencePages: CompetencePage[] = [
       },
       {
         q: "Che zone conviene fare per prime?",
-        a: "Spesso ascelle e inguine sono ottime priorità, perché cambiano davvero la gestione quotidiana. Se vuoi partire dalle gambe, si può: l'importante è scegliere un ordine e seguirlo.",
+        a: "Spesso ascelle e inguine sono ottime priorità, perché cambiano davvero la gestione quotidiana. Se preferisci partire dalle gambe, si può: l'importante è scegliere un ordine e seguirlo.",
       },
       {
         q: "Se faccio sport posso comunque iniziare in inverno?",
@@ -3308,7 +3308,7 @@ export const competencePages: CompetencePage[] = [
         heading: "La cosa più importante: scegliere una priorità e seguirla",
         paragraphs: [
           "In molti casi conviene partire da una o due zone, non da tutto insieme. Così capiamo come risponde la pelle e impostiamo un piano più chiaro.",
-          "Se vuoi, ci scrivi su WhatsApp e ti diciamo come partire in modo pratico (zone, tempi, preparazione).",
+          "Scrivici su WhatsApp e ti diciamo come partire in modo pratico (zone, tempi, preparazione).",
         ],
       },
     ],
@@ -3335,7 +3335,7 @@ export const competencePages: CompetencePage[] = [
     longDescription:
       "Il contorno occhi è una delle zone che tradisce subito stanchezza, stress e abitudini (struccaggio, sfregamenti, sonno). Qui trovi un orientamento concreto: cosa puoi fare a casa, quando ha senso un trattamento in studio e come impostare un percorso ordinato.",
     localAngle:
-      "Utile se vuoi uno sguardo più riposato e \"in ordine\" senza inseguire effetti finti.",
+      "Ideale per uno sguardo più riposato e \"in ordine\" senza inseguire effetti finti.",
     intent: "informational",
     benefits: [
       "Chiarisce cosa influenza gonfiore e occhiaie nella vita reale",
@@ -3392,7 +3392,7 @@ export const competencePages: CompetencePage[] = [
         heading: "Quando serve un protocollo mirato (e perché il risultato migliore è naturale)",
         paragraphs: [
           "Un risultato elegante sul contorno occhi è quello che ti fa sembrare riposata, non diversa. Si ottiene con progressione, non con una singola seduta \"forte\".",
-          "Se vuoi un percorso mirato, Eye Genesis è pensato proprio per questo: ordine e continuità, con una gestione rispettosa della zona.",
+          "Se cerchi un percorso mirato, Eye Genesis è pensato proprio per questo: ordine e continuità, con una gestione rispettosa della zona.",
         ],
       },
     ],
@@ -3469,7 +3469,7 @@ export const competencePages: CompetencePage[] = [
         heading: "Progressione: comfort prima, densità poi (e luce come conseguenza)",
         paragraphs: [
           "Una seduta può darti una bella sensazione, ma la qualità vera arriva con un percorso: calendario realistico e piccoli aggiustamenti quando serve.",
-          "Noi ragioniamo spesso in questa sequenza: comfort/barriera, poi densità percepita e tono, poi luminosità più stabile. Se vuoi un protocollo pensato per queste esigenze, Rebirth 60+ è orientato proprio a comfort e densità percepita, con metodo e rispetto della pelle.",
+          "Noi ragioniamo spesso in questa sequenza: comfort/barriera, poi densità percepita e tono, poi luminosità più stabile. Se cerchi un protocollo pensato per queste esigenze, Rebirth 60+ è orientato proprio a comfort e densità percepita, con metodo e rispetto della pelle.",
         ],
       },
       {
@@ -3578,7 +3578,7 @@ export const competencePages: CompetencePage[] = [
     longDescription:
       "Se l'obiettivo è un viso più compatto e luminoso, la differenza la fa la progressione: sedute distanziate bene, poche scelte coerenti e un mantenimento semplice. Qui trovi come orientarti e quali segnali cercare in consulenza.",
     localAngle:
-      "Utile se vuoi un risultato elegante e progressivo, non un effetto \"solo in giornata\".",
+      "Ideale per un risultato elegante e progressivo, non un effetto \"solo in giornata\".",
     intent: "commercial",
     benefits: [
       "Imposta aspettative realistiche su tono, tempi e mantenimento",
@@ -3672,11 +3672,11 @@ export const competencePages: CompetencePage[] = [
       },
       {
         q: "Posso rimuoverlo da sola a casa?",
-        a: "Si può, ma se non hai pratica rischi di strappare. Se vuoi farlo a casa, ti consigliamo di farlo con calma e senza forzare.",
+        a: "Si può, ma se non hai pratica rischi di strappare. Se scegli di farlo a casa, ti consigliamo di farlo con calma e senza forzare.",
       },
       {
         q: "Posso fare una pausa tra un semipermanente e l'altro?",
-        a: "Sì. Se vuoi fare una pausa, la cosa più importante è farla bene: rimozione corretta, unghia non assottigliata e una fase di \"riposo\" con idratazione semplice. In studio ti consigliamo il ritmo più sensato per te.",
+        a: "Sì. Se preferisci fare una pausa, la cosa più importante è farla bene: rimozione corretta, unghia non assottigliata e una fase di \"riposo\" con idratazione semplice. In studio ti consigliamo il ritmo più sensato per te.",
       },
       {
         q: "Se un'unghia si scheggia cosa faccio?",
@@ -3721,7 +3721,7 @@ export const competencePages: CompetencePage[] = [
         heading: "Rimozione: la parte che protegge l'unghia nel tempo",
         paragraphs: [
           "Molti danni non arrivano dal semipermanente in sé, ma da rimozioni aggressive: strappi, fretta, limature eccessive.",
-          "La regola è semplice: mai forzare. Se vuoi fare una pausa, la facciamo in modo che l'unghia resti sana e bella.",
+          "La regola è semplice: mai forzare. Se preferisci fare una pausa, la facciamo in modo che l'unghia resti sana e bella.",
         ],
       },
       {
@@ -3808,7 +3808,7 @@ export const competencePages: CompetencePage[] = [
         heading: "Mantenimento: come restare ordinata senza fare 'troppo'",
         paragraphs: [
           "Detersione delicata, struccaggio senza sfregare e prodotti scelti con criterio. Non servono rituali lunghi: serve non stressare la zona.",
-          "Se vuoi, ti consigliamo anche quando rifarla, così non aspetti che l'effetto 'collassi'.",
+          "Se serve, ti consigliamo anche quando rifarla, così non aspetti che l'effetto 'collassi'.",
         ],
       },
     ],
@@ -3882,7 +3882,7 @@ export const competencePages: CompetencePage[] = [
       {
         heading: "Dopo lo scrub: la parte che fa durare la pelle liscia",
         paragraphs: [
-          "Idratazione e protezione. Pochi gesti, coerenti. Se vuoi, ti consigliamo prodotti in base a stagione e sensazione della pelle.",
+          "Idratazione e protezione. Pochi gesti, coerenti. Se serve, ti consigliamo prodotti in base a stagione e sensazione della pelle.",
           "L'obiettivo è far durare il comfort, non inseguire l'effetto 'wow' per un giorno.",
         ],
       },
@@ -3958,7 +3958,7 @@ export const competencePages: CompetencePage[] = [
         heading: "Mantenimento: micro-gesti che aiutano tra una seduta e l'altra",
         paragraphs: [
           "Non servono rivoluzioni. Basta non tornare subito in modalità corsa: acqua, respiro, qualche minuto di calma e meno tensione su spalle e mandibola quando puoi.",
-          "Se vuoi inserire il massaggio in un periodo stressante, ti aiutiamo a scegliere un ritmo realistico.",
+          "Se vuoi inserire il massaggio in un periodo stressante, scegliamo insieme un ritmo sostenibile.",
         ],
       },
     ],
@@ -4118,7 +4118,7 @@ export const competencePages: CompetencePage[] = [
       },
       {
         q: "Cosa conviene fare dopo il linfodrenante?",
-        a: "Semplificare: bere acqua, evitare stress eccessivo immediato e ascoltare il corpo. Se vuoi, ti diamo due dritte pratiche in base a lavoro/sport/stagione, così la sensazione di leggerezza dura di più.",
+        a: "Semplificare: bere acqua, evitare stress eccessivo immediato e ascoltare il corpo. Se ti va, ti diamo due dritte pratiche in base a lavoro/sport/stagione, così la sensazione di leggerezza dura di più.",
       },
       {
         q: "Ci sono momenti in cui è meglio rimandare o chiedere un parere medico?",
@@ -4320,7 +4320,7 @@ export const competencePages: CompetencePage[] = [
       },
       {
         q: "Posso fare pedicure e poi mettere lo smalto?",
-        a: "Sì. Se vuoi un effetto naturale, puoi scegliere un finish pulito e discreto; se preferisci colore, lo decidiamo insieme in base allo stile e alla stagione.",
+        a: "Sì. Se preferisci un effetto naturale, puoi scegliere un finish pulito e discreto; se desideri colore, lo decidiamo insieme in base allo stile e alla stagione.",
       },
       {
         q: "Se ho una situazione dolorosa o sospetta, come mi comporto?",
@@ -4377,7 +4377,7 @@ export const competencePages: CompetencePage[] = [
         heading: "Mantenimento a casa: due gesti che fanno davvero la differenza",
         paragraphs: [
           "Non servono rituali lunghi. Di solito basta idratazione costante e un po' di attenzione alle abitudini che seccano (detergenti aggressivi, attrito, scarpe).",
-          "Se vuoi, dopo la seduta ti diciamo cosa fare in modo semplice: una micro-routine che non ti stanca.",
+          "Dopo la seduta ti diciamo cosa fare in modo semplice: una micro-routine che non ti stanca.",
         ],
       },
     ],

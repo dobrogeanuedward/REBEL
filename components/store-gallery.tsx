@@ -34,13 +34,13 @@ export function StoreGallery({ images }: StoreGalleryProps) {
           />
           <span className="store-gallery-watermark" aria-hidden="true" />
           <div className="store-gallery-overlay">
-            <button type="button" onClick={prev} aria-label="Foto precedente">
+            <button type="button" onClick={prev} aria-label="Elemento precedente">
               ‹
             </button>
             <span>
               {active + 1} / {images.length}
             </span>
-            <button type="button" onClick={next} aria-label="Foto successiva">
+            <button type="button" onClick={next} aria-label="Elemento successivo">
               ›
             </button>
           </div>
@@ -54,7 +54,7 @@ export function StoreGallery({ images }: StoreGalleryProps) {
               role="listitem"
               className={index === active ? "is-active" : ""}
               onClick={() => setActive(index)}
-              aria-label={`Apri foto ${index + 1}`}
+              aria-label={`Apri elemento ${index + 1}`}
             >
               <Image src={img.src} alt={img.alt} width={520} height={360} draggable={false} />
               <span className="store-gallery-thumb-watermark" aria-hidden="true" />
