@@ -219,7 +219,7 @@ export default function ListinoPage() {
               </Link>
             </div>
           </div>
-          <div className="card mt-md">
+          <div className="card-light mt-md">
             <h3 className="mt-0">Laser uomo: pagine dedicate</h3>
             <p className="lead mt-xs">
               Se stai cercando il laser uomo (barba/collo o aree ampie come schiena e torace), abbiamo due schede servizio
@@ -244,7 +244,7 @@ export default function ListinoPage() {
             <Link className="button button-secondary" href="/epilazione-laser-carmagnola">
               Approfondisci laser Carmagnola
             </Link>
-            <Link className="button" href="#estetica-epigenetica">
+            <Link className="button button-secondary" href="#estetica-epigenetica">
               Vai a estetica epigenetica
             </Link>
             <Link className="button button-secondary" href="/servizi">

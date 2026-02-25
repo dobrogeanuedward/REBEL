@@ -3599,9 +3599,9 @@ body.mobile-menu-open .wa-live {
 }
 
 .page-listino {
-  --page-accent-rgb: 247, 201, 92;
-  --page-accent-soft-rgb: 228, 72, 150;
-  --page-accent-dark-rgb: 180, 83, 9;
+  --page-accent-rgb: 228, 72, 150;
+  --page-accent-soft-rgb: 52, 211, 153;
+  --page-accent-dark-rgb: 124, 58, 237;
 }
 
 .page-listino .page-hero-shell {
@@ -3784,10 +3784,10 @@ body.mobile-menu-open .wa-live {
 
 .listino-switch-btn:hover {
   transform: translateY(-1px);
-  border-color: rgba(247, 201, 92, 0.5);
+  border-color: rgba(52, 211, 153, 0.52);
   box-shadow:
-    0 8px 24px rgba(180, 83, 9, 0.22),
-    0 0 24px rgba(228, 72, 150, 0.16);
+    0 8px 24px rgba(5, 150, 105, 0.24),
+    0 0 24px rgba(228, 72, 150, 0.18);
 }
 
 .listino-categories-card {
@@ -4044,9 +4044,9 @@ body.mobile-menu-open .wa-live {
 }
 
 .page-servizio-classica {
-  --page-accent-rgb: 247, 201, 92;
-  --page-accent-soft-rgb: 228, 72, 150;
-  --page-accent-dark-rgb: 180, 83, 9;
+  --page-accent-rgb: 228, 72, 150;
+  --page-accent-soft-rgb: 52, 211, 153;
+  --page-accent-dark-rgb: 124, 58, 237;
 }
 
 .page-servizio-laser {
