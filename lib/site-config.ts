@@ -4,6 +4,7 @@ export const siteConfig = {
   tagline: "Metodo chiaro, pelle viva.",
   locale: "it-IT",
   regionCode: "IT-TO",
+  // Shared update marker used across pages and feeds.
   lastUpdated: "2026-02-25",
   description:
     "Centro estetico avanzato a Carmagnola: estetica epigenetica, protocolli viso/corpo ed epilazione laser con approccio personalizzato.",
