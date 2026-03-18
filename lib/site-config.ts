@@ -11,7 +11,7 @@ export const siteConfig = {
   siteUrl: "https://www.rebelepigenetica.it",
   assets: {
     logoLight:
-      "https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769422/rebel-logo-light_fvlqgi.webp",
+      "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/8e57610c-3a93-48fa-e535-b864967a4e00/public",
     // Keep this in one place: used in hero blocks and OpenGraph.
     heroStorefront: "https://epikey.rebelepigenetica.it/assets/rebel/vetrina2.webp",
     ogImage: "https://epikey.rebelepigenetica.it/assets/rebel/vetrina2.webp",
