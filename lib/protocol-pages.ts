@@ -23,9 +23,9 @@ export const protocolPages: ProtocolPage[] = [
     slug: "rebel-lift-protocol",
     name: "Rebel Lift Protocol",
     price: "EUR 148",
-    shortDescription: "Un protocollo su tono, ovale e luminosità, con una progressione pulita.",
+    shortDescription: "Un protocollo su tono, ovale e luminosita', pensato per dare al viso una presenza piu' elegante.",
     longDescription:
-      "Rebel Lift Protocol è pensato per chi vuole lavorare su tono e “tenuta” del viso con un percorso ordinato. Si parte da una lettura iniziale, si decide una priorità e si costruisce una progressione che abbia senso per la pelle di oggi (e per la tua agenda).",
+      "Rebel Lift Protocol e' pensato per chi desidera un viso piu' tonico, definito e luminoso. La lettura iniziale individua la priorita' estetica e apre una progressione capace di accompagnare la pelle verso una resa piu' alta e piu' raffinata.",
     keywords: [
       "Rebel Lift Protocol",
       "protocollo viso Carmagnola",
@@ -33,9 +33,9 @@ export const protocolPages: ProtocolPage[] = [
       "trattamento tono viso Carmagnola",
     ],
     benefits: [
-      "Percorso impostato su priorità e progressione, non su sedute scollegate",
-      "Focus su tono, ovale e luminosità con scelte calibrate",
-      "Indicazione di ritmo e mantenimento: così il risultato resta più stabile",
+      "Progressione costruita su priorita' estetiche e sedute che dialogano tra loro",
+      "Focus su tono, ovale e luminosita' con scelte calibrate sulla pelle",
+      "Ritmo e mantenimento orientati a far restare il risultato piu' stabile e visibile",
     ],
     faqs: [
       {
@@ -55,27 +55,27 @@ export const protocolPages: ProtocolPage[] = [
       {
         heading: "Tono e ovale: la differenza la fa la progressione",
         paragraphs: [
-          "Quando l'obiettivo è “tenuta” e luminosità, la cosa che funziona di più è avere una direzione chiara e seguirla nel tempo.",
-          "Il protocollo diventa efficace quando è lineare: poche scelte fatte bene, distanziate con criterio, con micro-aggiustamenti quando serve.",
+          "Quando il desiderio e' un viso piu' sollevato e luminoso, la differenza la fa una direzione precisa portata avanti con continuita'.",
+          "Il protocollo esprime il meglio quando ogni seduta accende la successiva: scelte mirate, ritmo coerente e piccoli aggiustamenti di alta qualita'.",
         ],
       },
       {
         heading: "Lettura iniziale: capire la pelle oggi",
         paragraphs: [
-          "La pelle cambia con stagione, stress, sonno e routine. Per questo non lavoriamo per etichette: guardiamo come sta oggi e cosa ti dà fastidio davvero.",
-          "Da lì decidiamo se il focus deve essere tono, comfort, luminosità o un mix (ma con una priorità chiara).",
+          "La pelle cambia con stagione, stress, sonno e routine. Per questo leggiamo il momento reale e scegliamo cio' che puo' valorizzarla di piu' adesso.",
+          "Da li' definiamo se il focus deve essere tono, comfort, luminosita' o una combinazione gerarchica di questi elementi.",
         ],
       },
       {
         heading: "Mantenimento: quello che fa durare",
         paragraphs: [
-          "Il mantenimento non deve diventare un lavoro. Deve diventare un'abitudine semplice che ti viene naturale.",
-          "Se ti va, ti lasciamo un piano minimale per non perdere il filo tra una seduta e l'altra.",
+          "Il mantenimento migliore e' quello che custodisce il risultato con naturalezza e continuita'.",
+          "Ti lasciamo un piano essenziale per mantenere il viso acceso, definito e coerente tra una seduta e l'altra.",
         ],
       },
     ],
     relatedLinks: [
-      { label: "Prenota lettura iniziale", href: "/contatti", description: "Due righe su obiettivo e tempi, e definiamo insieme il primo passo." },
+      { label: "Prenota lettura iniziale", href: "/contatti", description: "Raccontaci obiettivo e tempi per aprire il protocollo piu' adatto." },
       { label: "Protocolli epigenetici", href: "/protocolli-epigenetici", description: "Panoramica completa dei protocolli Rebel." },
       { label: "Trattamenti viso", href: "/competenze/trattamenti-viso-carmagnola", description: "Guida per orientarti tra obiettivi, comfort e luminosità." },
       { label: "Pulizia viso", href: "/servizi/pulizia-viso-carmagnola", description: "Un punto di partenza ottimo quando serve mettere ordine alla pelle." },
@@ -85,9 +85,9 @@ export const protocolPages: ProtocolPage[] = [
     slug: "rebirth-60-plus",
     name: "Rebirth 60+",
     price: "EUR 148",
-    shortDescription: "Dedicato alle pelli mature: nutrimento e densità percepita con metodo.",
+    shortDescription: "Dedicato alle pelli mature: nutrimento, densita' e luminosita' con una firma beauty piu' ricca.",
     longDescription:
-      "Rebirth 60+ è un protocollo pensato per le pelli mature quando l'obiettivo è ritrovare comfort, pienezza e una sensazione di pelle più “stabile”. Non promette magie: imposta una progressione, con scelte che rispettano sensibilità e ritmo reale.",
+      "Rebirth 60+ e' un protocollo dedicato alle pelli mature quando il desiderio e' ritrovare comfort, pienezza e una qualita' cutanea piu' preziosa. La progressione rispetta sensibilita' e ritmo reale, accompagnando il viso verso una presenza piu' piena e luminosa.",
     keywords: [
       "Rebirth 60+",
       "pelle matura Carmagnola",
@@ -95,9 +95,9 @@ export const protocolPages: ProtocolPage[] = [
       "estetica avanzata Carmagnola",
     ],
     benefits: [
-      "Approccio rispettoso: niente aggressività quando la pelle è più delicata",
-      "Progressione su comfort e densità percepita, con calendario realistico",
-      "Routine casa essenziale, pensata per essere fattibile",
+      "Approccio rispettoso pensato per esaltare pelli piu' delicate e piu' esigenti",
+      "Progressione su comfort, densita' percepita e luminosita' con calendario coerente",
+      "Routine casa essenziale pensata per custodire la qualita' del risultato",
     ],
     faqs: [
       { q: "È solo per over 60?", a: "No: il nome è un riferimento, ma decide la pelle. Se l'esigenza è quella (comfort, stabilità, nutrimento), può avere senso anche prima." },
@@ -108,22 +108,22 @@ export const protocolPages: ProtocolPage[] = [
       {
         heading: "Pelli mature: meno eccessi, più precisione",
         paragraphs: [
-          "Quando la pelle è più sottile o reattiva, l'eccesso è la cosa che rovina tutto: irrita e rende instabile il risultato.",
-          "Qui lavoriamo con criterio: priorità chiare, progressione, e gestione semplice tra una seduta e l'altra.",
+          "Quando la pelle e' piu' sottile o reattiva, la precisione eleva il risultato e protegge il comfort.",
+          "Qui lavoriamo con priorita' nitide, progressione elegante e una gestione essenziale tra una seduta e l'altra.",
         ],
       },
       {
         heading: "Calendario: quello che riesci a seguire",
         paragraphs: [
-          "Il percorso migliore è quello che sta nella tua settimana. Anche una seduta al mese può avere senso, se è impostata bene e non cambia direzione ogni volta.",
-          "Se la pelle cambia, cambiamo anche noi: adattiamo, non ricominciamo da zero.",
+          "Il percorso migliore entra bene nella tua agenda e continua a valorizzarti nel tempo.",
+          "Quando la pelle cambia, il protocollo si aggiorna con lei e resta fedele al risultato desiderato.",
         ],
       },
       {
         heading: "Routine a casa: essenziale",
         paragraphs: [
-          "Detersione delicata, idratazione, protezione. Se serve, un attivo mirato. Stop.",
-          "La costanza vale più del prodotto perfetto usato due volte.",
+          "Detersione delicata, idratazione, protezione e, quando utile, un attivo mirato.",
+          "La costanza rende il viso piu' bello della ricerca infinita del prodotto perfetto.",
         ],
       },
     ],
@@ -138,9 +138,9 @@ export const protocolPages: ProtocolPage[] = [
     slug: "eye-genesis",
     name: "Eye Genesis",
     price: "EUR 120",
-    shortDescription: "Focus contorno occhi: gonfiore, segni e stanchezza, con un percorso ordinato.",
+    shortDescription: "Focus contorno occhi: gonfiore, segni e stanchezza, per uno sguardo piu' disteso e curato.",
     longDescription:
-      "Eye Genesis è un protocollo perioculare: nasce per chi vuole uno sguardo più riposato e “in ordine”, senza cercare effetti finti. Si lavora con una progressione, adattata a sensibilità e abitudini (sonno, stress, trucco, struccaggio).",
+      "Eye Genesis e' un protocollo perioculare pensato per chi desidera uno sguardo piu' riposato, levigato e armonioso. La progressione si adatta a sensibilita', abitudini e ritmo di vita per rendere il contorno occhi piu' fresco e luminoso.",
     keywords: [
       "Eye Genesis",
       "contorno occhi Carmagnola",
@@ -148,9 +148,9 @@ export const protocolPages: ProtocolPage[] = [
       "gonfiore occhiaie Carmagnola",
     ],
     benefits: [
-      "Percorso perioculare calibrato su sensibilità e obiettivo",
-      "Aiuta a rendere lo sguardo più ordinato e riposato nel tempo",
-      "Indicazioni semplici per struccaggio e gestione a casa",
+      "Percorso perioculare calibrato su sensibilita' e obiettivo estetico",
+      "Aiuta a rendere lo sguardo piu' riposato, ordinato e luminoso nel tempo",
+      "Indicazioni essenziali per custodire il risultato anche a casa",
     ],
     faqs: [
       { q: "È adatto se ho occhi sensibili?", a: "Dipende dal momento e dalla reattività. In studio lavoriamo in modo graduale e scegliamo intensità e prodotti con criterio." },
@@ -161,22 +161,22 @@ export const protocolPages: ProtocolPage[] = [
       {
         heading: "Contorno occhi: meglio precisione che trattamenti a caso",
         paragraphs: [
-          "Il contorno occhi è delicato. Fare troppo (o troppo spesso) può peggiorare comfort e sensibilità.",
-          "Qui preferiamo un percorso pulito: piccoli step, controllo, e zero stress per la pelle.",
+          "Il contorno occhi richiede finezza. Il risultato piu' bello nasce da piccoli step, precisione e controllo.",
+          "Qui costruiamo una progressione delicata che mantiene comfort e lascia emergere uno sguardo piu' elegante.",
         ],
       },
       {
         heading: "Abitudini che contano: sonno, struccaggio, sfregamenti",
         paragraphs: [
-          "Lo sguardo cambia molto con abitudini semplici: come strucchi, quanto sfregi, quanto dormi, quanto stress c'è in quel periodo.",
-          "In studio ti diamo consigli pratici, senza trasformare la routine in una checklist infinita.",
+          "Lo sguardo risponde molto a struccaggio, riposo, sfregamenti e stress del momento.",
+          "In studio trasformiamo queste abitudini in pochi gesti capaci di sostenere un risultato piu' fresco e armonioso.",
         ],
       },
       {
         heading: "Progressione: l'effetto più bello è quello che resta naturale",
         paragraphs: [
-          "Un risultato elegante sul contorno occhi è quello che ti fa sembrare riposata, non “diversa”.",
-          "Il protocollo è costruito per questo: ordine, comfort e continuità.",
+          "Il risultato piu' elegante sul contorno occhi e' quello che ti fa apparire piu' riposata, luminosa e curata.",
+          "Il protocollo e' costruito per questo: comfort, continuita' e una bellezza che resta credibile.",
         ],
       },
     ],
@@ -191,9 +191,9 @@ export const protocolPages: ProtocolPage[] = [
     slug: "catalysis-ritual",
     name: "Catalysis Ritual",
     price: "EUR 150",
-    shortDescription: "Quando la pelle è spenta o disordinata: reset e comfort, senza eccessi.",
+    shortDescription: "Quando la pelle appare spenta o disordinata: reset, comfort e nuova luminosita'.",
     longDescription:
-      "Catalysis Ritual è un protocollo pensato quando la pelle appare opaca, “spessa” o poco uniforme. L'obiettivo è riportare ordine e comfort, senza inseguire l'effetto forte. Si lavora con criterio: lettura iniziale, progressione e mantenimento semplice.",
+      "Catalysis Ritual e' il protocollo dedicato alla pelle opaca, ispessita o poco uniforme quando desideri riportare luce, finezza e comfort. Lettura iniziale, progressione e mantenimento lavorano insieme per restituire una pelle piu' nitida e piu' viva.",
     keywords: [
       "Catalysis Ritual",
       "pelle opaca Carmagnola",
@@ -201,9 +201,9 @@ export const protocolPages: ProtocolPage[] = [
       "estetica epigenetica Carmagnola",
     ],
     benefits: [
-      "Aiuta a rimettere ordine quando la pelle è disordinata o opaca",
-      "Approccio delicato: comfort prima di tutto",
-      "Progressione e mantenimento chiari, senza cambiare idea ogni volta",
+      "Riporta ordine quando la pelle appare opaca, congestionata o poco omogenea",
+      "Approccio delicato che rimette il comfort al centro della resa estetica",
+      "Progressione e mantenimento costruiti per dare continuita' al cambiamento",
     ],
     faqs: [
       { q: "È un trattamento aggressivo?", a: "No: la logica è l'opposto. Lavoriamo per riportare comfort e ordine, non per stressare la pelle." },
@@ -214,21 +214,21 @@ export const protocolPages: ProtocolPage[] = [
       {
         heading: "Opacità e disordine: spesso è questione di eccessi",
         paragraphs: [
-          "Molte pelli diventano opache perché fanno troppo: troppi attivi, troppe prove, troppo cambio di routine.",
-          "Qui si fa il contrario: si semplifica e si costruisce continuità.",
+          "Molte pelli perdono luce quando accumulano troppi stimoli, troppi attivi e troppe correzioni.",
+          "Qui si riporta la pelle in una traiettoria piu' elegante: meno rumore, piu' continuita', piu' resa.",
         ],
       },
       {
         heading: "Reset: significa riportare comfort",
         paragraphs: [
-          "Un reset fatto bene non lascia la pelle in difesa. Deve lasciarla più comoda e più “gestibile”.",
-          "Per questo scegliamo intensità e calendario in base a come risponde la pelle, non in base a una tabella.",
+          "Un reset ben costruito lascia la pelle piu' comoda, piu' liscia e piu' disponibile a ricevere il lavoro successivo.",
+          "Per questo scegliamo intensita' e calendario in base alla risposta reale della pelle.",
         ],
       },
       {
         heading: "Mantenimento: il passo che evita di ricadere nel caos",
         paragraphs: [
-          "Il mantenimento è la parte più sottovalutata. Con pochi gesti coerenti, il risultato resta più stabile e non devi ricominciare ogni mese.",
+          "Il mantenimento custodisce la luminosita' conquistata. Con pochi gesti coerenti, il risultato resta piu' stabile e piu' leggibile.",
         ],
       },
     ],
@@ -243,9 +243,9 @@ export const protocolPages: ProtocolPage[] = [
     slug: "collagen-code",
     name: "Collagen Code",
     price: "EUR 135",
-    shortDescription: "Supporto su compattezza e rimpolpamento, con lavoro progressivo.",
+    shortDescription: "Supporto su compattezza e rimpolpamento, con una progressione che rende il viso piu' pieno e raffinato.",
     longDescription:
-      "Collagen Code è un protocollo pensato per chi vuole lavorare su compattezza e aspetto più pieno della pelle, senza rincorrere soluzioni “tutto e subito”. È un percorso: si imposta una progressione e si monitora la risposta nel tempo.",
+      "Collagen Code e' un protocollo pensato per chi desidera compattezza, pienezza e una qualita' cutanea piu' ricca. La progressione accompagna la pelle nel tempo per rendere il viso piu' corposo, luminoso e armonioso.",
     keywords: [
       "Collagen Code",
       "rimpolpamento viso Carmagnola",
@@ -253,9 +253,9 @@ export const protocolPages: ProtocolPage[] = [
       "protocollo viso Carmagnola",
     ],
     benefits: [
-      "Progressione su compattezza e resa della pelle, senza promesse irreali",
-      "Metodo chiaro: priorità, calendario e micro-aggiustamenti",
-      "Routine casa essenziale, coerente col percorso",
+      "Progressione su compattezza e resa della pelle con aspettative eleganti e credibili",
+      "Priorita', calendario e micro-aggiustamenti costruiti sulla risposta reale del viso",
+      "Routine casa essenziale e coerente con la progressione del protocollo",
     ],
     faqs: [
       { q: "È un trattamento singolo o un percorso?", a: "È un percorso. La differenza la fa la progressione e la continuità, non la singola seduta." },
@@ -266,21 +266,21 @@ export const protocolPages: ProtocolPage[] = [
       {
         heading: "Compatezza: la parte importante è la continuità",
         paragraphs: [
-          "Quando si parla di compattezza, la pelle ha bisogno di tempo. La promessa veloce di solito porta solo a fare troppo e male.",
-          "Collagen Code lavora bene quando resta lineare: poche scelte, fatte bene, con un ritmo che puoi tenere.",
+          "Quando si parla di compattezza, il risultato piu' bello arriva da un tempo ben guidato.",
+          "Collagen Code lavora al meglio quando resta lineare: poche scelte di valore, un ritmo coerente e una progressione che si sente sulla pelle.",
         ],
       },
       {
         heading: "Lettura iniziale: decidere la priorità giusta",
         paragraphs: [
-          "A volte il bisogno è densità, a volte comfort, a volte luminosità. Se scegliamo la priorità sbagliata, anche il protocollo migliore perde senso.",
-          "Per questo partiamo sempre da una lettura iniziale e da obiettivi concreti.",
+          "A volte il bisogno e' densita', a volte comfort, a volte luminosita'. La priorita' giusta rende il protocollo molto piu' efficace.",
+          "Per questo partiamo sempre da una lettura iniziale e da obiettivi concreti, estetici e percepibili.",
         ],
       },
       {
         heading: "Abbinamenti sensati: non fare tutto insieme",
         paragraphs: [
-          "Si può abbinare, ma serve ordine. Meglio un percorso pulito che una lista di cose che non si riesce a seguire.",
+          "Gli abbinamenti funzionano quando restano ordinati e gerarchici. Il viso risponde meglio a una regia precisa che a una somma di stimoli.",
         ],
       },
     ],
@@ -295,9 +295,9 @@ export const protocolPages: ProtocolPage[] = [
     slug: "rebel-cell-regeneration",
     name: "Rebel Cell Regeneration",
     price: "EUR 159",
-    shortDescription: "Percorso intensivo viso/corpo per una rigenerazione progressiva.",
+    shortDescription: "Percorso intensivo viso e corpo per una rigenerazione progressiva e una resa estetica piu' alta.",
     longDescription:
-      "Rebel Cell Regeneration è un protocollo intensivo quando l'obiettivo è lavorare in modo più deciso su qualità cutanea e resa complessiva (viso e/o corpo). Resta comunque un percorso “umano”: progressione, controllo e mantenimento fattibile.",
+      "Rebel Cell Regeneration e' un protocollo intensivo dedicato a chi desidera lavorare in modo piu' deciso su qualita' cutanea e resa complessiva di viso e corpo. Progressione, controllo e mantenimento accompagnano un cambiamento percepibile e raffinato.",
     keywords: [
       "Rebel Cell Regeneration",
       "rigenerazione pelle Carmagnola",
@@ -305,9 +305,9 @@ export const protocolPages: ProtocolPage[] = [
       "estetica epigenetica Carmagnola",
     ],
     benefits: [
-      "Protocollo intensivo con progressione e controllo",
-      "Focus su qualità cutanea e resa complessiva, senza eccessi",
-      "Mantenimento essenziale e realistico tra una seduta e l'altra",
+      "Protocollo intensivo con progressione, controllo e lettura costante",
+      "Focus su qualita' cutanea e resa complessiva per un risultato piu' visibile",
+      "Mantenimento essenziale per custodire il cambiamento tra una seduta e l'altra",
     ],
     faqs: [
       { q: "È troppo intenso per una pelle sensibile?", a: "Dipende da come sta la pelle. In lettura iniziale decidiamo intensità e ritmo; se serve, partiamo più soft." },
@@ -318,27 +318,27 @@ export const protocolPages: ProtocolPage[] = [
       {
         heading: "Intensivo non significa aggressivo",
         paragraphs: [
-          "Intensivo significa avere una direzione e seguirla con continuità. Non significa stressare la pelle.",
-          "Il risultato migliore arriva quando la pelle resta confortevole e il percorso resta leggibile.",
+          "Intensivo significa dare alla pelle una direzione piu' decisa e mantenerla viva con continuita'.",
+          "Il risultato migliore arriva quando il protocollo resta leggibile e la pelle continua a rispondere con comfort.",
         ],
       },
       {
         heading: "Progressione: il protocollo si adatta, non si impone",
         paragraphs: [
-          "La pelle cambia. Se cambiano stress, stagione o routine, adattiamo anche il protocollo.",
-          "È questo che rende il percorso più serio: non restare rigidi, ma restare coerenti.",
+          "La pelle cambia con stagione, stress e routine. Per questo il protocollo evolve insieme a lei.",
+          "E' questa elasticita' controllata che rende il percorso piu' serio, piu' credibile e piu' performante.",
         ],
       },
       {
         heading: "Mantenimento: pochi gesti, ma coerenti",
         paragraphs: [
-          "Detersione, idratazione, protezione. Se serve, un attivo mirato. Stop.",
-          "Il mantenimento deve essere fattibile, altrimenti diventa un motivo per mollare.",
+          "Detersione, idratazione, protezione e, quando utile, un attivo mirato.",
+          "Il mantenimento migliore sostiene la bellezza raggiunta e rende il protocollo facile da custodire.",
         ],
       },
     ],
     relatedLinks: [
-      { label: "Contatti", href: "/contatti", description: "Raccontaci obiettivo e tempi: impostiamo un primo passo sensato." },
+      { label: "Contatti", href: "/contatti", description: "Raccontaci obiettivo e tempi per aprire il protocollo piu' adatto." },
       { label: "Protocolli epigenetici", href: "/protocolli-epigenetici", description: "Panoramica completa protocolli." },
       { label: "Trattamenti corpo", href: "/competenze/trattamenti-corpo-carmagnola", description: "Guida per orientarti tra corpo, comfort e drenaggio." },
       { label: "Estetica avanzata", href: "/competenze/estetica-avanzata-carmagnola", description: "Cosa significa 'avanzata' nella pratica." },

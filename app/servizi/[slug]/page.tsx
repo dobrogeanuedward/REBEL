@@ -281,12 +281,12 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           <aside className="editorial-aside">
             <TableOfContents items={tocItems} />
             <InlineCTA
-              title="Vuoi iniziare con calma?"
-              lead={`Scrivici due righe (zona/obiettivo/tempi). Ti diciamo se ${service.name} ha senso adesso o se conviene partire da altro.`}
-              primaryLabel="Contatti"
+              title="Apri il servizio giusto per la tua bellezza."
+              lead={`Scrivici zona, obiettivo e tempi desiderati: definiamo se ${service.name} e' la scelta piu' adatta o se c'e' un accesso ancora piu' efficace.`}
+              primaryLabel="Prenota la consulenza"
               primaryHref="/contatti"
-              secondaryLabel="Vedi servizi"
-              secondaryHref="/servizi"
+              secondaryLabel="Apri il listino"
+              secondaryHref="/listino-estetica-laser"
             />
           </aside>
         </div>
@@ -297,15 +297,16 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           <h2 className="page-title">Prezzi {service.name} a Carmagnola</h2>
           <p className="lead" style={{ marginTop: "0.5rem", color: "rgba(39,31,56,0.78)", maxWidth: "76ch" }}>
             Per {service.name} il riferimento in studio parte da <strong>{service.priceHint}</strong>.
-            Usiamo sempre una valutazione iniziale pratica: obiettivo, frequenza e mantenimento, così hai un piano coerente e non un prezzo scollegato dal risultato.
+            La valutazione iniziale collega prezzo, frequenza e progressione per trasformare il costo
+            in una scelta coerente con il risultato che vuoi vedere.
           </p>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             <article className="card-light">
               <h3 style={{ marginTop: 0 }}>Come leggere il prezzo in modo corretto</h3>
               <ul className="list-clean" style={{ marginTop: "0.5rem" }}>
-                <li>- Prezzo indicativo trasparente, senza giri di parole.</li>
+                <li>- Prezzo indicativo pensato come ingresso al risultato, non come numero isolato.</li>
                 <li>- Intensità e progressione vengono adattate a pelle/obiettivo.</li>
-                <li>- Se stai confrontando più opzioni, ti aiutiamo a scegliere la priorità.</li>
+                <li>- Se stai confrontando piu&apos; opzioni, individuiamo la priorita&apos; che valorizza di piu&apos;.</li>
               </ul>
             </article>
             <article className="card-light">
@@ -345,10 +346,10 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             </article>
             <aside className="editorial-aside">
               <InlineCTA
-                eyebrow="Domanda semplice, risposta chiara"
-                title="Vuoi un consiglio rapido?"
-                lead="Scrivici: ti diciamo se il primo passo è questo servizio o se conviene partire da altro (senza giri di parole)."
-                primaryLabel="Contatti"
+                eyebrow="Consulenza beauty"
+                title="Trasforma il dubbio in una scelta di valore."
+                lead={`Scrivici e definiamo se ${service.name} e' il trattamento piu' giusto adesso oppure se la tua pelle richiede un ingresso ancora piu' mirato.`}
+                primaryLabel="Prenota la consulenza"
                 primaryHref="/contatti"
                 secondaryLabel="Listino"
                 secondaryHref="/listino-estetica-laser"
@@ -369,8 +370,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           <div className="container">
             <h2 className="page-title">Fonti e riferimenti</h2>
             <p className="lead" style={{ marginTop: "0.45rem", color: "rgba(39,31,56,0.78)" }}>
-              Quando ha senso, usiamo fonti pubbliche autorevoli per mantenere il contenuto
-              utile, chiaro e senza promesse.
+              Quando serve, affianchiamo al contenuto fonti pubbliche autorevoli per sostenere una
+              scelta informata e una promessa credibile.
             </p>
             <ul className="editorial-source-list">
               {sourceLinks.map((source) => (
@@ -410,8 +411,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           <div className="container">
             <h2 className="page-title">Se vuoi fare un passo più avanzato</h2>
             <p className="lead" style={{ marginTop: "0.5rem", maxWidth: "74ch" }}>
-              Alcune persone partono da {service.name} e poi scelgono un protocollo più completo.
-              Qui trovi due o tre opzioni sensate per continuare in modo ordinato.
+            Alcune persone entrano da {service.name} e poi scelgono un protocollo piu&apos; completo
+            per alzare tono, glow, densita&apos; o resa complessiva.
             </p>
             <div className="grid grid-2" style={{ marginTop: "1rem" }}>
               {relatedProtocols.map((protocol) => (
@@ -426,7 +427,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             </div>
             <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
               <Link className="button button-primary" href="/contatti">
-                Chiedi un consiglio
+                Prenota la consulenza
               </Link>
               <Link className="button button-secondary" href="/protocolli-epigenetici">
                 Vedi tutti i protocolli
@@ -457,8 +458,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           <div className="container">
             <h2 className="page-title">Se arrivi da fuori: località vicine e percorsi</h2>
             <p className="lead" style={{ marginTop: "0.5rem", color: "rgba(39,31,56,0.78)", maxWidth: "74ch" }}>
-              Molte clienti arrivano anche dai comuni vicini. Se ti è comodo, qui trovi le pagine dedicate: hanno un
-              focus diverso (laser, viso/corpo, protocolli) e ti aiutano a scegliere il primo passo.
+              Molte clienti arrivano anche dai comuni vicini. Qui trovi le pagine dedicate per
+              intercettare il focus piu&apos; vicino al tuo desiderio: laser, viso/corpo o protocolli.
             </p>
             <div className="grid grid-2" style={{ marginTop: "1rem" }}>
               {featuredAreas.map((area) => (

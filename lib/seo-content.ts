@@ -83,15 +83,15 @@ export const servicePages: ServicePage[] = [
     slug: "pulizia-viso-carmagnola",
     name: "Pulizia viso a Carmagnola",
     shortDescription:
-      "Pulizia viso completa e delicata per pelle impura, spenta o appesantita: comfort, pori più puliti e grana più uniforme.",
+      "Pulizia viso completa e delicata per pelle impura, spenta o appesantita: piu' luce, pori piu' puliti e grana piu' fine.",
     longDescription:
-      "Una pulizia viso fatta bene parte dall'osservazione della pelle e lavora per step: detersione, esfoliazione delicata, pulizia mirata e fase lenitiva. L'obiettivo non è stressare, ma lasciare la pelle più pulita, luminosa e comoda nei giorni successivi. È anche uno dei servizi migliori per iniziare con chiarezza: ti fa vedere subito il metodo (e ci permette di leggere la pelle prima di impostare qualsiasi percorso).",
+      "Una pulizia viso fatta bene parte dall'osservazione della pelle e lavora per step: detersione, esfoliazione delicata, pulizia mirata e fase lenitiva. L'obiettivo e' lasciare la pelle piu' pulita, luminosa, levigata e pronta a ricevere il lavoro successivo. E' anche uno degli ingressi piu' intelligenti per accendere subito il risultato e leggere con precisione il punto di partenza.",
     priceHint: "da EUR 49",
     category: "estetica-classica",
     benefits: [
-      "Pelle più pulita e uniforme, senza eccessi",
-      "Migliora la grana e la luminosità quando la pelle è spenta",
-      "Riduce la sensazione di pelle \"appesantita\" e poco confortevole",
+      "Pelle piu' pulita e uniforme con una luce subito piu' leggibile",
+      "Migliora grana e luminosita' quando il viso appare spento",
+      "Ridona comfort e leggerezza a una pelle appesantita",
     ],
     faqs: [
       {
@@ -100,7 +100,7 @@ export const servicePages: ServicePage[] = [
       },
       {
         q: "Non so da cosa partire: la pulizia viso ha senso?",
-        a: "Sì: è uno dei modi più semplici per rimettere ordine e capire la pelle. Dopo la seduta hai una direzione chiara (routine e ritmo) e, se serve, ti proponiamo un passo successivo coerente, senza confusione.",
+        a: "Sì: e' uno degli ingressi piu' efficaci per rimettere luce e leggere la pelle con precisione. Dopo la seduta possiamo accompagnarti verso il passo successivo piu' coerente con il risultato che desideri.",
       },
       {
         q: "Dopo la pulizia viso avrò rossore?",
@@ -131,31 +131,31 @@ export const servicePages: ServicePage[] = [
     relatedProtocolSlugs: ["catalysis-ritual", "rebel-lift-protocol", "collagen-code"],
     editorialSections: [
       {
-        heading: "Pulizia viso: cosa facciamo davvero (senza aggressività)",
+        heading: "Pulizia viso: precisione, luce e comfort",
         paragraphs: [
-          "Molte persone arrivano pensando che una pulizia viso \"efficace\" debba essere forte. In realtà, quando la pelle è stressata, l'aggressività non aiuta: aumenta rossori, sensibilità e instabilità.",
-          "Da Rebel costruiamo la seduta per step: osservazione iniziale, detersione accurata, esfoliazione delicata e pulizia mirata dove serve. Poi chiudiamo con una fase lenitiva e riequilibrante, così la pelle resta più comoda anche nei giorni successivi.",
+          "Una pulizia viso davvero efficace lascia la pelle piu' fresca, pulita e luminosa, con una grana che appare subito piu' fine.",
+          "Da Rebel la seduta si costruisce per step: osservazione iniziale, detersione accurata, esfoliazione delicata, pulizia mirata e chiusura riequilibrante per far restare il viso piu' confortevole e piu' bello anche nei giorni successivi.",
         ],
       },
       {
         heading: "Quando ha senso farla (e quando è meglio cambiare strategia)",
         paragraphs: [
-          "Ha senso quando senti la pelle spessa, opaca, piena di micro-impurità o semplicemente \"fuori equilibrio\". Spesso è anche un ottimo punto di partenza se vuoi poi impostare un percorso viso più avanzato.",
-          "Se invece la pelle è molto reattiva o in un periodo delicato, la strategia cambia: possiamo rendere la seduta più soft, oppure lavorare prima su barriera e comfort. L'obiettivo non è fare tutto oggi, ma fare la cosa giusta.",
+          "Ha senso quando la pelle appare spessa, opaca, piena di micro-impurita' o lontana dalla sua luminosita' migliore. Spesso diventa anche il primo gesto giusto prima di un percorso viso piu' evoluto.",
+          "Se la pelle attraversa un momento piu' delicato, adattiamo l'intensita' per far emergere comfort, ordine e qualità cutanea con la stessa eleganza del risultato finale.",
         ],
       },
       {
         heading: "Frequenza e mantenimento: la parte che fa durare il risultato",
         paragraphs: [
-          "La seduta in studio dà direzione, ma il mantenimento fa durare. Non servono dieci prodotti: servono pochi passaggi coerenti (detersione, idratazione, protezione).",
-          "Dopo la prima pulizia viso ti proponiamo un ritmo realistico: così non rincorri la pelle, la accompagni.",
+          "La seduta in studio accende il risultato, il mantenimento lo custodisce. Bastano pochi passaggi coerenti per far restare la pelle pulita, luminosa e stabile.",
+          "Dopo la prima pulizia viso definiamo un ritmo coerente con la tua pelle, cosi' il viso continua a migliorare con naturalezza.",
         ],
       },
       {
         heading: "Primo appuntamento: il gancio più intelligente per iniziare bene",
         paragraphs: [
-          "Se non sai da cosa partire, la pulizia viso è spesso la scelta più \"pulita\": ti fa stare meglio subito e, soprattutto, ci permette di leggere la pelle con calma.",
-          "Da lì il percorso diventa semplice: o mantieni con un ritmo distanziato e routine essenziale, oppure (se serve davvero) costruiamo una progressione più avanzata con obiettivo chiaro.",
+          "Se vuoi iniziare da un gesto che alza subito la percezione del viso, la pulizia viso e' spesso la scelta piu' intelligente: ti fa apparire meglio da subito e ci permette di leggere la pelle con precisione.",
+          "Da li' il percorso puo' restare essenziale oppure aprirsi a una progressione piu' evoluta, sempre guidata dal risultato che vuoi vedere.",
         ],
       },
     ],
@@ -178,15 +178,15 @@ export const servicePages: ServicePage[] = [
     slug: "scrub-corpo-carmagnola",
     name: "Scrub corpo a Carmagnola",
     shortDescription:
-      "Scrub corpo con esfoliazione controllata per pelle più liscia e uniforme, utile per semplificare idratazione e mantenimento.",
+      "Scrub corpo con esfoliazione controllata per una pelle piu' liscia, uniforme e piacevole da vedere e toccare.",
     longDescription:
-      "Lo scrub corpo è un'esfoliazione controllata: rimuove le cellule superficiali in eccesso e lascia la pelle più uniforme al tatto. In studio lo impostiamo in modo sensato (zone, pressione, prodotto e tempi) per evitare irritazioni e ottenere un risultato piacevole anche nei giorni successivi.",
+      "Lo scrub corpo e' un'esfoliazione controllata che rimuove le cellule superficiali in eccesso e lascia la pelle piu' uniforme, setosa e luminosa. In studio regoliamo zone, pressione, prodotto e tempi per ottenere un risultato percepibile e raffinato anche nei giorni successivi.",
     priceHint: "da EUR 49",
     category: "estetica-classica",
     benefits: [
-      "Pelle più morbida e uniforme al tatto",
-      "Riduce la sensazione di pelle ruvida e \"spessa\" su alcune zone",
-      "Rende più semplice la routine corpo (idratazione e mantenimento)",
+      "Pelle piu' morbida, uniforme e setosa al tatto",
+      "Riduce ruvidita' e ispessimenti nelle zone che spengono la resa del corpo",
+      "Rende idratazione e mantenimento piu' efficaci e piacevoli",
     ],
     faqs: [
       {
@@ -195,7 +195,7 @@ export const servicePages: ServicePage[] = [
       },
       {
         q: "Ogni quanto è consigliato?",
-        a: "Spesso ogni 3-5 settimane, ma se la pelle è reattiva o molto secca possiamo distanziare. La regola è semplice: meglio costanza e delicatezza che esagerare una volta.",
+        a: "Spesso ogni 3-5 settimane, con un ritmo che rispetta stagione, sensibilita' e obiettivo estetico. La continuita' delicata rende la pelle piu' bella della seduta isolata.",
       },
       {
         q: "Può aiutare con pelle ruvida e piccoli ispessimenti?",
@@ -222,10 +222,10 @@ export const servicePages: ServicePage[] = [
     ],
     editorialSections: [
       {
-        heading: "Cosa fa davvero lo scrub (e cosa no)",
+        heading: "Cosa fa davvero lo scrub sulla resa del corpo",
         paragraphs: [
-          "Lo scrub lavora sulla superficie: aiuta a rimuovere cellule in eccesso e a rendere la pelle più uniforme al tatto. È uno di quei trattamenti che danno una sensazione immediata di pelle \"più pulita\" e più morbida.",
-          "Non è un trattamento medico e non è una promessa miracolosa. La differenza la fa l'impostazione (quanto è delicato, su quali zone, con che frequenza) e la continuità nel tempo.",
+          "Lo scrub lavora sulla superficie per rendere la pelle piu' uniforme, levigata e luminosa al primo sguardo.",
+          "La differenza la fa l'impostazione: delicatezza, scelta delle zone, frequenza e continuita' trasformano un gesto semplice in una resa estetica molto piu' alta.",
         ],
       },
       {
@@ -238,15 +238,15 @@ export const servicePages: ServicePage[] = [
       {
         heading: "Frequenza: il risultato migliore arriva quando non si esagera",
         paragraphs: [
-          "Esfoliare troppo spesso può rendere la pelle più sensibile e meno stabile. Il nostro approccio è l'opposto: poche sedute, distanziate bene, e mantenimento semplice.",
-          "Dopo la prima seduta ti diciamo una frequenza realistica, senza trasformare la routine corpo in un lavoro.",
+          "La frequenza giusta mantiene la pelle levigata e luminosa senza disperdere comfort.",
+          "Dopo la prima seduta definiamo una cadenza coerente per far restare il corpo piu' uniforme nel tempo.",
         ],
       },
       {
         heading: "Dopo la seduta: far durare la morbidezza",
         paragraphs: [
-          "Il post è semplice: idratazione e protezione. Pochi gesti, ma coerenti. Se ti fa comodo, ti suggeriamo anche come scegliere i prodotti in base a stagione e sensazione della pelle (secca, che tira, più spessa).",
-          "L'obiettivo è far durare la sensazione di pelle uniforme, non viverla solo per un giorno.",
+          "Dopo la seduta bastano idratazione, protezione e pochi gesti coerenti per custodire la morbidezza raggiunta.",
+          "L'obiettivo e' far durare la sensazione di pelle uniforme e luminosa molto oltre il giorno del trattamento.",
         ],
       },
     ],
@@ -265,15 +265,15 @@ export const servicePages: ServicePage[] = [
     slug: "massaggio-linfodrenante-carmagnola",
     name: "Massaggio linfodrenante a Carmagnola",
     shortDescription:
-      "Massaggio linfodrenante drenante e progressivo per gonfiore e pesantezza: manualità delicata, ritmo realistico e comfort.",
+      "Massaggio linfodrenante progressivo per gonfiore e pesantezza: leggerezza, definizione e comfort in crescita.",
     longDescription:
-      "Il linfodrenante è un massaggio drenante delicato e progressivo: aiuta a ridurre la sensazione di gonfiore e pesantezza e a ritrovare una percezione più leggera del corpo (soprattutto su gambe e addome). In studio lo impostiamo con manualità graduali, ascolto e un piano coerente: l'obiettivo è farti stare meglio, senza esagerare e senza promesse.",
+      "Il linfodrenante e' un massaggio drenante delicato e progressivo che aiuta a ridurre gonfiore e pesantezza e a ritrovare un corpo piu' leggero, definito e piacevole da abitare. In studio lo costruiamo con manualita' graduali, ascolto e una progressione coerente per far crescere la sensazione di benessere e armonia.",
     priceHint: "da EUR 69",
     category: "estetica-classica",
     benefits: [
       "Aiuta a ridurre la sensazione di gonfiore e pesantezza",
-      "Sensazione di leggerezza più stabile quando inserito con un ritmo coerente",
-      "Supporta percorsi corpo con un piano personalizzato che puoi mantenere nel tempo",
+      "Rende la leggerezza del corpo piu' stabile quando entra in un ritmo coerente",
+      "Sostiene i percorsi corpo con una progressione personalizzata e durevole",
     ],
     faqs: [
       {
@@ -314,31 +314,31 @@ export const servicePages: ServicePage[] = [
     ],
     editorialSections: [
       {
-        heading: "Linfodrenante: aspettative sane (e perché funziona meglio così)",
+        heading: "Linfodrenante: leggerezza che diventa presenza",
         paragraphs: [
-          "Il linfodrenante può dare una sensazione di leggerezza concreta, ma non è una bacchetta magica. Il risultato migliore arriva quando il trattamento è impostato bene e inserito in un ritmo coerente.",
-          "Noi preferiamo un approccio semplice e onesto: capire come stai, scegliere le zone giuste e costruire una continuità sostenibile. È così che la sensazione di benessere dura, invece di sparire dopo poche ore.",
+          "Il linfodrenante puo' restituire una leggerezza concreta e visibile, soprattutto quando il trattamento entra in un ritmo ben costruito.",
+          "Noi lavoriamo su zone, manualita' e continuita' per trasformare il sollievo iniziale in una sensazione di benessere che resta addosso.",
         ],
       },
       {
         heading: "Come si svolge una seduta da Rebel",
         paragraphs: [
-          "Prima di iniziare ti chiediamo cosa senti (gonfiore, pesantezza, tensione) e in quali momenti della giornata. Poi lavoriamo con manualità graduali: il comfort è parte del trattamento.",
-          "Se una zona è più sensibile o se preferisci un ritmo diverso, lo adattiamo. Il linfodrenante non deve essere una prova di resistenza: deve lasciarti più leggera.",
+          "Prima di iniziare ascoltiamo gonfiore, pesantezza e tensione nelle ore in cui le senti di piu'. Poi lavoriamo con manualita' graduali per rendere il trattamento stesso parte del sollievo.",
+          "Se una zona richiede piu' delicatezza o una progressione diversa, la adattiamo per lasciarti una sensazione piu' leggera, distesa e armoniosa.",
         ],
       },
       {
         heading: "Quanto spesso farlo: un ritmo che ti viene naturale",
         paragraphs: [
-          "C'è chi lo sceglie come seduta singola nei periodi più carichi, e chi preferisce una serie di sedute per dare continuità. La scelta dipende da tempo, obiettivo e risposta del corpo.",
-          "La regola che usiamo è pratica: meglio poche sedute fatte con costanza e buon senso che un'intensità difficile da mantenere.",
+          "C'e' chi lo sceglie come gesto singolo nei periodi piu' intensi e chi preferisce una serie di sedute per far crescere leggerezza e definizione.",
+          "La cadenza viene costruita sul tuo tempo, sull'obiettivo e sulla risposta del corpo, cosi' il beneficio resta piu' pieno e piu' stabile.",
         ],
       },
       {
         heading: "Piccoli gesti che aiutano tra una seduta e l'altra",
         paragraphs: [
-          "Il drenaggio in studio è un pezzo del puzzle. Tra una seduta e l'altra, anche solo camminare un po' di più, idratarsi e non stare sempre ferma può aiutare la sensazione di leggerezza.",
-          "Se serve, ti lasciamo due dritte (senza stravolgerti la routine) per far durare meglio l'effetto percepito.",
+          "Il drenaggio in studio apre il cambiamento e i gesti tra una seduta e l'altra lo accompagnano: movimento, idratazione e leggerezza quotidiana.",
+          "Quando serve, ti lasciamo indicazioni essenziali per far durare piu' a lungo la sensazione di corpo sgonfio e armonioso.",
         ],
       },
     ],

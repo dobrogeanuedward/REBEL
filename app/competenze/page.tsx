@@ -57,7 +57,7 @@ export default function CompetenzeHubPage() {
   const webPageSchema = buildWebPageSchema({
     name: "Guide e competenze Rebel",
     description:
-      "Guide pratiche su laser, viso e corpo: cosa aspettarti e come scegliere da dove partire.",
+      "Guide beauty su laser, viso e corpo per scegliere il trattamento piu' desiderabile e adatto a te.",
     path: "/competenze",
   });
 
@@ -68,9 +68,9 @@ export default function CompetenzeHubPage() {
       <JsonLd data={webPageSchema} />
       <PageHero
         eyebrow="Approfondimenti"
-        title="Guide Rebel: le domande che ci fate più spesso, messe nero su bianco."
-        lead="Qui trovi criteri pratici e approfondimenti su viso, corpo e laser. L'idea è semplice: farti arrivare in studio con le domande giuste e un quadro più chiaro."
-        badge="Informazioni pratiche prima di prenotare"
+        title="Guide Rebel: la cultura beauty che rende la scelta piu' sicura e desiderabile."
+        lead="Qui trovi visione, criteri e approfondimenti su viso, corpo e laser per arrivare al trattamento giusto con piu' desiderio, piu' gusto e piu' consapevolezza."
+        badge="Beauty intelligence prima di prenotare"
         tone="ocean"
       />
 
@@ -79,9 +79,9 @@ export default function CompetenzeHubPage() {
           <article className="card glow-card">
             <h2 style={{ marginTop: 0 }}>Perché abbiamo creato queste guide</h2>
             <p className="lead" style={{ marginTop: 0 }}>
-              Quando si parla di pelle e corpo, i dubbi sono normali. Qui abbiamo messo le
-              risposte che di solito diamo in studio: cosa aspettarti, cosa evitare e
-              come scegliere un percorso che riesci davvero a portare avanti.
+              Abbiamo raccolto qui le risposte che in studio trasformano l&apos;incertezza in
+              desiderio ordinato: cosa aspettarti, come leggere il risultato e quale trattamento
+              apre la versione piu&apos; bella della tua pelle o del tuo corpo.
             </p>
             <div className="hero-visual" style={{ marginTop: "1rem", borderRadius: 16 }}>
               <Image
@@ -102,9 +102,9 @@ export default function CompetenzeHubPage() {
             <h2 style={{ marginTop: 0 }}>Da dove iniziare</h2>
             <ul className="list-clean">
               <li>- scegli una guida che ti somiglia (zona, obiettivo, tempi)</li>
-              <li>- guarda i servizi consigliati: spesso chiariscono il primo passo</li>
-              <li>- se preferisci, scrivici due righe e la scegliamo insieme</li>
-              <li>- prenota quando ti senti tranquilla sulla direzione</li>
+              <li>- guarda i servizi consigliati: spesso rivelano subito il trattamento giusto</li>
+              <li>- se preferisci, scrivici due righe e definiamo insieme la priorita&apos;</li>
+              <li>- prenota quando senti che il risultato ti somiglia davvero</li>
             </ul>
             <div style={{ marginTop: "0.9rem", display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
               <Link className="button button-secondary" href="/epilazione-laser-carmagnola">
@@ -128,7 +128,7 @@ export default function CompetenzeHubPage() {
               Le guide più richieste (laser e viso).
             </h2>
             <p className="lead" style={{ marginTop: "0.5rem", color: "rgba(39,31,56,0.78)", maxWidth: "72ch" }}>
-              Se vuoi una risposta veloce e concreta, parti da queste: sono quelle che mandiamo più spesso anche su WhatsApp.
+              Sono le letture che aprono piu&apos; spesso una prenotazione: concrete, desiderabili, facili da trasformare in scelta.
             </p>
             <div className="grid grid-2" style={{ marginTop: "1rem" }}>
               {featuredGuides.map((item) => (

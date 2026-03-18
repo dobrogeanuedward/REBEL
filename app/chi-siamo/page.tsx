@@ -15,7 +15,7 @@ import {
 export const metadata: Metadata = createPageMetadata({
   title: "Chi Siamo: Centro Estetico Avanzato a Carmagnola",
   description:
-    "Conosci Rebel: studio estetico a Carmagnola con estetica epigenetica, trattamenti viso/corpo e laser, impostati con metodo e seguiti nel tempo.",
+    "Conosci Rebel: boutique beauty a Carmagnola con estetica epigenetica, trattamenti viso e corpo e laser costruiti per far emergere luce, tono e presenza.",
   path: "/chi-siamo",
   openGraphType: "article",
   keywords: [
@@ -33,13 +33,13 @@ export default function ChiSiamoPage() {
   const webPageSchema = buildWebPageSchema({
     name: "Chi siamo: Rebel Carmagnola",
     description:
-      "Chi siamo, come lavoriamo e cosa puoi aspettarti da un percorso Rebel (viso, corpo o laser).",
+      "Identita' Rebel, visione beauty e modo di lavorare su viso, corpo e laser a Carmagnola.",
     path: "/chi-siamo",
   });
   const articleSchema = buildArticleSchema({
     headline: "Chi siamo: Rebel a Carmagnola",
     description:
-      "Identità Rebel, metodo e atmosfera dello studio: cosa facciamo e come impostiamo i percorsi.",
+      "Identita', metodo e atmosfera Rebel: la nostra idea di bellezza epigenetica a Carmagnola.",
     path: "/chi-siamo",
     keywords: ["chi siamo Rebel", "centro estetico Carmagnola", "estetica epigenetica"],
     section: "Chi siamo",
@@ -52,8 +52,8 @@ export default function ChiSiamoPage() {
       <JsonLd data={articleSchema} />
       <PageHero
         eyebrow="Identità Rebel"
-        title="Rebel è un centro estetico a Carmagnola dove la pelle si guarda davvero."
-        lead="Qui si parte da una cosa semplice: capire la tua pelle oggi e cosa vuoi ottenere. Poi impostiamo un piano (viso, corpo o laser) con metodo, calma e continuità."
+        title="Rebel e' il luogo in cui la bellezza prende direzione."
+        lead="A Carmagnola lavoriamo su pelle, viso, corpo e laser con una visione precisa: far emergere luce, tono, armonia e una presenza che si nota."
         badge="Viale Barbaroux 20 • Carmagnola"
         tone="rose"
       />
@@ -63,20 +63,20 @@ export default function ChiSiamoPage() {
           <article className="card glow-card">
             <h2 className="mt-0">Visione</h2>
             <p className="lead mt-0">
-              Per noi la bellezza non è una correzione di facciata. È pelle che sta bene:
-              più luminosa, più comoda, più stabile. Ci arriviamo con scelte precise e con
-              un piano che puoi seguire davvero.
+              Per noi la bellezza e&apos; pelle luminosa, linee piu&apos; armoniose, corpo piu&apos; leggero,
+              sguardo piu&apos; curato. Ogni scelta nasce per alzare il valore percepito del risultato,
+              seduta dopo seduta.
             </p>
           </article>
           <article className="card mission-card">
             <p className="eyebrow">Chi siamo</p>
             <h2 className="mt-sm">
-              Un modo diverso di fare estetica: meno frenesia, più metodo.
+              Un modo piu&apos; alto di fare estetica: piu&apos; gusto, piu&apos; metodo, piu&apos; risultato.
             </h2>
             <p className="lead mt-sm">
-              Rebel è uno studio a Carmagnola. Lavoriamo con estetica epigenetica, trattamenti
-              viso/corpo e laser: l&apos;obiettivo è darti un piano ordinato fin dall&apos;inizio,
-              senza parole grosse e senza corse.
+              Rebel e&apos; uno studio a Carmagnola. Estetica epigenetica, trattamenti viso e corpo e
+              laser si incontrano in un percorso costruito per valorizzare la tua immagine con
+              precisione, eleganza e continuita&apos;.
             </p>
             <div className="mission-actions">
               <Link href="/servizi" className="button button-primary">
@@ -96,7 +96,8 @@ export default function ChiSiamoPage() {
             <p className="eyebrow">Percorso</p>
             <h2 className="mt-sm">Laser a Carmagnola</h2>
             <p className="lead mt-sm">
-              Zona, fototipo, obiettivo: qui trovi come impostiamo calendario e sedute, senza pacchetti uguali per tutti.
+              Zona, fototipo e obiettivo guidano un laser calibrato per dare uniformita&apos;, comfort
+              e una pelle sempre piu&apos; libera.
             </p>
           </Link>
           <Link href="/protocolli-epigenetici" className="card glow-card" aria-label="Vai ai protocolli epigenetici">
@@ -110,7 +111,8 @@ export default function ChiSiamoPage() {
             <p className="eyebrow">Inizia</p>
             <h2 className="mt-sm">Scrivici due righe</h2>
             <p className="lead mt-sm">
-              Zona + obiettivo + tempi. Ti rispondiamo e ti diciamo qual è il primo passo più pulito.
+              Zona, obiettivo e tempi desiderati: da qui nasce la proposta piu&apos; adatta alla tua
+              bellezza.
             </p>
           </Link>
         </div>
@@ -145,19 +147,21 @@ export default function ChiSiamoPage() {
             <article className="card glow-card">
               <h3 className="mt-0">Ascolto</h3>
               <p className="lead mt-0">
-                Si parte da te, non dal pacchetto: obiettivo, tempi, pelle di oggi (quella reale).
+                Si parte da cio&apos; che vuoi vedere: glow, tono, armonia, leggerezza, definizione.
               </p>
             </article>
             <article className="card glow-card">
               <h3 className="mt-0">Precisione tecnica</h3>
               <p className="lead mt-0">
-                Manualità, attivi e tecnologia: li scegliamo con criterio e li teniamo coerenti nel tempo.
+                Manualita&apos;, attivi e tecnologia vengono scelti per dare intensita&apos; giusta,
+                comfort e resa estetica coerente.
               </p>
             </article>
             <article className="card glow-card">
               <h3 className="mt-0">Progressi reali</h3>
               <p className="lead mt-0">
-                Ci diamo un obiettivo e lo seguiamo con costanza. Se serve, si aggiusta la rotta senza drammi.
+                La bellezza cresce quando il percorso resta vivo: piu&apos; luce, piu&apos; ordine,
+                piu&apos; presenza nel tempo.
               </p>
             </article>
           </div>

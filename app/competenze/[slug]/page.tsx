@@ -232,14 +232,14 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
       >
         <div className="hero-meta">
           <span className="hero-pill">
-            {competence.intent === "commercial" ? "Percorso e prenotazione" : "Guida e criteri pratici"}
+            {competence.intent === "commercial" ? "Percorso e prenotazione" : "Guida beauty e criteri"}
           </span>
           <span className="hero-pill">{readingMinutes} min lettura</span>
           <span className="hero-pill">Aggiornato {siteConfig.lastUpdated}</span>
         </div>
         <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
           <Link className="button button-primary" href="/contatti">
-            Chiedi un consiglio
+            Prenota la consulenza
           </Link>
           <a className="button button-secondary" href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer">
             WhatsApp
@@ -289,12 +289,12 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
               </div>
             ) : null}
             <InlineCTA
-              title="Vuoi scegliere con calma?"
-              lead={`Scrivici due righe (zona/obiettivo/tempi). Ti diciamo se ${compactTitle} ha senso adesso o se conviene partire da altro.`}
-              primaryLabel="Contatti"
+              title="Porta questa guida dentro il tuo percorso beauty."
+              lead={`Scrivici zona, obiettivo e tempi desiderati: definiamo se ${compactTitle} e' la strada piu' adatta oppure se c'e' un ingresso ancora piu' prezioso per te.`}
+              primaryLabel="Prenota la consulenza"
               primaryHref="/contatti"
-              secondaryLabel="Vedi servizi"
-              secondaryHref="/servizi"
+              secondaryLabel="Apri il listino"
+              secondaryHref="/listino-estetica-laser"
             />
           </aside>
         </div>
@@ -319,13 +319,13 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
             </article>
             <aside className="editorial-aside">
               <InlineCTA
-                eyebrow="Un passo alla volta"
-                title="Vuoi un percorso più ordinato?"
-                lead="Se sei indecisa, non serve scegliere tutto oggi. Ti aiutiamo a definire una priorità e un calendario che riesci a seguire."
+                eyebrow="Consulenza beauty"
+                title="Trasforma la lettura in un trattamento su misura."
+                lead="Questa guida puo' diventare subito una scelta concreta: definiamo priorita', calendario e trattamento che valorizzano di piu' la tua pelle."
                 primaryLabel="Prenota consulenza"
                 primaryHref="/contatti"
-                secondaryLabel="Vedi servizi"
-                secondaryHref="/servizi"
+                secondaryLabel="Vedi il listino"
+                secondaryHref="/listino-estetica-laser"
               />
             </aside>
           </div>
@@ -343,7 +343,7 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
           <div className="container">
             <h2 className="page-title">Fonti e riferimenti</h2>
             <p className="lead" style={{ marginTop: "0.45rem", color: "rgba(39,31,56,0.78)" }}>
-              Se vuoi approfondire, qui trovi le fonti citate (pubbliche e verificabili).
+              Qui trovi le fonti citate, selezionate per sostenere il contenuto con basi pubbliche e verificabili.
             </p>
             <ul className="editorial-source-list">
               {sourceLinks.map((source) => (
@@ -387,8 +387,8 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
           <div className="container">
             <h2 className="page-title">Se vuoi fare un passo più avanzato</h2>
             <p className="lead" style={{ marginTop: "0.5rem", maxWidth: "74ch" }}>
-              Questi protocolli sono spesso sensati quando l&apos;obiettivo è una progressione (non una singola seduta).
-              Se sei indecisa, scrivici: ti diciamo qual è il primo step più pulito per la tua pelle.
+              Questi protocolli diventano centrali quando desideri una progressione piu&apos; ricca:
+              piu&apos; glow, piu&apos; tono, piu&apos; densita&apos; e una resa complessiva piu&apos; alta.
             </p>
             <div className="grid grid-2" style={{ marginTop: "1rem" }}>
               {relatedProtocols.map((protocol) => (
@@ -405,7 +405,7 @@ export default async function CompetenceDetailPage({ params }: PageProps) {
             </div>
             <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
               <Link className="button button-primary" href="/contatti">
-                Chiedi un consiglio
+                Prenota la consulenza
               </Link>
               <Link className="button button-secondary" href="/protocolli-epigenetici">
                 Vedi tutti i protocolli

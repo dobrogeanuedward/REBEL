@@ -67,7 +67,7 @@ export default function EpilazioneLaserCarmagnolaPage() {
     },
     {
       q: "Come prenoto una valutazione laser da Rebel?",
-      a: "Puoi prenotare via WhatsApp o dalla pagina contatti. Ti rispondiamo in modo diretto e definiamo insieme zona, calendario e preparazione.",
+      a: "Puoi prenotare via WhatsApp o dalla pagina contatti. Da li' definiamo zona, calendario e preparazione per aprire il tuo percorso laser.",
     },
   ];
 
@@ -91,7 +91,7 @@ export default function EpilazioneLaserCarmagnolaPage() {
     url: `${siteConfig.siteUrl}/epilazione-laser-carmagnola`,
     name: "Epilazione laser a Carmagnola",
     description:
-      "Pagina dedicata all'epilazione laser a Carmagnola con percorso personalizzato e orientamento pratico.",
+      "Pagina dedicata all'epilazione laser a Carmagnola con percorso personalizzato, comfort evoluto e progressione visibile.",
     inLanguage: "it-IT",
     about: [
       "epilazione laser Carmagnola",
@@ -117,7 +117,7 @@ export default function EpilazioneLaserCarmagnolaPage() {
       slug: "epilazione-laser-estate-sole-carmagnola",
       href: "/competenze/epilazione-laser-estate-sole-carmagnola",
       title: "Laser in estate: organizzazione e buon senso",
-      description: "Il percorso resta sostenibile quando calendario e sole vengono gestiti in modo pratico.",
+      description: "Calendario e sole si armonizzano per mantenere il percorso elegante, continuo e ben gestito.",
       image: {
         src: editorialImageAssets.laserEstate,
         alt: "Laser in estate: visual teaser su gestione stagionale e sole.",
@@ -137,13 +137,13 @@ export default function EpilazioneLaserCarmagnolaPage() {
       slug: "epilazione-laser-ascelle-carmagnola-guida-pratica",
       href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
       title: "Laser ascelle: guida pratica",
-      description: "Comfort, tempi e gestione tra una seduta e la successiva (senza ansia).",
+      description: "Comfort, tempi e progressione per una zona piccola che cambia molto la sensazione di pulizia.",
     },
     {
       slug: "epilazione-laser-inguine-carmagnola-guida-pratica",
       href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
       title: "Laser inguine: guida pratica",
-      description: "Regole semplici per una zona delicata e aspettative realistiche.",
+      description: "Una zona delicata trattata con strategia, rispetto cutaneo e continuita'.",
     },
     {
       slug: "laser-gambe-carmagnola-guida-pratica",
@@ -155,19 +155,19 @@ export default function EpilazioneLaserCarmagnolaPage() {
       slug: "epilazione-laser-estate-sole-carmagnola",
       href: "/competenze/epilazione-laser-estate-sole-carmagnola",
       title: "Laser e sole: cosa sapere davvero",
-      description: "Come organizzare calendario e esposizione senza bloccarti.",
+      description: "Esposizione e calendario si gestiscono con intelligenza per mantenere il risultato in crescita.",
     },
     {
       slug: "epilazione-laser-inverno-carmagnola",
       href: "/competenze/epilazione-laser-inverno-carmagnola",
       title: "Laser in inverno: perché conviene",
-      description: "Un periodo perfetto per essere costanti e arrivare ai mesi luminosi con un percorso già avviato.",
+      description: "Il momento ideale per costruire continuita' e arrivare ai mesi luminosi con una pelle gia' trasformata.",
     },
     {
       slug: "laser-e-palestra-sport-carmagnola",
       href: "/competenze/laser-e-palestra-sport-carmagnola",
       title: "Laser e palestra: guida pratica",
-      description: "Sport, doccia, calore e tessuti: cosa fare nelle prime 24-48 ore senza paranoie.",
+      description: "Sport, doccia, calore e tessuti: come custodire comfort e resa della pelle nelle ore successive.",
     },
   ];
 
@@ -181,7 +181,7 @@ export default function EpilazioneLaserCarmagnolaPage() {
       <PageHero
         eyebrow="Rebel Laser Carmagnola"
         title="Epilazione laser a Carmagnola: percorso su misura, risultati progressivi."
-        lead="In Rebel impostiamo il laser su zona, fototipo e obiettivo reale. Prima la valutazione, poi un piano chiaro che puoi seguire con continuità."
+        lead="In Rebel il laser viene calibrato su zona, fototipo e obiettivo per dare comfort, uniformita' e una pelle sempre piu' libera seduta dopo seduta."
         badge="Da 25.90 EUR • Viale Barbaroux 20, Carmagnola"
         tone="violet"
       />
@@ -199,10 +199,10 @@ export default function EpilazioneLaserCarmagnolaPage() {
               />
             </div>
             <ul className="list-clean">
-              <li>- valutazione iniziale chiara prima di iniziare</li>
+              <li>- valutazione iniziale dedicata prima di aprire il ciclo</li>
               <li>- parametri calibrati su zona e risposta della pelle</li>
               <li>- tecnologia Thory con manipolo Ice Polar per maggiore comfort</li>
-              <li>- monitoraggio costante con aspettative realistiche</li>
+              <li>- monitoraggio costante per accompagnare il risultato nel tempo</li>
             </ul>
             <div className="actions-row">
               <Link className="button button-primary" href="/contatti">
@@ -233,7 +233,7 @@ export default function EpilazioneLaserCarmagnolaPage() {
               />
             </div>
             <p className="lead mt-0">
-              Se preferisci entrare subito nel dettaglio per area, puoi iniziare da queste schede:
+              Se vuoi entrare subito nel dettaglio per area, qui trovi le schede da aprire per prime:
             </p>
             <div className="grid mt-sm">
               <Link href="/servizi/epilazione-laser-viso-carmagnola" className="button button-secondary">
@@ -266,10 +266,10 @@ export default function EpilazioneLaserCarmagnolaPage() {
         <div className="container">
           <div className="section-head">
             <p className="eyebrow eyebrow-soft">Approfondimenti rapidi</p>
-            <h2 className="page-title">Le zone più richieste (e le guide che chiariscono i dubbi).</h2>
+            <h2 className="page-title">Le zone piu&apos; richieste e le letture che fanno desiderare il risultato.</h2>
             <p className="lead text-on-light max-w-74ch">
-              Per orientarti rapidamente, queste sono le letture più utili: ascelle e inguine (zone piccole ma
-              intense), gambe (zona ampia), gestione sole/stagionalità e due temi pratici: inverno e palestra.
+              Ascelle, inguine e gambe raccontano i risultati piu&apos; cercati. A queste si aggiungono sole,
+              stagionalita&apos;, inverno e palestra: tutto cio&apos; che rende il laser ancora piu&apos; preciso da vivere.
             </p>
           </div>
           <div className="grid grid-2 mt-md">
