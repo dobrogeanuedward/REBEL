@@ -252,7 +252,7 @@ export default function HomePage() {
                     </span>
                     <div className="home-hero-brand-text">
                       <span>Rebel Estetica Epigenetica</span>
-                      <small>Luxury glow direction</small>
+                      <small>Bellezza viso, corpo e laser</small>
                     </div>
                   </div>
                   <span className="home-hero-badge">Viso, corpo, laser, protocolli</span>
@@ -273,16 +273,16 @@ export default function HomePage() {
                   </Link>
                 </div>
                 <p className="home-hero-caption">
-                  Private consultation, glow progressivo, signature results seduta dopo seduta.
+                  Consulenza dedicata, pelle piu&apos; luminosa, risultati che si vedono seduta dopo seduta.
                 </p>
               </div>
               <aside className="home-hero-aside">
                 <div className="home-hero-editorial-card">
-                  <p className="home-hero-editorial-label">Rebel Signature</p>
-                  <h2>Una bellezza che si sente esclusiva prima ancora di essere spiegata.</h2>
+                  <p className="home-hero-editorial-label">Il modo Rebel</p>
+                  <h2>Una bellezza curata, riconoscibile, costruita con metodo.</h2>
                   <p>
-                    Ogni percorso viene orchestrato come un protocollo couture: piu&apos; luce, piu&apos;
-                    tono, piu&apos; armonia, piu&apos; desiderio.
+                    Ogni percorso unisce lettura estetica, manualita&apos;, attivi e tecnologia per
+                    portare piu&apos; luce, piu&apos; tono e piu&apos; armonia.
                   </p>
                 </div>
                 <div className="home-hero-metrics">
@@ -292,11 +292,11 @@ export default function HomePage() {
                   </div>
                   <div className="home-hero-metric">
                     <strong>02</strong>
-                    <span>Protocollo vivo</span>
+                    <span>Percorso su misura</span>
                   </div>
                   <div className="home-hero-metric">
                     <strong>03</strong>
-                    <span>Risultato iconico</span>
+                    <span>Risultato visibile</span>
                   </div>
                 </div>
               </aside>

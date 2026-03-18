@@ -112,7 +112,7 @@ export default async function ProtocolDetailPage({ params }: PageProps) {
         tone="violet"
       >
         <div className="hero-meta">
-          <span className="hero-pill">Protocollo signature</span>
+          <span className="hero-pill">Protocollo Rebel</span>
           <span className="hero-pill">Lettura iniziale inclusa</span>
           <span className="hero-pill">Progressione personalizzata</span>
         </div>
@@ -129,9 +129,9 @@ export default async function ProtocolDetailPage({ params }: PageProps) {
       <section className="section">
         <div className="container editorial-layout">
           <article className="card glow-card">
-            <p className="eyebrow">Protocollo couture</p>
+            <p className="eyebrow">Il protocollo</p>
             <h2 style={{ marginTop: "0.45rem" }}>
-              Cosa rende {protocol.name} un protocollo ad alta desiderabilita&apos;
+              Cosa rende {protocol.name} un percorso cosi&apos; mirato
             </h2>
             <div className="keypoints-grid" style={{ marginTop: "1rem" }}>
               {protocol.benefits.map((benefit) => (
@@ -142,8 +142,8 @@ export default async function ProtocolDetailPage({ params }: PageProps) {
             </div>
             <div className="protocol-detail-quote">
               <p>
-                Ogni seduta rafforza la successiva: il protocollo costruisce una bellezza piu&apos;
-                ricca, piu&apos; leggibile, piu&apos; esclusiva.
+                Ogni seduta prepara la successiva: il risultato cresce con ordine, continuita&apos; e
+                una pelle che appare sempre piu&apos; bella.
               </p>
             </div>
           </article>
@@ -151,13 +151,13 @@ export default async function ProtocolDetailPage({ params }: PageProps) {
           <aside className="editorial-aside">
             <div className="inline-cta">
               <div className="inline-cta-head">
-                <p className="eyebrow">Accesso riservato</p>
-                <span className="inline-cta-badge">Epigenetic beauty</span>
+                <p className="eyebrow">Prima consulenza</p>
+                <span className="inline-cta-badge">Estetica epigenetica</span>
               </div>
               <h2 className="inline-cta-title">Apri il protocollo con una lettura dedicata.</h2>
               <p className="lead mt-sm">
-                Il primo incontro individua priorita&apos;, ritmo e resa estetica per trasformare il
-                protocollo in una firma davvero tua.
+                Il primo incontro individua priorita&apos;, ritmo e intensita&apos; per costruire un
+                protocollo davvero adatto alla tua pelle.
               </p>
               <div className="inline-cta-actions">
                 <Link className="button button-primary" href="/contatti">
@@ -208,12 +208,12 @@ export default async function ProtocolDetailPage({ params }: PageProps) {
 
           <aside className="editorial-aside">
             <div className="card-light protocol-detail-note">
-              <p className="eyebrow">Percezione del risultato</p>
+              <p className="eyebrow">Il risultato sulla pelle</p>
               <h2 style={{ marginTop: "0.45rem" }}>
-                Il protocollo entra nella tua immagine, non resta solo un trattamento.
+                Il protocollo cambia l&apos;aspetto della pelle, non resta solo una seduta in agenda.
               </h2>
               <p className="lead" style={{ marginTop: "0.55rem", color: "rgba(39,31,56,0.78)" }}>
-                Glow, tono, densita&apos; e comfort diventano linguaggio visibile del viso e del corpo.
+                Luminosita&apos;, tono, densita&apos; e comfort diventano qualita&apos; visibile del viso e del corpo.
               </p>
             </div>
             <div className="card-light">

@@ -53,23 +53,23 @@ export function PageHero({
             <p className="lead page-hero-lead">{lead}</p>
             {children ? <div className="page-hero-extra">{children}</div> : null}
           </div>
-          <aside className="page-hero-signature" aria-label="Firma Rebel">
-            <p className="page-hero-signature-kicker">Rebel Signature</p>
+          <aside className="page-hero-signature" aria-label="Metodo Rebel">
+            <p className="page-hero-signature-kicker">Metodo Rebel</p>
             <div className="page-hero-signature-grid">
               <div className="page-hero-signature-item">
                 <span>01</span>
                 <strong>Lettura estetica</strong>
-                <small>Pelle, tono, glow e desiderio diventano direzione.</small>
+                <small>Pelle, tono e luminosita&apos; diventano una direzione precisa.</small>
               </div>
               <div className="page-hero-signature-item">
                 <span>02</span>
-                <strong>Protocollo vivo</strong>
-                <small>Manualita&apos;, attivi e tecnologia lavorano come un unico gesto.</small>
+                <strong>Percorso su misura</strong>
+                <small>Manualita&apos;, attivi e tecnologia lavorano insieme con coerenza.</small>
               </div>
               <div className="page-hero-signature-item">
                 <span>03</span>
                 <strong>Risultato percepibile</strong>
-                <small>Una bellezza piu&apos; nitida, piu&apos; luminosa, piu&apos; inevitabile.</small>
+                <small>Una bellezza piu&apos; luminosa, curata e leggibile nel tempo.</small>
               </div>
             </div>
           </aside>

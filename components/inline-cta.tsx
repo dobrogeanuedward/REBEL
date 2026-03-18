@@ -26,14 +26,14 @@ export function InlineCTA({
     <aside className="inline-cta">
       <div className="inline-cta-head">
         <p className="eyebrow">{eyebrow}</p>
-        <span className="inline-cta-badge">Private beauty direction</span>
+        <span className="inline-cta-badge">Consulenza dedicata</span>
       </div>
       <h2 className="inline-cta-title">{title}</h2>
       <p className="lead mt-sm">
         {lead}
       </p>
       <div className="inline-cta-benefits" aria-hidden="true">
-        <span>Glow</span>
+        <span>Luminosita&apos;</span>
         <span>Tono</span>
         <span>Protocollo</span>
       </div>
