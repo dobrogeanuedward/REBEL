@@ -2,6 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 
+const footerPrimaryLinks = [
+  { href: "/metodo-rebel", label: "Metodo Rebel" },
+  { href: "/listino-estetica-laser", label: "Trattamenti e prezzi" },
+  { href: "/epilazione-laser-carmagnola", label: "Percorso laser" },
+  { href: "/contatti", label: "Prenota consulenza" },
+] as const;
+
 export function SiteFooter() {
   return (
     <footer className="site-footer">
@@ -20,11 +27,19 @@ export function SiteFooter() {
               </span>
               <span className="footer-brand-location">Carmagnola</span>
             </div>
-            <h2 className="footer-tagline">La pelle che si ricorda di essere viva.</h2>
+            <h2 className="footer-tagline">Bellezza viva, pelle luminosa, metodo epigenetico.</h2>
             <p className="footer-copy">
-              Centro estetico a Carmagnola specializzato in estetica epigenetica,
-              trattamenti viso/corpo evoluti ed epilazione laser a Carmagnola.
+              Boutique wellness epigenetico a Carmagnola per viso, corpo ed epilazione laser:
+              consulenza personalizzata, risultati visibili, bellezza che si sente addosso.
             </p>
+            <div className="footer-brand-actions">
+              <Link href="/contatti" className="button button-primary">
+                Prenota consulenza
+              </Link>
+              <Link href="/listino-estetica-laser" className="button button-secondary">
+                Trattamenti e prezzi
+              </Link>
+            </div>
             <div className="footer-brand-socials">
               <a
                 href={siteConfig.social.instagram}
@@ -59,81 +74,23 @@ export function SiteFooter() {
           </div>
 
           <div className="footer-panel footer-panel-menu">
-            <p className="footer-title">Menu</p>
-            <p className="footer-panel-subtitle">Percorsi e pagine principali</p>
+            <p className="footer-title">Percorsi principali</p>
+            <p className="footer-panel-subtitle">Le vie piu' dirette per scegliere, prenotare, valorizzarti.</p>
             <ul className="list-clean footer-links footer-links-menu">
-              <li>
-                <Link href="/">
-                  <span className="footer-link-bullet" aria-hidden="true">✦</span>
-                  <span>Home</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/centro-estetico-carmagnola">
-                  <span className="footer-link-bullet" aria-hidden="true">✦</span>
-                  <span>Centro Estetico Carmagnola</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/chi-siamo">
-                  <span className="footer-link-bullet" aria-hidden="true">✦</span>
-                  <span>Chi siamo</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/metodo-rebel">
-                  <span className="footer-link-bullet" aria-hidden="true">✦</span>
-                  <span>Metodo Rebel</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/protocolli-epigenetici">
-                  <span className="footer-link-bullet" aria-hidden="true">✦</span>
-                  <span>Protocolli</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/listino-estetica-laser">
-                  <span className="footer-link-bullet" aria-hidden="true">✦</span>
-                  <span>Listino Estetica + Laser</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/epilazione-laser-carmagnola">
-                  <span className="footer-link-bullet" aria-hidden="true">✦</span>
-                  <span>Epilazione Laser Carmagnola</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/servizi">
-                  <span className="footer-link-bullet" aria-hidden="true">✦</span>
-                  <span>Servizi</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/competenze">
-                  <span className="footer-link-bullet" aria-hidden="true">✦</span>
-                  <span>Guide e competenze</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/localita">
-                  <span className="footer-link-bullet" aria-hidden="true">✦</span>
-                  <span>Localita servite</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/contatti">
-                  <span className="footer-link-bullet" aria-hidden="true">✦</span>
-                  <span>Contatti</span>
-                </Link>
-              </li>
+              {footerPrimaryLinks.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href}>
+                    <span className="footer-link-bullet" aria-hidden="true">✦</span>
+                    <span>{item.label}</span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           <address className="footer-panel footer-contact footer-panel-contact">
-            <p className="footer-title">Contatti rapidi</p>
-            <p className="footer-panel-subtitle">Scrivici o chiamaci quando vuoi</p>
+            <p className="footer-title">Contatto diretto</p>
+            <p className="footer-panel-subtitle">Telefono, WhatsApp e indirizzo per prenotare con rapidita'.</p>
             <ul className="list-clean footer-contact-list">
               <li className="footer-contact-row">
                 <span className="footer-contact-label">Telefono</span>
@@ -179,7 +136,7 @@ export function SiteFooter() {
             </span>
           </div>
           <span className="footer-bottom-note">
-            Estetica epigenetica, viso, corpo ed epilazione laser a Carmagnola.
+            Bellezza epigenetica, glow di pelle, percorso su misura.
           </span>
         </div>
       </div>

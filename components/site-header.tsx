@@ -13,6 +13,12 @@ function isActive(pathname: string, href: string) {
   return pathname.startsWith(href);
 }
 
+const priorityNavigation = [
+  { href: "/contatti", label: "Prenota consulenza" },
+  { href: "/listino-estetica-laser", label: "Trattamenti e prezzi" },
+  { href: "/metodo-rebel", label: "Metodo Rebel" },
+] as const;
+
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -71,7 +77,22 @@ export function SiteHeader() {
           </span>
         </div>
         <div className="mobile-nav-center">
-          <p className="mobile-nav-title">Navigazione</p>
+          <p className="mobile-nav-title">Inizia da qui</p>
+          <div className="mobile-nav-priority-grid">
+            {priorityNavigation.map((item) => {
+              const active = isActive(pathname, item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`mobile-nav-link mobile-nav-link--priority${active ? " is-active" : ""}`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </div>
+          <p className="mobile-nav-title mobile-nav-title--secondary">Navigazione completa</p>
           <nav aria-label="Navigazione principale mobile" className="mobile-nav-grid">
             {mainNavigation.map((item) => {
               const active = isActive(pathname, item.href);
@@ -89,7 +110,7 @@ export function SiteHeader() {
         </div>
         <div className="mobile-nav-cta">
           <Link href="/contatti" className="button button-primary">
-            Prenota ora
+            Prenota la consulenza
           </Link>
           <p className="mobile-nav-note">Risposta rapida via WhatsApp o telefono.</p>
           <a
@@ -146,7 +167,7 @@ export function SiteHeader() {
 
         <div className="header-actions">
           <Link href="/contatti" className="button button-primary">
-            Prenota ora
+            Prenota consulenza
           </Link>
         </div>
 

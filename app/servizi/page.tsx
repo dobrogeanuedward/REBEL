@@ -16,7 +16,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = createPageMetadata({
   title: "Servizi Estetici a Carmagnola | Viso, Corpo ed Epilazione Laser",
   description:
-    "Tutti i servizi Rebel a Carmagnola: trattamenti viso e corpo, manicure, pedicure, laminazione, massaggi ed epilazione laser a Carmagnola con percorsi personalizzati.",
+    "Servizi Rebel a Carmagnola: bellezza viso e corpo, protocolli epigenetici ed epilazione laser con consulenza personalizzata e risultati visibili.",
   path: "/servizi",
   image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e3635dd7-e046-46af-56a5-cf36d8239c00/public",
   keywords: [
@@ -104,7 +104,7 @@ export default function ServiziHubPage() {
   const webPageSchema = buildWebPageSchema({
     name: "Servizi Rebel a Carmagnola",
     description:
-      "Panoramica dei servizi Rebel: estetica classica e benessere, laser e protocolli epigenetici.",
+      "Panoramica dei servizi Rebel: bellezza viso e corpo, laser e protocolli epigenetici da prenotare con chiarezza.",
     path: "/servizi",
   });
 
@@ -116,20 +116,19 @@ export default function ServiziHubPage() {
       <JsonLd data={webPageSchema} />
       <PageHero
         eyebrow="I nostri servizi"
-        title="Tutti i servizi Rebel a Carmagnola, organizzati per obiettivo reale."
-        lead="In questa pagina trovi trattamenti viso e corpo, epilazione laser e protocolli epigenetici. Se hai poco tempo: scegli una priorità e parti da lì."
-        badge="Panoramica completa (con link rapidi)"
+        title="Servizi Rebel: viso, corpo, laser ed epigenetica per una bellezza che si vede."
+        lead="Ogni servizio nasce per valorizzare pelle, linee del viso, armonia del corpo e glow cutaneo con una consulenza chiara e una prenotazione semplice."
+        badge="Bellezza su misura"
         tone="emerald"
       />
 
       <section className="section">
         <div className="container split">
           <div className="card glow-card">
-            <h2 style={{ marginTop: 0 }}>Una panoramica fatta per scegliere in due minuti</h2>
+            <h2 style={{ marginTop: 0 }}>Una panoramica beauty che porta subito al trattamento giusto</h2>
             <p className="lead" style={{ marginTop: 0 }}>
-              In Rebel ogni percorso parte dall&apos;ascolto e si costruisce in base
-              ai tuoi obiettivi. Qui trovi tutti i servizi ordinati per categoria: apri quello che
-              ti interessa e trovi dettagli, FAQ e prezzo indicativo.
+              Qui trovi viso, corpo, laser ed epigenetica ordinati per risultato: apri il servizio,
+              scopri il prezzo indicativo e prenota il primo passo verso una bellezza piu' luminosa.
             </p>
             <div className="hero-visual" style={{ marginTop: "1rem", borderRadius: 16 }}>
               <Image
@@ -146,16 +145,16 @@ export default function ServiziHubPage() {
               />
             </div>
             <p className="lead" style={{ marginTop: "0.9rem", marginBottom: 0 }}>
-              Se vuoi partire senza confusione: zona + obiettivo + tempi. E il percorso diventa semplice.
+              Scegli obiettivo, area da valorizzare e ritmo desiderato: da qui nasce un percorso beauty chiaro.
             </p>
           </div>
           <aside className="card">
-            <h2 style={{ marginTop: 0 }}>Come usare questa pagina</h2>
+            <h2 style={{ marginTop: 0 }}>Come scegliere e prenotare</h2>
             <ul className="list-clean">
-              <li>- scegli una categoria (viso/corpo/laser)</li>
-              <li>- apri una scheda: trovi dettagli, FAQ e prezzo indicativo</li>
-              <li>- se sei indecisa, scrivici e decidiamo insieme il primo passo</li>
-              <li>- poi si imposta un calendario che riesci a tenere</li>
+              <li>- scegli l'area che vuoi valorizzare</li>
+              <li>- apri la scheda con dettagli, FAQ e prezzo indicativo</li>
+              <li>- prenota la consulenza beauty</li>
+              <li>- avvia il calendario piu' adatto al tuo glow</li>
             </ul>
             <div className="services-hub-shortcuts">
               <Link className="services-hub-shortcut" href="/epilazione-laser-carmagnola">Epilazione laser Carmagnola</Link>
@@ -175,13 +174,14 @@ export default function ServiziHubPage() {
             Percorsi
           </p>
           <h2 className="page-title" style={{ marginTop: "0.55rem" }}>
-            Scegli l&apos;area che ti interessa e vai dritta al punto.
+            Scegli l&apos;area che vuoi valorizzare e vai al trattamento giusto.
           </h2>
           <div className="grid grid-3" style={{ marginTop: "1rem" }}>
             <a className="card-light" href="#servizi-estetica">
               <h3 style={{ marginTop: 0 }}>Estetica avanzata e benessere</h3>
               <p className="lead" style={{ marginTop: "0.35rem", marginBottom: 0, color: "rgba(39,31,56,0.78)" }}>
                 Trattamenti viso, corpo, mani e piedi per riequilibrio, tono e luminosità.
+                
               </p>
             </a>
             <a className="card-light" href="#servizi-laser">
@@ -214,7 +214,7 @@ export default function ServiziHubPage() {
               />
             </div>
             <p className="lead" style={{ marginTop: "0.75rem", color: "rgba(39,31,56,0.78)" }}>
-              Viso, corpo, mani e piedi con approccio pulito: priorità chiare, progressione reale e comfort.
+              Viso, corpo, mani e piedi con rituali beauty che portano luce, ordine, armonia e cura visibile.
             </p>
           </div>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
@@ -254,8 +254,7 @@ export default function ServiziHubPage() {
         <div className="container">
           <h2 className="page-title">Epilazione laser a Carmagnola</h2>
           <p className="lead" style={{ marginTop: "0.5rem", maxWidth: "70ch", color: "rgba(39,31,56,0.78)" }}>
-            Percorsi programmati su zona, fototipo e risposta della pelle, con
-            progressione graduale e calendario realistico.
+            Epilazione laser per comfort, uniformita' e leggerezza quotidiana, con zona, fototipo e progressione calibrati.
           </p>
           <div className="card" style={{ marginTop: "0.85rem" }}>
             <div className="hero-visual" style={{ borderRadius: 14 }}>
@@ -268,7 +267,7 @@ export default function ServiziHubPage() {
               />
             </div>
             <p className="lead" style={{ marginTop: "0.75rem" }}>
-              Metodo laser Rebel: valutazione iniziale, zone prioritarie e calendario sostenibile.
+              Metodo laser Rebel: valutazione iniziale, zone prioritarie e una pelle sempre piu' uniforme seduta dopo seduta.
             </p>
           </div>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
@@ -298,8 +297,7 @@ export default function ServiziHubPage() {
           <div className="card-light" style={{ marginTop: "1rem" }}>
             <h3 style={{ marginTop: 0 }}>Laser uomo: barba/collo, schiena, torace</h3>
             <p className="lead" style={{ marginTop: "0.35rem", color: "rgba(39,31,56,0.78)", maxWidth: "74ch" }}>
-              Se stai cercando il laser uomo a Carmagnola, qui trovi le due schede servizio e una guida pratica per partire
-              con obiettivo e calendario chiari.
+              Le pagine dedicate aprono un percorso laser preciso, confortevole e facile da prenotare.
             </p>
             <div style={{ display: "flex", gap: "0.65rem", flexWrap: "wrap", marginTop: "0.75rem" }}>
               <Link className="button button-secondary" href="/servizi/epilazione-laser-viso-uomo-carmagnola">
@@ -320,8 +318,7 @@ export default function ServiziHubPage() {
         <div className="container">
           <h2 className="page-title">Estetica Epigenetica</h2>
           <p className="lead" style={{ maxWidth: "74ch", marginTop: "0.55rem" }}>
-            Una selezione dei protocolli più richiesti in studio. Per la lista completa e
-            gli approfondimenti, puoi consultare anche la pagina dedicata ai protocolli.
+            Una selezione dei protocolli epigenetici piu' richiesti per glow, tono, densita' e bellezza progressiva.
           </p>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             {featuredProtocols.map((protocol) => (
@@ -344,10 +341,10 @@ export default function ServiziHubPage() {
               Laser a Carmagnola
             </Link>
             <Link className="button button-primary" href="/protocolli-epigenetici">
-              Vedi tutti i protocolli
+              Scopri tutti i protocolli
             </Link>
             <Link className="button button-secondary" href="/contatti">
-              Richiedi consulenza
+              Prenota consulenza
             </Link>
           </div>
         </div>
@@ -359,12 +356,11 @@ export default function ServiziHubPage() {
             Approfondimenti
           </p>
           <h2 className="page-title" style={{ marginTop: "0.55rem" }}>
-            Letture che fanno chiarezza, prima di prenotare.
+            Guide beauty per scegliere con desiderio e chiarezza.
           </h2>
           <p className="lead" style={{ marginTop: "0.5rem", color: "rgba(39,31,56,0.78)", maxWidth: "72ch" }}>
-            Se stai valutando il laser o vuoi capire meglio cosa aspettarti da un percorso,
-            qui trovi testi chiari e concreti, con dettagli tecnici quando servono. L&apos;idea è semplice:
-            arrivare alla consulenza con le domande giuste e un quadro più pulito.
+            Le guide accompagnano la scelta del trattamento, chiariscono glow atteso, tempi e progressione
+            e preparano una consulenza ancora piu' efficace.
           </p>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             {featuredEditorials.map((item) => (
@@ -398,17 +394,16 @@ export default function ServiziHubPage() {
       <section className="section">
         <div className="container">
           <article className="card glow-card">
-            <h2 style={{ marginTop: 0 }}>Non sai quale percorso scegliere?</h2>
+            <h2 style={{ marginTop: 0 }}>Scegli il percorso che valorizza davvero la tua bellezza</h2>
             <p className="lead" style={{ marginTop: "0.45rem", maxWidth: "72ch" }}>
-              Ti aiutiamo noi: in consulenza definiamo priorità, tempi e combinazione
-              più adatta tra estetica, laser ed epigenetica.
+              La consulenza Rebel individua priorita', glow desiderato e combinazione ideale tra estetica, laser ed epigenetica.
             </p>
             <div style={{ marginTop: "0.9rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
               <Link className="button button-primary" href="/contatti">
-                Prenota consulenza
+                Prenota la tua consulenza
               </Link>
               <Link className="button button-secondary" href="/listino-estetica-laser">
-                Apri listino completo
+                Apri trattamenti e prezzi
               </Link>
             </div>
           </article>

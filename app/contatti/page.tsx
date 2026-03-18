@@ -250,8 +250,8 @@ export default function ContattiPage() {
           <div className="section-head section-head--compact">
             <h2 className="page-title mt-0">Mappa e come arrivare</h2>
             <p className="lead text-on-light">
-              Rebel si trova in posizione comoda per Carmagnola e per chi arriva da
-              Carignano, Racconigi, Sommariva del Bosco e Torino Sud.
+              Rebel accoglie Carmagnola e tutta la zona con un punto beauty dedicato a viso,
+              corpo, laser ed epigenetica.
             </p>
           </div>
           <div className="map-wrap map-wrap-light mt-md">
@@ -264,19 +264,13 @@ export default function ContattiPage() {
           </div>
           <div className="actions-row">
             <Link href="/listino-estetica-laser" className="button button-primary">
-              Vedi listino completo
+              Vedi trattamenti e prezzi
             </Link>
             <Link
               href="/epilazione-laser-carmagnola"
               className="button button-secondary"
             >
-              Epilazione laser Carmagnola
-            </Link>
-            <Link className="button button-secondary" href="/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica">
-              Guida ascelle
-            </Link>
-            <Link className="button button-secondary" href="/competenze/epilazione-laser-inguine-carmagnola-guida-pratica">
-              Guida inguine
+              Percorso laser
             </Link>
           </div>
 
@@ -285,7 +279,7 @@ export default function ContattiPage() {
               Instagram
             </p>
             <p className="lead text-on-light mt-sm">
-              Qui trovi alcuni reel in evidenza per vedere centro, atmosfera e lavoro in cabina.
+              Reel dedicati a trattamenti, atmosfera, glow di pelle e gesti di cabina.
             </p>
             <InstagramFeed showReels={true} showPosts={false} maxReels={4} />
           </div>
@@ -295,23 +289,23 @@ export default function ContattiPage() {
       <section className="section">
         <div className="container grid grid-2">
           <article className="card glow-card">
-            <h2 className="mt-0">Scrivici dal form</h2>
+            <h2 className="mt-0">Richiedi la consulenza</h2>
             <p className="lead mt-xs">
-              Compila il form e ti ricontattiamo via email o telefono. Per una risposta più rapida, WhatsApp resta il canale migliore.
+              Compila il form e ricevi una risposta via email o telefono. WhatsApp accelera il contatto
+              e apre subito la consulenza.
             </p>
             <ContactForm />
           </article>
           <aside className="card">
-            <h2 className="mt-0">Prima visita: come funziona</h2>
+            <h2 className="mt-0">Prima consulenza: come si apre il percorso</h2>
             <ul className="list-clean">
-              <li>- ci racconti obiettivo e priorità</li>
-              <li>- facciamo una valutazione iniziale (pelle, zona, abitudini)</li>
-              <li>- ti proponiamo un piano con tempi realistici</li>
-              <li>- decidi tu se iniziare e da cosa partire</li>
+              <li>- ci dici il risultato che vuoi vedere</li>
+              <li>- leggiamo pelle, zona e abitudini rilevanti</li>
+              <li>- costruiamo un piano con tempi realistici</li>
+              <li>- scegli il primo trattamento da prenotare</li>
             </ul>
             <p className="lead mt-sm">
-              Niente parole complicate: ti spieghiamo cosa facciamo, cosa aspettarti e
-              come gestire al meglio il periodo tra un appuntamento e l&apos;altro.
+              Ti indichiamo la direzione piu' efficace per pelle, armonia del viso, corpo e glow cutaneo.
             </p>
             <div className="grid mt-sm">
               <Link className="link-card" href="/competenze/laser-uomo-carmagnola-guida-pratica">

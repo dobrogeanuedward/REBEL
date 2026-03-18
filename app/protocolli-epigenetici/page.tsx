@@ -16,7 +16,7 @@ import {
 export const metadata: Metadata = createPageMetadata({
   title: "Protocolli Epigenetici a Carmagnola: Trattamenti Viso e Corpo Rebel",
   description:
-    "Scopri i protocolli epigenetici Rebel a Carmagnola: percorsi viso e corpo su tono, densità, luminosità, drenaggio e rigenerazione.",
+    "Scopri i protocolli epigenetici Rebel a Carmagnola: trattamenti viso e corpo per glow, tono, densita', drenaggio e bellezza progressiva.",
   path: "/protocolli-epigenetici",
   openGraphType: "article",
   keywords: [
@@ -34,7 +34,7 @@ export default function ProtocolliPage() {
   const webPageSchema = buildWebPageSchema({
     name: "Protocolli epigenetici a Carmagnola",
     description:
-      "Una panoramica dei protocolli Rebel: viso e corpo, con focus su tono, densità, luminosità e rigenerazione.",
+      "Una panoramica dei protocolli Rebel: viso e corpo, con focus su glow, tono, densita' e rigenerazione.",
     path: "/protocolli-epigenetici",
   });
   const service = buildServiceSchema(
@@ -45,7 +45,7 @@ export default function ProtocolliPage() {
   const articleSchema = buildArticleSchema({
     headline: "Protocolli epigenetici a Carmagnola",
     description:
-      "Cosa sono i protocolli Rebel e come si scelgono: direzione, progressione e lettura iniziale.",
+      "Cosa sono i protocolli Rebel e come si scelgono: glow, progressione e lettura iniziale.",
     path: "/protocolli-epigenetici",
     keywords: ["protocolli epigenetici", "estetica epigenetica", "Carmagnola"],
     section: "Protocolli",
@@ -93,9 +93,9 @@ export default function ProtocolliPage() {
 
       <PageHero
         eyebrow="Protocolli Rebel"
-        title="Protocolli epigenetici: viso e corpo, con una direzione chiara."
-        lead="Ogni protocollo parte da una lettura iniziale e viene adattato a quello che ti serve davvero in questo periodo: tono, luminosità, drenaggio o rigenerazione."
-        badge="Attivi • manualità • tecnologia"
+        title="Protocolli epigenetici per una pelle piu' luminosa, tonica e viva."
+        lead="Ogni protocollo apre una bellezza progressiva con lettura iniziale, attivi epigenetici, manualita' e tecnologia mirata su viso e corpo."
+        badge="Glow • tono • rigenerazione"
         tone="violet"
       />
 
@@ -125,10 +125,10 @@ export default function ProtocolliPage() {
 
       <section className="section section-light">
         <div className="container">
-          <h2 className="page-title">Come scegliere il protocollo giusto</h2>
+          <h2 className="page-title">Scegli il protocollo che valorizza il tuo glow</h2>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             <article className="card-light">
-              <h3 style={{ marginTop: 0 }}>Se vuoi leggere 5 minuti prima</h3>
+              <h3 style={{ marginTop: 0 }}>Apri una scheda e senti subito la direzione</h3>
               <p
                 style={{
                   margin: 0,
@@ -137,12 +137,11 @@ export default function ProtocolliPage() {
                   color: "rgba(39,31,56,0.76)",
                 }}
               >
-                Apri una scheda: trovi cosa fa il protocollo, per chi è pensato e come si organizza nel tempo (con
-                un&apos;idea chiara di progressione).
+                Ogni scheda racconta il protocollo, il risultato che valorizza e la progressione che accompagna pelle, viso e corpo.
               </p>
             </article>
             <article className="card-light">
-              <h3 style={{ marginTop: 0 }}>Se preferisci parlarne e basta</h3>
+              <h3 style={{ marginTop: 0 }}>Prenota la consulenza epigenetica</h3>
               <p
                 style={{
                   margin: 0,
@@ -151,20 +150,16 @@ export default function ProtocolliPage() {
                   color: "rgba(39,31,56,0.76)",
                 }}
               >
-                Scrivici su WhatsApp o prenota: facciamo una lettura iniziale e ti diciamo cosa conviene fare per prima
-                (e con che ritmo), senza mischiare tutto.
+                La consulenza legge la pelle, definisce glow, tono, densita' e apre il protocollo piu' adatto al momento che stai vivendo.
               </p>
             </article>
           </div>
           <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
             <Link className="button button-primary" href="/contatti">
-              Prenota lettura iniziale
+              Prenota la consulenza epigenetica
             </Link>
             <Link className="button button-secondary" href="/listino-estetica-laser">
-              Vai al listino completo
-            </Link>
-            <Link className="button button-secondary" href="/servizi">
-              Vedi tutti i servizi
+              Apri trattamenti e prezzi
             </Link>
           </div>
         </div>
@@ -175,11 +170,10 @@ export default function ProtocolliPage() {
           <div className="container">
             <p className="eyebrow">Per orientarti</p>
             <h2 className="page-title" style={{ marginTop: "0.6rem" }}>
-              Se ti serve chiarezza: parti da queste guide.
+              Guide beauty per scegliere il protocollo giusto.
             </h2>
             <p className="lead" style={{ marginTop: "0.6rem", maxWidth: "74ch" }}>
-              Se sei indecisa tra più protocolli, parti da queste: ti aiutano a chiarire obiettivo, ritmo e primo step
-              senza trasformare la skincare in un lavoro.
+              Le guide chiariscono obiettivo, ritmo e primo step e accompagnano una scelta piu' desiderabile e consapevole.
             </p>
             <div className="grid grid-2" style={{ marginTop: "1rem" }}>
               {guides.map((guide) => (
@@ -193,10 +187,10 @@ export default function ProtocolliPage() {
             </div>
             <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
               <Link className="button button-primary" href="/contatti">
-                Prenota lettura iniziale
+                Prenota la tua consulenza
               </Link>
               <Link className="button button-secondary" href="/competenze">
-                Vedi tutte le guide
+                Scopri tutte le guide
               </Link>
             </div>
           </div>

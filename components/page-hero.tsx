@@ -33,18 +33,23 @@ export function PageHero({
                 className="page-hero-logo"
               />
             </span>
-            <span className="page-hero-brand-text">{siteConfig.name}</span>
+            <div className="page-hero-brand-copy">
+              <span className="page-hero-brand-text">{siteConfig.name}</span>
+              <span className="page-hero-brand-note">Bellezza viso, corpo, epigenetica</span>
+            </div>
           </div>
-          <p className="eyebrow">{eyebrow}</p>
+          <div className="page-hero-meta">
+            <p className="eyebrow page-hero-eyebrow">{eyebrow}</p>
+            {badge ? (
+              <div className="page-hero-badge-wrap">
+                <span className="badge">{badge}</span>
+              </div>
+            ) : null}
+          </div>
           <h1 className="page-title page-hero-title">
             {title}
           </h1>
-          <p className="lead">{lead}</p>
-          {badge ? (
-            <div className="page-hero-badge-wrap">
-              <span className="badge">{badge}</span>
-            </div>
-          ) : null}
+          <p className="lead page-hero-lead">{lead}</p>
           {children ? <div className="page-hero-extra">{children}</div> : null}
         </div>
       </div>

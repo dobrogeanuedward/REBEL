@@ -13,10 +13,10 @@ type InlineCTAProps = {
 };
 
 export function InlineCTA({
-  eyebrow = "Parliamone in modo semplice",
+  eyebrow = "Prenota la tua bellezza",
   title,
   lead,
-  primaryLabel = "Contatti",
+  primaryLabel = "Prenota consulenza",
   primaryHref = "/contatti",
   secondaryLabel,
   secondaryHref,
@@ -29,6 +29,9 @@ export function InlineCTA({
       <p className="lead mt-sm">
         {lead}
       </p>
+      <p className="inline-cta-note">
+        Una scelta chiara, una via rapida, un invito diretto alla consulenza.
+      </p>
       <div className="inline-cta-actions">
         <Link className="button button-primary" href={primaryHref}>
           {primaryLabel}
@@ -40,7 +43,7 @@ export function InlineCTA({
         ) : null}
         {showWhatsapp ? (
           <a
-            className="button button-secondary"
+            className="inline-cta-whatsapp"
             href={siteConfig.social.whatsapp}
             target="_blank"
             rel="noreferrer"

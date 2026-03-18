@@ -42,15 +42,7 @@ export default function HomePage() {
     "epilazione-laser-estate-sole-carmagnola",
     "peli-incarniti-laser-carmagnola",
     "pulizia-viso-carmagnola-frequenza-benefici",
-    "manicure-semipermanente-carmagnola-durata-rimozione",
-    "pedicure-carmagnola-ogni-quanto-talloni",
-    "pressoterapia-carmagnola-guida-pratica",
     "epilazione-laser-inguine-carmagnola-guida-pratica",
-    "epilazione-laser-ascelle-carmagnola-guida-pratica",
-    "laser-uomo-carmagnola-guida-pratica",
-    "contorno-occhi-gonfiore-occhiaie-carmagnola",
-    "pelle-opaca-grana-irregolare-carmagnola",
-    "tono-viso-ovale-carmagnola-percorso",
   ];
   const featuredGuides = featuredGuideSlugs
     .map((slug) => competencePages.find((item) => item.slug === slug))
@@ -163,7 +155,7 @@ export default function HomePage() {
         name: "Perché scegliere un centro estetico a Carmagnola con approccio epigenetico?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "L'approccio epigenetico lavora sulla qualità biologica della pelle con protocolli personalizzati, non su trattamenti standard uguali per tutti.",
+          text: "L'approccio epigenetico lavora sulla qualità biologica della pelle con protocolli personalizzati, calibrati sul punto di partenza e sul risultato desiderato.",
         },
       },
       {
@@ -260,35 +252,26 @@ export default function HomePage() {
                   <small>Centro estetico a Carmagnola</small>
                 </div>
               </div>
-              <span className="home-hero-badge">Viso, corpo e laser</span>
+              <span className="home-hero-badge">Bellezza viso, corpo e laser</span>
             </div>
             <h1 className="home-hero-title">
-              Rebel a Carmagnola: estetica epigenetica, viso, corpo e laser.
+              Bellezza viva, pelle luminosa, metodo epigenetico a Carmagnola.
             </h1>
             <p className="home-hero-lead">
-              Ci racconti cosa vuoi ottenere e guardiamo la tua pelle da vicino. Poi impostiamo
-              il piano con manualità, attivi epigenetici e tecnologia quando serve.
+              Ogni percorso Rebel valorizza pelle, linee del viso e armonia del corpo con lettura iniziale,
+              attivi epigenetici, manualita' e tecnologia mirata.
             </p>
             <div className="home-hero-cta">
               <Link className="button button-primary" href="/contatti">
-                Prenota una consulenza
+                Prenota la consulenza beauty
               </Link>
               <Link className="button button-secondary" href="/listino-estetica-laser">
                 Vedi trattamenti e prezzi
               </Link>
             </div>
             <p className="home-hero-caption">
-              Si parte da una lettura iniziale, poi si decide cosa fare e con che ritmo. Seduta dopo
-              seduta aggiorniamo il piano in base a come risponde la pelle.
+              Consulenza 1:1, glow di pelle, progressione visibile seduta dopo seduta.
             </p>
-            <p className="home-hero-footnote">
-              &quot;La bellezza non si aggiunge, si riattiva!&quot; e questo principio guida
-              ogni percorso Rebel.
-            </p>
-            <div className="home-hero-chips">
-              <span className="home-chip">Consulenza 1:1</span>
-              <span className="home-chip">Carmagnola, Viale Barbaroux 20</span>
-            </div>
           </article>
         </div>
       </section>
@@ -299,11 +282,11 @@ export default function HomePage() {
             <div className="section-head">
               <p className="eyebrow eyebrow-soft">Carmagnola - servizi base</p>
               <h2 className="page-title">
-                Trattamenti base, richiesti spesso in studio (viso, unghie, sguardo, benessere).
+                Trattamenti beauty da prenotare con chiarezza.
               </h2>
               <p className="lead text-on-light">
-                Qui trovi una selezione di trattamenti base richiesti spesso in studio: viso, unghie, sguardo,
-                massaggi e cura piedi. Ogni scheda va dritta al punto con dettagli, FAQ e indicazioni pratiche.
+                Viso, sguardo, unghie, massaggi e cura piedi: servizi che valorizzano presenza,
+                luminosita' e benessere con risultati leggibili.
               </p>
             </div>
             <div className="grid grid-3 mt-md">
@@ -321,13 +304,10 @@ export default function HomePage() {
             </div>
             <div className="actions-row">
               <Link className="button button-primary" href="/contatti">
-                Consulenza e prenotazioni
+                Prenota la tua consulenza
               </Link>
               <Link className="button button-secondary" href="/servizi">
-                Vedi tutti i servizi
-              </Link>
-              <Link className="button button-secondary" href="/listino-estetica-laser">
-                Listino completo
+                Scopri tutti i trattamenti
               </Link>
             </div>
           </div>
@@ -339,10 +319,10 @@ export default function HomePage() {
           <article className="card photo-story-card">
             <div className="section-head section-head--compact">
               <p className="eyebrow">Metodo in cabina</p>
-              <h2 className="page-title">In cabina lavoriamo così: chiarezza, comfort, progressione.</h2>
+              <h2 className="page-title">In cabina: lettura, precisione, progressione.</h2>
               <p className="lead">
-                Qui vedi il nostro metodo in cabina: lettura iniziale, trattamento personalizzato e monitoraggio
-                nel tempo.
+                Ogni seduta parte dalla lettura iniziale, prosegue con gesti precisi e sviluppa
+                una bellezza che si vede e si mantiene nel tempo.
               </p>
             </div>
             <ul className="list-clean photo-story-points">
@@ -351,11 +331,8 @@ export default function HomePage() {
               <li>- Follow-up per mantenere direzione e risultati</li>
             </ul>
             <div className="actions-row">
-              <Link className="button button-primary" href="/epilazione-laser-carmagnola">
-                Scopri il percorso laser
-              </Link>
-              <Link className="button button-secondary" href="/contatti">
-                Prenota consulenza
+              <Link className="button button-primary" href="/metodo-rebel">
+                Scopri il metodo Rebel
               </Link>
             </div>
           </article>
@@ -373,36 +350,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <div className="section-head section-head--compact">
-            <p className="eyebrow">Query locali ad alta intenzione</p>
-            <h2 className="page-title">Se stai cercando un servizio specifico a Carmagnola, parti da qui.</h2>
-            <p className="lead max-w-74ch">
-              Abbiamo raccolto le ricerche più frequenti: ogni pagina va dritta al punto
-              con dettagli pratici, prezzo indicativo e prossima azione chiara.
-            </p>
-          </div>
-          <div className="grid grid-3 mt-md">
-            {localMoneyQueries.map((query) => (
-              <Link key={query.href} href={query.href} className="card">
-                <h3 className="mt-0">{query.label}</h3>
-                <p className="lead mt-xs">
-                  Apri pagina dedicata e orientati in pochi minuti.
-                </p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
       <section className="section section-light">
         <div className="container">
           <div className="section-head">
             <p className="eyebrow eyebrow-soft">Instagram</p>
-            <h2 className="page-title">Seguici su Instagram per vedere i nostri trattamenti in azione.</h2>
-            <p className="lead text-on-light">Reel, post e aggiornamenti dal centro estetico Rebel a Carmagnola.</p>
+            <h2 className="page-title">Bellezza reale, glow di pelle, dettagli di cabina.</h2>
+            <p className="lead text-on-light">Reel e trattamenti che raccontano atmosfera, pelle, gesti e risultati in evoluzione.</p>
           </div>
           <InstagramFeed
             showReels={true}
@@ -418,7 +371,11 @@ export default function HomePage() {
         <div className="container home-ecosystem-container">
           <div className="section-head section-head--compact">
             <p className="eyebrow">Percorsi</p>
-            <h2 className="page-title">Scopri l&apos;ecosistema Rebel</h2>
+            <h2 className="page-title">Scegli il percorso che valorizza la tua bellezza.</h2>
+            <p className="lead">
+              Metodo, trattamenti, guide e territorio: quattro accessi chiari per arrivare subito
+              al servizio giusto.
+            </p>
           </div>
           <div className="ecosystem-grid mt-md">
             {ecosystemGroups.map((group) => (
@@ -439,31 +396,13 @@ export default function HomePage() {
               </article>
             ))}
           </div>
-          <p className="lead mt-sm">
-            Per orientarti in fretta: qui trovi servizi, prezzi, guide e pagine
-            dedicate alle località da cui ci raggiungono più spesso.
-          </p>
-        </div>
-      </section>
-
-      <section className="section section-light">
-        <div className="container">
-          <div className="section-head section-head--compact">
-            <p className="eyebrow eyebrow-soft">Territorio</p>
-            <h2 className="page-title">Siamo a Carmagnola, ma lavoriamo con tante clienti della zona.</h2>
-            <p className="lead text-on-light max-w-74ch">
-              Oltre a Carmagnola, arrivano clienti da Carignano, Racconigi,
-              Sommariva del Bosco, Torino Sud e Alba. Se vuoi capire se Rebel fa
-              per te, scrivici: ti rispondiamo in modo diretto e ti proponiamo
-              il primo passo più sensato.
-            </p>
-          </div>
-          <div className="areas-badges">
-            {siteConfig.areasServed.map((area) => (
-              <span key={area} className="badge area-badge">
-                {area}
-              </span>
-            ))}
+          <div className="actions-row">
+            <Link className="button button-primary" href="/contatti">
+              Prenota la tua consulenza
+            </Link>
+            <Link className="button button-secondary" href="/metodo-rebel">
+              Vedi il metodo
+            </Link>
           </div>
         </div>
       </section>

@@ -16,7 +16,7 @@ import {
 export const metadata: Metadata = createPageMetadata({
   title: "Metodo Rebel: 5 passaggi per un percorso fatto bene",
   description:
-    "Come lavoriamo in studio a Carmagnola: ascolto, lettura iniziale, protocollo su misura, tecnologia quando serve e mantenimento.",
+    "Metodo Rebel a Carmagnola: consulenza beauty, lettura iniziale, protocollo su misura ed evoluzione epigenetica per pelle, viso e corpo.",
   path: "/metodo-rebel",
   openGraphType: "article",
   keywords: [
@@ -34,7 +34,7 @@ export default function MetodoPage() {
   const webPageSchema = buildWebPageSchema({
     name: "Metodo Rebel in 5 Step",
     description:
-      "Il Metodo Rebel: lettura iniziale, protocollo, tecnologia quando serve e mantenimento.",
+      "Il Metodo Rebel: consulenza beauty, protocollo su misura ed evoluzione epigenetica per pelle, viso e corpo.",
     path: "/metodo-rebel",
   });
   const service = buildServiceSchema(
@@ -45,7 +45,7 @@ export default function MetodoPage() {
   const articleSchema = buildArticleSchema({
     headline: "Metodo Rebel in 5 step",
     description:
-      "Come lavoriamo in studio: lettura iniziale, protocollo, tecnologia quando serve e mantenimento.",
+      "Come nasce un percorso Rebel: lettura iniziale, protocollo, tecnologia mirata e bellezza progressiva.",
     path: "/metodo-rebel",
     keywords: ["metodo Rebel", "metodo estetico Carmagnola", "percorso estetico"],
     section: "Metodo",
@@ -55,13 +55,13 @@ export default function MetodoPage() {
       src: editorialImageAssets.laserViso,
       alt: "Lettura iniziale e impostazione parametri in cabina Rebel",
       title: "Lettura iniziale reale",
-      text: "Prima di decidere il piano, osserviamo pelle, obiettivo e ritmo che puoi mantenere.",
+      text: "La consulenza iniziale legge pelle, obiettivo e ritmo ideale per far emergere luminosita', tono e armonia.",
     },
     {
       src: editorialImageAssets.laserCorpo,
       alt: "Monitoraggio del percorso laser nel tempo",
       title: "Progressione monitorata",
-      text: "Seduta dopo seduta aggiustiamo la rotta: continuita prima di tutto.",
+      text: "Seduta dopo seduta il percorso evolve con continuita', glow cutaneo e risultati sempre piu' leggibili.",
     },
   ] as const;
 
@@ -74,9 +74,9 @@ export default function MetodoPage() {
 
       <PageHero
         eyebrow="Come lavoriamo"
-        title="Metodo Rebel: cinque passaggi, un filo unico."
-        lead="Partiamo dall'ascolto e dalla lettura iniziale, poi scegliamo cosa fare e con che ritmo. La parte importante è che il piano resti semplice da seguire, non perfetto sulla carta."
-        badge="Chiarezza • continuità • progressione"
+        title="Metodo Rebel: cinque passaggi per valorizzare pelle, viso e corpo."
+        lead="Ogni percorso nasce da una consulenza beauty e si sviluppa con lettura iniziale, attivi epigenetici, manualita' e tecnologia mirata per un risultato visibile e progressivo."
+        badge="Bellezza • glow • progressione"
         tone="ocean"
       />
 
@@ -107,16 +107,16 @@ export default function MetodoPage() {
           <article className="card photo-story-card">
             <div className="section-head section-head--compact">
               <p className="eyebrow">Metodo applicato</p>
-              <h2 className="page-title">Non facciamo sedute isolate: costruiamo una sequenza che puoi davvero seguire.</h2>
+              <h2 className="page-title">Ogni seduta entra in una sequenza beauty che valorizza la pelle nel tempo.</h2>
               <p className="lead">
-                La differenza non è solo nella tecnologia. Sta nella sequenza: capire da dove parti,
-                scegliere cosa attivare e monitorare la risposta della pelle nel tempo.
+                La forza del metodo sta nella regia: si legge il punto di partenza, si attiva il trattamento giusto
+                e si accompagna la pelle verso piu' luce, tono e qualita' cutanea.
               </p>
             </div>
             <ul className="list-clean photo-story-points">
-              <li>- Decisioni semplici, niente stratificazioni casuali</li>
-              <li>- Obiettivi realistici e calendario sostenibile</li>
-              <li>- Correzioni leggere senza ricominciare da zero</li>
+              <li>- priorita' chiare e pelle letta con precisione</li>
+              <li>- calendario beauty sostenibile e progressione visibile</li>
+              <li>- glow, tono e armonia che crescono seduta dopo seduta</li>
             </ul>
           </article>
           <aside className="photo-story-media-grid">
@@ -136,24 +136,18 @@ export default function MetodoPage() {
       <section className="section section-light">
         <div className="container">
           <div className="section-head section-head--compact">
-            <h2 className="page-title mt-0">Perché funziona (nella vita vera)</h2>
+            <h2 className="page-title mt-0">Perché vende risultati visibili</h2>
             <p className="lead text-on-light max-w-74ch">
-              Un metodo ti evita di andare a tentativi. Ti diciamo cosa facciamo adesso e cosa ci aspettiamo nelle prossime
-              settimane, con tempi realistici e scelte coerenti con la tua pelle e con la tua agenda.
+              Il metodo trasforma la consulenza in direzione: sai cosa valorizzare adesso, quale glow aspettarti
+              nelle settimane successive e quale trattamento prenotare per primo.
             </p>
           </div>
           <div className="actions-row">
             <Link className="button button-primary" href="/protocolli-epigenetici">
-              Esplora i protocolli
+              Scopri i protocolli epigenetici
             </Link>
             <Link className="button button-secondary" href="/contatti">
-              Scrivici per iniziare
-            </Link>
-            <Link className="button button-secondary" href="/competenze">
-              Leggi le guide utili
-            </Link>
-            <Link className="button button-secondary" href="/epilazione-laser-carmagnola">
-              Laser a Carmagnola
+              Prenota la tua consulenza
             </Link>
           </div>
         </div>

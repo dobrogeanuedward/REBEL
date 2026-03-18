@@ -57,6 +57,12 @@ export function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} className="contact-form" noValidate>
+      <div className="contact-form-intro">
+        <p className="contact-form-kicker">Apri la tua consulenza beauty</p>
+        <p className="contact-form-note">
+          Obiettivo, area da trattare e tempi desiderati: da qui nasce una consulenza su misura.
+        </p>
+      </div>
       <label>
         Nome e cognome*
         <input
@@ -97,7 +103,7 @@ export function ContactForm() {
         <input
           value={form.city}
           onChange={(e) => setForm((v) => ({ ...v, city: e.target.value }))}
-          placeholder="Carmagnola, Carignano, Racconigi..."
+          placeholder="Da dove ci raggiungi"
           autoComplete="address-level2"
         />
       </label>
@@ -109,7 +115,7 @@ export function ContactForm() {
           rows={5}
           value={form.message}
           onChange={(e) => setForm((v) => ({ ...v, message: e.target.value }))}
-          placeholder="Scrivi obiettivo, zona e quando vorresti iniziare."
+          placeholder="Scrivi obiettivo, zona da trattare e quando vuoi iniziare."
         />
       </label>
 
@@ -125,7 +131,7 @@ export function ContactForm() {
       />
 
       <button type="submit" className="button button-primary" disabled={status === "loading"}>
-        {status === "loading" ? "Invio..." : "Invia richiesta"}
+        {status === "loading" ? "Invio..." : "Richiedi consulenza"}
       </button>
 
       {feedback ? (
