@@ -24,13 +24,21 @@ export function InlineCTA({
 }: InlineCTAProps) {
   return (
     <aside className="inline-cta">
-      <p className="eyebrow">{eyebrow}</p>
+      <div className="inline-cta-head">
+        <p className="eyebrow">{eyebrow}</p>
+        <span className="inline-cta-badge">Private beauty direction</span>
+      </div>
       <h2 className="inline-cta-title">{title}</h2>
       <p className="lead mt-sm">
         {lead}
       </p>
+      <div className="inline-cta-benefits" aria-hidden="true">
+        <span>Glow</span>
+        <span>Tono</span>
+        <span>Protocollo</span>
+      </div>
       <p className="inline-cta-note">
-        Un invito netto alla consulenza, al trattamento giusto, al risultato che vuoi vedere.
+        Consulenza dedicata, selezione del trattamento, progressione costruita sul tuo risultato.
       </p>
       <div className="inline-cta-actions">
         <Link className="button button-primary" href={primaryHref}>

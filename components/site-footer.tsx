@@ -27,11 +27,17 @@ export function SiteFooter() {
               </span>
               <span className="footer-brand-location">Carmagnola</span>
             </div>
+            <p className="footer-brand-kicker">Estetica epigenetica ad alta desiderabilita&apos;</p>
             <h2 className="footer-tagline">Bellezza viva, pelle luminosa, metodo epigenetico.</h2>
             <p className="footer-copy">
               Boutique wellness epigenetico a Carmagnola per viso, corpo ed epilazione laser:
               consulenza personalizzata, risultati visibili, bellezza che si sente addosso.
             </p>
+            <div className="footer-manifesto">
+              <span>Glow signature</span>
+              <span>Laser evoluto</span>
+              <span>Protocollo couture</span>
+            </div>
             <div className="footer-brand-actions">
               <Link href="/contatti" className="button button-primary">
                 Prenota consulenza

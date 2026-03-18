@@ -110,41 +110,79 @@ export default async function ProtocolDetailPage({ params }: PageProps) {
         lead={protocol.longDescription}
         badge={protocol.price}
         tone="violet"
-      />
+      >
+        <div className="hero-meta">
+          <span className="hero-pill">Protocollo signature</span>
+          <span className="hero-pill">Lettura iniziale inclusa</span>
+          <span className="hero-pill">Progressione personalizzata</span>
+        </div>
+        <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
+          <Link className="button button-primary" href="/contatti">
+            Prenota lettura iniziale
+          </Link>
+          <Link className="button button-secondary" href="/protocolli-epigenetici">
+            Vedi tutti i protocolli
+          </Link>
+        </div>
+      </PageHero>
 
       <section className="section">
-        <div className="container grid grid-2">
-          <article className="card">
-            <h2 style={{ marginTop: 0 }}>Cosa puoi aspettarti</h2>
-            <ul className="list-clean">
+        <div className="container editorial-layout">
+          <article className="card glow-card">
+            <p className="eyebrow">Protocollo couture</p>
+            <h2 style={{ marginTop: "0.45rem" }}>
+              Cosa rende {protocol.name} un protocollo ad alta desiderabilita&apos;
+            </h2>
+            <div className="keypoints-grid" style={{ marginTop: "1rem" }}>
               {protocol.benefits.map((benefit) => (
-                <li key={benefit}>- {benefit}</li>
+                <div key={benefit} className="keypoint-card">
+                  <p>{benefit}</p>
+                </div>
               ))}
-            </ul>
-            <div style={{ marginTop: "1rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
-              <Link className="button button-primary" href="/contatti">
-                Prenota lettura iniziale
-              </Link>
-              <Link className="button button-secondary" href="/protocolli-epigenetici">
-                Torna ai protocolli
-              </Link>
+            </div>
+            <div className="protocol-detail-quote">
+              <p>
+                Ogni seduta rafforza la successiva: il protocollo costruisce una bellezza piu&apos;
+                ricca, piu&apos; leggibile, piu&apos; esclusiva.
+              </p>
             </div>
           </article>
 
-          <aside className="card">
-            <h2 style={{ marginTop: 0 }}>Domande frequenti</h2>
-            {protocol.faqs.map((faq) => (
-              <div key={faq.q} className="faq-item">
-                <h3>{faq.q}</h3>
-                <p>{faq.a}</p>
+          <aside className="editorial-aside">
+            <div className="inline-cta">
+              <div className="inline-cta-head">
+                <p className="eyebrow">Accesso riservato</p>
+                <span className="inline-cta-badge">Epigenetic beauty</span>
               </div>
-            ))}
+              <h2 className="inline-cta-title">Apri il protocollo con una lettura dedicata.</h2>
+              <p className="lead mt-sm">
+                Il primo incontro individua priorita&apos;, ritmo e resa estetica per trasformare il
+                protocollo in una firma davvero tua.
+              </p>
+              <div className="inline-cta-actions">
+                <Link className="button button-primary" href="/contatti">
+                  Prenota lettura iniziale
+                </Link>
+                <Link className="button button-secondary" href="/protocolli-epigenetici">
+                  Torna ai protocolli
+                </Link>
+              </div>
+            </div>
+            <div className="card">
+              <h2 style={{ marginTop: 0 }}>Domande frequenti</h2>
+              {protocol.faqs.map((faq) => (
+                <div key={faq.q} className="faq-item">
+                  <h3>{faq.q}</h3>
+                  <p>{faq.a}</p>
+                </div>
+              ))}
+            </div>
           </aside>
         </div>
       </section>
 
       <section className="section section-light">
-        <div className="container split">
+        <div className="container editorial-layout">
           <article className="card-light">
             <h2 style={{ marginTop: 0 }}>Come lo impostiamo in studio</h2>
             {protocol.editorialSections.map((section) => (
@@ -168,19 +206,30 @@ export default async function ProtocolDetailPage({ params }: PageProps) {
             ))}
           </article>
 
-          <aside className="card-light">
-            <h2 style={{ marginTop: 0 }}>Link utili</h2>
-            <div style={{ display: "grid", gap: "0.75rem", marginTop: "0.9rem" }}>
-              {protocol.relatedLinks.map((item) => (
-                <Link key={item.href} href={item.href} className="link-card">
-                  <span className="link-card-content">
-                    <span className="link-card-title">{item.label}</span>
-                    {item.description ? (
-                      <small className="link-card-desc">{item.description}</small>
-                    ) : null}
-                  </span>
-                </Link>
-              ))}
+          <aside className="editorial-aside">
+            <div className="card-light protocol-detail-note">
+              <p className="eyebrow">Percezione del risultato</p>
+              <h2 style={{ marginTop: "0.45rem" }}>
+                Il protocollo entra nella tua immagine, non resta solo un trattamento.
+              </h2>
+              <p className="lead" style={{ marginTop: "0.55rem", color: "rgba(39,31,56,0.78)" }}>
+                Glow, tono, densita&apos; e comfort diventano linguaggio visibile del viso e del corpo.
+              </p>
+            </div>
+            <div className="card-light">
+              <h2 style={{ marginTop: 0 }}>Link utili</h2>
+              <div style={{ display: "grid", gap: "0.75rem", marginTop: "0.9rem" }}>
+                {protocol.relatedLinks.map((item) => (
+                  <Link key={item.href} href={item.href} className="link-card">
+                    <span className="link-card-content">
+                      <span className="link-card-title">{item.label}</span>
+                      {item.description ? (
+                        <small className="link-card-desc">{item.description}</small>
+                      ) : null}
+                    </span>
+                  </Link>
+                ))}
+              </div>
             </div>
           </aside>
         </div>

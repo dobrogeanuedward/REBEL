@@ -235,43 +235,72 @@ export default function HomePage() {
         <HeroPhotoSlider images={homeHeroImages} intervalMs={3900} />
         <div className="container">
           <article className="home-hero-main">
-            <div className="home-hero-brandline">
-              <div className="home-hero-brand">
-                <span className="logo-glow logo-glow--lg">
-                  <Image
-                    src={siteConfig.assets.logoLight}
-                    alt="Rebel Estetica Epigenetica"
-                    width={220}
-                    height={72}
-                    className="home-hero-logo"
-                    priority
-                  />
-                </span>
-                <div className="home-hero-brand-text">
-                  <span>Rebel Estetica Epigenetica</span>
-                  <small>Centro estetico a Carmagnola</small>
+            <p className="home-hero-kicker">Boutique beauty epigenetica • Carmagnola</p>
+            <div className="home-hero-layout">
+              <div className="home-hero-content">
+                <div className="home-hero-brandline">
+                  <div className="home-hero-brand">
+                    <span className="logo-glow logo-glow--lg">
+                      <Image
+                        src={siteConfig.assets.logoLight}
+                        alt="Rebel Estetica Epigenetica"
+                        width={220}
+                        height={72}
+                        className="home-hero-logo"
+                        priority
+                      />
+                    </span>
+                    <div className="home-hero-brand-text">
+                      <span>Rebel Estetica Epigenetica</span>
+                      <small>Luxury glow direction</small>
+                    </div>
+                  </div>
+                  <span className="home-hero-badge">Viso, corpo, laser, protocolli</span>
                 </div>
+                <h1 className="home-hero-title">
+                  L&apos;estetica epigenetica che trasforma la pelle in presenza.
+                </h1>
+                <p className="home-hero-lead">
+                  Rebel unisce lettura estetica, attivi epigenetici, manualita&apos; e tecnologia per
+                  creare una bellezza piu&apos; luminosa, precisa e desiderabile.
+                </p>
+                <div className="home-hero-cta">
+                  <Link className="button button-primary" href="/contatti">
+                    Prenota la consulenza beauty
+                  </Link>
+                  <Link className="button button-secondary" href="/listino-estetica-laser">
+                    Vedi trattamenti e prezzi
+                  </Link>
+                </div>
+                <p className="home-hero-caption">
+                  Private consultation, glow progressivo, signature results seduta dopo seduta.
+                </p>
               </div>
-              <span className="home-hero-badge">Bellezza viso, corpo e laser</span>
+              <aside className="home-hero-aside">
+                <div className="home-hero-editorial-card">
+                  <p className="home-hero-editorial-label">Rebel Signature</p>
+                  <h2>Una bellezza che si sente esclusiva prima ancora di essere spiegata.</h2>
+                  <p>
+                    Ogni percorso viene orchestrato come un protocollo couture: piu&apos; luce, piu&apos;
+                    tono, piu&apos; armonia, piu&apos; desiderio.
+                  </p>
+                </div>
+                <div className="home-hero-metrics">
+                  <div className="home-hero-metric">
+                    <strong>01</strong>
+                    <span>Lettura estetica</span>
+                  </div>
+                  <div className="home-hero-metric">
+                    <strong>02</strong>
+                    <span>Protocollo vivo</span>
+                  </div>
+                  <div className="home-hero-metric">
+                    <strong>03</strong>
+                    <span>Risultato iconico</span>
+                  </div>
+                </div>
+              </aside>
             </div>
-            <h1 className="home-hero-title">
-              Bellezza viva, pelle luminosa, metodo epigenetico a Carmagnola.
-            </h1>
-            <p className="home-hero-lead">
-              Ogni percorso Rebel valorizza pelle, linee del viso e armonia del corpo con lettura iniziale,
-              attivi epigenetici, manualita&apos; e tecnologia mirata.
-            </p>
-            <div className="home-hero-cta">
-              <Link className="button button-primary" href="/contatti">
-                Prenota la consulenza beauty
-              </Link>
-              <Link className="button button-secondary" href="/listino-estetica-laser">
-                Vedi trattamenti e prezzi
-              </Link>
-            </div>
-            <p className="home-hero-caption">
-              Consulenza 1:1, glow di pelle, progressione visibile seduta dopo seduta.
-            </p>
           </article>
         </div>
       </section>
