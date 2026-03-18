@@ -112,7 +112,7 @@ export function SiteHeader() {
           <Link href="/contatti" className="button button-primary">
             Prenota la consulenza
           </Link>
-          <p className="mobile-nav-note">Risposta rapida via WhatsApp o telefono.</p>
+          <p className="mobile-nav-note">WhatsApp e telefono aprono subito il tuo appuntamento.</p>
           <a
             href={siteConfig.social.instagram}
             target="_blank"

@@ -150,7 +150,7 @@ export default function ProtocolliPage() {
                   color: "rgba(39,31,56,0.76)",
                 }}
               >
-                La consulenza legge la pelle, definisce glow, tono, densita' e apre il protocollo piu' adatto al momento che stai vivendo.
+                La consulenza legge la pelle, definisce glow, tono, densita&apos; e apre il protocollo piu&apos; adatto al momento che stai vivendo.
               </p>
             </article>
           </div>
@@ -173,7 +173,7 @@ export default function ProtocolliPage() {
               Guide beauty per scegliere il protocollo giusto.
             </h2>
             <p className="lead" style={{ marginTop: "0.6rem", maxWidth: "74ch" }}>
-              Le guide chiariscono obiettivo, ritmo e primo step e accompagnano una scelta piu' desiderabile e consapevole.
+              Le guide chiariscono obiettivo, ritmo e primo step e accompagnano una scelta piu&apos; desiderabile e consapevole.
             </p>
             <div className="grid grid-2" style={{ marginTop: "1rem" }}>
               {guides.map((guide) => (

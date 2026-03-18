@@ -75,7 +75,7 @@ export function SiteFooter() {
 
           <div className="footer-panel footer-panel-menu">
             <p className="footer-title">Percorsi principali</p>
-            <p className="footer-panel-subtitle">Le vie piu' dirette per scegliere, prenotare, valorizzarti.</p>
+            <p className="footer-panel-subtitle">Le vie piu&apos; dirette per scegliere, prenotare, valorizzarti.</p>
             <ul className="list-clean footer-links footer-links-menu">
               {footerPrimaryLinks.map((item) => (
                 <li key={item.href}>
@@ -89,8 +89,8 @@ export function SiteFooter() {
           </div>
 
           <address className="footer-panel footer-contact footer-panel-contact">
-            <p className="footer-title">Contatto diretto</p>
-            <p className="footer-panel-subtitle">Telefono, WhatsApp e indirizzo per prenotare con rapidita'.</p>
+            <p className="footer-title">Prenotazioni</p>
+            <p className="footer-panel-subtitle">Telefono, WhatsApp e indirizzo per fissare il tuo appuntamento.</p>
             <ul className="list-clean footer-contact-list">
               <li className="footer-contact-row">
                 <span className="footer-contact-label">Telefono</span>

@@ -14,7 +14,7 @@ export const metadata: Metadata = createPageMetadata({
   title:
     "Rebel Estetica Epigenetica a Carmagnola | Viso, Corpo ed Epilazione Laser",
   description:
-    "Rebel Estetica Epigenetica a Carmagnola: viso, corpo ed epilazione laser con metodo chiaro, consulenza iniziale e progressione personalizzata.",
+    "Rebel Estetica Epigenetica a Carmagnola: viso, corpo ed epilazione laser con consulenza beauty, glow progressivo e risultati personalizzati.",
   path: "/",
   keywords: [
     "Rebel",
@@ -119,7 +119,7 @@ export default function HomePage() {
     {
       key: "guides",
       title: "Guide e competenze",
-      subtitle: "Contenuti pratici per orientarti in modo chiaro.",
+      subtitle: "Guide beauty per scegliere il trattamento giusto e desiderare il risultato.",
       tone: "rose",
       links: [
         { href: "/competenze", label: "Hub competenze" },
@@ -259,7 +259,7 @@ export default function HomePage() {
             </h1>
             <p className="home-hero-lead">
               Ogni percorso Rebel valorizza pelle, linee del viso e armonia del corpo con lettura iniziale,
-              attivi epigenetici, manualita' e tecnologia mirata.
+              attivi epigenetici, manualita&apos; e tecnologia mirata.
             </p>
             <div className="home-hero-cta">
               <Link className="button button-primary" href="/contatti">
@@ -282,11 +282,11 @@ export default function HomePage() {
             <div className="section-head">
               <p className="eyebrow eyebrow-soft">Carmagnola - servizi base</p>
               <h2 className="page-title">
-                Trattamenti beauty da prenotare con chiarezza.
+                Trattamenti beauty da scegliere e prenotare subito.
               </h2>
               <p className="lead text-on-light">
                 Viso, sguardo, unghie, massaggi e cura piedi: servizi che valorizzano presenza,
-                luminosita' e benessere con risultati leggibili.
+                luminosita&apos; e benessere con risultati leggibili.
               </p>
             </div>
             <div className="grid grid-3 mt-md">

@@ -147,8 +147,8 @@ export default function ContattiPage() {
       <JsonLd data={contactSchema} />
       <PageHero
         eyebrow="Contatti locali Carmagnola"
-        title="Scrivici due righe: ti rispondiamo con una direzione chiara."
-        lead="WhatsApp è il modo più rapido. In alternativa puoi chiamare o usare il form: con zona, obiettivo e tempi ti diamo subito una direzione chiara."
+        title="Scrivici due righe e apri il tuo percorso beauty."
+        lead="WhatsApp, telefono o form: raccontaci zona, obiettivo e tempi desiderati per ricevere la proposta piu' adatta alla tua bellezza."
         badge="Viale Barbaroux 20, Carmagnola"
         tone="emerald"
       />
@@ -291,8 +291,8 @@ export default function ContattiPage() {
           <article className="card glow-card">
             <h2 className="mt-0">Richiedi la consulenza</h2>
             <p className="lead mt-xs">
-              Compila il form e ricevi una risposta via email o telefono. WhatsApp accelera il contatto
-              e apre subito la consulenza.
+              Compila il form e ricevi una risposta via email o telefono. WhatsApp apre subito il
+              confronto sul trattamento da desiderare adesso.
             </p>
             <ContactForm />
           </article>
@@ -305,7 +305,7 @@ export default function ContattiPage() {
               <li>- scegli il primo trattamento da prenotare</li>
             </ul>
             <p className="lead mt-sm">
-              Ti indichiamo la direzione piu' efficace per pelle, armonia del viso, corpo e glow cutaneo.
+              Individuiamo la combinazione piu&apos; efficace per pelle, armonia del viso, corpo e glow cutaneo.
             </p>
             <div className="grid mt-sm">
               <Link className="link-card" href="/competenze/laser-uomo-carmagnola-guida-pratica">

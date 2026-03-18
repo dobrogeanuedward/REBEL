@@ -30,7 +30,7 @@ export function InlineCTA({
         {lead}
       </p>
       <p className="inline-cta-note">
-        Una scelta chiara, una via rapida, un invito diretto alla consulenza.
+        Un invito netto alla consulenza, al trattamento giusto, al risultato che vuoi vedere.
       </p>
       <div className="inline-cta-actions">
         <Link className="button button-primary" href={primaryHref}>

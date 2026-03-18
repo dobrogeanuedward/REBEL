@@ -92,13 +92,13 @@ export default function ListinoPage() {
           <article className="card listino-categories-card mt-md">
             <h2 className="mt-0">Scegli il risultato che vuoi valorizzare.</h2>
             <p className="lead mt-xs">
-              Il listino ti guida subito verso viso, corpo, laser ed epigenetica, con una direzione chiara
-              e una prenotazione semplice.
+              Il listino accompagna viso, corpo, laser ed epigenetica verso il trattamento giusto
+              e una prenotazione immediata.
             </p>
             <div className="listino-categories-list">
               <a href="#estetica-classica" className="listino-category-item">
                 <strong>Estetica Avanzata e Benessere</strong>
-                <span>Percorsi viso/corpo per qualita' della pelle, equilibrio e continuita' nel tempo.</span>
+                <span>Percorsi viso/corpo per qualita&apos; della pelle, equilibrio e continuita&apos; nel tempo.</span>
               </a>
               <a href="#epilazione-laser" className="listino-category-item">
                 <strong>Epilazione Laser</strong>
@@ -106,7 +106,7 @@ export default function ListinoPage() {
               </a>
               <a href="#estetica-epigenetica" className="listino-category-item">
                 <strong>Estetica Epigenetica</strong>
-                <span>Protocolli evoluti orientati a rigenerazione, tono e luminosita' progressiva.</span>
+                <span>Protocolli evoluti orientati a rigenerazione, tono e luminosita&apos; progressiva.</span>
               </a>
             </div>
           </article>
@@ -145,7 +145,7 @@ export default function ListinoPage() {
         <div className="container">
           <h2 className="page-title">Epilazione laser a Carmagnola</h2>
           <p className="lead text-on-light">
-            L&apos;epilazione laser valorizza comfort, uniformita' e liberta' quotidiana con tecnologia Thory,
+            L&apos;epilazione laser valorizza comfort, uniformita&apos; e liberta&apos; quotidiana con tecnologia Thory,
             Ice Polar e una valutazione iniziale che definisce zona, pelle e obiettivo.
           </p>
           <div className="grid grid-2 mt-md">
@@ -166,8 +166,8 @@ export default function ListinoPage() {
           <div className="card-light mt-md">
             <h3 className="mt-0">Scegli la zona giusta in 5 minuti</h3>
             <p className="lead mt-xs text-on-light max-w-74ch">
-              Ascelle, inguine e gambe concentrano la domanda piu' alta: qui trovi guide pratiche
-              per tempi, comfort, stagionalita' e gestione tra una seduta e l&apos;altra.
+              Ascelle, inguine e gambe concentrano la domanda piu&apos; alta: qui trovi guide pratiche
+              per tempi, comfort, stagionalita&apos; e gestione tra una seduta e l&apos;altra.
             </p>
             <div className="actions-row">
               <Link className="button button-secondary" href="/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica">
@@ -185,7 +185,7 @@ export default function ListinoPage() {
             <h3 className="mt-0">Laser uomo: pagine dedicate</h3>
             <p className="lead mt-xs">
               Barba, collo, schiena e torace hanno pagine dedicate per scegliere il percorso
-              piu' adatto e prenotare con chiarezza.
+              piu&apos; adatto e prenotare con sicurezza.
             </p>
             <div className="actions-row">
               <Link className="button button-secondary" href="/servizi/epilazione-laser-viso-uomo-carmagnola">
@@ -211,7 +211,7 @@ export default function ListinoPage() {
         <div className="container">
           <h2 className="page-title">Estetica epigenetica</h2>
           <p className="lead">
-            Protocolli viso e corpo per luminosita', tono, densita' e qualita' cutanea.
+            Protocolli viso e corpo per luminosita&apos;, tono, densita&apos; e qualita&apos; cutanea.
             Ogni trattamento accende una bellezza progressiva e visibile.
           </p>
           <div className="grid grid-2 mt-md">

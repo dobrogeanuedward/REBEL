@@ -110,11 +110,11 @@ export default function MetodoPage() {
               <h2 className="page-title">Ogni seduta entra in una sequenza beauty che valorizza la pelle nel tempo.</h2>
               <p className="lead">
                 La forza del metodo sta nella regia: si legge il punto di partenza, si attiva il trattamento giusto
-                e si accompagna la pelle verso piu' luce, tono e qualita' cutanea.
+                e si accompagna la pelle verso piu&apos; luce, tono e qualita&apos; cutanea.
               </p>
             </div>
             <ul className="list-clean photo-story-points">
-              <li>- priorita' chiare e pelle letta con precisione</li>
+              <li>- priorita&apos; chiare e pelle letta con precisione</li>
               <li>- calendario beauty sostenibile e progressione visibile</li>
               <li>- glow, tono e armonia che crescono seduta dopo seduta</li>
             </ul>

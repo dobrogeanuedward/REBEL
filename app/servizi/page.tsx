@@ -104,7 +104,7 @@ export default function ServiziHubPage() {
   const webPageSchema = buildWebPageSchema({
     name: "Servizi Rebel a Carmagnola",
     description:
-      "Panoramica dei servizi Rebel: bellezza viso e corpo, laser e protocolli epigenetici da prenotare con chiarezza.",
+      "Panoramica dei servizi Rebel: bellezza viso e corpo, laser e protocolli epigenetici da scegliere e prenotare.",
     path: "/servizi",
   });
 
@@ -117,7 +117,7 @@ export default function ServiziHubPage() {
       <PageHero
         eyebrow="I nostri servizi"
         title="Servizi Rebel: viso, corpo, laser ed epigenetica per una bellezza che si vede."
-        lead="Ogni servizio nasce per valorizzare pelle, linee del viso, armonia del corpo e glow cutaneo con una consulenza chiara e una prenotazione semplice."
+        lead="Ogni servizio valorizza pelle, linee del viso, armonia del corpo e glow cutaneo con una consulenza beauty e un accesso immediato al trattamento giusto."
         badge="Bellezza su misura"
         tone="emerald"
       />
@@ -128,7 +128,7 @@ export default function ServiziHubPage() {
             <h2 style={{ marginTop: 0 }}>Una panoramica beauty che porta subito al trattamento giusto</h2>
             <p className="lead" style={{ marginTop: 0 }}>
               Qui trovi viso, corpo, laser ed epigenetica ordinati per risultato: apri il servizio,
-              scopri il prezzo indicativo e prenota il primo passo verso una bellezza piu' luminosa.
+              scopri il prezzo indicativo e prenota il primo passo verso una bellezza piu&apos; luminosa.
             </p>
             <div className="hero-visual" style={{ marginTop: "1rem", borderRadius: 16 }}>
               <Image
@@ -145,16 +145,16 @@ export default function ServiziHubPage() {
               />
             </div>
             <p className="lead" style={{ marginTop: "0.9rem", marginBottom: 0 }}>
-              Scegli obiettivo, area da valorizzare e ritmo desiderato: da qui nasce un percorso beauty chiaro.
+              Scegli obiettivo, area da valorizzare e ritmo desiderato: da qui si apre un percorso beauty elegante e preciso.
             </p>
           </div>
           <aside className="card">
             <h2 style={{ marginTop: 0 }}>Come scegliere e prenotare</h2>
             <ul className="list-clean">
-              <li>- scegli l'area che vuoi valorizzare</li>
+              <li>- scegli l&apos;area che vuoi valorizzare</li>
               <li>- apri la scheda con dettagli, FAQ e prezzo indicativo</li>
               <li>- prenota la consulenza beauty</li>
-              <li>- avvia il calendario piu' adatto al tuo glow</li>
+              <li>- avvia il calendario piu&apos; adatto al tuo glow</li>
             </ul>
             <div className="services-hub-shortcuts">
               <Link className="services-hub-shortcut" href="/epilazione-laser-carmagnola">Epilazione laser Carmagnola</Link>
@@ -254,7 +254,7 @@ export default function ServiziHubPage() {
         <div className="container">
           <h2 className="page-title">Epilazione laser a Carmagnola</h2>
           <p className="lead" style={{ marginTop: "0.5rem", maxWidth: "70ch", color: "rgba(39,31,56,0.78)" }}>
-            Epilazione laser per comfort, uniformita' e leggerezza quotidiana, con zona, fototipo e progressione calibrati.
+            Epilazione laser per comfort, uniformita&apos; e leggerezza quotidiana, con zona, fototipo e progressione calibrati.
           </p>
           <div className="card" style={{ marginTop: "0.85rem" }}>
             <div className="hero-visual" style={{ borderRadius: 14 }}>
@@ -267,7 +267,7 @@ export default function ServiziHubPage() {
               />
             </div>
             <p className="lead" style={{ marginTop: "0.75rem" }}>
-              Metodo laser Rebel: valutazione iniziale, zone prioritarie e una pelle sempre piu' uniforme seduta dopo seduta.
+              Metodo laser Rebel: valutazione iniziale, zone prioritarie e una pelle sempre piu&apos; uniforme seduta dopo seduta.
             </p>
           </div>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
@@ -318,7 +318,7 @@ export default function ServiziHubPage() {
         <div className="container">
           <h2 className="page-title">Estetica Epigenetica</h2>
           <p className="lead" style={{ maxWidth: "74ch", marginTop: "0.55rem" }}>
-            Una selezione dei protocolli epigenetici piu' richiesti per glow, tono, densita' e bellezza progressiva.
+            Una selezione dei protocolli epigenetici piu&apos; richiesti per glow, tono, densita&apos; e bellezza progressiva.
           </p>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             {featuredProtocols.map((protocol) => (
@@ -356,11 +356,11 @@ export default function ServiziHubPage() {
             Approfondimenti
           </p>
           <h2 className="page-title" style={{ marginTop: "0.55rem" }}>
-            Guide beauty per scegliere con desiderio e chiarezza.
+            Guide beauty per scegliere con desiderio e visione.
           </h2>
           <p className="lead" style={{ marginTop: "0.5rem", color: "rgba(39,31,56,0.78)", maxWidth: "72ch" }}>
             Le guide accompagnano la scelta del trattamento, chiariscono glow atteso, tempi e progressione
-            e preparano una consulenza ancora piu' efficace.
+            e preparano una consulenza ancora piu&apos; efficace.
           </p>
           <div className="grid grid-2" style={{ marginTop: "1rem" }}>
             {featuredEditorials.map((item) => (
@@ -396,7 +396,7 @@ export default function ServiziHubPage() {
           <article className="card glow-card">
             <h2 style={{ marginTop: 0 }}>Scegli il percorso che valorizza davvero la tua bellezza</h2>
             <p className="lead" style={{ marginTop: "0.45rem", maxWidth: "72ch" }}>
-              La consulenza Rebel individua priorita', glow desiderato e combinazione ideale tra estetica, laser ed epigenetica.
+              La consulenza Rebel individua priorita&apos;, glow desiderato e combinazione ideale tra estetica, laser ed epigenetica.
             </p>
             <div style={{ marginTop: "0.9rem", display: "flex", gap: "0.65rem", flexWrap: "wrap" }}>
               <Link className="button button-primary" href="/contatti">
