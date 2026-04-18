@@ -1,0 +1,118 @@
+---
+interface TocItem {
+  id: string;
+  label: string;
+}
+interface Props {
+  items: TocItem[];
+  title?: string;
+}
+const { items, title = "In questa pagina" } = Astro.props;
+---
+<nav class="toc" aria-label={title}>
+  <p class="toc__title">{title}</p>
+  <ol class="toc__list">
+    {items.map((item, i) => (
+      <li class="toc__item">
+        <a class="toc__link" href={`#${item.id}`} data-toc-link={item.id}>
+          <span class="toc__index">{String(i + 1).padStart(2, "0")}</span>
+          <span class="toc__label">{item.label}</span>
+        </a>
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<style>
+  .toc {
+    position: sticky;
+    top: calc(72px + 1.2rem);
+    padding: 1.2rem 1.3rem;
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    background: linear-gradient(180deg, rgba(31, 26, 58, 0.55), rgba(20, 16, 42, 0.4));
+    backdrop-filter: blur(10px);
+  }
+  .toc__title {
+    font-family: var(--font-body);
+    font-size: var(--t-kicker);
+    letter-spacing: var(--tracking-kicker);
+    text-transform: uppercase;
+    color: var(--mauve);
+    font-weight: 600;
+    margin: 0 0 0.85rem;
+  }
+  .toc__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.05rem;
+  }
+  .toc__link {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.85rem;
+    align-items: baseline;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    transition: color var(--t-fast) var(--ease-soft);
+  }
+  .toc__item:last-child .toc__link { border-bottom: 0; }
+  .toc__index {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    letter-spacing: var(--tracking-kicker);
+    color: var(--text-faint);
+    min-width: 1.6rem;
+  }
+  .toc__link:hover,
+  .toc__link[data-active="true"] {
+    color: var(--text-strong);
+  }
+  .toc__link[data-active="true"] .toc__index { color: var(--mauve); }
+  .scene-ivory .toc {
+    background: rgba(255, 255, 255, 0.78);
+    border-color: var(--line-on-light);
+  }
+  .scene-ivory .toc__link { color: rgba(20, 16, 42, 0.7); }
+  .scene-ivory .toc__link:hover,
+  .scene-ivory .toc__link[data-active="true"] { color: var(--on-light); }
+</style>
+
+<script>
+  const init = () => {
+    const links = Array.from(document.querySelectorAll<HTMLAnchorElement>("[data-toc-link]"));
+    if (!links.length) return;
+    const map = new Map<string, HTMLAnchorElement>();
+    const targets: HTMLElement[] = [];
+    for (const a of links) {
+      const id = a.getAttribute("data-toc-link");
+      if (!id) continue;
+      const el = document.getElementById(id);
+      if (!el) continue;
+      map.set(id, a);
+      targets.push(el);
+    }
+    if (!targets.length) return;
+    const setActive = (id: string) => {
+      for (const a of links) a.removeAttribute("data-active");
+      const a = map.get(id);
+      if (a) a.setAttribute("data-active", "true");
+    };
+    const io = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActive(visible.target.id);
+      },
+      { rootMargin: "-30% 0px -55% 0px", threshold: [0.1, 0.4, 0.7] },
+    );
+    for (const el of targets) io.observe(el);
+  };
+  init();
+  document.addEventListener("astro:page-load", init);
+</script>

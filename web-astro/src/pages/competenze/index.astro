@@ -1,0 +1,135 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHead from "@/components/SectionHead.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import InlineCta from "@/components/InlineCta.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import { competencePages } from "@/lib/seo-content";
+import {
+  buildBreadcrumbSchema,
+  buildItemListSchema,
+  buildWebPageSchema,
+  createPageMeta,
+} from "@/lib/seo";
+
+const meta = createPageMeta({
+  title: "Competenze ed Editoriali Estetici Locali · Carmagnola e dintorni",
+  description:
+    "Approfondimenti e articoli editoriali Rebel sulle principali competenze estetiche a Carmagnola: estetica avanzata, trattamenti viso/corpo, laser e beauty routine professionale.",
+  path: "/competenze",
+  image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/8d07afc2-b036-4eff-d34e-523a6c656d00/public",
+  keywords: [
+    "competenze centro estetico Carmagnola",
+    "estetica avanzata Carmagnola",
+    "guide trattamenti Carmagnola",
+  ],
+});
+
+const compactTitle = (v: string) => v.replace(/\s+a Carmagnola$/i, "").trim();
+
+const featuredSlugs = [
+  "pulizia-viso-carmagnola-frequenza-benefici",
+  "pedicure-carmagnola-ogni-quanto-talloni",
+  "pressoterapia-carmagnola-guida-pratica",
+  "epilazione-laser-ascelle-carmagnola-guida-pratica",
+  "epilazione-laser-inguine-carmagnola-guida-pratica",
+  "laser-uomo-carmagnola-guida-pratica",
+  "peli-incarniti-laser-carmagnola",
+  "manicure-semipermanente-carmagnola-durata-rimozione",
+  "pelle-opaca-grana-irregolare-carmagnola",
+  "contorno-occhi-gonfiore-occhiaie-carmagnola",
+];
+const featuredGuides = featuredSlugs
+  .map((s) => competencePages.find((c) => c.slug === s))
+  .filter((c): c is (typeof competencePages)[number] => Boolean(c));
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Competenze", path: "/competenze" },
+]);
+const competenceListSchema = buildItemListSchema({
+  name: "Guide e competenze Rebel",
+  path: "/competenze",
+  items: competencePages.map((c) => ({ name: c.title, path: `/competenze/${c.slug}` })),
+});
+const webPageSchema = buildWebPageSchema({
+  name: "Guide e competenze Rebel",
+  description: "Guide beauty su laser, viso e corpo per scegliere il trattamento più adatto.",
+  path: "/competenze",
+});
+---
+<BaseLayout meta={meta} bodyClass="page-competenze">
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={competenceListSchema} />
+  <JsonLd data={webPageSchema} />
+
+  <PageHero
+    kicker="Approfondimenti"
+    title="Guide Rebel: la _cultura beauty_ che rende la scelta sicura."
+    lead="Visione, criteri e approfondimenti su viso, corpo e laser per arrivare al trattamento giusto con desiderio e consapevolezza."
+    meta={["Beauty intelligence", "Prima della prenotazione", "Aggiornate periodicamente"]}
+    ctaPrimary={{ label: "Apri consulenza", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Tutti i trattamenti", href: "/listino-estetica-laser" }}
+  />
+
+  {featuredGuides.length > 0 ? (
+    <section class="section">
+      <div class="container">
+        <SectionHead
+          kicker="Per partire subito"
+          title="Le _guide più richieste_."
+          lead="Sono le letture che aprono più spesso una prenotazione: concrete, desiderabili, facili da trasformare in scelta."
+        />
+        <div class="card-grid card-grid--2">
+          {featuredGuides.map((g, i) => (
+            <FeatureCard
+              kicker="Guida"
+              title={compactTitle(g.title)}
+              body={g.shortDescription}
+              href={`/competenze/${g.slug}`}
+              variant="feature"
+              index={i + 1}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  ) : null}
+
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <SectionHead
+        kicker="Tutte le guide"
+        title="L'_archivio_ delle competenze pubblicate."
+        lead="Per ogni tema una pagina: cosa cambia, quando ha senso, come si combina con il resto del percorso."
+      />
+      <div class="card-grid card-grid--2">
+        {competencePages.map((c, i) => (
+          <FeatureCard
+            kicker={c.intent === "commercial" ? "Percorso & prenotazione" : "Guida informativa"}
+            title={c.title}
+            body={c.shortDescription}
+            href={`/competenze/${c.slug}`}
+            variant="quiet"
+            index={i + 1}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <InlineCta
+        kicker="Trasforma la lettura in scelta"
+        title="Apri la consulenza, _porta la guida con te_."
+        lead="Definiamo priorità, calendario e il primo passo del tuo percorso beauty."
+        primaryHref="/contatti"
+        primaryLabel="Apri consulenza"
+        secondaryHref="/listino-estetica-laser"
+        secondaryLabel="Vedi listino"
+      />
+    </div>
+  </section>
+</BaseLayout>

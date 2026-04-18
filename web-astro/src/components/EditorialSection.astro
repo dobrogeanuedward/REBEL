@@ -1,0 +1,41 @@
+---
+interface Props {
+  id?: string;
+  heading: string;
+  paragraphs: string[];
+  level?: 2 | 3;
+}
+const { id, heading, paragraphs, level = 3 } = Astro.props;
+const HeadingTag = level === 2 ? "h2" : "h3";
+---
+<div class="editorial-block" id={id}>
+  <HeadingTag class="editorial-block__heading">{heading}</HeadingTag>
+  {paragraphs.map((p) => (
+    <p class="editorial-block__p">{p}</p>
+  ))}
+</div>
+
+<style>
+  .editorial-block {
+    margin-top: 1.4rem;
+  }
+  .editorial-block:first-child { margin-top: 0; }
+  .editorial-block__heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2vw, 1.55rem);
+    letter-spacing: var(--tracking-section);
+    color: var(--text-strong);
+    margin: 0 0 0.7rem;
+    line-height: 1.18;
+  }
+  .editorial-block__p {
+    font-size: var(--t-body);
+    line-height: var(--leading-body);
+    color: var(--text);
+    margin: 0 0 0.85rem;
+    max-width: 70ch;
+  }
+  .editorial-block__p:last-child { margin-bottom: 0; }
+  .scene-ivory .editorial-block__heading { color: var(--on-light); }
+  .scene-ivory .editorial-block__p { color: rgba(20, 16, 42, 0.78); }
+</style>

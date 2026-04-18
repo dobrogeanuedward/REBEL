@@ -1,0 +1,146 @@
+/* ---------- Hero (page-hero, used on every page) ---------- */
+/* The Rebel hero is a curtain-rise scene. One big display headline, one  */
+/* italic accent word, one short lead, one CTA cluster. No 01/02/03 grid. */
+
+.page-hero {
+  position: relative;
+  isolation: isolate;
+  padding-block: clamp(7rem, 14vw, 12rem) clamp(4rem, 8vw, 7rem);
+  overflow: hidden;
+  min-height: 88svh;
+  display: flex;
+  align-items: end;
+}
+
+.page-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(60% 50% at 18% 20%, rgba(139, 92, 246, 0.30), transparent 70%),
+    radial-gradient(50% 40% at 82% 6%,  rgba(224, 170, 255, 0.18), transparent 72%),
+    radial-gradient(120% 80% at 50% 100%, rgba(46, 16, 101, 0.55), transparent 70%),
+    linear-gradient(180deg, var(--obsidian-1) 0%, var(--obsidian-2) 60%, var(--obsidian-1));
+}
+
+.page-hero__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--grain-url);
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+}
+
+.page-hero__inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: clamp(1.4rem, 2.4vw, 2rem);
+  max-width: 1100px;
+}
+
+.page-hero__kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font-body);
+  font-size: var(--t-kicker);
+  letter-spacing: var(--tracking-kicker);
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--mauve);
+}
+
+.page-hero__kicker::before {
+  content: "";
+  display: inline-block;
+  width: 28px; height: 1px;
+  background: var(--mauve);
+  opacity: 0.7;
+}
+
+.page-hero__title {
+  font-family: var(--font-display);
+  font-size: var(--t-display-mono);
+  line-height: var(--lh-display);
+  letter-spacing: var(--tracking-display);
+  font-weight: 500;
+  color: var(--text-strong);
+  text-wrap: balance;
+  margin: 0;
+}
+
+.page-hero__title em {
+  font-style: italic;
+  background: var(--type-accent);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: text-accent-shift 14s linear infinite;
+}
+
+.page-hero__lead {
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  line-height: 1.55;
+  color: var(--text);
+  max-width: 60ch;
+  font-weight: 400;
+}
+
+.page-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-md) var(--gap-xl);
+  margin-top: 0.8rem;
+  align-items: center;
+  color: var(--text-muted);
+  font-size: var(--t-small);
+  letter-spacing: 0.04em;
+}
+
+.page-hero__meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.page-hero__meta span::before {
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: 999px;
+  background: var(--mauve);
+  box-shadow: 0 0 12px rgba(224, 170, 255, 0.7);
+}
+
+.page-hero__cta {
+  display: flex; flex-wrap: wrap;
+  gap: var(--gap-sm);
+  margin-top: 0.4rem;
+}
+
+/* Scroll indicator — soft, never literal. */
+.page-hero__scroll {
+  position: absolute;
+  bottom: 2.4rem;
+  right: var(--container-pad);
+  font-size: var(--t-micro);
+  letter-spacing: var(--tracking-micro);
+  text-transform: uppercase;
+  color: var(--text-faint);
+  display: flex; align-items: center; gap: 0.6rem;
+}
+
+.page-hero__scroll::before {
+  content: "";
+  width: 28px; height: 1px;
+  background: var(--text-faint);
+  animation: hero-scroll-line 2.4s ease-in-out infinite;
+}
+
+@keyframes hero-scroll-line {
+  0%, 100% { transform: scaleX(0.4); transform-origin: left; }
+  50% { transform: scaleX(1); }
+}

@@ -1,0 +1,178 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHead from "@/components/SectionHead.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import InlineCta from "@/components/InlineCta.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import { protocolCards } from "@/lib/content";
+import { competencePages } from "@/lib/seo-content";
+import {
+  buildArticleSchema,
+  buildBreadcrumbSchema,
+  buildItemListSchema,
+  buildServiceSchema,
+  buildWebPageSchema,
+  createPageMeta,
+} from "@/lib/seo";
+
+const meta = createPageMeta({
+  title: "Protocolli Epigenetici a Carmagnola · Trattamenti viso e corpo Rebel",
+  description:
+    "Scopri i protocolli epigenetici Rebel a Carmagnola: trattamenti viso e corpo per glow, tono, densità, drenaggio e bellezza progressiva.",
+  path: "/protocolli-epigenetici",
+  openGraphType: "article",
+  keywords: [
+    "protocolli epigenetici Carmagnola",
+    "trattamenti viso avanzati Carmagnola",
+    "trattamenti corpo avanzati Carmagnola",
+  ],
+});
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Protocolli epigenetici", path: "/protocolli-epigenetici" },
+]);
+const webPageSchema = buildWebPageSchema({
+  name: "Protocolli epigenetici a Carmagnola",
+  description: "Una panoramica dei protocolli Rebel: viso e corpo, con focus su glow, tono, densità e rigenerazione.",
+  path: "/protocolli-epigenetici",
+});
+const serviceSchema = buildServiceSchema(
+  "Trattamenti epigenetici viso e corpo",
+  "Protocolli personalizzati con attivi funzionali e tecnologia calibrata.",
+  "/protocolli-epigenetici",
+);
+const articleSchema = buildArticleSchema({
+  headline: "Protocolli epigenetici a Carmagnola",
+  description: "Cosa sono i protocolli Rebel e come si scelgono: glow, progressione e lettura iniziale.",
+  path: "/protocolli-epigenetici",
+  keywords: ["protocolli epigenetici", "estetica epigenetica", "Carmagnola"],
+  section: "Protocolli",
+});
+const protocolsSchema = buildItemListSchema({
+  name: "Protocolli epigenetici Rebel",
+  path: "/protocolli-epigenetici",
+  items: protocolCards.map((p) => ({ name: p.name, path: `/protocolli/${p.slug}` })),
+});
+
+const guideSlugs = [
+  "estetica-avanzata-carmagnola",
+  "trattamenti-viso-carmagnola",
+  "trattamenti-corpo-carmagnola",
+  "beauty-routine-carmagnola",
+  "pelle-opaca-grana-irregolare-carmagnola",
+  "tono-viso-ovale-carmagnola-percorso",
+  "contorno-occhi-gonfiore-occhiaie-carmagnola",
+];
+const guides = guideSlugs
+  .map((slug) => competencePages.find((c) => c.slug === slug))
+  .filter((c): c is (typeof competencePages)[number] => Boolean(c));
+const guidesSchema =
+  guides.length > 0
+    ? buildItemListSchema({
+        name: "Guide utili per scegliere un protocollo epigenetico",
+        path: "/protocolli-epigenetici",
+        items: guides.map((g) => ({ name: g.title, path: `/competenze/${g.slug}` })),
+      })
+    : null;
+---
+<BaseLayout meta={meta} bodyClass="page-protocolli">
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={webPageSchema} />
+  <JsonLd data={serviceSchema} />
+  <JsonLd data={articleSchema} />
+  <JsonLd data={protocolsSchema} />
+  {guidesSchema ? <JsonLd data={guidesSchema} /> : null}
+
+  <PageHero
+    kicker="Protocolli Rebel"
+    title="Bellezza _progressiva_: protocolli epigenetici per pelle viva."
+    lead="Ogni protocollo apre un percorso fatto di lettura iniziale, attivi epigenetici e tecnologia mirata: una direzione, non una promessa."
+    meta={["Glow & luminosità", "Tono & ovale", "Drenaggio & comfort"]}
+    ctaPrimary={{ label: "Apri lettura iniziale", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Vai al listino", href: "/listino-estetica-laser" }}
+  />
+
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="I protocolli"
+        title="Scegli il _risultato_ che vuoi vedere prima."
+        lead="Ogni scheda racconta intenzione, ritmo e progressione. Nessun protocollo è uguale a un altro: la priorità si decide insieme."
+      />
+      <div class="card-grid card-grid--3">
+        {protocolCards.map((p, i) => (
+          <FeatureCard
+            kicker={p.price}
+            title={p.name}
+            body={p.desc}
+            href={`/protocolli/${p.slug}`}
+            ariaLabel={`Apri il protocollo ${p.name}`}
+            variant="default"
+            index={i + 1}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--scene-ivory">
+    <div class="container split">
+      <article class="card">
+        <p class="kicker">Come si sceglie</p>
+        <h2 class="card__title">La consulenza apre la direzione, prima ancora del trattamento.</h2>
+        <p class="card__body">
+          La lettura iniziale individua glow, tono, densità e priorità del momento. Da lì il protocollo
+          diventa un percorso costruito sulla tua pelle, non un pacchetto preconfezionato.
+        </p>
+      </article>
+      <article class="card card--feature">
+        <p class="kicker">Cosa puoi notare</p>
+        <h3 class="card__title">Una bellezza che cresce di seduta in seduta.</h3>
+        <p class="card__body">
+          Luminosità, tono e densità diventano qualità visibile. Ogni seduta prepara la successiva: il
+          risultato non resta in agenda, resta sul viso e sul corpo.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  {guides.length > 0 ? (
+    <section class="section">
+      <div class="container">
+        <SectionHead
+          kicker="Per orientarti"
+          title="Guide beauty per scegliere il _protocollo giusto_."
+          lead="Le guide chiariscono obiettivo, ritmo e primo step e accompagnano una scelta più consapevole."
+        />
+        <div class="card-grid card-grid--2">
+          {guides.map((g, i) => (
+            <FeatureCard
+              kicker="Guida"
+              title={g.title}
+              body={g.shortDescription}
+              href={`/competenze/${g.slug}`}
+              variant="quiet"
+              index={i + 1}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  ) : null}
+
+  <section class="section">
+    <div class="container">
+      <InlineCta
+        kicker="Prenota"
+        title="Apri la _lettura iniziale_ e definisci il tuo protocollo."
+        lead="Quindici minuti per individuare priorità, ritmo e calendario. Tutto parte da qui."
+        primaryHref="/contatti"
+        primaryLabel="Prenota consulenza"
+        secondaryHref="/listino-estetica-laser"
+        secondaryLabel="Listino completo"
+      />
+    </div>
+  </section>
+</BaseLayout>

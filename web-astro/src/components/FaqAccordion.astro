@@ -1,0 +1,92 @@
+---
+interface Props {
+  items: Array<{ q: string; a: string }>;
+  kicker?: string;
+}
+const { items, kicker = "Prima di iniziare" } = Astro.props;
+---
+<section class="faq" aria-label="Domande frequenti">
+  {items.map((item, i) => (
+    <details class="faq__item" data-reveal style={`--reveal-delay: ${i * 50}ms;`}>
+      <summary class="faq__summary">
+        <span class="faq__kicker">{kicker} · {String(i + 1).padStart(2, "0")}</span>
+        <span class="faq__q">{item.q}</span>
+        <span class="faq__icon" aria-hidden="true">+</span>
+      </summary>
+      <div class="faq__a">
+        <p>{item.a}</p>
+      </div>
+    </details>
+  ))}
+</section>
+
+<style>
+  .faq {
+    display: grid;
+    gap: 0.6rem;
+  }
+  .faq__item {
+    background: linear-gradient(180deg, rgba(31, 26, 58, 0.78), rgba(20, 16, 42, 0.72));
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: 1.1rem 1.3rem;
+    transition: border-color var(--t-base) var(--ease-soft), background var(--t-base) var(--ease-soft);
+    overflow: hidden;
+  }
+  .faq__item[open] {
+    border-color: var(--line-strong);
+    background: linear-gradient(180deg, rgba(46, 16, 101, 0.32), rgba(20, 16, 42, 0.85));
+  }
+  .faq__summary {
+    list-style: none;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1rem;
+    align-items: baseline;
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+    line-height: 1.2;
+    color: var(--text-strong);
+    letter-spacing: var(--tracking-editorial);
+  }
+  .faq__summary::-webkit-details-marker { display: none; }
+  .faq__kicker {
+    font-family: var(--font-body);
+    font-size: var(--t-micro);
+    letter-spacing: var(--tracking-micro);
+    text-transform: uppercase;
+    color: var(--mauve);
+    font-weight: 600;
+    align-self: center;
+    white-space: nowrap;
+  }
+  .faq__q { color: var(--text-strong); }
+  .faq__icon {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    line-height: 1;
+    color: var(--mauve);
+    transition: transform var(--t-base) var(--ease-cinema);
+    align-self: center;
+  }
+  .faq__item[open] .faq__icon { transform: rotate(45deg); }
+  .faq__a {
+    margin-top: 0.9rem;
+    color: var(--text-muted);
+    font-size: var(--t-body);
+    line-height: var(--lh-body);
+    max-width: 70ch;
+  }
+  .scene-ivory .faq__item {
+    background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(244, 238, 227, 0.96));
+    border-color: var(--line-on-light);
+  }
+  .scene-ivory .faq__item[open] {
+    background: linear-gradient(180deg, #fff, rgba(244, 238, 227, 0.98));
+  }
+  .scene-ivory .faq__q { color: var(--on-light); }
+  .scene-ivory .faq__a { color: var(--on-light-muted); }
+  .scene-ivory .faq__kicker { color: var(--violet-mid); }
+  .scene-ivory .faq__icon { color: var(--violet-mid); }
+</style>

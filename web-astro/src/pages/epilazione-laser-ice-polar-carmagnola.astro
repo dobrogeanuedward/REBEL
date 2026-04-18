@@ -1,0 +1,202 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHead from "@/components/SectionHead.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import FaqAccordion from "@/components/FaqAccordion.astro";
+import InlineCta from "@/components/InlineCta.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import {
+  buildArticleSchema,
+  buildBreadcrumbSchema,
+  buildServiceSchema,
+  createPageMeta,
+} from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
+
+const meta = createPageMeta({
+  title: "Epilazione laser con Ice Polar a Carmagnola",
+  description:
+    "Ice Polar e comfort durante l'epilazione laser: cosa cambia in seduta, come lo usiamo in studio e cosa aspettarti da un percorso laser a Carmagnola.",
+  path: "/epilazione-laser-ice-polar-carmagnola",
+  openGraphType: "article",
+  keywords: [
+    "Ice Polar Carmagnola",
+    "laser con Ice Polar Carmagnola",
+    "laser con raffreddamento Carmagnola",
+    "epilazione laser confortevole Carmagnola",
+    "manipolo Ice Polar laser",
+  ],
+});
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Laser Carmagnola", path: "/epilazione-laser-carmagnola" },
+  { name: "Ice Polar", path: "/epilazione-laser-ice-polar-carmagnola" },
+]);
+
+const serviceSchema = buildServiceSchema(
+  "Epilazione laser con manipolo Ice Polar a Carmagnola",
+  "Approfondimento sul comfort del laser: cosa fa Ice Polar, perché è utile e come impostiamo un percorso coerente per viso e corpo.",
+  "/epilazione-laser-ice-polar-carmagnola",
+);
+
+const articleSchema = buildArticleSchema({
+  headline: "Epilazione laser con Ice Polar a Carmagnola",
+  description:
+    "Una guida chiara sul manipolo Ice Polar: comfort, metodo e consigli pratici prima di iniziare un percorso laser.",
+  path: "/epilazione-laser-ice-polar-carmagnola",
+  keywords: ["Ice Polar", "laser con raffreddamento", "epilazione laser Carmagnola", "comfort laser"],
+  section: "Laser",
+});
+
+const faqs = [
+  {
+    q: "Ice Polar rende il laser indolore?",
+    a: "Aiuta molto il comfort, ma la percezione cambia in base a zona e sensibilità personale. In studio impostiamo sempre in modo graduale e adattato alla risposta della pelle.",
+  },
+  {
+    q: "Perché il comfort conta così tanto in un percorso laser?",
+    a: "Perché un percorso laser funziona quando riesci a seguirlo con serenità: una seduta più confortevole rende più semplice mantenere il calendario e rispettare le poche regole tra una seduta e l'altra.",
+  },
+  {
+    q: "Ice Polar basta da solo per avere un buon risultato?",
+    a: "No. È un alleato importante per l'esperienza, ma la differenza la fanno parametri e calendario impostati su pelle, fototipo e zona — e la continuità del percorso.",
+  },
+  {
+    q: "Su quali zone si nota di più la differenza?",
+    a: "Spesso sulle zone più sensibili (ascelle e inguine) o quando la pelle è reattiva. Si decide sempre in base alla zona e alla tollerabilità: non esiste una regola identica per tutti.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: { "@type": "Answer", text: faq.a },
+  })),
+};
+
+const principles = [
+  {
+    kicker: "Comfort",
+    title: "Raffreddamento attivo",
+    body: "Il manipolo abbassa la temperatura cutanea durante l'impulso laser: la sensazione resta più tollerabile, anche dove la pelle è sottile.",
+  },
+  {
+    kicker: "Metodo",
+    title: "Parametri prima di tutto",
+    body: "Il comfort è un mezzo, non il fine. Settaggio, fototipo e calendario restano il cuore del risultato.",
+  },
+  {
+    kicker: "Continuità",
+    title: "Calendario sostenibile",
+    body: "Stare comoda significa tornare. Un percorso che si rispetta nei tempi giusti rende il risultato finalmente leggibile.",
+  },
+];
+
+const shortcuts = [
+  { href: "/servizi/epilazione-laser-viso-carmagnola", label: "Laser viso" },
+  { href: "/servizi/epilazione-laser-corpo-carmagnola", label: "Laser corpo" },
+  { href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica", label: "Guida ascelle" },
+  { href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica", label: "Guida inguine" },
+  { href: "/competenze/laser-uomo-carmagnola-guida-pratica", label: "Laser uomo" },
+  { href: "/epilazione-laser-carmagnola", label: "Percorso laser" },
+  { href: "/listino-estetica-laser", label: "Prezzi e listino" },
+];
+---
+<BaseLayout meta={meta} bodyClass="page-laser-ice-polar">
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={serviceSchema} />
+  <JsonLd data={articleSchema} />
+  <JsonLd data={faqSchema} />
+
+  <PageHero
+    kicker="Laser più confortevole"
+    title="Ice Polar: il laser che _non si fa temere_, anche dove la pelle è sottile."
+    lead="Il comfort cambia tutto: rende la seduta tollerabile, rispetta il calendario e lascia che il risultato si veda davvero. Qui sotto cosa fa, come lo usiamo, cosa aspettarti."
+    meta={["Rebel · Carmagnola", "Viale Barbaroux 20", "Tecnologia di raffreddamento"]}
+    ctaPrimary={{ label: "Apri consulenza laser", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "WhatsApp diretto", href: siteConfig.social.whatsapp }}
+  />
+
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Cosa cambia in seduta"
+        title="Tre principi che reggono il _comfort_ vero."
+        lead="Non un'estetica del freddo: un metodo che mette la persona al centro per restituire continuità al percorso."
+      />
+      <div class="card-grid card-grid--3">
+        {principles.map((p) => (
+          <FeatureCard kicker={p.kicker} title={p.title} body={p.body} variant="feature" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--scene-ivory">
+    <div class="container split">
+      <article class="card">
+        <p class="kicker">In studio</p>
+        <h2 class="card__title">Il comfort è un metodo, non una promessa.</h2>
+        <p class="card__body">
+          Ice Polar è un sistema di raffreddamento integrato al laser: rende la seduta più tollerabile,
+          soprattutto su zone delicate come ascelle e inguine. Ma il punto resta sempre lo stesso:
+          parametri corretti, fototipo letto bene e calendario sensato. Senza questi, il comfort da solo
+          non basta.
+        </p>
+        <p class="card__body">
+          Il laser è un percorso — non una singola seduta. Se stai più comoda è più semplice rispettarlo,
+          ed è lì che si vede la differenza tra un risultato vero e una serie di tentativi spezzati.
+        </p>
+      </article>
+      <aside class="card card--feature">
+        <p class="kicker">Da dove iniziare</p>
+        <h3 class="card__title">Pagine utili per chi cerca comfort.</h3>
+        <ul class="ice-shortcuts">
+          {shortcuts.map((s) => (
+            <li><a class="btn btn--secondary btn--sm" href={s.href}>{s.label}</a></li>
+          ))}
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Domande frequenti"
+        title="Quattro risposte _oneste_ su Ice Polar."
+      />
+      <FaqAccordion items={faqs} kicker="Comfort & metodo" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <InlineCta
+        kicker="Vuoi capire se è il tuo percorso?"
+        title="Prenota la _consulenza laser_, raccontaci la zona."
+        lead="Quindici minuti per leggere pelle, fototipo e priorità. Da lì impostiamo un calendario sensato — e un primo gesto da prenotare."
+        primaryHref="/contatti"
+        primaryLabel="Apri consulenza"
+        secondaryHref="/epilazione-laser-carmagnola"
+        secondaryLabel="Torna al percorso laser"
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .ice-shortcuts {
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+  }
+</style>

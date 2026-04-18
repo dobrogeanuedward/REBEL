@@ -1,0 +1,57 @@
+---
+// Lenis smooth scroll — driven via raf. Disabled when user prefers reduced
+// motion. Lives in the BaseLayout, runs once per page-load + on view
+// transitions thanks to the `astro:page-load` event.
+---
+<script>
+  import Lenis from "lenis";
+
+  let instance: Lenis | null = null;
+  let rafId = 0;
+
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const start = () => {
+    if (reduce) return;
+    if (instance) return;
+    instance = new Lenis({
+      lerp: 0.085,
+      duration: 1.1,
+      smoothWheel: true,
+      wheelMultiplier: 0.9,
+      touchMultiplier: 1.1,
+    });
+    const tick = (time: number) => {
+      instance?.raf(time);
+      rafId = requestAnimationFrame(tick);
+    };
+    rafId = requestAnimationFrame(tick);
+  };
+
+  const stop = () => {
+    cancelAnimationFrame(rafId);
+    instance?.destroy();
+    instance = null;
+  };
+
+  // Astro view transitions: tear down before swap, reinit after.
+  document.addEventListener("astro:page-load", start);
+  document.addEventListener("astro:before-swap", stop);
+</script>
+
+<style is:global>
+  /* Lenis needs html/body to be scrollable in the normal way. */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+</style>

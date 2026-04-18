@@ -1,0 +1,84 @@
+---
+import { siteConfig } from "@/lib/site-config";
+
+const primary = [
+  { href: "/metodo-rebel", label: "Metodo Rebel" },
+  { href: "/listino-estetica-laser", label: "Trattamenti & prezzi" },
+  { href: "/epilazione-laser-carmagnola", label: "Percorso laser" },
+  { href: "/contatti", label: "Apri consulenza" },
+];
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <img
+          src={siteConfig.assets.logoLight}
+          alt="Rebel Estetica Epigenetica"
+          class="site-footer__logo"
+          width="340"
+          height="116"
+          decoding="async"
+          loading="lazy"
+        />
+        <h2 class="site-footer__tagline">Bellezza viva, metodo epigenetico.</h2>
+        <p class="site-footer__copy">
+          Boutique wellness epigenetico a Carmagnola. Viso, corpo ed epilazione laser
+          in un percorso costruito su misura della tua bellezza.
+        </p>
+        <div class="cluster" style="margin-top:1.5rem;">
+          <a class="btn btn--primary" href="/contatti">Apri consulenza</a>
+          <a class="btn btn--secondary" href="/listino-estetica-laser">Trattamenti</a>
+        </div>
+      </div>
+
+      <nav aria-label="Percorsi principali">
+        <p class="site-footer__title">Percorsi</p>
+        <ul class="site-footer__list">
+          {primary.map((it) => (
+            <li><a href={it.href}>{it.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <address class="site-footer__contact">
+        <p class="site-footer__title">Prenotazioni</p>
+        <div class="site-footer__contact-row">
+          <span>Telefono</span>
+          <a href={`tel:${siteConfig.phoneRaw}`}>{siteConfig.phoneDisplay}</a>
+        </div>
+        <div class="site-footer__contact-row">
+          <span>Email</span>
+          <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+        </div>
+        <div class="site-footer__contact-row">
+          <span>WhatsApp</span>
+          <a href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer">Apri chat</a>
+        </div>
+        <div class="site-footer__contact-row">
+          <span>Indirizzo</span>
+          <a href={siteConfig.social.maps} target="_blank" rel="noreferrer">
+            {siteConfig.address.streetAddress}, {siteConfig.address.locality}
+          </a>
+        </div>
+      </address>
+    </div>
+
+    <div class="site-footer__bottom">
+      <span class="site-footer__copy-line">
+        <img
+          src={siteConfig.assets.logoLight}
+          alt=""
+          class="site-footer__logo-mini"
+          width="120"
+          height="41"
+          decoding="async"
+          loading="lazy"
+          aria-hidden="true"
+        />
+        © {new Date().getFullYear()} {siteConfig.name} — Carmagnola
+      </span>
+      <span>Bellezza epigenetica · glow di pelle · percorso su misura</span>
+    </div>
+  </div>
+</footer>

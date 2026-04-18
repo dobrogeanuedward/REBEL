@@ -1,0 +1,71 @@
+---
+import InstagramEmbed from "@/components/InstagramEmbed.astro";
+import InstagramReelsShowcase from "@/components/InstagramReelsShowcase.astro";
+import { instagramConfig, isReel } from "@/lib/instagram-config";
+import { siteConfig } from "@/lib/site-config";
+
+interface Props {
+  showReels?: boolean;
+  showPosts?: boolean;
+  maxReels?: number;
+  maxPosts?: number;
+  hidePostsOnMobile?: boolean;
+}
+
+const {
+  showReels = true,
+  showPosts = true,
+  maxReels = 3,
+  maxPosts = 3,
+  hidePostsOnMobile = false,
+} = Astro.props;
+
+const reels = instagramConfig.featuredReels.filter((it) => isReel(it)).slice(0, maxReels);
+const posts = instagramConfig.latestPosts.slice(0, maxPosts);
+const isEmpty = reels.length === 0 && posts.length === 0;
+---
+{isEmpty ? (
+  <div class="instagram-empty-state">
+    <p style="margin:0;">
+      Aggiungi i link dei post e reel Instagram in <code>src/lib/instagram-config.ts</code>.
+    </p>
+    <a
+      href={siteConfig.social.instagram}
+      target="_blank"
+      rel="noreferrer"
+      class="btn btn--secondary"
+      style="margin-top: 0.8rem;"
+    >
+      Vai al profilo Instagram
+    </a>
+  </div>
+) : (
+  <div class="instagram-feed">
+    {showReels && reels.length > 0 ? <InstagramReelsShowcase reels={reels} /> : null}
+    {showPosts && posts.length > 0 ? (
+      <section class={`instagram-group instagram-group--posts-showcase${hidePostsOnMobile ? " instagram-group--mobile-hidden" : ""}`}>
+        <div class="instagram-group__head">
+          <div>
+            <h3 class="instagram-group__title">Post in evidenza</h3>
+            <p class="instagram-group__subtitle">REBEL · Centro Estetico Carmagnola</p>
+          </div>
+          <a
+            href={siteConfig.social.instagram}
+            target="_blank"
+            rel="noreferrer"
+            class="instagram-group__link"
+          >
+            Vedi tutti <span>→</span>
+          </a>
+        </div>
+        <div class="instagram-grid instagram-grid--posts">
+          {posts.map((post) => (
+            <article class="instagram-feed-item">
+              <InstagramEmbed urlOrId={post} />
+            </article>
+          ))}
+        </div>
+      </section>
+    ) : null}
+  </div>
+)}

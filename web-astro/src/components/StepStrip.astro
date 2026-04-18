@@ -1,0 +1,23 @@
+---
+interface Step {
+  step: string;
+  title: string;
+  text: string;
+}
+
+interface Props {
+  items: Step[];
+}
+
+const { items } = Astro.props;
+---
+<div class="steps">
+  {items.map((it, idx) => (
+    <article class="step" data-reveal style={`--reveal-delay: ${idx * 80}ms;`}>
+      <span class="step__index">{String(idx + 1).padStart(2, "0")}</span>
+      <p class="step__kicker">{it.step}</p>
+      <h3 class="step__title">{it.title}</h3>
+      <p class="step__body">{it.text}</p>
+    </article>
+  ))}
+</div>

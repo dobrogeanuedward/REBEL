@@ -1,0 +1,92 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { createPageMeta } from "@/lib/seo";
+
+const meta = createPageMeta({
+  title: "Pagina non trovata · Rebel Carmagnola",
+  description: "La pagina che cercavi non è disponibile. Torna alla home oppure scegli un percorso Rebel.",
+  path: "/404",
+  indexable: false,
+});
+---
+<BaseLayout meta={meta} bodyClass="page-404">
+  <section class="not-found">
+    <div class="container not-found__inner">
+      <p class="not-found__kicker">Errore 404</p>
+      <h1 class="not-found__title">Questa pagina non è più qui.</h1>
+      <p class="not-found__lead">
+        Forse il link è cambiato, oppure stiamo riscrivendo il percorso.
+        Da queste tre direzioni si riparte sempre.
+      </p>
+      <div class="cluster cluster--stack-mobile not-found__cta">
+        <a class="btn btn--primary btn--halo" href="/">Torna alla home</a>
+        <a class="btn btn--secondary" href="/listino-estetica-laser">Trattamenti & prezzi</a>
+        <a class="btn btn--secondary" href="/contatti">Apri consulenza</a>
+      </div>
+
+      <ul class="not-found__list">
+        <li><a href="/metodo-rebel">Il metodo Rebel</a></li>
+        <li><a href="/epilazione-laser-carmagnola">Percorso laser</a></li>
+        <li><a href="/protocolli-epigenetici">Protocolli epigenetici</a></li>
+        <li><a href="/centro-estetico-carmagnola">Centro estetico Carmagnola</a></li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found {
+    min-height: 78vh;
+    display: grid;
+    place-items: center;
+    padding-block: clamp(8rem, 14vw, 12rem) clamp(4rem, 8vw, 6rem);
+    position: relative;
+  }
+  .not-found__inner {
+    max-width: 720px;
+    text-align: center;
+  }
+  .not-found__kicker {
+    font-family: var(--font-body);
+    font-size: var(--t-kicker);
+    letter-spacing: var(--tracking-kicker);
+    text-transform: uppercase;
+    color: var(--mauve);
+    margin: 0 0 1.2rem;
+  }
+  .not-found__title {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: var(--tracking-display);
+    color: var(--text-strong);
+    margin: 0 0 1.4rem;
+  }
+  .not-found__lead {
+    font-size: var(--t-lead);
+    color: var(--text-muted);
+    line-height: var(--leading-body);
+    max-width: 56ch;
+    margin: 0 auto 2.2rem;
+  }
+  .not-found__cta { justify-content: center; }
+  .not-found__list {
+    list-style: none;
+    margin: 3rem auto 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem 2rem;
+  }
+  .not-found__list a {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    border-bottom: 1px solid transparent;
+    transition: color var(--t-fast) var(--ease-soft), border-color var(--t-fast) var(--ease-soft);
+  }
+  .not-found__list a:hover {
+    color: var(--text-strong);
+    border-bottom-color: var(--mauve);
+  }
+</style>

@@ -1,0 +1,177 @@
+/* ---------- Container & layout primitives ---------- */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.container--narrow {
+  max-width: 920px;
+}
+
+.section {
+  padding-block: var(--space-section);
+  position: relative;
+}
+
+.section--tight {
+  padding-block: var(--space-section-tight);
+}
+
+.section--first {
+  padding-top: clamp(7rem, 11vw, 10rem); /* clears fixed header */
+}
+
+/* ---------- Type utilities ---------- */
+
+.kicker {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--t-kicker);
+  letter-spacing: var(--tracking-kicker);
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--mauve);
+}
+
+.kicker--muted { color: var(--text-faint); }
+
+.scene-ivory .kicker { color: var(--violet-mid); }
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--t-micro);
+  letter-spacing: var(--tracking-micro);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.lead {
+  font-size: var(--t-body-lg);
+  line-height: var(--lh-body);
+  color: var(--text-muted);
+  max-width: 64ch;
+}
+
+.lead--tight { line-height: 1.5; }
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--t-display-mono);
+  line-height: var(--lh-display);
+  letter-spacing: var(--tracking-display);
+  text-wrap: balance;
+  color: var(--text-strong);
+}
+
+.display em {
+  font-style: italic;
+  background: var(--type-accent);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: text-accent-shift 14s linear infinite;
+}
+
+@keyframes text-accent-shift {
+  to { background-position: 220% 0; }
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--t-display-section);
+  line-height: var(--lh-section);
+  letter-spacing: var(--tracking-section);
+  text-wrap: balance;
+}
+
+.editorial-title {
+  font-family: var(--font-display);
+  font-size: var(--t-editorial);
+  line-height: var(--lh-editorial);
+  letter-spacing: var(--tracking-editorial);
+}
+
+/* ---------- Hairline ---------- */
+
+.hairline {
+  display: block;
+  height: 1px;
+  background: var(--line-accent);
+  border: 0;
+  width: clamp(40px, 7vw, 92px);
+  border-radius: var(--r-pill);
+  opacity: 0.85;
+}
+
+/* ---------- Grain layer (apply on a parent with position: relative) ---------- */
+
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: var(--grain-url);
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+  z-index: 1;
+}
+
+/* ---------- Stack & spacing ---------- */
+
+.stack-2xs > * + * { margin-top: var(--gap-2xs); }
+.stack-xs  > * + * { margin-top: var(--gap-xs); }
+.stack-sm  > * + * { margin-top: var(--gap-sm); }
+.stack-md  > * + * { margin-top: var(--gap-md); }
+.stack-lg  > * + * { margin-top: var(--gap-lg); }
+.stack-xl  > * + * { margin-top: var(--gap-xl); }
+
+.flow > * + * { margin-top: 1.1rem; }
+
+/* ---------- Grid ---------- */
+
+.grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-md); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-md); }
+.grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--gap-md); }
+
+.cluster {
+  display: flex; flex-wrap: wrap;
+  gap: var(--gap-sm);
+  align-items: center;
+}
+
+@media (max-width: 920px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+}
+
+/* ---------- Visually hidden ---------- */
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0);
+  white-space: nowrap; border: 0;
+}
+
+/* ---------- Helpers ---------- */
+
+.text-strong { color: var(--text-strong); }
+.text-muted { color: var(--text-muted); }
+.text-mauve { color: var(--mauve); }
+
+.scene-ivory .text-mauve { color: var(--violet-mid); }
+
+.no-underline { text-decoration: none; }
+
+.full-bleed {
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}

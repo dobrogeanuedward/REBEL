@@ -1,0 +1,169 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHead from "@/components/SectionHead.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import InlineCta from "@/components/InlineCta.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import {
+  buildArticleSchema,
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+  createPageMeta,
+} from "@/lib/seo";
+
+const meta = createPageMeta({
+  title: "Chi siamo · Rebel, boutique wellness epigenetico a Carmagnola",
+  description:
+    "Conosci Rebel: boutique beauty a Carmagnola con estetica epigenetica, trattamenti viso e corpo e laser costruiti per far emergere luce, tono e presenza.",
+  path: "/chi-siamo",
+  openGraphType: "article",
+  keywords: [
+    "chi siamo centro estetico Carmagnola",
+    "Rebel estetica Carmagnola",
+    "estetista specializzata Carmagnola",
+  ],
+});
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Chi siamo", path: "/chi-siamo" },
+]);
+const webPage = buildWebPageSchema({
+  name: "Chi siamo · Rebel Carmagnola",
+  description:
+    "Identità Rebel, visione beauty e modo di lavorare su viso, corpo e laser a Carmagnola.",
+  path: "/chi-siamo",
+});
+const article = buildArticleSchema({
+  headline: "Chi siamo: Rebel a Carmagnola",
+  description:
+    "Identità, metodo e atmosfera Rebel: la nostra idea di bellezza epigenetica a Carmagnola.",
+  path: "/chi-siamo",
+  keywords: ["chi siamo Rebel", "centro estetico Carmagnola", "estetica epigenetica"],
+  section: "Chi siamo",
+});
+
+const ways = [
+  {
+    kicker: "Lettura",
+    title: "Ascolto, prima di tutto",
+    body: "Si parte da ciò che vuoi vedere: glow, tono, armonia, leggerezza, definizione. Poi entra il metodo.",
+  },
+  {
+    kicker: "Tecnica",
+    title: "Precisione, mai improvvisazione",
+    body: "Manualità, attivi e tecnologia scelti per dare intensità giusta, comfort e resa estetica coerente.",
+  },
+  {
+    kicker: "Continuità",
+    title: "Progressi che restano",
+    body: "La bellezza cresce quando il percorso resta vivo: più luce, più ordine, più presenza nel tempo.",
+  },
+];
+
+const paths = [
+  {
+    kicker: "Percorso",
+    title: "Laser a Carmagnola",
+    body: "Zona, fototipo e obiettivo guidano un laser calibrato per uniformità, comfort e una pelle sempre più libera.",
+    href: "/epilazione-laser-carmagnola",
+  },
+  {
+    kicker: "Percorso",
+    title: "Protocolli epigenetici",
+    body: "Viso e corpo quando vuoi una progressione vera: tono, densità, luminosità, rigenerazione.",
+    href: "/protocolli-epigenetici",
+  },
+  {
+    kicker: "Inizia",
+    title: "Apri due righe di consulenza",
+    body: "Zona, obiettivo e tempi desiderati: da qui nasce la proposta più adatta alla tua bellezza.",
+    href: "/contatti",
+  },
+];
+---
+<BaseLayout meta={meta}>
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={webPage} />
+  <JsonLd data={article} />
+
+  <PageHero
+    kicker="Identità · Carmagnola"
+    title="Rebel è il luogo dove la bellezza prende _direzione_."
+    lead="A Carmagnola lavoriamo su pelle, viso, corpo e laser con una visione precisa: far emergere luce, tono, armonia e una presenza che si nota."
+    meta={["Viale Barbaroux 20", "Boutique wellness epigenetico"]}
+    ctaPrimary={{ label: "Apri la consulenza", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Scopri il metodo", href: "/metodo-rebel" }}
+  />
+
+  <section class="section">
+    <div class="container grid-2">
+      <article class="card card--feature">
+        <p class="card__kicker">Visione</p>
+        <h2 class="card__title">Una bellezza che si vede e si sente.</h2>
+        <p class="card__body">
+          Pelle luminosa, linee più armoniose, corpo più leggero, sguardo più curato. Ogni scelta nasce
+          per alzare il valore percepito del risultato — seduta dopo seduta.
+        </p>
+      </article>
+      <article class="card">
+        <p class="card__kicker">Identità</p>
+        <h2 class="card__title">Più gusto, più metodo, più risultato.</h2>
+        <p class="card__body">
+          Rebel è uno studio a Carmagnola dove estetica epigenetica, trattamenti viso e corpo e laser si
+          incontrano in un percorso costruito per valorizzare la tua immagine con precisione, eleganza e continuità.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container">
+      <SectionHead
+        kicker="Modo di lavorare"
+        title="Tre _principi_ che reggono ogni seduta."
+      />
+      <div class="card-grid card-grid--3">
+        {ways.map((w, i) => (
+          <FeatureCard
+            kicker={w.kicker}
+            title={w.title}
+            body={w.body}
+            index={i + 1}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Da dove iniziare"
+        title="Tre _porte_ d'ingresso."
+        lead="Scegli il punto di partenza più vicino al tuo obiettivo. Il resto del percorso si costruisce con noi."
+      />
+      <div class="card-grid card-grid--3">
+        {paths.map((p) => (
+          <FeatureCard
+            kicker={p.kicker}
+            title={p.title}
+            body={p.body}
+            href={p.href}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <InlineCta
+        kicker="Prenotazione"
+        title="Apri la _consulenza_, dai un nome alla tua direzione."
+        lead="Quindici minuti per leggere il punto di partenza, definire il primo trattamento e impostare il calendario beauty."
+      />
+    </div>
+  </section>
+</BaseLayout>

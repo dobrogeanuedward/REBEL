@@ -1,0 +1,149 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHead from "@/components/SectionHead.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import InlineCta from "@/components/InlineCta.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import { localAreaPages } from "@/lib/local-pages";
+import {
+  buildBreadcrumbSchema,
+  buildItemListSchema,
+  buildWebPageSchema,
+  createPageMeta,
+} from "@/lib/seo";
+
+const meta = createPageMeta({
+  title: "Località servite da Rebel · Carmagnola, Torino Sud e Cuneo",
+  description:
+    "Pagine dedicate alle località da cui ci raggiungono: percorsi laser, estetica avanzata e servizi classici, con link utili per orientarti e prenotare.",
+  path: "/localita",
+  keywords: [
+    "centro estetico Carmagnola e dintorni",
+    "estetista vicino Carmagnola",
+    "aree servite centro estetico Rebel",
+  ],
+});
+
+const areaGroups = [
+  {
+    key: "asse-carmagnola" as const,
+    kicker: "Asse Carmagnola",
+    title: "I _comuni_ più vicini allo studio.",
+    lead: "Le zone da cui arrivano più spesso le clienti Rebel.",
+  },
+  {
+    key: "torino-sud" as const,
+    kicker: "Torino Sud",
+    title: "_Cintura_ torinese a sud.",
+    lead: "Comuni serviti nell'area sud della città metropolitana di Torino.",
+  },
+  {
+    key: "cuneo" as const,
+    kicker: "Provincia di Cuneo",
+    title: "Il _cuneese_ che ci raggiunge.",
+    lead: "Comuni della provincia di Cuneo da cui ci raggiungono per percorsi completi.",
+  },
+];
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Località", path: "/localita" },
+]);
+const webPageSchema = buildWebPageSchema({
+  name: "Località servite da Rebel",
+  description:
+    "Pagine dedicate alle località da cui ci raggiungono: focus e link utili per iniziare (laser, protocolli, servizi).",
+  path: "/localita",
+});
+const localAreaListSchema = buildItemListSchema({
+  name: "Aree servite Rebel",
+  path: "/localita",
+  items: localAreaPages.map((a) => ({ name: a.city, path: `/localita/${a.slug}` })),
+});
+
+const groupedAreas = areaGroups.map((g) => ({
+  ...g,
+  areas: localAreaPages.filter((a) => a.cluster === g.key),
+}));
+---
+<BaseLayout meta={meta} bodyClass="page-localita">
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={localAreaListSchema} />
+  <JsonLd data={webPageSchema} />
+
+  <PageHero
+    kicker="Aree servite"
+    title={`_${localAreaPages.length} pagine_ locali · Carmagnola, Torino Sud e Cuneo.`}
+    lead="Una pagina per ogni località da cui ci raggiungono. Ognuna con un taglio diverso: laser, viso/corpo, protocolli, servizi classici utili per completare il percorso."
+    meta={[`${localAreaPages.length} località coperte`, "Mappa e indicazioni", "Link utili per partire"]}
+    ctaPrimary={{ label: "Apri consulenza", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Vedi pagina Carmagnola", href: "/localita/carmagnola" }}
+  />
+
+  {groupedAreas.map((g) =>
+    g.areas.length > 0 ? (
+      <section class="section">
+        <div class="container">
+          <SectionHead kicker={g.kicker} title={g.title} lead={g.lead} />
+          <div class="card-grid card-grid--3">
+            {g.areas.map((a, i) => (
+              <FeatureCard
+                kicker={g.kicker}
+                title={a.city}
+                body={a.description}
+                href={`/localita/${a.slug}`}
+                ariaLabel={`Apri la pagina ${a.city}`}
+                index={i + 1}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+    ) : null,
+  )}
+
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <SectionHead
+        kicker="Per partire"
+        title="Tre _direzioni_ utili (anche se vieni da fuori)."
+        lead="Pagine pilastro che chiariscono percorso, prezzi e cosa aspettarti — senza dover navigare a caso."
+      />
+      <div class="card-grid card-grid--3">
+        <FeatureCard
+          kicker="Percorso"
+          title="Epilazione laser a Carmagnola"
+          body="Sedute, calendario e cosa aspettarti senza promesse strane."
+          href="/epilazione-laser-carmagnola"
+        />
+        <FeatureCard
+          kicker="Percorso"
+          title="Protocolli epigenetici"
+          body="Percorsi viso/corpo quando vuoi una progressione (non una singola seduta)."
+          href="/protocolli-epigenetici"
+        />
+        <FeatureCard
+          kicker="Listino"
+          title="Estetica + Laser, prezzi chiari"
+          body="Tutti i trattamenti Rebel ordinati per area, con prezzi indicativi aggiornati."
+          href="/listino-estetica-laser"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <InlineCta
+        kicker="Da dove parto?"
+        title="Scrivici due righe, _orientiamo insieme_."
+        lead="Zona, obiettivo, tempi: ti diciamo qual è la scelta più pulita per partire — anche se arrivi da fuori."
+        primaryHref="/contatti"
+        primaryLabel="Apri consulenza"
+        secondaryHref="/servizi"
+        secondaryLabel="Tutti i servizi"
+      />
+    </div>
+  </section>
+</BaseLayout>

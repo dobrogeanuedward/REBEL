@@ -1,0 +1,339 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHead from "@/components/SectionHead.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import FaqAccordion from "@/components/FaqAccordion.astro";
+import InlineCta from "@/components/InlineCta.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import {
+  buildBreadcrumbSchema,
+  buildServiceSchema,
+  createPageMeta,
+} from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
+
+const meta = createPageMeta({
+  title: "Epilazione laser a Carmagnola · Thory + Ice Polar | Rebel",
+  description:
+    "Epilazione laser a Carmagnola con tecnologia Thory e Ice Polar: valutazione iniziale, piano personalizzato e monitoraggio costante.",
+  path: "/epilazione-laser-carmagnola",
+  image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e3635dd7-e046-46af-56a5-cf36d8239c00/public",
+  openGraphType: "article",
+  keywords: [
+    "epilazione laser Carmagnola",
+    "laser Carmagnola",
+    "centro epilazione laser Carmagnola",
+    "epilazione laser viso Carmagnola",
+    "epilazione laser corpo Carmagnola",
+    "prezzi epilazione laser Carmagnola",
+    "Rebel epilazione laser",
+  ],
+});
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Epilazione laser Carmagnola", path: "/epilazione-laser-carmagnola" },
+]);
+
+const laserServiceSchema = buildServiceSchema(
+  "Epilazione laser a Carmagnola",
+  "Percorso di epilazione laser a Carmagnola con tecnologia Thory, valutazione iniziale e piano personalizzato per viso e corpo.",
+  "/epilazione-laser-carmagnola",
+);
+
+const faqs = [
+  {
+    q: "L'epilazione laser è adatta a tutte le zone?",
+    a: "Sì. In studio impostiamo il piano in base a zona, fototipo e obiettivo reale, sia per viso che per corpo.",
+  },
+  {
+    q: "Quante sedute servono?",
+    a: "Dipende da area, tipo di pelo e risposta individuale. Si lavora su un ciclo progressivo con calendario definito all'inizio.",
+  },
+  {
+    q: "Quanto costa l'epilazione laser da Rebel?",
+    a: "I prezzi partono da 25,90 € per area, con possibilità di percorsi strutturati. Il listino completo è nella pagina dedicata.",
+  },
+  {
+    q: "Come prenoto la valutazione?",
+    a: "Da WhatsApp o dalla pagina contatti. Da lì definiamo zona, calendario e preparazione per aprire il percorso.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
+const localLandingSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${siteConfig.siteUrl}/epilazione-laser-carmagnola#webpage`,
+  url: `${siteConfig.siteUrl}/epilazione-laser-carmagnola`,
+  name: "Epilazione laser a Carmagnola",
+  description:
+    "Pagina dedicata all'epilazione laser a Carmagnola con percorso personalizzato, comfort evoluto e progressione visibile.",
+  inLanguage: "it-IT",
+  about: [
+    "epilazione laser Carmagnola",
+    "laser viso Carmagnola",
+    "laser corpo Carmagnola",
+    "centro estetico Carmagnola",
+  ],
+  isPartOf: { "@id": `${siteConfig.siteUrl}/#website` },
+  mainEntity: {
+    "@type": "Service",
+    "@id": `${siteConfig.siteUrl}/epilazione-laser-carmagnola#service`,
+    name: "Epilazione laser a Carmagnola",
+    provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
+  },
+};
+
+const principles = [
+  {
+    kicker: "01 · Lettura iniziale",
+    title: "Diagnosi prima della cabina.",
+    body: "Mappatura di zona, fototipo, fase e ciclo. Il piano nasce qui, non al momento dell'impulso.",
+  },
+  {
+    kicker: "02 · Tecnologia",
+    title: "Thory + Ice Polar.",
+    body: "Lunghezza d'onda calibrata e raffreddamento dinamico. Sensazione gestibile anche su zone delicate.",
+  },
+  {
+    kicker: "03 · Calendario",
+    title: "Ritmo, non fretta.",
+    body: "Cadenza pensata sul tuo ciclo follicolare. Risultato che cresce, non che scompare e ritorna.",
+  },
+  {
+    kicker: "04 · Monitoraggio",
+    title: "Foto, note, parametri.",
+    body: "Ogni seduta lascia traccia. Ogni passaggio è confrontabile. Niente percezioni, solo evidenze.",
+  },
+];
+
+const guides = [
+  {
+    href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
+    title: "Laser ascelle",
+    body: "Comfort e tempi reali per la zona che cambia di più la sensazione di pulizia quotidiana.",
+  },
+  {
+    href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
+    title: "Laser inguine",
+    body: "Zona delicata trattata con strategia, rispetto cutaneo e continuità.",
+  },
+  {
+    href: "/competenze/laser-gambe-carmagnola-guida-pratica",
+    title: "Laser gambe",
+    body: "Stagionalità, mantenimento e pelle leggera quando la priorità sono le gambe.",
+  },
+  {
+    href: "/competenze/epilazione-laser-estate-sole-carmagnola",
+    title: "Laser & sole",
+    body: "Esposizione e calendario gestiti con intelligenza per non interrompere il percorso.",
+  },
+  {
+    href: "/competenze/epilazione-laser-inverno-carmagnola",
+    title: "Laser in inverno",
+    body: "Il momento ideale per costruire continuità e arrivare ai mesi luminosi già trasformata.",
+  },
+  {
+    href: "/competenze/laser-e-palestra-sport-carmagnola",
+    title: "Laser & palestra",
+    body: "Sport, doccia, calore, tessuti: come custodire comfort e resa nelle ore successive.",
+  },
+];
+
+const zoneShortcuts = [
+  { href: "/servizi/epilazione-laser-viso-carmagnola", label: "Laser viso" },
+  { href: "/servizi/epilazione-laser-corpo-carmagnola", label: "Laser corpo" },
+  { href: "/servizi/epilazione-laser-viso-uomo-carmagnola", label: "Laser viso uomo" },
+  { href: "/servizi/epilazione-laser-corpo-uomo-carmagnola", label: "Laser corpo uomo" },
+  { href: "/competenze/laser-uomo-carmagnola-guida-pratica", label: "Guida laser uomo" },
+  { href: "/competenze/peli-incarniti-laser-carmagnola", label: "Peli incarniti" },
+];
+---
+<BaseLayout meta={meta}>
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={laserServiceSchema} />
+  <JsonLd data={faqSchema} />
+  <JsonLd data={localLandingSchema} />
+
+  <PageHero
+    kicker="Epilazione laser · Carmagnola"
+    title="Pelle libera, _comfort_ misurabile, percorso costruito su di te."
+    lead="Tecnologia Thory con manipolo Ice Polar. Lettura iniziale, calendario reale, monitoraggio seduta dopo seduta."
+    meta={["Da 25,90 €", "Thory · Ice Polar", "Viale Barbaroux 20"]}
+    ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Listino & prezzi", href: "/listino-estetica-laser" }}
+  />
+
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Metodo · Quattro pilastri"
+        title="Niente scorciatoie. Il _laser fatto come si deve_."
+        lead="Quattro fasi inderogabili che separano una seduta improvvisata da un percorso che funziona."
+      />
+      <div class="card-grid card-grid--2">
+        {principles.map((p, i) => (
+          <FeatureCard
+            kicker={p.kicker}
+            title={p.title}
+            body={p.body}
+            variant={i === 0 ? "feature" : "default"}
+            index={i + 1}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="laser-spotlight">
+        <figure class="laser-spotlight__media">
+          <img
+            src="https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e3635dd7-e046-46af-56a5-cf36d8239c00/public"
+            alt="Epilazione laser corpo in cabina Rebel a Carmagnola"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+        <div class="laser-spotlight__body">
+          <p class="kicker">Viso & corpo · Schede rapide</p>
+          <h2 class="laser-spotlight__title">Apri direttamente la zona che ti interessa.</h2>
+          <p class="laser-spotlight__lead">
+            Ogni scheda dichiara comfort, durata e prezzo. Niente preventivi opachi.
+          </p>
+          <div class="laser-spotlight__cluster">
+            {zoneShortcuts.map((z) => (
+              <a class="btn btn--secondary btn--sm" href={z.href}>{z.label}</a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Approfondimenti"
+        title="Le _zone_ più richieste e le letture che fanno la differenza."
+        lead="Stagionalità, fototipi, gestione tra una seduta e l'altra. Il sapere prima dell'esperienza."
+      />
+      <div class="card-grid card-grid--3">
+        {guides.map((g) => (
+          <FeatureCard
+            title={g.title}
+            body={g.body}
+            href={g.href}
+            variant="quiet"
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <SectionHead
+        kicker="Domande frequenti"
+        title="Le _domande_ che arrivano prima del primo appuntamento."
+      />
+      <FaqAccordion items={faqs} kicker="FAQ Laser" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <InlineCta
+        kicker="Apri il tuo percorso"
+        title="Una _valutazione gratuita_ per definire zona, ciclo e calendario."
+        lead="Quindici minuti per ascoltare la tua pelle e proporti un piano realistico, già prenotabile."
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .laser-spotlight {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.4rem;
+    align-items: stretch;
+    padding: 2rem;
+    border-radius: var(--r-lg);
+    background: linear-gradient(180deg, rgba(31, 26, 58, 0.7), rgba(20, 16, 42, 0.95));
+    border: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .laser-spotlight::before {
+    content: "";
+    position: absolute;
+    inset: -40% -10% auto auto;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(closest-side, rgba(91, 43, 216, 0.35), transparent 70%);
+    filter: blur(40px);
+    pointer-events: none;
+  }
+  .laser-spotlight__media {
+    margin: 0;
+    border-radius: var(--r-md);
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    position: relative;
+    z-index: 1;
+  }
+  .laser-spotlight__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .laser-spotlight__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+  .laser-spotlight__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2.4vw, 2rem);
+    line-height: 1.15;
+    letter-spacing: var(--tracking-editorial);
+    color: var(--text-strong);
+    margin: 0;
+  }
+  .laser-spotlight__lead {
+    color: var(--text-muted);
+    font-size: var(--t-body);
+    line-height: var(--lh-body);
+    margin: 0;
+    max-width: 50ch;
+  }
+  .laser-spotlight__cluster {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  @media (max-width: 880px) {
+    .laser-spotlight {
+      grid-template-columns: 1fr;
+      padding: 1.4rem;
+      gap: 1.6rem;
+    }
+  }
+</style>

@@ -1,0 +1,47 @@
+---
+import { extractInstagramId, isReel } from "@/lib/instagram-config";
+
+interface Props {
+  urlOrId: string;
+  className?: string;
+  captioned?: boolean;
+}
+
+const { urlOrId, className = "", captioned = true } = Astro.props;
+
+function buildPermalink(input: string) {
+  if (input.startsWith("http")) {
+    const cleaned = input.split("?")[0];
+    return cleaned.endsWith("/") ? cleaned : `${cleaned}/`;
+  }
+  const id = extractInstagramId(input);
+  return isReel(input)
+    ? `https://www.instagram.com/reel/${id}/`
+    : `https://www.instagram.com/p/${id}/`;
+}
+
+const permalink = buildPermalink(urlOrId);
+const reel = isReel(urlOrId);
+const embedUrl = reel
+  ? `${permalink}embed/`
+  : captioned
+    ? `${permalink}embed/captioned/`
+    : `${permalink}embed/`;
+---
+<div class={`instagram-embed-wrapper ${reel ? "is-reel" : "is-post"} ${className}`.trim()}>
+  <iframe
+    src={embedUrl}
+    title={reel ? "Instagram Reel" : "Instagram Post"}
+    class="instagram-embed-iframe"
+    loading="lazy"
+    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+    allowfullscreen
+    sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms allow-top-navigation-by-user-activation"
+    referrerpolicy="strict-origin-when-cross-origin"
+  ></iframe>
+  <noscript>
+    <a href={permalink} target="_blank" rel="noreferrer">
+      Apri il contenuto su Instagram
+    </a>
+  </noscript>
+</div>

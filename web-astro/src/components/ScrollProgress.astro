@@ -1,0 +1,29 @@
+---
+// Cinema scroll bar — vanilla TS, no React, ~0.4kb gzipped.
+---
+<div class="scroll-progress" aria-hidden="true">
+  <div class="scroll-progress__bar" id="scroll-progress-bar"></div>
+</div>
+
+<script>
+  const init = () => {
+    const bar = document.getElementById("scroll-progress-bar");
+    if (!bar) return;
+    let raf = 0;
+    const update = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+      bar.style.setProperty("--progress", `${pct}%`);
+      raf = 0;
+    };
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", update, { passive: true });
+  };
+  // Fire on first load + on every Astro view transition.
+  document.addEventListener("astro:page-load", init);
+</script>

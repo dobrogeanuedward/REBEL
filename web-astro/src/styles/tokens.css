@@ -1,0 +1,192 @@
+/* ==========================================================================
+   Rebel · Design Tokens
+   --------------------------------------------------------------------------
+   Three territories: OBSIDIAN (theatre), ROYAL VIOLET (signature), IVORY
+   (light-side counter scene). The violet is treated as a material, not as a
+   highlight. Every other token bends to that hierarchy.
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* ---------- Palette ---------- */
+  /* Theatre */
+  --obsidian-1: #07050E;        /* deepest, used as page void          */
+  --obsidian-2: #0B0817;        /* base layer with violet undertone     */
+  --obsidian-3: #14102A;        /* card surfaces, headers when scrolled */
+  --obsidian-4: #1F1A3A;        /* hover surface, dividers              */
+
+  /* Royal violet — the material */
+  --violet-deep: #2E1065;       /* shadow / floor                       */
+  --violet-mid:  #5B2BD8;       /* signature color                      */
+  --violet-hi:   #8B5CF6;       /* light, hover                         */
+  --mauve:       #E0AAFF;       /* glow, type accent, micro-line        */
+
+  /* Ivory & sand counter-territory */
+  --ivory-1:     #F4EEE3;
+  --ivory-2:     #ECE3D4;
+  --sand-1:      #D9C5A3;
+  --sand-2:      #B89770;       /* champagne — used sparingly            */
+
+  /* Skin, used only when light-side cards need it (foreground texture)  */
+  --skin-1:      #F0D9C7;
+
+  /* Functional */
+  --text:        #F4EEE3;
+  --text-strong: #FFFCF4;
+  --text-muted:  rgba(244, 238, 227, 0.66);
+  --text-faint:  rgba(244, 238, 227, 0.42);
+
+  --on-light:        #14102A;
+  --on-light-muted:  rgba(20, 16, 42, 0.72);
+  --on-light-faint:  rgba(20, 16, 42, 0.5);
+
+  --line:        rgba(244, 238, 227, 0.10);
+  --line-strong: rgba(244, 238, 227, 0.18);
+  --line-on-light: rgba(20, 16, 42, 0.10);
+
+  /* ---------- Signature gradients ---------- */
+  /* Wash — the violet flood used for hero scenes & primary buttons.   */
+  --wash-violet:
+    radial-gradient(120% 80% at 30% 18%, var(--violet-mid) 0%,
+                    var(--violet-deep) 42%, var(--obsidian-1) 82%);
+  --wash-violet-soft:
+    radial-gradient(120% 80% at 30% 18%, rgba(91, 43, 216, 0.55) 0%,
+                    rgba(46, 16, 101, 0.5) 42%, transparent 82%);
+
+  /* Type accent — used on the single hero word per page.              */
+  --type-accent:
+    linear-gradient(100deg,
+      var(--ivory-1) 0%,
+      var(--mauve)   34%,
+      var(--violet-hi) 66%,
+      var(--ivory-1) 100%);
+
+  /* Hairline — single brand line for underlines / dividers.           */
+  --line-accent:
+    linear-gradient(90deg, var(--violet-hi), var(--mauve), var(--ivory-1));
+
+  /* Conic halo — reserved for the signature CTA (one only).           */
+  --halo-violet:
+    conic-gradient(from 200deg at 50% 50%,
+      var(--violet-mid) 0deg,
+      var(--mauve)      90deg,
+      var(--ivory-1)    180deg,
+      var(--violet-hi)  270deg,
+      var(--violet-mid) 360deg);
+
+  /* ---------- Typography ---------- */
+  --font-display: "Playfair Display", "Cormorant Garamond", "Times New Roman", serif;
+  --font-body:    "Manrope", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Four scenic levels — never invent a fifth without a reason.       */
+  --t-display-mono:    clamp(4.4rem, 11vw, 11rem);   /* hero, once per page */
+  --t-display-section: clamp(2.6rem, 6vw, 5rem);     /* one per section     */
+  --t-editorial:       clamp(1.6rem, 2.4vw, 2.4rem); /* h2 cards, blocks    */
+  --t-body-lg:         1.05rem;
+  --t-body:            0.98rem;
+  --t-small:           0.86rem;
+  --t-kicker:          0.72rem;
+  --t-micro:           0.66rem;
+
+  --lh-display: 0.92;
+  --lh-section: 0.98;
+  --lh-editorial: 1.06;
+  --lh-body: 1.66;
+
+  --tracking-display: -0.045em;
+  --tracking-section: -0.025em;
+  --tracking-editorial: -0.015em;
+  --tracking-body: -0.005em;
+  --tracking-kicker: 0.22em;
+  --tracking-micro:  0.18em;
+
+  /* ---------- Spacing ---------- */
+  --container-max: 1240px;
+  --container-pad: clamp(1.2rem, 3vw, 2.2rem);
+
+  --gap-2xs: 0.32rem;
+  --gap-xs:  0.55rem;
+  --gap-sm:  0.85rem;
+  --gap-md:  1.25rem;
+  --gap-lg:  2rem;
+  --gap-xl:  3.2rem;
+  --gap-2xl: 5.5rem;
+
+  --space-section: clamp(4rem, 9vw, 8rem);
+  --space-section-tight: clamp(2.6rem, 6vw, 5rem);
+
+  /* ---------- Radius ---------- */
+  /* Four levels only. Nothing above --r-lg. Pill for circular things.  */
+  --r-sm: 6px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-pill: 999px;
+
+  /* ---------- Shadows / depth ---------- */
+  /* Shadows are violet-tinted, never neutral grey, never pure black.   */
+  --shadow-sm:
+    0 1px 2px rgba(7, 5, 14, 0.4),
+    0 8px 18px rgba(46, 16, 101, 0.18);
+  --shadow-md:
+    0 8px 24px rgba(7, 5, 14, 0.45),
+    0 24px 60px rgba(46, 16, 101, 0.22);
+  --shadow-lg:
+    0 14px 38px rgba(7, 5, 14, 0.55),
+    0 36px 90px rgba(46, 16, 101, 0.28);
+  --shadow-violet-glow:
+    0 0 0 1px rgba(139, 92, 246, 0.18),
+    0 24px 70px rgba(91, 43, 216, 0.45);
+  --shadow-mauve-glow:
+    0 0 32px rgba(224, 170, 255, 0.18),
+    0 0 80px rgba(139, 92, 246, 0.22);
+
+  /* ---------- Motion ---------- */
+  --ease-cinema: cubic-bezier(0.22, 1, 0.36, 1);          /* expo-out */
+  --ease-soft:   cubic-bezier(0.4, 0, 0.2, 1);            /* material */
+  --ease-stage:  cubic-bezier(0.16, 1, 0.3, 1);           /* curtain  */
+  --t-fast:   180ms;
+  --t-base:   320ms;
+  --t-slow:   620ms;
+  --t-stage: 1200ms;
+
+  /* ---------- Layers ---------- */
+  --z-ambient: -1;
+  --z-base:    1;
+  --z-rise:    10;
+  --z-header:  60;
+  --z-overlay: 70;
+  --z-cursor:  90;
+  --z-modal:   80;
+
+  /* ---------- Noise grain ---------- */
+  --grain-url: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.95  0 0 0 0 0.93  0 0 0 0 0.89  0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/></svg>");
+
+  /* ---------- Logo polarity ---------- */
+  /* The system holds two logo URLs. Components decide which to mount   */
+  /* based on `data-surface`. Never compensate with glow.               */
+  --logo-on-dark: url("https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/8e57610c-3a93-48fa-e535-b864967a4e00/public");
+  --logo-on-light: url("https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/8e57610c-3a93-48fa-e535-b864967a4e00/public");
+  /* TODO once a true ivory mark exists, override --logo-on-dark only.  */
+}
+
+/* Light scene override — applied via `.scene-ivory` on a section.     */
+.scene-ivory {
+  --text:        #14102A;
+  --text-strong: #07050E;
+  --text-muted:  rgba(20, 16, 42, 0.72);
+  --text-faint:  rgba(20, 16, 42, 0.5);
+  --line:        rgba(20, 16, 42, 0.08);
+  --line-strong: rgba(20, 16, 42, 0.16);
+  color: var(--text);
+}
+
+/* Reduced motion — kill cinematic motion gracefully. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --t-fast:  60ms;
+    --t-base:  90ms;
+    --t-slow:  120ms;
+    --t-stage: 160ms;
+  }
+}

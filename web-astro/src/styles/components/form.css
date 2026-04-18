@@ -1,0 +1,129 @@
+/* ---------- Forms ---------- */
+
+.form {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.form__row {
+  display: grid;
+  gap: 1.1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 720px) {
+  .form__row { grid-template-columns: 1fr; }
+}
+
+.form__intro {
+  margin-bottom: 0.4rem;
+}
+
+.form__kicker {
+  font-size: var(--t-kicker);
+  letter-spacing: var(--tracking-kicker);
+  text-transform: uppercase;
+  color: var(--mauve);
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.scene-ivory .form__kicker { color: var(--violet-mid); }
+
+.form__note {
+  font-size: var(--t-small);
+  color: var(--text-muted);
+}
+
+.scene-ivory .form__note { color: var(--on-light-muted); }
+
+.form label {
+  display: grid;
+  gap: 0.4rem;
+  font-size: var(--t-small);
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.scene-ivory .form label { color: var(--on-light-muted); }
+
+.form input,
+.form textarea,
+.form select {
+  width: 100%;
+  padding: 0.95rem 1.05rem;
+  border-radius: var(--r-md);
+  background: rgba(7, 5, 14, 0.55);
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.4;
+  transition:
+    border-color var(--t-fast) var(--ease-soft),
+    background var(--t-fast) var(--ease-soft),
+    box-shadow var(--t-fast) var(--ease-soft);
+}
+
+.scene-ivory .form input,
+.scene-ivory .form textarea,
+.scene-ivory .form select {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: var(--line-on-light);
+  color: var(--on-light);
+}
+
+.form input::placeholder,
+.form textarea::placeholder {
+  color: var(--text-faint);
+}
+
+.scene-ivory .form input::placeholder,
+.scene-ivory .form textarea::placeholder {
+  color: var(--on-light-faint);
+}
+
+.form input:focus,
+.form textarea:focus,
+.form select:focus {
+  outline: none;
+  border-color: var(--mauve);
+  box-shadow: 0 0 0 4px rgba(224, 170, 255, 0.18);
+  background: rgba(7, 5, 14, 0.7);
+}
+
+.scene-ivory .form input:focus,
+.scene-ivory .form textarea:focus {
+  background: #fff;
+  border-color: var(--violet-mid);
+  box-shadow: 0 0 0 4px rgba(91, 43, 216, 0.12);
+}
+
+.form textarea { resize: vertical; min-height: 140px; }
+
+.form__honeypot {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+}
+
+.form__feedback {
+  font-size: var(--t-small);
+  letter-spacing: 0.04em;
+  padding: 0.85rem 1rem;
+  border-radius: var(--r-md);
+  border: 1px solid var(--line);
+}
+
+.form__feedback[data-state="ok"] {
+  color: #c9f7e4;
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.form__feedback[data-state="error"] {
+  color: #ffd7e0;
+  background: rgba(228, 72, 150, 0.12);
+  border-color: rgba(228, 72, 150, 0.3);
+}

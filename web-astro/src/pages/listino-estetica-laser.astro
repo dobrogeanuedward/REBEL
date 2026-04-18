@@ -1,0 +1,205 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHead from "@/components/SectionHead.astro";
+import PriceRow from "@/components/PriceRow.astro";
+import InlineCta from "@/components/InlineCta.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import {
+  buildBreadcrumbSchema,
+  buildItemListSchema,
+  buildWebPageSchema,
+  createPageMeta,
+} from "@/lib/seo";
+import { protocolCards } from "@/lib/content";
+import { servicePages } from "@/lib/seo-content";
+
+const meta = createPageMeta({
+  title: "Listino Rebel · Estetica + Epilazione laser a Carmagnola",
+  description:
+    "Listino completo Rebel a Carmagnola: estetica avanzata, epilazione laser ed estetica epigenetica in un'unica pagina con prezzi chiari.",
+  path: "/listino-estetica-laser",
+  keywords: [
+    "listino centro estetico Carmagnola",
+    "prezzi epilazione laser Carmagnola",
+    "epilazione laser Rebel",
+    "laser Carmagnola",
+    "listino estetista Carmagnola",
+  ],
+});
+
+const classica = servicePages.filter((s) => s.category === "estetica-classica");
+const laser = servicePages.filter((s) => s.category === "laser");
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Listino estetica e laser", path: "/listino-estetica-laser" },
+]);
+const webPage = buildWebPageSchema({
+  name: "Listino Rebel: estetica e laser a Carmagnola",
+  description:
+    "Prezzi e categorie principali: estetica classica e benessere, laser e protocolli epigenetici.",
+  path: "/listino-estetica-laser",
+});
+const listinoSchema = buildItemListSchema({
+  name: "Listino Rebel Estetica e Laser",
+  path: "/listino-estetica-laser",
+  items: [...classica, ...laser].map((s) => ({
+    name: s.name,
+    path: `/servizi/${s.slug}`,
+  })),
+});
+const protocolSchema = buildItemListSchema({
+  name: "Protocolli epigenetici Rebel (listino)",
+  path: "/listino-estetica-laser",
+  items: protocolCards.map((p) => ({
+    name: p.name,
+    path: `/protocolli/${p.slug}`,
+  })),
+});
+
+const switchItems = [
+  { href: "#estetica", label: "Estetica & benessere", glyph: "✦" },
+  { href: "#laser", label: "Epilazione laser", glyph: "◉" },
+  { href: "#epigenetica", label: "Estetica epigenetica", glyph: "⬡" },
+];
+---
+<BaseLayout meta={meta}>
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={webPage} />
+  <JsonLd data={listinoSchema} />
+  <JsonLd data={protocolSchema} />
+
+  <PageHero
+    kicker="Listino · Carmagnola"
+    title="Bellezza viso, corpo, laser ed _epigenetica_ in una sola pagina."
+    lead="Prezzi chiari, percorsi ordinati per area: scegli il risultato che vuoi vedere e prenota il primo passo."
+    meta={["Estetica & benessere", "Epilazione laser", "Protocolli epigenetici"]}
+    ctaPrimary={{ label: "Apri la consulenza", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Scrivici su WhatsApp", href: "https://wa.me/393516919416" }}
+  />
+
+  <section class="section section--tight">
+    <div class="container">
+      <nav class="listino-switch" aria-label="Vai alla categoria">
+        {switchItems.map((it) => (
+          <a class="listino-switch__btn" href={it.href}>
+            <span aria-hidden="true">{it.glyph}</span>
+            {it.label}
+          </a>
+        ))}
+      </nav>
+    </div>
+  </section>
+
+  <section class="section" id="estetica">
+    <div class="container">
+      <SectionHead
+        kicker="Estetica & benessere"
+        title="Cura quotidiana, _qualità_ alta della pelle."
+        lead="Servizi che mantengono pelle, mani, piedi e corpo curati, luminosi e armoniosi."
+      />
+      <div class="price-grid">
+        {classica.map((item) => (
+          <PriceRow
+            name={item.name}
+            description={item.shortDescription}
+            price={item.priceHint}
+            href={`/servizi/${item.slug}`}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="laser">
+    <div class="container">
+      <SectionHead
+        kicker="Epilazione laser"
+        title="Pelle libera, _comfort_ misurabile."
+        lead="Tecnologia Thory + Ice Polar e una valutazione iniziale che definisce zona, pelle e obiettivo."
+      />
+      <div class="price-grid">
+        {laser.map((item) => (
+          <PriceRow
+            name={item.name}
+            description={item.shortDescription}
+            price={item.priceHint}
+            href={`/servizi/${item.slug}`}
+          />
+        ))}
+      </div>
+      <div class="cluster cluster--stack-mobile" style="margin-top:2rem;">
+        <a class="btn btn--primary btn--halo" href="/contatti">Apri la consulenza laser</a>
+        <a class="btn btn--secondary" href="/epilazione-laser-carmagnola">Scopri il percorso</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="epigenetica">
+    <div class="container">
+      <SectionHead
+        kicker="Estetica epigenetica"
+        title="Protocolli che attivano _bellezza_ progressiva."
+        lead="Viso e corpo per luminosità, tono, densità e qualità cutanea — un percorso, non un singolo gesto."
+      />
+      <div class="price-grid">
+        {protocolCards.map((item) => (
+          <PriceRow
+            name={item.name}
+            description={item.desc}
+            price={item.price}
+            href={`/protocolli/${item.slug}`}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <InlineCta
+        kicker="Prenotazione"
+        title="Quindici minuti per scegliere il _primo trattamento_."
+        lead="Una lettura iniziale, un piano sostenibile, il primo gesto da prenotare."
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .listino-switch {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+  }
+  .listino-switch__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.2rem;
+    border-radius: var(--r-pill);
+    border: 1px solid var(--line-strong);
+    color: var(--text);
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    transition: border-color var(--t-fast) var(--ease-soft), background var(--t-fast) var(--ease-soft);
+    background: rgba(7, 5, 14, 0.4);
+  }
+  .listino-switch__btn:hover {
+    border-color: var(--mauve);
+    background: rgba(91, 43, 216, 0.12);
+    color: var(--ivory-1);
+  }
+  .listino-switch__btn span {
+    color: var(--mauve);
+    font-size: 0.95rem;
+  }
+  .price-grid {
+    display: grid;
+    gap: 0.6rem;
+    max-width: 980px;
+    margin-inline: auto;
+  }
+</style>

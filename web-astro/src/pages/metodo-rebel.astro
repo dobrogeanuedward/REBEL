@@ -1,0 +1,111 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHead from "@/components/SectionHead.astro";
+import StepStrip from "@/components/StepStrip.astro";
+import InlineCta from "@/components/InlineCta.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import {
+  buildArticleSchema,
+  buildBreadcrumbSchema,
+  buildServiceSchema,
+  buildWebPageSchema,
+  createPageMeta,
+} from "@/lib/seo";
+import { methodSteps } from "@/lib/content";
+
+const meta = createPageMeta({
+  title: "Metodo Rebel · Cinque passaggi per un percorso costruito bene",
+  description:
+    "Metodo Rebel a Carmagnola: consulenza beauty, lettura iniziale, protocollo su misura ed evoluzione epigenetica per pelle, viso e corpo.",
+  path: "/metodo-rebel",
+  openGraphType: "article",
+  keywords: [
+    "metodo estetica Carmagnola",
+    "analisi pelle Carmagnola",
+    "percorso estetica personalizzato Carmagnola",
+  ],
+});
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Metodo Rebel", path: "/metodo-rebel" },
+]);
+const webPage = buildWebPageSchema({
+  name: "Metodo Rebel in 5 step",
+  description:
+    "Il Metodo Rebel: consulenza beauty, protocollo su misura ed evoluzione epigenetica per pelle, viso e corpo.",
+  path: "/metodo-rebel",
+});
+const service = buildServiceSchema(
+  "Metodo estetico epigenetico personalizzato",
+  "Percorso in 5 step per riattivare tono, luminosità e qualità cutanea.",
+  "/metodo-rebel",
+);
+const article = buildArticleSchema({
+  headline: "Metodo Rebel in 5 step",
+  description:
+    "Come nasce un percorso Rebel: lettura iniziale, protocollo, tecnologia mirata e bellezza progressiva.",
+  path: "/metodo-rebel",
+  keywords: ["metodo Rebel", "metodo estetico Carmagnola", "percorso estetico"],
+  section: "Metodo",
+});
+---
+<BaseLayout meta={meta}>
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={webPage} />
+  <JsonLd data={service} />
+  <JsonLd data={article} />
+
+  <PageHero
+    kicker="Come lavoriamo"
+    title="Metodo Rebel: cinque passaggi per valorizzare _pelle_, viso e corpo."
+    lead="Ogni percorso nasce da una consulenza beauty e si sviluppa con lettura iniziale, attivi epigenetici, manualità e tecnologia mirata per un risultato visibile e progressivo."
+    meta={["Bellezza", "Glow", "Progressione"]}
+    ctaPrimary={{ label: "Apri la consulenza", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Trattamenti & prezzi", href: "/listino-estetica-laser" }}
+  />
+
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Il metodo, passo per passo"
+        title="Cinque _scene_ che fanno della seduta un percorso."
+        lead="Non un trattamento dopo l'altro: una regia. Lettura → attivazione → riprogrammazione → mantenimento."
+      />
+      <StepStrip items={methodSteps} />
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container grid-2">
+      <article class="card card--feature">
+        <p class="card__kicker">Metodo applicato</p>
+        <h2 class="card__title">Ogni seduta entra in una sequenza che valorizza la pelle nel tempo.</h2>
+        <p class="card__body" style="margin-top:1rem;">
+          La forza del metodo sta nella regia: si legge il punto di partenza, si attiva il trattamento giusto
+          e si accompagna la pelle verso più luce, tono e qualità cutanea.
+        </p>
+      </article>
+      <aside class="card">
+        <p class="card__kicker">Cosa porti via</p>
+        <h2 class="card__title">Direzione, calendario, primo gesto.</h2>
+        <ul class="flow" style="margin-top:1rem; color: var(--text-muted);">
+          <li>— Priorità chiare e pelle letta con precisione.</li>
+          <li>— Calendario beauty sostenibile e progressione visibile.</li>
+          <li>— Glow, tono e armonia che crescono seduta dopo seduta.</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <InlineCta
+        kicker="Apri la tua consulenza"
+        title="Quindici _minuti_ per dare direzione alla tua bellezza."
+        lead="Una lettura iniziale, un piano sostenibile, il primo trattamento da prenotare."
+      />
+    </div>
+  </section>
+</BaseLayout>

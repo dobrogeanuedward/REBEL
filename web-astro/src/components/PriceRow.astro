@@ -1,0 +1,89 @@
+---
+interface Props {
+  name: string;
+  description: string;
+  price: string;
+  href?: string;
+}
+const { name, description, price, href } = Astro.props;
+const Tag = href ? "a" : "article";
+---
+<Tag class="price-row" href={href} data-link={href ? "true" : undefined} data-reveal>
+  <div class="price-row__body">
+    <h3 class="price-row__name">{name}</h3>
+    <p class="price-row__desc">{description}</p>
+  </div>
+  <strong class="price-row__price">{price}</strong>
+  {href ? <span class="price-row__cta" aria-hidden="true">→</span> : null}
+</Tag>
+
+<style>
+  .price-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 1.4rem;
+    padding: 1.3rem 1.4rem;
+    border-radius: var(--r-md);
+    background: linear-gradient(180deg, rgba(31, 26, 58, 0.65), rgba(20, 16, 42, 0.55));
+    border: 1px solid var(--line);
+    color: var(--text);
+    transition:
+      transform var(--t-base) var(--ease-cinema),
+      border-color var(--t-base) var(--ease-soft),
+      background var(--t-base) var(--ease-soft);
+  }
+  .price-row[data-link="true"]:hover {
+    border-color: var(--line-strong);
+    background: linear-gradient(180deg, rgba(46, 16, 101, 0.3), rgba(20, 16, 42, 0.85));
+    transform: translateX(2px);
+  }
+  .price-row__body { min-width: 0; }
+  .price-row__name {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    line-height: 1.15;
+    letter-spacing: var(--tracking-editorial);
+    color: var(--text-strong);
+    margin: 0 0 0.35rem;
+  }
+  .price-row__desc {
+    font-size: var(--t-small);
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.55;
+  }
+  .price-row__price {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    letter-spacing: -0.02em;
+    color: var(--mauve);
+    white-space: nowrap;
+  }
+  .price-row__cta {
+    color: var(--mauve);
+    font-size: 1.1rem;
+    transition: transform var(--t-base) var(--ease-cinema);
+  }
+  .price-row[data-link="true"]:hover .price-row__cta {
+    transform: translateX(4px);
+  }
+  .scene-ivory .price-row {
+    background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(244, 238, 227, 0.95));
+    border-color: var(--line-on-light);
+    color: var(--on-light);
+  }
+  .scene-ivory .price-row__name { color: var(--on-light); }
+  .scene-ivory .price-row__desc { color: var(--on-light-muted); }
+  .scene-ivory .price-row__price,
+  .scene-ivory .price-row__cta { color: var(--violet-mid); }
+
+  @media (max-width: 640px) {
+    .price-row {
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+    }
+    .price-row__price { font-size: 1.4rem; }
+    .price-row__cta { display: none; }
+  }
+</style>

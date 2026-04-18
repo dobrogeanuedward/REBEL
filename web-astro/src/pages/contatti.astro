@@ -1,0 +1,217 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import ContactForm from "@/components/ContactForm.tsx";
+import {
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+  createPageMeta,
+} from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
+
+const meta = createPageMeta({
+  title: "Contatti · Rebel Carmagnola | WhatsApp, mappa, orari",
+  description:
+    "Contatta Rebel a Carmagnola: WhatsApp, telefono, email, indirizzo e orari aggiornati. Prenota la tua lettura iniziale o la valutazione laser.",
+  path: "/contatti",
+  keywords: [
+    "contatti centro estetico Carmagnola",
+    "whatsapp estetista Carmagnola",
+    "indirizzo Rebel Carmagnola",
+  ],
+});
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Contatti", path: "/contatti" },
+]);
+
+const webPage = buildWebPageSchema({
+  name: "Contatti Rebel Carmagnola",
+  description: "WhatsApp, telefono, email e mappa per raggiungere Rebel a Carmagnola.",
+  path: "/contatti",
+});
+
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Contatti Rebel Estetica Epigenetica",
+  url: `${siteConfig.siteUrl}/contatti`,
+  about: {
+    "@type": "BeautySalon",
+    name: siteConfig.name,
+    telephone: siteConfig.phoneDisplay,
+    email: siteConfig.email,
+  },
+};
+
+type QuickContact = {
+  label: string;
+  value: string;
+  href: string;
+  icon: "whatsapp" | "phone" | "mail" | "pin";
+  external?: boolean;
+};
+
+const quick: QuickContact[] = [
+  {
+    label: "WhatsApp",
+    value: "Apri chat",
+    href: siteConfig.social.whatsapp,
+    external: true,
+    icon: "whatsapp",
+  },
+  {
+    label: "Telefono",
+    value: siteConfig.phoneDisplay,
+    href: `tel:${siteConfig.phoneRaw}`,
+    icon: "phone",
+  },
+  {
+    label: "Email",
+    value: siteConfig.email,
+    href: `mailto:${siteConfig.email}`,
+    icon: "mail",
+  },
+  {
+    label: "Indirizzo",
+    value: `${siteConfig.address.streetAddress}, ${siteConfig.address.locality}`,
+    href: siteConfig.social.maps,
+    external: true,
+    icon: "pin",
+  },
+];
+
+const hours = [
+  { day: "Martedì", value: "09:00 — 19:00" },
+  { day: "Mercoledì", value: "11:00 — 21:00" },
+  { day: "Giovedì", value: "09:00 — 19:00" },
+  { day: "Venerdì", value: "09:00 — 19:00" },
+  { day: "Sabato", value: "09:00 — 14:00" },
+  { day: "Domenica", value: "Chiuso", closed: true },
+  { day: "Lunedì", value: "Chiuso", closed: true },
+];
+---
+<BaseLayout meta={meta}>
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={webPage} />
+  <JsonLd data={contactSchema} />
+
+  <PageHero
+    kicker="Contatti · Carmagnola"
+    title="Apri la tua _consulenza_ e dai direzione alla tua bellezza."
+    lead="WhatsApp, telefono o form: raccontaci zona, obiettivo e tempi desiderati per ricevere la proposta più adatta a te."
+    meta={["Viale Barbaroux 20", "Su appuntamento"]}
+    ctaPrimary={{ label: "Apri WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
+    ctaSecondary={{ label: "Chiamaci ora", href: `tel:${siteConfig.phoneRaw}` }}
+  />
+
+  <section class="section">
+    <div class="container grid-2">
+      <article class="card card--feature">
+        <p class="card__kicker">Contatti rapidi</p>
+        <h2 class="card__title">Quattro vie per arrivare in studio.</h2>
+        <p class="card__body" style="margin-bottom: 1.4rem;">
+          Scegli la più comoda. Per WhatsApp, mandaci zona, obiettivo e quando vuoi iniziare.
+        </p>
+        <div class="contact-quick">
+          {quick.map((q) => (
+            <a
+              class="contact-quick__row"
+              href={q.href}
+              target={q.external ? "_blank" : undefined}
+              rel={q.external ? "noreferrer" : undefined}
+            >
+              <span class="contact-quick__icon">
+                {q.icon === "whatsapp" ? (
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
+                    <path d="M12 3.5a8.5 8.5 0 0 0-7.4 12.7L4 21l4.95-1.57A8.5 8.5 0 1 0 12 3.5Z" stroke="currentColor" stroke-width="1.7" />
+                    <path d="M8.8 9.3c.2-.5.46-.5.68-.5h.6c.2 0 .47.04.6.42.14.38.47 1.3.5 1.38.05.1.08.24.02.38-.06.14-.1.22-.2.33-.1.12-.2.27-.3.36-.1.1-.2.2-.08.4.1.2.47.8 1 1.3.7.62 1.3.83 1.5.92.2.1.3.08.42-.04.1-.12.5-.58.62-.78.13-.2.27-.17.45-.1.18.06 1.16.54 1.36.64.2.1.33.16.38.26.05.1.05.63-.15 1.24-.2.6-1.18 1.18-1.62 1.24-.42.07-.95.1-2.6-.6-2-.86-3.3-3-3.4-3.12-.1-.12-.8-1.06-.8-2.02 0-.96.5-1.43.68-1.62Z" fill="currentColor" />
+                  </svg>
+                ) : null}
+                {q.icon === "phone" ? (
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
+                    <path d="M6.7 4.3 9.5 7a1.2 1.2 0 0 1 .23 1.43l-1.1 2.02a1 1 0 0 0 .08 1.02c.74 1 1.55 1.94 2.44 2.83.9.88 1.84 1.7 2.83 2.44a1 1 0 0 0 1.02.08l2.02-1.1A1.2 1.2 0 0 1 18.5 16l2.7 2.8a1.3 1.3 0 0 1 .27 1.37c-.58 1.5-2.07 2.37-3.67 2.11-4.15-.67-7.84-4.36-8.5-8.5A3.25 3.25 0 0 1 4.3 6.7 1.3 1.3 0 0 1 5.63 4l1.07.3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                  </svg>
+                ) : null}
+                {q.icon === "mail" ? (
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
+                    <rect x="3.5" y="5.5" width="17" height="13" rx="2.5" stroke="currentColor" stroke-width="1.7" />
+                    <path d="m5 8 7 5 7-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                ) : null}
+                {q.icon === "pin" ? (
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
+                    <path d="M12 20.5s6-5.7 6-10a6 6 0 0 0-12 0c0 4.3 6 10 6 10Z" stroke="currentColor" stroke-width="1.7" />
+                    <circle cx="12" cy="10.5" r="2.2" fill="currentColor" />
+                  </svg>
+                ) : null}
+              </span>
+              <span>
+                <span class="contact-quick__label">{q.label}</span>
+                <span class="contact-quick__value">{q.value}</span>
+              </span>
+            </a>
+          ))}
+        </div>
+      </article>
+
+      <aside class="card">
+        <p class="card__kicker">Orari · settimana tipo</p>
+        <h2 class="card__title">Quando trovarci in studio.</h2>
+        <div class="hours">
+          {hours.map((h) => (
+            <div class={`hours__row ${h.closed ? "is-closed" : ""}`}>
+              <span class="hours__day">{h.day}</span>
+              <span class="hours__value">{h.value}</span>
+            </div>
+          ))}
+        </div>
+        <p class="card__body" style="margin-top:1.2rem;">
+          Quando scrivi su WhatsApp, indica una fascia oraria comoda: rispondiamo appena possibile.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container">
+      <div class="map" data-reveal>
+        <iframe
+          title="Mappa Rebel Carmagnola"
+          src="https://www.google.com/maps?q=Viale+Barbaroux+20,+Carmagnola&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <article class="card card--feature">
+        <p class="card__kicker">Form contatti</p>
+        <h2 class="card__title">Raccontaci dove vuoi arrivare.</h2>
+        <p class="card__body" style="margin-bottom:1.6rem;">
+          Compila il form: ti rispondiamo via email o telefono. Per il confronto immediato, WhatsApp è la via più veloce.
+        </p>
+        <ContactForm client:load />
+      </article>
+
+      <aside class="card">
+        <p class="card__kicker">Cosa accade dopo</p>
+        <h2 class="card__title">Quattro passaggi e sei dentro.</h2>
+        <ol class="flow" style="margin-top:1.2rem; counter-reset: step;">
+          <li>Ci dici il risultato che vuoi vedere.</li>
+          <li>Leggiamo pelle, zona e abitudini rilevanti.</li>
+          <li>Costruiamo un piano con tempi realistici.</li>
+          <li>Scegli il primo trattamento da prenotare.</li>
+        </ol>
+        <p class="card__body" style="margin-top:1.4rem;">
+          Una conversazione breve, una direzione chiara — e da qui parte il percorso.
+        </p>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

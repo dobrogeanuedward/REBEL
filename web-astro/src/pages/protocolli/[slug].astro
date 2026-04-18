@@ -1,0 +1,211 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHead from "@/components/SectionHead.astro";
+import FaqAccordion from "@/components/FaqAccordion.astro";
+import KeyPointsGrid from "@/components/KeyPointsGrid.astro";
+import EditorialSection from "@/components/EditorialSection.astro";
+import InlineCta from "@/components/InlineCta.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import { protocolPages } from "@/lib/protocol-pages";
+import {
+  buildArticleSchema,
+  buildBreadcrumbSchema,
+  buildItemListSchema,
+  buildWebPageSchema,
+  createPageMeta,
+} from "@/lib/seo";
+
+export async function getStaticPaths() {
+  return protocolPages.map((p) => ({
+    params: { slug: p.slug },
+    props: { protocol: p },
+  }));
+}
+
+const { protocol } = Astro.props;
+
+const meta = createPageMeta({
+  title: `${protocol.name} a Carmagnola`,
+  description: protocol.shortDescription,
+  path: `/protocolli/${protocol.slug}`,
+  keywords: protocol.keywords,
+  openGraphType: "article",
+});
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Protocolli epigenetici", path: "/protocolli-epigenetici" },
+  { name: protocol.name, path: `/protocolli/${protocol.slug}` },
+]);
+const webPage = buildWebPageSchema({
+  name: `${protocol.name} a Carmagnola`,
+  description: protocol.shortDescription,
+  path: `/protocolli/${protocol.slug}`,
+});
+const articleSchema = buildArticleSchema({
+  headline: `${protocol.name} a Carmagnola`,
+  description: protocol.longDescription,
+  path: `/protocolli/${protocol.slug}`,
+  keywords: protocol.keywords,
+  section: "Protocolli",
+});
+const faqSchema =
+  protocol.faqs.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: protocol.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      }
+    : null;
+const relatedLinksSchema =
+  protocol.relatedLinks.length > 0
+    ? buildItemListSchema({
+        name: `Link utili per ${protocol.name}`,
+        path: `/protocolli/${protocol.slug}`,
+        items: protocol.relatedLinks
+          .filter((l) => l.href.startsWith("/"))
+          .map((l) => ({ name: l.label, path: l.href })),
+      })
+    : null;
+---
+<BaseLayout meta={meta} bodyClass="page-protocollo-detail">
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={webPage} />
+  <JsonLd data={articleSchema} />
+  {faqSchema ? <JsonLd data={faqSchema} /> : null}
+  {relatedLinksSchema ? <JsonLd data={relatedLinksSchema} /> : null}
+
+  <PageHero
+    kicker="Protocollo epigenetico"
+    title={`${protocol.name} a _Carmagnola_.`}
+    lead={protocol.longDescription}
+    meta={[protocol.price, "Lettura iniziale inclusa", "Progressione su misura"]}
+    ctaPrimary={{ label: "Apri lettura iniziale", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Tutti i protocolli", href: "/protocolli-epigenetici" }}
+  />
+
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Il protocollo"
+        title={`Cosa rende _${protocol.name}_ un percorso così mirato.`}
+      />
+      <KeyPointsGrid points={protocol.benefits} title="Punti chiave" />
+    </div>
+  </section>
+
+  {protocol.editorialSections.length > 0 ? (
+    <section class="section section--scene-ivory">
+      <div class="container">
+        <SectionHead
+          kicker="Come lo impostiamo"
+          title="Il protocollo, _seduta dopo seduta_."
+          lead="La pelle cambia con stagione, sonno e routine. Per questo ogni passaggio dialoga col precedente."
+        />
+        <div class="editorial-flow">
+          {protocol.editorialSections.map((s) => (
+            <EditorialSection heading={s.heading} paragraphs={s.paragraphs} level={3} />
+          ))}
+        </div>
+      </div>
+    </section>
+  ) : null}
+
+  {protocol.faqs.length > 0 ? (
+    <section class="section">
+      <div class="container">
+        <SectionHead
+          kicker="Domande frequenti"
+          title="Le risposte _utili_ prima di iniziare."
+        />
+        <FaqAccordion items={protocol.faqs} kicker="Prima di prenotare" />
+      </div>
+    </section>
+  ) : null}
+
+  {protocol.relatedLinks.length > 0 ? (
+    <section class="section">
+      <div class="container">
+        <SectionHead
+          kicker="Link utili"
+          title="Continua a esplorare _Rebel_."
+        />
+        <div class="link-grid">
+          {protocol.relatedLinks.map((l) => {
+            const isExternal = l.href.startsWith("http");
+            return isExternal ? (
+              <a class="link-card" href={l.href} target="_blank" rel="noreferrer">
+                <span class="link-card__title">{l.label}</span>
+                {l.description ? <span class="link-card__desc">{l.description}</span> : null}
+              </a>
+            ) : (
+              <a class="link-card" href={l.href}>
+                <span class="link-card__title">{l.label}</span>
+                {l.description ? <span class="link-card__desc">{l.description}</span> : null}
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  ) : null}
+
+  <section class="section">
+    <div class="container">
+      <InlineCta
+        kicker="Prenota"
+        title="Apri la _lettura iniziale_ del tuo protocollo."
+        lead="Definiamo priorità, ritmo e calendario. Da lì il percorso prende forma."
+        primaryHref="/contatti"
+        primaryLabel="Prenota consulenza"
+        secondaryHref="/protocolli-epigenetici"
+        secondaryLabel="Tutti i protocolli"
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .editorial-flow {
+    display: grid;
+    gap: 2.4rem;
+    max-width: 78ch;
+    margin-inline: auto;
+  }
+  .link-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-top: 1.6rem;
+  }
+  .link-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.1rem 1.2rem;
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    background: linear-gradient(180deg, rgba(31, 26, 58, 0.55), rgba(20, 16, 42, 0.4));
+    transition: border-color var(--t-base) var(--ease-soft), transform var(--t-base) var(--ease-cinema);
+  }
+  .link-card:hover {
+    border-color: var(--mauve);
+    transform: translateY(-2px);
+  }
+  .link-card__title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    color: var(--text-strong);
+    letter-spacing: -0.01em;
+  }
+  .link-card__desc {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+</style>

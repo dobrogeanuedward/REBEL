@@ -1,0 +1,25 @@
+/* Global entry — imported once in BaseLayout. */
+
+@import "@fontsource/playfair-display/400-italic.css";
+@import "@fontsource/playfair-display/500.css";
+@import "@fontsource/playfair-display/500-italic.css";
+@import "@fontsource/manrope/400.css";
+@import "@fontsource/manrope/500.css";
+@import "@fontsource/manrope/600.css";
+@import "@fontsource/manrope/700.css";
+
+@import "./tokens.css";
+@import "./reset.css";
+@import "./base.css";
+@import "./utilities.css";
+@import "./motion.css";
+
+@import "./components/button.css";
+@import "./components/card.css";
+@import "./components/hero.css";
+@import "./components/nav.css";
+@import "./components/cta.css";
+@import "./components/form.css";
+@import "./components/footer.css";
+@import "./components/sections.css";
+@import "./components/islands.css";

@@ -1,0 +1,70 @@
+/* ---------- Inline CTA / banner ---------- */
+/* Used between sections to push toward consultation. Always violet wash. */
+
+.inline-cta {
+  position: relative;
+  isolation: isolate;
+  border-radius: var(--r-lg);
+  padding: clamp(2.4rem, 4.5vw, 4rem);
+  overflow: hidden;
+  background: var(--wash-violet);
+  color: var(--ivory-1);
+  display: grid;
+  gap: var(--gap-md);
+  box-shadow: var(--shadow-md);
+}
+
+.inline-cta::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: var(--halo-violet);
+  filter: blur(80px);
+  opacity: 0.35;
+  z-index: -1;
+  animation: halo-spin 22s linear infinite;
+}
+
+.inline-cta__kicker {
+  font-size: var(--t-kicker);
+  letter-spacing: var(--tracking-kicker);
+  text-transform: uppercase;
+  color: var(--mauve);
+  font-weight: 600;
+}
+
+.inline-cta__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: var(--tracking-section);
+  color: var(--ivory-1);
+  text-wrap: balance;
+  margin: 0;
+  max-width: 22ch;
+}
+
+.inline-cta__title em {
+  font-style: italic;
+  background: linear-gradient(100deg, var(--ivory-1), var(--mauve), var(--ivory-1));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.inline-cta__lead {
+  color: rgba(244, 238, 227, 0.86);
+  max-width: 56ch;
+  font-size: var(--t-body-lg);
+  line-height: 1.55;
+}
+
+.inline-cta__actions {
+  display: flex; flex-wrap: wrap;
+  gap: var(--gap-sm);
+  margin-top: 0.6rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inline-cta::before { animation: none; }
+}

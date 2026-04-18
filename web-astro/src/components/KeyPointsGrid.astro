@@ -1,0 +1,81 @@
+---
+interface Props {
+  points: string[];
+  title?: string;
+  variant?: "default" | "quiet";
+}
+const { points, title, variant = "default" } = Astro.props;
+---
+<div class={`key-points key-points--${variant}`}>
+  {title ? <p class="key-points__title">{title}</p> : null}
+  <ul class="key-points__list">
+    {points.map((p, i) => (
+      <li class="key-points__item" data-reveal style={`--reveal-delay: ${i * 60}ms;`}>
+        <span class="key-points__num">{String(i + 1).padStart(2, "0")}</span>
+        <span class="key-points__text">{p.replace(/^[-\s]+/, "")}</span>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .key-points {
+    margin-top: 1.4rem;
+  }
+  .key-points__title {
+    font-family: var(--font-body);
+    font-size: var(--t-kicker);
+    letter-spacing: var(--tracking-kicker);
+    text-transform: uppercase;
+    color: var(--mauve);
+    font-weight: 600;
+    margin: 0 0 0.9rem;
+  }
+  .key-points__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.9rem;
+  }
+  .key-points__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.1rem;
+    padding: 1rem 1.1rem 1rem 1.2rem;
+    border-radius: var(--r-md);
+    background: linear-gradient(180deg, rgba(31, 26, 58, 0.55), rgba(20, 16, 42, 0.4));
+    border: 1px solid var(--line);
+    align-items: center;
+    transition: border-color var(--t-base) var(--ease-soft), background var(--t-base) var(--ease-soft);
+  }
+  .key-points__item:hover {
+    border-color: var(--line-strong);
+    background: linear-gradient(180deg, rgba(46, 16, 101, 0.22), rgba(20, 16, 42, 0.6));
+  }
+  .key-points__num {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    color: var(--mauve);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .key-points__text {
+    font-size: var(--t-small);
+    line-height: 1.6;
+    color: var(--text);
+  }
+  .key-points--quiet .key-points__item {
+    background: transparent;
+    border-color: transparent;
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+    padding-left: 0;
+  }
+  .scene-ivory .key-points__item {
+    background: rgba(255, 255, 255, 0.7);
+    border-color: var(--line-on-light);
+  }
+  .scene-ivory .key-points__text { color: var(--on-light); }
+  .scene-ivory .key-points__num { color: var(--violet-mid); }
+</style>

@@ -1,0 +1,318 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHead from "@/components/SectionHead.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import InlineCta from "@/components/InlineCta.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import {
+  buildBreadcrumbSchema,
+  buildItemListSchema,
+  buildWebPageSchema,
+  createPageMeta,
+} from "@/lib/seo";
+import { editorialImageAssets, servicePages } from "@/lib/seo-content";
+import { localAreaPages } from "@/lib/local-pages";
+
+const meta = createPageMeta({
+  title: "Centro Estetico a Carmagnola | Rebel Estetica Epigenetica",
+  description:
+    "Centro estetico a Carmagnola: laser, pedicure, scrub corpo, trattamenti viso e corpo con percorsi personalizzati Rebel e prezzi chiari.",
+  path: "/centro-estetico-carmagnola",
+  keywords: [
+    "centro estetico Carmagnola",
+    "estetista Carmagnola",
+    "pedicure Carmagnola",
+    "scrub corpo Carmagnola",
+    "epilazione laser Carmagnola",
+    "centro estetico Carmagnola prezzi",
+  ],
+});
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Centro estetico Carmagnola", path: "/centro-estetico-carmagnola" },
+]);
+
+const webPage = buildWebPageSchema({
+  name: "Centro estetico a Carmagnola | Rebel",
+  description:
+    "Pagina dedicata al centro estetico Rebel a Carmagnola: trattamenti più richiesti, listino e percorsi locali.",
+  path: "/centro-estetico-carmagnola",
+});
+
+type QueryTarget = {
+  label: string;
+  href: string;
+  description: string;
+  image: { src: string; alt: string };
+};
+const queryTargets: QueryTarget[] = [
+  {
+    label: "Pedicure a Carmagnola",
+    href: "/servizi/pedicure-carmagnola",
+    description: "Piedi ordinati, comodi nella vita di tutti i giorni.",
+    image: { src: editorialImageAssets.pedicure, alt: "Pedicure professionale a Carmagnola" },
+  },
+  {
+    label: "Scrub corpo",
+    href: "/servizi/scrub-corpo-carmagnola",
+    description: "Pelle pulita, levigata, pronta a riflettere la luce.",
+    image: { src: editorialImageAssets.scrubCorpo, alt: "Scrub corpo Rebel a Carmagnola" },
+  },
+  {
+    label: "Epilazione laser",
+    href: "/epilazione-laser-carmagnola",
+    description: "Zone, tempi, comfort: la guida principale al percorso laser.",
+    image: { src: editorialImageAssets.laserCorpo, alt: "Epilazione laser corpo a Carmagnola" },
+  },
+  {
+    label: "Manicure semipermanente",
+    href: "/servizi/manicure-semipermanente-carmagnola",
+    description: "Mani curate, finish naturale, tenuta lunga.",
+    image: { src: editorialImageAssets.manicureSemipermanente, alt: "Manicure semipermanente naturale" },
+  },
+  {
+    label: "Laminazione ciglia",
+    href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola",
+    description: "Sguardo definito, naturale, senza stravolgere.",
+    image: { src: editorialImageAssets.laminazione, alt: "Laminazione ciglia e sopracciglia" },
+  },
+  {
+    label: "Pulizia viso",
+    href: "/servizi/pulizia-viso-carmagnola",
+    description: "Una buona partenza per rimettere ordine alla pelle.",
+    image: { src: editorialImageAssets.puliziaViso, alt: "Pulizia viso professionale Rebel" },
+  },
+  {
+    label: "Massaggio rilassante",
+    href: "/servizi/massaggio-rilassante-carmagnola",
+    description: "Schiena e spalle finalmente sciolte. Tempo solo per te.",
+    image: { src: editorialImageAssets.massaggioRilassante, alt: "Massaggio rilassante a Carmagnola" },
+  },
+  {
+    label: "Linfodrenante",
+    href: "/servizi/massaggio-linfodrenante-carmagnola",
+    description: "Approccio progressivo per gonfiore e pesantezza.",
+    image: { src: editorialImageAssets.linfodrenante, alt: "Massaggio linfodrenante in studio" },
+  },
+];
+
+const querySchema = buildItemListSchema({
+  name: "Ricerche frequenti centro estetico Carmagnola",
+  path: "/centro-estetico-carmagnola",
+  items: queryTargets.map((it) => ({ name: it.label, path: it.href })),
+});
+
+const featuredAreas = localAreaPages
+  .filter((a) => a.cluster === "asse-carmagnola")
+  .slice(0, 8);
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Come scegliere il miglior centro estetico a Carmagnola?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Conviene partire da obiettivo, metodo e chiarezza su tempi/prezzi. In Rebel impostiamo un piano reale, senza promesse veloci.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Avete prezzi chiari per trattamenti e laser?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sì, il listino è pubblico e ogni scheda servizio include prezzo indicativo, indicazioni pratiche e possibilità di orientamento via WhatsApp.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Lavorate solo con clienti di Carmagnola?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No, molte clienti arrivano anche da Carignano, Racconigi e Torino Sud. Abbiamo pagine locali dedicate per orientare il primo passo.",
+      },
+    },
+  ],
+};
+
+const keySlugs = [
+  "pedicure-carmagnola",
+  "scrub-corpo-carmagnola",
+  "epilazione-laser-corpo-carmagnola",
+  "epilazione-laser-viso-carmagnola",
+];
+const keyServices = keySlugs
+  .map((slug) => servicePages.find((s) => s.slug === slug))
+  .filter((s): s is NonNullable<typeof s> => Boolean(s));
+---
+<BaseLayout meta={meta}>
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={webPage} />
+  <JsonLd data={querySchema} />
+  <JsonLd data={faqSchema} />
+
+  <PageHero
+    kicker="Centro estetico · Carmagnola"
+    title="Un _centro estetico_ a Carmagnola pensato come una pratica, non come una vetrina."
+    lead="Laser, viso, corpo, mani e piedi dentro un unico metodo: lettura iniziale, piano realistico, primo gesto da prenotare."
+    meta={["Viale Barbaroux 20", "Carmagnola (TO)", "Da 25,90 €"]}
+    ctaPrimary={{ label: "Prenota valutazione", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Vedi listino", href: "/listino-estetica-laser" }}
+  />
+
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Da dove iniziare"
+        title="Le _richieste_ che arrivano più spesso in studio."
+        lead="Otto pagine concrete: ognuna apre una scheda con tempi, comfort e prezzo."
+      />
+      <div class="image-grid">
+        {queryTargets.map((it) => (
+          <a class="image-card" href={it.href} data-reveal>
+            <figure class="image-card__media">
+              <img src={it.image.src} alt={it.image.alt} loading="lazy" decoding="async" />
+            </figure>
+            <div class="image-card__body">
+              <h3 class="image-card__title">{it.label}</h3>
+              <p class="image-card__lead">{it.description}</p>
+              <span class="image-card__cta" aria-hidden="true">Apri →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Primo passo"
+        title="Servizi scelti spesso da chi _ci scrive per la prima volta_."
+        lead="Le pagine da aprire prima per orientarti e prenotare con sicurezza."
+      />
+      <div class="card-grid card-grid--2">
+        {keyServices.map((s) => (
+          <FeatureCard
+            kicker={s.priceHint}
+            title={s.name}
+            body={s.shortDescription}
+            href={`/servizi/${s.slug}`}
+            variant="feature"
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Non sei di Carmagnola?"
+        title="_Pagine dedicate_ per i comuni vicini."
+        lead="Distanza, percorso consigliato e primo step più sensato per la tua zona."
+      />
+      <div class="card-grid card-grid--3">
+        {featuredAreas.map((area) => (
+          <FeatureCard
+            kicker={area.cluster.replace(/-/g, " ")}
+            title={area.city}
+            body={area.description}
+            href={`/localita/${area.slug}`}
+            variant="quiet"
+          />
+        ))}
+      </div>
+      <div class="cluster cluster--stack-mobile" style="margin-top: 2rem;">
+        <a class="btn btn--secondary" href="/localita">Vedi tutte le località</a>
+        <a class="btn btn--primary btn--halo" href="/contatti">Contatti & mappa</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <InlineCta
+        kicker="Apri la consulenza"
+        title="Quindici minuti per capire da dove _partire bene_."
+        lead="Una lettura del momento, una proposta sostenibile, il primo gesto già in agenda."
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.4rem;
+  }
+  .image-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--r-md);
+    overflow: hidden;
+    background: linear-gradient(180deg, rgba(31, 26, 58, 0.7), rgba(20, 16, 42, 0.85));
+    border: 1px solid var(--line);
+    color: var(--text);
+    transition:
+      transform var(--t-base) var(--ease-cinema),
+      border-color var(--t-base) var(--ease-soft);
+    text-decoration: none;
+  }
+  .image-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--line-strong);
+  }
+  .image-card__media {
+    margin: 0;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    position: relative;
+  }
+  .image-card__media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(7, 5, 14, 0.6) 100%);
+    pointer-events: none;
+  }
+  .image-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.4s var(--ease-cinema);
+  }
+  .image-card:hover .image-card__media img { transform: scale(1.04); }
+  .image-card__body {
+    padding: 1.4rem 1.5rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+  .image-card__title {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    line-height: 1.15;
+    letter-spacing: var(--tracking-editorial);
+    color: var(--text-strong);
+    margin: 0;
+  }
+  .image-card__lead {
+    font-size: var(--t-small);
+    color: var(--text-muted);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .image-card__cta {
+    margin-top: 0.5rem;
+    color: var(--mauve);
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+</style>

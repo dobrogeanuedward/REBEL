@@ -1,0 +1,38 @@
+---
+interface Props {
+  kicker?: string;
+  title: string;
+  body: string;
+  href?: string;
+  ariaLabel?: string;
+  variant?: "default" | "feature" | "quiet";
+  index?: number;
+}
+
+const {
+  kicker,
+  title,
+  body,
+  href,
+  ariaLabel,
+  variant = "default",
+  index,
+} = Astro.props;
+
+const cls = `card ${variant === "feature" ? "card--feature" : ""} ${variant === "quiet" ? "card--quiet" : ""}`;
+const Tag = href ? "a" : "article";
+---
+<Tag
+  class={cls}
+  href={href}
+  aria-label={ariaLabel}
+  data-link={href ? "true" : undefined}
+  data-reveal
+>
+  {typeof index === "number" ? (
+    <span class="card__index">{String(index).padStart(2, "0")}</span>
+  ) : null}
+  {kicker ? <p class="card__kicker">{kicker}</p> : null}
+  <h3 class="card__title">{title}</h3>
+  <p class="card__body">{body}</p>
+</Tag>

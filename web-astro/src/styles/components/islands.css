@@ -1,0 +1,306 @@
+/* ==========================================================================
+   ISLANDS — interactive React/iframe components.
+   Naming: BEM-style. Heavy gradients only on stage edges, never on photos.
+   ========================================================================== */
+
+/* ---------- Hero photo slider (homepage stage) ---------- */
+.hero-photo-slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: #0a0712;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-lift-md);
+  isolation: isolate;
+}
+.hero-photo-slider__stage {
+  position: absolute;
+  inset: 0;
+}
+.hero-photo-slider__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.04);
+  transition:
+    opacity 1.4s var(--ease-cinema),
+    transform 8s var(--ease-cinema);
+}
+.hero-photo-slider__slide.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+.hero-photo-slider__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+}
+.hero-photo-slider__veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 55%, rgba(7, 5, 14, 0.85) 100%),
+    linear-gradient(90deg, rgba(7, 5, 14, 0.45), transparent 30%, transparent 70%, rgba(7, 5, 14, 0.45));
+  pointer-events: none;
+}
+.hero-photo-slider__ui {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1rem;
+  z-index: 2;
+}
+.hero-photo-slider__arrow {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(7, 5, 14, 0.55);
+  backdrop-filter: blur(6px);
+  color: var(--ivory-1);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color var(--t-fast) var(--ease-soft), background var(--t-fast) var(--ease-soft);
+}
+.hero-photo-slider__arrow:hover {
+  border-color: var(--mauve);
+  background: rgba(91, 43, 216, 0.35);
+}
+.hero-photo-slider__dots {
+  display: flex;
+  gap: 0.45rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(7, 5, 14, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+}
+.hero-photo-slider__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.32);
+  cursor: pointer;
+  transition: background var(--t-fast) var(--ease-soft), transform var(--t-fast) var(--ease-cinema);
+}
+.hero-photo-slider__dot:hover { background: rgba(255, 255, 255, 0.55); }
+.hero-photo-slider__dot.is-active {
+  background: var(--mauve);
+  transform: scale(1.25);
+}
+
+/* ---------- Store gallery ---------- */
+.store-gallery {
+  width: 100%;
+  position: relative;
+}
+.store-gallery__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.store-gallery__main {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #0a0712;
+}
+.store-gallery__main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+}
+.store-gallery__watermark,
+.store-gallery__thumb-watermark {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 65%, rgba(7, 5, 14, 0.7) 100%);
+}
+.store-gallery__overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  letter-spacing: var(--tracking-editorial);
+  color: var(--ivory-1);
+}
+.store-gallery__overlay button {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(7, 5, 14, 0.55);
+  backdrop-filter: blur(6px);
+  color: var(--ivory-1);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color var(--t-fast) var(--ease-soft), background var(--t-fast) var(--ease-soft);
+}
+.store-gallery__overlay button:hover {
+  border-color: var(--mauve);
+  background: rgba(91, 43, 216, 0.35);
+}
+.store-gallery__thumbs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 0.6rem;
+}
+.store-gallery__thumbs button {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #0a0712;
+  padding: 0;
+  cursor: pointer;
+  transition: border-color var(--t-fast) var(--ease-soft), transform var(--t-fast) var(--ease-cinema);
+}
+.store-gallery__thumbs button:hover { border-color: var(--mauve); }
+.store-gallery__thumbs button.is-active {
+  border-color: var(--mauve);
+  outline: 2px solid color-mix(in srgb, var(--mauve) 35%, transparent);
+  outline-offset: 2px;
+}
+.store-gallery__thumbs img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------- Instagram feed ---------- */
+.instagram-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.instagram-empty-state {
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--r-md);
+  padding: 1.4rem 1.6rem;
+  background: rgba(31, 26, 58, 0.5);
+  color: var(--text-muted);
+}
+.instagram-empty-state code {
+  background: rgba(91, 43, 216, 0.18);
+  border-radius: 4px;
+  padding: 0.1rem 0.3rem;
+  color: var(--ivory-1);
+}
+
+.instagram-group__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.9rem;
+}
+.instagram-group__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  letter-spacing: var(--tracking-editorial);
+  color: var(--text-strong);
+  margin: 0;
+}
+.instagram-group__subtitle {
+  font-size: var(--t-micro);
+  letter-spacing: var(--tracking-micro);
+  text-transform: uppercase;
+  color: var(--mauve);
+  margin: 0.25rem 0 0;
+  font-weight: 600;
+}
+.instagram-group__link {
+  font-size: 0.85rem;
+  color: var(--mauve);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color var(--t-fast) var(--ease-soft);
+}
+.instagram-group__link:hover { color: var(--ivory-1); }
+.instagram-group__link span { transition: transform var(--t-fast) var(--ease-cinema); }
+.instagram-group__link:hover span { transform: translateX(2px); }
+
+.instagram-grid {
+  display: grid;
+  gap: 1.4rem;
+}
+.instagram-grid--posts {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+.instagram-reels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.4rem;
+}
+.instagram-feed-item,
+.instagram-reel-card {
+  background: linear-gradient(180deg, rgba(31, 26, 58, 0.7), rgba(20, 16, 42, 0.85));
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  transition: border-color var(--t-base) var(--ease-soft);
+}
+.instagram-feed-item:hover,
+.instagram-reel-card:hover {
+  border-color: var(--mauve);
+}
+.instagram-embed-wrapper {
+  position: relative;
+  width: 100%;
+  background: #0a0712;
+}
+.instagram-embed-wrapper.is-reel {
+  aspect-ratio: 9 / 16;
+}
+.instagram-embed-wrapper.is-post {
+  aspect-ratio: 1 / 1;
+}
+.instagram-embed-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.instagram-reel-embed {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #0a0712 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  min-width: 0 !important;
+  width: 100% !important;
+}
+.instagram-group--mobile-hidden { display: block; }
+@media (max-width: 720px) {
+  .instagram-group--mobile-hidden { display: none; }
+}

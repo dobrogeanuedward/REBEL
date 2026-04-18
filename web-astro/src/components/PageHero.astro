@@ -1,0 +1,66 @@
+---
+/**
+ * The hero. Wraps a title with optional `<em>` highlights — the only place
+ * where the type-accent gradient lives. NEVER use this on more than one
+ * line of body text. NEVER replicate it inside the page body.
+ *
+ * `title` accepts inline `_em_` markers, which we replace with `<em>...</em>`.
+ */
+interface CtaSpec { label: string; href: string; halo?: boolean; }
+
+interface Props {
+  kicker: string;
+  title: string;
+  lead?: string;
+  meta?: string[];
+  ctaPrimary?: CtaSpec;
+  ctaSecondary?: CtaSpec;
+}
+
+const { kicker, title, lead, meta = [], ctaPrimary, ctaSecondary } = Astro.props;
+
+const renderedTitle = title.replace(
+  /_([^_]+)_/g,
+  (_, inner) => `<em>${inner}</em>`,
+);
+---
+<section class="page-hero">
+  <div class="page-hero__bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="page-hero__inner">
+      <p class="page-hero__kicker" data-reveal>{kicker}</p>
+      <h1
+        class="page-hero__title"
+        data-reveal
+        style="--reveal-delay: 80ms;"
+        set:html={renderedTitle}
+      />
+      {lead ? (
+        <p class="page-hero__lead" data-reveal style="--reveal-delay: 200ms;">{lead}</p>
+      ) : null}
+
+      {meta.length > 0 ? (
+        <div class="page-hero__meta" data-reveal style="--reveal-delay: 280ms;">
+          {meta.map((m) => <span>{m}</span>)}
+        </div>
+      ) : null}
+
+      {(ctaPrimary || ctaSecondary) ? (
+        <div class="page-hero__cta cluster cluster--stack-mobile" data-reveal style="--reveal-delay: 360ms;">
+          {ctaPrimary ? (
+            <a class={`btn btn--primary ${ctaPrimary.halo ? "btn--halo" : ""}`} href={ctaPrimary.href}>
+              {ctaPrimary.label}
+            </a>
+          ) : null}
+          {ctaSecondary ? (
+            <a class="btn btn--secondary" href={ctaSecondary.href}>{ctaSecondary.label}</a>
+          ) : null}
+        </div>
+      ) : null}
+    </div>
+  </div>
+
+  <div class="page-hero__scroll" aria-hidden="true">
+    Scroll
+  </div>
+</section>

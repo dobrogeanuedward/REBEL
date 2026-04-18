@@ -1,0 +1,32 @@
+---
+interface Props {
+  kicker?: string;
+  title: string;
+  lead?: string;
+  primaryHref?: string;
+  primaryLabel?: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
+}
+
+const {
+  kicker = "Apri la tua consulenza",
+  title,
+  lead,
+  primaryHref = "/contatti",
+  primaryLabel = "Apri consulenza",
+  secondaryHref = "/listino-estetica-laser",
+  secondaryLabel = "Trattamenti & prezzi",
+} = Astro.props;
+
+const renderedTitle = title.replace(/_([^_]+)_/g, (_, t) => `<em>${t}</em>`);
+---
+<aside class="inline-cta" data-reveal>
+  <p class="inline-cta__kicker">{kicker}</p>
+  <h2 class="inline-cta__title" set:html={renderedTitle}></h2>
+  {lead ? <p class="inline-cta__lead">{lead}</p> : null}
+  <div class="inline-cta__actions cluster cluster--stack-mobile">
+    <a class="btn btn--primary btn--halo" href={primaryHref}>{primaryLabel}</a>
+    <a class="btn btn--secondary" href={secondaryHref}>{secondaryLabel}</a>
+  </div>
+</aside>

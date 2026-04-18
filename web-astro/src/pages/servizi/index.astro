@@ -1,0 +1,265 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHead from "@/components/SectionHead.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import InlineCta from "@/components/InlineCta.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import { protocolCards } from "@/lib/content";
+import { competencePages, servicePages } from "@/lib/seo-content";
+import {
+  buildBreadcrumbSchema,
+  buildItemListSchema,
+  buildWebPageSchema,
+  createPageMeta,
+} from "@/lib/seo";
+
+const meta = createPageMeta({
+  title: "Servizi Estetici a Carmagnola · Viso, corpo ed epilazione laser",
+  description:
+    "Servizi Rebel a Carmagnola: bellezza viso e corpo, protocolli epigenetici ed epilazione laser con consulenza personalizzata e risultati visibili.",
+  path: "/servizi",
+  image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e3635dd7-e046-46af-56a5-cf36d8239c00/public",
+  keywords: [
+    "servizi centro estetico Carmagnola",
+    "trattamenti estetici Carmagnola",
+    "lista servizi estetista Carmagnola",
+    "epilazione laser Carmagnola",
+    "pedicure Carmagnola",
+    "scrub corpo Carmagnola",
+    "manicure semipermanente Carmagnola",
+    "laser Carmagnola",
+    "epilazione laser Rebel",
+  ],
+});
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Servizi", path: "/servizi" },
+]);
+const webPageSchema = buildWebPageSchema({
+  name: "Servizi Rebel a Carmagnola",
+  description:
+    "Panoramica dei servizi Rebel: bellezza viso e corpo, laser e protocolli epigenetici da scegliere e prenotare.",
+  path: "/servizi",
+});
+const serviceListSchema = buildItemListSchema({
+  name: "Servizi Rebel Carmagnola",
+  path: "/servizi",
+  items: servicePages.map((s) => ({ name: s.name, path: `/servizi/${s.slug}` })),
+});
+const protocolListSchema = buildItemListSchema({
+  name: "Protocolli epigenetici Rebel (selezione)",
+  path: "/servizi",
+  items: protocolCards.slice(0, 6).map((p) => ({ name: p.name, path: `/protocolli/${p.slug}` })),
+});
+
+const estetica = servicePages.filter((s) => s.category === "estetica-classica");
+const esteticaSorted = estetica.slice().sort((a, b) => {
+  const score = (slug: string) => {
+    if (slug === "pulizia-viso-carmagnola") return 6;
+    if (slug === "manicure-semipermanente-carmagnola") return 5;
+    if (slug === "laminazione-ciglia-sopracciglia-carmagnola") return 4;
+    if (slug === "pedicure-carmagnola") return 3;
+    if (slug === "massaggio-rilassante-carmagnola") return 2;
+    if (slug === "massaggio-linfodrenante-carmagnola") return 1;
+    return 0;
+  };
+  return score(b.slug) - score(a.slug);
+});
+const laser = servicePages.filter((s) => s.category === "laser");
+const featuredProtocols = protocolCards.slice(0, 6);
+
+const editorialSlugs = [
+  "epilazione-laser-ascelle-carmagnola-guida-pratica",
+  "epilazione-laser-inguine-carmagnola-guida-pratica",
+  "laser-uomo-carmagnola-guida-pratica",
+  "epilazione-laser-estate-sole-carmagnola",
+  "peli-incarniti-laser-carmagnola",
+  "pulizia-viso-carmagnola-frequenza-benefici",
+  "manicure-semipermanente-carmagnola-durata-rimozione",
+  "laminazione-ciglia-sopracciglia-carmagnola-durata-cura",
+];
+const featuredEditorials = editorialSlugs
+  .map((s) => competencePages.find((c) => c.slug === s))
+  .filter((c): c is (typeof competencePages)[number] => Boolean(c));
+
+const switchItems = [
+  { href: "#estetica", label: "Estetica & benessere", glyph: "✦" },
+  { href: "#laser", label: "Epilazione laser", glyph: "◉" },
+  { href: "#epigenetica", label: "Estetica epigenetica", glyph: "⬡" },
+  { href: "#guide", label: "Guide beauty", glyph: "❖" },
+];
+---
+<BaseLayout meta={meta} bodyClass="page-servizi">
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={serviceListSchema} />
+  <JsonLd data={protocolListSchema} />
+  <JsonLd data={webPageSchema} />
+
+  <PageHero
+    kicker="I nostri servizi"
+    title="Viso, corpo, _laser_ ed epigenetica per una bellezza che si vede."
+    lead="Apri la categoria, scegli il risultato che vuoi vedere e prenota il primo passo. Ogni scheda dice cosa cambia, quanto costa e quando ha senso."
+    meta={["Bellezza su misura", "Consulenza inclusa", "Calendario costruito insieme"]}
+    ctaPrimary={{ label: "Apri consulenza", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Scrivici su WhatsApp", href: "https://wa.me/393516919416" }}
+  />
+
+  <section class="section section--tight">
+    <div class="container">
+      <nav class="listino-switch" aria-label="Vai alla categoria">
+        {switchItems.map((it) => (
+          <a class="listino-switch__btn" href={it.href}>
+            <span aria-hidden="true">{it.glyph}</span>
+            {it.label}
+          </a>
+        ))}
+      </nav>
+    </div>
+  </section>
+
+  <section class="section" id="estetica">
+    <div class="container">
+      <SectionHead
+        kicker="Estetica & benessere"
+        title="Cura quotidiana, _qualità_ alta della pelle."
+        lead="Servizi che mantengono pelle, mani, piedi e corpo curati, luminosi e armoniosi."
+      />
+      <div class="card-grid card-grid--2">
+        {esteticaSorted.map((s, i) => (
+          <FeatureCard
+            kicker={s.priceHint}
+            title={s.name}
+            body={s.shortDescription}
+            href={`/servizi/${s.slug}`}
+            ariaLabel={`Apri scheda servizio ${s.name}`}
+            index={i + 1}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--scene-ivory" id="laser">
+    <div class="container">
+      <SectionHead
+        kicker="Epilazione laser"
+        title="Pelle libera, _comfort_ misurabile."
+        lead="Tecnologia Thory + Ice Polar e una valutazione iniziale che definisce zona, fototipo e calendario."
+      />
+      <div class="card-grid card-grid--2">
+        {laser.map((s, i) => (
+          <FeatureCard
+            kicker={s.priceHint}
+            title={s.name}
+            body={s.shortDescription}
+            href={`/servizi/${s.slug}`}
+            ariaLabel={`Apri scheda laser ${s.name}`}
+            variant="feature"
+            index={i + 1}
+          />
+        ))}
+      </div>
+      <div class="cluster cluster--stack-mobile" style="margin-top:2rem; justify-content:center;">
+        <a class="btn btn--primary btn--halo" href="/epilazione-laser-carmagnola">Apri il percorso laser</a>
+        <a class="btn btn--secondary" href="/competenze/laser-uomo-carmagnola-guida-pratica">Laser uomo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="epigenetica">
+    <div class="container">
+      <SectionHead
+        kicker="Estetica epigenetica"
+        title="Protocolli che attivano _bellezza_ progressiva."
+        lead="Viso e corpo per luminosità, tono, densità e qualità cutanea — un percorso, non un singolo gesto."
+      />
+      <div class="card-grid card-grid--3">
+        {featuredProtocols.map((p, i) => (
+          <FeatureCard
+            kicker={p.price}
+            title={p.name}
+            body={p.desc}
+            href={`/protocolli/${p.slug}`}
+            ariaLabel={`Apri il protocollo ${p.name}`}
+            index={i + 1}
+          />
+        ))}
+      </div>
+      <div class="cluster cluster--stack-mobile" style="margin-top:2rem; justify-content:center;">
+        <a class="btn btn--primary btn--halo" href="/protocolli-epigenetici">Vedi tutti i protocolli</a>
+        <a class="btn btn--secondary" href="/contatti">Apri consulenza</a>
+      </div>
+    </div>
+  </section>
+
+  {featuredEditorials.length > 0 ? (
+    <section class="section section--scene-ivory" id="guide">
+      <div class="container">
+        <SectionHead
+          kicker="Approfondimenti"
+          title="Guide beauty per scegliere con _desiderio_."
+          lead="Le guide accompagnano la scelta del trattamento e preparano una consulenza ancora più efficace."
+        />
+        <div class="card-grid card-grid--2">
+          {featuredEditorials.map((e, i) => (
+            <FeatureCard
+              kicker="Guida"
+              title={e.title}
+              body={e.shortDescription}
+              href={`/competenze/${e.slug}`}
+              variant="quiet"
+              index={i + 1}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  ) : null}
+
+  <section class="section">
+    <div class="container">
+      <InlineCta
+        kicker="Prenota"
+        title="Quindici minuti per scegliere il _primo trattamento_."
+        lead="Una lettura iniziale, un piano sostenibile, il primo gesto da prenotare."
+        primaryHref="/contatti"
+        primaryLabel="Apri consulenza"
+        secondaryHref="/listino-estetica-laser"
+        secondaryLabel="Listino completo"
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .listino-switch {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+  }
+  .listino-switch__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.2rem;
+    border-radius: var(--r-pill);
+    border: 1px solid var(--line-strong);
+    color: var(--text);
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    transition: border-color var(--t-fast) var(--ease-soft), background var(--t-fast) var(--ease-soft);
+    background: rgba(7, 5, 14, 0.4);
+  }
+  .listino-switch__btn:hover {
+    border-color: var(--mauve);
+    background: rgba(91, 43, 216, 0.12);
+    color: var(--ivory-1);
+  }
+  .listino-switch__btn span {
+    color: var(--mauve);
+    font-size: 0.95rem;
+  }
+</style>

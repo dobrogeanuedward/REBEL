@@ -1,0 +1,510 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SectionHead from "@/components/SectionHead.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import StepStrip from "@/components/StepStrip.astro";
+import InlineCta from "@/components/InlineCta.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import HeroPhotoSlider from "@/components/HeroPhotoSlider.tsx";
+import StoreGallery from "@/components/StoreGallery.tsx";
+import InstagramFeed from "@/components/InstagramFeed.astro";
+import {
+  buildArticleSchema,
+  buildBreadcrumbSchema,
+  buildItemListSchema,
+  buildWebPageSchema,
+  createPageMeta,
+} from "@/lib/seo";
+import { homeHeroImages, methodSteps, storeGalleryImages } from "@/lib/content";
+import { editorialImageAssets, servicePages } from "@/lib/seo-content";
+import { siteConfig } from "@/lib/site-config";
+
+const meta = createPageMeta({
+  title: "Rebel · Estetica Epigenetica a Carmagnola | Viso, Corpo, Laser",
+  description:
+    "Rebel Estetica Epigenetica a Carmagnola: viso, corpo ed epilazione laser con consulenza beauty, glow progressivo e risultati personalizzati.",
+  path: "/",
+  keywords: [
+    "Rebel",
+    "Rebel Carmagnola",
+    "Rebel Estetica Epigenetica",
+    "centro estetico avanzato Carmagnola",
+    "epigenetica viso Carmagnola",
+    "epilazione laser Carmagnola",
+  ],
+});
+
+const breadcrumb = buildBreadcrumbSchema([{ name: "Home", path: "/" }]);
+const webPage = buildWebPageSchema({
+  name: "Rebel Carmagnola — Centro estetico epigenetico",
+  description: meta.description,
+  path: "/",
+});
+const article = buildArticleSchema({
+  headline: "Rebel: estetica epigenetica a Carmagnola",
+  description:
+    "Bellezza viva, metodo epigenetico: viso, corpo, laser in un percorso su misura.",
+  path: "/",
+  keywords: ["estetica epigenetica Carmagnola", "Rebel"],
+  section: "Home",
+});
+
+const baseSlugs = [
+  "pulizia-viso-carmagnola",
+  "manicure-semipermanente-carmagnola",
+  "laminazione-ciglia-sopracciglia-carmagnola",
+  "massaggio-rilassante-carmagnola",
+  "massaggio-linfodrenante-carmagnola",
+  "pedicure-carmagnola",
+];
+const baseServices = baseSlugs
+  .map((slug) => servicePages.find((s) => s.slug === slug))
+  .filter((s): s is NonNullable<typeof s> => Boolean(s));
+
+const baseServicesSchema = baseServices.length > 0
+  ? buildItemListSchema({
+      name: "Trattamenti base più richiesti a Carmagnola",
+      path: "/",
+      items: baseServices.map((s) => ({
+        name: s.name,
+        path: `/servizi/${s.slug}`,
+      })),
+    })
+  : null;
+
+const photoStory = [
+  {
+    src: editorialImageAssets.laserCorpo,
+    alt: "Tecnologia laser su zona corpo in cabina Rebel Carmagnola",
+    title: "Percorso laser su misura",
+    text: "Valutazione iniziale, parametri calibrati, monitoraggio nel tempo.",
+  },
+  {
+    src: editorialImageAssets.laserViso,
+    alt: "Trattamento laser viso in cabina Rebel Carmagnola",
+    title: "Comfort e precisione",
+    text: "Ice Polar e approccio progressivo: risultati senza promesse eccessive.",
+  },
+];
+
+const pillars = [
+  {
+    kicker: "Viso",
+    title: "Pelle in luce, ogni giorno",
+    body: "Protocolli epigenetici e attivi mirati: la pelle ritrova qualità, definizione e una luce naturale che si nota.",
+    href: "/protocolli-epigenetici",
+  },
+  {
+    kicker: "Corpo",
+    title: "Linee armoniose, leggerezza",
+    body: "Manualità e tecnologia per tono, drenaggio e una silhouette che ritorna a portarti meglio.",
+    href: "/listino-estetica-laser",
+  },
+  {
+    kicker: "Laser",
+    title: "Pelle libera, comfort assoluto",
+    body: "Diodo a tre lunghezze d'onda calibrato sul tuo fototipo. Risultati progressivi e comfort misurabile.",
+    href: "/epilazione-laser-carmagnola",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Perché un centro estetico epigenetico a Carmagnola?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "L'approccio epigenetico lavora sulla qualità biologica della pelle con protocolli personalizzati, calibrati sul punto di partenza e sul risultato desiderato.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Rebel segue clienti solo di Carmagnola?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No, molte clienti arrivano anche da Carignano, Racconigi, Torino Sud e Alba per percorsi evoluti viso/corpo.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Dove si trova Rebel?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Rebel Estetica Epigenetica si trova a Carmagnola, in Viale Barbaroux 20. Riceviamo su appuntamento e via WhatsApp.",
+      },
+    },
+  ],
+};
+---
+<BaseLayout meta={meta}>
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={webPage} />
+  <JsonLd data={article} />
+  <JsonLd data={faqSchema} />
+  {baseServicesSchema ? <JsonLd data={baseServicesSchema} /> : null}
+
+  <section class="home-hero">
+    <div class="home-hero__media">
+      <HeroPhotoSlider client:load images={homeHeroImages} intervalMs={4200} />
+    </div>
+    <div class="container home-hero__overlay">
+      <p class="home-hero__kicker" data-reveal>Boutique beauty epigenetica · Carmagnola</p>
+      <h1 class="home-hero__title" data-reveal style="--reveal-delay: 80ms;">
+        L'estetica <em>epigenetica</em> che trasforma la pelle in presenza.
+      </h1>
+      <p class="home-hero__lead" data-reveal style="--reveal-delay: 200ms;">
+        Lettura estetica, attivi epigenetici, manualità e tecnologia in un'unica regia.
+        Una bellezza più luminosa, precisa e desiderabile — gesto dopo gesto.
+      </p>
+      <div class="home-hero__cta cluster cluster--stack-mobile" data-reveal style="--reveal-delay: 320ms;">
+        <a class="btn btn--primary btn--halo" href="/contatti">Apri la consulenza</a>
+        <a class="btn btn--secondary" href="/listino-estetica-laser">Vedi trattamenti & prezzi</a>
+      </div>
+      <ul class="home-hero__metrics" data-reveal style="--reveal-delay: 440ms;">
+        <li><strong>01</strong><span>Lettura estetica</span></li>
+        <li><strong>02</strong><span>Percorso su misura</span></li>
+        <li><strong>03</strong><span>Risultato visibile</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Tre territori · una direzione"
+        title="Tre _scene_ in cui la bellezza prende corpo."
+        lead="Ogni territorio è un percorso, non un singolo trattamento. Si entra da dove serve di più — e da lì si costruisce."
+      />
+      <div class="card-grid card-grid--3">
+        {pillars.map((p, idx) => (
+          <FeatureCard
+            kicker={p.kicker}
+            title={p.title}
+            body={p.body}
+            href={p.href}
+            index={idx + 1}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Trattamenti base"
+        title="_Bellezza ordinata_, già prenotabile."
+        lead="Viso, sguardo, unghie, massaggi e cura piedi. I servizi che valorizzano presenza e benessere con risultati leggibili."
+      />
+      <div class="card-grid card-grid--3">
+        {baseServices.map((s) => (
+          <FeatureCard
+            kicker={s.priceHint}
+            title={s.name}
+            body={s.shortDescription}
+            href={`/servizi/${s.slug}`}
+            variant="quiet"
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container">
+      <SectionHead
+        kicker="Il metodo"
+        title="Cinque passaggi per un risultato che _si vede_."
+        lead="La forza non sta nella seduta — sta nella regia. Lettura, attivazione, riprogrammazione, mantenimento."
+      />
+      <StepStrip items={methodSteps} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="photo-story">
+        <article class="photo-story__head">
+          <p class="kicker">Metodo · In cabina</p>
+          <h2 class="photo-story__title">Lettura, precisione, _progressione_.</h2>
+          <p class="photo-story__lead">
+            Ogni seduta parte dalla lettura, prosegue con gesti precisi e sviluppa una bellezza
+            che si vede e si mantiene nel tempo.
+          </p>
+          <ul class="photo-story__points">
+            <li>Lettura iniziale prima del ciclo</li>
+            <li>Parametri calibrati su area e risposta cutanea</li>
+            <li>Follow-up per mantenere direzione e risultati</li>
+          </ul>
+          <a class="btn btn--secondary" href="/metodo-rebel">Scopri il metodo</a>
+        </article>
+        <div class="photo-story__media">
+          {photoStory.map((p) => (
+            <figure class="photo-story__card">
+              <div class="photo-story__image">
+                <img src={p.src} alt={p.alt} loading="lazy" decoding="async" />
+              </div>
+              <figcaption>
+                <h3>{p.title}</h3>
+                <p>{p.text}</p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Lo studio"
+        title="Lo _spazio_ Rebel a Carmagnola."
+        lead="Cabine, accoglienza, dettagli. Una boutique pensata per ascoltare prima di intervenire."
+      />
+      <StoreGallery client:visible images={storeGalleryImages} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Instagram · @rebelestetica"
+        title="_Bellezza vera_, glow di pelle, dettagli di cabina."
+        lead="Reel e trattamenti che raccontano atmosfera, pelle, gesti e risultati in evoluzione."
+      />
+      <InstagramFeed
+        showReels={true}
+        showPosts={true}
+        maxReels={4}
+        maxPosts={3}
+        hidePostsOnMobile={true}
+      />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <InlineCta
+        kicker="Apri la tua consulenza"
+        title="Inizia con una _lettura_ di pelle e obiettivo."
+        lead="Quindici minuti per leggere il punto di partenza, costruire un percorso reale e indicare il primo trattamento da prenotare."
+        primaryHref="/contatti"
+        primaryLabel="Apri la consulenza"
+        secondaryHref={siteConfig.social.whatsapp}
+        secondaryLabel="Scrivici su WhatsApp"
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ---------- Home hero ---------- */
+  .home-hero {
+    position: relative;
+    min-height: clamp(620px, 95vh, 920px);
+    padding-top: clamp(7rem, 11vw, 10rem);
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .home-hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+  .home-hero__media :global(.hero-photo-slider) {
+    aspect-ratio: auto;
+    height: 100%;
+    border-radius: 0;
+    border: 0;
+    box-shadow: none;
+  }
+  .home-hero__media :global(.hero-photo-slider__veil) {
+    background:
+      radial-gradient(ellipse at 30% 70%, rgba(46, 16, 101, 0.5), transparent 60%),
+      linear-gradient(180deg, rgba(7, 5, 14, 0.55) 0%, rgba(7, 5, 14, 0.25) 35%, rgba(7, 5, 14, 0.92) 95%);
+  }
+  .home-hero__overlay {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    max-width: 920px;
+  }
+  .home-hero__kicker {
+    font-family: var(--font-body);
+    font-size: var(--t-kicker);
+    letter-spacing: var(--tracking-kicker);
+    text-transform: uppercase;
+    color: var(--mauve);
+    font-weight: 600;
+    margin: 0;
+  }
+  .home-hero__title {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 6vw, 5.4rem);
+    line-height: 1.02;
+    letter-spacing: var(--tracking-display);
+    color: var(--text-strong);
+    text-wrap: balance;
+    margin: 0;
+  }
+  .home-hero__title em {
+    font-style: italic;
+    background: var(--type-accent);
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: text-accent-shift 14s linear infinite;
+  }
+  .home-hero__lead {
+    font-size: var(--t-body-lg);
+    line-height: var(--lh-body);
+    color: var(--text-muted);
+    max-width: 60ch;
+    margin: 0;
+  }
+  .home-hero__cta {
+    margin-top: 0.6rem;
+  }
+  .home-hero__metrics {
+    list-style: none;
+    margin: 1.4rem 0 0;
+    padding: 1.2rem 0 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    border-top: 1px solid var(--line);
+    max-width: 560px;
+  }
+  .home-hero__metrics li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .home-hero__metrics strong {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: var(--mauve);
+    letter-spacing: -0.02em;
+  }
+  .home-hero__metrics span {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  @media (max-width: 720px) {
+    .home-hero__metrics { grid-template-columns: 1fr; gap: 0.6rem; }
+  }
+
+  /* ---------- Photo story ---------- */
+  .photo-story {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: 2.4rem;
+    align-items: start;
+  }
+  .photo-story__head {
+    position: sticky;
+    top: 7rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+  .photo-story__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    line-height: 1.1;
+    letter-spacing: var(--tracking-editorial);
+    color: var(--text-strong);
+    margin: 0;
+  }
+  .photo-story__title em {
+    font-style: italic;
+    background: var(--type-accent);
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: text-accent-shift 14s linear infinite;
+  }
+  .photo-story__lead {
+    color: var(--text-muted);
+    line-height: var(--lh-body);
+    margin: 0;
+  }
+  .photo-story__points {
+    list-style: none;
+    margin: 0.4rem 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .photo-story__points li {
+    color: var(--text-muted);
+    font-size: var(--t-small);
+    padding-left: 1.2rem;
+    position: relative;
+  }
+  .photo-story__points li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 0.6rem;
+    height: 1px;
+    background: var(--mauve);
+  }
+  .photo-story__media {
+    display: grid;
+    gap: 1.4rem;
+  }
+  .photo-story__card {
+    margin: 0;
+    border-radius: var(--r-md);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: linear-gradient(180deg, rgba(31, 26, 58, 0.7), rgba(20, 16, 42, 0.85));
+  }
+  .photo-story__image {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+  }
+  .photo-story__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.6s var(--ease-cinema);
+  }
+  .photo-story__card:hover .photo-story__image img { transform: scale(1.04); }
+  .photo-story__card figcaption {
+    padding: 1.2rem 1.4rem 1.5rem;
+  }
+  .photo-story__card h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--text-strong);
+    letter-spacing: var(--tracking-editorial);
+    margin: 0 0 0.4rem;
+  }
+  .photo-story__card p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: var(--t-small);
+    line-height: 1.55;
+  }
+  @media (max-width: 920px) {
+    .photo-story { grid-template-columns: 1fr; }
+    .photo-story__head { position: static; }
+  }
+</style>

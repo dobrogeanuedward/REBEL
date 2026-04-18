@@ -1,0 +1,126 @@
+/* ---------- Motion stage layer ---------- */
+/* Ambient glow used in BaseLayout. Fixed, behind content, never behaves   */
+/* as decoration overlapping the type. */
+
+.stage-ambient {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-ambient);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.stage-ambient__halo {
+  position: absolute;
+  width: 60vmax;
+  height: 60vmax;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.32;
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+
+.stage-ambient__halo--a {
+  top: -22vmax; left: -18vmax;
+  background: radial-gradient(closest-side, rgba(139, 92, 246, 0.85), transparent 70%);
+  animation: stage-drift 28s ease-in-out infinite alternate;
+}
+
+.stage-ambient__halo--b {
+  bottom: -28vmax; right: -22vmax;
+  background: radial-gradient(closest-side, rgba(224, 170, 255, 0.55), transparent 70%);
+  animation: stage-drift 36s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes stage-drift {
+  0%   { transform: translate3d(0, 0, 0) rotate(0deg); }
+  100% { transform: translate3d(6vmax, -4vmax, 0) rotate(40deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stage-ambient__halo { animation: none; }
+}
+
+/* ---------- Curtain (page transition with view-transitions) ---------- */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 520ms;
+  animation-timing-function: var(--ease-cinema);
+}
+
+::view-transition-old(root) {
+  animation-name: rebel-fade-out;
+}
+
+::view-transition-new(root) {
+  animation-name: rebel-fade-up;
+}
+
+@keyframes rebel-fade-out {
+  to { opacity: 0; transform: translateY(-12px) scale(0.992); }
+}
+
+@keyframes rebel-fade-up {
+  from { opacity: 0; transform: translateY(18px) scale(0.992); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---------- Scroll progress bar ---------- */
+.scroll-progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 2px;
+  z-index: calc(var(--z-header) + 1);
+  pointer-events: none;
+}
+
+.scroll-progress__bar {
+  height: 100%;
+  width: var(--progress, 0%);
+  background: var(--line-accent);
+  box-shadow: 0 0 14px rgba(224, 170, 255, 0.6);
+  transition: width 60ms linear;
+}
+
+/* ---------- WhatsApp live button ---------- */
+.whatsapp-live {
+  position: fixed;
+  right: clamp(1rem, 2vw, 1.8rem);
+  bottom: clamp(1rem, 2vw, 1.8rem);
+  z-index: var(--z-modal);
+  width: 56px; height: 56px;
+  border-radius: 999px;
+  display: grid; place-items: center;
+  color: var(--ivory-1);
+  background:
+    radial-gradient(120% 100% at 30% 30%, rgba(91, 43, 216, 0.95), rgba(46, 16, 101, 0.95));
+  box-shadow:
+    0 0 0 1px rgba(224, 170, 255, 0.35),
+    0 14px 40px rgba(91, 43, 216, 0.55);
+  transition: transform var(--t-base) var(--ease-cinema), box-shadow var(--t-base) var(--ease-cinema);
+  isolation: isolate;
+}
+
+.whatsapp-live::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 999px;
+  background: var(--halo-violet);
+  filter: blur(14px);
+  opacity: 0.55;
+  z-index: -1;
+  animation: halo-spin 14s linear infinite;
+}
+
+.whatsapp-live:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow:
+    0 0 0 1px rgba(224, 170, 255, 0.6),
+    0 20px 60px rgba(139, 92, 246, 0.7);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-live::before { animation: none; }
+}

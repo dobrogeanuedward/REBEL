@@ -1,0 +1,438 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHead from "@/components/SectionHead.astro";
+import FaqAccordion from "@/components/FaqAccordion.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import KeyPointsGrid from "@/components/KeyPointsGrid.astro";
+import EditorialSection from "@/components/EditorialSection.astro";
+import TableOfContents from "@/components/TableOfContents.astro";
+import InlineCta from "@/components/InlineCta.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import {
+  servicePages,
+  competencePages,
+} from "@/lib/seo-content";
+import { protocolPages } from "@/lib/protocol-pages";
+import { localAreaPages } from "@/lib/local-pages";
+import {
+  buildArticleSchema,
+  buildBreadcrumbSchema,
+  buildItemListSchema,
+  buildServiceSchema,
+  buildWebPageSchema,
+  createPageMeta,
+} from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
+
+export async function getStaticPaths() {
+  return servicePages.map((s) => ({
+    params: { slug: s.slug },
+    props: { service: s },
+  }));
+}
+
+const { service } = Astro.props;
+
+const fallbackImage =
+  service.category === "laser"
+    ? "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e3635dd7-e046-46af-56a5-cf36d8239c00/public"
+    : "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/7dc5354b-33e1-4a9e-a21d-ff321ecf4500/public";
+
+const baseServiceName = service.name.replace(/\s+a Carmagnola$/i, "").trim();
+const priceIntentKeywords = [
+  `${baseServiceName} prezzi Carmagnola`,
+  `prezzi ${baseServiceName} Carmagnola`,
+  `${baseServiceName} Carmagnola`,
+];
+
+const meta = createPageMeta({
+  title: service.name,
+  description: service.shortDescription,
+  path: `/servizi/${service.slug}`,
+  keywords: [...service.keywords, ...priceIntentKeywords],
+  openGraphType: "article",
+  image: service.heroImage?.src ?? fallbackImage,
+});
+
+const toWords = (v: string) => v.trim().split(/\s+/).filter(Boolean);
+const readingMinutes = Math.max(
+  2,
+  Math.round(
+    toWords(
+      [
+        service.longDescription,
+        service.shortDescription,
+        service.benefits.join(" "),
+        service.faqs.map((f) => `${f.q} ${f.a}`).join(" "),
+        (service.editorialSections ?? []).flatMap((s) => s.paragraphs).join(" "),
+      ].join(" "),
+    ).length / 190,
+  ),
+);
+
+const slugifyId = (value: string) =>
+  value
+    .toLowerCase()
+    .trim()
+    .replace(/[’']/g, "")
+    .replace(/[^\p{L}\p{N}]+/gu, "-")
+    .replace(/-+/g, "-")
+    .replace(/(^-|-$)/g, "");
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Servizi", path: "/servizi" },
+  { name: service.name, path: `/servizi/${service.slug}` },
+]);
+const webPage = buildWebPageSchema({
+  name: service.name,
+  description: service.shortDescription,
+  path: `/servizi/${service.slug}`,
+});
+const serviceSchema = buildServiceSchema(
+  service.name,
+  service.longDescription,
+  `/servizi/${service.slug}`,
+);
+const articleSchema = buildArticleSchema({
+  headline: service.name,
+  description: service.longDescription,
+  path: `/servizi/${service.slug}`,
+  keywords: service.keywords,
+  section: service.category === "laser" ? "Laser" : "Estetica classica",
+  image: service.heroImage?.src,
+});
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: service.faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: { "@type": "Answer", text: faq.a },
+  })),
+};
+
+const relatedCompetences = competencePages.filter((c) =>
+  service.relatedCompetenceSlugs.includes(c.slug),
+);
+const relatedProtocols = (service.relatedProtocolSlugs ?? [])
+  .map((sl) => protocolPages.find((p) => p.slug === sl))
+  .filter((p): p is (typeof protocolPages)[number] => Boolean(p))
+  .slice(0, 4);
+const siblingServices = servicePages
+  .filter((i) => i.slug !== service.slug && i.category === service.category)
+  .map((i) => ({
+    item: i,
+    score: i.relatedCompetenceSlugs.filter((rs) =>
+      service.relatedCompetenceSlugs.includes(rs),
+    ).length,
+  }))
+  .sort((a, b) => b.score - a.score)
+  .slice(0, 4)
+  .map(({ item }) => item);
+const featuredAreas = localAreaPages.filter((a) => a.cluster === "asse-carmagnola").slice(0, 4);
+
+const relatedCompetencesSchema =
+  relatedCompetences.length > 0
+    ? buildItemListSchema({
+        name: `Competenze correlate a ${service.name}`,
+        path: `/servizi/${service.slug}`,
+        items: relatedCompetences.map((c) => ({ name: c.title, path: `/competenze/${c.slug}` })),
+      })
+    : null;
+const relatedProtocolsSchema =
+  relatedProtocols.length > 0
+    ? buildItemListSchema({
+        name: `Protocolli epigenetici utili dopo ${service.name}`,
+        path: `/servizi/${service.slug}`,
+        items: relatedProtocols.map((p) => ({ name: p.name, path: `/protocolli/${p.slug}` })),
+      })
+    : null;
+const siblingServicesSchema =
+  siblingServices.length > 0
+    ? buildItemListSchema({
+        name: `Altri servizi simili a ${service.name}`,
+        path: `/servizi/${service.slug}`,
+        items: siblingServices.map((s) => ({ name: s.name, path: `/servizi/${s.slug}` })),
+      })
+    : null;
+const featuredAreasSchema =
+  featuredAreas.length > 0
+    ? buildItemListSchema({
+        name: `Località vicine per ${service.name}`,
+        path: `/servizi/${service.slug}`,
+        items: featuredAreas.map((a) => ({ name: a.city, path: `/localita/${a.slug}` })),
+      })
+    : null;
+
+const editorialSections = service.editorialSections ?? [];
+const sourceLinks = service.sourceLinks ?? [];
+
+const tocItems = [
+  { id: "benefici", label: "Benefici" },
+  { id: "prezzi", label: "Prezzi" },
+  ...(editorialSections.length > 0 ? [{ id: "dettagli", label: "Dettagli utili" }] : []),
+  { id: "faq", label: "Domande frequenti" },
+  { id: "guide", label: "Guide utili" },
+  ...(sourceLinks.length > 0 ? [{ id: "fonti", label: "Fonti e riferimenti" }] : []),
+  ...(relatedProtocols.length > 0 ? [{ id: "protocolli", label: "Passo più avanzato" }] : []),
+  { id: "anche", label: "Guarda anche" },
+  ...(featuredAreas.length > 0 ? [{ id: "localita", label: "Località vicine" }] : []),
+];
+---
+<BaseLayout meta={meta} bodyClass={`page-servizio-detail ${service.category === "laser" ? "page-servizio-laser" : "page-servizio-classica"}`}>
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={webPage} />
+  <JsonLd data={serviceSchema} />
+  <JsonLd data={articleSchema} />
+  <JsonLd data={faqSchema} />
+  {relatedCompetencesSchema ? <JsonLd data={relatedCompetencesSchema} /> : null}
+  {relatedProtocolsSchema ? <JsonLd data={relatedProtocolsSchema} /> : null}
+  {siblingServicesSchema ? <JsonLd data={siblingServicesSchema} /> : null}
+  {featuredAreasSchema ? <JsonLd data={featuredAreasSchema} /> : null}
+
+  <PageHero
+    kicker={service.category === "laser" ? "Servizio laser" : "Servizio estetica"}
+    title={service.name.replace(/Carmagnola/i, "_Carmagnola_")}
+    lead={service.longDescription}
+    meta={[
+      service.priceHint,
+      `${readingMinutes} min lettura`,
+      `Aggiornato ${siteConfig.lastUpdated}`,
+    ]}
+    ctaPrimary={{ label: "Prenota consulenza", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "WhatsApp", href: siteConfig.social.whatsapp }}
+  />
+
+  <section class="section">
+    <div class="container detail-grid">
+      <article class="detail-main">
+        <div id="benefici">
+          <SectionHead
+            kicker="Cosa puoi notare"
+            title={`Benefici di _${baseServiceName}_.`}
+          />
+          {service.heroImage ? (
+            <div class="detail-cover">
+              <img
+                src={service.heroImage.src}
+                alt={service.heroImage.alt}
+                width="1600"
+                height="900"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          ) : null}
+          <p class="detail-lead">{service.shortDescription}</p>
+          <KeyPointsGrid points={service.benefits} />
+        </div>
+
+        <div id="prezzi" class="detail-section">
+          <SectionHead
+            kicker="Prezzi"
+            title={`Quanto costa _${baseServiceName}_ a Carmagnola.`}
+            lead={`Per ${service.name} il riferimento parte da ${service.priceHint}. Il prezzo è una scelta coerente col risultato, non un numero isolato.`}
+          />
+          <div class="card-grid card-grid--2">
+            <FeatureCard
+              kicker="Come si legge"
+              title="Prezzo come ingresso al risultato"
+              body="Intensità, frequenza e progressione vengono adattate a pelle e obiettivo. Il prezzo è la porta — non la promessa."
+            />
+            <FeatureCard
+              kicker="Vuoi il quadro completo?"
+              title="Listino aggiornato"
+              body="Tutti i trattamenti Rebel — estetica, laser, protocolli — con prezzi indicativi aggiornati."
+              href="/listino-estetica-laser"
+            />
+          </div>
+        </div>
+
+        {editorialSections.length > 0 ? (
+          <div id="dettagli" class="detail-section">
+            <SectionHead
+              kicker="Da sapere"
+              title={`Prima di prenotare _${baseServiceName}_.`}
+            />
+            <div class="editorial-flow">
+              {editorialSections.map((s) => (
+                <EditorialSection id={slugifyId(s.heading)} heading={s.heading} paragraphs={s.paragraphs} level={3} />
+              ))}
+            </div>
+          </div>
+        ) : null}
+
+        <div id="faq" class="detail-section">
+          <SectionHead
+            kicker="Domande frequenti"
+            title="Le risposte _utili_ prima di scegliere."
+          />
+          <FaqAccordion items={service.faqs} kicker={`Su ${baseServiceName}`} />
+        </div>
+
+        {sourceLinks.length > 0 ? (
+          <div id="fonti" class="detail-section">
+            <SectionHead
+              kicker="Fonti e riferimenti"
+              title="Da dove viene _ciò che diciamo_."
+            />
+            <ul class="source-list">
+              {sourceLinks.map((s) => (
+                <li>
+                  <a href={s.url} target="_blank" rel="noreferrer">{s.label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+
+        {relatedCompetences.length > 0 ? (
+          <div id="guide" class="detail-section">
+            <SectionHead
+              kicker="Approfondimenti"
+              title={`Guide utili se valuti _${baseServiceName}_.`}
+            />
+            <div class="card-grid card-grid--2">
+              {relatedCompetences.map((c, i) => (
+                <FeatureCard
+                  kicker="Guida"
+                  title={c.title}
+                  body={c.shortDescription}
+                  href={`/competenze/${c.slug}`}
+                  variant="quiet"
+                  index={i + 1}
+                />
+              ))}
+            </div>
+          </div>
+        ) : null}
+
+        {relatedProtocols.length > 0 ? (
+          <div id="protocolli" class="detail-section">
+            <SectionHead
+              kicker="Passo più avanzato"
+              title="Quando vuoi _alzare l'asticella_."
+              lead="Alcune persone entrano da qui e poi scelgono un protocollo più completo per glow, tono, densità."
+            />
+            <div class="card-grid card-grid--2">
+              {relatedProtocols.map((p, i) => (
+                <FeatureCard
+                  kicker={p.price}
+                  title={p.name}
+                  body={p.shortDescription}
+                  href={`/protocolli/${p.slug}`}
+                  variant="feature"
+                  index={i + 1}
+                />
+              ))}
+            </div>
+          </div>
+        ) : null}
+
+        <div id="anche" class="detail-section">
+          <SectionHead
+            kicker="Continua a esplorare"
+            title={`Se ti interessa _${baseServiceName}_, guarda anche.`}
+          />
+          <div class="card-grid card-grid--2">
+            {siblingServices.map((s, i) => (
+              <FeatureCard
+                kicker={s.priceHint}
+                title={s.name}
+                body={s.shortDescription}
+                href={`/servizi/${s.slug}`}
+                index={i + 1}
+              />
+            ))}
+          </div>
+        </div>
+
+        {featuredAreas.length > 0 ? (
+          <div id="localita" class="detail-section">
+            <SectionHead
+              kicker="Località vicine"
+              title="Se _arrivi da fuori_."
+              lead="Pagine dedicate ai comuni vicini, con focus diversi (laser, viso/corpo, protocolli)."
+            />
+            <div class="card-grid card-grid--2">
+              {featuredAreas.map((a, i) => (
+                <FeatureCard
+                  kicker="Località"
+                  title={a.city}
+                  body={a.description}
+                  href={`/localita/${a.slug}`}
+                  variant="quiet"
+                  index={i + 1}
+                />
+              ))}
+            </div>
+          </div>
+        ) : null}
+      </article>
+
+      <aside class="detail-aside">
+        <TableOfContents items={tocItems} />
+        <InlineCta
+          kicker="Apri il servizio giusto"
+          title={`Definiamo se _${baseServiceName}_ è la scelta migliore.`}
+          lead="Scrivici zona, obiettivo e tempi: orientiamo verso il trattamento più coerente."
+          primaryHref="/contatti"
+          primaryLabel="Apri consulenza"
+          secondaryHref="/listino-estetica-laser"
+          secondaryLabel="Listino"
+        />
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .detail-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: clamp(2rem, 4vw, 4rem);
+    align-items: start;
+  }
+  @media (max-width: 980px) {
+    .detail-grid { grid-template-columns: 1fr; }
+    .detail-aside { order: -1; position: relative; }
+  }
+  .detail-main { min-width: 0; }
+  .detail-section { margin-top: clamp(3rem, 6vw, 5rem); }
+  .detail-cover {
+    margin: 1.4rem 0;
+    border-radius: var(--r-md);
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .detail-cover img { width: 100%; height: auto; display: block; }
+  .detail-lead {
+    font-size: var(--t-lead);
+    color: var(--text-muted);
+    line-height: var(--leading-body);
+    max-width: 64ch;
+    margin: 1rem 0 0;
+  }
+  .editorial-flow { display: grid; gap: 2rem; max-width: 70ch; margin-top: 1.6rem; }
+  .source-list {
+    list-style: none;
+    margin: 1.2rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.6rem;
+  }
+  .source-list a {
+    color: var(--text);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 0.4rem;
+    display: inline-block;
+    transition: color var(--t-fast) var(--ease-soft), border-color var(--t-fast) var(--ease-soft);
+  }
+  .source-list a:hover {
+    color: var(--ivory-1);
+    border-bottom-color: var(--mauve);
+  }
+  .detail-aside { display: grid; gap: 1.4rem; }
+</style>

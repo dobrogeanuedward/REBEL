@@ -1,0 +1,178 @@
+/* ---------- Buttons ---------- */
+/* Three roles only: primary (signature violet), secondary (ghost line),  */
+/* link (text-only). Halo is reserved for one button per page.            */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 1rem 1.7rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+  transition:
+    transform var(--t-base) var(--ease-cinema),
+    box-shadow var(--t-base) var(--ease-cinema),
+    background var(--t-base) var(--ease-soft),
+    border-color var(--t-base) var(--ease-soft),
+    color var(--t-fast) var(--ease-soft);
+  position: relative;
+  isolation: isolate;
+  white-space: nowrap;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--mauve);
+  outline-offset: 4px;
+}
+
+.btn[disabled],
+.btn[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Primary — the signature violet pill. */
+.btn--primary {
+  color: var(--ivory-1);
+  background: var(--wash-violet);
+  background-size: 220% 220%;
+  background-position: 0% 0%;
+  box-shadow: var(--shadow-violet-glow);
+}
+
+.btn--primary:hover {
+  transform: translateY(-2px);
+  background-position: 100% 60%;
+  box-shadow:
+    0 0 0 1px rgba(224, 170, 255, 0.5),
+    0 30px 80px rgba(91, 43, 216, 0.55);
+}
+
+.btn--primary:active { transform: translateY(0); }
+
+/* Secondary — ivory ghost line on dark, dark ghost line on ivory. */
+.btn--secondary {
+  color: var(--text);
+  background: transparent;
+  border-color: var(--line-strong);
+}
+
+.btn--secondary:hover {
+  border-color: var(--mauve);
+  color: var(--ivory-1);
+  background: rgba(139, 92, 246, 0.08);
+}
+
+.scene-ivory .btn--secondary {
+  color: var(--on-light);
+  border-color: rgba(20, 16, 42, 0.22);
+}
+
+.scene-ivory .btn--secondary:hover {
+  border-color: var(--violet-mid);
+  background: rgba(91, 43, 216, 0.06);
+}
+
+/* Link — pure text with the mauve underline that breathes. */
+.btn--link {
+  padding: 0.5rem 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  color: var(--text-strong);
+  position: relative;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.btn--link::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 1px;
+  background: var(--line-accent);
+  transform-origin: left;
+  transform: scaleX(0.4);
+  transition: transform var(--t-base) var(--ease-cinema);
+}
+
+.btn--link:hover::after { transform: scaleX(1); }
+
+/* Halo — used at most once per page.
+   Internal luminescence: a soft, drifting violet light *inside* the pill,
+   never a rotating ring outside. The button stays a clean pill shape;
+   the glow lives behind the text and is clipped by the border-radius. */
+.btn--halo {
+  overflow: hidden; /* clip the inner glow to the pill */
+  background-color: var(--violet-deep);
+  background-image: var(--wash-violet);
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  box-shadow:
+    inset 0 0 0 1px rgba(224, 170, 255, 0.35),
+    0 14px 40px rgba(91, 43, 216, 0.45);
+}
+
+.btn--halo > * {
+  position: relative;
+  z-index: 2; /* sit above the inner halo */
+}
+
+.btn--halo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 1;
+  background:
+    radial-gradient(60% 110% at 20% 50%, rgba(224, 170, 255, 0.55), transparent 70%),
+    radial-gradient(60% 110% at 80% 50%, rgba(124, 58, 237, 0.55), transparent 70%);
+  mix-blend-mode: screen;
+  animation: halo-drift 6.5s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.btn--halo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 1;
+  background: radial-gradient(120% 200% at 50% 120%, rgba(7, 5, 14, 0.35), transparent 60%);
+  pointer-events: none;
+}
+
+.btn--halo:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 0 0 1px rgba(224, 170, 255, 0.55),
+    0 22px 60px rgba(91, 43, 216, 0.55);
+}
+
+@keyframes halo-drift {
+  0%   { transform: translateX(-12%) scale(1.05); opacity: 0.85; }
+  50%  { transform: translateX(0%)   scale(1.1);  opacity: 1;    }
+  100% { transform: translateX(12%)  scale(1.05); opacity: 0.85; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn--halo::before { animation: none; }
+}
+
+/* Size variants — only when you must. */
+.btn--sm { padding: 0.7rem 1.2rem; font-size: 0.85rem; }
+.btn--lg { padding: 1.15rem 2rem; font-size: 1rem; }
+
+/* Block on mobile in cluster contexts. */
+.cluster .btn { flex: 0 1 auto; }
+@media (max-width: 540px) {
+  .cluster--stack-mobile .btn { flex: 1 1 100%; }
+}

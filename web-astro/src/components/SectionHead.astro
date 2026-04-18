@@ -1,0 +1,17 @@
+---
+interface Props {
+  kicker?: string;
+  title: string;
+  lead?: string;
+  centered?: boolean;
+}
+
+const { kicker, title, lead, centered = false } = Astro.props;
+const renderedTitle = title.replace(/_([^_]+)_/g, (_, t) => `<em>${t}</em>`);
+---
+<header class={`section__head ${centered ? "section__head--centered" : ""}`} data-reveal>
+  {kicker ? <p class="kicker">{kicker}</p> : null}
+  <h2 class="section__title" set:html={renderedTitle}></h2>
+  {lead ? <p class="section__lead">{lead}</p> : null}
+  <span class="hairline" aria-hidden="true"></span>
+</header>

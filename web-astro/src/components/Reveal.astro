@@ -1,0 +1,26 @@
+---
+// IntersectionObserver-based reveal-on-scroll. Adds `[data-revealed="true"]`
+// to elements with `[data-reveal]`. CSS does the rest. Vanilla TS, no React.
+---
+<script>
+  const init = () => {
+    const els = document.querySelectorAll<HTMLElement>("[data-reveal]");
+    if (!("IntersectionObserver" in window) || els.length === 0) {
+      els.forEach((el) => el.setAttribute("data-revealed", "true"));
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.setAttribute("data-revealed", "true");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.08 },
+    );
+    els.forEach((el) => io.observe(el));
+  };
+  document.addEventListener("astro:page-load", init);
+</script>
