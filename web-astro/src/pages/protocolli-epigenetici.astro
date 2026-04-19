@@ -17,15 +17,18 @@ import {
 } from "@/lib/seo";
 
 const meta = createPageMeta({
-  title: "Protocolli Epigenetici a Carmagnola · Trattamenti viso e corpo Rebel",
+  title: "Protocolli Viso e Corpo Epigenetici a Carmagnola — Rebel",
   description:
-    "Scopri i protocolli epigenetici Rebel a Carmagnola: trattamenti viso e corpo per glow, tono, densità, drenaggio e bellezza progressiva.",
+    "Protocolli viso e corpo a Carmagnola con linee professionali Marbellas ed Eberlin: pulizia profonda, tono, densità, drenaggio e luminosità su più sedute.",
   path: "/protocolli-epigenetici",
   openGraphType: "article",
   keywords: [
-    "protocolli epigenetici Carmagnola",
-    "trattamenti viso avanzati Carmagnola",
-    "trattamenti corpo avanzati Carmagnola",
+    "protocolli viso Carmagnola",
+    "protocolli corpo Carmagnola",
+    "estetica avanzata Carmagnola",
+    "trattamenti viso epigenetici Carmagnola",
+    "Marbellas Carmagnola",
+    "Eberlin Carmagnola",
   ],
 });
 
@@ -86,20 +89,20 @@ const guidesSchema =
   {guidesSchema ? <JsonLd data={guidesSchema} /> : null}
 
   <PageHero
-    kicker="Protocolli Rebel"
-    title="Bellezza _progressiva_: protocolli epigenetici per pelle viva."
-    lead="Ogni protocollo apre un percorso fatto di lettura iniziale, attivi epigenetici e tecnologia mirata: una direzione, non una promessa."
-    meta={["Glow & luminosità", "Tono & ovale", "Drenaggio & comfort"]}
-    ctaPrimary={{ label: "Apri lettura iniziale", href: "/contatti", halo: true }}
+    kicker="Protocolli viso e corpo · Carmagnola"
+    title="Quando un singolo trattamento _non basta_."
+    lead="I protocolli sono percorsi su più sedute, costruiti per lavorare in profondità su tono, densità, luminosità e drenaggio. Linee professionali Marbellas ed Eberlin in cabina."
+    meta={["Marbellas — linea epigenetica", "Eberlin — biocosmetica", "Percorsi su più sedute"]}
+    ctaPrimary={{ label: "Prenota la prima visita gratuita", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Vai al listino", href: "/listino-estetica-laser" }}
   />
 
   <section class="section">
     <div class="container">
       <SectionHead
-        kicker="I protocolli"
-        title="Scegli il _risultato_ che vuoi vedere prima."
-        lead="Ogni scheda racconta intenzione, ritmo e progressione. Nessun protocollo è uguale a un altro: la priorità si decide insieme."
+        kicker="I protocolli attivi"
+        title="Scegli il _risultato_ da cui partire."
+        lead="Ogni scheda racconta cosa fa il protocollo, in quante sedute si sviluppa e a chi è davvero adatto. La priorità la decidiamo in prima visita."
       />
       <div class="card-grid card-grid--3">
         {protocolCards.map((p, i) => (
@@ -121,18 +124,20 @@ const guidesSchema =
     <div class="container split">
       <article class="card">
         <p class="kicker">Come si sceglie</p>
-        <h2 class="card__title">La consulenza apre la direzione, prima ancora del trattamento.</h2>
+        <h2 class="card__title">Si parte dalla pelle, non dal pacchetto.</h2>
         <p class="card__body">
-          La lettura iniziale individua glow, tono, densità e priorità del momento. Da lì il protocollo
-          diventa un percorso costruito sulla tua pelle, non un pacchetto preconfezionato.
+          In prima visita leggiamo insieme pelle, zona e priorità del momento. Ti diciamo
+          se ha senso aprire un protocollo o se basta un trattamento singolo, e ti
+          consegniamo una proposta scritta con prezzi e tempi reali.
         </p>
       </article>
       <article class="card card--feature">
-        <p class="kicker">Cosa puoi notare</p>
-        <h3 class="card__title">Una bellezza che cresce di seduta in seduta.</h3>
+        <p class="kicker">Cosa cambia davvero</p>
+        <h3 class="card__title">Un percorso lavora dove un singolo gesto non arriva.</h3>
         <p class="card__body">
-          Luminosità, tono e densità diventano qualità visibile. Ogni seduta prepara la successiva: il
-          risultato non resta in agenda, resta sul viso e sul corpo.
+          La differenza fra una pulizia viso e un protocollo viso è il tempo. Più sedute,
+          attivi mirati, ritmo costruito sulla tua pelle: la qualità cresce di seduta in
+          seduta e il mantenimento diventa più semplice.
         </p>
       </article>
     </div>
@@ -143,8 +148,8 @@ const guidesSchema =
       <div class="container">
         <SectionHead
           kicker="Per orientarti"
-          title="Guide beauty per scegliere il _protocollo giusto_."
-          lead="Le guide chiariscono obiettivo, ritmo e primo step e accompagnano una scelta più consapevole."
+          title="Guide _utili_ prima di scegliere."
+          lead="Approfondimenti su pelle, tono, contorno occhi e routine: spiegano cosa guardare e da quale protocollo ha senso partire."
         />
         <div class="card-grid card-grid--2">
           {guides.map((g, i) => (
@@ -165,13 +170,13 @@ const guidesSchema =
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Prenota"
-        title="Apri la _lettura iniziale_ e definisci il tuo protocollo."
-        lead="Quindici minuti per individuare priorità, ritmo e calendario. Tutto parte da qui."
+        kicker="Prima visita gratuita"
+        title="Quindici minuti per capire da _dove partire_."
+        lead="Vieni in studio, leggiamo la pelle, decidiamo insieme. Senza obbligo di acquisto e con un piccolo regalo a tua scelta."
         primaryHref="/contatti"
-        primaryLabel="Prenota consulenza"
+        primaryLabel="Prenota la prima visita gratuita"
         secondaryHref="/listino-estetica-laser"
-        secondaryLabel="Listino completo"
+        secondaryLabel="Vedi listino e prezzi"
       />
     </div>
   </section>

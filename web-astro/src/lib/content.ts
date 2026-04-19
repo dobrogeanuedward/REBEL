@@ -15,61 +15,49 @@ export const protocolCards = protocolPages.map((protocol) => ({
 
 export const methodSteps = [
   {
-    step: "Step 1",
-    title: "Lettura iniziale",
-    text: "Partiamo da pelle, obiettivi e tempi: decidiamo una priorità e un ritmo che abbia senso.",
+    step: "01",
+    title: "Prima visita gratuita",
+    text: "Quindici minuti per conoscerci. Ci dici cosa vorresti fare, leggiamo pelle e zona, decidiamo se ha senso iniziare un percorso.",
   },
   {
-    step: "Step 2",
-    title: "Attivi intelligenti",
-    text: "Scegliamo attivi e manualità in base al punto di partenza, senza stratificare a caso.",
+    step: "02",
+    title: "Proposta chiara",
+    text: "Ti mostriamo prezzo, durata e numero di sedute realistico. Niente pacchetti opachi né promesse fuori scala.",
   },
   {
-    step: "Step 3",
-    title: "Attivazione tecnologica",
-    text: "La tecnologia entra solo quando aggiunge valore, non per riempire la seduta.",
+    step: "03",
+    title: "Il primo trattamento",
+    text: "Si parte con la prima seduta. Lavoriamo con tecnologia Thory + Ice Polar e prodotti professionali (Marbellas, Eberlin).",
   },
   {
-    step: "Step 4",
-    title: "Riprogrammazione",
-    text: "Costruiamo continuità e progressione: la parte che rende i risultati più stabili.",
+    step: "04",
+    title: "Calendario su misura",
+    text: "Concordiamo i richiami in base alla tua agenda: turni di lavoro, stagioni, eventi importanti. Lo studio è aperto Mar–Sab.",
   },
   {
-    step: "Step 5",
-    title: "Mantenimento",
-    text: "Pochi gesti a casa più richiami in cabina: così non riparti da zero ogni volta.",
+    step: "05",
+    title: "Mantenimento facile",
+    text: "Due o tre gesti a casa più una seduta di mantenimento. Così non riparti da zero ogni volta che cambia stagione.",
   },
 ];
 
+// Hero slider — tre delle immagini originali sono state rimosse perché
+// poco rappresentative; verranno reintegrate quando avremo scatti dedicati.
+// Per ora mostriamo solo le foto realmente forti dello studio.
 export const homeHeroImages = [
   {
-    src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/8d07afc2-b036-4eff-d34e-523a6c656d00/public",
-    alt: "Rebel Carmagnola — Epilazione laser viso in cabina",
-    objectPosition: "50% 34%",
-  },
-  {
-    src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e3635dd7-e046-46af-56a5-cf36d8239c00/public",
-    alt: "Rebel Carmagnola — Epilazione laser corpo su misura",
-    objectPosition: "50% 36%",
-  },
-  {
     src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/7dc5354b-33e1-4a9e-a21d-ff321ecf4500/public",
-    alt: "Rebel Carmagnola — Pulizia viso professionale",
+    alt: "Rebel Carmagnola — pulizia viso in cabina",
     objectPosition: "50% 34%",
   },
   {
     src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/9d9033f2-f11f-4485-f69c-38d05556bb00/public",
-    alt: "Rebel Carmagnola — Scrub corpo professionale",
-    objectPosition: "50% 34%",
-  },
-  {
-    src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/965f95e4-c556-424d-abca-77a5c7b1ae00/public",
-    alt: "Rebel Carmagnola — Massaggio rilassante",
+    alt: "Rebel Carmagnola — scrub corpo in cabina",
     objectPosition: "50% 34%",
   },
   {
     src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e63a6c84-f777-4f2d-995b-eef9c7e09900/public",
-    alt: "Rebel Carmagnola — Manicure semipermanente",
+    alt: "Rebel Carmagnola — manicure semipermanente",
     objectPosition: "50% 34%",
   },
 ];

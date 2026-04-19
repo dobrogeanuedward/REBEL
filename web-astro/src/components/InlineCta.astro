@@ -10,13 +10,13 @@ interface Props {
 }
 
 const {
-  kicker = "Apri la tua consulenza",
+  kicker = "Prima visita",
   title,
   lead,
   primaryHref = "/contatti",
-  primaryLabel = "Apri consulenza",
+  primaryLabel = "Prenota la prima visita gratuita",
   secondaryHref = "/listino-estetica-laser",
-  secondaryLabel = "Trattamenti & prezzi",
+  secondaryLabel = "Vedi listino e prezzi",
 } = Astro.props;
 
 const renderedTitle = title.replace(/_([^_]+)_/g, (_, t) => `<em>${t}</em>`);

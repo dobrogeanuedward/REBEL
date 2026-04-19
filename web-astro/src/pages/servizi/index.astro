@@ -15,21 +15,21 @@ import {
 } from "@/lib/seo";
 
 const meta = createPageMeta({
-  title: "Servizi Estetici a Carmagnola · Viso, corpo ed epilazione laser",
+  title: "Servizi — Centro Estetico Rebel a Carmagnola",
   description:
-    "Servizi Rebel a Carmagnola: bellezza viso e corpo, protocolli epigenetici ed epilazione laser con consulenza personalizzata e risultati visibili.",
+    "Tutti i servizi Rebel a Carmagnola: pulizia viso, manicure, ceretta, massaggi, epilazione laser Ice Polar e protocolli viso/corpo. Schede chiare con prezzi.",
   path: "/servizi",
   image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e3635dd7-e046-46af-56a5-cf36d8239c00/public",
   keywords: [
     "servizi centro estetico Carmagnola",
     "trattamenti estetici Carmagnola",
-    "lista servizi estetista Carmagnola",
+    "estetista Carmagnola",
     "epilazione laser Carmagnola",
-    "pedicure Carmagnola",
-    "scrub corpo Carmagnola",
+    "pulizia viso Carmagnola",
     "manicure semipermanente Carmagnola",
-    "laser Carmagnola",
-    "epilazione laser Rebel",
+    "ceretta Carmagnola",
+    "massaggio Carmagnola",
+    "pedicure Carmagnola",
   ],
 });
 
@@ -98,11 +98,11 @@ const switchItems = [
   <JsonLd data={webPageSchema} />
 
   <PageHero
-    kicker="I nostri servizi"
-    title="Viso, corpo, _laser_ ed epigenetica per una bellezza che si vede."
-    lead="Apri la categoria, scegli il risultato che vuoi vedere e prenota il primo passo. Ogni scheda dice cosa cambia, quanto costa e quando ha senso."
-    meta={["Bellezza su misura", "Consulenza inclusa", "Calendario costruito insieme"]}
-    ctaPrimary={{ label: "Apri consulenza", href: "/contatti", halo: true }}
+    kicker="Servizi · Carmagnola"
+    title="Tutto quello che _facciamo_ in studio."
+    lead="Estetica classica, epilazione laser Ice Polar e protocolli viso/corpo. Ogni scheda dice cosa fa il trattamento, quanto dura e quanto costa. La prima visita è gratuita."
+    meta={["Estetica & benessere", "Epilazione laser Ice Polar", "Protocolli viso e corpo"]}
+    ctaPrimary={{ label: "Prenota la prima visita gratuita", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Scrivici su WhatsApp", href: "https://wa.me/393516919416" }}
   />
 
@@ -123,8 +123,8 @@ const switchItems = [
     <div class="container">
       <SectionHead
         kicker="Estetica & benessere"
-        title="Cura quotidiana, _qualità_ alta della pelle."
-        lead="Servizi che mantengono pelle, mani, piedi e corpo curati, luminosi e armoniosi."
+        title="I trattamenti _classici_, fatti come si deve."
+        lead="Pulizia viso, manicure, ceretta, massaggi: i servizi su cui contare ogni mese, con tempi sensati e prodotti professionali."
       />
       <div class="card-grid card-grid--2">
         {esteticaSorted.map((s, i) => (
@@ -145,8 +145,8 @@ const switchItems = [
     <div class="container">
       <SectionHead
         kicker="Epilazione laser"
-        title="Pelle libera, _comfort_ misurabile."
-        lead="Tecnologia Thory + Ice Polar e una valutazione iniziale che definisce zona, fototipo e calendario."
+        title="Laser Thory + manipolo _Ice Polar_."
+        lead="Diodo a tre lunghezze d'onda con raffreddamento attivo. Più comodo anche su ascelle e inguine. Valutazione iniziale gratuita."
       />
       <div class="card-grid card-grid--2">
         {laser.map((s, i) => (
@@ -162,7 +162,7 @@ const switchItems = [
         ))}
       </div>
       <div class="cluster cluster--stack-mobile" style="margin-top:2rem; justify-content:center;">
-        <a class="btn btn--primary btn--halo" href="/epilazione-laser-carmagnola">Apri il percorso laser</a>
+        <a class="btn btn--primary btn--halo" href="/epilazione-laser-carmagnola">Vedi il percorso laser</a>
         <a class="btn btn--secondary" href="/competenze/laser-uomo-carmagnola-guida-pratica">Laser uomo</a>
       </div>
     </div>
@@ -171,9 +171,9 @@ const switchItems = [
   <section class="section" id="epigenetica">
     <div class="container">
       <SectionHead
-        kicker="Estetica epigenetica"
-        title="Protocolli che attivano _bellezza_ progressiva."
-        lead="Viso e corpo per luminosità, tono, densità e qualità cutanea — un percorso, non un singolo gesto."
+        kicker="Protocolli avanzati"
+        title="Estetica _epigenetica_ viso e corpo."
+        lead="Percorsi su più sedute con linee Marbellas ed Eberlin. Quando vuoi un risultato che lavori in profondità: tono, densità, luminosità."
       />
       <div class="card-grid card-grid--3">
         {featuredProtocols.map((p, i) => (
@@ -189,7 +189,7 @@ const switchItems = [
       </div>
       <div class="cluster cluster--stack-mobile" style="margin-top:2rem; justify-content:center;">
         <a class="btn btn--primary btn--halo" href="/protocolli-epigenetici">Vedi tutti i protocolli</a>
-        <a class="btn btn--secondary" href="/contatti">Apri consulenza</a>
+        <a class="btn btn--secondary" href="/contatti">Prenota la prima visita</a>
       </div>
     </div>
   </section>
@@ -199,8 +199,8 @@ const switchItems = [
       <div class="container">
         <SectionHead
           kicker="Approfondimenti"
-          title="Guide beauty per scegliere con _desiderio_."
-          lead="Le guide accompagnano la scelta del trattamento e preparano una consulenza ancora più efficace."
+          title="Guide _utili_ prima di scegliere."
+          lead="Spiegano cosa fa un trattamento, quando ha senso e cosa aspettarsi: prepari meglio la prima visita e sai già cosa chiedere."
         />
         <div class="card-grid card-grid--2">
           {featuredEditorials.map((e, i) => (
@@ -221,13 +221,13 @@ const switchItems = [
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Prenota"
-        title="Quindici minuti per scegliere il _primo trattamento_."
-        lead="Una lettura iniziale, un piano sostenibile, il primo gesto da prenotare."
+        kicker="Prima visita gratuita"
+        title="Vieni in studio per _quindici minuti_, gratis."
+        lead="Capiamo da dove ha senso partire, ti facciamo una proposta scritta e scegli un piccolo regalo. Senza obbligo di acquisto."
         primaryHref="/contatti"
-        primaryLabel="Apri consulenza"
+        primaryLabel="Prenota la prima visita gratuita"
         secondaryHref="/listino-estetica-laser"
-        secondaryLabel="Listino completo"
+        secondaryLabel="Vedi listino e prezzi"
       />
     </div>
   </section>

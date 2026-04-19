@@ -14,15 +14,17 @@ import {
 } from "@/lib/seo";
 
 const meta = createPageMeta({
-  title: "Competenze ed Editoriali Estetici Locali · Carmagnola e dintorni",
+  title: "Guide e Approfondimenti Beauty — Centro Estetico Carmagnola",
   description:
-    "Approfondimenti e articoli editoriali Rebel sulle principali competenze estetiche a Carmagnola: estetica avanzata, trattamenti viso/corpo, laser e beauty routine professionale.",
+    "Guide pratiche su epilazione laser, pulizia viso, manicure, contorno occhi e trattamenti corpo: cosa aspettarsi, ogni quanto farli, come scegliere a Carmagnola.",
   path: "/competenze",
   image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/8d07afc2-b036-4eff-d34e-523a6c656d00/public",
   keywords: [
-    "competenze centro estetico Carmagnola",
+    "guide centro estetico Carmagnola",
+    "guida epilazione laser Carmagnola",
+    "guida pulizia viso Carmagnola",
+    "approfondimenti estetica Carmagnola",
     "estetica avanzata Carmagnola",
-    "guide trattamenti Carmagnola",
   ],
 });
 
@@ -65,21 +67,21 @@ const webPageSchema = buildWebPageSchema({
   <JsonLd data={webPageSchema} />
 
   <PageHero
-    kicker="Approfondimenti"
-    title="Guide Rebel: la _cultura beauty_ che rende la scelta sicura."
-    lead="Visione, criteri e approfondimenti su viso, corpo e laser per arrivare al trattamento giusto con desiderio e consapevolezza."
-    meta={["Beauty intelligence", "Prima della prenotazione", "Aggiornate periodicamente"]}
-    ctaPrimary={{ label: "Apri consulenza", href: "/contatti", halo: true }}
-    ctaSecondary={{ label: "Tutti i trattamenti", href: "/listino-estetica-laser" }}
+    kicker="Guide & approfondimenti"
+    title="Tutto quello che serve _sapere prima_."
+    lead="Guide pratiche su laser, viso, corpo e routine: cosa fa il trattamento, ogni quanto si fa, cosa aspettarsi davvero. Scritte da chi lo fa in cabina, non da un copy."
+    meta={["Letture brevi", "Aggiornate periodicamente", "Senza claim gonfiati"]}
+    ctaPrimary={{ label: "Prenota la prima visita gratuita", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Vedi tutti i trattamenti", href: "/listino-estetica-laser" }}
   />
 
   {featuredGuides.length > 0 ? (
     <section class="section">
       <div class="container">
         <SectionHead
-          kicker="Per partire subito"
-          title="Le _guide più richieste_."
-          lead="Sono le letture che aprono più spesso una prenotazione: concrete, desiderabili, facili da trasformare in scelta."
+          kicker="Le più lette"
+          title="Le guide _più richieste_ in studio."
+          lead="Sono le domande che ci fanno più spesso: cosa cambia, ogni quanto, cosa aspettarsi. Risposte chiare, senza giri."
         />
         <div class="card-grid card-grid--2">
           {featuredGuides.map((g, i) => (
@@ -101,13 +103,13 @@ const webPageSchema = buildWebPageSchema({
     <div class="container">
       <SectionHead
         kicker="Tutte le guide"
-        title="L'_archivio_ delle competenze pubblicate."
-        lead="Per ogni tema una pagina: cosa cambia, quando ha senso, come si combina con il resto del percorso."
+        title="L'_archivio completo_ degli approfondimenti."
+        lead="Una pagina per ogni tema: cosa cambia, quando ha senso, come si combina con il resto del percorso."
       />
       <div class="card-grid card-grid--2">
         {competencePages.map((c, i) => (
           <FeatureCard
-            kicker={c.intent === "commercial" ? "Percorso & prenotazione" : "Guida informativa"}
+            kicker={c.intent === "commercial" ? "Percorso" : "Guida"}
             title={c.title}
             body={c.shortDescription}
             href={`/competenze/${c.slug}`}
@@ -122,13 +124,13 @@ const webPageSchema = buildWebPageSchema({
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Trasforma la lettura in scelta"
-        title="Apri la consulenza, _porta la guida con te_."
-        lead="Definiamo priorità, calendario e il primo passo del tuo percorso beauty."
+        kicker="Dalla guida alla prenotazione"
+        title="Hai letto, hai capito: _vieni a provarlo_."
+        lead="La prima visita è gratuita. Quindici minuti per trasformare quello che hai letto in un piano concreto, costruito sulla tua pelle."
         primaryHref="/contatti"
-        primaryLabel="Apri consulenza"
+        primaryLabel="Prenota la prima visita gratuita"
         secondaryHref="/listino-estetica-laser"
-        secondaryLabel="Vedi listino"
+        secondaryLabel="Vedi listino e prezzi"
       />
     </div>
   </section>

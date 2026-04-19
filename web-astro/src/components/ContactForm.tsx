@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 
 type FormState = {
   name: string;
@@ -6,6 +6,7 @@ type FormState = {
   phone: string;
   city: string;
   message: string;
+  ritual: string;
   website: string;
 };
 
@@ -15,13 +16,32 @@ const initial: FormState = {
   phone: "",
   city: "",
   message: "",
+  ritual: "",
   website: "",
 };
+
+const ritualOptions: ReadonlyArray<{ value: string; label: string }> = [
+  { value: "", label: "Nessuna preferenza, decidiamo insieme" },
+  { value: "mani", label: "Mini-rituale mani (lima + smalto rapido)" },
+  { value: "viso-marbellas", label: "Massaggio viso epigenetico Marbellas" },
+  { value: "sopracciglia", label: "Disegno e rifinitura sopracciglia" },
+];
 
 export default function ContactForm() {
   const [form, setForm] = useState<FormState>(initial);
   const [status, setStatus] = useState<"idle" | "loading" | "ok" | "error">("idle");
   const [feedback, setFeedback] = useState("");
+
+  // Pre-fill the ritual field from a `?ritual=` query param so deeplinks from
+  // the homepage promo banner land already configured.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    const ritual = params.get("ritual");
+    if (ritual && ritualOptions.some((o) => o.value === ritual)) {
+      setForm((v) => ({ ...v, ritual }));
+    }
+  }, []);
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -41,7 +61,9 @@ export default function ContactForm() {
         throw new Error(data.message || "Errore durante l'invio.");
       }
       setStatus("ok");
-      setFeedback("Messaggio inviato. Ti ricontattiamo presto.");
+      setFeedback(
+        "Richiesta ricevuta. Ti scriviamo entro poche ore con un orario disponibile.",
+      );
       setForm(initial);
     } catch (err) {
       setStatus("error");
@@ -52,9 +74,10 @@ export default function ContactForm() {
   return (
     <form className="form" onSubmit={onSubmit} noValidate>
       <div className="form__intro">
-        <p className="form__kicker">Apri la tua consulenza</p>
+        <p className="form__kicker">Prima visita gratuita</p>
         <p className="form__note">
-          Obiettivo, area da trattare e tempi desiderati: da qui nasce la proposta più adatta a te.
+          Quindici minuti per capire da dove partire. In più, il primo accesso
+          include un piccolo regalo a tua scelta.
         </p>
       </div>
 
@@ -82,7 +105,7 @@ export default function ContactForm() {
           />
         </label>
         <label>
-          Telefono*
+          Telefono / WhatsApp*
           <input
             required
             type="tel"
@@ -99,19 +122,33 @@ export default function ContactForm() {
         <input
           value={form.city}
           onChange={(e) => setForm((v) => ({ ...v, city: e.target.value }))}
-          placeholder="Da dove ci raggiungi"
+          placeholder="Da dove ci raggiungi (es. Carmagnola)"
           autoComplete="address-level2"
         />
       </label>
 
       <label>
-        Messaggio*
+        Regalo prima visita
+        <select
+          value={form.ritual}
+          onChange={(e) => setForm((v) => ({ ...v, ritual: e.target.value }))}
+        >
+          {ritualOptions.map((opt) => (
+            <option key={opt.value} value={opt.value}>
+              {opt.label}
+            </option>
+          ))}
+        </select>
+      </label>
+
+      <label>
+        Cosa vorresti fare*
         <textarea
           required
           rows={5}
           value={form.message}
           onChange={(e) => setForm((v) => ({ ...v, message: e.target.value }))}
-          placeholder="Obiettivo, zona da trattare, quando vuoi iniziare."
+          placeholder="Es. Vorrei iniziare l'epilazione laser inguine + ascelle. In studio sono libera al pomeriggio."
         />
       </label>
 
@@ -130,8 +167,13 @@ export default function ContactForm() {
         className="btn btn--primary btn--halo"
         disabled={status === "loading"}
       >
-        {status === "loading" ? "Invio in corso…" : "Apri la consulenza"}
+        {status === "loading" ? "Invio in corso…" : "Prenota la prima visita"}
       </button>
+
+      <p className="form__small">
+        Inviando il modulo accetti la nostra Privacy Policy. Ti rispondiamo entro
+        poche ore negli orari di apertura.
+      </p>
 
       {feedback ? (
         <p

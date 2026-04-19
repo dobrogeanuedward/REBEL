@@ -11,14 +11,16 @@ import {
 import { siteConfig } from "@/lib/site-config";
 
 const meta = createPageMeta({
-  title: "Contatti · Rebel Carmagnola | WhatsApp, mappa, orari",
+  title: "Contatti — Rebel Carmagnola | WhatsApp, telefono, mappa, orari",
   description:
-    "Contatta Rebel a Carmagnola: WhatsApp, telefono, email, indirizzo e orari aggiornati. Prenota la tua lettura iniziale o la valutazione laser.",
+    "Contatta Rebel a Carmagnola: WhatsApp +39 351 691 9416, Viale Barbaroux 20, orari Mar–Sab. Prenota la prima visita gratuita.",
   path: "/contatti",
   keywords: [
     "contatti centro estetico Carmagnola",
     "whatsapp estetista Carmagnola",
     "indirizzo Rebel Carmagnola",
+    "telefono centro estetico Carmagnola",
+    "orari centro estetico Carmagnola",
   ],
 });
 
@@ -28,8 +30,9 @@ const breadcrumb = buildBreadcrumbSchema([
 ]);
 
 const webPage = buildWebPageSchema({
-  name: "Contatti Rebel Carmagnola",
-  description: "WhatsApp, telefono, email e mappa per raggiungere Rebel a Carmagnola.",
+  name: "Contatti Rebel Carmagnola — WhatsApp, telefono, mappa",
+  description:
+    "WhatsApp, telefono, email, mappa e orari per raggiungere Rebel in Viale Barbaroux 20 a Carmagnola.",
   path: "/contatti",
 });
 
@@ -84,13 +87,13 @@ const quick: QuickContact[] = [
 ];
 
 const hours = [
+  { day: "Lunedì", value: "Chiuso", closed: true },
   { day: "Martedì", value: "09:00 — 19:00" },
-  { day: "Mercoledì", value: "11:00 — 21:00" },
+  { day: "Mercoledì", value: "14:00 — 19:00" },
   { day: "Giovedì", value: "09:00 — 19:00" },
   { day: "Venerdì", value: "09:00 — 19:00" },
   { day: "Sabato", value: "09:00 — 14:00" },
   { day: "Domenica", value: "Chiuso", closed: true },
-  { day: "Lunedì", value: "Chiuso", closed: true },
 ];
 ---
 <BaseLayout meta={meta}>
@@ -100,9 +103,9 @@ const hours = [
 
   <PageHero
     kicker="Contatti · Carmagnola"
-    title="Apri la tua _consulenza_ e dai direzione alla tua bellezza."
-    lead="WhatsApp, telefono o form: raccontaci zona, obiettivo e tempi desiderati per ricevere la proposta più adatta a te."
-    meta={["Viale Barbaroux 20", "Su appuntamento"]}
+    title="Prenota la _prima visita_ gratuita."
+    lead="Scrivici su WhatsApp, chiamaci o compila il form: ti rispondiamo entro poche ore negli orari di apertura. La prima visita è gratuita e include un piccolo regalo a tua scelta."
+    meta={["Viale Barbaroux 20", "Mar–Sab su appuntamento", "Chiusi lunedì e domenica"]}
     ctaPrimary={{ label: "Apri WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
     ctaSecondary={{ label: "Chiamaci ora", href: `tel:${siteConfig.phoneRaw}` }}
   />
@@ -111,9 +114,10 @@ const hours = [
     <div class="container grid-2">
       <article class="card card--feature">
         <p class="card__kicker">Contatti rapidi</p>
-        <h2 class="card__title">Quattro vie per arrivare in studio.</h2>
+        <h2 class="card__title">Quattro modi per scriverci.</h2>
         <p class="card__body" style="margin-bottom: 1.4rem;">
-          Scegli la più comoda. Per WhatsApp, mandaci zona, obiettivo e quando vuoi iniziare.
+          Scegli quello più comodo. Su WhatsApp scrivi cosa vorresti fare e una fascia
+          oraria comoda: rispondiamo prima che possiamo.
         </p>
         <div class="contact-quick">
           {quick.map((q) => (
@@ -158,8 +162,8 @@ const hours = [
       </article>
 
       <aside class="card">
-        <p class="card__kicker">Orari · settimana tipo</p>
-        <h2 class="card__title">Quando trovarci in studio.</h2>
+        <p class="card__kicker">Orari di apertura</p>
+        <h2 class="card__title">Quando ci trovi in studio.</h2>
         <div class="hours">
           {hours.map((h) => (
             <div class={`hours__row ${h.closed ? "is-closed" : ""}`}>
@@ -169,7 +173,8 @@ const hours = [
           ))}
         </div>
         <p class="card__body" style="margin-top:1.2rem;">
-          Quando scrivi su WhatsApp, indica una fascia oraria comoda: rispondiamo appena possibile.
+          Riceviamo solo su appuntamento. Per la prima visita gratuita scrivici
+          su WhatsApp o usa il form qui sotto.
         </p>
       </aside>
     </div>
@@ -191,25 +196,27 @@ const hours = [
   <section class="section">
     <div class="container grid-2">
       <article class="card card--feature">
-        <p class="card__kicker">Form contatti</p>
-        <h2 class="card__title">Raccontaci dove vuoi arrivare.</h2>
+        <p class="card__kicker">Form prima visita</p>
+        <h2 class="card__title">Prenota in trenta secondi.</h2>
         <p class="card__body" style="margin-bottom:1.6rem;">
-          Compila il form: ti rispondiamo via email o telefono. Per il confronto immediato, WhatsApp è la via più veloce.
+          Compila il modulo qui sotto: ti rispondiamo via email o WhatsApp. Per
+          il confronto immediato, WhatsApp resta la via più veloce.
         </p>
         <ContactForm client:load />
       </article>
 
       <aside class="card">
-        <p class="card__kicker">Cosa accade dopo</p>
-        <h2 class="card__title">Quattro passaggi e sei dentro.</h2>
+        <p class="card__kicker">Cosa succede dopo</p>
+        <h2 class="card__title">Quattro passaggi, niente di complicato.</h2>
         <ol class="flow" style="margin-top:1.2rem; counter-reset: step;">
-          <li>Ci dici il risultato che vuoi vedere.</li>
-          <li>Leggiamo pelle, zona e abitudini rilevanti.</li>
-          <li>Costruiamo un piano con tempi realistici.</li>
-          <li>Scegli il primo trattamento da prenotare.</li>
+          <li>Ricevi un messaggio con un orario disponibile.</li>
+          <li>Vieni in studio per la prima visita di 15 minuti.</li>
+          <li>Capiamo insieme da dove ha senso partire.</li>
+          <li>Se decidi di iniziare, prenoti il primo trattamento sul momento.</li>
         </ol>
         <p class="card__body" style="margin-top:1.4rem;">
-          Una conversazione breve, una direzione chiara — e da qui parte il percorso.
+          Nessun obbligo di acquisto, nessuna pressione: la prima visita è una
+          chiacchierata utile per entrambi.
         </p>
       </aside>
     </div>

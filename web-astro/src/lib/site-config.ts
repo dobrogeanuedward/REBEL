@@ -1,12 +1,12 @@
 export const siteConfig = {
   name: "Rebel Estetica Epigenetica",
   shortName: "Rebel",
-  tagline: "Bellezza viva, metodo epigenetico.",
+  tagline: "Centro estetico a Carmagnola.",
   locale: "it-IT",
   regionCode: "IT-TO",
   lastUpdated: "2026-02-25",
   description:
-    "Boutique wellness epigenetico a Carmagnola: bellezza viso e corpo, protocolli epigenetici ed epilazione laser con consulenza personalizzata.",
+    "Centro estetico a Carmagnola, in Viale Barbaroux 20: epilazione laser Ice Polar, pulizia viso, manicure, ceretta, massaggi e protocolli viso/corpo. Prima visita gratuita.",
   siteUrl: "https://www.rebelepigenetica.it",
   assets: {
     logoLight:
@@ -42,13 +42,65 @@ export const siteConfig = {
     googleCard: "https://share.google/uIgDtrcX56skSZQrb",
     treatwell: "https://www.treatwell.it/salone/rebel-estetica-epigenetica/",
   },
+  // Real opening hours (Google Business Profile aligned).
+  // Closed on Sun and Mon. Schema-org day-prefix codes are used here.
   openingHours: [
     "Tu 09:00-19:00",
-    "We 11:00-21:00",
+    "We 14:00-19:00",
     "Th 09:00-19:00",
     "Fr 09:00-19:00",
     "Sa 09:00-14:00",
   ],
+  // Brands and technologies we work with in cabin. Used in JSON-LD `brand[]`,
+  // in the homepage Brand strip and in the footer trust line. Order matters:
+  // it is the order shown to users and search engines.
+  brands: [
+    {
+      name: "Thory",
+      kind: "Tecnologia laser",
+      url: "https://www.thory-tech.com/",
+      blurb:
+        "Laser a diodo con manipolo Ice Polar: parametri calibrati su zona e fototipo, raffreddamento attivo per restare comode anche su ascelle e inguine.",
+    },
+    {
+      name: "Marbellas",
+      kind: "Linea epigenetica viso",
+      url: undefined,
+      blurb:
+        "Linea cosmetica di nuova generazione con attivi epigenetici: la usiamo nei protocolli viso più avanzati per qualità di pelle, tono e luminosità.",
+    },
+    {
+      name: "Eberlin",
+      kind: "Biocosmetica professionale",
+      url: undefined,
+      blurb:
+        "Brand spagnolo di riferimento nella biocosmetica: linee Firmezza, Calming, Gold e attivi biotecnologici come fattori di crescita e RetiLAB.",
+    },
+    {
+      name: "RBL Nails",
+      kind: "Smalti e gel cabina",
+      url: undefined,
+      blurb:
+        "Gamma colori e tonalità sviluppata per cabina: tenuta, finiture e shade dalla classica alla stagionale.",
+    },
+    {
+      name: "Thory Academy",
+      kind: "Formazione professionale",
+      url: "https://academy.thory-tech.com/",
+      blurb:
+        "Il team si forma su Thory Academy: percorsi certificati per Operatore Laser ed estetiste qualificate. Aggiornamento continuo, non attestati raccolti a caso.",
+    },
+  ],
+  // Sister sites in the Thory / DOGO network. Used in the footer.
+  network: [
+    { label: "thory-tech.com", url: "https://www.thory-tech.com/", note: "Tecnologia laser" },
+    { label: "academy.thory-tech.com", url: "https://academy.thory-tech.com/", note: "Formazione" },
+  ],
+  // Branding & web by DOGO Studio (footer credit).
+  credit: {
+    label: "Powered by DOGO",
+    url: "https://www.dogostudio.it/",
+  },
 } as const;
 
 export const localSeoKeywords = [

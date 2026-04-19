@@ -15,39 +15,40 @@ import {
 import { methodSteps } from "@/lib/content";
 
 const meta = createPageMeta({
-  title: "Metodo Rebel · Cinque passaggi per un percorso costruito bene",
+  title: "Come lavoriamo — Metodo Rebel | Centro estetico Carmagnola",
   description:
-    "Metodo Rebel a Carmagnola: consulenza beauty, lettura iniziale, protocollo su misura ed evoluzione epigenetica per pelle, viso e corpo.",
+    "Cinque passaggi concreti, dalla prima visita gratuita al mantenimento. Come funziona un percorso da Rebel a Carmagnola: prima visita, proposta, primo trattamento, calendario, mantenimento.",
   path: "/metodo-rebel",
   openGraphType: "article",
   keywords: [
     "metodo estetica Carmagnola",
-    "analisi pelle Carmagnola",
+    "come funziona centro estetico Carmagnola",
     "percorso estetica personalizzato Carmagnola",
+    "prima visita centro estetico Carmagnola",
   ],
 });
 
 const breadcrumb = buildBreadcrumbSchema([
   { name: "Home", path: "/" },
-  { name: "Metodo Rebel", path: "/metodo-rebel" },
+  { name: "Come lavoriamo", path: "/metodo-rebel" },
 ]);
 const webPage = buildWebPageSchema({
-  name: "Metodo Rebel in 5 step",
+  name: "Come lavoriamo — Rebel Carmagnola",
   description:
-    "Il Metodo Rebel: consulenza beauty, protocollo su misura ed evoluzione epigenetica per pelle, viso e corpo.",
+    "Cinque passaggi: prima visita, proposta, primo trattamento, calendario, mantenimento.",
   path: "/metodo-rebel",
 });
 const service = buildServiceSchema(
-  "Metodo estetico epigenetico personalizzato",
-  "Percorso in 5 step per riattivare tono, luminosità e qualità cutanea.",
+  "Percorso estetico personalizzato a Carmagnola",
+  "Percorso in cinque passaggi: prima visita gratuita, proposta chiara, primo trattamento, calendario, mantenimento.",
   "/metodo-rebel",
 );
 const article = buildArticleSchema({
-  headline: "Metodo Rebel in 5 step",
+  headline: "Come lavoriamo — Metodo Rebel",
   description:
-    "Come nasce un percorso Rebel: lettura iniziale, protocollo, tecnologia mirata e bellezza progressiva.",
+    "Dal primo messaggio al mantenimento: cinque passaggi semplici per un percorso senza sorprese.",
   path: "/metodo-rebel",
-  keywords: ["metodo Rebel", "metodo estetico Carmagnola", "percorso estetico"],
+  keywords: ["metodo Rebel", "come funziona centro estetico Carmagnola"],
   section: "Metodo",
 });
 ---
@@ -58,20 +59,20 @@ const article = buildArticleSchema({
   <JsonLd data={article} />
 
   <PageHero
-    kicker="Come lavoriamo"
-    title="Metodo Rebel: cinque passaggi per valorizzare _pelle_, viso e corpo."
-    lead="Ogni percorso nasce da una consulenza beauty e si sviluppa con lettura iniziale, attivi epigenetici, manualità e tecnologia mirata per un risultato visibile e progressivo."
-    meta={["Bellezza", "Glow", "Progressione"]}
-    ctaPrimary={{ label: "Apri la consulenza", href: "/contatti", halo: true }}
-    ctaSecondary={{ label: "Trattamenti & prezzi", href: "/listino-estetica-laser" }}
+    kicker="Come lavoriamo · Carmagnola"
+    title="Cinque passaggi, dalla _prima visita_ al mantenimento."
+    lead="Niente percorsi complicati o pacchetti gonfiati. Da Rebel funziona così: ci scrivi, vieni in studio gratis, decidiamo insieme cosa fare e quando."
+    meta={["Prima visita gratuita", "Listino sempre online", "Nessun obbligo di acquisto"]}
+    ctaPrimary={{ label: "Prenota la prima visita gratuita", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Vedi listino e prezzi", href: "/listino-estetica-laser" }}
   />
 
   <section class="section">
     <div class="container">
       <SectionHead
-        kicker="Il metodo, passo per passo"
-        title="Cinque _scene_ che fanno della seduta un percorso."
-        lead="Non un trattamento dopo l'altro: una regia. Lettura → attivazione → riprogrammazione → mantenimento."
+        kicker="Il percorso, passo per passo"
+        title="Cinque _step_, ciascuno con un compito preciso."
+        lead="L'ordine conta: ogni passaggio prepara quello successivo. Per questo non saltiamo la prima visita, anche se è gratuita."
       />
       <StepStrip items={methodSteps} />
     </div>
@@ -80,20 +81,22 @@ const article = buildArticleSchema({
   <section class="section section--tight">
     <div class="container grid-2">
       <article class="card card--feature">
-        <p class="card__kicker">Metodo applicato</p>
-        <h2 class="card__title">Ogni seduta entra in una sequenza che valorizza la pelle nel tempo.</h2>
+        <p class="card__kicker">Perché lavoriamo così</p>
+        <h2 class="card__title">Perché un percorso costruito bene si vede.</h2>
         <p class="card__body" style="margin-top:1rem;">
-          La forza del metodo sta nella regia: si legge il punto di partenza, si attiva il trattamento giusto
-          e si accompagna la pelle verso più luce, tono e qualità cutanea.
+          Un buon trattamento singolo dà un risultato. Un percorso costruito
+          sui tempi e sulle priorità della persona dà un cambiamento. Per questo
+          la prima visita non è un'extra: è la base che ci permette di
+          proporti qualcosa di sensato.
         </p>
       </article>
       <aside class="card">
-        <p class="card__kicker">Cosa porti via</p>
-        <h2 class="card__title">Direzione, calendario, primo gesto.</h2>
+        <p class="card__kicker">Cosa porti via dalla prima visita</p>
+        <h2 class="card__title">Tre cose concrete.</h2>
         <ul class="flow" style="margin-top:1rem; color: var(--text-muted);">
-          <li>— Priorità chiare e pelle letta con precisione.</li>
-          <li>— Calendario beauty sostenibile e progressione visibile.</li>
-          <li>— Glow, tono e armonia che crescono seduta dopo seduta.</li>
+          <li>Una proposta scritta con prezzi e tempi reali.</li>
+          <li>Risposta chiara: ha senso oppure no? E perché.</li>
+          <li>Il piccolo regalo che hai scelto in fase di prenotazione.</li>
         </ul>
       </aside>
     </div>
@@ -102,9 +105,9 @@ const article = buildArticleSchema({
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Apri la tua consulenza"
-        title="Quindici _minuti_ per dare direzione alla tua bellezza."
-        lead="Una lettura iniziale, un piano sostenibile, il primo trattamento da prenotare."
+        kicker="Iniziamo"
+        title="Quindici minuti, _gratis_, in studio."
+        lead="Prenota da WhatsApp o dal form. Ti rispondiamo entro poche ore con un orario disponibile."
       />
     </div>
   </section>

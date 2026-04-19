@@ -3,8 +3,8 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { createPageMeta } from "@/lib/seo";
 
 const meta = createPageMeta({
-  title: "Pagina non trovata · Rebel Carmagnola",
-  description: "La pagina che cercavi non è disponibile. Torna alla home oppure scegli un percorso Rebel.",
+  title: "Pagina non trovata — Rebel Carmagnola",
+  description: "La pagina che cercavi non esiste o è stata spostata. Torna alla home o scegli da dove ripartire.",
   path: "/404",
   indexable: false,
 });
@@ -13,22 +13,23 @@ const meta = createPageMeta({
   <section class="not-found">
     <div class="container not-found__inner">
       <p class="not-found__kicker">Errore 404</p>
-      <h1 class="not-found__title">Questa pagina non è più qui.</h1>
+      <h1 class="not-found__title">Questa pagina non c'è più.</h1>
       <p class="not-found__lead">
-        Forse il link è cambiato, oppure stiamo riscrivendo il percorso.
-        Da queste tre direzioni si riparte sempre.
+        Forse il link è cambiato, o l'URL non è corretto. Niente di grave: da qui si riparte
+        in due click. La prima visita resta sempre gratuita.
       </p>
       <div class="cluster cluster--stack-mobile not-found__cta">
         <a class="btn btn--primary btn--halo" href="/">Torna alla home</a>
-        <a class="btn btn--secondary" href="/listino-estetica-laser">Trattamenti & prezzi</a>
-        <a class="btn btn--secondary" href="/contatti">Apri consulenza</a>
+        <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
+        <a class="btn btn--secondary" href="/contatti">Prenota la prima visita</a>
       </div>
 
       <ul class="not-found__list">
-        <li><a href="/metodo-rebel">Il metodo Rebel</a></li>
-        <li><a href="/epilazione-laser-carmagnola">Percorso laser</a></li>
-        <li><a href="/protocolli-epigenetici">Protocolli epigenetici</a></li>
         <li><a href="/centro-estetico-carmagnola">Centro estetico Carmagnola</a></li>
+        <li><a href="/epilazione-laser-carmagnola">Epilazione laser</a></li>
+        <li><a href="/protocolli-epigenetici">Protocolli viso e corpo</a></li>
+        <li><a href="/metodo-rebel">Come lavoriamo</a></li>
+        <li><a href="/chi-siamo">Chi siamo</a></li>
       </ul>
     </div>
   </section>

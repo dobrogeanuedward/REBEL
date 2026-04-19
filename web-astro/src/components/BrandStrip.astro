@@ -1,0 +1,110 @@
+---
+/**
+ * BrandStrip — Editorial section showcasing the five brand & technology
+ * partnerships used in cabin (Thory, Marbellas, Eberlin, RBL Nails, Thory
+ * Academy). Wordmark-first design: when proper SVG/PNG logos arrive we can
+ * swap the `.brand-card__mark` content per item without touching layout.
+ *
+ * Source of truth: `siteConfig.brands` (lib/site-config.ts).
+ */
+import { siteConfig } from "@/lib/site-config";
+---
+<div class="brand-strip">
+  {siteConfig.brands.map((b, i) => (
+    <article class="brand-card" data-reveal style={`--reveal-delay: ${i * 60}ms;`}>
+      <header class="brand-card__head">
+        <span class="brand-card__mark" aria-hidden="true">{b.name}</span>
+        <span class="brand-card__kind">{b.kind}</span>
+      </header>
+      <p class="brand-card__blurb">{b.blurb}</p>
+      {b.url ? (
+        <a class="brand-card__link" href={b.url} target="_blank" rel="noreferrer">
+          Sito ufficiale →
+        </a>
+      ) : (
+        <span class="brand-card__link brand-card__link--muted">In cabina da Rebel</span>
+      )}
+    </article>
+  ))}
+</div>
+
+<style>
+  .brand-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+
+  .brand-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    padding: 1.6rem 1.5rem 1.5rem;
+    border-radius: var(--r-md);
+    border: 1px solid var(--line);
+    background:
+      radial-gradient(120% 80% at 0% 0%, rgba(91, 43, 216, 0.18), transparent 60%),
+      linear-gradient(180deg, rgba(31, 26, 58, 0.55), rgba(11, 8, 23, 0.85));
+    overflow: hidden;
+    transition:
+      transform var(--t-base) var(--ease-cinema),
+      border-color var(--t-base) var(--ease-soft);
+  }
+  .brand-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(7, 5, 14, 0.55));
+    pointer-events: none;
+  }
+  .brand-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--line-strong);
+  }
+  .brand-card > * { position: relative; z-index: 1; }
+
+  .brand-card__head {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .brand-card__mark {
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+    line-height: 1;
+    letter-spacing: var(--tracking-editorial);
+    color: var(--text-strong);
+    font-style: italic;
+  }
+  .brand-card__kind {
+    font-size: var(--t-kicker);
+    letter-spacing: var(--tracking-kicker);
+    text-transform: uppercase;
+    color: var(--mauve);
+  }
+  .brand-card__blurb {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .brand-card__link {
+    margin-top: auto;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text);
+    border-bottom: 1px solid var(--line-strong);
+    padding-bottom: 0.25rem;
+    width: max-content;
+    text-decoration: none;
+    transition: color var(--t-fast) var(--ease-soft), border-color var(--t-fast) var(--ease-soft);
+  }
+  .brand-card__link:hover { color: var(--mauve); border-color: var(--mauve); }
+  .brand-card__link--muted {
+    color: var(--text-faint);
+    border-color: transparent;
+    cursor: default;
+  }
+</style>

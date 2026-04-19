@@ -4,6 +4,7 @@ import PageHero from "@/components/PageHero.astro";
 import SectionHead from "@/components/SectionHead.astro";
 import FeatureCard from "@/components/FeatureCard.astro";
 import InlineCta from "@/components/InlineCta.astro";
+import BrandStrip from "@/components/BrandStrip.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import {
   buildArticleSchema,
@@ -13,15 +14,16 @@ import {
 } from "@/lib/seo";
 
 const meta = createPageMeta({
-  title: "Chi siamo · Rebel, boutique wellness epigenetico a Carmagnola",
+  title: "Chi siamo — Rebel, centro estetico a Carmagnola",
   description:
-    "Conosci Rebel: boutique beauty a Carmagnola con estetica epigenetica, trattamenti viso e corpo e laser costruiti per far emergere luce, tono e presenza.",
+    "Rebel è un centro estetico a Carmagnola in Viale Barbaroux 20. Lavoriamo con tecnologia laser Thory, linee Marbellas ed Eberlin, e formiamo il team su Thory Academy.",
   path: "/chi-siamo",
   openGraphType: "article",
   keywords: [
     "chi siamo centro estetico Carmagnola",
     "Rebel estetica Carmagnola",
-    "estetista specializzata Carmagnola",
+    "centro estetico nuovo Carmagnola",
+    "estetista Carmagnola",
   ],
 });
 
@@ -32,53 +34,53 @@ const breadcrumb = buildBreadcrumbSchema([
 const webPage = buildWebPageSchema({
   name: "Chi siamo · Rebel Carmagnola",
   description:
-    "Identità Rebel, visione beauty e modo di lavorare su viso, corpo e laser a Carmagnola.",
+    "Chi è Rebel: centro estetico aperto a Carmagnola, brand professionali in cabina e formazione continua.",
   path: "/chi-siamo",
 });
 const article = buildArticleSchema({
-  headline: "Chi siamo: Rebel a Carmagnola",
+  headline: "Chi siamo — Rebel, centro estetico a Carmagnola",
   description:
-    "Identità, metodo e atmosfera Rebel: la nostra idea di bellezza epigenetica a Carmagnola.",
+    "Identità Rebel: studio nuovo a Carmagnola, tecnologia laser Thory, prodotti professionali, formazione continua.",
   path: "/chi-siamo",
-  keywords: ["chi siamo Rebel", "centro estetico Carmagnola", "estetica epigenetica"],
+  keywords: ["chi siamo Rebel", "centro estetico Carmagnola", "Thory Carmagnola"],
   section: "Chi siamo",
 });
 
 const ways = [
   {
-    kicker: "Lettura",
-    title: "Ascolto, prima di tutto",
-    body: "Si parte da ciò che vuoi vedere: glow, tono, armonia, leggerezza, definizione. Poi entra il metodo.",
+    kicker: "Ascolto",
+    title: "Si parte sempre da una domanda",
+    body: "“Cosa vorresti vedere cambiato?” è la prima cosa che ti chiediamo. Da lì decidiamo come muoverci, non prima.",
   },
   {
     kicker: "Tecnica",
-    title: "Precisione, mai improvvisazione",
-    body: "Manualità, attivi e tecnologia scelti per dare intensità giusta, comfort e resa estetica coerente.",
+    title: "Strumenti e prodotti professionali",
+    body: "Laser Thory con manipolo Ice Polar, linee Marbellas ed Eberlin per viso e corpo, smalti RBL Nails per la cabina mani.",
   },
   {
-    kicker: "Continuità",
-    title: "Progressi che restano",
-    body: "La bellezza cresce quando il percorso resta vivo: più luce, più ordine, più presenza nel tempo.",
+    kicker: "Trasparenza",
+    title: "Prezzi chiari, niente sorprese",
+    body: "Listino sempre online, prima visita gratuita, nessun upsell forzato. Se un trattamento non ha senso per te, te lo diciamo.",
   },
 ];
 
 const paths = [
   {
-    kicker: "Percorso",
-    title: "Laser a Carmagnola",
-    body: "Zona, fototipo e obiettivo guidano un laser calibrato per uniformità, comfort e una pelle sempre più libera.",
+    kicker: "Trattamenti",
+    title: "Listino completo",
+    body: "Viso, corpo, mani, ceretta, massaggi e laser: prezzi e durata indicativa per ogni servizio.",
+    href: "/listino-estetica-laser",
+  },
+  {
+    kicker: "Laser",
+    title: "Epilazione laser",
+    body: "Tecnologia Thory + Ice Polar. Valutazione iniziale gratuita, calendario costruito sul tuo ciclo follicolare.",
     href: "/epilazione-laser-carmagnola",
   },
   {
-    kicker: "Percorso",
-    title: "Protocolli epigenetici",
-    body: "Viso e corpo quando vuoi una progressione vera: tono, densità, luminosità, rigenerazione.",
-    href: "/protocolli-epigenetici",
-  },
-  {
-    kicker: "Inizia",
-    title: "Apri due righe di consulenza",
-    body: "Zona, obiettivo e tempi desiderati: da qui nasce la proposta più adatta alla tua bellezza.",
+    kicker: "Prima visita",
+    title: "Prenota in trenta secondi",
+    body: "Quindici minuti gratis, un piccolo regalo a tua scelta, nessun obbligo di acquisto.",
     href: "/contatti",
   },
 ];
@@ -89,30 +91,35 @@ const paths = [
   <JsonLd data={article} />
 
   <PageHero
-    kicker="Identità · Carmagnola"
-    title="Rebel è il luogo dove la bellezza prende _direzione_."
-    lead="A Carmagnola lavoriamo su pelle, viso, corpo e laser con una visione precisa: far emergere luce, tono, armonia e una presenza che si nota."
-    meta={["Viale Barbaroux 20", "Boutique wellness epigenetico"]}
-    ctaPrimary={{ label: "Apri la consulenza", href: "/contatti", halo: true }}
-    ctaSecondary={{ label: "Scopri il metodo", href: "/metodo-rebel" }}
+    kicker="Chi siamo · Carmagnola"
+    title="Un centro estetico nuovo, in _Viale Barbaroux 20_."
+    lead="Rebel ha aperto da poco a Carmagnola, ma non improvvisiamo. Lavoriamo con tecnologia professionale, prodotti seri e formazione continua. Quello che vedi è quello che porti a casa."
+    meta={["Aperto dal 2025", "Studio nuovo · 3 cabine", "Mar–Sab su appuntamento"]}
+    ctaPrimary={{ label: "Prenota la prima visita gratuita", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Come lavoriamo", href: "/metodo-rebel" }}
   />
 
   <section class="section">
     <div class="container grid-2">
       <article class="card card--feature">
-        <p class="card__kicker">Visione</p>
-        <h2 class="card__title">Una bellezza che si vede e si sente.</h2>
+        <p class="card__kicker">Cosa siamo</p>
+        <h2 class="card__title">Centro estetico classico, avanzato ed epigenetico.</h2>
         <p class="card__body">
-          Pelle luminosa, linee più armoniose, corpo più leggero, sguardo più curato. Ogni scelta nasce
-          per alzare il valore percepito del risultato — seduta dopo seduta.
+          A Carmagnola facciamo quello che ti aspetti da un buon centro estetico:
+          pulizia viso, manicure, ceretta, massaggi, laser. In più, abbiamo aggiunto
+          due cose che qui non si trovano spesso: tecnologia laser Thory con
+          manipolo Ice Polar e una linea cosmetica epigenetica per i percorsi
+          viso e corpo più avanzati.
         </p>
       </article>
       <article class="card">
-        <p class="card__kicker">Identità</p>
-        <h2 class="card__title">Più gusto, più metodo, più risultato.</h2>
+        <p class="card__kicker">Cosa non siamo</p>
+        <h2 class="card__title">Un centro che vende pacchetti a chi entra.</h2>
         <p class="card__body">
-          Rebel è uno studio a Carmagnola dove estetica epigenetica, trattamenti viso e corpo e laser si
-          incontrano in un percorso costruito per valorizzare la tua immagine con precisione, eleganza e continuità.
+          Non ti diciamo che servono dieci sedute se ne bastano tre. Non ti
+          proponiamo un protocollo viso da cinquecento euro per una pelle che
+          ha solo bisogno di pulizia e idratazione. Lavoriamo per restare,
+          non per chiudere una vendita oggi.
         </p>
       </article>
     </div>
@@ -121,8 +128,8 @@ const paths = [
   <section class="section section--tight">
     <div class="container">
       <SectionHead
-        kicker="Modo di lavorare"
-        title="Tre _principi_ che reggono ogni seduta."
+        kicker="Come ragioniamo"
+        title="Tre _criteri_ che reggono ogni seduta."
       />
       <div class="card-grid card-grid--3">
         {ways.map((w, i) => (
@@ -140,9 +147,20 @@ const paths = [
   <section class="section">
     <div class="container">
       <SectionHead
+        kicker="Brand & tecnologie"
+        title="Le firme con cui _lavoriamo davvero_."
+        lead="Niente improvvisazione: tecnologie e linee professionali precise, scelte una a una."
+      />
+      <BrandStrip />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHead
         kicker="Da dove iniziare"
         title="Tre _porte_ d'ingresso."
-        lead="Scegli il punto di partenza più vicino al tuo obiettivo. Il resto del percorso si costruisce con noi."
+        lead="Scegli quella più vicina a quello che vuoi fare. Il resto si decide insieme alla prima visita."
       />
       <div class="card-grid card-grid--3">
         {paths.map((p) => (
@@ -160,9 +178,9 @@ const paths = [
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Prenotazione"
-        title="Apri la _consulenza_, dai un nome alla tua direzione."
-        lead="Quindici minuti per leggere il punto di partenza, definire il primo trattamento e impostare il calendario beauty."
+        kicker="Pronta a iniziare"
+        title="Prenota la _prima visita_, scegli il tuo regalo."
+        lead="Quindici minuti per conoscerci. Da lì decidiamo insieme se ha senso partire e con cosa."
       />
     </div>
   </section>

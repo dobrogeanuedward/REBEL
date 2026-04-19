@@ -15,15 +15,16 @@ import { editorialImageAssets, servicePages } from "@/lib/seo-content";
 import { localAreaPages } from "@/lib/local-pages";
 
 const meta = createPageMeta({
-  title: "Centro Estetico a Carmagnola | Rebel Estetica Epigenetica",
+  title: "Centro Estetico a Carmagnola — Rebel | Viale Barbaroux 20",
   description:
-    "Centro estetico a Carmagnola: laser, pedicure, scrub corpo, trattamenti viso e corpo con percorsi personalizzati Rebel e prezzi chiari.",
+    "Centro estetico a Carmagnola in Viale Barbaroux 20: pulizia viso, manicure, ceretta, massaggi, epilazione laser Ice Polar e protocolli viso/corpo. Prima visita gratuita.",
   path: "/centro-estetico-carmagnola",
   keywords: [
     "centro estetico Carmagnola",
     "estetista Carmagnola",
-    "pedicure Carmagnola",
-    "scrub corpo Carmagnola",
+    "centro estetico Carmagnola Viale Barbaroux",
+    "pulizia viso Carmagnola",
+    "manicure Carmagnola",
     "epilazione laser Carmagnola",
     "centro estetico Carmagnola prezzi",
   ],
@@ -49,51 +50,51 @@ type QueryTarget = {
 };
 const queryTargets: QueryTarget[] = [
   {
-    label: "Pedicure a Carmagnola",
-    href: "/servizi/pedicure-carmagnola",
-    description: "Piedi ordinati, comodi nella vita di tutti i giorni.",
-    image: { src: editorialImageAssets.pedicure, alt: "Pedicure professionale a Carmagnola" },
-  },
-  {
-    label: "Scrub corpo",
-    href: "/servizi/scrub-corpo-carmagnola",
-    description: "Pelle pulita, levigata, pronta a riflettere la luce.",
-    image: { src: editorialImageAssets.scrubCorpo, alt: "Scrub corpo Rebel a Carmagnola" },
-  },
-  {
-    label: "Epilazione laser",
-    href: "/epilazione-laser-carmagnola",
-    description: "Zone, tempi, comfort: la guida principale al percorso laser.",
-    image: { src: editorialImageAssets.laserCorpo, alt: "Epilazione laser corpo a Carmagnola" },
+    label: "Pulizia viso",
+    href: "/servizi/pulizia-viso-carmagnola",
+    description: "Detersione profonda, estrazione e maschera. La base mensile per una pelle in ordine.",
+    image: { src: editorialImageAssets.puliziaViso, alt: "Pulizia viso professionale Rebel" },
   },
   {
     label: "Manicure semipermanente",
     href: "/servizi/manicure-semipermanente-carmagnola",
-    description: "Mani curate, finish naturale, tenuta lunga.",
+    description: "Mani curate, smalto RBL, finish naturale e tenuta lunga.",
     image: { src: editorialImageAssets.manicureSemipermanente, alt: "Manicure semipermanente naturale" },
   },
   {
-    label: "Laminazione ciglia",
+    label: "Epilazione laser",
+    href: "/epilazione-laser-carmagnola",
+    description: "Diodo Thory + Ice Polar. Comodo anche su ascelle e inguine.",
+    image: { src: editorialImageAssets.laserCorpo, alt: "Epilazione laser corpo a Carmagnola" },
+  },
+  {
+    label: "Pedicure",
+    href: "/servizi/pedicure-carmagnola",
+    description: "Piedi puliti, talloni morbidi, pelle ordinata. Per la vita di tutti i giorni.",
+    image: { src: editorialImageAssets.pedicure, alt: "Pedicure professionale a Carmagnola" },
+  },
+  {
+    label: "Laminazione ciglia & sopracciglia",
     href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola",
-    description: "Sguardo definito, naturale, senza stravolgere.",
+    description: "Sguardo definito senza extension. Effetto naturale che dura settimane.",
     image: { src: editorialImageAssets.laminazione, alt: "Laminazione ciglia e sopracciglia" },
   },
   {
-    label: "Pulizia viso",
-    href: "/servizi/pulizia-viso-carmagnola",
-    description: "Una buona partenza per rimettere ordine alla pelle.",
-    image: { src: editorialImageAssets.puliziaViso, alt: "Pulizia viso professionale Rebel" },
+    label: "Scrub corpo",
+    href: "/servizi/scrub-corpo-carmagnola",
+    description: "Pelle pulita, levigata e luminosa. Ideale prima di un protocollo o dopo l'inverno.",
+    image: { src: editorialImageAssets.scrubCorpo, alt: "Scrub corpo Rebel a Carmagnola" },
   },
   {
     label: "Massaggio rilassante",
     href: "/servizi/massaggio-rilassante-carmagnola",
-    description: "Schiena e spalle finalmente sciolte. Tempo solo per te.",
+    description: "Schiena e spalle finalmente sciolte. Un'ora solo per te.",
     image: { src: editorialImageAssets.massaggioRilassante, alt: "Massaggio rilassante a Carmagnola" },
   },
   {
-    label: "Linfodrenante",
+    label: "Massaggio linfodrenante",
     href: "/servizi/massaggio-linfodrenante-carmagnola",
-    description: "Approccio progressivo per gonfiore e pesantezza.",
+    description: "Per gonfiore, ritenzione e pesantezza alle gambe. Su ciclo di sedute.",
     image: { src: editorialImageAssets.linfodrenante, alt: "Massaggio linfodrenante in studio" },
   },
 ];
@@ -114,18 +115,26 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "Come scegliere il miglior centro estetico a Carmagnola?",
+      name: "Dove si trova il centro estetico Rebel a Carmagnola?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Conviene partire da obiettivo, metodo e chiarezza su tempi/prezzi. In Rebel impostiamo un piano reale, senza promesse veloci.",
+        text: "Lo studio è in Viale Barbaroux 20 a Carmagnola (TO), in zona facile da raggiungere con parcheggio nelle vicinanze. Gli orari sono Mar-Sab; lunedì e domenica chiuso.",
       },
     },
     {
       "@type": "Question",
-      name: "Avete prezzi chiari per trattamenti e laser?",
+      name: "Cosa offre Rebel oltre all'epilazione laser?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Sì, il listino è pubblico e ogni scheda servizio include prezzo indicativo, indicazioni pratiche e possibilità di orientamento via WhatsApp.",
+        text: "Tutta l'estetica classica (pulizia viso, manicure, pedicure, ceretta, massaggi, laminazione) e protocolli avanzati viso e corpo con linee Marbellas ed Eberlin. Il laser Ice Polar è uno dei servizi, non l'unico.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "I prezzi sono chiari?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sì, il listino è sempre online con prezzi indicati per ogni servizio. La prima visita di 15 minuti è gratuita e include un piccolo regalo a tua scelta.",
       },
     },
     {
@@ -133,7 +142,7 @@ const faqSchema = {
       name: "Lavorate solo con clienti di Carmagnola?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No, molte clienti arrivano anche da Carignano, Racconigi e Torino Sud. Abbiamo pagine locali dedicate per orientare il primo passo.",
+        text: "No: molte clienti arrivano da Carignano, Racconigi, Carmagnola e tutta la zona di Torino Sud. Abbiamo pagine locali dedicate per orientarti.",
       },
     },
   ],
@@ -157,19 +166,19 @@ const keyServices = keySlugs
 
   <PageHero
     kicker="Centro estetico · Carmagnola"
-    title="Un _centro estetico_ a Carmagnola pensato come una pratica, non come una vetrina."
-    lead="Laser, viso, corpo, mani e piedi dentro un unico metodo: lettura iniziale, piano realistico, primo gesto da prenotare."
-    meta={["Viale Barbaroux 20", "Carmagnola (TO)", "Da 25,90 €"]}
-    ctaPrimary={{ label: "Prenota valutazione", href: "/contatti", halo: true }}
+    title="Il tuo _centro estetico_ in Viale Barbaroux 20."
+    lead="Pulizia viso, manicure, ceretta, massaggi, epilazione laser Ice Polar e protocolli viso/corpo. Tutta l'estetica che ti serve, fatta con metodo. La prima visita è gratuita."
+    meta={["Viale Barbaroux 20 · Carmagnola (TO)", "Mar–Sab su appuntamento", "Da 25,90 €"]}
+    ctaPrimary={{ label: "Prenota la prima visita gratuita", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Vedi listino", href: "/listino-estetica-laser" }}
   />
 
   <section class="section">
     <div class="container">
       <SectionHead
-        kicker="Da dove iniziare"
-        title="Le _richieste_ che arrivano più spesso in studio."
-        lead="Otto pagine concrete: ognuna apre una scheda con tempi, comfort e prezzo."
+        kicker="I servizi più richiesti"
+        title="Cosa _facciamo_ in cabina."
+        lead="Otto schede concrete: ognuna con prezzi, durata e quando ha senso. Apri quella che ti interessa."
       />
       <div class="image-grid">
         {queryTargets.map((it) => (
@@ -192,8 +201,8 @@ const keyServices = keySlugs
     <div class="container">
       <SectionHead
         kicker="Primo passo"
-        title="Servizi scelti spesso da chi _ci scrive per la prima volta_."
-        lead="Le pagine da aprire prima per orientarti e prenotare con sicurezza."
+        title="Da dove iniziano _la maggior parte_ delle clienti."
+        lead="Quattro punti d'ingresso pratici: pulizia mensile, mantenimento mani-piedi e percorso laser viso/corpo."
       />
       <div class="card-grid card-grid--2">
         {keyServices.map((s) => (
@@ -212,9 +221,9 @@ const keyServices = keySlugs
   <section class="section">
     <div class="container">
       <SectionHead
-        kicker="Non sei di Carmagnola?"
+        kicker="Vieni da fuori Carmagnola?"
         title="_Pagine dedicate_ per i comuni vicini."
-        lead="Distanza, percorso consigliato e primo step più sensato per la tua zona."
+        lead="Distanza, indicazioni e primo passo più sensato per la tua zona. Carignano, Racconigi, Torino Sud e altri."
       />
       <div class="card-grid card-grid--3">
         {featuredAreas.map((area) => (
@@ -229,7 +238,7 @@ const keyServices = keySlugs
       </div>
       <div class="cluster cluster--stack-mobile" style="margin-top: 2rem;">
         <a class="btn btn--secondary" href="/localita">Vedi tutte le località</a>
-        <a class="btn btn--primary btn--halo" href="/contatti">Contatti & mappa</a>
+        <a class="btn btn--primary btn--halo" href="/contatti">Contatti, mappa & WhatsApp</a>
       </div>
     </div>
   </section>
@@ -237,9 +246,9 @@ const keyServices = keySlugs
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Apri la consulenza"
-        title="Quindici minuti per capire da dove _partire bene_."
-        lead="Una lettura del momento, una proposta sostenibile, il primo gesto già in agenda."
+        kicker="Prima visita gratuita"
+        title="Quindici minuti per _capirci_, senza impegno."
+        lead="Vieni in studio, ci dici cosa vorresti fare, leggiamo pelle e zona. Decidiamo insieme se ha senso iniziare e con cosa. In regalo, scegli un piccolo rituale a tua scelta."
       />
     </div>
   </section>

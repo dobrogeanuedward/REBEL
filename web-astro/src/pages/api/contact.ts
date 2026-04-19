@@ -10,7 +10,14 @@ type ContactPayload = {
   phone?: string;
   city?: string;
   message?: string;
+  ritual?: string;
   website?: string;
+};
+
+const ritualLabels: Record<string, string> = {
+  mani: "Mini-rituale mani (lima + smalto rapido)",
+  "viso-marbellas": "Massaggio viso epigenetico Marbellas",
+  sopracciglia: "Disegno e rifinitura sopracciglia",
 };
 
 const required = (value?: string) =>
@@ -48,13 +55,18 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   const recipient = import.meta.env.CONTACT_GMAIL_TO || siteConfig.email;
-  const subject = `Nuova richiesta dal sito Rebel — ${payload.name?.trim()}`;
+  const subject = `Prima visita gratuita — ${payload.name?.trim()}`;
   const city = payload.city?.trim() ? `\nCittà: ${payload.city.trim()}` : "";
+  const ritualKey = payload.ritual?.trim() ?? "";
+  const ritualLine =
+    ritualKey && ritualLabels[ritualKey]
+      ? `\nRegalo scelto: ${ritualLabels[ritualKey]}`
+      : "\nRegalo scelto: (nessuna preferenza, da decidere insieme)";
   const body = `Nome: ${payload.name?.trim()}
 Email: ${payload.email?.trim()}
-Telefono: ${payload.phone?.trim()}${city}
+Telefono / WhatsApp: ${payload.phone?.trim()}${city}${ritualLine}
 
-Messaggio:
+Cosa vorrebbe fare:
 ${payload.message?.trim()}`;
 
   try {

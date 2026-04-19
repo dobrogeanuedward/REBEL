@@ -15,17 +15,18 @@ import {
 import { siteConfig } from "@/lib/site-config";
 
 const meta = createPageMeta({
-  title: "Epilazione laser con Ice Polar a Carmagnola",
+  title: "Laser Ice Polar a Carmagnola — Manipolo con Raffreddamento Attivo",
   description:
-    "Ice Polar e comfort durante l'epilazione laser: cosa cambia in seduta, come lo usiamo in studio e cosa aspettarti da un percorso laser a Carmagnola.",
+    "Cos'è Ice Polar e perché rende l'epilazione laser più comoda anche su ascelle e inguine. Manipolo con raffreddamento attivo, in cabina da Rebel a Carmagnola.",
   path: "/epilazione-laser-ice-polar-carmagnola",
   openGraphType: "article",
   keywords: [
     "Ice Polar Carmagnola",
-    "laser con Ice Polar Carmagnola",
+    "laser Ice Polar Carmagnola",
+    "manipolo Ice Polar",
     "laser con raffreddamento Carmagnola",
-    "epilazione laser confortevole Carmagnola",
-    "manipolo Ice Polar laser",
+    "epilazione laser comoda Carmagnola",
+    "diodo Thory Ice Polar",
   ],
 });
 
@@ -52,20 +53,24 @@ const articleSchema = buildArticleSchema({
 
 const faqs = [
   {
+    q: "Cos'è esattamente Ice Polar?",
+    a: "È il manipolo del laser diodo Thory con raffreddamento attivo integrato: durante l'impulso laser la punta a contatto con la pelle resta a bassa temperatura. Risultato: la sensazione di calore/dolore è molto inferiore rispetto ai laser tradizionali.",
+  },
+  {
     q: "Ice Polar rende il laser indolore?",
-    a: "Aiuta molto il comfort, ma la percezione cambia in base a zona e sensibilità personale. In studio impostiamo sempre in modo graduale e adattato alla risposta della pelle.",
-  },
-  {
-    q: "Perché il comfort conta così tanto in un percorso laser?",
-    a: "Perché un percorso laser funziona quando riesci a seguirlo con serenità: una seduta più confortevole rende più semplice mantenere il calendario e rispettare le poche regole tra una seduta e l'altra.",
-  },
-  {
-    q: "Ice Polar basta da solo per avere un buon risultato?",
-    a: "No. È un alleato importante per l'esperienza, ma la differenza la fanno parametri e calendario impostati su pelle, fototipo e zona — e la continuità del percorso.",
+    a: "Non parliamo di zero dolore, parliamo di molto meno dolore. Su zone sensibili (ascelle, inguine, baffetti) la differenza è evidente: la seduta resta gestibile e finisce in pochi minuti.",
   },
   {
     q: "Su quali zone si nota di più la differenza?",
-    a: "Spesso sulle zone più sensibili (ascelle e inguine) o quando la pelle è reattiva. Si decide sempre in base alla zona e alla tollerabilità: non esiste una regola identica per tutti.",
+    a: "Soprattutto su ascelle, inguine, baffetti e contorno labbra: zone con pelle sottile e terminazioni nervose ravvicinate. Anche sulla schiena e sulle gambe la seduta resta più confortevole, ma lì la differenza è meno marcata.",
+  },
+  {
+    q: "Ice Polar basta da solo per avere un buon risultato?",
+    a: "No. Il comfort è importante, ma la differenza la fanno parametri impostati bene, lettura corretta del fototipo e calendario delle sedute. Il manipolo è un mezzo, non il risultato.",
+  },
+  {
+    q: "Posso provarlo prima di iniziare un percorso?",
+    a: "Sì: in valutazione gratuita possiamo fare un piccolo test su una zona limitata, così senti tu stessa la differenza. Senza obbligo di acquisto.",
   },
 ];
 
@@ -81,19 +86,19 @@ const faqSchema = {
 
 const principles = [
   {
-    kicker: "Comfort",
-    title: "Raffreddamento attivo",
-    body: "Il manipolo abbassa la temperatura cutanea durante l'impulso laser: la sensazione resta più tollerabile, anche dove la pelle è sottile.",
+    kicker: "Cosa fa",
+    title: "Raffredda mentre lavora",
+    body: "La punta del manipolo abbassa la temperatura cutanea durante l'impulso laser. La sensazione di calore/dolore cala drasticamente, anche dove la pelle è sottile.",
   },
   {
-    kicker: "Metodo",
-    title: "Parametri prima di tutto",
-    body: "Il comfort è un mezzo, non il fine. Settaggio, fototipo e calendario restano il cuore del risultato.",
+    kicker: "Come lo usiamo",
+    title: "Parametri sempre tarati",
+    body: "Il comfort non sostituisce il metodo. Lavoriamo su settaggio, fototipo e calendario reali: il manipolo aiuta, non improvvisa.",
   },
   {
-    kicker: "Continuità",
-    title: "Calendario sostenibile",
-    body: "Stare comoda significa tornare. Un percorso che si rispetta nei tempi giusti rende il risultato finalmente leggibile.",
+    kicker: "Perché conta",
+    title: "Più comoda = continuità",
+    body: "Una seduta sopportabile è una seduta che ti fa tornare. Il percorso laser funziona se lo segui: il comfort è la condizione che lo rende possibile.",
   },
 ];
 
@@ -114,20 +119,20 @@ const shortcuts = [
   <JsonLd data={faqSchema} />
 
   <PageHero
-    kicker="Laser più confortevole"
-    title="Ice Polar: il laser che _non si fa temere_, anche dove la pelle è sottile."
-    lead="Il comfort cambia tutto: rende la seduta tollerabile, rispetta il calendario e lascia che il risultato si veda davvero. Qui sotto cosa fa, come lo usiamo, cosa aspettarti."
-    meta={["Rebel · Carmagnola", "Viale Barbaroux 20", "Tecnologia di raffreddamento"]}
-    ctaPrimary={{ label: "Apri consulenza laser", href: "/contatti", halo: true }}
-    ctaSecondary={{ label: "WhatsApp diretto", href: siteConfig.social.whatsapp }}
+    kicker="Manipolo Ice Polar · Carmagnola"
+    title="Ice Polar: il laser che _resta comodo_, anche dove la pelle è sottile."
+    lead="Il manipolo Ice Polar raffredda la pelle in tempo reale durante l'impulso laser. Risultato: ascelle, inguine e baffetti diventano sedute brevi e sopportabili, non un test di resistenza."
+    meta={["Diodo Thory · Ice Polar", "Viale Barbaroux 20", "Valutazione gratuita"]}
+    ctaPrimary={{ label: "Prenota la valutazione gratuita", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp }}
   />
 
   <section class="section">
     <div class="container">
       <SectionHead
-        kicker="Cosa cambia in seduta"
-        title="Tre principi che reggono il _comfort_ vero."
-        lead="Non un'estetica del freddo: un metodo che mette la persona al centro per restituire continuità al percorso."
+        kicker="Come funziona"
+        title="Tre cose che servono _davvero_ a saperlo."
+        lead="Il manipolo Ice Polar in tre punti: cosa fa, come lo usiamo in cabina, perché ti permette di completare il percorso laser senza saltarlo."
       />
       <div class="card-grid card-grid--3">
         {principles.map((p) => (
@@ -141,21 +146,22 @@ const shortcuts = [
     <div class="container split">
       <article class="card">
         <p class="kicker">In studio</p>
-        <h2 class="card__title">Il comfort è un metodo, non una promessa.</h2>
+        <h2 class="card__title">Il comfort è una condizione, non una promessa.</h2>
         <p class="card__body">
-          Ice Polar è un sistema di raffreddamento integrato al laser: rende la seduta più tollerabile,
-          soprattutto su zone delicate come ascelle e inguine. Ma il punto resta sempre lo stesso:
-          parametri corretti, fototipo letto bene e calendario sensato. Senza questi, il comfort da solo
-          non basta.
+          Ice Polar è il manipolo del nostro laser diodo Thory, con sistema di raffreddamento attivo
+          integrato. Quando senti il "freddo" al contatto, è la pelle che viene protetta in tempo reale
+          mentre l'impulso lavora sul follicolo. Su ascelle, inguine e baffetti è la differenza tra
+          una seduta comoda e una difficile da reggere.
         </p>
         <p class="card__body">
-          Il laser è un percorso — non una singola seduta. Se stai più comoda è più semplice rispettarlo,
-          ed è lì che si vede la differenza tra un risultato vero e una serie di tentativi spezzati.
+          Detto questo: il laser è un percorso, non una seduta singola. Il comfort serve a farti
+          arrivare alla fine. Quello che fa la differenza vera sono i parametri impostati bene e un
+          calendario sensato — non il manipolo da solo.
         </p>
       </article>
       <aside class="card card--feature">
         <p class="kicker">Da dove iniziare</p>
-        <h3 class="card__title">Pagine utili per chi cerca comfort.</h3>
+        <h3 class="card__title">Pagine utili prima di prenotare.</h3>
         <ul class="ice-shortcuts">
           {shortcuts.map((s) => (
             <li><a class="btn btn--secondary btn--sm" href={s.href}>{s.label}</a></li>
@@ -169,7 +175,7 @@ const shortcuts = [
     <div class="container">
       <SectionHead
         kicker="Domande frequenti"
-        title="Quattro risposte _oneste_ su Ice Polar."
+        title="Risposte _oneste_ su Ice Polar."
       />
       <FaqAccordion items={faqs} kicker="Comfort & metodo" />
     </div>
@@ -178,13 +184,13 @@ const shortcuts = [
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Vuoi capire se è il tuo percorso?"
-        title="Prenota la _consulenza laser_, raccontaci la zona."
-        lead="Quindici minuti per leggere pelle, fototipo e priorità. Da lì impostiamo un calendario sensato — e un primo gesto da prenotare."
+        kicker="Vuoi sentirlo tu?"
+        title="Prova Ice Polar in _valutazione gratuita_."
+        lead="Quindici minuti in studio: ti raccontiamo la tecnologia, leggiamo zona e fototipo, e se vuoi facciamo un piccolo test su una zona limitata. Senza obbligo di acquisto."
         primaryHref="/contatti"
-        primaryLabel="Apri consulenza"
+        primaryLabel="Prenota la valutazione gratuita"
         secondaryHref="/epilazione-laser-carmagnola"
-        secondaryLabel="Torna al percorso laser"
+        secondaryLabel="Vedi il percorso laser"
       />
     </div>
   </section>

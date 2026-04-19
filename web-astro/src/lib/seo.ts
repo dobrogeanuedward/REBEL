@@ -174,7 +174,15 @@ export function buildLocalBusinessSchema() {
     currenciesAccepted: "EUR",
     mainEntityOfPage: siteConfig.siteUrl,
     isPartOf: { "@id": `${siteConfig.siteUrl}/#website` },
-    brand: { "@type": "Brand", name: siteConfig.shortName },
+    brand: [
+      { "@type": "Brand", name: siteConfig.shortName },
+      ...siteConfig.brands.map((b) => ({
+        "@type": "Brand",
+        name: b.name,
+        description: b.blurb,
+        ...(b.url ? { url: b.url } : {}),
+      })),
+    ],
     address: {
       "@type": "PostalAddress",
       streetAddress: siteConfig.address.streetAddress,

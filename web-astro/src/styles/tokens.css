@@ -22,6 +22,10 @@
   --violet-hi:   #8B5CF6;       /* light, hover                         */
   --mauve:       #E0AAFF;       /* glow, type accent, micro-line        */
 
+  /* Tech accent — used ONCE in the footer for the DOGO credit and never
+     repeated elsewhere on the site. Kept off the main palette on purpose. */
+  --cyan-tech:   #00D4E6;
+
   /* Ivory & sand counter-territory */
   --ivory-1:     #F4EEE3;
   --ivory-2:     #ECE3D4;

@@ -68,9 +68,9 @@ export default function SiteHeader({ pathname }: Props) {
           <a
             href="/contatti"
             className="btn btn--primary btn--sm site-header__cta"
-            aria-label="Apri il form contatti"
+            aria-label="Prenota la prima visita"
           >
-            Consulenza
+            Prenota
           </a>
 
           <button
@@ -123,7 +123,7 @@ export default function SiteHeader({ pathname }: Props) {
             ))}
           </nav>
           <div className="drawer__foot">
-            <a href="/contatti" className="btn btn--primary">Apri consulenza</a>
+            <a href="/contatti" className="btn btn--primary">Prenota la prima visita</a>
             <a
               href={siteConfig.social.whatsapp}
               className="btn btn--secondary"

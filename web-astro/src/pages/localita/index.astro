@@ -14,14 +14,16 @@ import {
 } from "@/lib/seo";
 
 const meta = createPageMeta({
-  title: "Località servite da Rebel · Carmagnola, Torino Sud e Cuneo",
+  title: "Aree servite — Centro Estetico Carmagnola, Torino Sud e Cuneo",
   description:
-    "Pagine dedicate alle località da cui ci raggiungono: percorsi laser, estetica avanzata e servizi classici, con link utili per orientarti e prenotare.",
+    "Da Carmagnola serviamo Torino Sud e parte della provincia di Cuneo. Una pagina per ogni località: come raggiungerci, percorsi laser ed estetica.",
   path: "/localita",
   keywords: [
     "centro estetico Carmagnola e dintorni",
+    "estetista Carmagnola Torino sud",
     "estetista vicino Carmagnola",
-    "aree servite centro estetico Rebel",
+    "epilazione laser Torino sud",
+    "epilazione laser Cuneese",
   ],
 });
 
@@ -73,11 +75,11 @@ const groupedAreas = areaGroups.map((g) => ({
   <JsonLd data={webPageSchema} />
 
   <PageHero
-    kicker="Aree servite"
-    title={`_${localAreaPages.length} pagine_ locali · Carmagnola, Torino Sud e Cuneo.`}
-    lead="Una pagina per ogni località da cui ci raggiungono. Ognuna con un taglio diverso: laser, viso/corpo, protocolli, servizi classici utili per completare il percorso."
-    meta={[`${localAreaPages.length} località coperte`, "Mappa e indicazioni", "Link utili per partire"]}
-    ctaPrimary={{ label: "Apri consulenza", href: "/contatti", halo: true }}
+    kicker="Aree servite · Carmagnola"
+    title="Da _Carmagnola_ a Torino Sud e Cuneese."
+    lead="Lo studio è in Viale Barbaroux 20, a Carmagnola. Da qui raggiungiamo regolarmente clienti da Torino Sud e dalla provincia di Cuneo. Per ogni località abbiamo una pagina con indicazioni e i percorsi più richiesti."
+    meta={[`${localAreaPages.length} località coperte`, "Mappa e indicazioni", "Parcheggio in zona"]}
+    ctaPrimary={{ label: "Prenota la prima visita gratuita", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Vedi pagina Carmagnola", href: "/localita/carmagnola" }}
   />
 
@@ -106,27 +108,27 @@ const groupedAreas = areaGroups.map((g) => ({
   <section class="section section--scene-ivory">
     <div class="container">
       <SectionHead
-        kicker="Per partire"
-        title="Tre _direzioni_ utili (anche se vieni da fuori)."
-        lead="Pagine pilastro che chiariscono percorso, prezzi e cosa aspettarti — senza dover navigare a caso."
+        kicker="Da dove iniziare"
+        title="Tre _direzioni_ utili anche se vieni da fuori."
+        lead="Pagine principali per orientarti subito: percorso laser, protocolli viso/corpo e listino completo."
       />
       <div class="card-grid card-grid--3">
         <FeatureCard
           kicker="Percorso"
           title="Epilazione laser a Carmagnola"
-          body="Sedute, calendario e cosa aspettarti senza promesse strane."
+          body="Come funziona Ice Polar, calendario sedute, prezzi e cosa aspettarsi davvero."
           href="/epilazione-laser-carmagnola"
         />
         <FeatureCard
           kicker="Percorso"
-          title="Protocolli epigenetici"
-          body="Percorsi viso/corpo quando vuoi una progressione (non una singola seduta)."
+          title="Protocolli viso e corpo"
+          body="Quando un trattamento singolo non basta: percorsi su più sedute con linee Marbellas ed Eberlin."
           href="/protocolli-epigenetici"
         />
         <FeatureCard
           kicker="Listino"
-          title="Estetica + Laser, prezzi chiari"
-          body="Tutti i trattamenti Rebel ordinati per area, con prezzi indicativi aggiornati."
+          title="Listino e prezzi"
+          body="Tutti i servizi ordinati per categoria, con prezzi sempre online."
           href="/listino-estetica-laser"
         />
       </div>
@@ -136,13 +138,13 @@ const groupedAreas = areaGroups.map((g) => ({
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Da dove parto?"
+        kicker="Vieni da fuori Carmagnola?"
         title="Scrivici due righe, _orientiamo insieme_."
-        lead="Zona, obiettivo, tempi: ti diciamo qual è la scelta più pulita per partire — anche se arrivi da fuori."
+        lead="Zona, obiettivo, tempi: ti diciamo qual è la scelta più pulita per partire. La prima visita è gratuita."
         primaryHref="/contatti"
-        primaryLabel="Apri consulenza"
+        primaryLabel="Prenota la prima visita gratuita"
         secondaryHref="/servizi"
-        secondaryLabel="Tutti i servizi"
+        secondaryLabel="Vedi tutti i servizi"
       />
     </div>
   </section>
