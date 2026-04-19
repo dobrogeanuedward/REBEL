@@ -6,6 +6,7 @@ import FeatureCard from "@/components/FeatureCard.astro";
 import FaqAccordion from "@/components/FaqAccordion.astro";
 import InlineCta from "@/components/InlineCta.astro";
 import JsonLd from "@/components/JsonLd.astro";
+import NearMeBlock from "@/components/NearMeBlock.astro";
 import {
   buildBreadcrumbSchema,
   buildServiceSchema,
@@ -14,14 +15,18 @@ import {
 import { siteConfig } from "@/lib/site-config";
 
 const meta = createPageMeta({
-  title: "Epilazione Laser a Carmagnola — Diodo Ice Polar | Rebel",
+  title: "Epilazione Laser a Carmagnola (vicino a te) — Diodo Ice Polar | Rebel",
   description:
-    "Epilazione laser a Carmagnola con diodo Thory e manipolo Ice Polar: ascelle, inguine, gambe, viso, uomo. Valutazione gratuita, prezzi chiari da 25,90 €.",
+    "Epilazione laser a Carmagnola con diodo Thory e manipolo Ice Polar: ascelle, inguine, gambe, viso, uomo. Valutazione gratuita, prezzi chiari da 25,90 €. Anche da Carignano, Racconigi e Torino Sud.",
   path: "/epilazione-laser-carmagnola",
   image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e3635dd7-e046-46af-56a5-cf36d8239c00/public",
   openGraphType: "article",
   keywords: [
     "epilazione laser Carmagnola",
+    "epilazione laser vicino a me",
+    "epilazione laser vicino a me Carmagnola",
+    "laser vicino a me",
+    "depilazione laser Carmagnola",
     "laser diodo Carmagnola",
     "Ice Polar Carmagnola",
     "epilazione laser ascelle Carmagnola",
@@ -29,6 +34,8 @@ const meta = createPageMeta({
     "epilazione laser gambe Carmagnola",
     "epilazione laser uomo Carmagnola",
     "prezzi epilazione laser Carmagnola",
+    "epilazione laser Carignano",
+    "epilazione laser Racconigi",
   ],
 });
 
@@ -41,6 +48,19 @@ const laserServiceSchema = buildServiceSchema(
   "Epilazione laser a Carmagnola",
   "Percorso di epilazione laser a Carmagnola con tecnologia Thory, valutazione iniziale e piano personalizzato per viso e corpo.",
   "/epilazione-laser-carmagnola",
+  {
+    priceFrom: 25.9,
+    keywords: [
+      "epilazione laser Carmagnola",
+      "epilazione laser vicino a me",
+      "laser diodo Carmagnola",
+      "Ice Polar Carmagnola",
+      "epilazione laser ascelle vicino a me",
+      "epilazione laser inguine vicino a me",
+      "epilazione laser gambe vicino a me",
+      "depilazione laser Carmagnola",
+    ],
+  },
 );
 
 const faqs = [
@@ -261,6 +281,14 @@ const zoneShortcuts = [
       <FaqAccordion items={faqs} kicker="FAQ Laser" />
     </div>
   </section>
+
+  <NearMeBlock
+    serviceLabel="Epilazione laser"
+    kicker="Epilazione laser vicino a te"
+    anchorPattern={(s, c) => `${s} per chi viene da ${c}`}
+    clusters={["asse-carmagnola", "torino-sud"]}
+    limit={10}
+  />
 
   <section class="section">
     <div class="container">

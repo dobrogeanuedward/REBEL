@@ -5,6 +5,7 @@ import SectionHead from "@/components/SectionHead.astro";
 import FeatureCard from "@/components/FeatureCard.astro";
 import InlineCta from "@/components/InlineCta.astro";
 import JsonLd from "@/components/JsonLd.astro";
+import NearMeBlock from "@/components/NearMeBlock.astro";
 import {
   buildBreadcrumbSchema,
   buildItemListSchema,
@@ -17,16 +18,22 @@ import { localAreaPages } from "@/lib/local-pages";
 const meta = createPageMeta({
   title: "Centro Estetico a Carmagnola — Rebel | Viale Barbaroux 20",
   description:
-    "Centro estetico a Carmagnola in Viale Barbaroux 20: pulizia viso, manicure, ceretta, massaggi, epilazione laser Ice Polar e protocolli viso/corpo. Prima visita gratuita.",
+    "Centro estetico a Carmagnola, Viale Barbaroux 20. Pulizia viso, manicure semipermanente, laminazione ciglia, ceretta, massaggi ed epilazione laser Ice Polar. Prima visita gratuita.",
   path: "/centro-estetico-carmagnola",
   keywords: [
     "centro estetico Carmagnola",
+    "centro estetico vicino a me",
+    "centro estetico vicino a me Carmagnola",
     "estetista Carmagnola",
+    "estetista vicino a me",
+    "miglior centro estetico Carmagnola",
     "centro estetico Carmagnola Viale Barbaroux",
+    "centro estetico Carmagnola prezzi",
     "pulizia viso Carmagnola",
     "manicure Carmagnola",
+    "manicure semipermanente Carmagnola",
+    "laminazione ciglia Carmagnola",
     "epilazione laser Carmagnola",
-    "centro estetico Carmagnola prezzi",
   ],
 });
 
@@ -242,6 +249,14 @@ const keyServices = keySlugs
       </div>
     </div>
   </section>
+
+  <NearMeBlock
+    serviceLabel="Centro estetico"
+    kicker="Centro estetico vicino a te"
+    anchorPattern={(s, c) => `${s} per chi cerca da ${c}`}
+    clusters={["asse-carmagnola", "torino-sud"]}
+    limit={10}
+  />
 
   <section class="section">
     <div class="container">

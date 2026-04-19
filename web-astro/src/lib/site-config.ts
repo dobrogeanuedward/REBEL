@@ -104,17 +104,59 @@ export const siteConfig = {
 } as const;
 
 export const localSeoKeywords = [
+  // Money keyword #1 — "centro estetico Carmagnola"
   "centro estetico Carmagnola",
+  "centro estetico Carmagnola TO",
+  "centro estetico vicino a me",
+  "centro estetico vicino a me Carmagnola",
   "estetista Carmagnola",
-  "estetica epigenetica Carmagnola",
+  "estetista vicino a me",
+  "estetista Carmagnola centro",
+  "centro estetico aperto Carmagnola",
+  "miglior centro estetico Carmagnola",
+
+  // Money keyword #2 — "epilazione laser vicino a me"
   "epilazione laser Carmagnola",
+  "epilazione laser vicino a me",
+  "epilazione laser Carmagnola prezzi",
   "laser Carmagnola",
+  "laser vicino a me",
+  "laser diodo Carmagnola",
+  "Ice Polar Carmagnola",
+  "epilazione definitiva Carmagnola",
+  "epilazione progressiva Carmagnola",
+  "depilazione laser Carmagnola",
+
+  // Money keyword #3 — "manicure semipermanente"
+  "manicure semipermanente Carmagnola",
+  "semipermanente Carmagnola",
+  "semipermanente vicino a me",
+  "manicure Carmagnola",
+  "smalto semipermanente Carmagnola",
+  "ricostruzione unghie Carmagnola",
+  "nail art Carmagnola",
+  "RBL Nails Carmagnola",
+
+  // Money keyword #4 — "laminazione ciglia / sopracciglia"
+  "laminazione ciglia Carmagnola",
+  "laminazione sopracciglia Carmagnola",
+  "laminazione ciglia vicino a me",
+  "laminazione sopracciglia vicino a me",
+  "lash lift Carmagnola",
+  "brow lamination Carmagnola",
+  "ciglia laminate Carmagnola",
+  "sopracciglia laminate Carmagnola",
+
+  // Generic local intent (catches "near me" + service combinations)
+  "estetica avanzata Carmagnola",
+  "estetica epigenetica Carmagnola",
+  "centro epigenetico Carmagnola",
   "trattamenti viso Carmagnola",
   "trattamenti corpo Carmagnola",
-  "laser diodo Carmagnola",
-  "centro estetico vicino a me Carmagnola",
-  "estetica avanzata Carmagnola",
-  "centro epigenetico Carmagnola",
+  "pulizia viso Carmagnola",
+  "ceretta Carmagnola",
+  "massaggio Carmagnola",
+  "centro estetico Carmagnola Viale Barbaroux",
 ];
 
 export const brandSeoKeywords = [

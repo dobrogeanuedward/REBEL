@@ -195,6 +195,28 @@ const faqSchema = {
   </section>
 
   <!-- ============================================================
+       SEARCH SHORTCUTS — anchor text esatti per le query target locali.
+       Apparentemente "innocua" UI, ma serve due scopi:
+       1) Internal linking forte verso le 4 pagine money con il testo
+          letterale che la gente cerca su Google ("centro estetico
+          Carmagnola", "epilazione laser vicino a me", ecc.).
+       2) UX reale: chi entra dalla home spesso sa già cosa cerca.
+       ============================================================ -->
+  <section class="section section--tight" aria-label="Cosa cerchi oggi a Carmagnola">
+    <div class="container">
+      <p class="search-shortcuts__lead">Cerchi qualcosa di preciso a Carmagnola? Vai dritto.</p>
+      <ul class="search-shortcuts" role="list">
+        <li><a class="search-shortcuts__link" href="/centro-estetico-carmagnola">Centro estetico a Carmagnola</a></li>
+        <li><a class="search-shortcuts__link" href="/epilazione-laser-carmagnola">Epilazione laser vicino a me</a></li>
+        <li><a class="search-shortcuts__link" href="/servizi/manicure-semipermanente-carmagnola">Manicure semipermanente a Carmagnola</a></li>
+        <li><a class="search-shortcuts__link" href="/servizi/laminazione-ciglia-sopracciglia-carmagnola">Laminazione ciglia e sopracciglia a Carmagnola</a></li>
+        <li><a class="search-shortcuts__link" href="/servizi/pulizia-viso-carmagnola">Pulizia viso a Carmagnola</a></li>
+        <li><a class="search-shortcuts__link" href="/servizi/pedicure-carmagnola">Pedicure a Carmagnola</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================
        INSTAGRAM — moved up. It's the most "alive" section of the site:
        reels and posts shot in cabin act as social proof + atmosphere.
        ============================================================ -->
@@ -329,6 +351,43 @@ const faqSchema = {
 </BaseLayout>
 
 <style>
+  /* ---------- Search shortcuts (anchor-text strip per SEO locale) ---------- */
+  .search-shortcuts__lead {
+    margin: 0 0 0.85rem;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+  }
+  .search-shortcuts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem 0.6rem;
+  }
+  .search-shortcuts__link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 0.9rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.92rem;
+    line-height: 1.2;
+    background: rgba(255, 255, 255, 0.02);
+    transition: border-color var(--t-fast) var(--ease-soft),
+      transform var(--t-fast) var(--ease-soft),
+      background-color var(--t-fast) var(--ease-soft);
+  }
+  .search-shortcuts__link:hover,
+  .search-shortcuts__link:focus-visible {
+    border-color: var(--cyan-tech, currentColor);
+    transform: translateY(-1px);
+  }
+
   /* ---------- Home hero ---------- */
   .home-hero {
     position: relative;

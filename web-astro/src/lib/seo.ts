@@ -155,12 +155,40 @@ export function buildLocalBusinessSchema() {
         url: new URL(`/servizi/${s.slug}`, siteConfig.siteUrl).toString(),
       },
     }));
+  // `knowsAbout` lists every concrete service we deliver. Google uses this
+  // as a strong topical signal for "near me" / service-specific queries.
+  const knowsAbout = [
+    "Centro estetico",
+    "Estetica epigenetica",
+    "Epilazione laser diodo",
+    "Epilazione laser Ice Polar",
+    "Pulizia viso",
+    "Trattamenti viso epigenetici",
+    "Massaggio rilassante",
+    "Massaggio linfodrenante",
+    "Manicure semipermanente",
+    "Pedicure estetico",
+    "Laminazione ciglia",
+    "Laminazione sopracciglia",
+    "Ceretta",
+    "Scrub corpo",
+    "Pressoterapia",
+    "Linea cosmetica Marbellas",
+    "Linea biocosmetica Eberlin",
+    "Smalti RBL Nails",
+    "Tecnologia laser Thory",
+  ];
   return {
     "@context": "https://schema.org",
     "@type": "BeautySalon",
     "@id": `${siteConfig.siteUrl}/#beauty-salon`,
     name: siteConfig.name,
-    alternateName: [siteConfig.shortName, "Rebel Carmagnola"],
+    alternateName: [
+      siteConfig.shortName,
+      "Rebel Carmagnola",
+      "Centro Estetico Rebel Carmagnola",
+      "Rebel Estetica Carmagnola",
+    ],
     slogan: siteConfig.tagline,
     description: siteConfig.description,
     image: siteConfig.assets.ogImage,
@@ -170,8 +198,23 @@ export function buildLocalBusinessSchema() {
     email: siteConfig.email,
     inLanguage: siteConfig.locale,
     hasMap: siteConfig.social.maps,
-    priceRange: "$$",
+    priceRange: "EUR",
     currenciesAccepted: "EUR",
+    paymentAccepted: ["Cash", "Credit Card", "Debit Card", "Bancomat"],
+    keywords: [
+      "centro estetico Carmagnola",
+      "estetista Carmagnola",
+      "centro estetico vicino a me",
+      "epilazione laser Carmagnola",
+      "epilazione laser vicino a me",
+      "manicure semipermanente Carmagnola",
+      "laminazione ciglia Carmagnola",
+      "laminazione sopracciglia Carmagnola",
+      "Ice Polar Carmagnola",
+      "Marbellas Carmagnola",
+      "Eberlin Carmagnola",
+    ].join(", "),
+    knowsAbout,
     mainEntityOfPage: siteConfig.siteUrl,
     isPartOf: { "@id": `${siteConfig.siteUrl}/#website` },
     brand: [
@@ -196,7 +239,30 @@ export function buildLocalBusinessSchema() {
       latitude: siteConfig.geo.latitude,
       longitude: siteConfig.geo.longitude,
     },
-    areaServed: siteConfig.areasServed,
+    // Two complementary signals:
+    // 1. `areaServed` lists named cities/areas (Carmagnola, Carignano, …)
+    // 2. `serviceArea` GeoCircle gives Google a hard "we work within ~30 km
+    //    of these coordinates" — the strongest signal for "near me" queries.
+    areaServed: [
+      ...siteConfig.areasServed.map((city) => ({ "@type": "City", name: city })),
+      {
+        "@type": "AdministrativeArea",
+        name: "Provincia di Torino",
+      },
+      {
+        "@type": "AdministrativeArea",
+        name: "Provincia di Cuneo",
+      },
+    ],
+    serviceArea: {
+      "@type": "GeoCircle",
+      geoMidpoint: {
+        "@type": "GeoCoordinates",
+        latitude: siteConfig.geo.latitude,
+        longitude: siteConfig.geo.longitude,
+      },
+      geoRadius: 30000,
+    },
     openingHours: siteConfig.openingHours,
     openingHoursSpecification: toOpeningHoursSpecification(),
     hasOfferCatalog: {
@@ -215,6 +281,16 @@ export function buildLocalBusinessSchema() {
         },
       ],
     },
+    makesOffer: [
+      {
+        "@type": "Offer",
+        name: "Prima visita gratuita + regalo",
+        price: "0",
+        priceCurrency: "EUR",
+        availability: "https://schema.org/InStock",
+        url: `${siteConfig.siteUrl}/prima-visita-gratuita`,
+      },
+    ],
     sameAs: [
       ...primaryActivityProfiles,
       siteConfig.social.tiktok,
@@ -224,7 +300,22 @@ export function buildLocalBusinessSchema() {
   };
 }
 
-export function buildServiceSchema(serviceName: string, serviceDescription: string, path: string) {
+/**
+ * Service schema with strong local signals.
+ *
+ * Optional `priceFrom` lets the page inject a numeric "from" price (parsed
+ * from `priceHint` like "da EUR 26") so Google can show the offer in
+ * service-specific SERPs. Optional `keywords` adds intent-rich variants.
+ */
+export function buildServiceSchema(
+  serviceName: string,
+  serviceDescription: string,
+  path: string,
+  options?: {
+    priceFrom?: number;
+    keywords?: string[];
+  },
+) {
   const url = new URL(path, siteConfig.siteUrl).toString();
   return {
     "@context": "https://schema.org",
@@ -233,9 +324,52 @@ export function buildServiceSchema(serviceName: string, serviceDescription: stri
     name: serviceName,
     serviceType: serviceName,
     description: serviceDescription,
-    areaServed: siteConfig.areasServed,
+    // Two complementary signals (named cities + GeoCircle radius) — same
+    // pattern as LocalBusiness, repeated per-service so each /servizi/* URL
+    // can rank for "<service> vicino a me" queries.
+    areaServed: [
+      ...siteConfig.areasServed.map((city) => ({ "@type": "City", name: city })),
+      { "@type": "AdministrativeArea", name: "Provincia di Torino" },
+    ],
+    serviceArea: {
+      "@type": "GeoCircle",
+      geoMidpoint: {
+        "@type": "GeoCoordinates",
+        latitude: siteConfig.geo.latitude,
+        longitude: siteConfig.geo.longitude,
+      },
+      geoRadius: 30000,
+    },
+    availableChannel: {
+      "@type": "ServiceChannel",
+      serviceLocation: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
+      servicePhone: siteConfig.phoneDisplay,
+      serviceUrl: `${siteConfig.siteUrl}/contatti`,
+    },
     provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
     url,
+    ...(options?.keywords?.length
+      ? { keywords: options.keywords.join(", ") }
+      : {}),
+    ...(typeof options?.priceFrom === "number"
+      ? {
+          offers: {
+            "@type": "Offer",
+            price: options.priceFrom.toString(),
+            priceCurrency: "EUR",
+            priceSpecification: {
+              "@type": "PriceSpecification",
+              price: options.priceFrom,
+              priceCurrency: "EUR",
+              minPrice: options.priceFrom,
+              valueAddedTaxIncluded: true,
+            },
+            availability: "https://schema.org/InStock",
+            url,
+            availableAtOrFrom: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
+          },
+        }
+      : {}),
   };
 }
 

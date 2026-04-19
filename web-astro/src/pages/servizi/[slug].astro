@@ -9,6 +9,7 @@ import EditorialSection from "@/components/EditorialSection.astro";
 import TableOfContents from "@/components/TableOfContents.astro";
 import InlineCta from "@/components/InlineCta.astro";
 import JsonLd from "@/components/JsonLd.astro";
+import NearMeBlock from "@/components/NearMeBlock.astro";
 import {
   servicePages,
   competencePages,
@@ -40,10 +41,16 @@ const fallbackImage =
     : "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/7dc5354b-33e1-4a9e-a21d-ff321ecf4500/public";
 
 const baseServiceName = service.name.replace(/\s+a Carmagnola$/i, "").trim();
+// Numeric "from" price extracted from priceHint ("da EUR 26" → 26) so we can
+// add a Schema.org Offer to the Service node (helps service-specific SERPs).
+const priceFromMatch = service.priceHint.match(/(\d+(?:[.,]\d+)?)/);
+const priceFrom = priceFromMatch ? Number(priceFromMatch[1].replace(",", ".")) : undefined;
 const priceIntentKeywords = [
   `${baseServiceName} prezzi Carmagnola`,
   `prezzi ${baseServiceName} Carmagnola`,
   `${baseServiceName} Carmagnola`,
+  `${baseServiceName} vicino a me`,
+  `${baseServiceName} Carmagnola vicino a me`,
 ];
 
 const meta = createPageMeta({
@@ -94,6 +101,10 @@ const serviceSchema = buildServiceSchema(
   service.name,
   service.longDescription,
   `/servizi/${service.slug}`,
+  {
+    priceFrom,
+    keywords: [...service.keywords, ...priceIntentKeywords],
+  },
 );
 const articleSchema = buildArticleSchema({
   headline: service.name,
@@ -168,6 +179,25 @@ const featuredAreasSchema =
 
 const editorialSections = service.editorialSections ?? [];
 const sourceLinks = service.sourceLinks ?? [];
+
+// "Money" services: pages where it's worth carpet-bombing the "near me"
+// intent with an extra anchor-text block (semipermanente, laminazione,
+// pedicure, laser viso/corpo). Anchor pattern = "<service short> a <City>",
+// the literal phrase users type into Google.
+const moneySlugs = new Set([
+  "manicure-semipermanente-carmagnola",
+  "laminazione-ciglia-sopracciglia-carmagnola",
+  "pedicure-carmagnola",
+  "pulizia-viso-carmagnola",
+  "epilazione-laser-viso-carmagnola",
+  "epilazione-laser-corpo-carmagnola",
+]);
+const showNearMe = moneySlugs.has(service.slug);
+// Short label for anchor text (without "a Carmagnola" tail) so Google sees
+// "Manicure semipermanente a Carignano" — exact "<service> a <city>" pattern.
+const nearMeLabel = baseServiceName
+  .replace(/\s+a\s+Carmagnola$/i, "")
+  .replace(/\s+ciglia\s+e\s+sopracciglia$/i, " ciglia/sopracciglia");
 
 const tocItems = [
   { id: "benefici", label: "Benefici" },
@@ -386,6 +416,16 @@ const tocItems = [
       </aside>
     </div>
   </section>
+
+  {showNearMe ? (
+    <NearMeBlock
+      serviceLabel={nearMeLabel}
+      kicker={`${nearMeLabel} vicino a te`}
+      anchorPattern={(s, c) => `${s} a ${c}`}
+      clusters={["asse-carmagnola", "torino-sud"]}
+      limit={10}
+    />
+  ) : null}
 </BaseLayout>
 
 <style>

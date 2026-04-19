@@ -1,0 +1,115 @@
+---
+/**
+ * NearMeBlock — sezione "vicino a me" SEO-ottimizzata.
+ *
+ * Scopo: intercettare le query con intent geografico esplicito ("epilazione
+ * laser vicino a me", "centro estetico vicino a me", ecc.) usando due segnali:
+ *   1. Anchor text geo-target verso le pagine /localita/* (cross-link forte).
+ *   2. Frase naturale che cita l'intent "vicino" + la lista comuni vicini.
+ *
+ * Da inserire sulle pagine "money" (centro estetico Carmagnola, epilazione
+ * laser Carmagnola, manicure semipermanente, laminazione ciglia).
+ */
+import SectionHead from "@/components/SectionHead.astro";
+import { localAreaPages } from "@/lib/local-pages";
+
+interface Props {
+  /** Etichetta del servizio così come la cercano gli utenti (es. "Epilazione laser"). */
+  serviceLabel: string;
+  /** Variante per il sottotitolo (es. "Vieni da fuori Carmagnola?"). */
+  kicker?: string;
+  /** Anchor text per il link a ciascuna città. Default: "<serviceLabel> a <City>". */
+  anchorPattern?: (serviceLabel: string, city: string) => string;
+  /** Numero massimo di città mostrate. Default: 8. */
+  limit?: number;
+  /** Filtra per cluster geografico (default: tutti). */
+  clusters?: Array<"asse-carmagnola" | "torino-sud" | "cuneo">;
+}
+
+const {
+  serviceLabel,
+  kicker = "Vicino a Carmagnola",
+  anchorPattern = (s: string, c: string) => `${s} a ${c}`,
+  limit = 8,
+  clusters,
+} = Astro.props as Props;
+
+const filtered = clusters
+  ? localAreaPages.filter((a) => clusters.includes(a.cluster) && a.slug !== "carmagnola")
+  : localAreaPages.filter((a) => a.slug !== "carmagnola");
+
+// Ordering: "asse-carmagnola" first (le città più rilevanti), poi torino-sud,
+// poi cuneo. Usiamo l'ordine già pensato in localAreaPages.
+const order: Record<string, number> = {
+  "asse-carmagnola": 0,
+  "torino-sud": 1,
+  "cuneo": 2,
+};
+const cities = [...filtered]
+  .sort((a, b) => (order[a.cluster] ?? 9) - (order[b.cluster] ?? 9))
+  .slice(0, limit);
+---
+
+<section class="section near-me-section" aria-label={`${serviceLabel} vicino a Carmagnola`}>
+  <div class="container">
+    <SectionHead
+      kicker={kicker}
+      title={`_${serviceLabel}_ anche se arrivi da fuori Carmagnola.`}
+      lead={`Lavoriamo regolarmente con persone che cercano "${serviceLabel.toLowerCase()} vicino a me" partendo dai comuni intorno a Carmagnola. Qui sotto le pagine dedicate, con indicazioni su come arrivare e tempi reali.`}
+    />
+    <ul class="near-me-list" role="list">
+      {cities.map((city) => (
+        <li class="near-me-item">
+          <a class="near-me-link" href={`/localita/${city.slug}`}>
+            <span class="near-me-link__service">{anchorPattern(serviceLabel, city.city)}</span>
+            <span class="near-me-link__hint">Pagina dedicata · {city.city}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .near-me-section {
+    padding-block: clamp(3rem, 6vw, 5rem);
+  }
+  .near-me-list {
+    list-style: none;
+    margin: clamp(1.4rem, 3vw, 2rem) 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.6rem;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+  .near-me-link {
+    display: grid;
+    gap: 0.2rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: var(--r-sm);
+    background: var(--surface, transparent);
+    color: var(--text);
+    text-decoration: none;
+    transition: border-color var(--t-fast) var(--ease-soft),
+      transform var(--t-fast) var(--ease-soft),
+      background-color var(--t-fast) var(--ease-soft);
+  }
+  .near-me-link:hover,
+  .near-me-link:focus-visible {
+    border-color: var(--cyan-tech, currentColor);
+    transform: translateY(-1px);
+  }
+  .near-me-link__service {
+    font-weight: 600;
+    font-size: 0.98rem;
+    line-height: 1.25;
+  }
+  .near-me-link__hint {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+</style>
+
