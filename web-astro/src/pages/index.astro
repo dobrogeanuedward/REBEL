@@ -156,19 +156,19 @@ const faqSchema = {
       <p class="home-hero__kicker" data-reveal>
         Centro estetico · Viale Barbaroux 20
       </p>
-      <h1 class="home-hero__title" data-reveal style="--reveal-delay: 80ms;">
+      <h1 class="home-hero__title" data-reveal style="--reveal-delay: 40ms;">
         Il tuo centro estetico nel cuore di <em>Carmagnola</em>.
       </h1>
-      <p class="home-hero__lead" data-reveal style="--reveal-delay: 200ms;">
+      <p class="home-hero__lead" data-reveal style="--reveal-delay: 120ms;">
         Pulizia viso, manicure, ceretta, massaggi, epilazione laser Ice Polar.
         Tutta la cura che ti aspetti, fatta con calma e con metodo.
         <strong>La prima visita è gratuita</strong> — e include un piccolo regalo a tua scelta.
       </p>
-      <div class="home-hero__cta cluster cluster--stack-mobile" data-reveal style="--reveal-delay: 320ms;">
+      <div class="home-hero__cta cluster cluster--stack-mobile" data-reveal style="--reveal-delay: 200ms;">
         <a class="btn btn--primary btn--halo" href="/contatti">Prenota la prima visita gratuita</a>
         <a class="btn btn--secondary" href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer">Scrivici su WhatsApp</a>
       </div>
-      <ul class="home-hero__metrics" data-reveal style="--reveal-delay: 440ms;">
+      <ul class="home-hero__metrics" data-reveal style="--reveal-delay: 280ms;">
         <li>
           <strong>Gratuita</strong>
           <span>Prima visita di 15′</span>
@@ -386,11 +386,11 @@ const faqSchema = {
   .home-hero__title em {
     font-style: italic;
     background: var(--type-accent);
-    background-size: 220% 100%;
+    background-size: 100% 100%;
+    background-position: 0% 50%;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation: text-accent-shift 14s linear infinite;
   }
   .home-hero__lead {
     font-size: var(--t-body-lg);

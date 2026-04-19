@@ -24,7 +24,6 @@ import { siteConfig } from "@/lib/site-config";
 
 import SeoHead from "@/components/SeoHead.astro";
 import JsonLd from "@/components/JsonLd.astro";
-import AmbientLayer from "@/components/AmbientLayer.astro";
 import Reveal from "@/components/Reveal.astro";
 
 interface Props {
@@ -66,7 +65,6 @@ const localSchema = buildLocalBusinessSchema();
   <body class={`page-landing ${bodyClass}`}>
     <a href="#content" class="sr-only">Salta al contenuto</a>
 
-    <AmbientLayer />
     <Reveal />
 
     <header class="landing-header">

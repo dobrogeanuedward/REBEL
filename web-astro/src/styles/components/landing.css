@@ -43,10 +43,18 @@
   max-width: 140px;
 }
 
+@media (max-width: 380px) {
+  .landing-header__brand img { height: 26px; max-width: 110px; }
+}
+
 .landing-header__cta {
   display: inline-flex;
   align-items: center;
   gap: 0.7rem;
+}
+
+@media (max-width: 380px) {
+  .landing-header__cta { gap: 0.4rem; }
 }
 
 .landing-header__phone {
@@ -68,6 +76,13 @@
   white-space: nowrap;
 }
 
+@media (max-width: 380px) {
+  .landing-header__whatsapp {
+    padding: 0.55rem 0.9rem;
+    font-size: 0.78rem;
+  }
+}
+
 /* ---------- Hero ---------- */
 
 .landing-hero {
@@ -76,14 +91,15 @@
   overflow: hidden;
 }
 
+/* The ambient halo is a single radial gradient — no `filter: blur` so it
+   stays cheap to paint (especially during scroll on mid-range mobile). */
 .landing-hero::before {
   content: "";
   position: absolute;
   inset: -10% -10% auto auto;
-  width: 70%;
-  height: 70%;
-  background: radial-gradient(closest-side, rgba(91, 43, 216, 0.35), transparent 70%);
-  filter: blur(60px);
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(closest-side, rgba(91, 43, 216, 0.28), transparent 70%);
   pointer-events: none;
   z-index: 0;
 }

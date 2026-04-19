@@ -152,7 +152,11 @@
   --t-fast:   180ms;
   --t-base:   320ms;
   --t-slow:   620ms;
-  --t-stage: 1200ms;
+  /* --t-rise drives the eager hero entry animation: it must feel snappy
+     because the hero is above the fold. --t-stage is for reveal-on-scroll
+     elements below the fold, where a slower curtain still works. */
+  --t-rise:   360ms;
+  --t-stage:  600ms;
 
   /* ---------- Layers ---------- */
   --z-ambient: -1;
@@ -191,6 +195,7 @@
     --t-fast:  60ms;
     --t-base:  90ms;
     --t-slow:  120ms;
+    --t-rise:  120ms;
     --t-stage: 160ms;
   }
 }

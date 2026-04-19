@@ -32,21 +32,21 @@ const renderedTitle = title.replace(
       <h1
         class="page-hero__title"
         data-reveal
-        style="--reveal-delay: 80ms;"
+        style="--reveal-delay: 40ms;"
         set:html={renderedTitle}
       />
       {lead ? (
-        <p class="page-hero__lead" data-reveal style="--reveal-delay: 200ms;">{lead}</p>
+        <p class="page-hero__lead" data-reveal style="--reveal-delay: 120ms;">{lead}</p>
       ) : null}
 
       {meta.length > 0 ? (
-        <div class="page-hero__meta" data-reveal style="--reveal-delay: 280ms;">
+        <div class="page-hero__meta" data-reveal style="--reveal-delay: 180ms;">
           {meta.map((m) => <span>{m}</span>)}
         </div>
       ) : null}
 
       {(ctaPrimary || ctaSecondary) ? (
-        <div class="page-hero__cta cluster cluster--stack-mobile" data-reveal style="--reveal-delay: 360ms;">
+        <div class="page-hero__cta cluster cluster--stack-mobile" data-reveal style="--reveal-delay: 220ms;">
           {ctaPrimary ? (
             <a class={`btn btn--primary ${ctaPrimary.halo ? "btn--halo" : ""}`} href={ctaPrimary.href}>
               {ctaPrimary.label}

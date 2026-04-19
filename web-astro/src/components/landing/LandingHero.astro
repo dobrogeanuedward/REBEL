@@ -38,15 +38,15 @@ const renderTitle = (raw: string) =>
       : chunk,
   ).join("");
 ---
-<section class="landing-hero" data-reveal>
+<section class="landing-hero">
   <div class="container landing-hero__inner">
-    {badge ? <span class="landing-hero__badge">{badge}</span> : null}
-    <p class="landing-hero__kicker">{kicker}</p>
-    <h1 class="landing-hero__title" set:html={renderTitle(title)} />
-    <p class="landing-hero__lead">{lead}</p>
+    {badge ? <span class="landing-hero__badge" data-reveal>{badge}</span> : null}
+    <p class="landing-hero__kicker" data-reveal style="--reveal-delay: 40ms;">{kicker}</p>
+    <h1 class="landing-hero__title" data-reveal style="--reveal-delay: 80ms;" set:html={renderTitle(title)} />
+    <p class="landing-hero__lead" data-reveal style="--reveal-delay: 140ms;">{lead}</p>
 
     {bullets.length > 0 ? (
-      <ul class="landing-hero__bullets">
+      <ul class="landing-hero__bullets" data-reveal style="--reveal-delay: 200ms;">
         {bullets.map((b) => (
           <li>
             <span class="landing-hero__bullet-tick" aria-hidden="true">✓</span>
@@ -56,7 +56,7 @@ const renderTitle = (raw: string) =>
       </ul>
     ) : null}
 
-    <div class="landing-hero__cta">
+    <div class="landing-hero__cta" data-reveal style="--reveal-delay: 260ms;">
       <a class="btn btn--primary btn--halo btn--lg" href={primaryCta.href}>
         {primaryCta.label}
       </a>
@@ -72,6 +72,6 @@ const renderTitle = (raw: string) =>
       ) : null}
     </div>
 
-    {footnote ? <p class="landing-hero__footnote">{footnote}</p> : null}
+    {footnote ? <p class="landing-hero__footnote" data-reveal style="--reveal-delay: 320ms;">{footnote}</p> : null}
   </div>
 </section>

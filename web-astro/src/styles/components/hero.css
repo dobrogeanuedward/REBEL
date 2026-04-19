@@ -74,11 +74,15 @@
 .page-hero__title em {
   font-style: italic;
   background: var(--type-accent);
-  background-size: 220% 100%;
+  background-size: 100% 100%;
+  background-position: 0% 50%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: text-accent-shift 14s linear infinite;
+  /* Static gradient: the previous `animation: text-accent-shift 14s linear
+     infinite` was the main culprit for continuous repaints in the hero.
+     Removing it cuts paint cost dramatically and the gradient still reads
+     as the "accent type" treatment. */
 }
 
 .page-hero__lead {

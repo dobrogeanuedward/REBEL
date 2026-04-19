@@ -38,6 +38,16 @@
   100% { transform: translate3d(6vmax, -4vmax, 0) rotate(40deg); }
 }
 
+/* Mobile: kill the blur animation (it's the heaviest paint on the page on
+   mid-range phones) and reduce blur radius so the layer paints once and
+   stays put while scrolling. The visual difference is negligible. */
+@media (max-width: 760px) {
+  .stage-ambient__halo {
+    filter: blur(70px);
+    animation: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .stage-ambient__halo { animation: none; }
 }
