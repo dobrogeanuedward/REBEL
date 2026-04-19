@@ -1,0 +1,164 @@
+---
+import LandingLayout from "@/layouts/LandingLayout.astro";
+import LandingHero from "@/components/landing/LandingHero.astro";
+import LandingProof from "@/components/landing/LandingProof.astro";
+import LandingSteps from "@/components/landing/LandingSteps.astro";
+import LandingFaq from "@/components/landing/LandingFaq.astro";
+import LandingFormCard from "@/components/landing/LandingFormCard.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import { createPageMeta, buildBreadcrumbSchema } from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
+
+const meta = createPageMeta({
+  title: "Prima visita gratuita — Centro Estetico Carmagnola | Rebel",
+  description:
+    "Prenota la prima visita gratuita da Rebel a Carmagnola: 15 minuti per leggere pelle e zona, una proposta scritta su misura e un piccolo regalo a tua scelta. Senza obbligo di acquisto.",
+  path: "/prima-visita-gratuita",
+  keywords: [
+    "prima visita gratuita Carmagnola",
+    "consulenza estetica gratuita Carmagnola",
+    "prova centro estetico Carmagnola",
+    "promozione centro estetico Carmagnola",
+  ],
+});
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Prima visita gratuita", path: "/prima-visita-gratuita" },
+]);
+
+const promoSchema = {
+  "@context": "https://schema.org",
+  "@type": "Offer",
+  name: "Prima visita gratuita + regalo a scelta",
+  description:
+    "Quindici minuti di prima visita gratuita presso Rebel a Carmagnola. Lettura della pelle/zona, proposta scritta personalizzata e mini-rituale in regalo.",
+  price: "0",
+  priceCurrency: "EUR",
+  availability: "https://schema.org/InStock",
+  validFrom: siteConfig.lastUpdated,
+  url: `${siteConfig.siteUrl}/prima-visita-gratuita`,
+  seller: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
+  areaServed: siteConfig.areasServed,
+};
+
+const faqs = [
+  {
+    q: "La prima visita è davvero gratuita?",
+    a: "Sì, completamente. Quindici minuti in studio, senza obbligo di prenotare un trattamento. Il regalo a tua scelta è incluso e te lo facciamo lo stesso giorno.",
+  },
+  {
+    q: "Cosa succede in 15 minuti?",
+    a: "Ci racconti cosa vorresti fare, leggiamo insieme pelle, zona e priorità. Da lì ti diciamo se ha senso iniziare e con cosa, ti consegniamo una proposta scritta con prezzi reali e scegli il tuo regalo.",
+  },
+  {
+    q: "Quali sono i tre regali tra cui scegliere?",
+    a: "Mini-rituale mani (lima + smalto rapido), massaggio viso epigenetico Marbellas (5-10 minuti), oppure disegno e rifinitura sopracciglia. Scegli in fase di prenotazione o decidiamo insieme in studio.",
+  },
+  {
+    q: "Quando posso venire?",
+    a: "Dal martedì al sabato su appuntamento. Lunedì e domenica chiusi. Mercoledì apriamo solo dalle 14. Ti scriviamo entro poche ore con un orario disponibile.",
+  },
+  {
+    q: "Dove vi trovo a Carmagnola?",
+    a: "In Viale Barbaroux 20, a Carmagnola (TO). Zona facile da raggiungere e parcheggio nelle vicinanze.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+<LandingLayout
+  meta={meta}
+  bodyClass="page-landing--prima-visita"
+  ctaHref="#form"
+  ctaLabel="Prenota gratis"
+>
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={promoSchema} />
+  <JsonLd data={faqSchema} />
+
+  <LandingHero
+    badge="Promo attiva"
+    kicker="Centro estetico · Carmagnola"
+    title="La prima visita è _gratuita_. E porti via un piccolo regalo."
+    lead="Quindici minuti in studio, senza obbligo. Capiamo da dove ha senso partire — pulizia viso, mani, ceretta, laser, protocolli — e ti consegniamo una proposta scritta con prezzi e tempi reali."
+    bullets={[
+      { text: "Prima visita di 15 minuti, 100% gratuita." },
+      { text: "Regalo a tua scelta tra 3 mini-rituali." },
+      { text: "Proposta scritta con prezzi chiari da portare a casa." },
+      { text: "Nessun obbligo di acquisto, nessuna pressione." },
+    ]}
+    primaryCta={{ label: "Prenota la prima visita", href: "#form" }}
+    secondaryCta={{
+      label: "Scrivici su WhatsApp",
+      href: siteConfig.social.whatsapp,
+      external: true,
+    }}
+    footnote="Ti rispondiamo entro poche ore negli orari di apertura (Mar–Sab)."
+  />
+
+  <LandingProof
+    kicker="Perché Rebel"
+    items={[
+      {
+        title: "Studio nuovo",
+        body: "Aperti a ottobre, in Viale Barbaroux 20. Tre cabine, attrezzatura nuova, ordine vero.",
+      },
+      {
+        title: "Tecnologia Thory",
+        body: "Laser diodo Ice Polar con raffreddamento attivo. Comodo anche su ascelle e inguine.",
+      },
+      {
+        title: "Linee professionali",
+        body: "Marbellas (epigenetica), Eberlin (biocosmetica), RBL Nails. Niente improvvisazione.",
+      },
+      {
+        title: "Listino sempre online",
+        body: "Prezzi pubblicati per ogni servizio. Niente preventivi opachi né telefonate \"per sapere quanto costa\".",
+      },
+    ]}
+  />
+
+  <LandingSteps
+    kicker="Come funziona"
+    title="Quattro passaggi, niente di complicato."
+    steps={[
+      {
+        title: "Compila il form qui sotto",
+        body: "Bastano nome e numero. Se vuoi, dicci già cosa ti interesserebbe fare.",
+      },
+      {
+        title: "Ti ricontattiamo entro poche ore",
+        body: "Via WhatsApp o telefono, con un orario disponibile. Mai email automatiche fredde.",
+      },
+      {
+        title: "Vieni in studio per 15 minuti",
+        body: "Ti accogliamo, leggiamo pelle/zona, ti consegniamo una proposta scritta. E scegli il tuo regalo.",
+      },
+      {
+        title: "Decidi tu",
+        body: "Se ha senso iniziare, prenoti il primo trattamento sul momento. Senno, ti porti a casa il regalo e tutte le info utili.",
+      },
+    ]}
+  />
+
+  <LandingFormCard
+    kicker="Form prima visita"
+    title="Prenota in trenta secondi."
+    lead="Solo nome e telefono. Email e dettagli sono opzionali — possiamo sentirci anche su WhatsApp."
+    source="landing-prima-visita"
+    submitLabel="Prenota la prima visita gratuita"
+    showRitual={true}
+    showMessage={true}
+  />
+
+  <LandingFaq items={faqs} />
+</LandingLayout>

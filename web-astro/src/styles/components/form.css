@@ -151,3 +151,29 @@
   background: rgba(228, 72, 150, 0.12);
   border-color: rgba(228, 72, 150, 0.3);
 }
+
+/* ---------- LandingForm — short, conversion-oriented variant ---------- */
+
+.form--landing {
+  gap: 0.95rem;
+}
+
+.form--landing label {
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.form__optional {
+  text-transform: none;
+  letter-spacing: 0.02em;
+  color: var(--text-faint);
+  font-size: 0.78rem;
+  margin-left: 0.35rem;
+}
+
+.form__submit-block {
+  width: 100%;
+  margin-top: 0.4rem;
+}

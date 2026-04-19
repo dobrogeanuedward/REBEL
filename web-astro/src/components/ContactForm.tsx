@@ -7,6 +7,7 @@ type FormState = {
   city: string;
   message: string;
   ritual: string;
+  source: string;
   website: string;
 };
 
@@ -17,6 +18,7 @@ const initial: FormState = {
   city: "",
   message: "",
   ritual: "",
+  source: "contatti",
   website: "",
 };
 

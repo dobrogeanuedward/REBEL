@@ -11,6 +11,7 @@ type ContactPayload = {
   city?: string;
   message?: string;
   ritual?: string;
+  source?: string;
   website?: string;
 };
 
@@ -18,6 +19,17 @@ const ritualLabels: Record<string, string> = {
   mani: "Mini-rituale mani (lima + smalto rapido)",
   "viso-marbellas": "Massaggio viso epigenetico Marbellas",
   sopracciglia: "Disegno e rifinitura sopracciglia",
+};
+
+// Human-readable labels for the `source` field. Lets us tag where the lead
+// came from (which landing / channel) without polluting the user-facing form.
+const sourceLabels: Record<string, string> = {
+  "landing-prima-visita": "Landing · Prima visita gratuita",
+  "landing-laser": "Landing · Epilazione laser (prova)",
+  "landing-viso": "Landing · Protocollo viso",
+  "landing-prenota": "Landing · Prenota (ads)",
+  "homepage-promo": "Homepage · Promo banner",
+  contatti: "Pagina contatti",
 };
 
 const required = (value?: string) =>
@@ -42,32 +54,32 @@ export const POST: APIRoute = async ({ request }) => {
     return json({ ok: true, message: "Messaggio ricevuto." });
   }
 
-  if (
-    !required(payload.name) ||
-    !required(payload.email) ||
-    !required(payload.phone) ||
-    !required(payload.message)
-  ) {
+  // Email and message are not required on landing forms (we ask for the bare
+  // minimum to maximise conversion). Name + phone are always mandatory.
+  if (!required(payload.name) || !required(payload.phone)) {
     return json(
-      { ok: false, message: "Compila i campi obbligatori prima di inviare." },
+      { ok: false, message: "Compila almeno nome e telefono prima di inviare." },
       400,
     );
   }
 
   const recipient = import.meta.env.CONTACT_GMAIL_TO || siteConfig.email;
-  const subject = `Prima visita gratuita — ${payload.name?.trim()}`;
+  const sourceKey = payload.source?.trim() ?? "";
+  const sourceLine = sourceKey && sourceLabels[sourceKey] ? sourceLabels[sourceKey] : "Pagina contatti";
+  const subject = `${sourceLine} — ${payload.name?.trim()}`;
   const city = payload.city?.trim() ? `\nCittà: ${payload.city.trim()}` : "";
+  const email = payload.email?.trim() ? `\nEmail: ${payload.email.trim()}` : "";
   const ritualKey = payload.ritual?.trim() ?? "";
   const ritualLine =
     ritualKey && ritualLabels[ritualKey]
       ? `\nRegalo scelto: ${ritualLabels[ritualKey]}`
-      : "\nRegalo scelto: (nessuna preferenza, da decidere insieme)";
-  const body = `Nome: ${payload.name?.trim()}
-Email: ${payload.email?.trim()}
-Telefono / WhatsApp: ${payload.phone?.trim()}${city}${ritualLine}
-
-Cosa vorrebbe fare:
-${payload.message?.trim()}`;
+      : "";
+  const messageLine = payload.message?.trim()
+    ? `\n\nCosa vorrebbe fare:\n${payload.message.trim()}`
+    : "";
+  const body = `Provenienza: ${sourceLine}
+Nome: ${payload.name?.trim()}${email}
+Telefono / WhatsApp: ${payload.phone?.trim()}${city}${ritualLine}${messageLine}`;
 
   try {
     const upstream = await fetch(`https://formsubmit.co/ajax/${recipient}`, {

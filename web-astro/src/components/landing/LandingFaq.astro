@@ -1,0 +1,37 @@
+---
+/**
+ * LandingFaq — short native <details> FAQ. Lighter than the main FaqAccordion
+ * (no scripts, no extra deps) so it loads instantly on ad landings.
+ */
+interface Faq {
+  q: string;
+  a: string;
+}
+
+interface Props {
+  kicker?: string;
+  title?: string;
+  items: Faq[];
+}
+
+const { kicker, title = "Domande frequenti", items } = Astro.props;
+---
+<section class="landing-faq section">
+  <div class="container container--narrow">
+    {kicker ? <p class="landing-faq__kicker">{kicker}</p> : null}
+    <h2 class="landing-faq__title">{title}</h2>
+    <ul class="landing-faq__list">
+      {items.map((it) => (
+        <li class="landing-faq__item">
+          <details>
+            <summary>
+              <span>{it.q}</span>
+              <span class="landing-faq__icon" aria-hidden="true">+</span>
+            </summary>
+            <p>{it.a}</p>
+          </details>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

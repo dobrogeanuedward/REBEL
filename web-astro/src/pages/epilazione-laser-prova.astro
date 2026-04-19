@@ -1,0 +1,169 @@
+---
+import LandingLayout from "@/layouts/LandingLayout.astro";
+import LandingHero from "@/components/landing/LandingHero.astro";
+import LandingProof from "@/components/landing/LandingProof.astro";
+import LandingSteps from "@/components/landing/LandingSteps.astro";
+import LandingFaq from "@/components/landing/LandingFaq.astro";
+import LandingFormCard from "@/components/landing/LandingFormCard.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import { createPageMeta, buildBreadcrumbSchema } from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
+
+const meta = createPageMeta({
+  title: "Epilazione laser Carmagnola — prima prova gratuita | Rebel",
+  description:
+    "Provala prima di comprarla: prima visita laser gratuita con Thory Ice Polar a Carmagnola. Ti spieghiamo zone, sedute e prezzi senza pacchetti pre-confezionati.",
+  path: "/epilazione-laser-prova",
+  keywords: [
+    "epilazione laser Carmagnola",
+    "laser diodo Carmagnola",
+    "prova laser gratuita Carmagnola",
+    "Ice Polar Carmagnola",
+    "epilazione definitiva Carmagnola",
+  ],
+});
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Prova laser gratuita", path: "/epilazione-laser-prova" },
+]);
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Epilazione laser diodo Ice Polar",
+  serviceType: "Epilazione laser",
+  provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
+  areaServed: siteConfig.areasServed,
+  description:
+    "Trattamento di epilazione laser con diodo Thory Ice Polar a Carmagnola. Prima visita di valutazione gratuita: lettura di pelle, fototipo e zona, parametri calibrati e proposta scritta.",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "EUR",
+    description: "Prima visita di valutazione laser, gratuita e senza obbligo",
+    url: `${siteConfig.siteUrl}/epilazione-laser-prova`,
+  },
+};
+
+const faqs = [
+  {
+    q: "Quanto costa una seduta laser da Rebel?",
+    a: "Dipende dalla zona. Per esempio, ascelle 25 €, inguine completo 45 €, gambe complete 110 €. Tutti i prezzi sono pubblici nel listino e non cambiano in base a chi entra. Pacchetti solo se ha senso, mai imposti.",
+  },
+  {
+    q: "Cosa include la prima visita gratuita?",
+    a: "Quindici minuti in studio: lettura del fototipo, valutazione di pelle e zona, spiegazione su come funziona il laser Ice Polar e una proposta scritta con numero stimato di sedute, intervalli e costo totale.",
+  },
+  {
+    q: "Quante sedute servono?",
+    a: "In media 6-8 sedute distanziate di 4-8 settimane a seconda della zona. Te lo confermiamo dopo aver visto la pelle: meglio dirlo onestamente in visita che promettere \"in 3 sedute via tutto\".",
+  },
+  {
+    q: "Fa male?",
+    a: "Il manipolo Ice Polar ha raffreddamento attivo a contatto: la maggior parte delle persone lo descrive come una sensazione calda, non dolorosa. Su zone più sensibili (inguine, viso) modifichiamo i parametri.",
+  },
+  {
+    q: "Posso fare il laser d'estate?",
+    a: "Sì, sulle zone non esposte al sole (ascelle, inguine, addome). Per gambe e viso valutiamo insieme: se ti esponi al sole spesso, conviene partire da settembre.",
+  },
+  {
+    q: "Per quali fototipi è adatto?",
+    a: "Il diodo Ice Polar lavora dal fototipo I al VI. La cosa importante è la valutazione iniziale per calibrare i parametri sul tuo specifico colore di pelle e tipo di pelo.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+<LandingLayout
+  meta={meta}
+  bodyClass="page-landing--laser"
+  ctaHref="#form"
+  ctaLabel="Prova gratis"
+>
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={serviceSchema} />
+  <JsonLd data={faqSchema} />
+
+  <LandingHero
+    badge="Prima visita gratuita"
+    kicker="Epilazione laser · Carmagnola"
+    title="Provalo prima. _Decidi dopo._"
+    lead="Prima visita laser di 15 minuti, gratuita: leggiamo pelle e fototipo, ti spieghiamo come lavora il manipolo Thory Ice Polar e ti consegniamo una proposta scritta con numero stimato di sedute e costi reali. Senza pacchetti imposti."
+    bullets={[
+      { text: "Tecnologia Thory Ice Polar con raffreddamento attivo." },
+      { text: "Adatto a tutti i fototipi (I–VI), parametri calibrati su di te." },
+      { text: "Listino pubblico: ascelle 25 €, inguine completo 45 €." },
+      { text: "Niente pacchetti pre-confezionati. Paghi seduta per seduta o a pacchetto, decidi tu." },
+    ]}
+    primaryCta={{ label: "Prenota la prima visita gratuita", href: "#form" }}
+    secondaryCta={{ label: "Vedi listino completo", href: "/listino-estetica-laser" }}
+    footnote="Risposta entro poche ore via WhatsApp o telefono."
+  />
+
+  <LandingProof
+    kicker="Perché farlo da noi"
+    items={[
+      {
+        title: "Manipolo Ice Polar",
+        body: "Diodo di nuova generazione con punta refrigerata: zona dopo zona resta una sensazione tiepida, non un dolore.",
+      },
+      {
+        title: "Operatori formati",
+        body: "Il team si forma su Thory Academy: certificazioni Operatore Laser ed estetiste qualificate, non corsi a caso.",
+      },
+      {
+        title: "Prezzi trasparenti",
+        body: "Listino sempre online. Nessuna sorpresa al banco, nessun preventivo \"da telefonarci\".",
+      },
+      {
+        title: "Promemoria gestiti",
+        body: "Ti scriviamo noi quando è il momento della seduta successiva, così rispetti i giusti intervalli.",
+      },
+    ]}
+  />
+
+  <LandingSteps
+    kicker="Come funziona la prima visita"
+    title="Quindici minuti per capire se è la cosa giusta per te."
+    steps={[
+      {
+        title: "Compili il form",
+        body: "Nome, telefono e — se vuoi — la zona che ti interesserebbe trattare.",
+      },
+      {
+        title: "Ti scriviamo entro poche ore",
+        body: "Su WhatsApp, con un orario disponibile compatibile con la tua agenda.",
+      },
+      {
+        title: "Visita in studio",
+        body: "Lettura del fototipo, valutazione della zona, spiegazione del trattamento e patch test se serve.",
+      },
+      {
+        title: "Proposta scritta",
+        body: "Numero di sedute stimato, intervalli, prezzo totale. Decidi se iniziare oggi o pensarci a casa.",
+      },
+    ]}
+  />
+
+  <LandingFormCard
+    kicker="Prima visita laser"
+    title="Prenota la tua prima visita laser."
+    lead="Bastano nome e numero. Se vuoi, scrivici già la zona che ti interesserebbe trattare (ascelle, inguine, gambe, viso…)."
+    source="landing-laser"
+    defaultMessage=""
+    submitLabel="Prenota la prima visita gratuita"
+    showRitual={false}
+    showMessage={true}
+  />
+
+  <LandingFaq items={faqs} />
+</LandingLayout>

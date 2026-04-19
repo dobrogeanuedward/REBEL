@@ -1,0 +1,41 @@
+---
+/**
+ * LandingSteps — short numbered "how it works" strip (3-4 steps max).
+ *
+ * Used to translate the offer into a concrete process so the user knows
+ * exactly what happens after they fill the form.
+ */
+interface Step {
+  title: string;
+  body: string;
+}
+
+interface Props {
+  kicker?: string;
+  title?: string;
+  steps: Step[];
+}
+
+const { kicker, title, steps } = Astro.props;
+---
+<section class="landing-steps section">
+  <div class="container">
+    {kicker || title ? (
+      <header class="landing-steps__head" data-reveal>
+        {kicker ? <p class="landing-steps__kicker">{kicker}</p> : null}
+        {title ? <h2 class="landing-steps__title">{title}</h2> : null}
+      </header>
+    ) : null}
+    <ol class="landing-steps__list">
+      {steps.map((s, i) => (
+        <li class="landing-steps__item" data-reveal style={`--reveal-delay: ${i * 80}ms;`}>
+          <span class="landing-steps__num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+          <div class="landing-steps__body">
+            <h3 class="landing-steps__item-title">{s.title}</h3>
+            <p class="landing-steps__item-text">{s.body}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

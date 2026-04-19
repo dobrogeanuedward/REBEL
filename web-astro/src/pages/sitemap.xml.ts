@@ -58,6 +58,11 @@ export const GET: APIRoute = () => {
     make("/competenze", "weekly", 0.91),
     make("/localita", "weekly", 0.9),
     make("/contatti", "daily", 0.94),
+    // Landing pages — indexable, conversion-oriented, promoted via paid /
+    // organic channels. /prenota is intentionally NOT listed: it's noindex.
+    make("/prima-visita-gratuita", "weekly", 0.93),
+    make("/epilazione-laser-prova", "weekly", 0.92),
+    make("/protocollo-viso", "weekly", 0.9),
   ];
 
   const serviceEntries: Entry[] = servicePages.map((service) =>

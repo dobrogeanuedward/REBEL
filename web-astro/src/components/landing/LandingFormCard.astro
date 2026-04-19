@@ -1,0 +1,58 @@
+---
+/**
+ * LandingFormCard — wraps the LandingForm React island in a styled card with
+ * a clear kicker/title/lead and an explicit anchor (`#form`) so the sticky
+ * CTA can scroll directly to it.
+ *
+ * The form itself is the React island (LandingForm.tsx); this component is
+ * pure presentation around it.
+ */
+import LandingForm from "@/components/LandingForm.tsx";
+
+interface Props {
+  kicker?: string;
+  title: string;
+  lead?: string;
+  source: string;
+  defaultMessage?: string;
+  defaultRitual?: string;
+  submitLabel?: string;
+  showRitual?: boolean;
+  showMessage?: boolean;
+  successMessage?: string;
+}
+
+const {
+  kicker = "Form prima visita",
+  title,
+  lead,
+  source,
+  defaultMessage,
+  defaultRitual,
+  submitLabel,
+  showRitual,
+  showMessage,
+  successMessage,
+} = Astro.props;
+---
+<section class="landing-form-section section" id="form">
+  <div class="container container--narrow">
+    <article class="landing-form-card" data-reveal>
+      <header class="landing-form-card__head">
+        <p class="landing-form-card__kicker">{kicker}</p>
+        <h2 class="landing-form-card__title">{title}</h2>
+        {lead ? <p class="landing-form-card__lead">{lead}</p> : null}
+      </header>
+      <LandingForm
+        client:load
+        source={source}
+        defaultMessage={defaultMessage}
+        defaultRitual={defaultRitual}
+        submitLabel={submitLabel}
+        showRitual={showRitual}
+        showMessage={showMessage}
+        successMessage={successMessage}
+      />
+    </article>
+  </div>
+</section>

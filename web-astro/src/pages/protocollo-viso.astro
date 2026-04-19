@@ -1,0 +1,161 @@
+---
+import LandingLayout from "@/layouts/LandingLayout.astro";
+import LandingHero from "@/components/landing/LandingHero.astro";
+import LandingProof from "@/components/landing/LandingProof.astro";
+import LandingSteps from "@/components/landing/LandingSteps.astro";
+import LandingFaq from "@/components/landing/LandingFaq.astro";
+import LandingFormCard from "@/components/landing/LandingFormCard.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import { createPageMeta, buildBreadcrumbSchema } from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
+
+const meta = createPageMeta({
+  title: "Protocollo viso epigenetico Carmagnola — prima consulenza gratuita | Rebel",
+  description:
+    "Protocollo viso con linea epigenetica Marbellas e biocosmetica Eberlin a Carmagnola. Prima visita di lettura pelle gratuita: capiamo da dove partire e quante sedute servono davvero.",
+  path: "/protocollo-viso",
+  keywords: [
+    "protocollo viso Carmagnola",
+    "trattamento viso epigenetico Carmagnola",
+    "Marbellas Carmagnola",
+    "Eberlin Carmagnola",
+    "pulizia viso professionale Carmagnola",
+  ],
+});
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Protocollo viso", path: "/protocollo-viso" },
+]);
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Protocollo viso epigenetico",
+  serviceType: "Trattamento viso professionale",
+  provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
+  areaServed: siteConfig.areasServed,
+  description:
+    "Protocollo viso costruito sulla tua pelle: lettura iniziale, scelta della linea (Marbellas epigenetica o Eberlin biocosmetica) e calendario di sedute calibrato. Prima visita gratuita.",
+};
+
+const faqs = [
+  {
+    q: "Cos'è la linea epigenetica Marbellas?",
+    a: "Marbellas è una linea cosmetica professionale costruita su attivi epigenetici di nuova generazione: lavora sulla qualità della pelle, sul tono e sulla luminosità agendo sui meccanismi che \"accendono\" o \"spengono\" certe risposte cellulari. La usiamo nei protocolli viso più avanzati.",
+  },
+  {
+    q: "E Eberlin invece?",
+    a: "Eberlin è un brand spagnolo storico nella biocosmetica professionale: linee Firmezza, Calming, Gold e attivi biotecnologici come fattori di crescita e RetiLAB. La scegliamo quando ha senso lavorare su pelli mature, sensibili o con esigenze specifiche.",
+  },
+  {
+    q: "Quante sedute servono per un protocollo?",
+    a: "Dipende molto dalla pelle e dall'obiettivo. In media 4-6 sedute distanziate di 2-3 settimane per il primo ciclo, poi mantenimento più rilassato. Te lo diciamo dopo la prima visita: numeri reali, non promesse.",
+  },
+  {
+    q: "Cosa succede nella prima visita?",
+    a: "Quindici minuti gratuiti in studio: leggiamo la pelle (idratazione, sebo, sensibilità, segni del tempo), capiamo la tua routine attuale e ti diciamo se ha senso partire da una pulizia viso classica o da un protocollo strutturato. Esci con una proposta scritta.",
+  },
+  {
+    q: "Quanto costa un trattamento viso da Rebel?",
+    a: "Pulizia viso classica 55 €, protocolli avanzati Marbellas/Eberlin a partire da 75 €. Tutto pubblicato nel listino: nessun preventivo da fare al telefono.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+<LandingLayout
+  meta={meta}
+  bodyClass="page-landing--viso"
+  ctaHref="#form"
+  ctaLabel="Prenota gratis"
+>
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={serviceSchema} />
+  <JsonLd data={faqSchema} />
+
+  <LandingHero
+    badge="Prima visita gratuita"
+    kicker="Trattamento viso · Carmagnola"
+    title="Protocollo viso costruito sulla _tua_ pelle."
+    lead="Niente trattamento standard uguale per tutte. Leggiamo la tua pelle in studio, scegliamo la linea giusta — Marbellas (epigenetica) o Eberlin (biocosmetica) — e definiamo insieme un calendario di sedute calibrato. La prima visita è gratuita."
+    bullets={[
+      { text: "Lettura della pelle in studio (idratazione, sebo, sensibilità, segni)." },
+      { text: "Scelta della linea: Marbellas epigenetica o Eberlin biocosmetica." },
+      { text: "Calendario sedute realistico, non pacchetti pre-imposti." },
+      { text: "Prezzi pubblici: pulizia viso 55 €, protocolli avanzati da 75 €." },
+    ]}
+    primaryCta={{ label: "Prenota la prima visita", href: "#form" }}
+    secondaryCta={{
+      label: "Scopri Marbellas / Eberlin",
+      href: "/protocolli-epigenetici",
+    }}
+    footnote="Risposta entro poche ore negli orari di apertura."
+  />
+
+  <LandingProof
+    kicker="Perché Rebel"
+    items={[
+      {
+        title: "Showroom Thory",
+        body: "Siamo showroom ufficiale Thory: il team si aggiorna su nuove linee e protocolli prima di proporli in cabina.",
+      },
+      {
+        title: "Linea Marbellas",
+        body: "Linea cosmetica di nuova generazione con attivi epigenetici. Lavora su qualità, tono e luminosità della pelle.",
+      },
+      {
+        title: "Linea Eberlin",
+        body: "Brand spagnolo di riferimento: linee Firmezza, Calming, Gold e attivi biotecnologici per pelli mature o sensibili.",
+      },
+      {
+        title: "Onestà nei numeri",
+        body: "Diciamo quante sedute servono davvero. Niente \"ci vediamo tra una settimana\" se non c'è motivo.",
+      },
+    ]}
+  />
+
+  <LandingSteps
+    kicker="Come funziona"
+    title="Dalla lettura della pelle al protocollo cucito addosso."
+    steps={[
+      {
+        title: "Compili il form",
+        body: "Nome, telefono e — se vuoi — cosa vorresti migliorare (luminosità, segni, sensibilità…).",
+      },
+      {
+        title: "Prima visita di 15 minuti",
+        body: "Lettura della pelle, valutazione delle priorità e scelta della linea adatta alla tua pelle.",
+      },
+      {
+        title: "Proposta scritta",
+        body: "Quante sedute, ogni quanto, con quale linea e a che costo totale. Decidi a casa o sul momento.",
+      },
+      {
+        title: "Inizio del protocollo",
+        body: "Una volta partiti, ti scriviamo noi per i richiami. Tu pensi solo a presentarti in cabina.",
+      },
+    ]}
+  />
+
+  <LandingFormCard
+    kicker="Prima visita viso"
+    title="Prenota la tua lettura pelle gratuita."
+    lead="Bastano nome e numero. Se vuoi, scrivici già cosa vorresti migliorare (luminosità, idratazione, segni, sensibilità…)."
+    source="landing-viso"
+    defaultRitual="viso-marbellas"
+    submitLabel="Prenota la prima visita gratuita"
+    showRitual={true}
+    showMessage={true}
+  />
+
+  <LandingFaq items={faqs} />
+</LandingLayout>

@@ -1,0 +1,77 @@
+---
+/**
+ * LandingHero — bold, single-column hero designed for ad/landing pages.
+ *
+ * Mobile-first, no slider, no decorative images: focus is on the offer + CTA.
+ * Use ONE per page (it claims the visual hierarchy of the fold).
+ */
+interface Bullet {
+  text: string;
+}
+
+interface Props {
+  badge?: string;
+  kicker: string;
+  title: string;
+  lead: string;
+  bullets?: Bullet[];
+  primaryCta: { label: string; href: string };
+  secondaryCta?: { label: string; href: string; external?: boolean };
+  footnote?: string;
+}
+
+const {
+  badge,
+  kicker,
+  title,
+  lead,
+  bullets = [],
+  primaryCta,
+  secondaryCta,
+  footnote,
+} = Astro.props;
+
+const renderTitle = (raw: string) =>
+  raw.split(/(_[^_]+_)/).map((chunk) =>
+    chunk.startsWith("_") && chunk.endsWith("_")
+      ? `<em>${chunk.slice(1, -1)}</em>`
+      : chunk,
+  ).join("");
+---
+<section class="landing-hero" data-reveal>
+  <div class="container landing-hero__inner">
+    {badge ? <span class="landing-hero__badge">{badge}</span> : null}
+    <p class="landing-hero__kicker">{kicker}</p>
+    <h1 class="landing-hero__title" set:html={renderTitle(title)} />
+    <p class="landing-hero__lead">{lead}</p>
+
+    {bullets.length > 0 ? (
+      <ul class="landing-hero__bullets">
+        {bullets.map((b) => (
+          <li>
+            <span class="landing-hero__bullet-tick" aria-hidden="true">✓</span>
+            <span>{b.text}</span>
+          </li>
+        ))}
+      </ul>
+    ) : null}
+
+    <div class="landing-hero__cta">
+      <a class="btn btn--primary btn--halo btn--lg" href={primaryCta.href}>
+        {primaryCta.label}
+      </a>
+      {secondaryCta ? (
+        <a
+          class="btn btn--secondary btn--lg"
+          href={secondaryCta.href}
+          target={secondaryCta.external ? "_blank" : undefined}
+          rel={secondaryCta.external ? "noreferrer" : undefined}
+        >
+          {secondaryCta.label}
+        </a>
+      ) : null}
+    </div>
+
+    {footnote ? <p class="landing-hero__footnote">{footnote}</p> : null}
+  </div>
+</section>

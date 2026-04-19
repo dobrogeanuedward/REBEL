@@ -29,7 +29,11 @@ export default defineConfig({
       filter: (page) =>
         !page.includes("/api/") &&
         !page.endsWith("/feed.xml") &&
-        !page.endsWith("/feed.json"),
+        !page.endsWith("/feed.json") &&
+        // /prenota is a noindex ads landing — keep it out of the sitemap so
+        // it never competes with the canonical pages on SEO.
+        !page.endsWith("/prenota") &&
+        !page.endsWith("/prenota/"),
       changefreq: "weekly",
       priority: 0.7,
     }),

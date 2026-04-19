@@ -1,0 +1,33 @@
+---
+/**
+ * LandingProof — trust-building strip with 3-4 short reassurance items.
+ *
+ * Lives just below the hero: it picks up doubts ("can I trust them?") before
+ * they become objections. Stays text-only on purpose for fast paint and
+ * focus on copy.
+ */
+interface Item {
+  title: string;
+  body: string;
+}
+
+interface Props {
+  items: Item[];
+  kicker?: string;
+}
+
+const { items, kicker } = Astro.props;
+---
+<section class="landing-proof section section--tight">
+  <div class="container">
+    {kicker ? <p class="landing-proof__kicker">{kicker}</p> : null}
+    <ul class="landing-proof__grid">
+      {items.map((it, i) => (
+        <li class="landing-proof__item" data-reveal style={`--reveal-delay: ${i * 60}ms;`}>
+          <h3 class="landing-proof__title">{it.title}</h3>
+          <p class="landing-proof__body">{it.body}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

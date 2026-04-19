@@ -1,0 +1,150 @@
+---
+/**
+ * /prenota — ultra-thin landing for paid traffic (Meta Ads / Google Ads cold).
+ *
+ * Goal: minimum copy, maximum conversion. The form is above the fold even on
+ * mobile. `noindex` so it never competes with the canonical pages on SEO.
+ */
+import LandingLayout from "@/layouts/LandingLayout.astro";
+import LandingFormCard from "@/components/landing/LandingFormCard.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import { createPageMeta, buildBreadcrumbSchema } from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
+
+const meta = createPageMeta({
+  title: "Prenota — Rebel Carmagnola",
+  description:
+    "Prenota la tua prima visita gratuita da Rebel a Carmagnola. Bastano nome e numero, ti rispondiamo entro poche ore.",
+  path: "/prenota",
+  indexable: false,
+});
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Prenota", path: "/prenota" },
+]);
+---
+<LandingLayout
+  meta={meta}
+  bodyClass="page-landing--ads"
+  ctaHref="#form"
+  ctaLabel="Prenota"
+>
+  <JsonLd data={breadcrumb} />
+
+  <section class="landing-ads-hero">
+    <div class="container container--narrow">
+      <span class="landing-hero__badge">Prima visita gratuita</span>
+      <h1 class="landing-ads-hero__title">
+        Prenota la tua prima visita.<br />
+        <em>È gratuita.</em>
+      </h1>
+      <p class="landing-ads-hero__lead">
+        Centro estetico a Carmagnola, in Viale Barbaroux 20. Quindici minuti
+        in studio per capire da dove partire — laser, viso, mani, ceretta o
+        massaggi — e una proposta scritta da portare a casa.
+      </p>
+      <ul class="landing-ads-hero__chips">
+        <li>15 min in studio</li>
+        <li>Senza obbligo</li>
+        <li>Regalo a scelta</li>
+      </ul>
+    </div>
+  </section>
+
+  <LandingFormCard
+    kicker="Form prima visita"
+    title="Bastano nome e telefono."
+    lead="Ti scriviamo entro poche ore via WhatsApp o telefono, con un orario disponibile. Email e dettagli sono opzionali."
+    source="landing-prenota"
+    submitLabel="Prenota la prima visita gratuita"
+    showRitual={true}
+    showMessage={false}
+  />
+
+  <section class="landing-ads-trust section section--tight">
+    <div class="container container--narrow">
+      <p class="landing-ads-trust__line">
+        <strong>Dove ci trovi:</strong> {siteConfig.address.streetAddress}, {siteConfig.address.postalCode}
+        {siteConfig.address.locality} ({siteConfig.address.region})
+      </p>
+      <p class="landing-ads-trust__line">
+        <strong>Telefono / WhatsApp:</strong>
+        <a href={`tel:${siteConfig.phoneRaw}`}>{siteConfig.phoneDisplay}</a>
+        ·
+        <a href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer">Apri WhatsApp</a>
+      </p>
+      <p class="landing-ads-trust__line landing-ads-trust__line--muted">
+        Mar–Ven 09:00–19:00 · Mer 14:00–19:00 · Sab 09:00–14:00 · Lun e Dom chiusi
+      </p>
+    </div>
+  </section>
+</LandingLayout>
+
+<style>
+  .landing-ads-hero {
+    padding-block: clamp(2.6rem, 6vw, 4rem) clamp(1.6rem, 3vw, 2.4rem);
+    text-align: left;
+  }
+
+  .landing-ads-hero__title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+    line-height: 1.06;
+    letter-spacing: var(--tracking-display);
+    color: var(--text-strong);
+    margin: 1rem 0 1.2rem;
+  }
+
+  .landing-ads-hero__title em {
+    font-style: italic;
+    color: var(--mauve);
+  }
+
+  .landing-ads-hero__lead {
+    font-size: var(--t-lead);
+    line-height: var(--lh-body);
+    color: var(--text-muted);
+    margin: 0 0 1.4rem;
+    max-width: 56ch;
+  }
+
+  .landing-ads-hero__chips {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .landing-ads-hero__chips li {
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--r-pill);
+    border: 1px solid rgba(224, 170, 255, 0.35);
+    background: rgba(224, 170, 255, 0.08);
+    color: var(--mauve);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .landing-ads-trust__line {
+    margin: 0 0 0.5rem;
+    color: var(--text);
+    font-size: 0.97rem;
+    line-height: 1.55;
+  }
+
+  .landing-ads-trust__line a {
+    color: var(--mauve);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .landing-ads-trust__line--muted {
+    color: var(--text-faint);
+    font-size: 0.85rem;
+  }
+</style>
