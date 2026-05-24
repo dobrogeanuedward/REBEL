@@ -48,6 +48,7 @@ export const siteConfig = {
     "Orbassano",
     "Alba",
     "Bra",
+    "Canale",
     "Savigliano",
     "Fossano",
     "Saluzzo",

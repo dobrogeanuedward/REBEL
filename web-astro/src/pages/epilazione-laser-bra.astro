@@ -1,0 +1,533 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHead from "@/components/SectionHead.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import FaqAccordion from "@/components/FaqAccordion.astro";
+import InlineCta from "@/components/InlineCta.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import {
+  buildBreadcrumbSchema,
+  buildServiceSchema,
+  buildWebPageSchema,
+  buildArticleSchema,
+  createPageMeta,
+} from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
+
+const meta = createPageMeta({
+  title: "Epilazione laser per chi viene da Bra — Rebel (Carmagnola, ~22 min)",
+  description:
+    "Da Bra a Rebel sono venti minuti scarsi. Impostiamo il laser come una routine semplice da tenere: parametri su misura, manipolo Ice Polar, calendario settimanale realistico. Prenotazione rapida su WhatsApp.",
+  path: "/epilazione-laser-bra",
+  image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/8d07afc2-b036-4eff-d34e-523a6c656d00/public",
+  openGraphType: "article",
+  keywords: [
+    "epilazione laser Bra",
+    "laser Bra",
+    "epilazione laser Roero",
+    "centro laser Bra",
+    "laser diodo Bra",
+    "epilazione laser vicino Bra",
+    "laser viso Bra",
+    "laser corpo Bra",
+    "laser ascelle Bra",
+    "laser inguine Bra",
+    "laser gambe Bra",
+    "Rebel epilazione laser Bra",
+    "epilazione laser Bra CN",
+  ],
+});
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Epilazione laser Carmagnola", path: "/epilazione-laser-carmagnola" },
+  { name: "Bra", path: "/epilazione-laser-bra" },
+]);
+
+const webPage = buildWebPageSchema({
+  name: "Epilazione laser per chi viene da Bra",
+  description: meta.description,
+  path: "/epilazione-laser-bra",
+});
+
+const articleSchema = buildArticleSchema({
+  headline: "Epilazione laser per chi viene da Bra — Rebel (Carmagnola, ~22 min)",
+  description: meta.description,
+  path: "/epilazione-laser-bra",
+  keywords: [
+    "epilazione laser Bra",
+    "laser Bra",
+    "epilazione laser Roero",
+    "laser diodo Bra",
+  ],
+  section: "Laser",
+  image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/8d07afc2-b036-4eff-d34e-523a6c656d00/public",
+});
+
+const laserServiceSchema = buildServiceSchema(
+  "Epilazione laser per chi viene da Bra",
+  "Percorso di epilazione laser per clienti provenienti da Bra: laser diodo Thory con manipolo Ice Polar, valutazione iniziale e piano personalizzato.",
+  "/epilazione-laser-bra",
+  {
+    priceFrom: 25.9,
+    keywords: [
+      "epilazione laser Bra",
+      "epilazione laser Roero",
+      "laser Bra CN",
+      "laser diodo Bra",
+      "Ice Polar Bra",
+    ],
+  },
+);
+
+const geoServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${siteConfig.siteUrl}/epilazione-laser-bra#service-geo`,
+  name: "Epilazione laser per chi viene da Bra",
+  serviceType: "Laser hair removal",
+  provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Bra",
+      containedInPlace: {
+        "@type": "AdministrativeArea",
+        name: "Provincia di Cuneo",
+      },
+    },
+    {
+      "@type": "GeoCircle",
+      geoMidpoint: {
+        "@type": "GeoCoordinates",
+        latitude: 44.6986,
+        longitude: 7.8569,
+      },
+      geoRadius: "8000",
+    },
+  ],
+  offers: {
+    "@type": "Offer",
+    priceCurrency: "EUR",
+    price: "25.90",
+    url: `${siteConfig.siteUrl}/contatti`,
+    availability: "https://schema.org/InStock",
+  },
+};
+
+const faqs = [
+  {
+    q: "Da Bra, quanto tempo serve per arrivare a Rebel?",
+    a: "Circa ventidue minuti via SP661, venti chilometri in totale. Lo studio è in Viale Barbaroux 20, in centro a Carmagnola, con parcheggio gratuito a un minuto a piedi.",
+  },
+  {
+    q: "Posso fare il laser anche in primavera o devo aspettare l'autunno?",
+    a: "Puoi partire in qualsiasi stagione. L'inverno è più comodo, ma in primavera o estate scegliamo zone meno esposte (ascelle, inguine, addome) e ti diamo regole pratiche per il post-seduta. Non ti diremo mai di sospendere il sole, ti diremo come gestirlo.",
+  },
+  {
+    q: "Ho già fatto la luce pulsata in casa per anni: serve a qualcosa il laser professionale adesso?",
+    a: "Spesso sì. Il laser diodo Thory lavora con parametri molto diversi dalle IPL casalinghe: più mirato, più costante, settato sulla tua pelle. Se sei delusa dai risultati domestici, in valutazione capiamo se il laser ha senso oggi e ti diciamo cosa aspettarti, senza promesse esagerate.",
+  },
+  {
+    q: "Quante sedute servono in media?",
+    a: "Dipende da zona, fototipo e tipo di pelo. Si lavora per cicli (di solito una decina di sedute distribuite su 12-18 mesi), ma il numero esatto te lo diciamo in valutazione, non al telefono. Una stima onesta vale più di una promessa generica.",
+  },
+  {
+    q: "Si paga ogni seduta o c'è un pacchetto da chiudere?",
+    a: "Si paga seduta per seduta. Se vuoi fissare il ritmo e bloccare il prezzo, c'è la possibilità di chiudere un piccolo ciclo (di solito 4-6 sedute) — ma non è mai un'imposizione.",
+  },
+  {
+    q: "Posso fare laser + un altro trattamento nello stesso giorno?",
+    a: "Sì, con criterio. Manicure semipermanente, scrub corpo, laminazione e massaggi si combinano bene. Pulizia viso e protocolli epigenetici sul viso vanno invece pianificati con un po' di distanza rispetto al laser viso. Lo decidiamo insieme.",
+  },
+  {
+    q: "Come prenoto da Bra?",
+    a: "Su WhatsApp è il modo più rapido: ci scrivi le zone che ti interessano e i giorni in cui di solito sei libera, ti rispondiamo con gli slot più vicini. Il mercoledì siamo aperti fino alle 19, comodo se lavori in città.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
+const principles = [
+  {
+    kicker: "01 · Vicinanza = ritmo",
+    title: "Venti minuti che cambiano la qualità del percorso.",
+    body: "A questa distanza, una seduta ogni quattro settimane non è un impegno faticoso, è un caffè in più nell'agenda. Ed è proprio questa continuità a fare il risultato: il laser premia chi riesce a mantenere il ritmo.",
+  },
+  {
+    kicker: "02 · Diodo Thory + Ice Polar",
+    title: "Tecnologia, non nome in vetrina.",
+    body: "Tre lunghezze d'onda combinate e raffreddamento attivo durante la seduta. Efficace su una gamma ampia di pelli e peli, con comfort migliorato anche su zone sensibili come inguine e ascelle.",
+  },
+  {
+    kicker: "03 · Piano scritto, non a voce",
+    title: "Zona, calendario, prezzo: tutto nero su bianco.",
+    body: "In consulenza scriviamo il piano: zone, cadenza, regole tra le sedute. Non 'vedrai che vedrai' — un calendario realistico che puoi seguire senza ansia.",
+  },
+  {
+    kicker: "04 · Comunicazione vera",
+    title: "WhatsApp, risposte in giornata.",
+    body: "Dubbi su sole, sport, prodotti? Scrivici tra una seduta e l'altra. Rispondere in modo concreto è parte del metodo, non un servizio extra.",
+  },
+];
+
+const guides = [
+  {
+    href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
+    title: "Laser ascelle",
+    body: "Piccola zona, grande ritorno quotidiano: spesso si parte da qui.",
+  },
+  {
+    href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
+    title: "Laser inguine",
+    body: "Settaggio gentile, calendario realistico, regole pratiche post-seduta.",
+  },
+  {
+    href: "/competenze/laser-gambe-carmagnola-guida-pratica",
+    title: "Laser gambe",
+    body: "Per chi ha già provato di tutto: l'alternativa con un piano vero e continuità.",
+  },
+  {
+    href: "/servizi/epilazione-laser-viso-carmagnola",
+    title: "Laser viso baffetti e mento",
+    body: "Zona piccola, settaggio delicato, prima richiesta dopo i 30 anni.",
+  },
+  {
+    href: "/competenze/laser-barba-collo-carmagnola-guida-pratica",
+    title: "Laser uomo barba e collo",
+    body: "Per peli incarniti e pelle irritata dal rasoio quotidiano.",
+  },
+  {
+    href: "/competenze/peli-incarniti-laser-carmagnola",
+    title: "Peli incarniti e laser",
+    body: "Quando il problema è sotto pelle: cause, errori tipici e come si risolve.",
+  },
+];
+
+const seasonCards = [
+  {
+    href: "/competenze/epilazione-laser-inverno-carmagnola",
+    title: "Laser in inverno: perché conviene",
+    body: "Il momento più semplice per costruire continuità. Si arriva ai mesi luminosi con il percorso già rodato.",
+  },
+  {
+    href: "/competenze/epilazione-laser-estate-sole-carmagnola",
+    title: "Laser e sole: cosa puoi fare davvero",
+    body: "Cosa fare davvero e cosa evitare, senza bloccare la tua vita. Fiere, Slow Food, weekend fuori: ci si organizza.",
+  },
+];
+
+const combos = [
+  {
+    href: "/servizi/scrub-corpo-carmagnola",
+    title: "Laser + scrub corpo",
+    body: "Per gambe e schiena: pelle più uniforme, ricrescita più gestibile tra le sedute.",
+  },
+  {
+    href: "/servizi/massaggio-rilassante-carmagnola",
+    title: "Laser + massaggio rilassante",
+    body: "50 minuti per staccare davvero, mentre sei comunque in zona.",
+  },
+  {
+    href: "/protocolli/eye-genesis",
+    title: "Laser + Eye Genesis",
+    body: "Quando vuoi anche uno sguardo più riposato, oltre al percorso corpo.",
+  },
+];
+
+const nearbyAreas = [
+  { city: "Alba", href: "/epilazione-laser-alba", desc: "Capoluogo Langhe, ~30 min." },
+  { city: "Canale", href: "/epilazione-laser-canale", desc: "Cuore del Roero, ~35 min." },
+  { city: "Sommariva del Bosco", href: "/localita/sommariva-del-bosco", desc: "Tra Bra e Carmagnola." },
+];
+---
+
+<BaseLayout meta={meta}>
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={webPage} />
+  <JsonLd data={articleSchema} />
+  <JsonLd data={laserServiceSchema} />
+  <JsonLd data={geoServiceSchema} />
+  <JsonLd data={faqSchema} />
+
+  <PageHero
+    kicker="Rebel Laser — da Bra a Carmagnola"
+    title="Epilazione laser per chi viene da Bra: ventidue minuti di strada, un percorso _impostato con calma_."
+    lead="Da Bra a Rebel sono venti chilometri scarsi: in condizioni normali, ventidue minuti via SP661. È la distanza giusta perché il laser smetta di essere un'eccezione e diventi una routine semplice da tenere — con parametri su misura, manipolo Ice Polar e un calendario settimanale che regge davvero."
+    meta={["~20 km da Bra", "~22 min via SP661", "Da 25,90 € a zona"]}
+    ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
+    ctaSecondary={{ label: "Apri il percorso da Bra", href: "https://www.google.com/maps/dir/?api=1&origin=Bra&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
+  />
+
+  <!-- SEZIONE 1 — La vicinanza che cambia il percorso -->
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Vicino abbastanza"
+        title="Vicino abbastanza da farne _una routine_, non un evento."
+        lead="A questa distanza, una seduta ogni quattro o cinque settimane non è un impegno faticoso. Ed è esattamente quella continuità a fare il risultato."
+      />
+      <div class="card-grid card-grid--2">
+        {principles.map((p, i) => (
+          <FeatureCard
+            kicker={p.kicker}
+            title={p.title}
+            body={p.body}
+            variant={i === 0 ? "feature" : "default"}
+            index={i + 1}
+          />
+        ))}
+      </div>
+      <div class="cluster" style="margin-top:2rem;">
+        <a class="btn btn--primary" href="/contatti">Prenota la valutazione</a>
+        <a class="btn btn--secondary" href="/epilazione-laser-carmagnola">Pagina pillar laser</a>
+        <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 2 — Come arrivare -->
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <SectionHead
+        kicker="Come arrivare"
+        title="Da Bra a Rebel: il tragitto _più rapido_."
+      />
+      <div class="directions-grid">
+        <div>
+          <p class="body-p">
+            Da Bra a Carmagnola sono circa venti chilometri: la via più veloce è la
+            <strong>SP661 (Strada di Cuneo)</strong> in direzione Sommariva del Bosco
+            e Carmagnola, con tempo di percorrenza tra i ventidue e i venticinque
+            minuti in condizioni di traffico normali. Se vieni dalla zona di Pollenzo
+            o dal versante della Madonna dei Fiori, conviene la deviazione iniziale
+            per la SP7.
+          </p>
+          <p class="body-p">
+            Lo studio è in <strong>Viale Barbaroux 20</strong>, in pieno centro
+            Carmagnola. Parcheggio gratuito a 30 secondi a piedi.
+          </p>
+          <div class="cluster" style="margin-top:1.4rem;">
+            <a
+              class="btn btn--secondary btn--sm"
+              href="https://www.google.com/maps/dir/?api=1&origin=Bra&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Apri il percorso da Bra in Maps
+            </a>
+            <a class="btn btn--secondary btn--sm" href="/contatti">Contatti e mappa</a>
+          </div>
+        </div>
+        <div class="map-frame">
+          <iframe
+            src="https://www.google.com/maps?f=d&source=s_d&saddr=Bra&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Percorso da Bra a Rebel Carmagnola"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 3 — Ritmo del laser da Bra -->
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Frequenza"
+        title="Il ritmo del laser da Bra: _una settimana alla volta_."
+        lead="Quando una seduta richiede due ore di viaggio si tende a posticipare, a saltare. Quando invece basta mezz'ora porta-a-porta, il ciclo si tiene."
+      />
+      <p class="body-p" style="max-width:70ch;">
+        Una delle cose che ci sentiamo dire più spesso da chi vive a Bra è "pensavo fosse
+        più lontano". È un'osservazione utile, perché il laser premia la regolarità. Per
+        chi parte da Bra suggeriamo spesso di costruire un calendario settimanale tipo
+        (giorno e fascia oraria fissi) per le prime sei sedute: poi, una volta che il ritmo
+        è entrato, si può rilassare.
+      </p>
+      <div class="card-grid card-grid--3" style="margin-top:2rem;">
+        {combos.map((c) => (
+          <FeatureCard
+            title={c.title}
+            body={c.body}
+            href={c.href}
+            variant="quiet"
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 4 — Zone più richieste -->
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <SectionHead
+        kicker="Zone e guide"
+        title="Da Bra: le zone che ci vengono _chieste più spesso_."
+        lead="Da Bra la distribuzione è interessante: tante richieste sulle zone alte (ascelle, viso), molte sull'inguine, e un blocco solido di chi arriva per le gambe dopo anni di rasoio o ceretta."
+      />
+      <div class="card-grid card-grid--3">
+        {guides.map((g) => (
+          <FeatureCard
+            title={g.title}
+            body={g.body}
+            href={g.href}
+            variant="quiet"
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 5 — Stagionalità -->
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Quando partire"
+        title="Stagionalità: i mesi non sono tutti uguali, ma _nessuno è vietato_."
+        lead="La domanda più frequente da Bra: 'posso iniziare adesso o aspetto l'inverno?'. La risposta dipende, ma raramente è 'aspetta'."
+      />
+      <div class="card-grid card-grid--2">
+        {seasonCards.map((c) => (
+          <FeatureCard
+            title={c.title}
+            body={c.body}
+            href={c.href}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 6 — Prezzi -->
+  <section class="section section--scene-ivory">
+    <div class="container container--narrow">
+      <SectionHead
+        kicker="Prezzi"
+        title="Quanto costa il laser da Rebel, _per chi viene da Bra_."
+      />
+      <p class="body-p">
+        Partiamo da <strong>25,90 € a zona</strong>. Il prezzo della singola seduta dipende
+        dall'estensione dell'area: per le aree più piccole (baffetti, mento, ascelle) si resta
+        vicini al riferimento di base; per gambe complete e aree ampie si sale, ma in modo
+        trasparente — il totale onesto te lo diciamo in consulenza, non con un "da" generico.
+        Si paga seduta per seduta; chi preferisce, può chiudere un piccolo ciclo (4-6 sedute)
+        per fissare il calendario e bloccare il prezzo.
+      </p>
+      <div class="cluster" style="margin-top:1.6rem;">
+        <a class="btn btn--primary" href="/listino-estetica-laser">Listino completo</a>
+        <a class="btn btn--secondary" href="/epilazione-laser-carmagnola">Pagina pillar laser</a>
+        <a class="btn btn--secondary" href="/epilazione-laser-ice-polar-carmagnola">Comfort Ice Polar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 7 — FAQ -->
+  <section class="section">
+    <div class="container container--narrow">
+      <SectionHead
+        kicker="Domande frequenti"
+        title="Da Bra e dal _Roero_: le risposte oneste."
+      />
+      <FaqAccordion items={faqs} kicker="FAQ Laser Bra" />
+    </div>
+  </section>
+
+  <!-- SEZIONE 8 — Oltre il laser -->
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <InlineCta
+        kicker="Vuoi un piano più ampio?"
+        title="Il laser non è l'unico motivo per venire a Carmagnola _da Bra_."
+        lead="Se cerchi anche viso (pulizia, protocolli), corpo (drenaggio, pressoterapia) o un percorso completo che vada oltre l'epilazione, la pagina panoramica per chi viene da Bra ne parla più a fondo."
+        primaryHref="/localita/bra"
+        primaryLabel="Pagina panoramica Rebel per Bra"
+        secondaryHref="/protocolli-epigenetici"
+        secondaryLabel="Tutti i protocolli epigenetici"
+      />
+    </div>
+  </section>
+
+  <!-- SEZIONE 9 — Comuni vicini -->
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Vicino a Bra"
+        title="Comuni vicini: _pagine dedicate_."
+        lead="Chi vive a Bra si muove spesso tra Alba, Canale e Sommariva del Bosco."
+      />
+      <div class="card-grid card-grid--3">
+        {nearbyAreas.map((a, i) => (
+          <FeatureCard
+            kicker="Zona vicina"
+            title={a.city}
+            body={a.desc}
+            href={a.href}
+            variant="quiet"
+            index={i + 1}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <InlineCta
+        kicker="Prima visita gratuita"
+        title="Prenota la _valutazione laser_, in 15 minuti."
+        lead="Capiamo zona, ciclo e calendario reale. Ti consegniamo una proposta scritta con prezzi e tempi. Senza obbligo di acquisto."
+        primaryLabel="Prenota la valutazione gratuita"
+        primaryHref="/contatti"
+        secondaryLabel="Scrivi su WhatsApp"
+        secondaryHref={siteConfig.social.whatsapp}
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .directions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1.6rem;
+    align-items: start;
+  }
+  @media (max-width: 760px) {
+    .directions-grid { grid-template-columns: 1fr; }
+  }
+  .map-frame {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--r-md);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: rgba(7, 5, 14, 0.5);
+  }
+  .map-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .body-p {
+    font-size: var(--t-body);
+    line-height: var(--lh-body);
+    color: var(--text);
+    margin: 0 0 0.9rem;
+  }
+  .cluster { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+</style>

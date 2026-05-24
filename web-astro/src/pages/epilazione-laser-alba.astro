@@ -1,0 +1,534 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHead from "@/components/SectionHead.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import FaqAccordion from "@/components/FaqAccordion.astro";
+import InlineCta from "@/components/InlineCta.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import {
+  buildBreadcrumbSchema,
+  buildServiceSchema,
+  buildWebPageSchema,
+  buildArticleSchema,
+  createPageMeta,
+} from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
+
+const meta = createPageMeta({
+  title: "Epilazione laser per chi viene da Alba — Rebel (Carmagnola, ~30 min)",
+  description:
+    "Vivi ad Alba o nelle Langhe? Da Rebel a Carmagnola impostiamo il laser come un piano sostenibile: parametri su misura, manipolo Ice Polar e calendario disegnato sulla tua agenda. Prenotazione rapida su WhatsApp.",
+  path: "/epilazione-laser-alba",
+  image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e3635dd7-e046-46af-56a5-cf36d8239c00/public",
+  openGraphType: "article",
+  keywords: [
+    "epilazione laser Alba",
+    "laser Alba",
+    "epilazione laser Langhe",
+    "centro laser Alba",
+    "laser diodo Alba",
+    "epilazione laser vicino Alba",
+    "laser viso Alba",
+    "laser corpo Alba",
+    "laser ascelle Alba",
+    "laser inguine Alba",
+    "laser gambe Alba",
+    "Rebel epilazione laser Alba",
+    "epilazione laser Alba CN",
+  ],
+});
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Epilazione laser Carmagnola", path: "/epilazione-laser-carmagnola" },
+  { name: "Alba e Langhe", path: "/epilazione-laser-alba" },
+]);
+
+const webPage = buildWebPageSchema({
+  name: "Epilazione laser per chi viene da Alba e dalle Langhe",
+  description: meta.description,
+  path: "/epilazione-laser-alba",
+});
+
+const articleSchema = buildArticleSchema({
+  headline: "Epilazione laser per chi viene da Alba — Rebel (Carmagnola, ~30 min)",
+  description: meta.description,
+  path: "/epilazione-laser-alba",
+  keywords: [
+    "epilazione laser Alba",
+    "laser Alba",
+    "epilazione laser Langhe",
+    "laser diodo Alba",
+  ],
+  section: "Laser",
+  image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e3635dd7-e046-46af-56a5-cf36d8239c00/public",
+});
+
+const laserServiceSchema = buildServiceSchema(
+  "Epilazione laser per chi viene da Alba",
+  "Percorso di epilazione laser per clienti provenienti da Alba e dalle Langhe: laser diodo Thory con manipolo Ice Polar, valutazione iniziale e piano personalizzato.",
+  "/epilazione-laser-alba",
+  {
+    priceFrom: 25.9,
+    keywords: [
+      "epilazione laser Alba",
+      "epilazione laser Langhe",
+      "laser Alba CN",
+      "laser diodo Alba",
+      "Ice Polar Alba",
+    ],
+  },
+);
+
+const geoServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${siteConfig.siteUrl}/epilazione-laser-alba#service-geo`,
+  name: "Epilazione laser per chi viene da Alba",
+  serviceType: "Laser hair removal",
+  provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Alba",
+      containedInPlace: {
+        "@type": "AdministrativeArea",
+        name: "Provincia di Cuneo",
+      },
+    },
+    {
+      "@type": "GeoCircle",
+      geoMidpoint: {
+        "@type": "GeoCoordinates",
+        latitude: 44.7008,
+        longitude: 8.0354,
+      },
+      geoRadius: "8000",
+    },
+  ],
+  offers: {
+    "@type": "Offer",
+    priceCurrency: "EUR",
+    price: "25.90",
+    url: `${siteConfig.siteUrl}/contatti`,
+    availability: "https://schema.org/InStock",
+  },
+};
+
+const faqs = [
+  {
+    q: "Quanto ci metto da Alba a Rebel?",
+    a: "Circa trenta minuti via A33 con uscita Marene, poi SP661 fino a Carmagnola. Sono 33 chilometri. Lo studio è in centro, Viale Barbaroux 20, con parcheggio gratuito a un minuto a piedi.",
+  },
+  {
+    q: "Posso iniziare il laser anche se vivo in zona Langhe e passo tante ore all'aperto?",
+    a: "Sì, ma il piano va costruito sulla tua vita reale. In consulenza ti chiediamo quanto sole prendi davvero, in che mesi, su quali zone. Da lì decidiamo da dove partire (di solito si comincia da zone meno esposte come ascelle o inguine) e che regole seguire tra una seduta e l'altra. Non ti diremo mai 'sospendi tutto', ti diremo cosa fare con buon senso.",
+  },
+  {
+    q: "Da quante zone conviene partire la prima volta?",
+    a: "Spesso da una o due. Non è una questione di prezzo, è di strategia: poche zone fatte bene ti permettono di capire come risponde la tua pelle, calibrare il settaggio e poi, dalla seconda o terza seduta, eventualmente allargare. Aprire dieci zone al primo colpo non è mai una buona idea.",
+  },
+  {
+    q: "Posso fare il laser e un altro trattamento (pulizia viso, manicure, laminazione) nello stesso giorno?",
+    a: "Sì, e per chi viene da Alba ha molto senso. La manicure semipermanente e la laminazione si combinano senza problemi col laser. Pulizia viso e laser viso vanno invece distanziate o pianificate con criterio, perché entrambi lavorano sulla cute: lo decidiamo insieme caso per caso.",
+  },
+  {
+    q: "Quanto costa un percorso completo? Posso avere un'idea prima di venire?",
+    a: "Sì. Mandaci su WhatsApp le zone che vuoi trattare e ti rispondiamo con un range realistico, non un 'da'. Il singolo riferimento di partenza è 25,90 € a zona; il totale dipende da estensione, numero di sedute e zone abbinate.",
+  },
+  {
+    q: "Si paga seduta per seduta o serve un anticipo?",
+    a: "Si paga seduta per seduta. Se vuoi fissare il ritmo, puoi chiudere un piccolo ciclo (di solito 4-6 sedute) con piano e calendario già scritti — ma non è mai obbligatorio.",
+  },
+  {
+    q: "Come prenoto da Alba? Posso scegliere il giorno della settimana?",
+    a: "Sì, scrivici su WhatsApp dicendoci due cose: zone che ti interessano e i giorni/orari in cui di solito ti è più comodo venire. Ti proponiamo gli slot più vicini e organizziamo insieme la prima visita. Il mercoledì siamo aperti fino alle 19, utile per chi lavora.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
+const principles = [
+  {
+    kicker: "01 · Valutazione reale",
+    title: "Si parte dalla pelle, dall'agenda, dalla vita.",
+    body: "Fototipo, zona, abitudini, sole — anche quanto vai in vigna o in collina. Da lì costruiamo un piano che regge nel tempo, non un protocollo generico.",
+  },
+  {
+    kicker: "02 · Diodo Thory + Ice Polar",
+    title: "Tecnologia calibrata, non in vetrina.",
+    body: "Tre lunghezze d'onda combinate (755 + 808 + 1064 nm) e raffreddamento attivo durante la seduta. Efficace su una gamma ampia di fototipi, comfort migliorato anche su zone sensibili.",
+  },
+  {
+    kicker: "03 · Calendario sulla tua agenda",
+    title: "Il percorso si costruisce intorno a te.",
+    body: "Fiere, vendemmia, viaggi, weekend in Langa: lo diciamo in consulenza e costruiamo il calendario su quello che fai davvero, non su quello che sarebbe comodo per noi.",
+  },
+  {
+    kicker: "04 · Comunicazione diretta",
+    title: "Dubbi tra le sedute? WhatsApp.",
+    body: "Rispondere in modo concreto è parte del lavoro. Scrivici: non hai bisogno di aspettare la prossima seduta per avere una risposta sensata.",
+  },
+];
+
+const guides = [
+  {
+    href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
+    title: "Laser ascelle",
+    body: "Spesso la zona da cui si parte: cambia in fretta la gestione quotidiana.",
+  },
+  {
+    href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
+    title: "Laser inguine",
+    body: "Delicata ma molto richiesta: regole semplici per tenerla tranquilla tra le sedute.",
+  },
+  {
+    href: "/competenze/laser-gambe-carmagnola-guida-pratica",
+    title: "Laser gambe",
+    body: "Superficie ampia, calendario più disteso, mantenimento ragionato nel tempo.",
+  },
+  {
+    href: "/servizi/epilazione-laser-viso-carmagnola",
+    title: "Laser viso (baffetti, mento, basette)",
+    body: "Zone piccole, settaggio delicato: l'ordine e la gradualità fanno la differenza.",
+  },
+  {
+    href: "/competenze/laser-barba-collo-carmagnola-guida-pratica",
+    title: "Laser uomo barba e collo",
+    body: "Per chi cerca riduzione mirata su zone irritate dal rasoio quotidiano.",
+  },
+  {
+    href: "/competenze/peli-incarniti-laser-carmagnola",
+    title: "Peli incarniti e laser",
+    body: "Quando il problema vero non è il pelo, ma quello che resta sotto pelle.",
+  },
+];
+
+const seasonCards = [
+  {
+    href: "/competenze/epilazione-laser-inverno-carmagnola",
+    title: "Laser in inverno: costanza e progressione",
+    body: "Il momento più semplice per aprire un ciclo: meno sole, ritmo regolare, pelle più tranquilla. Si arriva ai mesi luminosi con il percorso già rodato.",
+  },
+  {
+    href: "/competenze/epilazione-laser-estate-sole-carmagnola",
+    title: "Laser in estate e nelle Langhe",
+    body: "Fiere, vendemmia, weekend in collina: ti diciamo come gestire sole e calendario senza bloccare la tua vita sociale.",
+  },
+];
+
+const combos = [
+  {
+    href: "/servizi/manicure-semipermanente-carmagnola",
+    title: "Laser corpo + manicure semipermanente",
+    body: "Mani in ordine senza rallentare il percorso laser: la manicure non interferisce con nulla.",
+  },
+  {
+    href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola",
+    title: "Laser viso + laminazione",
+    body: "Sguardo più definito mentre si lavora su baffetti, mento o basette. Due cose in una visita.",
+  },
+  {
+    href: "/protocolli/collagen-code",
+    title: "Laser + Collagen Code",
+    body: "Quando l'epilazione non basta e vuoi lavorare anche su tono e compattezza cutanea.",
+  },
+];
+
+const nearbyAreas = [
+  { city: "Bra", href: "/epilazione-laser-bra", desc: "~22 min da Carmagnola, a 20 km." },
+  { city: "Canale", href: "/epilazione-laser-canale", desc: "Cuore del Roero, ~30 min." },
+  { city: "Ceresole d'Alba", href: "/localita/ceresole-d-alba", desc: "Tra Langhe e Roero." },
+];
+---
+
+<BaseLayout meta={meta}>
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={webPage} />
+  <JsonLd data={articleSchema} />
+  <JsonLd data={laserServiceSchema} />
+  <JsonLd data={geoServiceSchema} />
+  <JsonLd data={faqSchema} />
+
+  <PageHero
+    kicker="Rebel Laser — da Alba a Carmagnola"
+    title="Epilazione laser per chi viene da Alba: un percorso che si _incastra_ nelle tue settimane."
+    lead="Vivi ad Alba o nel cuore delle Langhe? Da Carmagnola sono trenta minuti scarsi via A33 e SP661. In Rebel impostiamo il laser come si imposta una cosa fatta bene: parametri su misura, manipolo Ice Polar per il comfort durante la seduta e un calendario realistico, costruito sulla tua agenda — non sulla nostra."
+    meta={["~33 km da Alba", "~30 min via A33", "Da 25,90 € a zona"]}
+    ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
+    ctaSecondary={{ label: "Apri il percorso da Alba", href: "https://www.google.com/maps/dir/?api=1&origin=Alba&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
+  />
+
+  <!-- SEZIONE 1 — Perché chi vive ad Alba sceglie Rebel -->
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Un metodo, non una promessa"
+        title="Perché chi vive ad Alba _viene fino a Carmagnola_."
+        lead="Fra fiere, cene nelle Langhe e weekend in collina, l'agenda è già piena. Il laser non può aggiungersi come un altro impegno ansiogeno: deve entrare nella settimana e starci comodo."
+      />
+      <div class="card-grid card-grid--2">
+        {principles.map((p, i) => (
+          <FeatureCard
+            kicker={p.kicker}
+            title={p.title}
+            body={p.body}
+            variant={i === 0 ? "feature" : "default"}
+            index={i + 1}
+          />
+        ))}
+      </div>
+      <div class="cluster" style="margin-top:2rem;">
+        <a class="btn btn--primary" href="/contatti">Prenota la valutazione</a>
+        <a class="btn btn--secondary" href="/epilazione-laser-carmagnola">Pagina pillar laser</a>
+        <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 2 — Come arrivare -->
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <SectionHead
+        kicker="Come arrivare"
+        title="Da Alba a Rebel: trenta minuti _tra Langhe e pianura_."
+      />
+      <div class="directions-grid">
+        <div>
+          <p class="body-p">
+            Da Alba a Rebel sono circa 33 chilometri. Il percorso più rapido è
+            l'<strong>A33 in direzione Torino</strong>, uscita Marene, poi
+            <strong>SP661 fino a Carmagnola</strong>: in condizioni normali si è in studio
+            in trenta minuti. In alternativa, chi preferisce la statale, può seguire
+            SP7 e SP661 (cinque minuti in più, paesaggio più rilassato fra le colline
+            del Roero).
+          </p>
+          <p class="body-p">
+            Lo studio è in <strong>Viale Barbaroux 20</strong>, in centro a Carmagnola.
+            Parcheggio gratuito a 30 secondi a piedi, niente ZTL nei dintorni.
+          </p>
+          <div class="cluster" style="margin-top:1.4rem;">
+            <a
+              class="btn btn--secondary btn--sm"
+              href="https://www.google.com/maps/dir/?api=1&origin=Alba&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Apri il percorso da Alba in Maps
+            </a>
+            <a class="btn btn--secondary btn--sm" href="/contatti">Contatti e mappa</a>
+          </div>
+        </div>
+        <div class="map-frame">
+          <iframe
+            src="https://www.google.com/maps?f=d&source=s_d&saddr=Alba&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Percorso da Alba a Rebel Carmagnola"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 3 — Ottimizzare la giornata da fuori -->
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Una sola sosta"
+        title="Se vieni da fuori: _più cose fatte bene_ in una visita."
+        lead="Non è obbligatorio abbinare — il laser funziona anche da solo. Ma se sei già in viaggio, ottimizzare ha senso."
+      />
+      <p class="body-p">
+        Gli abbinamenti che funzionano di più, nella nostra esperienza, sono tre: laser corpo +
+        manicure semipermanente (perché la manicure è "morta", non interferisce con nulla); laser
+        viso + laminazione ciglia/sopracciglia (uno sguardo più definito mentre si lavora sotto
+        sui baffetti o sul mento); laser + protocollo viso quando vuoi alzare l'asticella oltre
+        l'epilazione.
+      </p>
+      <div class="card-grid card-grid--3" style="margin-top:2rem;">
+        {combos.map((c) => (
+          <FeatureCard
+            title={c.title}
+            body={c.body}
+            href={c.href}
+            variant="quiet"
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 4 — Zone più richieste -->
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <SectionHead
+        kicker="Zone e guide"
+        title="Da dove conviene partire: _zone richieste_ da chi viene da Alba."
+        lead="Non esiste l'ordine giusto in assoluto, ma esiste l'ordine giusto per te. Per ogni zona trovi una guida pratica scritta per farti arrivare già preparata in consulenza."
+      />
+      <div class="card-grid card-grid--3">
+        {guides.map((g) => (
+          <FeatureCard
+            title={g.title}
+            body={g.body}
+            href={g.href}
+            variant="quiet"
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 5 — Stagionalità nelle Langhe -->
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Stagionalità"
+        title="Quando iniziare: la stagionalità nelle _Langhe_ è una variabile vera."
+        lead="Fiera del tartufo, vendemmia, fiere paesane e vita all'aperto: ad Alba il sole non è una variabile teorica. Il piano si costruisce sul tuo calendario reale."
+      />
+      <div class="card-grid card-grid--2">
+        {seasonCards.map((c) => (
+          <FeatureCard
+            title={c.title}
+            body={c.body}
+            href={c.href}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 6 — Prezzi -->
+  <section class="section section--scene-ivory">
+    <div class="container container--narrow">
+      <SectionHead
+        kicker="Prezzi"
+        title="Quanto costa il laser da Rebel, _per chi viene da Alba_."
+      />
+      <p class="body-p">
+        Il riferimento di partenza è <strong>25,90 € a zona</strong>. Il prezzo finale
+        dipende da estensione e numero di zone, e in consulenza ti diciamo sempre il totale
+        onesto — non un "da" che poi cambia. Si paga seduta per seduta; chi vuole, può
+        chiudere un piccolo ciclo anticipato (di solito 4-6 sedute) per fissare il ritmo,
+        ma non è obbligatorio. Nel listino completo trovi tutte le voci, comprese le aree
+        ampie corpo, il laser uomo e i protocolli viso da affiancare.
+      </p>
+      <div class="cluster" style="margin-top:1.6rem;">
+        <a class="btn btn--primary" href="/listino-estetica-laser">Listino completo</a>
+        <a class="btn btn--secondary" href="/epilazione-laser-carmagnola">Pagina pillar laser</a>
+        <a class="btn btn--secondary" href="/epilazione-laser-ice-polar-carmagnola">Comfort Ice Polar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 7 — FAQ -->
+  <section class="section">
+    <div class="container container--narrow">
+      <SectionHead
+        kicker="Domande frequenti"
+        title="Da Alba e dalle _Langhe_: le risposte oneste."
+      />
+      <FaqAccordion items={faqs} kicker="FAQ Laser Alba" />
+    </div>
+  </section>
+
+  <!-- SEZIONE 8 — Oltre il laser -->
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <InlineCta
+        kicker="Vuoi un piano più ampio?"
+        title="Il laser non è l'unico motivo per venire a Carmagnola _dalle Langhe_."
+        lead="Se ti interessa anche il viso (pulizia, protocolli, contorno occhi) o il corpo (drenaggio, pressoterapia, percorsi di mantenimento), la pagina panoramica per chi viene da Alba ne parla più a fondo."
+        primaryHref="/localita/alba"
+        primaryLabel="Pagina panoramica Rebel per Alba"
+        secondaryHref="/protocolli-epigenetici"
+        secondaryLabel="Tutti i protocolli epigenetici"
+      />
+    </div>
+  </section>
+
+  <!-- SEZIONE 9 — Comuni vicini -->
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Vicino ad Alba"
+        title="Comuni vicini: _pagine dedicate_."
+        lead="Spesso chi vive ad Alba si muove anche tra Bra, Canale e i comuni del Roero."
+      />
+      <div class="card-grid card-grid--3">
+        {nearbyAreas.map((a, i) => (
+          <FeatureCard
+            kicker="Zona vicina"
+            title={a.city}
+            body={a.desc}
+            href={a.href}
+            variant="quiet"
+            index={i + 1}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <InlineCta
+        kicker="Prima visita gratuita"
+        title="Prenota la _valutazione laser_, in 15 minuti."
+        lead="Capiamo zona, ciclo e calendario reale. Ti consegniamo una proposta scritta con prezzi e tempi. Senza obbligo di acquisto."
+        primaryLabel="Prenota la valutazione gratuita"
+        primaryHref="/contatti"
+        secondaryLabel="Scrivi su WhatsApp"
+        secondaryHref={siteConfig.social.whatsapp}
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .directions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1.6rem;
+    align-items: start;
+  }
+  @media (max-width: 760px) {
+    .directions-grid { grid-template-columns: 1fr; }
+  }
+  .map-frame {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--r-md);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: rgba(7, 5, 14, 0.5);
+  }
+  .map-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .body-p {
+    font-size: var(--t-body);
+    line-height: var(--lh-body);
+    color: var(--text);
+    margin: 0 0 0.9rem;
+    max-width: 70ch;
+  }
+  .cluster { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+</style>

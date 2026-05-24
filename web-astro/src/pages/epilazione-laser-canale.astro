@@ -1,0 +1,544 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHead from "@/components/SectionHead.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import FaqAccordion from "@/components/FaqAccordion.astro";
+import InlineCta from "@/components/InlineCta.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import {
+  buildBreadcrumbSchema,
+  buildServiceSchema,
+  buildWebPageSchema,
+  buildArticleSchema,
+  createPageMeta,
+} from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
+
+const meta = createPageMeta({
+  title: "Epilazione laser per chi viene da Canale e dal Roero — Rebel (Carmagnola, ~35 min)",
+  description:
+    "Vivi a Canale o nel Roero? Nel paese l'offerta laser è ridotta: da Rebel a Carmagnola trovi laser diodo Thory, manipolo Ice Polar e un percorso impostato con calma. Prenotazione su WhatsApp.",
+  path: "/epilazione-laser-canale",
+  image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/02c98ad7-1a83-4d09-0d43-9b3b2184ac00/public",
+  openGraphType: "article",
+  keywords: [
+    "epilazione laser Canale",
+    "epilazione laser Canale d'Alba",
+    "laser Canale",
+    "epilazione laser Roero",
+    "laser Roero",
+    "centro laser Canale",
+    "laser diodo Canale",
+    "epilazione laser vicino Canale",
+    "laser viso Canale",
+    "laser corpo Canale",
+    "laser uomo Canale",
+    "Rebel epilazione laser Canale",
+    "epilazione laser Canale CN",
+  ],
+});
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Epilazione laser Carmagnola", path: "/epilazione-laser-carmagnola" },
+  { name: "Canale e Roero", path: "/epilazione-laser-canale" },
+]);
+
+const webPage = buildWebPageSchema({
+  name: "Epilazione laser per chi viene da Canale e dal Roero",
+  description: meta.description,
+  path: "/epilazione-laser-canale",
+});
+
+const articleSchema = buildArticleSchema({
+  headline: "Epilazione laser per chi viene da Canale e dal Roero — Rebel (Carmagnola)",
+  description: meta.description,
+  path: "/epilazione-laser-canale",
+  keywords: [
+    "epilazione laser Canale",
+    "laser Roero",
+    "epilazione laser Canale d'Alba",
+    "laser diodo Canale",
+  ],
+  section: "Laser",
+  image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/02c98ad7-1a83-4d09-0d43-9b3b2184ac00/public",
+});
+
+const laserServiceSchema = buildServiceSchema(
+  "Epilazione laser per chi viene da Canale e dal Roero",
+  "Percorso di epilazione laser per clienti provenienti da Canale d'Alba e dal Roero: laser diodo Thory con manipolo Ice Polar, valutazione iniziale e piano personalizzato.",
+  "/epilazione-laser-canale",
+  {
+    priceFrom: 25.9,
+    keywords: [
+      "epilazione laser Canale",
+      "epilazione laser Roero",
+      "laser Canale d'Alba",
+      "laser diodo Canale",
+      "Ice Polar Canale",
+    ],
+  },
+);
+
+// Extra GeoCircle schema centred on Canale d'Alba
+const geoServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${siteConfig.siteUrl}/epilazione-laser-canale#service-geo`,
+  name: "Epilazione laser per chi viene da Canale",
+  serviceType: "Laser hair removal",
+  provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Canale",
+      containedInPlace: {
+        "@type": "AdministrativeArea",
+        name: "Provincia di Cuneo",
+      },
+    },
+    {
+      "@type": "GeoCircle",
+      geoMidpoint: {
+        "@type": "GeoCoordinates",
+        latitude: 44.7956,
+        longitude: 8.0008,
+      },
+      geoRadius: "10000",
+    },
+  ],
+  offers: {
+    "@type": "Offer",
+    priceCurrency: "EUR",
+    price: "25.90",
+    url: `${siteConfig.siteUrl}/contatti`,
+    availability: "https://schema.org/InStock",
+  },
+};
+
+const faqs = [
+  {
+    q: "Da Canale a Rebel, quanti minuti realmente?",
+    a: "Tra trenta e trentacinque minuti via SP29 + SP661, trentadue chilometri totali. Da Castagnito, Santo Stefano Roero o Castellinaldo i tempi sono molto simili.",
+  },
+  {
+    q: "Nel Roero non c'è una vera offerta laser: cosa cambia davvero a venire fino a Carmagnola?",
+    a: "Tre cose concrete. Primo: il macchinario (laser diodo Thory) e il manipolo (Ice Polar) sono pensati per epilazione professionale, non per estetica generalista. Secondo: il settaggio è personale, ricalibrato seduta dopo seduta — non un preset standard. Terzo: il piano è scritto, condiviso e modificabile in trasparenza. Non è marketing, è metodo.",
+  },
+  {
+    q: "Vivo in vigna o lavoro all'aperto: posso fare il laser comunque?",
+    a: "Sì, sicuramente. Il sole non è un ostacolo, è una variabile. In consulenza valutiamo quanto sole prendi su quali zone, e da lì decidiamo da dove partire (di solito ascelle, inguine o aree coperte) e quali regole pratiche seguire dopo ogni seduta. Niente sospensioni assurde della tua vita.",
+  },
+  {
+    q: "Posso fare laser uomo barba e collo? Ho spesso irritazioni da rasoio.",
+    a: "Sì, è una delle richieste più frequenti per chi viene dal Roero, soprattutto uomini con lavoro outdoor. Il laser riduce in modo progressivo i peli incarniti e l'irritazione cronica su barba e collo. Il piano è strutturato: trovi la guida dedicata nella sezione guide, vale la pena leggerla prima della consulenza.",
+  },
+  {
+    q: "Si paga a seduta o serve un pacchetto?",
+    a: "Si paga seduta per seduta. Esiste l'opzione ciclo iniziale (4-6 sedute) se vuoi fissare il calendario e il prezzo, ma non è obbligatoria.",
+  },
+  {
+    q: "Quante sedute servono per vedere un risultato chiaro?",
+    a: "Dipende da zona e fototipo, ma in media un ciclo si distribuisce su una decina di sedute in 12-18 mesi. I primi cambiamenti visibili arrivano spesso tra la terza e la quinta seduta. In valutazione ti diamo una stima realistica per il tuo caso.",
+  },
+  {
+    q: "Posso prenotare anche se vengo da Castagnito, Santo Stefano Roero o Priocca?",
+    a: "Certo: per noi è la stessa area di gravitazione. Se vieni da uno di questi comuni, i tempi di percorrenza e il percorso (SP29 + SP661) sono praticamente identici a quelli di Canale.",
+  },
+  {
+    q: "Come prenoto da Canale?",
+    a: "Scrivici su WhatsApp con due informazioni: zone che ti interessano e giorni/orari in cui sei libera. Ti rispondiamo con gli slot disponibili più vicini. Il mercoledì siamo aperti fino alle 19, comodo per chi rientra tardi.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
+const principles = [
+  {
+    kicker: "01 · Scelta tecnica",
+    title: "Il laser che nel Roero non trovi.",
+    body: "Diodo Thory a tre lunghezze d'onda con manipolo Ice Polar: tecnologia professionale calibrata seduta dopo seduta. Non un macchinario in vetrina — uno strumento che impariamo a usare sulla tua pelle.",
+  },
+  {
+    kicker: "02 · Metodo, non preset",
+    title: "Parametri su misura, piano scritto.",
+    body: "Nessun protocollo standard copiato per tutti. Valutiamo zona, fototipo, abitudini (quanto sole, che sport, che lavoro). Da lì costruiamo il calendario con tempi reali e regole pratiche tra le sedute.",
+  },
+  {
+    kicker: "03 · Vita outdoor rispettata",
+    title: "Il tuo ritmo, non quello del laser.",
+    body: "Vigne, lavoro all'aperto, estate in collina: non ti chiediamo di fermare la vita. Ti chiediamo di dircelo — e costruiamo il percorso intorno a quello che fai, non viceversa.",
+  },
+  {
+    kicker: "04 · Comunicazione diretta",
+    title: "WhatsApp, risposte vere.",
+    body: "Dubbi tra una seduta e l'altra? Scrivici. Rispondere in modo concreto è parte del lavoro, non un servizio extra.",
+  },
+];
+
+const guides = [
+  {
+    href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
+    title: "Laser ascelle",
+    body: "Piccola zona, grande ritorno quotidiano: spesso il punto di partenza più sensato.",
+  },
+  {
+    href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
+    title: "Laser inguine",
+    body: "Zona delicata ma molto richiesta: regole semplici, settaggio gentile, calendario disteso.",
+  },
+  {
+    href: "/competenze/laser-gambe-carmagnola-guida-pratica",
+    title: "Laser gambe",
+    body: "Superficie ampia: il piano va costruito, non improvvisato. Guida completa su sedute e mantenimento.",
+  },
+  {
+    href: "/competenze/laser-barba-collo-carmagnola-guida-pratica",
+    title: "Laser uomo barba e collo",
+    body: "Per peli incarniti e irritazione cronica da rasoio: molto richiesta da chi vive outdoor.",
+  },
+  {
+    href: "/competenze/laser-schiena-carmagnola-guida-pratica",
+    title: "Laser uomo schiena e torace",
+    body: "Aree ampie maschili: strategia, calendario, mantenimento per zone difficili da gestire.",
+  },
+  {
+    href: "/competenze/laser-e-palestra-sport-carmagnola",
+    title: "Laser e vita attiva",
+    body: "Sport, doccia, calore, sfregamenti: come comportarsi dopo la seduta senza paranoia.",
+  },
+];
+
+const seasonCards = [
+  {
+    href: "/competenze/epilazione-laser-inverno-carmagnola",
+    title: "Laser in inverno: perché conviene partire ora",
+    body: "Momento ideale per aprire il ciclo: pelle meno in tensione, meno sole, ritmo più regolare. Arrivare alla bella stagione con sei sedute già fatte cambia tutto.",
+  },
+  {
+    href: "/competenze/epilazione-laser-estate-sole-carmagnola",
+    title: "Laser e sole: regole pratiche per chi vive outdoor",
+    body: "Non devi fermare l'estate. Ti diciamo come gestire esposizione solare, scelta delle zone e post-seduta senza bloccare la tua vita nel Roero.",
+  },
+];
+
+const nearbyAreas = [
+  { city: "Alba", href: "/epilazione-laser-alba", desc: "Capoluogo Langhe, ~30 min." },
+  { city: "Bra", href: "/epilazione-laser-bra", desc: "Porta del Roero, ~22 min da Carmagnola." },
+  { city: "Ceresole d'Alba", href: "/localita/ceresole-d-alba", desc: "Pochi km da Canale." },
+];
+---
+
+<BaseLayout meta={meta}>
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={webPage} />
+  <JsonLd data={articleSchema} />
+  <JsonLd data={laserServiceSchema} />
+  <JsonLd data={geoServiceSchema} />
+  <JsonLd data={faqSchema} />
+
+  <PageHero
+    kicker="Rebel Laser — da Canale (Roero) a Carmagnola"
+    title="Epilazione laser per chi viene da Canale: il percorso che nel _Roero_ non c'è."
+    lead="Vivi a Canale, a Castagnito o nei dintorni del Roero? Da Rebel a Carmagnola — trentadue chilometri, mezz'ora di strada — trovi laser diodo Thory con manipolo Ice Polar, settaggio su misura e un percorso scritto in modo onesto, dalla prima seduta in poi."
+    meta={["~32 km da Canale", "~30-35 min via SP29 + SP661", "Da 25,90 € a zona"]}
+    ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
+    ctaSecondary={{ label: "Apri il percorso da Canale", href: "https://www.google.com/maps/dir/?api=1&origin=Canale+CN&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
+  />
+
+  <!-- SEZIONE 1 — Perché venire a Carmagnola dal Roero -->
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Perché Rebel"
+        title="Una scelta _tecnica_ che nel Roero, da soli, è difficile fare."
+        lead="Nel paese, per il laser di livello, l'offerta è ridotta. Da Carmagnola, chi arriva dal Roero trova un metodo preciso: valutazione, settaggio su misura e un piano che si racconta in modo chiaro."
+      />
+      <div class="card-grid card-grid--2">
+        {principles.map((p, i) => (
+          <FeatureCard
+            kicker={p.kicker}
+            title={p.title}
+            body={p.body}
+            variant={i === 0 ? "feature" : "default"}
+            index={i + 1}
+          />
+        ))}
+      </div>
+      <div class="actions cluster" style="margin-top:2rem;">
+        <a class="btn btn--primary" href="/contatti">Prenota la valutazione</a>
+        <a class="btn btn--secondary" href="/epilazione-laser-carmagnola">Pagina pillar laser</a>
+        <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 2 — Come arrivare da Canale -->
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <SectionHead
+        kicker="Come arrivare"
+        title="Da Canale a Rebel: trentacinque minuti _tra colline e pianura_."
+      />
+      <div class="directions-grid">
+        <div>
+          <p class="body-p">
+            Da Canale a Carmagnola sono circa trentadue chilometri. Il tragitto più rapido
+            segue la <strong>SP29 in direzione Bra</strong>, poi la <strong>SP661 verso
+            Sommariva del Bosco e Carmagnola</strong>: trentacinque minuti scarsi in condizioni
+            normali. Se vieni da Castagnito, Santo Stefano Roero o Castellinaldo, il punto
+            di innesto sulla SP29 cambia ma il tempo totale resta simile.
+          </p>
+          <p class="body-p">
+            Lo studio è in <strong>Viale Barbaroux 20</strong>, in pieno centro Carmagnola.
+            Parcheggio gratuito a 30 secondi a piedi, lontano da ZTL.
+          </p>
+          <div class="cluster" style="margin-top:1.4rem;">
+            <a
+              class="btn btn--secondary btn--sm"
+              href="https://www.google.com/maps/dir/?api=1&origin=Canale+CN&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Apri il percorso da Canale in Maps
+            </a>
+            <a class="btn btn--secondary btn--sm" href="/contatti">Contatti e mappa</a>
+          </div>
+        </div>
+        <div class="map-frame">
+          <iframe
+            src="https://www.google.com/maps?f=d&source=s_d&saddr=Canale+CN&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Percorso da Canale d'Alba a Rebel Carmagnola"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 3 — Vita outdoor e laser: non un conflitto -->
+  <section class="section">
+    <div class="container container--narrow">
+      <SectionHead
+        kicker="Roero e laser"
+        title="Sole, vigna, sport in collina: _due cose che si tengono insieme_."
+        lead="Vivere nel Roero non è un ostacolo al laser. È una variabile che, gestita, diventa parte del metodo."
+      />
+      <div class="body-flow">
+        <p class="body-p">
+          Una delle differenze più nette tra chi vive a Canale e chi vive in città è il rapporto
+          con l'outdoor. Vigne, orti, escursioni, sport in collina, weekend al sole: sono cose
+          che la pelle vede tutto l'anno, non solo in agosto. Per noi non è un problema, è
+          semplicemente una variabile da mettere in conto. In consulenza ti chiediamo che vita
+          fai davvero — quanto sole prendi, in che mesi, su quali zone — e tariamo il piano
+          di conseguenza.
+        </p>
+        <p class="body-p">
+          La regola è chiara: il laser va impostato sulla tua vita, non la tua vita riadattata
+          al laser. Di solito si parte da zone coperte dai vestiti (ascelle, inguine) e si
+          gestisce il sole con poche regole pratiche. Niente divieti assoluti — solo buon senso
+          e comunicazione.
+        </p>
+      </div>
+      <div class="card-grid card-grid--3" style="margin-top:2rem;">
+        <FeatureCard
+          kicker="Abbinamento"
+          title="Laser + Linfodrenante"
+          body="Quando vuoi anche alleggerire la sensazione di pesantezza alle gambe tra una seduta e l'altra."
+          href="/servizi/massaggio-linfodrenante-carmagnola"
+          variant="quiet"
+        />
+        <FeatureCard
+          kicker="Abbinamento"
+          title="Laser + Pulizia viso"
+          body="Per chi vive outdoor: viso rimesso in ordine mentre si lavora sul corpo."
+          href="/servizi/pulizia-viso-carmagnola"
+          variant="quiet"
+        />
+        <FeatureCard
+          kicker="Abbinamento"
+          title="Laser + Collagen Code"
+          body="Quando vuoi alzare il livello e lavorare anche sul tono cutaneo, oltre all'epilazione."
+          href="/protocolli/collagen-code"
+          variant="quiet"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 4 — Zone più richieste -->
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <SectionHead
+        kicker="Zone e guide"
+        title="Da Canale: le zone su cui _lavoriamo più spesso_."
+        lead="Aprire tutto insieme non è mai la strategia giusta. Qui trovi le zone più richieste con le guide pratiche — leggile prima della consulenza, ti fanno arrivare già preparata."
+      />
+      <div class="card-grid card-grid--3">
+        {guides.map((g) => (
+          <FeatureCard
+            title={g.title}
+            body={g.body}
+            href={g.href}
+            variant="quiet"
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 5 — Stagionalità -->
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Calendario"
+        title="Quando aprire il ciclo, vivendo nel _Roero_."
+        lead="Il Roero non rende il laser difficile, lo rende interessante. Il momento più comodo resta l'inverno, ma non è una regola assoluta."
+      />
+      <div class="card-grid card-grid--2">
+        {seasonCards.map((c) => (
+          <FeatureCard
+            title={c.title}
+            body={c.body}
+            href={c.href}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 6 — Prezzi -->
+  <section class="section section--scene-ivory">
+    <div class="container container--narrow">
+      <SectionHead
+        kicker="Prezzi"
+        title="Costo del laser da Rebel, per chi viene _dal Roero_."
+      />
+      <p class="body-p">
+        Riferimento di partenza <strong>25,90 € a zona</strong>. Il totale dipende da
+        estensione dell'area e numero di sedute: in consulenza ti diciamo il prezzo onesto
+        per il tuo caso, non un "da" generico. Si paga seduta per seduta; chi preferisce
+        fissare il ritmo (e bloccare il prezzo) può chiudere un piccolo ciclo iniziale di
+        4-6 sedute, con calendario scritto. Tutte le voci del listino — laser corpo, laser
+        viso, laser uomo, protocolli viso da affiancare — sono pubbliche.
+      </p>
+      <div class="cluster" style="margin-top:1.6rem;">
+        <a class="btn btn--primary" href="/listino-estetica-laser">Listino completo</a>
+        <a class="btn btn--secondary" href="/epilazione-laser-carmagnola">Pagina pillar laser</a>
+        <a class="btn btn--secondary" href="/epilazione-laser-ice-polar-carmagnola">Comfort Ice Polar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 7 — FAQ -->
+  <section class="section">
+    <div class="container container--narrow">
+      <SectionHead
+        kicker="Domande frequenti"
+        title="Da Canale, Castagnito, Santo Stefano Roero e dintorni: _le risposte_.">
+      </SectionHead>
+      <FaqAccordion items={faqs} kicker="FAQ Laser Canale" />
+    </div>
+  </section>
+
+  <!-- SEZIONE 8 — Oltre il laser -->
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <InlineCta
+        kicker="Vuoi anche viso, corpo o protocolli?"
+        title="Il laser non è l'unico motivo per venire a Carmagnola _dal Roero_."
+        lead="Se ti interessa anche viso (Collagen Code, Eye Genesis, pulizia viso), corpo (drenaggio, pressoterapia) o un piano completo, abbiamo una pagina dedicata a chi viene da Canale."
+        primaryHref="/localita/canale"
+        primaryLabel="Pagina panoramica Rebel per Canale"
+        secondaryHref="/protocolli-epigenetici"
+        secondaryLabel="Tutti i protocolli epigenetici"
+      />
+    </div>
+  </section>
+
+  <!-- SEZIONE 9 — Comuni vicini -->
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Roero e dintorni"
+        title="Comuni vicini a _Canale_: pagine dedicate."
+        lead="Chi vive a Canale si muove spesso tra Alba, Bra e i piccoli centri del Roero. Per ciascuno trovi una pagina con focus diverso."
+      />
+      <div class="card-grid card-grid--3">
+        {nearbyAreas.map((a, i) => (
+          <FeatureCard
+            kicker="Zona vicina"
+            title={a.city}
+            body={a.desc}
+            href={a.href}
+            variant="quiet"
+            index={i + 1}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <InlineCta
+        kicker="Prima visita gratuita"
+        title="Prenota la _valutazione laser_, in 15 minuti."
+        lead="Capiamo zona, ciclo e calendario reale per il tuo caso. Ti consegniamo una proposta scritta con prezzi e tempi. Senza obbligo di acquisto."
+        primaryLabel="Prenota la valutazione gratuita"
+        primaryHref="/contatti"
+        secondaryLabel="Scrivi su WhatsApp"
+        secondaryHref={siteConfig.social.whatsapp}
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .directions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1.6rem;
+    align-items: start;
+  }
+  @media (max-width: 760px) {
+    .directions-grid { grid-template-columns: 1fr; }
+  }
+  .map-frame {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--r-md);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: rgba(7, 5, 14, 0.5);
+  }
+  .map-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .body-p {
+    font-size: var(--t-body);
+    line-height: var(--lh-body);
+    color: var(--text);
+    margin: 0 0 0.9rem;
+    max-width: 70ch;
+  }
+  .body-flow { display: grid; gap: 0.25rem; }
+  .actions { margin-top: 2rem; }
+  .cluster { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+</style>

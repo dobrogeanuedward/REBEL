@@ -32,7 +32,7 @@ export const siteConfig = {
     "Carmagnola", "Carignano", "Racconigi", "Poirino", "Villastellone",
     "Pancalieri", "Sommariva del Bosco", "Torino Sud", "Moncalieri",
     "Nichelino", "Vinovo", "La Loggia", "Trofarello", "Chieri",
-    "Orbassano", "Alba", "Bra", "Savigliano", "Fossano", "Saluzzo",
+    "Orbassano", "Alba", "Bra", "Canale", "Savigliano", "Fossano", "Saluzzo",
   ],
   social: {
     instagram: "https://www.instagram.com/rebelesteticaepigenetica/",

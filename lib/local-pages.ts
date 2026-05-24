@@ -2998,12 +2998,160 @@ export const localAreaPages: LocalAreaPage[] = [
     ],
   },
   {
+    slug: "canale",
+    city: "Canale",
+    cluster: "cuneo",
+    title: "Centro estetico per chi viene da Canale (Roero): viso, corpo e laser da Rebel Carmagnola",
+    description:
+      "Vivi a Canale o nel Roero? Da Rebel a Carmagnola trovi percorsi viso e corpo, protocolli epigenetici ed epilazione laser, con metodo serio e calendario realistico.",
+    intro:
+      "Da Canale e dai paesi del Roero ci raggiungono persone che hanno una richiesta semplice: smettere di accontentarsi della prima opzione disponibile in zona e scegliere un centro con metodo. Noi rispondiamo in un modo solo — costruiamo un piano realistico, con tempi sostenibili, e te lo raccontiamo come se a sceglierlo fossi tu.",
+    whyRebel: [
+      "Percorsi viso e corpo con metodo: priorità chiara, progressione e mantenimento",
+      "Epilazione laser diodo Thory con Ice Polar: tecnica seria, non standard di settore",
+      "Protocolli epigenetici (Collagen Code, Eye Genesis) per chi cerca di più del classico",
+      "Servizi base curati come ganci pratici: pulizia viso, semipermanente, laminazione",
+      "Supporto rapido su WhatsApp tra una seduta e l'altra",
+    ],
+    directions: {
+      heading: "Come arrivare da Canale e dal Roero a Rebel (Carmagnola)",
+      mapsUrl:
+        "https://www.google.com/maps/dir/?api=1&origin=Canale+CN&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
+      embedUrl:
+        "https://www.google.com/maps?f=d&source=s_d&saddr=Canale+CN&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
+      paragraphs: [
+        "Da Canale a Carmagnola sono circa trentadue chilometri: la via più rapida segue la SP29 fino a Bra, poi la SP661 in direzione Sommariva del Bosco e Carmagnola, con un tempo di percorrenza tra i trenta e i trentacinque minuti. Lo studio è in Viale Barbaroux 20, in pieno centro, con parcheggio gratuito a 30 secondi a piedi.",
+        "Da Castagnito, Santo Stefano Roero, Castellinaldo, Vezza d'Alba o Priocca il tragitto e i tempi sono molto simili: il punto di innesto sulla SP29 cambia, ma il resto del percorso è lo stesso.",
+      ],
+    },
+    focus: {
+      heading: "Canale e Roero: scegliere un centro estetico che vale la mezz'ora di strada",
+      paragraphs: [
+        "Vivere nel Roero ha vantaggi precisi: ritmi più umani, paesaggi che non danno mai per scontati, una qualità della vita che molti dalla città ci invidiano. La controparte è che, sull'estetica più tecnica, l'offerta in paese è ridotta. Capita di accontentarsi, e con un centro estetico questo è un peccato — perché la differenza fra una scelta media e una scelta giusta, sulla pelle, si vede.",
+        "Per questo, da Carmagnola, ci raggiungono spesso persone che hanno provato qualcosa vicino casa e cercano un metodo. Iniziamo sempre con la valutazione: priorità reale (laser, viso, corpo), tempi che riesci a gestire davvero, abitudini che contano (sole, sport, lavoro outdoor). Da lì costruiamo un piano scritto, condiviso, modificabile. Niente pacchetti pre-confezionati, niente promesse generiche.",
+        "Per chi viene dal Roero il consiglio pratico è sempre lo stesso: una priorità per volta. Se l'obiettivo è il laser, partiamo da una o due zone e teniamo un calendario serrato per i primi mesi; se l'obiettivo è il viso, si parte da una valutazione e si decide se serve un protocollo strutturato o se basta un percorso classico. Sul corpo, drenaggio e pressoterapia si valutano in base a stagione e ritmo di vita.",
+        "I servizi base (pulizia viso, manicure semipermanente, laminazione ciglia e sopracciglia, pedicure VIP, massaggio rilassante) sono ottimi ganci pratici: ti fanno uscire dallo studio già più curata, senza richiedere progressioni complesse. Spesso si abbinano alla seduta laser per ottimizzare la giornata di chi viene da fuori.",
+        "Se vuoi qualcosa di più completo, i protocolli epigenetici (Collagen Code per tono e compattezza, Eye Genesis per contorno occhi) sono la naturale evoluzione: si scelgono solo quando ha senso, mai per default.",
+      ],
+      links: [
+        {
+          label: "Pagina dedicata: Epilazione laser per chi viene da Canale",
+          href: "/epilazione-laser-canale",
+          description: "La nostra money page laser con tutto quello che serve sapere prima della valutazione.",
+        },
+        {
+          label: "Contatti e mappa",
+          href: "/contatti",
+          description: "Per prenotare la prima visita o chiederci un consiglio.",
+        },
+        {
+          label: "Listino completo",
+          href: "/listino-estetica-laser",
+          description: "Tutti i prezzi indicativi, estetica e laser, in una pagina sola.",
+        },
+        {
+          label: "Il metodo Rebel",
+          href: "/metodo-rebel",
+          description: "Come ragioniamo, cosa promettiamo, cosa preferiamo non promettere.",
+        },
+        {
+          label: "Tutti i protocolli epigenetici",
+          href: "/protocolli-epigenetici",
+          description: "Panoramica dei percorsi viso e corpo strutturati.",
+        },
+        {
+          label: "Collagen Code",
+          href: "/protocolli/collagen-code",
+          description: "Protocollo viso per tono e compattezza, con progressione chiara.",
+        },
+        {
+          label: "Eye Genesis",
+          href: "/protocolli/eye-genesis",
+          description: "Contorno occhi: gonfiore, segni di stanchezza, micro-segni.",
+        },
+        {
+          label: "Pulizia viso",
+          href: "/servizi/pulizia-viso-carmagnola",
+          description: "Spesso il primo passo più sensato per rimettere ordine sul viso.",
+        },
+        {
+          label: "Manicure semipermanente",
+          href: "/servizi/manicure-semipermanente-carmagnola",
+          description: "Mani in ordine senza pensieri tra una seduta e l'altra.",
+        },
+        {
+          label: "Laminazione ciglia e sopracciglia",
+          href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola",
+          description: "Sguardo più definito con effetto naturale.",
+        },
+        {
+          label: "Pedicure VIP",
+          href: "/servizi/pedicure-carmagnola",
+          description: "Piedi più curati: base concreta in ogni stagione.",
+        },
+        {
+          label: "Massaggio rilassante",
+          href: "/servizi/massaggio-rilassante-carmagnola",
+          description: "Cinquanta minuti su schiena e cervicale, ritmo graduale.",
+        },
+        {
+          label: "Massaggio linfodrenante",
+          href: "/servizi/massaggio-linfodrenante-carmagnola",
+          description: "Quando vuoi alleggerire pesantezza e gonfiore.",
+        },
+        {
+          label: "Pressoterapia: guida pratica",
+          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          description: "Quando ha davvero senso inserirla in un percorso drenante.",
+        },
+        {
+          label: "Estetica avanzata",
+          href: "/competenze/estetica-avanzata-carmagnola",
+          description: "Cosa significa estetica avanzata e come costruire un percorso fatto bene.",
+        },
+      ],
+    },
+    faqs: [
+      {
+        q: "Da Canale: quanto tempo serve davvero per arrivare a Rebel?",
+        a: "Tra trenta e trentacinque minuti, in condizioni di traffico normali. Trentadue chilometri via SP29 + SP661, percorso continuo senza ZTL all'arrivo.",
+      },
+      {
+        q: "Vivo in un paese più piccolo (Castagnito, Santo Stefano Roero, Castellinaldo): posso comunque prenotare?",
+        a: "Certo, è la stessa area di gravitazione. Tempi e percorso sono praticamente identici a quelli di Canale. Da molti comuni del Roero si arriva in trenta-trentacinque minuti.",
+      },
+      {
+        q: "Posso organizzare più servizi nella stessa giornata?",
+        a: "Sì, e per chi viene da fuori ha molto senso. In consulenza scegliamo priorità e incastri (per esempio laser + manicure, o laser + laminazione), così non sprechi viaggi.",
+      },
+      {
+        q: "Non so se mi interessa più il laser, il viso o il corpo: come decido?",
+        a: "Lo decidiamo insieme. Ci dici quale fastidio è più presente nella tua quotidianità — ricrescita, pelle che ha perso comfort, sensazione di pesantezza — e da lì costruiamo una priorità. Non c'è un ordine giusto in assoluto: c'è l'ordine giusto per te.",
+      },
+      {
+        q: "Come prenoto da Canale?",
+        a: "Su WhatsApp è il modo più rapido. Ci scrivi la priorità e i giorni in cui sei libera, ti rispondiamo con gli slot più vicini. Il mercoledì siamo aperti fino alle 19, comodo per chi ha agenda piena.",
+      },
+    ],
+    keywords: [
+      "centro estetico Canale",
+      "estetista Canale",
+      "estetica Roero",
+      "centro estetico Roero",
+      "trattamenti viso Canale",
+      "protocolli epigenetici Canale",
+      "estetica avanzata Canale",
+      "Rebel Canale",
+      "centro estetico vicino Canale",
+    ],
+  },
+  {
     slug: "alba",
     city: "Alba",
     cluster: "cuneo",
-    title: "Da Alba a Rebel Carmagnola: percorso laser e trattamenti in studio, organizzati bene",
+    title: "Centro estetico per chi viene da Alba: viso, corpo e percorsi Rebel (Carmagnola)",
     description:
-      "Da Alba a Carmagnola: trattamenti viso/corpo ed epilazione laser in uno studio avanzato, con metodo e continuità.",
+      "Vivi ad Alba o nelle Langhe? Da Rebel a Carmagnola trovi protocolli viso e corpo, estetica avanzata e servizi classici curati. Pagina laser dedicata linkata in apertura.",
     intro:
       "Se arrivi da Alba, la cosa più utile è organizzare bene le sedute: calendario chiaro, priorità e (quando ha senso) più servizi nella stessa giornata per evitare viaggi inutili.",
     whyRebel: [
@@ -3033,6 +3181,11 @@ export const localAreaPages: LocalAreaPage[] = [
         "Se ti aiuta, qui trovi anche alcune guide pratiche: chiariscono cosa aspettarti e ti fanno arrivare più tranquilla alla prima valutazione.",
       ],
       links: [
+        {
+          label: "Pagina dedicata: Epilazione laser per chi viene da Alba",
+          href: "/epilazione-laser-alba",
+          description: "La nostra money page laser, con percorso, calendario e FAQ specifici per chi parte dalle Langhe.",
+        },
         {
           label: "Apri il percorso su Google Maps",
           href: "https://www.google.com/maps/dir/?api=1&origin=Alba&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
@@ -3127,18 +3280,22 @@ export const localAreaPages: LocalAreaPage[] = [
     ],
     keywords: [
       "centro estetico Alba",
-      "estetista Alba trattamenti viso",
-      "epilazione laser Alba",
-      "laser Alba",
+      "estetista Alba",
+      "estetica avanzata Alba",
+      "trattamenti viso Alba",
+      "protocolli epigenetici Alba",
+      "Rebel Alba",
+      "centro estetico vicino Alba",
+      "centro estetico Langhe",
     ],
   },
   {
     slug: "bra",
     city: "Bra",
     cluster: "cuneo",
-    title: "Da Bra a Rebel: percorsi viso, corpo e laser",
+    title: "Centro estetico per chi viene da Bra: viso, corpo e percorsi Rebel (Carmagnola)",
     description:
-      "Per chi vive a Bra, Rebel Carmagnola offre trattamenti personalizzati con approccio epigenetico e tecnico.",
+      "A venti minuti da Bra: da Rebel a Carmagnola trovi percorsi viso e corpo, protocolli epigenetici, estetica avanzata e servizi classici. Pagina laser dedicata linkata in apertura.",
     intro:
       "Da Bra arrivano clienti che vogliono un piano chiaro: laser impostato bene (zone + calendario) e percorsi viso/corpo senza perdere tempo in prove a caso.",
     whyRebel: [
@@ -3168,6 +3325,11 @@ export const localAreaPages: LocalAreaPage[] = [
         "Se arrivi da Bra, l'obiettivo è semplice: avere un piano ordinato che puoi seguire senza ansia e senza cambiare idea ogni mese. Spesso si parte da una zona \"smart\" (ascelle o inguine) oppure si decide una priorità chiara sulle gambe.",
       ],
       links: [
+        {
+          label: "Pagina dedicata: Epilazione laser per chi viene da Bra",
+          href: "/epilazione-laser-bra",
+          description: "La nostra money page laser, con calendario, prezzi e FAQ pensati per chi parte da Bra.",
+        },
         {
           label: "Apri il percorso su Google Maps",
           href: "https://www.google.com/maps/dir/?api=1&origin=Bra&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
@@ -3262,9 +3424,12 @@ export const localAreaPages: LocalAreaPage[] = [
     ],
     keywords: [
       "centro estetico Bra",
+      "estetista Bra",
       "estetica avanzata Bra",
-      "epilazione laser Bra",
-      "laser Bra",
+      "trattamenti viso Bra",
+      "protocolli epigenetici Bra",
+      "Rebel Bra",
+      "centro estetico vicino Bra",
     ],
   },
   {
