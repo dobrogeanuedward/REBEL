@@ -1,0 +1,198 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHead from "@/components/SectionHead.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import FaqAccordion from "@/components/FaqAccordion.astro";
+import InlineCta from "@/components/InlineCta.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import { buildBreadcrumbSchema, buildServiceSchema, buildWebPageSchema, buildArticleSchema, createPageMeta } from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
+
+const meta = createPageMeta({
+  title: "Massaggio rilassante per chi viene da Canale e dal Roero — Rebel (Carmagnola, ~35 min)",
+  description: "Vivi a Canale o nel Roero? L'offerta massaggi professionali in zona è ridotta. Da Rebel a Carmagnola trovi 50 minuti di massaggio rilassante per schiena, spalle e cervicale. Prenota su WhatsApp.",
+  path: "/massaggio-rilassante-canale",
+  image: "https://www.rebelepigenetica.it/img/generated/massaggio-rilassante-rebel-editorial.png",
+  openGraphType: "article",
+  keywords: [
+    "massaggio rilassante Canale", "massaggio Canale", "massaggio cervicale Canale", "massaggio Roero",
+    "centro benessere Canale CN", "massaggio rilassante Roero", "massaggio spalle Canale d'Alba", "benessere Roero", "massaggio vicino Canale",
+  ],
+});
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Massaggio rilassante Carmagnola", path: "/servizi/massaggio-rilassante-carmagnola" },
+  { name: "Canale e Roero", path: "/massaggio-rilassante-canale" },
+]);
+const webPage = buildWebPageSchema({ name: "Massaggio rilassante per chi viene da Canale e dal Roero", description: meta.description, path: "/massaggio-rilassante-canale" });
+const articleSchema = buildArticleSchema({ headline: "Massaggio rilassante per chi viene da Canale e dal Roero — Rebel (Carmagnola, ~35 min)", description: meta.description, path: "/massaggio-rilassante-canale", keywords: ["massaggio rilassante Canale", "massaggio cervicale Roero CN"], section: "Massaggi", image: "https://www.rebelepigenetica.it/img/generated/massaggio-rilassante-rebel-editorial.png" });
+const serviceSchema = buildServiceSchema("Massaggio rilassante per chi viene da Canale e dal Roero", "Massaggio rilassante 50 minuti a Carmagnola per clienti di Canale d'Alba e del Roero.", "/massaggio-rilassante-canale", { priceFrom: 55, keywords: ["massaggio rilassante Canale", "massaggio Roero CN"] });
+const geoServiceSchema = {
+  "@context": "https://schema.org", "@type": "Service",
+  "@id": `${siteConfig.siteUrl}/massaggio-rilassante-canale#service-geo`,
+  name: "Massaggio rilassante per chi viene da Canale e dal Roero", serviceType: "Relaxation massage",
+  provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
+  areaServed: [
+    { "@type": "City", name: "Canale", containedInPlace: { "@type": "AdministrativeArea", name: "Provincia di Cuneo" } },
+    { "@type": "GeoCircle", geoMidpoint: { "@type": "GeoCoordinates", latitude: 44.7864, longitude: 8.0281 }, geoRadius: "9000" },
+  ],
+  offers: { "@type": "Offer", priceCurrency: "EUR", price: "55.00", url: `${siteConfig.siteUrl}/contatti`, availability: "https://schema.org/InStock" },
+};
+
+const faqs = [
+  { q: "Quanto ci vuole da Canale a Rebel?", a: "Circa 35 minuti via A33 uscita Marene, poi SP661 fino a Carmagnola. Sono 37 km. Viale Barbaroux 20, parcheggio gratuito." },
+  { q: "A Canale è difficile trovare massaggi professionali di qualità?", a: "Sì, è una situazione comune nel Roero. Per un massaggio con tecnica manuale precisa e 50 minuti interi dedicati alle zone di tensione, Carmagnola è a 35 minuti — abbastanza vicina da diventare una scelta regolare." },
+  { q: "Lavoro fisicamente e ho sempre il corpo stanco. È adatto?", a: "Sì. Anzi, per chi lavora fisicamente il massaggio rilassante è particolarmente utile: il corpo accumula tensione muscolare reale — non solo da stress mentale. Lavoriamo su schiena, spalle e cervicale con tecnica graduata, partendo da dove la tensione è più alta." },
+  { q: "Ogni quanto conviene farlo?", a: "Per chi ha tensione fisica costante, ogni 3-4 settimane è un ritmo ottimale. Per chi vuole un recupero più saltuario, anche una seduta ogni mese o sei settimane ha un effetto percepibile." },
+  { q: "Posso abbinarlo ad altri trattamenti nello stesso giorno?", a: "Sì. Si abbina bene con manicure semipermanente e laminazione. Per il laser, consigliamo di abbinarlo in un momento separato." },
+  { q: "Come prenoto da Canale?", a: "Scrivici su WhatsApp con il giorno preferito. Ti rispondiamo con gli slot disponibili. Il mercoledì siamo aperti fino alle 19." },
+];
+const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) };
+
+const points = [
+  { kicker: "01 · Colmare il gap del Roero", title: "Massaggi professionali a 35 minuti da Canale.", body: "Nel Roero trovare un massaggio fatto con tecnica reale e cinquanta minuti interi è raro. Carmagnola è abbastanza vicina da diventare la scelta ovvia per chi vuole qualità e non solo comodità." },
+  { kicker: "02 · 50 minuti interi", title: "Nessun taglio, nessun ritaglio di tempo.", body: "Cinquanta minuti dedicati a schiena, spalle e cervicale. Si lavora progressivamente — si parte piano sulle zone meno tese e si approfondisce dove la tensione è più alta." },
+  { kicker: "03 · Cervicale e corpo fisico", title: "Per chi lavora con il corpo.", body: "Nel Roero molti lavorano fisicamente — in vigna, all'aperto, con le mani. Il massaggio rilassante è costruito per scaricare la tensione muscolare accumulata nel lavoro quotidiano, non solo lo stress da ufficio." },
+  { kicker: "04 · Un ritmo mensile che fa la differenza", title: "Regolarità, non intensità.", body: "Non è necessario venire ogni settimana. Una seduta ogni 3-4 settimane — inserita come un appuntamento fisso — mantiene la tensione sotto controllo in modo percepibile." },
+];
+
+const combos = [
+  { href: "/servizi/manicure-semipermanente-carmagnola", title: "Massaggio + manicure", body: "Relax corporeo e mani curate nella stessa visita da Canale." },
+  { href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola", title: "Massaggio + laminazione", body: "Corpo disteso e sguardo definito. Un upgrade in una sosta." },
+  { href: "/servizi/massaggio-linfodrenante-carmagnola", title: "Massaggio rilassante + linfodrenante", body: "Per chi vuole lavorare su tensione muscolare e drenaggio." },
+];
+const nearbyAreas = [
+  { city: "Alba", href: "/massaggio-rilassante-alba", desc: "Langhe, ~30 min via A33." },
+  { city: "Bra", href: "/massaggio-rilassante-bra", desc: "~22 min da Carmagnola." },
+  { city: "Tutte le località", href: "/localita", desc: "Panoramica Rebel per zona." },
+];
+---
+
+<BaseLayout meta={meta}>
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={webPage} />
+  <JsonLd data={articleSchema} />
+  <JsonLd data={serviceSchema} />
+  <JsonLd data={geoServiceSchema} />
+  <JsonLd data={faqSchema} />
+
+  <PageHero
+    kicker="Rebel Massaggi — da Canale a Carmagnola"
+    title="Massaggio rilassante per chi viene da Canale e dal Roero: _50 minuti_ per scaricare davvero."
+    lead="Vivi a Canale o nel Roero? L'offerta di massaggi professionali in zona è ridotta. Da Rebel a Carmagnola sono 35 minuti: trovi cinquanta minuti interamente dedicati a schiena, spalle e cervicale, con una tecnica manuale graduata che lavora sulla tensione muscolare reale."
+    meta={["~37 km da Canale", "~35 min via A33", "Da 55 € a seduta"]}
+    ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
+    ctaSecondary={{ label: "Apri il percorso da Canale", href: "https://www.google.com/maps/dir/?api=1&origin=Canale+CN&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
+  />
+
+  <section class="section section--tight">
+    <div class="container">
+      <div class="editorial-image-frame">
+        <img src="/img/generated/massaggio-rilassante-rebel-editorial.png" alt="Massaggio rilassante professionale schiena e spalle — benessere e recupero muscolare" width="1200" height="900" loading="eager" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHead kicker="Il metodo Rebel" title="Perché da Canale vale la pena _venire a Carmagnola_ per il massaggio." lead="Nel Roero massaggi con tecnica reale e durata piena sono rari. 35 minuti di viaggio per 50 minuti di lavoro manuale fatto bene è una scelta razionale, non un lusso." />
+      <div class="card-grid card-grid--2">
+        {points.map((p, i) => (<FeatureCard kicker={p.kicker} title={p.title} body={p.body} variant={i === 0 ? "feature" : "default"} index={i + 1} />))}
+      </div>
+      <div class="cluster" style="margin-top:2rem;">
+        <a class="btn btn--primary" href="/contatti">Prenota su WhatsApp</a>
+        <a class="btn btn--secondary" href="/servizi/massaggio-rilassante-carmagnola">Scheda completa massaggio</a>
+        <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <div class="split-visual">
+        <div class="split-visual__image">
+          <img src="/img/brand/corpo-rilassamento-schiena.png" alt="Corpo disteso dopo massaggio — sensazione di benessere e recupero nel Roero" width="900" height="1100" loading="lazy" />
+        </div>
+        <div class="split-visual__text">
+          <SectionHead kicker="La sensazione dopo" title="Il corpo _risponde_ in modo percepibile." lead="50 minuti di lavoro su cervicale e spalle lascia un effetto fisico reale — non solo una sensazione momentanea." />
+          <p class="body-p">Cervicale più mobile, spalle abbassate, respirazione più profonda: sono i segnali che il corpo inizia a scaricare davvero la tensione accumulata.</p>
+          <p class="body-p">Il giorno dopo potrebbe esserci una lieve dolenzia muscolare — normale dopo un lavoro in profondità. Sparisce in 24-48 ore e lascia una leggerezza che dura giorni.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHead kicker="Come arrivare" title="Da Canale a Rebel: _35 minuti_ tra il Roero e Carmagnola." />
+      <div class="directions-grid">
+        <div>
+          <p class="body-p">Da Canale il percorso più rapido è via <strong>A33 direzione Torino</strong>, uscita Marene, poi <strong>SP661 fino a Carmagnola</strong>: 35-37 minuti in condizioni normali.</p>
+          <p class="body-p">Lo studio è in <strong>Viale Barbaroux 20</strong>. Parcheggio gratuito a meno di un minuto.</p>
+          <div class="cluster" style="margin-top:1.4rem;">
+            <a class="btn btn--secondary btn--sm" href="https://www.google.com/maps/dir/?api=1&origin=Canale+CN&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" target="_blank" rel="noreferrer">Apri il percorso da Canale in Maps</a>
+            <a class="btn btn--secondary btn--sm" href="/contatti">Contatti e mappa</a>
+          </div>
+        </div>
+        <div class="map-frame">
+          <iframe src="https://www.google.com/maps?f=d&source=s_d&saddr=Canale+CN&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Percorso da Canale a Rebel Carmagnola"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <SectionHead kicker="Una sola sosta" title="Abbina il massaggio: _si organizza_." lead="Si combina bene con manicure e laminazione. Per il laser, consigliamo un momento separato." />
+      <div class="card-grid card-grid--3" style="margin-top:2rem;">
+        {combos.map((c) => (<FeatureCard title={c.title} body={c.body} href={c.href} variant="quiet" />))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <SectionHead kicker="Domande frequenti" title="Da Canale e dal _Roero_: le risposte." />
+      <FaqAccordion items={faqs} kicker="FAQ Massaggio Rilassante Canale" />
+    </div>
+  </section>
+
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <InlineCta kicker="Vuoi un piano più ampio?" title="Il massaggio non è l'unico motivo per venire _dal Roero_." lead="Laser, manicure, laminazione e protocolli: la pagina panoramica per Canale li raccoglie tutti." primaryHref="/localita/canale" primaryLabel="Pagina panoramica Rebel per Canale" secondaryHref="/epilazione-laser-canale" secondaryLabel="Laser da Canale" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHead kicker="Vicino a Canale" title="Comuni vicini: _pagine dedicate_." />
+      <div class="card-grid card-grid--3">
+        {nearbyAreas.map((a, i) => (<FeatureCard kicker="Zona vicina" title={a.city} body={a.desc} href={a.href} variant="quiet" index={i + 1} />))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <InlineCta kicker="Prenota" title="_50 minuti_ per smettere davvero di pensare." lead="Scrivici su WhatsApp con il giorno preferito." primaryLabel="Prenota su WhatsApp" primaryHref={siteConfig.social.whatsapp} secondaryLabel="Scheda massaggio" secondaryHref="/servizi/massaggio-rilassante-carmagnola" />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .editorial-image-frame { border-radius: var(--r-lg); overflow: hidden; max-height: 520px; }
+  .editorial-image-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .section--tight { padding-block: 1.5rem; }
+  .split-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-top: 1rem; }
+  .split-visual__image { border-radius: var(--r-lg); overflow: hidden; max-height: 620px; }
+  .split-visual__image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  @media (max-width: 760px) { .split-visual { grid-template-columns: 1fr; } .split-visual__image { order: -1; } }
+  .directions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.6rem; align-items: start; }
+  @media (max-width: 760px) { .directions-grid { grid-template-columns: 1fr; } }
+  .map-frame { position: relative; aspect-ratio: 4 / 3; border-radius: var(--r-md); overflow: hidden; border: 1px solid var(--line); background: rgba(7, 5, 14, 0.5); }
+  .map-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .body-p { font-size: var(--t-body); line-height: var(--lh-body); color: var(--text); margin: 0 0 0.9rem; max-width: 70ch; }
+  .cluster { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+</style>

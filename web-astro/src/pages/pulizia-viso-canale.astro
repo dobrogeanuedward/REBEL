@@ -1,0 +1,438 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHead from "@/components/SectionHead.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import FaqAccordion from "@/components/FaqAccordion.astro";
+import InlineCta from "@/components/InlineCta.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import {
+  buildBreadcrumbSchema,
+  buildServiceSchema,
+  buildWebPageSchema,
+  buildArticleSchema,
+  createPageMeta,
+} from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
+
+const meta = createPageMeta({
+  title: "Pulizia viso per chi viene da Canale e dal Roero — Rebel (Carmagnola, ~35 min)",
+  description:
+    "Vivi a Canale o nel Roero? Nel paese l'offerta di estetica avanzata è ridotta. Da Rebel a Carmagnola trovi pulizia viso professionale con prodotti Eberlin e un metodo serio. Prenotazione su WhatsApp.",
+  path: "/pulizia-viso-canale",
+  image: "https://www.rebelepigenetica.it/img/generated/pulizia-viso-rebel-editorial.png",
+  openGraphType: "article",
+  keywords: [
+    "pulizia viso Canale",
+    "pulizia del viso Canale",
+    "estetista viso Canale",
+    "trattamento viso Canale",
+    "pulizia viso Roero",
+    "pulizia viso vicino Canale",
+    "cura viso Canale CN",
+    "trattamento pelle Roero",
+    "pulizia viso profonda Canale",
+    "centro estetico Roero",
+  ],
+});
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Pulizia viso Carmagnola", path: "/servizi/pulizia-viso-carmagnola" },
+  { name: "Canale e Roero", path: "/pulizia-viso-canale" },
+]);
+
+const webPage = buildWebPageSchema({
+  name: "Pulizia viso per chi viene da Canale e dal Roero",
+  description: meta.description,
+  path: "/pulizia-viso-canale",
+});
+
+const articleSchema = buildArticleSchema({
+  headline: "Pulizia viso per chi viene da Canale e dal Roero — Rebel (Carmagnola, ~35 min)",
+  description: meta.description,
+  path: "/pulizia-viso-canale",
+  keywords: ["pulizia viso Canale", "trattamento viso Roero", "estetista viso Canale CN"],
+  section: "Trattamenti viso",
+  image: "https://www.rebelepigenetica.it/img/generated/pulizia-viso-rebel-editorial.png",
+});
+
+const serviceSchema = buildServiceSchema(
+  "Pulizia viso per chi viene da Canale e dal Roero",
+  "Pulizia viso professionale per clienti di Canale d'Alba e del Roero: prodotti Eberlin, protocollo adattato alla pelle reale, frequenza costruita sull'agenda.",
+  "/pulizia-viso-canale",
+  {
+    priceFrom: 49,
+    keywords: ["pulizia viso Canale", "trattamento viso Roero", "centro estetico Canale CN"],
+  },
+);
+
+const geoServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${siteConfig.siteUrl}/pulizia-viso-canale#service-geo`,
+  name: "Pulizia viso per chi viene da Canale e dal Roero",
+  serviceType: "Facial cleansing",
+  provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Canale",
+      containedInPlace: { "@type": "AdministrativeArea", name: "Provincia di Cuneo" },
+    },
+    {
+      "@type": "GeoCircle",
+      geoMidpoint: { "@type": "GeoCoordinates", latitude: 44.7864, longitude: 8.0281 },
+      geoRadius: "9000",
+    },
+  ],
+  offers: {
+    "@type": "Offer",
+    priceCurrency: "EUR",
+    price: "49.00",
+    url: `${siteConfig.siteUrl}/contatti`,
+    availability: "https://schema.org/InStock",
+  },
+};
+
+const faqs = [
+  {
+    q: "Quanto ci vuole da Canale a Rebel?",
+    a: "Circa 35 minuti via A33 uscita Marene, poi SP661 fino a Carmagnola. Sono circa 37 km. Lo studio è in centro, Viale Barbaroux 20, con parcheggio gratuito a meno di un minuto a piedi.",
+  },
+  {
+    q: "A Canale non trovo centri estetici che fanno trattamenti seri al viso: è normale?",
+    a: "È una situazione comune in molti paesi del Roero. Per trattamenti con prodotti professionali e protocolli strutturati, spesso vale la pena spostarsi. Da Rebel trovi prodotti Eberlin e Marbellas, un lavoro per step e un piano che ha senso per la tua pelle.",
+  },
+  {
+    q: "Ho la pelle segnata dal sole e dall'aria aperta del Roero. Funziona comunque?",
+    a: "Sì, anzi è una situazione che conosciamo bene. Pelle esposta a sole intenso, aria fresca e vento ha esigenze specifiche — spesso più robusta ma con disomogeneità e pori dilatati. Adattiamo il protocollo: esfoliazione calibrata, pulizia mirata, fase lenitiva pensata per restituire luminosità senza irritare.",
+  },
+  {
+    q: "Ogni quanto conviene farla?",
+    a: "Dipende dalla pelle. Di solito ogni 4-6 settimane. Dopo la prima seduta ti proponiamo una frequenza reale — non un pacchetto da consumare in fretta.",
+  },
+  {
+    q: "Posso abbinare la pulizia viso a qualcos'altro nello stesso giorno?",
+    a: "Sì. Gli abbinamenti più comodi sono con la manicure semipermanente o la laminazione ciglia e sopracciglia: nessun conflitto, due risultati in una sola visita.",
+  },
+  {
+    q: "Come prenoto da Canale?",
+    a: "Scrivici su WhatsApp indicando il giorno che ti è più comodo. Ti rispondiamo con gli slot disponibili. Il mercoledì siamo aperti fino alle 19, pratico per chi lavora e non può uscire la mattina.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
+const points = [
+  {
+    kicker: "01 · Colmare il gap del Roero",
+    title: "L'offerta a Canale è limitata. Rebel è a 35 minuti.",
+    body: "Trattamenti viso seri, con prodotti professionali e un metodo preciso, si trovano raramente in paese. Carmagnola è abbastanza vicina da non essere un sacrificio — e abbastanza diversa da cambiare la qualità del risultato.",
+  },
+  {
+    kicker: "02 · Lettura della pelle reale",
+    title: "Pelle del Roero: vita all'aperto, aria fresca, sole vero.",
+    body: "Non lavoriamo con un protocollo fisso. Osserviamo prima: le esigenze di una pelle esposta al clima del Roero sono diverse da quelle di chi lavora in ufficio. L'intensità, i prodotti e la frequenza vengono dopo.",
+  },
+  {
+    kicker: "03 · Prodotti che fanno la differenza",
+    title: "Eberlin e Marbellas in cabina.",
+    body: "Linee professionali selezionate per qualità degli attivi. Il risultato si sente già dalla prima seduta: grana più fine, luminosità restituita, sensazione di comfort che dura.",
+  },
+  {
+    kicker: "04 · Un piano che si porta avanti",
+    title: "Non solo una pulizia, ma un ritmo.",
+    body: "La continuità fa la differenza. Ti proponiamo una frequenza realistica — ogni 4-6 settimane — costruita sulla tua agenda, non su quella che sarebbe comoda per noi.",
+  },
+];
+
+const combos = [
+  {
+    href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola",
+    title: "Pulizia viso + laminazione ciglia",
+    body: "Viso fresco e sguardo definito in una sola visita. I due trattamenti non si ostacolano.",
+  },
+  {
+    href: "/servizi/manicure-semipermanente-carmagnola",
+    title: "Pulizia viso + manicure semipermanente",
+    body: "Viso e mani curati in un'uscita sola. Per chi viene da fuori, ottimizzare ha senso.",
+  },
+  {
+    href: "/epilazione-laser-canale",
+    title: "Pulizia viso + epilazione laser",
+    body: "Se hai già in programma il laser, abbinare una pulizia viso è spesso il gesto più intelligente per alzare il viso subito.",
+  },
+];
+
+const nearbyAreas = [
+  { city: "Alba", href: "/pulizia-viso-alba", desc: "Langhe, ~30 min via A33." },
+  { city: "Bra", href: "/pulizia-viso-bra", desc: "~22 min da Carmagnola." },
+  { city: "Tutte le località", href: "/localita", desc: "Panoramica Rebel per zona." },
+];
+---
+
+<BaseLayout meta={meta}>
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={webPage} />
+  <JsonLd data={articleSchema} />
+  <JsonLd data={serviceSchema} />
+  <JsonLd data={geoServiceSchema} />
+  <JsonLd data={faqSchema} />
+
+  <PageHero
+    kicker="Rebel Viso — da Canale a Carmagnola"
+    title="Pulizia viso per chi viene da Canale e dal Roero: _pelle curata sul serio_, a 35 minuti."
+    lead="Vivi a Canale o nel Roero? L'offerta di estetica avanzata in zona è ridotta: prodotti professionali, protocolli strutturati e un lavoro per step si trovano raramente in paese. Da Rebel a Carmagnola trovi tutto questo, con una seduta che lascia la pelle percepibilmente diversa."
+    meta={["~37 km da Canale", "~35 min via A33", "Da 49 € a seduta"]}
+    ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
+    ctaSecondary={{ label: "Apri il percorso da Canale in Maps", href: "https://www.google.com/maps/dir/?api=1&origin=Canale+CN&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
+  />
+
+  <!-- IMMAGINE HERO EDITORIALE -->
+  <section class="section section--tight">
+    <div class="container">
+      <div class="editorial-image-frame">
+        <img
+          src="/img/generated/pulizia-viso-rebel-editorial.png"
+          alt="Pulizia viso professionale in cabina Rebel — trattamento per pelle luminosa e uniforme"
+          width="1200"
+          height="900"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 1 — Il metodo -->
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Il metodo Rebel"
+        title="Perché da Canale vale la pena _venire a Carmagnola_ per il viso."
+        lead="Nel Roero i centri estetici con prodotti professionali e metodo strutturato sono rari. Carmagnola è a 35 minuti — abbastanza vicino da essere una scelta normale, abbastanza lontano da essere una scelta vera."
+      />
+      <div class="card-grid card-grid--2">
+        {points.map((p, i) => (
+          <FeatureCard
+            kicker={p.kicker}
+            title={p.title}
+            body={p.body}
+            variant={i === 0 ? "feature" : "default"}
+            index={i + 1}
+          />
+        ))}
+      </div>
+      <div class="cluster" style="margin-top:2rem;">
+        <a class="btn btn--primary" href="/contatti">Prenota la prima seduta</a>
+        <a class="btn btn--secondary" href="/servizi/pulizia-viso-carmagnola">Scheda completa pulizia viso</a>
+        <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 2 — Come arrivare -->
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <SectionHead
+        kicker="Come arrivare"
+        title="Da Canale a Rebel: _35 minuti_ tra il Roero e la pianura torinese."
+      />
+      <div class="directions-grid">
+        <div>
+          <p class="body-p">
+            Da Canale a Carmagnola il percorso più rapido è via
+            <strong>A33 in direzione Torino</strong>, con uscita Marene, poi
+            <strong>SP661 fino a Carmagnola</strong>: circa 35-37 minuti in condizioni
+            normali. In alternativa si può percorrere la provinciale SP3 fino ad Alba
+            e poi risalire verso Carmagnola (qualche minuto in più, ma senza autostrada).
+          </p>
+          <p class="body-p">
+            Lo studio è in <strong>Viale Barbaroux 20</strong>, nel centro di Carmagnola.
+            Parcheggio gratuito a meno di un minuto a piedi.
+          </p>
+          <div class="cluster" style="margin-top:1.4rem;">
+            <a
+              class="btn btn--secondary btn--sm"
+              href="https://www.google.com/maps/dir/?api=1&origin=Canale+CN&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Apri il percorso da Canale in Maps
+            </a>
+            <a class="btn btn--secondary btn--sm" href="/contatti">Contatti e mappa</a>
+          </div>
+        </div>
+        <div class="map-frame">
+          <iframe
+            src="https://www.google.com/maps?f=d&source=s_d&saddr=Canale+CN&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Percorso da Canale a Rebel Carmagnola"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 3 — Abbinamenti -->
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Una sola sosta"
+        title="Se vieni da Canale: _più cose fatte bene_ in una visita."
+        lead="35 minuti di strada si recuperano facilmente ottimizzando la visita con un abbinamento che abbia senso."
+      />
+      <div class="card-grid card-grid--3" style="margin-top:2rem;">
+        {combos.map((c) => (
+          <FeatureCard
+            title={c.title}
+            body={c.body}
+            href={c.href}
+            variant="quiet"
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 4 — Protocolli avanzati -->
+  <section class="section section--scene-ivory">
+    <div class="container container--narrow">
+      <SectionHead
+        kicker="Oltre la pulizia"
+        title="Se la pelle chiede _qualcosa di più strutturato_."
+        lead="La pulizia viso è il punto d'ingresso. Se la pelle ha bisogno di lavorare su tono, compattezza o luminosità profonda, i protocolli epigenetici sono il passo successivo."
+      />
+      <p class="body-p">
+        I protocolli Eberlin che utilizziamo — <strong>Rebel Lift Protocol</strong>,
+        <strong>Collagen Code</strong>, <strong>Catalysis Ritual</strong> — sono percorsi
+        con progressione precisa, non sedute improvvisate. Dopo la prima pulizia viso
+        valutiamo insieme se ha senso aprire qualcosa di più evoluto.
+      </p>
+      <div class="cluster" style="margin-top:1.6rem;">
+        <a class="btn btn--primary" href="/protocolli-epigenetici">Tutti i protocolli</a>
+        <a class="btn btn--secondary" href="/servizi/pulizia-viso-carmagnola">Scheda pulizia viso</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 5 — FAQ -->
+  <section class="section">
+    <div class="container container--narrow">
+      <SectionHead
+        kicker="Domande frequenti"
+        title="Da Canale e dal _Roero_: le risposte che servono."
+      />
+      <FaqAccordion items={faqs} kicker="FAQ Pulizia Viso Canale" />
+    </div>
+  </section>
+
+  <!-- SEZIONE 6 — Pagina panoramica -->
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <InlineCta
+        kicker="Vuoi un piano più ampio?"
+        title="La pulizia viso non è l'unico motivo per venire a Carmagnola _dal Roero_."
+        lead="Se ti interessa anche il laser, la manicure semipermanente, i protocolli corpo o la laminazione ciglia, la pagina panoramica per chi viene da Canale li raccoglie tutti."
+        primaryHref="/localita/canale"
+        primaryLabel="Pagina panoramica Rebel per Canale"
+        secondaryHref="/protocolli-epigenetici"
+        secondaryLabel="Tutti i protocolli epigenetici"
+      />
+    </div>
+  </section>
+
+  <!-- SEZIONE 7 — Comuni vicini -->
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Vicino a Canale"
+        title="Comuni vicini: _pagine dedicate_ per la pulizia viso."
+      />
+      <div class="card-grid card-grid--3">
+        {nearbyAreas.map((a, i) => (
+          <FeatureCard
+            kicker="Zona vicina"
+            title={a.city}
+            body={a.desc}
+            href={a.href}
+            variant="quiet"
+            index={i + 1}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <InlineCta
+        kicker="Prima visita gratuita"
+        title="Prenota la _pulizia viso_ in 15 minuti."
+        lead="Ti ascoltiamo, leggiamo la pelle, facciamo la seduta. Poi, se ha senso, costruiamo un ritmo insieme. Nessun obbligo di pacchetti."
+        primaryLabel="Prenota su WhatsApp"
+        primaryHref={siteConfig.social.whatsapp}
+        secondaryLabel="Scheda pulizia viso completa"
+        secondaryHref="/servizi/pulizia-viso-carmagnola"
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .editorial-image-frame {
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    max-height: 520px;
+  }
+  .editorial-image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .section--tight { padding-block: 1.5rem; }
+  .directions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1.6rem;
+    align-items: start;
+  }
+  @media (max-width: 760px) {
+    .directions-grid { grid-template-columns: 1fr; }
+  }
+  .map-frame {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--r-md);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: rgba(7, 5, 14, 0.5);
+  }
+  .map-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .body-p {
+    font-size: var(--t-body);
+    line-height: var(--lh-body);
+    color: var(--text);
+    margin: 0 0 0.9rem;
+    max-width: 70ch;
+  }
+  .cluster { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+</style>

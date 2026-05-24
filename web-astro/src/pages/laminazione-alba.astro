@@ -1,0 +1,452 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHead from "@/components/SectionHead.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import FaqAccordion from "@/components/FaqAccordion.astro";
+import InlineCta from "@/components/InlineCta.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import {
+  buildBreadcrumbSchema,
+  buildServiceSchema,
+  buildWebPageSchema,
+  buildArticleSchema,
+  createPageMeta,
+} from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
+
+const meta = createPageMeta({
+  title: "Laminazione ciglia e sopracciglia per chi viene da Alba — Rebel (Carmagnola, ~30 min)",
+  description:
+    "Vivi ad Alba o nelle Langhe? La laminazione ciglia e sopracciglia da Rebel dura 6-8 settimane: sguardo definito senza mascara, anche tra fiere, cene e weekend. ~30 min via A33.",
+  path: "/laminazione-alba",
+  image: "https://www.rebelepigenetica.it/img/brand/laminazione-occhio-purple.png",
+  openGraphType: "article",
+  keywords: [
+    "laminazione ciglia Alba",
+    "lash lift Alba",
+    "laminazione sopracciglia Alba",
+    "ciglia Alba CN",
+    "laminazione ciglia Langhe",
+    "lash lift vicino Alba",
+    "brow lamination Alba",
+    "lifting ciglia Alba",
+    "ciglia definite Alba",
+    "estetista ciglia sopracciglia Alba",
+  ],
+});
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Laminazione Carmagnola", path: "/servizi/laminazione-ciglia-sopracciglia-carmagnola" },
+  { name: "Alba e Langhe", path: "/laminazione-alba" },
+]);
+
+const webPage = buildWebPageSchema({
+  name: "Laminazione ciglia e sopracciglia per chi viene da Alba",
+  description: meta.description,
+  path: "/laminazione-alba",
+});
+
+const articleSchema = buildArticleSchema({
+  headline: "Laminazione ciglia e sopracciglia per chi viene da Alba — Rebel (Carmagnola, ~30 min)",
+  description: meta.description,
+  path: "/laminazione-alba",
+  keywords: ["laminazione ciglia Alba", "lash lift Alba", "laminazione sopracciglia Alba CN"],
+  section: "Trattamenti viso",
+  image: "https://www.rebelepigenetica.it/img/brand/laminazione-occhio-purple.png",
+});
+
+const serviceSchema = buildServiceSchema(
+  "Laminazione ciglia e sopracciglia per chi viene da Alba",
+  "Laminazione ciglia (Lash Lift vegano) e sopracciglia a Carmagnola per clienti di Alba e delle Langhe. Sguardo definito e naturale per 6-8 settimane.",
+  "/laminazione-alba",
+  {
+    priceFrom: 55,
+    keywords: ["lash lift Alba", "laminazione ciglia Alba CN", "brow lamination Alba Langhe"],
+  },
+);
+
+const geoServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${siteConfig.siteUrl}/laminazione-alba#service-geo`,
+  name: "Laminazione ciglia e sopracciglia per chi viene da Alba",
+  serviceType: "Lash lift and brow lamination",
+  provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Alba",
+      containedInPlace: { "@type": "AdministrativeArea", name: "Provincia di Cuneo" },
+    },
+    {
+      "@type": "GeoCircle",
+      geoMidpoint: { "@type": "GeoCoordinates", latitude: 44.7008, longitude: 8.0354 },
+      geoRadius: "8000",
+    },
+  ],
+  offers: {
+    "@type": "Offer",
+    priceCurrency: "EUR",
+    price: "55.00",
+    url: `${siteConfig.siteUrl}/contatti`,
+    availability: "https://schema.org/InStock",
+  },
+};
+
+const faqs = [
+  {
+    q: "Quanto dura la laminazione ciglia?",
+    a: "Di solito 6-8 settimane. La durata dipende dalla crescita naturale delle ciglia e dalla cura nei primi giorni post-trattamento. Ti diciamo cosa fare (e cosa evitare) per massimizzare la durata.",
+  },
+  {
+    q: "Posso truccarmi dopo la laminazione?",
+    a: "Sì, ma non subito. Nelle prime 24-48 ore evitiamo acqua, vapore e prodotti a base oleosa per non alterare la piega. Dopo, mascara e eye liner si usano normalmente — e la maggior parte delle clienti scopre che non ne ha più bisogno.",
+  },
+  {
+    q: "È adatta anche a chi ha ciglia rade o corte?",
+    a: "Dipende dalla struttura della ciglia. In consulenza osserviamo e ti diciamo onestamente se la laminazione è la soluzione giusta o se c'è un approccio più efficace. Non facciamo sempre sì per fare.",
+  },
+  {
+    q: "Posso abbinarla ad altri trattamenti nello stesso giorno?",
+    a: "Sì. La laminazione si abbina benissimo alla manicure semipermanente, alla pulizia viso (zona viso diversa) e al laser corpo. Se hai il laser viso programmato, ne parliamo: lavorano sulla stessa zona e a volte vale la pena distanziarli.",
+  },
+  {
+    q: "Quanto ci vuole da Alba a Rebel?",
+    a: "Circa trenta minuti via A33 uscita Marene, poi SP661 fino a Carmagnola. Viale Barbaroux 20, parcheggio gratuito.",
+  },
+  {
+    q: "Come prenoto da Alba?",
+    a: "Scrivici su WhatsApp con il giorno preferito. Ti proponiamo gli slot disponibili e organizziamo insieme.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
+const points = [
+  {
+    kicker: "01 · Lash Lift vegano",
+    title: "Ciglia alzate e piegate verso l'alto — senza colla, senza extension.",
+    body: "Usiamo una formula vegana che piega la ciglia dalla radice verso l'alto. Il risultato è uno sguardo aperto e definito, completamente naturale. Dura 6-8 settimane e si abbina perfettamente alla tintarella delle Langhe.",
+  },
+  {
+    kicker: "02 · Brow lamination",
+    title: "Sopracciglia disciplinate, forma definita.",
+    body: "La laminazione sopracciglia raddrizza e fissa i peli nella direzione voluta: l'effetto è una sopracciglia più piena, strutturata e ordinata senza bisogno di disegnarla ogni mattina.",
+  },
+  {
+    kicker: "03 · Sguardo da subito",
+    title: "Il risultato si vede alzandosi dal lettino.",
+    body: "Non c'è periodo di attesa. Esci dallo studio con uno sguardo percepibilmente diverso: più aperto, più definito, più sveglio. Perfetto per chi tra una cena e una fiera ha poco margine per la routine mattutina.",
+  },
+  {
+    kicker: "04 · Cura post-trattamento",
+    title: "Tre regole semplici che fanno durare il risultato.",
+    body: "Niente acqua nelle prime 24 ore, niente prodotti oleosi intorno agli occhi, mascara waterproof da evitare. Ti spieghiamo tutto prima di uscire. Con queste accortezze il risultato si mantiene al massimo.",
+  },
+];
+
+const combos = [
+  {
+    href: "/servizi/manicure-semipermanente-carmagnola",
+    title: "Laminazione + manicure semipermanente",
+    body: "Sguardo definito e mani in ordine. I due trattamenti non si ostacolano: si abbinano in modo naturale.",
+  },
+  {
+    href: "/epilazione-laser-alba",
+    title: "Laminazione + laser viso",
+    body: "Sguardo laminato sopra, laser su baffetti o mento sotto: il viso cambia in modo visibile in una visita.",
+  },
+  {
+    href: "/servizi/pulizia-viso-carmagnola",
+    title: "Laminazione + pulizia viso",
+    body: "Sguardo e pelle lavorano insieme. Per chi vuole un upgrade viso completo in un'unica sosta.",
+  },
+];
+
+const nearbyAreas = [
+  { city: "Bra", href: "/laminazione-bra", desc: "~22 min da Carmagnola via SP7." },
+  { city: "Canale", href: "/laminazione-canale", desc: "Roero, ~35 min via A33." },
+  { city: "Tutte le località", href: "/localita", desc: "Panoramica Rebel per zona." },
+];
+---
+
+<BaseLayout meta={meta}>
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={webPage} />
+  <JsonLd data={articleSchema} />
+  <JsonLd data={serviceSchema} />
+  <JsonLd data={geoServiceSchema} />
+  <JsonLd data={faqSchema} />
+
+  <PageHero
+    kicker="Rebel Eye — da Alba a Carmagnola"
+    title="Laminazione ciglia e sopracciglia per chi viene da Alba: _sguardo definito_ per 6-8 settimane."
+    lead="Vivi ad Alba o nelle Langhe? Da Carmagnola sono trenta minuti via A33. La laminazione ciglia e sopracciglia da Rebel — Lash Lift vegano — dà uno sguardo aperto e naturale che dura sei-otto settimane. Nessuna extension, nessun mantenimento quotidiano: esci e sei a posto."
+    meta={["~33 km da Alba", "~30 min via A33", "Da 55 € a seduta"]}
+    ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
+    ctaSecondary={{ label: "Apri il percorso da Alba", href: "https://www.google.com/maps/dir/?api=1&origin=Alba&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
+  />
+
+  <!-- BRAND ASSET — occhio laminazione purple -->
+  <section class="section section--tight">
+    <div class="container">
+      <div class="editorial-image-frame editorial-image-frame--portrait">
+        <img
+          src="/img/brand/laminazione-occhio-purple.png"
+          alt="Risultato laminazione ciglia Rebel — sguardo aperto e definito con Lash Lift vegano"
+          width="900"
+          height="1100"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 1 — Il metodo -->
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Lash Lift vegano"
+        title="Perché chi vive ad Alba _viene a Carmagnola_ per la laminazione."
+        lead="Nelle Langhe la vita sociale è intensa — cene, fiere, weekend in vigna, vendemmia. Uno sguardo che si gestisce da solo, senza mascara e senza ritocchi, è un risparmio di tempo quotidiano concreto."
+      />
+      <div class="card-grid card-grid--2">
+        {points.map((p, i) => (
+          <FeatureCard
+            kicker={p.kicker}
+            title={p.title}
+            body={p.body}
+            variant={i === 0 ? "feature" : "default"}
+            index={i + 1}
+          />
+        ))}
+      </div>
+      <div class="cluster" style="margin-top:2rem;">
+        <a class="btn btn--primary" href="/contatti">Prenota su WhatsApp</a>
+        <a class="btn btn--secondary" href="/servizi/laminazione-ciglia-sopracciglia-carmagnola">Scheda completa laminazione</a>
+        <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND ASSET — procedura laminazione -->
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <div class="split-visual">
+        <div class="split-visual__text">
+          <SectionHead
+            kicker="Prima e dopo"
+            title="Il risultato si vede _alzandosi dal lettino_."
+            lead="Non c'è periodo di attesa né swelling da aspettare. Sguardo più aperto, ciglia definite, sopracciglia strutturate: tutto visibile dalla prima seduta."
+          />
+          <p class="body-p">
+            Utilizziamo una formula <strong>Lash Lift vegana</strong> che piega le ciglia
+            dalla radice verso l'alto — senza colla, senza extension, senza manutenzione
+            quotidiana. Le sopracciglia vengono disciplinate nella forma che si vuole
+            ottenere e fissate per settimane.
+          </p>
+          <p class="body-p">
+            Nelle prime 24 ore evitiamo acqua e prodotti oleosi intorno agli occhi: è
+            l'unica cura richiesta. Poi si vive normalmente, anche nelle Langhe.
+          </p>
+        </div>
+        <div class="split-visual__image">
+          <img
+            src="/img/brand/laminazione-procedura.png"
+            alt="Procedura laminazione ciglia in cabina Rebel — applicazione professionale con guanti"
+            width="900"
+            height="1100"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND ASSET — prima/dopo -->
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Prima / Dopo"
+        title="La differenza che _parla da sola_."
+        lead="Lo stesso viso, lo stesso sguardo — prima e dopo la laminazione ciglia e sopracciglia."
+      />
+      <div class="editorial-image-frame">
+        <img
+          src="/img/brand/laminazione-prima-dopo.png"
+          alt="Prima e dopo laminazione ciglia e sopracciglia Rebel — confronto sguardo naturale vs definito"
+          width="1200"
+          height="800"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE — Come arrivare -->
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <SectionHead kicker="Come arrivare" title="Da Alba a Rebel: trenta minuti _tra Langhe e pianura_." />
+      <div class="directions-grid">
+        <div>
+          <p class="body-p">
+            Da Alba sono circa 33 chilometri via <strong>A33 direzione Torino</strong>,
+            uscita Marene, poi <strong>SP661 fino a Carmagnola</strong>. In trenta minuti
+            sei in studio.
+          </p>
+          <p class="body-p">
+            Lo studio è in <strong>Viale Barbaroux 20</strong>, nel centro di Carmagnola.
+            Parcheggio gratuito a meno di un minuto a piedi.
+          </p>
+          <div class="cluster" style="margin-top:1.4rem;">
+            <a class="btn btn--secondary btn--sm" href="https://www.google.com/maps/dir/?api=1&origin=Alba&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" target="_blank" rel="noreferrer">
+              Apri il percorso da Alba in Maps
+            </a>
+            <a class="btn btn--secondary btn--sm" href="/contatti">Contatti e mappa</a>
+          </div>
+        </div>
+        <div class="map-frame">
+          <iframe
+            src="https://www.google.com/maps?f=d&source=s_d&saddr=Alba&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Percorso da Alba a Rebel Carmagnola"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE — Abbinamenti -->
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Una sola sosta"
+        title="Abbina la laminazione: _si incastra_ con tutto."
+        lead="Manicure, laser corpo, pulizia viso: la laminazione non crea conflitti con nessun altro trattamento. Si organizza facilmente in un'unica visita."
+      />
+      <div class="card-grid card-grid--3" style="margin-top:2rem;">
+        {combos.map((c) => (<FeatureCard title={c.title} body={c.body} href={c.href} variant="quiet" />))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--scene-ivory">
+    <div class="container container--narrow">
+      <SectionHead kicker="Domande frequenti" title="Da Alba e dalle _Langhe_: le risposte." />
+      <FaqAccordion items={faqs} kicker="FAQ Laminazione Alba" />
+    </div>
+  </section>
+
+  <!-- Panoramica -->
+  <section class="section">
+    <div class="container">
+      <InlineCta
+        kicker="Vuoi un piano più ampio?"
+        title="La laminazione non è l'unico motivo per venire a Carmagnola _dalle Langhe_."
+        lead="Se ti interessa anche il laser, la manicure, la pulizia viso o i protocolli, la pagina panoramica per chi viene da Alba li raccoglie tutti in modo ordinato."
+        primaryHref="/localita/alba"
+        primaryLabel="Pagina panoramica Rebel per Alba"
+        secondaryHref="/epilazione-laser-alba"
+        secondaryLabel="Laser da Alba"
+      />
+    </div>
+  </section>
+
+  <!-- Comuni vicini -->
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <SectionHead kicker="Vicino ad Alba" title="Comuni vicini: _pagine dedicate_." />
+      <div class="card-grid card-grid--3">
+        {nearbyAreas.map((a, i) => (<FeatureCard kicker="Zona vicina" title={a.city} body={a.desc} href={a.href} variant="quiet" index={i + 1} />))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section">
+    <div class="container">
+      <InlineCta
+        kicker="Prenota"
+        title="Sguardo definito per _sei-otto settimane_. Prenota in 2 minuti."
+        lead="Scrivici su WhatsApp con il giorno preferito. Ti rispondiamo con gli slot disponibili."
+        primaryLabel="Prenota su WhatsApp"
+        primaryHref={siteConfig.social.whatsapp}
+        secondaryLabel="Scheda laminazione completa"
+        secondaryHref="/servizi/laminazione-ciglia-sopracciglia-carmagnola"
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .editorial-image-frame {
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    max-height: 520px;
+  }
+  .editorial-image-frame--portrait {
+    max-height: 680px;
+    max-width: 480px;
+    margin-inline: auto;
+  }
+  .editorial-image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .section--tight { padding-block: 1.5rem; }
+  .split-visual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  .split-visual__image {
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    max-height: 600px;
+  }
+  .split-visual__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  @media (max-width: 760px) {
+    .split-visual { grid-template-columns: 1fr; }
+    .split-visual__image { order: -1; }
+  }
+  .directions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1.6rem;
+    align-items: start;
+  }
+  @media (max-width: 760px) { .directions-grid { grid-template-columns: 1fr; } }
+  .map-frame {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--r-md);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: rgba(7, 5, 14, 0.5);
+  }
+  .map-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .body-p { font-size: var(--t-body); line-height: var(--lh-body); color: var(--text); margin: 0 0 0.9rem; max-width: 70ch; }
+  .cluster { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+</style>

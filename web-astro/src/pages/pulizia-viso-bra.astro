@@ -1,0 +1,436 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHead from "@/components/SectionHead.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import FaqAccordion from "@/components/FaqAccordion.astro";
+import InlineCta from "@/components/InlineCta.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import {
+  buildBreadcrumbSchema,
+  buildServiceSchema,
+  buildWebPageSchema,
+  buildArticleSchema,
+  createPageMeta,
+} from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
+
+const meta = createPageMeta({
+  title: "Pulizia viso per chi viene da Bra — Rebel (Carmagnola, ~22 min)",
+  description:
+    "Vivi a Bra? Da Rebel a Carmagnola sono venti minuti scarsi. Pulizia viso fatta con metodo: pelle più luminosa, grana più fine, comfort ritrovato. Prenotazione su WhatsApp.",
+  path: "/pulizia-viso-bra",
+  image: "https://www.rebelepigenetica.it/img/generated/pulizia-viso-rebel-editorial.png",
+  openGraphType: "article",
+  keywords: [
+    "pulizia viso Bra",
+    "pulizia del viso Bra",
+    "estetista viso Bra",
+    "trattamento viso Bra",
+    "centro estetico viso Bra",
+    "pulizia viso vicino Bra",
+    "cura viso Bra CN",
+    "trattamento pelle Bra",
+    "pulizia viso profonda Bra",
+    "estetica viso Bra Cuneo",
+  ],
+});
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Pulizia viso Carmagnola", path: "/servizi/pulizia-viso-carmagnola" },
+  { name: "Bra", path: "/pulizia-viso-bra" },
+]);
+
+const webPage = buildWebPageSchema({
+  name: "Pulizia viso per chi viene da Bra",
+  description: meta.description,
+  path: "/pulizia-viso-bra",
+});
+
+const articleSchema = buildArticleSchema({
+  headline: "Pulizia viso per chi viene da Bra — Rebel (Carmagnola, ~22 min)",
+  description: meta.description,
+  path: "/pulizia-viso-bra",
+  keywords: ["pulizia viso Bra", "trattamento viso Bra", "estetista viso Bra CN"],
+  section: "Trattamenti viso",
+  image: "https://www.rebelepigenetica.it/img/generated/pulizia-viso-rebel-editorial.png",
+});
+
+const serviceSchema = buildServiceSchema(
+  "Pulizia viso per chi viene da Bra",
+  "Pulizia viso professionale per clienti di Bra e zona: detersione, esfoliazione calibrata, pulizia mirata e chiusura lenitiva. Prodotti Eberlin e Marbellas.",
+  "/pulizia-viso-bra",
+  {
+    priceFrom: 49,
+    keywords: ["pulizia viso Bra", "trattamento viso Bra CN", "estetista viso Bra"],
+  },
+);
+
+const geoServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${siteConfig.siteUrl}/pulizia-viso-bra#service-geo`,
+  name: "Pulizia viso per chi viene da Bra",
+  serviceType: "Facial cleansing",
+  provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Bra",
+      containedInPlace: { "@type": "AdministrativeArea", name: "Provincia di Cuneo" },
+    },
+    {
+      "@type": "GeoCircle",
+      geoMidpoint: { "@type": "GeoCoordinates", latitude: 44.6968, longitude: 7.8558 },
+      geoRadius: "6000",
+    },
+  ],
+  offers: {
+    "@type": "Offer",
+    priceCurrency: "EUR",
+    price: "49.00",
+    url: `${siteConfig.siteUrl}/contatti`,
+    availability: "https://schema.org/InStock",
+  },
+};
+
+const faqs = [
+  {
+    q: "Quanto ci vuole da Bra a Rebel?",
+    a: "Venti minuti scarsi via SP7 fino a Carmagnola. Sono circa 20 km. Lo studio è in Viale Barbaroux 20, nel centro, con parcheggio gratuito a meno di un minuto a piedi.",
+  },
+  {
+    q: "È una pulizia viso delicata o aggressiva?",
+    a: "Delicata e precisa. Ogni passaggio ha una logica: osserviamo prima, poi scegliamo intensità di esfoliazione, tipo di pulizia e prodotti in base a come si presenta la pelle quel giorno. Non esiste una pulizia viso uguale per tutte.",
+  },
+  {
+    q: "Ho la pelle secca e sensibile. Va bene comunque?",
+    a: "Sì, adattiamo il protocollo. Per pelle secca o sensibile usiamo esfoliazione più lieve, evitiamo passaggi inutilmente aggressivi e curiamo la fase lenitiva finale. Il risultato è comunque percepibile: comfort, luminosità e grana più fine.",
+  },
+  {
+    q: "Ogni quanto dovrei farla?",
+    a: "Spesso tra 4 e 6 settimane. Dopo la prima seduta vediamo insieme come risponde la pelle e ti proponiamo un ritmo realistico — non un pacchetto generico.",
+  },
+  {
+    q: "Posso venire a Bra e abbinare più trattamenti?",
+    a: "Certo. La combinazione più comoda è pulizia viso + manicure semipermanente o + laminazione ciglia: nessun conflitto tra i trattamenti, una visita sola, più cose fatte bene.",
+  },
+  {
+    q: "Come prenoto da Bra?",
+    a: "Scrivici su WhatsApp dicendoci giorno e orario in cui ti è comodo. Ti risponderemo con gli slot disponibili. Il martedì, giovedì e sabato mattina di solito hanno buona disponibilità.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
+const points = [
+  {
+    kicker: "01 · Venti minuti, nessun compromesso",
+    title: "Da Bra a Rebel: distanza minima, qualità senza scuse.",
+    body: "Carmagnola è vicina: venti minuti via SP7 senza autostrada. Abbastanza per scegliere un posto che lavori sul serio, non il più comodo in assoluto.",
+  },
+  {
+    kicker: "02 · Lettura della pelle",
+    title: "Si parte sempre dall'osservazione.",
+    body: "Come appare la pelle quel giorno — stagione, routine a casa, stress, idratazione — cambia come si lavora. Adattiamo ogni seduta alla pelle reale, non a uno schema fisso.",
+  },
+  {
+    kicker: "03 · Prodotti e metodo",
+    title: "Eberlin, Marbellas e una progressione chiara.",
+    body: "Linee professionali selezionate per qualità degli attivi. Ogni seduta lascia la pelle più luminosa, con grana più fine e una sensazione di comfort che si percepisce nei giorni successivi.",
+  },
+  {
+    kicker: "04 · Ritmo sostenibile",
+    title: "Un calendario che riesci a tenere.",
+    body: "Non vendiamo pacchetti da consumare in fretta. Ti proponiamo un ritmo di manutenzione realistico — ogni 4-6 settimane — che si incastra nella tua agenda senza stress.",
+  },
+];
+
+const combos = [
+  {
+    href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola",
+    title: "Pulizia viso + laminazione ciglia",
+    body: "Pelle fresca e sguardo definito. I due trattamenti non si ostacolano: si fanno nella stessa visita.",
+  },
+  {
+    href: "/servizi/manicure-semipermanente-carmagnola",
+    title: "Pulizia viso + manicure semipermanente",
+    body: "Viso e mani curati in un'unica uscita. Ottimizza il viaggio, ottimizza i risultati.",
+  },
+  {
+    href: "/protocolli/collagen-code",
+    title: "Pulizia viso + Collagen Code",
+    body: "Quando la pulizia apre la strada: il Collagen Code lavora su tono e luminosità strutturale del viso.",
+  },
+];
+
+const nearbyAreas = [
+  { city: "Alba", href: "/pulizia-viso-alba", desc: "Langhe, ~30 min via A33." },
+  { city: "Canale", href: "/pulizia-viso-canale", desc: "Roero, ~35 min via SP7." },
+  { city: "Tutte le località", href: "/localita", desc: "Panoramica Rebel per zona." },
+];
+---
+
+<BaseLayout meta={meta}>
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={webPage} />
+  <JsonLd data={articleSchema} />
+  <JsonLd data={serviceSchema} />
+  <JsonLd data={geoServiceSchema} />
+  <JsonLd data={faqSchema} />
+
+  <PageHero
+    kicker="Rebel Viso — da Bra a Carmagnola"
+    title="Pulizia viso per chi viene da Bra: _pelle diversa_ già dalla prima seduta."
+    lead="Da Bra a Rebel sono venti minuti via SP7. Abbastanza vicino da scegliere un posto che lavori con metodo. In Rebel la pulizia viso si costruisce per step — osservazione, esfoliazione calibrata, pulizia mirata e chiusura lenitiva — con prodotti professionali scelti per la tua pelle."
+    meta={["~20 km da Bra", "~22 min via SP7", "Da 49 € a seduta"]}
+    ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
+    ctaSecondary={{ label: "Apri il percorso da Bra in Maps", href: "https://www.google.com/maps/dir/?api=1&origin=Bra&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
+  />
+
+  <!-- IMMAGINE HERO EDITORIALE -->
+  <section class="section section--tight">
+    <div class="container">
+      <div class="editorial-image-frame">
+        <img
+          src="/img/generated/pulizia-viso-rebel-editorial.png"
+          alt="Pulizia viso professionale in cabina Rebel — trattamento delicato per pelle luminosa"
+          width="1200"
+          height="900"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 1 — Il metodo -->
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Il metodo Rebel"
+        title="Perché da Bra vale la pena _venire a Carmagnola_ per il viso."
+        lead="Venti minuti di strada per trovare un posto che ti ascolti davvero, legga la pelle sul serio e non ti venda un pacchetto standard. A Bra il senso pratico è di casa — e noi lavoriamo esattamente così."
+      />
+      <div class="card-grid card-grid--2">
+        {points.map((p, i) => (
+          <FeatureCard
+            kicker={p.kicker}
+            title={p.title}
+            body={p.body}
+            variant={i === 0 ? "feature" : "default"}
+            index={i + 1}
+          />
+        ))}
+      </div>
+      <div class="cluster" style="margin-top:2rem;">
+        <a class="btn btn--primary" href="/contatti">Prenota la prima seduta</a>
+        <a class="btn btn--secondary" href="/servizi/pulizia-viso-carmagnola">Scheda completa pulizia viso</a>
+        <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 2 — Come arrivare -->
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <SectionHead
+        kicker="Come arrivare"
+        title="Da Bra a Rebel: venti minuti _dritti in studio_."
+      />
+      <div class="directions-grid">
+        <div>
+          <p class="body-p">
+            Da Bra a Carmagnola sono circa 20 chilometri via <strong>SP7</strong>:
+            si esce da Bra direzione nord, si segue la provinciale fino a Carmagnola
+            senza bisogno di autostrada. In condizioni normali si arriva in 20-22 minuti.
+          </p>
+          <p class="body-p">
+            Lo studio è in <strong>Viale Barbaroux 20</strong>, nel centro di Carmagnola.
+            Parcheggio gratuito a meno di un minuto a piedi. Nessuna ZTL nelle vicinanze.
+          </p>
+          <div class="cluster" style="margin-top:1.4rem;">
+            <a
+              class="btn btn--secondary btn--sm"
+              href="https://www.google.com/maps/dir/?api=1&origin=Bra&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Apri il percorso da Bra in Maps
+            </a>
+            <a class="btn btn--secondary btn--sm" href="/contatti">Contatti e mappa</a>
+          </div>
+        </div>
+        <div class="map-frame">
+          <iframe
+            src="https://www.google.com/maps?f=d&source=s_d&saddr=Bra&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Percorso da Bra a Rebel Carmagnola"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 3 — Abbinamenti -->
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Una sola sosta"
+        title="Se vieni da Bra: _più cose fatte bene_ in una visita."
+        lead="La pulizia viso funziona benissimo da sola. Ma venti minuti di viaggio si recuperano facilmente ottimizzando la visita."
+      />
+      <div class="card-grid card-grid--3" style="margin-top:2rem;">
+        {combos.map((c) => (
+          <FeatureCard
+            title={c.title}
+            body={c.body}
+            href={c.href}
+            variant="quiet"
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 4 — Protocolli avanzati -->
+  <section class="section section--scene-ivory">
+    <div class="container container--narrow">
+      <SectionHead
+        kicker="Oltre la pulizia"
+        title="Quando la pelle chiede _un percorso più strutturato_."
+        lead="La pulizia viso è spesso il punto d'ingresso. Ma se la pelle ha bisogno di lavorare su tono, compattezza o luminosità strutturale, i protocolli epigenetici sono il passo naturale successivo."
+      />
+      <p class="body-p">
+        Lavoriamo con protocolli Eberlin come il <strong>Rebel Lift Protocol</strong>,
+        il <strong>Collagen Code</strong> e il <strong>Catalysis Ritual</strong>. Ogni percorso
+        è costruito con una progressione precisa — non sedute messe insieme a caso. Dopo la prima
+        pulizia viso valutiamo insieme cosa ha senso fare dopo.
+      </p>
+      <div class="cluster" style="margin-top:1.6rem;">
+        <a class="btn btn--primary" href="/protocolli-epigenetici">Tutti i protocolli</a>
+        <a class="btn btn--secondary" href="/servizi/pulizia-viso-carmagnola">Scheda pulizia viso</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 5 — FAQ -->
+  <section class="section">
+    <div class="container container--narrow">
+      <SectionHead
+        kicker="Domande frequenti"
+        title="Da Bra: le risposte _dirette_ che cerchi."
+      />
+      <FaqAccordion items={faqs} kicker="FAQ Pulizia Viso Bra" />
+    </div>
+  </section>
+
+  <!-- SEZIONE 6 — Pagina panoramica -->
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <InlineCta
+        kicker="Vuoi un piano più ampio?"
+        title="La pulizia viso non è l'unico motivo per venire a Carmagnola _da Bra_."
+        lead="Se ti interessa anche il laser, la manicure semipermanente, i protocolli corpo o la laminazione ciglia, la pagina panoramica per chi viene da Bra li raccoglie tutti."
+        primaryHref="/localita/bra"
+        primaryLabel="Pagina panoramica Rebel per Bra"
+        secondaryHref="/protocolli-epigenetici"
+        secondaryLabel="Tutti i protocolli epigenetici"
+      />
+    </div>
+  </section>
+
+  <!-- SEZIONE 7 — Comuni vicini -->
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Vicino a Bra"
+        title="Comuni vicini: _pagine dedicate_ per la pulizia viso."
+      />
+      <div class="card-grid card-grid--3">
+        {nearbyAreas.map((a, i) => (
+          <FeatureCard
+            kicker="Zona vicina"
+            title={a.city}
+            body={a.desc}
+            href={a.href}
+            variant="quiet"
+            index={i + 1}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <InlineCta
+        kicker="Prima visita gratuita"
+        title="Prenota la _pulizia viso_ in 15 minuti."
+        lead="Ti ascoltiamo, leggiamo la pelle, facciamo la seduta. Poi, se ha senso, costruiamo un ritmo insieme. Nessun obbligo di pacchetti, nessun impegno anticipato."
+        primaryLabel="Prenota su WhatsApp"
+        primaryHref={siteConfig.social.whatsapp}
+        secondaryLabel="Scheda pulizia viso completa"
+        secondaryHref="/servizi/pulizia-viso-carmagnola"
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .editorial-image-frame {
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    max-height: 520px;
+  }
+  .editorial-image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .section--tight { padding-block: 1.5rem; }
+  .directions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1.6rem;
+    align-items: start;
+  }
+  @media (max-width: 760px) {
+    .directions-grid { grid-template-columns: 1fr; }
+  }
+  .map-frame {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--r-md);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: rgba(7, 5, 14, 0.5);
+  }
+  .map-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .body-p {
+    font-size: var(--t-body);
+    line-height: var(--lh-body);
+    color: var(--text);
+    margin: 0 0 0.9rem;
+    max-width: 70ch;
+  }
+  .cluster { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+</style>

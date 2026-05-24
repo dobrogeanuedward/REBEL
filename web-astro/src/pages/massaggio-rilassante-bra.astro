@@ -1,0 +1,179 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHead from "@/components/SectionHead.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import FaqAccordion from "@/components/FaqAccordion.astro";
+import InlineCta from "@/components/InlineCta.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import { buildBreadcrumbSchema, buildServiceSchema, buildWebPageSchema, buildArticleSchema, createPageMeta } from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
+
+const meta = createPageMeta({
+  title: "Massaggio rilassante per chi viene da Bra — Rebel (Carmagnola, ~22 min)",
+  description: "Vivi a Bra? Da Rebel a Carmagnola sono venti minuti via SP7. Massaggio rilassante 50 minuti: schiena, spalle e cervicale con ritmo graduale e tecnica manuale. Prenota su WhatsApp.",
+  path: "/massaggio-rilassante-bra",
+  image: "https://www.rebelepigenetica.it/img/generated/massaggio-rilassante-rebel-editorial.png",
+  openGraphType: "article",
+  keywords: [
+    "massaggio rilassante Bra", "massaggio Bra", "massaggio cervicale Bra", "massaggio schiena Bra",
+    "centro benessere Bra", "massaggio vicino Bra", "massaggio spalle Bra CN", "benessere Bra", "relax Bra Cuneo", "massaggio rilassante vicino Bra",
+  ],
+});
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Massaggio rilassante Carmagnola", path: "/servizi/massaggio-rilassante-carmagnola" },
+  { name: "Bra", path: "/massaggio-rilassante-bra" },
+]);
+const webPage = buildWebPageSchema({ name: "Massaggio rilassante per chi viene da Bra", description: meta.description, path: "/massaggio-rilassante-bra" });
+const articleSchema = buildArticleSchema({ headline: "Massaggio rilassante per chi viene da Bra — Rebel (Carmagnola, ~22 min)", description: meta.description, path: "/massaggio-rilassante-bra", keywords: ["massaggio rilassante Bra", "massaggio cervicale Bra CN"], section: "Massaggi", image: "https://www.rebelepigenetica.it/img/generated/massaggio-rilassante-rebel-editorial.png" });
+const serviceSchema = buildServiceSchema("Massaggio rilassante per chi viene da Bra", "Massaggio rilassante 50 minuti a Carmagnola per clienti di Bra: schiena, spalle e cervicale con ritmo graduale.", "/massaggio-rilassante-bra", { priceFrom: 55, keywords: ["massaggio rilassante Bra", "massaggio cervicale Bra CN"] });
+const geoServiceSchema = {
+  "@context": "https://schema.org", "@type": "Service",
+  "@id": `${siteConfig.siteUrl}/massaggio-rilassante-bra#service-geo`,
+  name: "Massaggio rilassante per chi viene da Bra", serviceType: "Relaxation massage",
+  provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
+  areaServed: [
+    { "@type": "City", name: "Bra", containedInPlace: { "@type": "AdministrativeArea", name: "Provincia di Cuneo" } },
+    { "@type": "GeoCircle", geoMidpoint: { "@type": "GeoCoordinates", latitude: 44.6968, longitude: 7.8558 }, geoRadius: "6000" },
+  ],
+  offers: { "@type": "Offer", priceCurrency: "EUR", price: "55.00", url: `${siteConfig.siteUrl}/contatti`, availability: "https://schema.org/InStock" },
+};
+
+const faqs = [
+  { q: "Quanto ci vuole da Bra a Rebel?", a: "Venti minuti scarsi via SP7 verso Carmagnola. Sono 20 km. Viale Barbaroux 20, parcheggio gratuito." },
+  { q: "Quanto dura la seduta?", a: "50 minuti. Si lavora su schiena, spalle e cervicale con ritmo progressivo — si parte piano e si approfondisce dove la tensione è maggiore." },
+  { q: "Ho sempre la schiena e le spalle contratte. Aiuta davvero?", a: "Sì. La tensione cronica su queste zone spesso non si risolve con lo stretching. Il massaggio rilassante lavora in profondità, progressivamente, sciogliendo le contrazioni in modo percepibile già dalla prima seduta." },
+  { q: "Ogni quanto conviene farlo?", a: "Per chi ha tensione cronica, ogni 3-4 settimane è un ritmo sensato. Per chi vuole semplicemente staccare, anche una volta al mese o ogni 6 settimane ha un effetto reale." },
+  { q: "Posso abbinarlo ad altri trattamenti nello stesso giorno?", a: "Sì, si abbina bene con manicure semipermanente e laminazione. Per il laser, ti consigliamo di fare il massaggio in un momento separato per comfort." },
+  { q: "Come prenoto da Bra?", a: "Scrivici su WhatsApp con il giorno preferito. Ti rispondiamo con gli slot disponibili." },
+];
+const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) };
+
+const points = [
+  { kicker: "01 · Venti minuti per un'ora di recupero", title: "Il viaggio più corto per il reset che cambia la settimana.", body: "Da Bra a Carmagnola sono venti minuti. Per cinquanta minuti di massaggio che scaricano una settimana di tensione, è il rapporto sforzo-beneficio più alto che esiste." },
+  { kicker: "02 · 50 minuti reali", title: "Niente ritagli, niente tagli di tempo.", body: "Cinquanta minuti interamente lavorati su schiena, spalle e cervicale. Si comincia gradualmente, si approfondisce dove serve, si chiude senza fretta." },
+  { kicker: "03 · Cervicale e trapezi", title: "Le zone più tese, lavorate con tecnica.", body: "Cervicale e trapezi concentrano la maggior parte dello stress accumulato. Lavoriamo su queste zone con una tecnica manuale precisa — non un generico sfioramento." },
+  { kicker: "04 · Un ritmo che si può tenere", title: "Una seduta al mese cambia la qualità del recupero.", body: "Non è necessario venire ogni settimana. Una seduta ogni 3-4 settimane — inserita come un appuntamento fisso — è sufficiente per tenere la tensione sotto controllo." },
+];
+
+const combos = [
+  { href: "/servizi/manicure-semipermanente-carmagnola", title: "Massaggio + manicure", body: "Relax per il corpo e mani curate in una sola visita da Bra." },
+  { href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola", title: "Massaggio + laminazione", body: "Corpo disteso e sguardo definito. Un upgrade completo in una sosta." },
+  { href: "/servizi/massaggio-linfodrenante-carmagnola", title: "Massaggio rilassante + linfodrenante", body: "Per chi vuole lavorare su tensione muscolare e leggerezza delle gambe." },
+];
+const nearbyAreas = [
+  { city: "Alba", href: "/massaggio-rilassante-alba", desc: "Langhe, ~30 min via A33." },
+  { city: "Canale", href: "/massaggio-rilassante-canale", desc: "Roero, ~35 min." },
+  { city: "Tutte le località", href: "/localita", desc: "Panoramica Rebel per zona." },
+];
+---
+
+<BaseLayout meta={meta}>
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={webPage} />
+  <JsonLd data={articleSchema} />
+  <JsonLd data={serviceSchema} />
+  <JsonLd data={geoServiceSchema} />
+  <JsonLd data={faqSchema} />
+
+  <PageHero
+    kicker="Rebel Massaggi — da Bra a Carmagnola"
+    title="Massaggio rilassante per chi viene da Bra: _venti minuti_ di viaggio, 50 di recupero."
+    lead="Da Bra a Rebel sono venti minuti via SP7. Il massaggio rilassante è cinquanta minuti dedicati a schiena, spalle e cervicale — le zone dove si accumula tutto. Ritmo graduale, tecnica manuale precisa, effetto percepibile dalla prima seduta."
+    meta={["~20 km da Bra", "~22 min via SP7", "Da 55 € a seduta"]}
+    ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
+    ctaSecondary={{ label: "Apri il percorso da Bra", href: "https://www.google.com/maps/dir/?api=1&origin=Bra&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
+  />
+
+  <section class="section section--tight">
+    <div class="container">
+      <div class="editorial-image-frame">
+        <img src="/img/generated/massaggio-rilassante-rebel-editorial.png" alt="Massaggio rilassante schiena e spalle — trattamento professionale benessere" width="1200" height="900" loading="eager" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHead kicker="Il metodo Rebel" title="Perché da Bra vale la pena _venire a Carmagnola_ per il massaggio." lead="A Bra si apprezza la qualità concreta. Cinquanta minuti di lavoro manuale fatto bene su cervicale e spalle è esattamente questo: un risultato reale, non una promessa da listino." />
+      <div class="card-grid card-grid--2">
+        {points.map((p, i) => (<FeatureCard kicker={p.kicker} title={p.title} body={p.body} variant={i === 0 ? "feature" : "default"} index={i + 1} />))}
+      </div>
+      <div class="cluster" style="margin-top:2rem;">
+        <a class="btn btn--primary" href="/contatti">Prenota su WhatsApp</a>
+        <a class="btn btn--secondary" href="/servizi/massaggio-rilassante-carmagnola">Scheda completa massaggio</a>
+        <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <SectionHead kicker="Come arrivare" title="Da Bra a Rebel: venti minuti _senza autostrada_." />
+      <div class="directions-grid">
+        <div>
+          <p class="body-p">Da Bra a Carmagnola sono circa 20 km via <strong>SP7</strong> direzione nord. In condizioni normali si arriva in 20-22 minuti, senza pedaggio.</p>
+          <p class="body-p">Lo studio è in <strong>Viale Barbaroux 20</strong>. Parcheggio gratuito a meno di un minuto.</p>
+          <div class="cluster" style="margin-top:1.4rem;">
+            <a class="btn btn--secondary btn--sm" href="https://www.google.com/maps/dir/?api=1&origin=Bra&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" target="_blank" rel="noreferrer">Apri il percorso da Bra in Maps</a>
+            <a class="btn btn--secondary btn--sm" href="/contatti">Contatti e mappa</a>
+          </div>
+        </div>
+        <div class="map-frame">
+          <iframe src="https://www.google.com/maps?f=d&source=s_d&saddr=Bra&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Percorso da Bra a Rebel Carmagnola"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHead kicker="Una sola sosta" title="Abbina il massaggio: _si organizza_ facilmente." lead="Si combina bene con manicure e laminazione. Un'unica visita, più cose fatte bene." />
+      <div class="card-grid card-grid--3" style="margin-top:2rem;">
+        {combos.map((c) => (<FeatureCard title={c.title} body={c.body} href={c.href} variant="quiet" />))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--scene-ivory">
+    <div class="container container--narrow">
+      <SectionHead kicker="Domande frequenti" title="Da Bra: le risposte _dirette_." />
+      <FaqAccordion items={faqs} kicker="FAQ Massaggio Rilassante Bra" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <InlineCta kicker="Vuoi un piano più ampio?" title="Il massaggio non è l'unico motivo per venire da _Bra_." lead="Laser, manicure, laminazione e protocolli: la pagina panoramica per Bra li raccoglie tutti." primaryHref="/localita/bra" primaryLabel="Pagina panoramica Rebel per Bra" secondaryHref="/epilazione-laser-bra" secondaryLabel="Laser da Bra" />
+    </div>
+  </section>
+
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <SectionHead kicker="Vicino a Bra" title="Comuni vicini: _pagine dedicate_." />
+      <div class="card-grid card-grid--3">
+        {nearbyAreas.map((a, i) => (<FeatureCard kicker="Zona vicina" title={a.city} body={a.desc} href={a.href} variant="quiet" index={i + 1} />))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <InlineCta kicker="Prenota" title="_50 minuti_ per smettere di pensare." lead="Scrivici su WhatsApp con il giorno preferito." primaryLabel="Prenota su WhatsApp" primaryHref={siteConfig.social.whatsapp} secondaryLabel="Scheda massaggio" secondaryHref="/servizi/massaggio-rilassante-carmagnola" />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .editorial-image-frame { border-radius: var(--r-lg); overflow: hidden; max-height: 520px; }
+  .editorial-image-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .section--tight { padding-block: 1.5rem; }
+  .directions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.6rem; align-items: start; }
+  @media (max-width: 760px) { .directions-grid { grid-template-columns: 1fr; } }
+  .map-frame { position: relative; aspect-ratio: 4 / 3; border-radius: var(--r-md); overflow: hidden; border: 1px solid var(--line); background: rgba(7, 5, 14, 0.5); }
+  .map-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .body-p { font-size: var(--t-body); line-height: var(--lh-body); color: var(--text); margin: 0 0 0.9rem; max-width: 70ch; }
+  .cluster { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+</style>

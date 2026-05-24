@@ -1,0 +1,336 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHead from "@/components/SectionHead.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import FaqAccordion from "@/components/FaqAccordion.astro";
+import InlineCta from "@/components/InlineCta.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import {
+  buildBreadcrumbSchema,
+  buildServiceSchema,
+  buildWebPageSchema,
+  buildArticleSchema,
+  createPageMeta,
+} from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
+
+const meta = createPageMeta({
+  title: "Laminazione ciglia e sopracciglia per chi viene da Bra — Rebel (Carmagnola, ~22 min)",
+  description:
+    "Vivi a Bra? Da Rebel a Carmagnola sono venti minuti via SP7. Laminazione ciglia Lash Lift vegano e brow lamination: sguardo definito per 6-8 settimane, senza mascara quotidiano.",
+  path: "/laminazione-bra",
+  image: "https://www.rebelepigenetica.it/img/brand/laminazione-occhio-purple.png",
+  openGraphType: "article",
+  keywords: [
+    "laminazione ciglia Bra",
+    "lash lift Bra",
+    "laminazione sopracciglia Bra",
+    "ciglia Bra CN",
+    "brow lamination Bra",
+    "lifting ciglia Bra",
+    "ciglia definite Bra",
+    "estetista ciglia sopracciglia Bra",
+    "laminazione ciglia vicino Bra",
+    "lash lift Bra Cuneo",
+  ],
+});
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Laminazione Carmagnola", path: "/servizi/laminazione-ciglia-sopracciglia-carmagnola" },
+  { name: "Bra", path: "/laminazione-bra" },
+]);
+
+const webPage = buildWebPageSchema({
+  name: "Laminazione ciglia e sopracciglia per chi viene da Bra",
+  description: meta.description,
+  path: "/laminazione-bra",
+});
+
+const articleSchema = buildArticleSchema({
+  headline: "Laminazione ciglia e sopracciglia per chi viene da Bra — Rebel (Carmagnola, ~22 min)",
+  description: meta.description,
+  path: "/laminazione-bra",
+  keywords: ["laminazione ciglia Bra", "lash lift Bra", "brow lamination Bra CN"],
+  section: "Trattamenti viso",
+  image: "https://www.rebelepigenetica.it/img/brand/laminazione-occhio-purple.png",
+});
+
+const serviceSchema = buildServiceSchema(
+  "Laminazione ciglia e sopracciglia per chi viene da Bra",
+  "Lash Lift vegano e brow lamination a Carmagnola per clienti di Bra: sguardo aperto e definito per 6-8 settimane.",
+  "/laminazione-bra",
+  {
+    priceFrom: 55,
+    keywords: ["lash lift Bra", "laminazione ciglia Bra CN", "brow lamination Bra"],
+  },
+);
+
+const geoServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${siteConfig.siteUrl}/laminazione-bra#service-geo`,
+  name: "Laminazione ciglia e sopracciglia per chi viene da Bra",
+  serviceType: "Lash lift and brow lamination",
+  provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Bra",
+      containedInPlace: { "@type": "AdministrativeArea", name: "Provincia di Cuneo" },
+    },
+    {
+      "@type": "GeoCircle",
+      geoMidpoint: { "@type": "GeoCoordinates", latitude: 44.6968, longitude: 7.8558 },
+      geoRadius: "6000",
+    },
+  ],
+  offers: {
+    "@type": "Offer",
+    priceCurrency: "EUR",
+    price: "55.00",
+    url: `${siteConfig.siteUrl}/contatti`,
+    availability: "https://schema.org/InStock",
+  },
+};
+
+const faqs = [
+  {
+    q: "Quanto ci vuole da Bra a Rebel?",
+    a: "Venti minuti scarsi via SP7. Sono 20 km. Viale Barbaroux 20, parcheggio gratuito a meno di un minuto.",
+  },
+  {
+    q: "Quanto dura la laminazione?",
+    a: "Di solito 6-8 settimane. Con le giuste accortezze nei primi giorni post-trattamento il risultato si mantiene al massimo per tutto il ciclo.",
+  },
+  {
+    q: "Cosa devo evitare dopo la laminazione?",
+    a: "Nelle prime 24 ore: niente acqua, vapore o prodotti oleosi intorno agli occhi. Dopo, si torna alla routine normale. Ti spieghiamo tutto prima di uscire dallo studio.",
+  },
+  {
+    q: "Posso usare il mascara dopo?",
+    a: "Sì, dopo le 24 ore. Ma la maggior parte delle clienti smette di usarlo: le ciglia laminate sono già sufficientemente definite.",
+  },
+  {
+    q: "Posso abbinarla ad altri trattamenti nello stesso giorno?",
+    a: "Sì. Si abbina perfettamente con manicure semipermanente, laser corpo e pulizia viso. Se hai il laser viso programmato, ne parliamo in consulenza.",
+  },
+  {
+    q: "Come prenoto da Bra?",
+    a: "Scrivici su WhatsApp con il giorno preferito e ti proponiamo gli slot disponibili.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
+const points = [
+  {
+    kicker: "01 · Lash Lift vegano",
+    title: "Ciglia piegate dalla radice — senza colla, senza extension.",
+    body: "Formula vegana, effetto naturale e definito. Le ciglia vengono alzate verso l'alto dalla radice: lo sguardo si apre, senza artificiosità. Dura 6-8 settimane senza manutenzione.",
+  },
+  {
+    kicker: "02 · Brow lamination",
+    title: "Sopracciglia strutturate, forma fissata per settimane.",
+    body: "I peli vengono pettinati e fissati nella direzione voluta. Il risultato è una sopracciglia più piena e definita, anche senza matita ogni mattina.",
+  },
+  {
+    kicker: "03 · Minimal routine",
+    title: "Svegliati e sei a posto.",
+    body: "A Bra la praticità conta. Uno sguardo che non richiede tocchi quotidiani è un risparmio reale di tempo — ogni giorno per sei-otto settimane.",
+  },
+  {
+    kicker: "04 · Cura post semplice",
+    title: "24 ore di attenzione, poi vita normale.",
+    body: "Solo 24 ore senza acqua e prodotti oleosi intorno agli occhi. Nient'altro. Ti spieghiamo tutto al momento della seduta.",
+  },
+];
+
+const combos = [
+  {
+    href: "/servizi/manicure-semipermanente-carmagnola",
+    title: "Laminazione + manicure",
+    body: "Sguardo e mani in ordine nella stessa visita. Nessun conflitto tra i due trattamenti.",
+  },
+  {
+    href: "/epilazione-laser-bra",
+    title: "Laminazione + laser",
+    body: "La laminazione si abbina al laser corpo senza problemi. Ottimizza i venti minuti di viaggio.",
+  },
+  {
+    href: "/pulizia-viso-bra",
+    title: "Laminazione + pulizia viso",
+    body: "Sguardo definito e pelle luminosa. Un upgrade viso completo in una sola sosta.",
+  },
+];
+
+const nearbyAreas = [
+  { city: "Alba", href: "/laminazione-alba", desc: "Langhe, ~30 min via A33." },
+  { city: "Canale", href: "/laminazione-canale", desc: "Roero, ~35 min." },
+  { city: "Tutte le località", href: "/localita", desc: "Panoramica Rebel per zona." },
+];
+---
+
+<BaseLayout meta={meta}>
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={webPage} />
+  <JsonLd data={articleSchema} />
+  <JsonLd data={serviceSchema} />
+  <JsonLd data={geoServiceSchema} />
+  <JsonLd data={faqSchema} />
+
+  <PageHero
+    kicker="Rebel Eye — da Bra a Carmagnola"
+    title="Laminazione ciglia e sopracciglia per chi viene da Bra: _venti minuti_, sguardo diverso per settimane."
+    lead="Da Bra a Rebel sono venti minuti via SP7. La laminazione ciglia Lash Lift vegano e la brow lamination danno uno sguardo aperto e definito che dura sei-otto settimane — senza mascara, senza ritocchi quotidiani, senza pensarci più."
+    meta={["~20 km da Bra", "~22 min via SP7", "Da 55 € a seduta"]}
+    ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
+    ctaSecondary={{ label: "Apri il percorso da Bra", href: "https://www.google.com/maps/dir/?api=1&origin=Bra&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
+  />
+
+  <section class="section section--tight">
+    <div class="container">
+      <div class="editorial-image-frame editorial-image-frame--portrait">
+        <img
+          src="/img/brand/laminazione-occhio-purple.png"
+          alt="Risultato laminazione ciglia Rebel — sguardo definito con Lash Lift vegano"
+          width="900"
+          height="1100"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Il metodo Rebel"
+        title="Perché da Bra vale la pena _venire a Carmagnola_ per la laminazione."
+        lead="A Bra si apprezza la qualità concreta. Un trattamento che dura settimane senza chiederti nulla ogni mattina è esattamente questo."
+      />
+      <div class="card-grid card-grid--2">
+        {points.map((p, i) => (
+          <FeatureCard kicker={p.kicker} title={p.title} body={p.body} variant={i === 0 ? "feature" : "default"} index={i + 1} />
+        ))}
+      </div>
+      <div class="cluster" style="margin-top:2rem;">
+        <a class="btn btn--primary" href="/contatti">Prenota su WhatsApp</a>
+        <a class="btn btn--secondary" href="/servizi/laminazione-ciglia-sopracciglia-carmagnola">Scheda completa laminazione</a>
+        <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <div class="split-visual">
+        <div class="split-visual__text">
+          <SectionHead kicker="Prima e dopo" title="La differenza che _parla da sola_." lead="Stesse ciglia, stesso viso — prima e dopo la laminazione." />
+          <p class="body-p">Il Lash Lift vegano piega le ciglia dalla radice: non aggiunge nulla di artificioso, esalta quello che hai già. Le sopracciglia vengono disciplinate e fissate nella forma che funziona meglio per il tuo viso.</p>
+        </div>
+        <div class="split-visual__image">
+          <img src="/img/brand/laminazione-prima-dopo.png" alt="Prima e dopo laminazione ciglia Rebel — risultato naturale e definito" width="1200" height="800" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <SectionHead kicker="Come arrivare" title="Da Bra a Rebel: venti minuti _senza autostrada_." />
+      <div class="directions-grid">
+        <div>
+          <p class="body-p">Da Bra a Carmagnola sono circa 20 km via <strong>SP7</strong>: direzione nord fino a Carmagnola. In condizioni normali si arriva in 20-22 minuti, senza pedaggio.</p>
+          <p class="body-p">Lo studio è in <strong>Viale Barbaroux 20</strong>. Parcheggio gratuito a meno di un minuto a piedi.</p>
+          <div class="cluster" style="margin-top:1.4rem;">
+            <a class="btn btn--secondary btn--sm" href="https://www.google.com/maps/dir/?api=1&origin=Bra&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" target="_blank" rel="noreferrer">Apri il percorso da Bra in Maps</a>
+            <a class="btn btn--secondary btn--sm" href="/contatti">Contatti e mappa</a>
+          </div>
+        </div>
+        <div class="map-frame">
+          <iframe src="https://www.google.com/maps?f=d&source=s_d&saddr=Bra&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Percorso da Bra a Rebel Carmagnola"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHead kicker="Una sola sosta" title="Abbina la laminazione: _non blocca nulla_." lead="Si combina con manicure, laser e pulizia viso senza conflitti." />
+      <div class="card-grid card-grid--3" style="margin-top:2rem;">
+        {combos.map((c) => (<FeatureCard title={c.title} body={c.body} href={c.href} variant="quiet" />))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--scene-ivory">
+    <div class="container container--narrow">
+      <SectionHead kicker="Domande frequenti" title="Da Bra: le risposte _dirette_." />
+      <FaqAccordion items={faqs} kicker="FAQ Laminazione Bra" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <InlineCta
+        kicker="Vuoi un piano più ampio?"
+        title="La laminazione non è l'unico motivo per venire da _Bra_."
+        lead="Laser, manicure, pulizia viso e protocolli: la pagina panoramica per Bra li raccoglie tutti."
+        primaryHref="/localita/bra"
+        primaryLabel="Pagina panoramica Rebel per Bra"
+        secondaryHref="/epilazione-laser-bra"
+        secondaryLabel="Laser da Bra"
+      />
+    </div>
+  </section>
+
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <SectionHead kicker="Vicino a Bra" title="Comuni vicini: _pagine dedicate_." />
+      <div class="card-grid card-grid--3">
+        {nearbyAreas.map((a, i) => (<FeatureCard kicker="Zona vicina" title={a.city} body={a.desc} href={a.href} variant="quiet" index={i + 1} />))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <InlineCta
+        kicker="Prenota"
+        title="Sguardo definito per _sei-otto settimane_."
+        lead="Scrivici su WhatsApp con il giorno preferito. Ti rispondiamo in poco tempo."
+        primaryLabel="Prenota su WhatsApp"
+        primaryHref={siteConfig.social.whatsapp}
+        secondaryLabel="Scheda laminazione completa"
+        secondaryHref="/servizi/laminazione-ciglia-sopracciglia-carmagnola"
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .editorial-image-frame { border-radius: var(--r-lg); overflow: hidden; max-height: 520px; }
+  .editorial-image-frame--portrait { max-height: 680px; max-width: 480px; margin-inline: auto; }
+  .editorial-image-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .section--tight { padding-block: 1.5rem; }
+  .split-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-top: 1rem; }
+  .split-visual__image { border-radius: var(--r-lg); overflow: hidden; max-height: 500px; }
+  .split-visual__image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  @media (max-width: 760px) { .split-visual { grid-template-columns: 1fr; } .split-visual__image { order: -1; } }
+  .directions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.6rem; align-items: start; }
+  @media (max-width: 760px) { .directions-grid { grid-template-columns: 1fr; } }
+  .map-frame { position: relative; aspect-ratio: 4 / 3; border-radius: var(--r-md); overflow: hidden; border: 1px solid var(--line); background: rgba(7, 5, 14, 0.5); }
+  .map-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .body-p { font-size: var(--t-body); line-height: var(--lh-body); color: var(--text); margin: 0 0 0.9rem; max-width: 70ch; }
+  .cluster { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+</style>

@@ -3035,9 +3035,29 @@ export const localAreaPages: LocalAreaPage[] = [
       ],
       links: [
         {
-          label: "Pagina dedicata: Epilazione laser per chi viene da Canale",
+          label: "Epilazione laser per chi viene da Canale",
           href: "/epilazione-laser-canale",
-          description: "La nostra money page laser con tutto quello che serve sapere prima della valutazione.",
+          description: "Money page laser con tutto quello che serve sapere prima della valutazione.",
+        },
+        {
+          label: "Pulizia viso per chi viene da Canale",
+          href: "/pulizia-viso-canale",
+          description: "Pelle curata sul serio a 35 minuti dal Roero.",
+        },
+        {
+          label: "Manicure semipermanente per chi viene da Canale",
+          href: "/manicure-semipermanente-canale",
+          description: "Gel professionale e durata 3-4 settimane — raro trovarlo in paese.",
+        },
+        {
+          label: "Laminazione ciglia e sopracciglia per chi viene da Canale",
+          href: "/laminazione-canale",
+          description: "Lash Lift vegano: sguardo definito per settimane, anche con vita all'aperto.",
+        },
+        {
+          label: "Massaggio rilassante per chi viene da Canale",
+          href: "/massaggio-rilassante-canale",
+          description: "50 minuti per schiena, spalle e cervicale — ideale per chi lavora fisicamente.",
         },
         {
           label: "Contatti e mappa",
@@ -3182,9 +3202,29 @@ export const localAreaPages: LocalAreaPage[] = [
       ],
       links: [
         {
-          label: "Pagina dedicata: Epilazione laser per chi viene da Alba",
+          label: "Epilazione laser per chi viene da Alba",
           href: "/epilazione-laser-alba",
-          description: "La nostra money page laser, con percorso, calendario e FAQ specifici per chi parte dalle Langhe.",
+          description: "Percorso laser, calendario e FAQ specifici per chi parte dalle Langhe.",
+        },
+        {
+          label: "Pulizia viso per chi viene da Alba",
+          href: "/pulizia-viso-alba",
+          description: "Pelle luminosa e grana più fine: come impostiamo la pulizia viso per chi viene da fuori.",
+        },
+        {
+          label: "Manicure semipermanente per chi viene da Alba",
+          href: "/manicure-semipermanente-alba",
+          description: "Mani in ordine per 3-4 settimane: gel professionale e lamina preparata bene.",
+        },
+        {
+          label: "Laminazione ciglia e sopracciglia per chi viene da Alba",
+          href: "/laminazione-alba",
+          description: "Lash Lift vegano e brow lamination: sguardo definito per 6-8 settimane.",
+        },
+        {
+          label: "Massaggio rilassante per chi viene da Alba",
+          href: "/massaggio-rilassante-alba",
+          description: "50 minuti per schiena, spalle e cervicale — ritmo graduale, effetto percepibile.",
         },
         {
           label: "Apri il percorso su Google Maps",
@@ -3326,9 +3366,29 @@ export const localAreaPages: LocalAreaPage[] = [
       ],
       links: [
         {
-          label: "Pagina dedicata: Epilazione laser per chi viene da Bra",
+          label: "Epilazione laser per chi viene da Bra",
           href: "/epilazione-laser-bra",
-          description: "La nostra money page laser, con calendario, prezzi e FAQ pensati per chi parte da Bra.",
+          description: "Calendario, prezzi e FAQ pensati per chi parte da Bra.",
+        },
+        {
+          label: "Pulizia viso per chi viene da Bra",
+          href: "/pulizia-viso-bra",
+          description: "Pelle più luminosa e uniforme: come impostiamo la seduta per chi viene da Bra.",
+        },
+        {
+          label: "Manicure semipermanente per chi viene da Bra",
+          href: "/manicure-semipermanente-bra",
+          description: "Venti minuti di viaggio, 3-4 settimane di mani in ordine.",
+        },
+        {
+          label: "Laminazione ciglia e sopracciglia per chi viene da Bra",
+          href: "/laminazione-bra",
+          description: "Lash Lift vegano e brow lamination: sguardo definito per settimane.",
+        },
+        {
+          label: "Massaggio rilassante per chi viene da Bra",
+          href: "/massaggio-rilassante-bra",
+          description: "50 minuti per schiena, spalle e cervicale — da Bra sono venti minuti.",
         },
         {
           label: "Apri il percorso su Google Maps",

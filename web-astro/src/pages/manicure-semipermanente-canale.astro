@@ -1,0 +1,331 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHead from "@/components/SectionHead.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import FaqAccordion from "@/components/FaqAccordion.astro";
+import InlineCta from "@/components/InlineCta.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import {
+  buildBreadcrumbSchema,
+  buildServiceSchema,
+  buildWebPageSchema,
+  buildArticleSchema,
+  createPageMeta,
+} from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
+
+const meta = createPageMeta({
+  title: "Manicure semipermanente per chi viene da Canale e dal Roero — Rebel (Carmagnola, ~35 min)",
+  description:
+    "Vivi a Canale o nel Roero? L'offerta nail in zona è limitata. Da Rebel a Carmagnola trovi manicure semipermanente professionale con gel di qualità che dura 3-4 settimane. Prenota su WhatsApp.",
+  path: "/manicure-semipermanente-canale",
+  image: "https://www.rebelepigenetica.it/img/generated/manicure-semipermanente-rebel-editorial.png",
+  openGraphType: "article",
+  keywords: [
+    "manicure semipermanente Canale",
+    "smalto semipermanente Canale",
+    "nail Canale",
+    "manicure Canale CN",
+    "estetista unghie Canale",
+    "manicure semipermanente Roero",
+    "smalto gel Roero",
+    "unghie semipermanente vicino Canale",
+    "centro estetico manicure Roero",
+    "nail care Canale d'Alba",
+  ],
+});
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Manicure semipermanente Carmagnola", path: "/servizi/manicure-semipermanente-carmagnola" },
+  { name: "Canale e Roero", path: "/manicure-semipermanente-canale" },
+]);
+
+const webPage = buildWebPageSchema({
+  name: "Manicure semipermanente per chi viene da Canale e dal Roero",
+  description: meta.description,
+  path: "/manicure-semipermanente-canale",
+});
+
+const articleSchema = buildArticleSchema({
+  headline: "Manicure semipermanente per chi viene da Canale e dal Roero — Rebel (Carmagnola, ~35 min)",
+  description: meta.description,
+  path: "/manicure-semipermanente-canale",
+  keywords: ["manicure semipermanente Canale", "smalto gel Roero", "nail Canale d'Alba CN"],
+  section: "Manicure",
+  image: "https://www.rebelepigenetica.it/img/generated/manicure-semipermanente-rebel-editorial.png",
+});
+
+const serviceSchema = buildServiceSchema(
+  "Manicure semipermanente per chi viene da Canale e dal Roero",
+  "Manicure semipermanente professionale per clienti di Canale d'Alba e del Roero: gel di qualità, lamina preparata, durata 3-4 settimane.",
+  "/manicure-semipermanente-canale",
+  {
+    priceFrom: 35,
+    keywords: ["manicure semipermanente Canale", "smalto gel Roero", "nail Canale CN"],
+  },
+);
+
+const geoServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${siteConfig.siteUrl}/manicure-semipermanente-canale#service-geo`,
+  name: "Manicure semipermanente per chi viene da Canale e dal Roero",
+  serviceType: "Nail care",
+  provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Canale",
+      containedInPlace: { "@type": "AdministrativeArea", name: "Provincia di Cuneo" },
+    },
+    {
+      "@type": "GeoCircle",
+      geoMidpoint: { "@type": "GeoCoordinates", latitude: 44.7864, longitude: 8.0281 },
+      geoRadius: "9000",
+    },
+  ],
+  offers: {
+    "@type": "Offer",
+    priceCurrency: "EUR",
+    price: "35.00",
+    url: `${siteConfig.siteUrl}/contatti`,
+    availability: "https://schema.org/InStock",
+  },
+};
+
+const faqs = [
+  {
+    q: "Quanto ci vuole da Canale a Rebel?",
+    a: "Circa 35 minuti via A33 uscita Marene, poi SP661 fino a Carmagnola. Sono 37 km. Viale Barbaroux 20, parcheggio gratuito a meno di un minuto a piedi.",
+  },
+  {
+    q: "A Canale non trovo centri estetici con nail professionali: è normale?",
+    a: "È un problema comune in molti comuni del Roero. Per una manicure semipermanente con gel professionale e una preparazione corretta della lamina, spesso vale la pena spostarsi. Carmagnola è a 35 minuti — abbastanza vicino da essere una scelta normale.",
+  },
+  {
+    q: "Quanto dura la semipermanente?",
+    a: "Di solito 3-4 settimane. La durata dipende da come si prepara la lamina, dal gel usato e dalle abitudini a casa. Ti diciamo anche cosa fare (e cosa evitare) per allungare il risultato.",
+  },
+  {
+    q: "Faccio attività all'aperto e le mani lavorano. Regge?",
+    a: "Con le giuste accortezze, sì. Il gel professionale è progettato per reggere un utilizzo normale. Ti spieghiamo cosa evitare nelle prime 24 ore per non compromettere l'adesione.",
+  },
+  {
+    q: "Posso abbinarla a qualcos'altro nello stesso giorno?",
+    a: "Sì. La manicure semipermanente si abbina senza problemi a laser, laminazione o pulizia viso. È il trattamento più flessibile da inserire in una visita.",
+  },
+  {
+    q: "Come prenoto da Canale?",
+    a: "Scrivici su WhatsApp con il giorno che ti è più comodo. Ti rispondiamo con gli slot disponibili e organizziamo tutto in pochi messaggi. Il mercoledì siamo aperti fino alle 19.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
+const points = [
+  {
+    kicker: "01 · Colmare il gap del Roero",
+    title: "Nel Roero l'offerta nail professionale è ridotta. Rebel è a 35 minuti.",
+    body: "Una manicure semipermanente fatta davvero bene — con gel di qualità, lamina preparata correttamente e rimozione sana — non si trova ovunque. Carmagnola è abbastanza vicina da essere una scelta normale, non un sacrificio.",
+  },
+  {
+    kicker: "02 · Lamina prima del colore",
+    title: "La base è tutto.",
+    body: "Cuticole curate, superficie uniforme, bordi puliti: una lamina preparata bene regge il gel molto più a lungo. Saltare questo passaggio è la causa principale di una manicure che cede in pochi giorni.",
+  },
+  {
+    kicker: "03 · Gel professionale",
+    title: "Prodotti che durano davvero.",
+    body: "Usiamo gel selezionati per adesione, flessibilità e resistenza all'usura. Il risultato si vede: bordi compatti, colore pieno, niente chip a metà settimana.",
+  },
+  {
+    kicker: "04 · Rimozione corretta, lamina sana",
+    title: "Ogni ciclo parte da una base integra.",
+    body: "Non si strappa, non si lima aggressivamente. Il gel si ammorbidisce e si rimuove con cura. La lamina rimane sana e il prossimo ciclo parte meglio.",
+  },
+];
+
+const combos = [
+  {
+    href: "/epilazione-laser-canale",
+    title: "Manicure + epilazione laser",
+    body: "La combinazione più comoda: laser e manicure non si ostacolano mai. Si fa tutto in una visita.",
+  },
+  {
+    href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola",
+    title: "Manicure + laminazione ciglia",
+    body: "Mani ordinate e sguardo definito in una sola uscita. Due risultati, una visita.",
+  },
+  {
+    href: "/pulizia-viso-canale",
+    title: "Manicure + pulizia viso",
+    body: "Per chi vuole ottimizzare i 35 minuti di viaggio: mani e viso curati nella stessa visita.",
+  },
+];
+
+const nearbyAreas = [
+  { city: "Alba", href: "/manicure-semipermanente-alba", desc: "Langhe, ~30 min via A33." },
+  { city: "Bra", href: "/manicure-semipermanente-bra", desc: "~22 min da Carmagnola." },
+  { city: "Tutte le località", href: "/localita", desc: "Panoramica Rebel per zona." },
+];
+---
+
+<BaseLayout meta={meta}>
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={webPage} />
+  <JsonLd data={articleSchema} />
+  <JsonLd data={serviceSchema} />
+  <JsonLd data={geoServiceSchema} />
+  <JsonLd data={faqSchema} />
+
+  <PageHero
+    kicker="Rebel Nails — da Canale a Carmagnola"
+    title="Manicure semipermanente per chi viene da Canale: _risultato professionale_ a 35 minuti."
+    lead="Vivi a Canale o nel Roero? L'offerta nail professionale in zona è limitata. Da Rebel a Carmagnola trovi gel di qualità, lamina preparata correttamente e un risultato che dura tre-quattro settimane senza chiederti nulla in più."
+    meta={["~37 km da Canale", "~35 min via A33", "Da 35 € a seduta"]}
+    ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
+    ctaSecondary={{ label: "Apri il percorso da Canale", href: "https://www.google.com/maps/dir/?api=1&origin=Canale+CN&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
+  />
+
+  <section class="section section--tight">
+    <div class="container">
+      <div class="editorial-image-frame">
+        <img
+          src="/img/generated/manicure-semipermanente-rebel-editorial.png"
+          alt="Manicure semipermanente con gel professionale — mani curate con smalto nude su lino chiaro"
+          width="1200"
+          height="900"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Il metodo Rebel"
+        title="Perché da Canale vale la pena _venire a Carmagnola_ per le unghie."
+        lead="Nel Roero i posti che fanno nail bene — con gel professionale e metodo — non sono comuni. Carmagnola è a 35 minuti: vicino abbastanza per scegliere qualità, non solo comodità."
+      />
+      <div class="card-grid card-grid--2">
+        {points.map((p, i) => (
+          <FeatureCard kicker={p.kicker} title={p.title} body={p.body} variant={i === 0 ? "feature" : "default"} index={i + 1} />
+        ))}
+      </div>
+      <div class="cluster" style="margin-top:2rem;">
+        <a class="btn btn--primary" href="/contatti">Prenota su WhatsApp</a>
+        <a class="btn btn--secondary" href="/servizi/manicure-semipermanente-carmagnola">Scheda completa manicure</a>
+        <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <SectionHead kicker="Come arrivare" title="Da Canale a Rebel: _35 minuti_ via A33." />
+      <div class="directions-grid">
+        <div>
+          <p class="body-p">
+            Da Canale a Carmagnola il percorso più rapido è via
+            <strong>A33 direzione Torino</strong>, uscita Marene, poi
+            <strong>SP661 fino a Carmagnola</strong>: 35-37 minuti in condizioni normali.
+          </p>
+          <p class="body-p">
+            Lo studio è in <strong>Viale Barbaroux 20</strong>, nel centro di Carmagnola.
+            Parcheggio gratuito a meno di un minuto a piedi.
+          </p>
+          <div class="cluster" style="margin-top:1.4rem;">
+            <a class="btn btn--secondary btn--sm" href="https://www.google.com/maps/dir/?api=1&origin=Canale+CN&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" target="_blank" rel="noreferrer">
+              Apri il percorso da Canale in Maps
+            </a>
+            <a class="btn btn--secondary btn--sm" href="/contatti">Contatti e mappa</a>
+          </div>
+        </div>
+        <div class="map-frame">
+          <iframe
+            src="https://www.google.com/maps?f=d&source=s_d&saddr=Canale+CN&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Percorso da Canale a Rebel Carmagnola"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHead kicker="Una sola sosta" title="Abbina la manicure: _non blocca nulla_." lead="La manicure semipermanente è il trattamento più flessibile. Si combina con laser, laminazione e pulizia viso senza conflitti." />
+      <div class="card-grid card-grid--3" style="margin-top:2rem;">
+        {combos.map((c) => (<FeatureCard title={c.title} body={c.body} href={c.href} variant="quiet" />))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--scene-ivory">
+    <div class="container container--narrow">
+      <SectionHead kicker="Domande frequenti" title="Da Canale e dal _Roero_: le risposte." />
+      <FaqAccordion items={faqs} kicker="FAQ Manicure Semipermanente Canale" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <InlineCta
+        kicker="Vuoi un piano più ampio?"
+        title="La manicure non è l'unico motivo per venire _dal Roero_."
+        lead="La pagina panoramica per Canale raccoglie laser, pulizia viso, laminazione e protocolli in modo ordinato."
+        primaryHref="/localita/canale"
+        primaryLabel="Pagina panoramica Rebel per Canale"
+        secondaryHref="/epilazione-laser-canale"
+        secondaryLabel="Laser da Canale"
+      />
+    </div>
+  </section>
+
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <SectionHead kicker="Vicino a Canale" title="Comuni vicini: _pagine dedicate_." />
+      <div class="card-grid card-grid--3">
+        {nearbyAreas.map((a, i) => (<FeatureCard kicker="Zona vicina" title={a.city} body={a.desc} href={a.href} variant="quiet" index={i + 1} />))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <InlineCta
+        kicker="Prenota"
+        title="Mani in ordine per _tre-quattro settimane_."
+        lead="Scrivici su WhatsApp con il giorno preferito. Organizziamo tutto in pochi messaggi."
+        primaryLabel="Prenota su WhatsApp"
+        primaryHref={siteConfig.social.whatsapp}
+        secondaryLabel="Scheda manicure completa"
+        secondaryHref="/servizi/manicure-semipermanente-carmagnola"
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .editorial-image-frame { border-radius: var(--r-lg); overflow: hidden; max-height: 520px; }
+  .editorial-image-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .section--tight { padding-block: 1.5rem; }
+  .directions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.6rem; align-items: start; }
+  @media (max-width: 760px) { .directions-grid { grid-template-columns: 1fr; } }
+  .map-frame { position: relative; aspect-ratio: 4 / 3; border-radius: var(--r-md); overflow: hidden; border: 1px solid var(--line); background: rgba(7, 5, 14, 0.5); }
+  .map-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .body-p { font-size: var(--t-body); line-height: var(--lh-body); color: var(--text); margin: 0 0 0.9rem; max-width: 70ch; }
+  .cluster { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+</style>
