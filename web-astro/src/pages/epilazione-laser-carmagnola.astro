@@ -286,8 +286,13 @@ const zoneShortcuts = [
     serviceLabel="Epilazione laser"
     kicker="Epilazione laser vicino a te"
     anchorPattern={(s, c) => `${s} per chi viene da ${c}`}
-    clusters={["asse-carmagnola", "torino-sud"]}
-    limit={10}
+    clusters={["asse-carmagnola", "torino-sud", "cuneo"]}
+    limit={14}
+    hrefOverrides={{
+      alba: "/epilazione-laser-alba",
+      bra: "/epilazione-laser-bra",
+      canale: "/epilazione-laser-canale",
+    }}
   />
 
   <section class="section">

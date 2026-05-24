@@ -189,6 +189,7 @@ const moneySlugs = new Set([
   "laminazione-ciglia-sopracciglia-carmagnola",
   "pedicure-carmagnola",
   "pulizia-viso-carmagnola",
+  "massaggio-rilassante-carmagnola",
   "epilazione-laser-viso-carmagnola",
   "epilazione-laser-corpo-carmagnola",
 ]);
@@ -198,6 +199,42 @@ const showNearMe = moneySlugs.has(service.slug);
 const nearMeLabel = baseServiceName
   .replace(/\s+a\s+Carmagnola$/i, "")
   .replace(/\s+ciglia\s+e\s+sopracciglia$/i, " ciglia/sopracciglia");
+
+// Dedicated service×city pages — href overrides so NearMeBlock links to the
+// money page instead of the generic /localita/{slug} for these 3 cities.
+const nearMeHrefOverridesMap: Record<string, Record<string, string>> = {
+  "pulizia-viso-carmagnola": {
+    alba: "/pulizia-viso-alba",
+    bra: "/pulizia-viso-bra",
+    canale: "/pulizia-viso-canale",
+  },
+  "manicure-semipermanente-carmagnola": {
+    alba: "/manicure-semipermanente-alba",
+    bra: "/manicure-semipermanente-bra",
+    canale: "/manicure-semipermanente-canale",
+  },
+  "laminazione-ciglia-sopracciglia-carmagnola": {
+    alba: "/laminazione-alba",
+    bra: "/laminazione-bra",
+    canale: "/laminazione-canale",
+  },
+  "massaggio-rilassante-carmagnola": {
+    alba: "/massaggio-rilassante-alba",
+    bra: "/massaggio-rilassante-bra",
+    canale: "/massaggio-rilassante-canale",
+  },
+  "epilazione-laser-viso-carmagnola": {
+    alba: "/epilazione-laser-alba",
+    bra: "/epilazione-laser-bra",
+    canale: "/epilazione-laser-canale",
+  },
+  "epilazione-laser-corpo-carmagnola": {
+    alba: "/epilazione-laser-alba",
+    bra: "/epilazione-laser-bra",
+    canale: "/epilazione-laser-canale",
+  },
+};
+const nearMeHrefOverrides = nearMeHrefOverridesMap[service.slug] ?? {};
 
 const tocItems = [
   { id: "benefici", label: "Benefici" },
@@ -422,8 +459,9 @@ const tocItems = [
       serviceLabel={nearMeLabel}
       kicker={`${nearMeLabel} vicino a te`}
       anchorPattern={(s, c) => `${s} a ${c}`}
-      clusters={["asse-carmagnola", "torino-sud"]}
-      limit={10}
+      clusters={["asse-carmagnola", "torino-sud", "cuneo"]}
+      limit={14}
+      hrefOverrides={nearMeHrefOverrides}
     />
   ) : null}
 </BaseLayout>

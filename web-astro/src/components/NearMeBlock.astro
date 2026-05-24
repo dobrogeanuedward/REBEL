@@ -24,6 +24,13 @@ interface Props {
   limit?: number;
   /** Filtra per cluster geografico (default: tutti). */
   clusters?: Array<"asse-carmagnola" | "torino-sud" | "cuneo">;
+  /**
+   * Sovrascrittura URL per città specifiche (slug → href).
+   * Permette di linkare a pagine servizio×città dedicate (es. /epilazione-laser-alba)
+   * invece del generico /localita/{slug}.
+   * Le città non presenti qui usano il fallback /localita/{slug}.
+   */
+  hrefOverrides?: Record<string, string>;
 }
 
 const {
@@ -32,6 +39,7 @@ const {
   anchorPattern = (s: string, c: string) => `${s} a ${c}`,
   limit = 8,
   clusters,
+  hrefOverrides = {},
 } = Astro.props as Props;
 
 const filtered = clusters
@@ -58,14 +66,18 @@ const cities = [...filtered]
       lead={`Lavoriamo regolarmente con persone che cercano "${serviceLabel.toLowerCase()} vicino a me" partendo dai comuni intorno a Carmagnola. Qui sotto le pagine dedicate, con indicazioni su come arrivare e tempi reali.`}
     />
     <ul class="near-me-list" role="list">
-      {cities.map((city) => (
-        <li class="near-me-item">
-          <a class="near-me-link" href={`/localita/${city.slug}`}>
-            <span class="near-me-link__service">{anchorPattern(serviceLabel, city.city)}</span>
-            <span class="near-me-link__hint">Pagina dedicata · {city.city}</span>
-          </a>
-        </li>
-      ))}
+      {cities.map((city) => {
+        const href = hrefOverrides[city.slug] ?? `/localita/${city.slug}`;
+        const isDedicated = !!hrefOverrides[city.slug];
+        return (
+          <li class="near-me-item">
+            <a class="near-me-link" href={href}>
+              <span class="near-me-link__service">{anchorPattern(serviceLabel, city.city)}</span>
+              <span class="near-me-link__hint">{isDedicated ? `Pagina dedicata · ${city.city}` : `Zona · ${city.city}`}</span>
+            </a>
+          </li>
+        );
+      })}
     </ul>
   </div>
 </section>

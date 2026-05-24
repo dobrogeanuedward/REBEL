@@ -254,8 +254,13 @@ const keyServices = keySlugs
     serviceLabel="Centro estetico"
     kicker="Centro estetico vicino a te"
     anchorPattern={(s, c) => `${s} per chi cerca da ${c}`}
-    clusters={["asse-carmagnola", "torino-sud"]}
-    limit={10}
+    clusters={["asse-carmagnola", "torino-sud", "cuneo"]}
+    limit={14}
+    hrefOverrides={{
+      alba: "/localita/alba",
+      bra: "/localita/bra",
+      canale: "/localita/canale",
+    }}
   />
 
   <section class="section">
