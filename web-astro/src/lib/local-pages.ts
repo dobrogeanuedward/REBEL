@@ -809,6 +809,41 @@ export const localAreaPages: LocalAreaPage[] = [
       ],
       links: [
         {
+          label: "Epilazione laser da Racconigi",
+          href: "/epilazione-laser-racconigi",
+          description: "Pagina dedicata: a dieci minuti via SS20, il laser diventa una routine semplice da tenere.",
+        },
+        {
+          label: "Laminazione ciglia e sopracciglia da Racconigi",
+          href: "/laminazione-racconigi",
+          description: "Sguardo definito per 6-8 settimane, a un quarto d'ora da casa.",
+        },
+        {
+          label: "Pulizia viso da Racconigi",
+          href: "/pulizia-viso-racconigi",
+          description: "Detersione profonda e pelle luminosa, con la comodità della vicinanza.",
+        },
+        {
+          label: "Manicure semipermanente da Racconigi",
+          href: "/manicure-semipermanente-racconigi",
+          description: "Mani in ordine e tenuta lunga: pagina dedicata per chi arriva da Racconigi.",
+        },
+        {
+          label: "Pedicure da Racconigi",
+          href: "/pedicure-racconigi",
+          description: "Pedicure estetico e VIP con scrub: piedi curati, a dieci minuti.",
+        },
+        {
+          label: "Massaggio rilassante da Racconigi",
+          href: "/massaggio-rilassante-racconigi",
+          description: "Cinquanta minuti per staccare davvero, comodi da incastrare.",
+        },
+        {
+          label: "Massaggio linfodrenante da Racconigi",
+          href: "/massaggio-linfodrenante-racconigi",
+          description: "Drenante e progressivo per gonfiore e gambe pesanti, su un ciclo coerente.",
+        },
+        {
           label: "Eye Genesis",
           href: "/protocolli/eye-genesis",
           description: "Protocollo contorno occhi: focus su gonfiore, segni e stanchezza, con progressione ordinata.",

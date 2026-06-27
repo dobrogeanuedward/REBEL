@@ -5,6 +5,9 @@ import SectionHead from "@/components/SectionHead.astro";
 import FeatureCard from "@/components/FeatureCard.astro";
 import FaqAccordion from "@/components/FaqAccordion.astro";
 import InlineCta from "@/components/InlineCta.astro";
+import SplitFeature from "@/components/SplitFeature.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
+import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import {
   buildBreadcrumbSchema,
@@ -14,6 +17,7 @@ import {
   createPageMeta,
 } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
+import { getPageMedia } from "@/lib/page-media";
 
 const meta = createPageMeta({
   title: "Manicure semipermanente per chi viene da Canale e dal Roero — Rebel (Carmagnola, ~35 min)",
@@ -178,6 +182,8 @@ const nearbyAreas = [
   { city: "Bra", href: "/manicure-semipermanente-bra", desc: "~22 min da Carmagnola." },
   { city: "Tutte le località", href: "/localita", desc: "Panoramica Rebel per zona." },
 ];
+
+const m = getPageMedia("/manicure-semipermanente-canale");
 ---
 
 <BaseLayout meta={meta}>
@@ -189,27 +195,31 @@ const nearbyAreas = [
   <JsonLd data={faqSchema} />
 
   <PageHero
+    image={m.hero}
     kicker="Rebel Nails — da Canale a Carmagnola"
     title="Manicure semipermanente per chi viene da Canale: _risultato professionale_ a 35 minuti."
     lead="Vivi a Canale o nel Roero? L'offerta nail professionale in zona è limitata. Da Rebel a Carmagnola trovi gel di qualità, lamina preparata correttamente e un risultato che dura tre-quattro settimane senza chiederti nulla in più."
+    bullets={["Tenuta reale 3-4 settimane", "Gel professionale, lamina preparata bene", "Prima visita gratuita"]}
     meta={["~37 km da Canale", "~35 min via A33", "Da 35 € a seduta"]}
     ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
     ctaSecondary={{ label: "Apri il percorso da Canale", href: "https://www.google.com/maps/dir/?api=1&origin=Canale+CN&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
   />
 
-  <section class="section section--tight">
-    <div class="container">
-      <div class="editorial-image-frame">
-        <img
-          src="/img/generated/manicure-semipermanente-rebel-editorial.png"
-          alt="Manicure semipermanente con gel professionale — mani curate con smalto nude su lino chiaro"
-          width="1200"
-          height="900"
-          loading="eager"
+  {m.splitA ? (
+    <section class="section section--tight">
+      <div class="container">
+        <SplitFeature
+          image={m.splitA}
+          side="right"
+          kicker="Mani in ordine"
+          title="Semipermanente che _dura davvero_ 3-4 settimane."
+          body="La tenuta non è fortuna: è preparazione della lamina, prodotto professionale e applicazione precisa. Mani curate che restano impeccabili anche con le mani sempre in attività."
+          bullets={["Preparazione accurata della lamina", "Gel professionale, finish naturale o deciso", "Tenuta reale di 3-4 settimane"]}
+          cta={{ label: "Scheda manicure", href: "/servizi/manicure-semipermanente-carmagnola" }}
         />
       </div>
-    </div>
-  </section>
+    </section>
+  ) : null}
 
   <section class="section">
     <div class="container">
@@ -273,6 +283,17 @@ const nearbyAreas = [
     </div>
   </section>
 
+  {m.mood ? (
+    <FullBleedBand
+      image={m.mood}
+      height="md"
+      align="left"
+      kicker="Dal Roero a Carmagnola"
+      quote="Le mani sono la prima cosa che gli altri vedono."
+      cta={{ label: "Prenota la prima visita", href: "/contatti" }}
+    />
+  ) : null}
+
   <section class="section section--scene-ivory">
     <div class="container container--narrow">
       <SectionHead kicker="Domande frequenti" title="Da Canale e dal _Roero_: le risposte." />
@@ -316,6 +337,8 @@ const nearbyAreas = [
       />
     </div>
   </section>
+
+  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

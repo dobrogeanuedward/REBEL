@@ -1,0 +1,473 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHead from "@/components/SectionHead.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import FaqAccordion from "@/components/FaqAccordion.astro";
+import InlineCta from "@/components/InlineCta.astro";
+import SplitFeature from "@/components/SplitFeature.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
+import StickyBookingBar from "@/components/StickyBookingBar.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import {
+  buildBreadcrumbSchema,
+  buildServiceSchema,
+  buildWebPageSchema,
+  buildArticleSchema,
+  createPageMeta,
+} from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
+import { getPageMedia } from "@/lib/page-media";
+
+const meta = createPageMeta({
+  title: "Pulizia viso per chi viene da Racconigi — Rebel (Carmagnola, ~14 min)",
+  description:
+    "Da Racconigi a Rebel sono dieci minuti via SS20, senza autostrada. È il comune più vicino: pulizia viso fatta con metodo, pelle più luminosa e grana più fine. La manutenzione diventa una routine, non un evento.",
+  path: "/pulizia-viso-racconigi",
+  image: "https://www.rebelepigenetica.it/img/generated/pulizia-viso-rebel-editorial.png",
+  openGraphType: "article",
+  keywords: [
+    "pulizia viso Racconigi",
+    "pulizia del viso Racconigi",
+    "estetista viso Racconigi",
+    "trattamento viso Racconigi",
+    "centro estetico viso Racconigi",
+    "pulizia viso vicino Racconigi",
+    "cura viso Racconigi CN",
+    "trattamento pelle Racconigi",
+    "pulizia viso profonda Racconigi",
+    "estetica viso Racconigi Cuneo",
+  ],
+});
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Pulizia viso Carmagnola", path: "/servizi/pulizia-viso-carmagnola" },
+  { name: "Racconigi", path: "/pulizia-viso-racconigi" },
+]);
+
+const webPage = buildWebPageSchema({
+  name: "Pulizia viso per chi viene da Racconigi",
+  description: meta.description,
+  path: "/pulizia-viso-racconigi",
+});
+
+const articleSchema = buildArticleSchema({
+  headline: "Pulizia viso per chi viene da Racconigi — Rebel (Carmagnola, ~14 min)",
+  description: meta.description,
+  path: "/pulizia-viso-racconigi",
+  keywords: ["pulizia viso Racconigi", "trattamento viso Racconigi", "estetista viso Racconigi CN"],
+  section: "Trattamenti viso",
+  image: "https://www.rebelepigenetica.it/img/generated/pulizia-viso-rebel-editorial.png",
+});
+
+const serviceSchema = buildServiceSchema(
+  "Pulizia viso per chi viene da Racconigi",
+  "Pulizia viso professionale per clienti di Racconigi e zona: detersione, esfoliazione calibrata, pulizia mirata e chiusura lenitiva. Prodotti Eberlin e Marbellas, a dieci minuti via SS20.",
+  "/pulizia-viso-racconigi",
+  {
+    priceFrom: 49,
+    keywords: ["pulizia viso Racconigi", "trattamento viso Racconigi CN", "estetista viso Racconigi"],
+  },
+);
+
+const geoServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${siteConfig.siteUrl}/pulizia-viso-racconigi#service-geo`,
+  name: "Pulizia viso per chi viene da Racconigi",
+  serviceType: "Facial cleansing",
+  provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Racconigi",
+      containedInPlace: { "@type": "AdministrativeArea", name: "Provincia di Cuneo" },
+    },
+    {
+      "@type": "GeoCircle",
+      geoMidpoint: { "@type": "GeoCoordinates", latitude: 44.7676, longitude: 7.6786 },
+      geoRadius: "7000",
+    },
+  ],
+  offers: {
+    "@type": "Offer",
+    priceCurrency: "EUR",
+    price: "49.00",
+    url: `${siteConfig.siteUrl}/contatti`,
+    availability: "https://schema.org/InStock",
+  },
+};
+
+const faqs = [
+  {
+    q: "Da Racconigi, quanto tempo serve per arrivare a Rebel?",
+    a: "Una decina di minuti via SS20 (Via Racconigi) fino a Carmagnola: circa dieci chilometri, senza autostrada e senza pedaggio. Lo studio è in Viale Barbaroux 20, in centro, con parcheggio gratuito a un minuto a piedi. È il comune più vicino tra quelli che seguiamo.",
+  },
+  {
+    q: "È una pulizia viso delicata o aggressiva?",
+    a: "Delicata e precisa. Ogni passaggio ha una logica: osserviamo prima, poi scegliamo intensità di esfoliazione, tipo di pulizia e prodotti in base a come si presenta la pelle quel giorno. Non esiste una pulizia viso uguale per tutte.",
+  },
+  {
+    q: "Ho la pelle secca e sensibile. Va bene comunque?",
+    a: "Sì, adattiamo il protocollo. Per pelle secca o sensibile usiamo esfoliazione più lieve, evitiamo passaggi inutilmente aggressivi e curiamo la fase lenitiva finale. Il risultato resta percepibile: comfort, luminosità e grana più fine.",
+  },
+  {
+    q: "Ogni quanto dovrei farla?",
+    a: "Spesso tra 4 e 6 settimane. Da Racconigi è facile tenere il ritmo: a dieci minuti, la manutenzione diventa una routine e non un evento da pianificare. Dopo la prima seduta vediamo insieme come risponde la pelle e ti proponiamo una cadenza realistica.",
+  },
+  {
+    q: "Posso venire da Racconigi e abbinare più trattamenti?",
+    a: "Certo, ed è il vantaggio della vicinanza. La combinazione più comoda è pulizia viso + manicure semipermanente o + laminazione ciglia: nessun conflitto tra i trattamenti, una visita sola, più cose fatte bene.",
+  },
+  {
+    q: "Come prenoto da Racconigi?",
+    a: "Scrivici su WhatsApp dicendoci giorno e orario comodi. Ti rispondiamo con gli slot disponibili. Il martedì, il giovedì e il sabato mattina di solito hanno buona disponibilità.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
+const speakableSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${siteConfig.siteUrl}/pulizia-viso-racconigi#speakable`,
+  name: "Pulizia viso per chi viene da Racconigi",
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: [".page-hero__title", ".page-hero__lead"],
+  },
+  url: `${siteConfig.siteUrl}/pulizia-viso-racconigi`,
+};
+
+const points = [
+  {
+    kicker: "01 · Il comune più vicino",
+    title: "Dieci minuti: la cura del viso diventa abitudine.",
+    body: "Racconigi è il centro più vicino tra quelli che seguiamo. A dieci minuti via SS20 la pulizia viso ogni 4-6 settimane non pesa: entra nell'agenda come una commissione qualsiasi, e la pelle ringrazia la regolarità.",
+  },
+  {
+    kicker: "02 · Lettura della pelle",
+    title: "Si parte sempre dall'osservazione.",
+    body: "Come appare la pelle quel giorno — stagione, routine a casa, stress, idratazione — cambia come si lavora. Adattiamo ogni seduta alla pelle reale, non a uno schema fisso.",
+  },
+  {
+    kicker: "03 · Prodotti e metodo",
+    title: "Eberlin, Marbellas e una progressione chiara.",
+    body: "Linee professionali selezionate per qualità degli attivi. Ogni seduta lascia la pelle più luminosa, con grana più fine e una sensazione di comfort che si percepisce nei giorni successivi.",
+  },
+  {
+    kicker: "04 · Ritmo sostenibile",
+    title: "Un calendario che riesci a tenere.",
+    body: "Non vendiamo pacchetti da consumare in fretta. Ti proponiamo un ritmo di manutenzione realistico — ogni 4-6 settimane — che, vista la vicinanza, si incastra nelle tue settimane senza stress.",
+  },
+];
+
+const combos = [
+  {
+    href: "/laminazione-racconigi",
+    title: "Pulizia viso + laminazione ciglia",
+    body: "Pelle fresca e sguardo definito. I due trattamenti non si ostacolano: si fanno nella stessa visita da Racconigi.",
+  },
+  {
+    href: "/manicure-semipermanente-racconigi",
+    title: "Pulizia viso + manicure semipermanente",
+    body: "Viso e mani curati in un'unica uscita. A dieci minuti, ottimizzi davvero il viaggio e i risultati.",
+  },
+  {
+    href: "/protocolli/collagen-code",
+    title: "Pulizia viso + Collagen Code",
+    body: "Quando la pulizia apre la strada: il Collagen Code lavora su tono e luminosità strutturale del viso.",
+  },
+];
+
+const nearbyAreas = [
+  { city: "Caramagna Piemonte", href: "/localita/caramagna-piemonte", desc: "A pochi km, sull'asse per Carmagnola." },
+  { city: "Carignano", href: "/localita/carignano", desc: "Subito a nord, lungo la SS20." },
+  { city: "Savigliano", href: "/localita/savigliano", desc: "Poco più a sud, nella pianura cuneese." },
+];
+
+const m = getPageMedia("/pulizia-viso-racconigi");
+---
+
+<BaseLayout meta={meta}>
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={webPage} />
+  <JsonLd data={articleSchema} />
+  <JsonLd data={serviceSchema} />
+  <JsonLd data={geoServiceSchema} />
+  <JsonLd data={faqSchema} />
+  <JsonLd data={speakableSchema} />
+
+  <PageHero
+    image={m.hero}
+    kicker="Rebel Viso — da Racconigi a Carmagnola"
+    title="Pulizia viso per chi viene da Racconigi: _dieci minuti_, pelle diversa già dalla prima seduta."
+    lead="Da Racconigi a Rebel sono dieci minuti via SS20, senza autostrada e senza pedaggio. È il comune più vicino: la distanza giusta perché la cura del viso diventi una routine, non un evento. In Rebel la pulizia viso si costruisce per step — osservazione, esfoliazione calibrata, pulizia mirata e chiusura lenitiva — con prodotti professionali scelti per la tua pelle."
+    bullets={["Pelle più luminosa dalla prima seduta", "Prodotti professionali in cabina", "Prima visita gratuita"]}
+    meta={["~10 km da Racconigi", "~14 min via SS20", "Da 49 € a seduta"]}
+    ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
+    ctaSecondary={{ label: "Apri il percorso da Racconigi in Maps", href: "https://www.google.com/maps/dir/?api=1&origin=Racconigi&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
+  />
+
+  <!-- SPLIT — Il risultato -->
+  {m.splitA ? (
+    <section class="section section--tight">
+      <div class="container">
+        <SplitFeature
+          image={m.splitA}
+          side="right"
+          kicker="Il risultato"
+          title="_Grana più fine_, luce restituita."
+          body="Una pulizia viso fatta come si deve si vede e si sente: pelle più pulita, più luminosa, con una grana più fine già dalla prima seduta. Lavoriamo per step, senza gesti inutili."
+          bullets={["Detersione ed esfoliazione calibrata", "Pulizia mirata e fase lenitiva finale", "Pelle pronta per il make-up o per un protocollo"]}
+          cta={{ label: "Scheda pulizia viso", href: "/servizi/pulizia-viso-carmagnola" }}
+        />
+      </div>
+    </section>
+  ) : null}
+
+  <!-- SEZIONE 1 — Il metodo -->
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Vicinissimi"
+        title="Da Racconigi la pulizia viso diventa _una routine_, non un evento."
+        lead="A dieci minuti porta-a-porta, la manutenzione ogni 4-6 settimane non pesa. Ed è proprio quella regolarità a tenere la pelle luminosa nel tempo: la vicinanza fa metà del lavoro."
+      />
+      <div class="card-grid card-grid--2">
+        {points.map((p, i) => (
+          <FeatureCard
+            kicker={p.kicker}
+            title={p.title}
+            body={p.body}
+            variant={i === 0 ? "feature" : "default"}
+            index={i + 1}
+          />
+        ))}
+      </div>
+      <div class="cluster" style="margin-top:2rem;">
+        <a class="btn btn--primary" href="/contatti">Prenota la prima seduta</a>
+        <a class="btn btn--secondary" href="/servizi/pulizia-viso-carmagnola">Scheda completa pulizia viso</a>
+        <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 2 — Come arrivare -->
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <SectionHead
+        kicker="Come arrivare"
+        title="Da Racconigi a Rebel: _dieci minuti_ di strada dritta."
+      />
+      <div class="directions-grid">
+        <div>
+          <p class="body-p">
+            Da Racconigi a Carmagnola sono circa dieci chilometri via <strong>SS20 (Via Racconigi)</strong>:
+            si esce dal centro in direzione nord e si arriva quasi sempre in dieci-quattordici minuti,
+            senza autostrada e senza pedaggio. È il tragitto più semplice tra tutti i comuni che seguiamo.
+          </p>
+          <p class="body-p">
+            Lo studio è in <strong>Viale Barbaroux 20</strong>, in pieno centro Carmagnola.
+            Parcheggio gratuito a 30 secondi a piedi. Nessuna ZTL nelle vicinanze.
+          </p>
+          <div class="cluster" style="margin-top:1.4rem;">
+            <a
+              class="btn btn--secondary btn--sm"
+              href="https://www.google.com/maps/dir/?api=1&origin=Racconigi&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Apri il percorso da Racconigi in Maps
+            </a>
+            <a class="btn btn--secondary btn--sm" href="/contatti">Contatti e mappa</a>
+          </div>
+        </div>
+        <div class="map-frame">
+          <iframe
+            src="https://www.google.com/maps?f=d&source=s_d&saddr=Racconigi&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Percorso da Racconigi a Rebel Carmagnola"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 3 — Abbinamenti -->
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Una sola sosta"
+        title="Se vieni da Racconigi: _più cose fatte bene_ in una visita."
+        lead="La pulizia viso funziona benissimo da sola. Ma a dieci minuti da casa, ottimizzare la visita con un secondo trattamento è quasi automatico."
+      />
+      <div class="card-grid card-grid--3" style="margin-top:2rem;">
+        {combos.map((c) => (
+          <FeatureCard
+            title={c.title}
+            body={c.body}
+            href={c.href}
+            variant="quiet"
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 4 — Protocolli avanzati -->
+  <section class="section section--scene-ivory">
+    <div class="container container--narrow">
+      <SectionHead
+        kicker="Oltre la pulizia"
+        title="Quando la pelle chiede _un percorso più strutturato_."
+        lead="La pulizia viso è spesso il punto d'ingresso. Ma se la pelle ha bisogno di lavorare su tono, compattezza o luminosità strutturale, i protocolli epigenetici sono il passo naturale successivo — e da Racconigi la continuità è facile da tenere."
+      />
+      <p class="body-p">
+        Lavoriamo con protocolli Eberlin come il <strong>Rebel Lift Protocol</strong>,
+        il <strong>Collagen Code</strong> e il <strong>Catalysis Ritual</strong>. Ogni percorso
+        è costruito con una progressione precisa — non sedute messe insieme a caso. Dopo la prima
+        pulizia viso valutiamo insieme cosa ha senso fare dopo.
+      </p>
+      <div class="cluster" style="margin-top:1.6rem;">
+        <a class="btn btn--primary" href="/protocolli-epigenetici">Tutti i protocolli</a>
+        <a class="btn btn--secondary" href="/servizi/pulizia-viso-carmagnola">Scheda pulizia viso</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FULL-BLEED — mood Racconigi -->
+  {m.mood ? (
+    <FullBleedBand
+      image={m.mood}
+      height="md"
+      align="left"
+      kicker="Da Racconigi a Carmagnola"
+      quote="La pelle curata si nota prima di ogni parola — e qui sei a dieci minuti."
+      cta={{ label: "Prenota la prima visita", href: "/contatti" }}
+    />
+  ) : null}
+
+  <!-- SEZIONE 5 — FAQ -->
+  <section class="section">
+    <div class="container container--narrow">
+      <SectionHead
+        kicker="Domande frequenti"
+        title="Da Racconigi: le risposte _oneste_ che cerchi."
+      />
+      <FaqAccordion items={faqs} kicker="FAQ Pulizia Viso Racconigi" />
+    </div>
+  </section>
+
+  <!-- SEZIONE 6 — Pagina panoramica -->
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <InlineCta
+        kicker="Vuoi un piano più ampio?"
+        title="La pulizia viso non è l'unico motivo per venire a Carmagnola _da Racconigi_."
+        lead="Se ti interessa anche il laser, la manicure semipermanente, i protocolli corpo o la laminazione ciglia, la pagina panoramica per chi viene da Racconigi li raccoglie tutti."
+        primaryHref="/localita/racconigi"
+        primaryLabel="Pagina panoramica Rebel per Racconigi"
+        secondaryHref="/protocolli-epigenetici"
+        secondaryLabel="Tutti i protocolli epigenetici"
+      />
+    </div>
+  </section>
+
+  <!-- SEZIONE 7 — Comuni vicini -->
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Vicino a Racconigi"
+        title="Comuni vicini: _pagine dedicate_ per la pulizia viso."
+      />
+      <div class="card-grid card-grid--3">
+        {nearbyAreas.map((a, i) => (
+          <FeatureCard
+            kicker="Zona vicina"
+            title={a.city}
+            body={a.desc}
+            href={a.href}
+            variant="quiet"
+            index={i + 1}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <InlineCta
+        kicker="Prima visita gratuita"
+        title="Prenota la _pulizia viso_ in 15 minuti."
+        lead="Ti ascoltiamo, leggiamo la pelle, facciamo la seduta. Poi, se ha senso, costruiamo un ritmo insieme. Nessun obbligo di pacchetti — e da Racconigi sei qui in dieci minuti."
+        primaryLabel="Prenota su WhatsApp"
+        primaryHref={siteConfig.social.whatsapp}
+        secondaryLabel="Scheda pulizia viso completa"
+        secondaryHref="/servizi/pulizia-viso-carmagnola"
+      />
+    </div>
+  </section>
+
+  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
+</BaseLayout>
+
+<style>
+  .editorial-image-frame {
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    max-height: 520px;
+  }
+  .editorial-image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .section--tight { padding-block: 1.5rem; }
+  .directions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1.6rem;
+    align-items: start;
+  }
+  @media (max-width: 760px) {
+    .directions-grid { grid-template-columns: 1fr; }
+  }
+  .map-frame {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--r-md);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: rgba(7, 5, 14, 0.5);
+  }
+  .map-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .body-p {
+    font-size: var(--t-body);
+    line-height: var(--lh-body);
+    color: var(--text);
+    margin: 0 0 0.9rem;
+    max-width: 70ch;
+  }
+  .cluster { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+</style>

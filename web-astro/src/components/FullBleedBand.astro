@@ -1,0 +1,160 @@
+---
+/**
+ * FullBleedBand — edge-to-edge atmospheric image with overlaid copy.
+ *
+ * The single biggest "break the wall of text" device. Drop it between
+ * dense sections. Place it OUTSIDE `.container` (it goes full viewport
+ * width on its own). `title` accepts inline `_em_` markers.
+ */
+interface Cta { label: string; href: string; }
+interface Props {
+  image: { src: string; alt: string };
+  kicker?: string;
+  title?: string;
+  lead?: string;
+  /** Short pull-quote rendered large instead of title (mutually exclusive vibe). */
+  quote?: string;
+  cite?: string;
+  cta?: Cta;
+  /** Text alignment / position. Default "center". */
+  align?: "center" | "left";
+  /** Band height. Default "md". */
+  height?: "sm" | "md" | "lg";
+}
+
+const {
+  image,
+  kicker,
+  title,
+  lead,
+  quote,
+  cite,
+  cta,
+  align = "center",
+  height = "md",
+} = Astro.props;
+
+const renderedTitle = title ? title.replace(/_([^_]+)_/g, (_, t) => `<em>${t}</em>`) : "";
+---
+<section
+  class={`fullbleed fullbleed--${height} fullbleed--${align}`}
+  aria-label={title ?? quote ?? image.alt}
+>
+  <img class="fullbleed__img" src={image.src} alt={image.alt} loading="lazy" decoding="async" />
+  <div class="fullbleed__veil" aria-hidden="true"></div>
+  <div class="container fullbleed__inner">
+    {kicker ? <p class="fullbleed__kicker" data-reveal>{kicker}</p> : null}
+    {quote ? (
+      <blockquote class="fullbleed__quote" data-reveal>
+        <p>{quote}</p>
+        {cite ? <cite>{cite}</cite> : null}
+      </blockquote>
+    ) : title ? (
+      <h2 class="fullbleed__title" data-reveal set:html={renderedTitle}></h2>
+    ) : null}
+    {lead ? <p class="fullbleed__lead" data-reveal>{lead}</p> : null}
+    {cta ? (
+      <div class="fullbleed__actions" data-reveal>
+        <a class="btn btn--primary btn--halo" href={cta.href}>{cta.label}</a>
+      </div>
+    ) : null}
+  </div>
+</section>
+
+<style>
+  .fullbleed {
+    position: relative;
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    align-items: center;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .fullbleed--sm { min-height: clamp(280px, 38vw, 420px); }
+  .fullbleed--md { min-height: clamp(380px, 52vw, 600px); }
+  .fullbleed--lg { min-height: clamp(480px, 68vw, 760px); }
+  .fullbleed__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+  }
+  .fullbleed__veil {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(80% 90% at 28% 30%, rgba(46, 16, 101, 0.55), transparent 62%),
+      linear-gradient(180deg, rgba(7, 5, 14, 0.62) 0%, rgba(7, 5, 14, 0.40) 45%, rgba(7, 5, 14, 0.82) 100%);
+  }
+  .fullbleed__inner {
+    position: relative;
+    display: grid;
+    gap: 1.1rem;
+    padding-block: clamp(2.6rem, 6vw, 5rem);
+    max-width: 900px;
+  }
+  .fullbleed--center .fullbleed__inner {
+    justify-items: center;
+    text-align: center;
+    margin-inline: auto;
+  }
+  .fullbleed__kicker {
+    font-size: var(--t-kicker);
+    letter-spacing: var(--tracking-kicker);
+    text-transform: uppercase;
+    color: var(--mauve);
+    font-weight: 600;
+    margin: 0;
+  }
+  .fullbleed__title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 4.4rem);
+    line-height: 1.02;
+    letter-spacing: var(--tracking-display);
+    color: var(--text-strong);
+    margin: 0;
+    text-wrap: balance;
+    max-width: 20ch;
+  }
+  .fullbleed__title em {
+    font-style: italic;
+    background: var(--type-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .fullbleed__quote {
+    margin: 0;
+    max-width: 24ch;
+  }
+  .fullbleed__quote p {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(1.8rem, 4vw, 3.4rem);
+    line-height: 1.12;
+    letter-spacing: var(--tracking-section);
+    color: var(--text-strong);
+    margin: 0 0 0.8rem;
+    text-wrap: balance;
+  }
+  .fullbleed__quote cite {
+    font-style: normal;
+    font-size: var(--t-kicker);
+    letter-spacing: var(--tracking-kicker);
+    text-transform: uppercase;
+    color: var(--mauve);
+  }
+  .fullbleed__lead {
+    font-size: var(--t-body-lg);
+    line-height: var(--lh-body);
+    color: rgba(244, 238, 227, 0.86);
+    margin: 0;
+    max-width: 56ch;
+  }
+  .fullbleed__actions { margin-top: 0.4rem; }
+</style>

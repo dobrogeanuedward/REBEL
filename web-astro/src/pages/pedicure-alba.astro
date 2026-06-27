@@ -1,0 +1,351 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHead from "@/components/SectionHead.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import FaqAccordion from "@/components/FaqAccordion.astro";
+import InlineCta from "@/components/InlineCta.astro";
+import SplitFeature from "@/components/SplitFeature.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
+import StickyBookingBar from "@/components/StickyBookingBar.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import {
+  buildBreadcrumbSchema,
+  buildServiceSchema,
+  buildWebPageSchema,
+  buildArticleSchema,
+  createPageMeta,
+} from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
+import { getPageMedia } from "@/lib/page-media";
+
+const m = getPageMedia("/pedicure-alba");
+
+const meta = createPageMeta({
+  title: "Pedicure per chi viene da Alba — Rebel (Carmagnola, ~30 min)",
+  description:
+    "Vivi ad Alba o nelle Langhe? Da Rebel a Carmagnola sono circa trenta minuti via A33 (uscita Marene) e SP661. Pedicure estetico e pedicure VIP con scrub: piedi più ordinati, talloni morbidi, rifinitura pulita. Anche semipermanente. Da 33 €.",
+  path: "/pedicure-alba",
+  image: "https://www.rebelepigenetica.it/img/generated/pedicure-hero.webp",
+  openGraphType: "article",
+  keywords: [
+    "pedicure Alba",
+    "pedicure estetico Alba",
+    "pedicure semipermanente Alba",
+    "pedicure VIP Alba",
+    "pedicure curativo Alba",
+    "estetista piedi Alba",
+    "pedicure con scrub Alba",
+    "talloni screpolati Alba",
+    "pedicure vicino Alba",
+    "pedicure Alba CN",
+  ],
+});
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Pedicure Carmagnola", path: "/servizi/pedicure-carmagnola" },
+  { name: "Alba", path: "/pedicure-alba" },
+]);
+
+const webPage = buildWebPageSchema({
+  name: "Pedicure per chi viene da Alba",
+  description: meta.description,
+  path: "/pedicure-alba",
+});
+
+const articleSchema = buildArticleSchema({
+  headline: "Pedicure per chi viene da Alba — Rebel (Carmagnola, ~30 min)",
+  description: meta.description,
+  path: "/pedicure-alba",
+  keywords: ["pedicure Alba", "pedicure estetico Alba", "pedicure semipermanente Alba CN"],
+  section: "Estetica classica",
+  image: "https://www.rebelepigenetica.it/img/generated/pedicure-hero.webp",
+});
+
+const serviceSchema = buildServiceSchema(
+  "Pedicure per chi viene da Alba",
+  "Pedicure estetico e pedicure VIP con scrub a Carmagnola per clienti di Alba e delle Langhe: piedi ordinati, talloni morbidi, rifinitura pulita. Anche semipermanente.",
+  "/pedicure-alba",
+  {
+    priceFrom: 33,
+    keywords: ["pedicure Alba", "pedicure estetico Alba CN", "pedicure semipermanente Alba"],
+  },
+);
+
+const geoServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${siteConfig.siteUrl}/pedicure-alba#service-geo`,
+  name: "Pedicure per chi viene da Alba",
+  serviceType: "Pedicure",
+  provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Alba",
+      containedInPlace: { "@type": "AdministrativeArea", name: "Provincia di Cuneo" },
+    },
+    {
+      "@type": "GeoCircle",
+      geoMidpoint: { "@type": "GeoCoordinates", latitude: 44.7008, longitude: 8.0354 },
+      geoRadius: "8000",
+    },
+  ],
+  offers: {
+    "@type": "Offer",
+    priceCurrency: "EUR",
+    price: "33.00",
+    url: `${siteConfig.siteUrl}/contatti`,
+    availability: "https://schema.org/InStock",
+  },
+};
+
+const faqs = [
+  {
+    q: "Quanto ci vuole da Alba a Rebel per il pedicure?",
+    a: "Circa trenta minuti: A33 in direzione Torino, uscita Marene, poi SP661 fino a Carmagnola, trentatré chilometri in totale. Viale Barbaroux 20, parcheggio gratuito a un minuto a piedi.",
+  },
+  {
+    q: "Che differenza c'è tra pedicure estetico e pedicure VIP con scrub?",
+    a: "Il pedicure estetico (da 33 €) rimette in ordine unghie e pelle con una rifinitura pulita: è perfetto come mantenimento. Il pedicure VIP con scrub (44 €) aggiunge l'esfoliazione e un lavoro più completo su talloni e pelle ispessita, con una sensazione di comfort che dura di più.",
+  },
+  {
+    q: "Posso fare il semipermanente anche sui piedi?",
+    a: "Sì. Il pedicure semipermanente unisce la cura del piede a uno smalto a lunga tenuta: comodo soprattutto in estate o prima di un viaggio, quando vuoi che duri senza pensieri.",
+  },
+  {
+    q: "Ho i talloni secchi e screpolati: si può migliorare?",
+    a: "Sì, ma con metodo. Lavoriamo con delicatezza e in modo progressivo: l'obiettivo è migliorare seduta dopo seduta, senza aggredire la pelle in un colpo solo. Ti diamo anche due indicazioni semplici per il mantenimento a casa.",
+  },
+  {
+    q: "Posso abbinare pedicure e manicure nella stessa visita?",
+    a: "Certo, ed è la combinazione più richiesta da chi arriva da Alba: mani e piedi in ordine in un'unica sosta, così la mezz'ora di viaggio dalle Langhe rende davvero. Si abbina bene anche a laser gambe e massaggio.",
+  },
+  {
+    q: "Come prenoto da Alba?",
+    a: "Scrivici su WhatsApp con il giorno preferito e ti proponiamo gli slot disponibili. Il mercoledì siamo aperti fino alle 19, comodo per chi rientra dalle Langhe a fine giornata.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
+const speakableSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${siteConfig.siteUrl}/pedicure-alba#speakable`,
+  name: "Pedicure per chi viene da Alba",
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: [".page-hero__title", ".page-hero__lead"],
+  },
+  url: `${siteConfig.siteUrl}/pedicure-alba`,
+};
+
+const points = [
+  {
+    kicker: "01 · Pedicure VIP con scrub",
+    title: "Piedi davvero a posto, non solo a vista.",
+    body: "Valutiamo pelle e unghie, scegliamo intensità e passaggi sensati e chiudiamo con una rifinitura pulita. Lo scrub leviga e dona una sensazione di comfort che resta nei giorni successivi.",
+  },
+  {
+    kicker: "02 · Talloni morbidi",
+    title: "Pelle ispessita gestita con delicatezza.",
+    body: "Se hai talloni secchi, lavoriamo in modo progressivo: migliorare nel tempo, senza stressare in una sola seduta. È così che il risultato dura.",
+  },
+  {
+    kicker: "03 · Semipermanente piedi",
+    title: "Colore che tiene, comodo in estate.",
+    body: "Il pedicure semipermanente unisce cura e smalto a lunga tenuta: ideale prima di un viaggio o nei mesi caldi, quando vuoi piedi in ordine senza ritocchi.",
+  },
+  {
+    kicker: "04 · Pulito e preciso",
+    title: "Igiene e ordine, sempre.",
+    body: "Strumenti puliti, lavoro preciso, ambiente curato. Esci con la sensazione concreta di un piede sano e ordinato, anche da vicino.",
+  },
+];
+
+const combos = [
+  {
+    href: "/manicure-semipermanente-alba",
+    title: "Pedicure + manicure",
+    body: "Mani e piedi in ordine nella stessa visita: la combinazione più richiesta da chi arriva dalle Langhe.",
+  },
+  {
+    href: "/epilazione-laser-alba",
+    title: "Pedicure + laser gambe",
+    body: "Gambe lisce e piedi curati: due esigenze, una sola sosta a Carmagnola.",
+  },
+  {
+    href: "/massaggio-rilassante-alba",
+    title: "Pedicure + massaggio",
+    body: "Cura dei piedi e cinquanta minuti per staccare: la pausa che ti meriti dopo il viaggio da Alba.",
+  },
+];
+
+const nearbyAreas = [
+  { city: "Bra", href: "/pedicure-bra", desc: "Porta del Roero, ~22 min via SP661." },
+  { city: "Canale", href: "/pedicure-canale", desc: "Roero, ~30-35 min." },
+  { city: "Tutte le località", href: "/localita", desc: "Panoramica Rebel per zona." },
+];
+---
+
+<BaseLayout meta={meta}>
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={webPage} />
+  <JsonLd data={articleSchema} />
+  <JsonLd data={serviceSchema} />
+  <JsonLd data={geoServiceSchema} />
+  <JsonLd data={faqSchema} />
+  <JsonLd data={speakableSchema} />
+
+  <PageHero
+    image={m.hero}
+    kicker="Rebel Feet — da Alba a Carmagnola"
+    title="Pedicure per chi viene da Alba: _mezz'ora di strada_, piedi in ordine per settimane."
+    lead="Da Alba a Rebel sono circa trenta minuti via A33 e SP661. Pedicure estetico per il mantenimento, pedicure VIP con scrub per un lavoro completo su talloni e pelle: esci con piedi davvero a posto, anche da vicino. E se vuoi che duri, c'è il semipermanente."
+    bullets={["Pedicure estetico + VIP con scrub", "Anche semipermanente piedi", "Prima visita gratuita"]}
+    meta={["~33 km da Alba", "~30 min via A33 + SP661", "Da 33 € (VIP scrub 44 €)"]}
+    ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
+    ctaSecondary={{ label: "Apri il percorso da Alba", href: "https://www.google.com/maps/dir/?api=1&origin=Alba&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
+  />
+
+  {m.splitA ? (
+    <section class="section section--tight">
+      <div class="container">
+        <SplitFeature
+          image={m.splitA}
+          side="right"
+          kicker="Cura concreta"
+          title="Piedi ordinati e _pelle liscia_, fatti bene."
+          body="Il pedicure, quando è fatto come si deve, non è solo estetica: è ordine e comfort quotidiano. Lavoriamo in modo pulito e preciso su unghie e pelle, con una rifinitura che resta bella anche da vicino."
+          bullets={["Pedicure estetico per il mantenimento", "Pedicure VIP con scrub per talloni e pelle ispessita", "Semipermanente per una tenuta più lunga"]}
+          cta={{ label: "Scheda pedicure completa", href: "/servizi/pedicure-carmagnola" }}
+        />
+      </div>
+    </section>
+  ) : null}
+
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Il metodo Rebel"
+        title="Perché da Alba vale la pena _venire a Carmagnola_ per il pedicure."
+        lead="Tra fiere, vendemmia e weekend in Langa l'agenda è piena: i piedi finiscono in fondo alla lista. Da noi tornano in ordine con metodo e senza eccessi, e ci restano a lungo."
+      />
+      <div class="card-grid card-grid--2">
+        {points.map((p, i) => (
+          <FeatureCard kicker={p.kicker} title={p.title} body={p.body} variant={i === 0 ? "feature" : "default"} index={i + 1} />
+        ))}
+      </div>
+      <div class="cluster" style="margin-top:2rem;">
+        <a class="btn btn--primary" href="/contatti">Prenota su WhatsApp</a>
+        <a class="btn btn--secondary" href="/servizi/pedicure-carmagnola">Scheda completa pedicure</a>
+        <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <SectionHead kicker="Come arrivare" title="Da Alba a Rebel: trenta minuti _tra Langhe e pianura_." />
+      <div class="directions-grid">
+        <div>
+          <p class="body-p">Da Alba a Carmagnola sono circa 33 km. Il percorso più rapido è l'<strong>A33 in direzione Torino</strong>, uscita Marene, poi <strong>SP661</strong> verso Sommariva del Bosco e Carmagnola: in condizioni normali si arriva in circa trenta minuti.</p>
+          <p class="body-p">Lo studio è in <strong>Viale Barbaroux 20</strong>. Parcheggio gratuito a meno di un minuto a piedi.</p>
+          <div class="cluster" style="margin-top:1.4rem;">
+            <a class="btn btn--secondary btn--sm" href="https://www.google.com/maps/dir/?api=1&origin=Alba&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" target="_blank" rel="noreferrer">Apri il percorso da Alba in Maps</a>
+            <a class="btn btn--secondary btn--sm" href="/contatti">Contatti e mappa</a>
+          </div>
+        </div>
+        <div class="map-frame">
+          <iframe src="https://www.google.com/maps?f=d&source=s_d&saddr=Alba&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Percorso da Alba a Rebel Carmagnola"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHead kicker="Una sola sosta" title="Abbina il pedicure: _ottimizza il viaggio_." lead="Si combina con manicure, laser gambe e massaggio senza conflitti." />
+      <div class="card-grid card-grid--3" style="margin-top:2rem;">
+        {combos.map((c) => (<FeatureCard title={c.title} body={c.body} href={c.href} variant="quiet" />))}
+      </div>
+    </div>
+  </section>
+
+  {m.mood ? (
+    <FullBleedBand
+      image={m.mood}
+      height="md"
+      align="left"
+      kicker="Da Alba a Carmagnola"
+      quote="Piedi in ordine non sono un lusso: sono comfort quotidiano."
+      cta={{ label: "Prenota la prima visita", href: "/contatti" }}
+    />
+  ) : null}
+
+  <section class="section section--scene-ivory">
+    <div class="container container--narrow">
+      <SectionHead kicker="Domande frequenti" title="Da Alba: le risposte _dirette_." />
+      <FaqAccordion items={faqs} kicker="FAQ Pedicure Alba" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <InlineCta
+        kicker="Vuoi un piano più ampio?"
+        title="Il pedicure non è l'unico motivo per venire da _Alba_."
+        lead="Manicure, laser, laminazione, pulizia viso e protocolli: la pagina panoramica per Alba li raccoglie tutti."
+        primaryHref="/localita/alba"
+        primaryLabel="Pagina panoramica Rebel per Alba"
+        secondaryHref="/manicure-semipermanente-alba"
+        secondaryLabel="Manicure da Alba"
+      />
+    </div>
+  </section>
+
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <SectionHead kicker="Vicino ad Alba" title="Comuni vicini: _pagine dedicate_." />
+      <div class="card-grid card-grid--3">
+        {nearbyAreas.map((a, i) => (<FeatureCard kicker="Zona vicina" title={a.city} body={a.desc} href={a.href} variant="quiet" index={i + 1} />))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <InlineCta
+        kicker="Prenota"
+        title="Piedi curati, in una _sola visita_."
+        lead="Scrivici su WhatsApp con il giorno preferito. Ti rispondiamo in poco tempo."
+        primaryLabel="Prenota su WhatsApp"
+        primaryHref={siteConfig.social.whatsapp}
+        secondaryLabel="Scheda pedicure completa"
+        secondaryHref="/servizi/pedicure-carmagnola"
+      />
+    </div>
+  </section>
+
+  <StickyBookingBar priceHint="Pedicure da 33 €" primary={{ label: "Prenota gratis", href: "/contatti" }} />
+</BaseLayout>
+
+<style>
+  .section--tight { padding-block: 1.5rem; }
+  .directions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.6rem; align-items: start; }
+  @media (max-width: 760px) { .directions-grid { grid-template-columns: 1fr; } }
+  .map-frame { position: relative; aspect-ratio: 4 / 3; border-radius: var(--r-md); overflow: hidden; border: 1px solid var(--line); background: rgba(7, 5, 14, 0.5); }
+  .map-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .body-p { font-size: var(--t-body); line-height: var(--lh-body); color: var(--text); margin: 0 0 0.9rem; max-width: 70ch; }
+  .cluster { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+</style>

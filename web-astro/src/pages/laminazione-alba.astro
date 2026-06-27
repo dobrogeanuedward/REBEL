@@ -5,6 +5,9 @@ import SectionHead from "@/components/SectionHead.astro";
 import FeatureCard from "@/components/FeatureCard.astro";
 import FaqAccordion from "@/components/FaqAccordion.astro";
 import InlineCta from "@/components/InlineCta.astro";
+import SplitFeature from "@/components/SplitFeature.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
+import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import {
   buildBreadcrumbSchema,
@@ -14,6 +17,7 @@ import {
   createPageMeta,
 } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
+import { getPageMedia } from "@/lib/page-media";
 
 const meta = createPageMeta({
   title: "Laminazione ciglia e sopracciglia per chi viene da Alba — Rebel (Carmagnola, ~30 min)",
@@ -178,6 +182,8 @@ const nearbyAreas = [
   { city: "Canale", href: "/laminazione-canale", desc: "Roero, ~35 min via A33." },
   { city: "Tutte le località", href: "/localita", desc: "Panoramica Rebel per zona." },
 ];
+
+const m = getPageMedia("/laminazione-alba");
 ---
 
 <BaseLayout meta={meta}>
@@ -189,28 +195,32 @@ const nearbyAreas = [
   <JsonLd data={faqSchema} />
 
   <PageHero
+    image={m.hero}
     kicker="Rebel Eye — da Alba a Carmagnola"
     title="Laminazione ciglia e sopracciglia per chi viene da Alba: _sguardo definito_ per 6-8 settimane."
     lead="Vivi ad Alba o nelle Langhe? Da Carmagnola sono trenta minuti via A33. La laminazione ciglia e sopracciglia da Rebel — Lash Lift vegano — dà uno sguardo aperto e naturale che dura sei-otto settimane. Nessuna extension, nessun mantenimento quotidiano: esci e sei a posto."
+    bullets={["Sguardo definito per 6-8 settimane", "Lash lift vegano + brow lamination", "Prima visita gratuita"]}
     meta={["~33 km da Alba", "~30 min via A33", "Da 55 € a seduta"]}
     ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
     ctaSecondary={{ label: "Apri il percorso da Alba", href: "https://www.google.com/maps/dir/?api=1&origin=Alba&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
   />
 
-  <!-- BRAND ASSET — occhio laminazione purple -->
-  <section class="section section--tight">
-    <div class="container">
-      <div class="editorial-image-frame editorial-image-frame--portrait">
-        <img
-          src="/img/brand/laminazione-occhio-purple.png"
-          alt="Risultato laminazione ciglia Rebel — sguardo aperto e definito con Lash Lift vegano"
-          width="900"
-          height="1100"
-          loading="eager"
+  <!-- SPLIT — Sguardo definito -->
+  {m.splitA ? (
+    <section class="section section--tight">
+      <div class="container">
+        <SplitFeature
+          image={m.splitA}
+          side="right"
+          kicker="Sguardo definito"
+          title="Ciglia e sopracciglia: _sguardo aperto_ per 6-8 settimane."
+          body="Lash lift e brow lamination ridisegnano lo sguardo senza extension e senza trucco quotidiano. Effetto naturale, niente manutenzione complicata."
+          bullets={["Lash lift vegano, ciglia visibilmente sollevate", "Brow lamination per sopracciglia ordinate", "Risultato che dura 6-8 settimane"]}
+          cta={{ label: "Scheda laminazione", href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola" }}
         />
       </div>
-    </div>
-  </section>
+    </section>
+  ) : null}
 
   <!-- SEZIONE 1 — Il metodo -->
   <section class="section">
@@ -341,6 +351,18 @@ const nearbyAreas = [
     </div>
   </section>
 
+  <!-- FULL-BLEED — mood Langhe -->
+  {m.mood ? (
+    <FullBleedBand
+      image={m.mood}
+      height="md"
+      align="left"
+      kicker="Da Alba a Carmagnola"
+      quote="Uno sguardo definito non chiede trucco ogni mattina."
+      cta={{ label: "Prenota la prima visita", href: "/contatti" }}
+    />
+  ) : null}
+
   <!-- FAQ -->
   <section class="section section--scene-ivory">
     <div class="container container--narrow">
@@ -388,6 +410,8 @@ const nearbyAreas = [
       />
     </div>
   </section>
+
+  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

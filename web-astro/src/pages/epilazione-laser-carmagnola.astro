@@ -5,6 +5,8 @@ import SectionHead from "@/components/SectionHead.astro";
 import FeatureCard from "@/components/FeatureCard.astro";
 import FaqAccordion from "@/components/FaqAccordion.astro";
 import InlineCta from "@/components/InlineCta.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
+import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import NearMeBlock from "@/components/NearMeBlock.astro";
 import {
@@ -13,6 +15,9 @@ import {
   createPageMeta,
 } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
+import { getPageMedia } from "@/lib/page-media";
+
+const m = getPageMedia("/epilazione-laser-carmagnola");
 
 const meta = createPageMeta({
   title: "Epilazione Laser a Carmagnola (vicino a te) — Diodo Ice Polar | Rebel",
@@ -196,10 +201,12 @@ const zoneShortcuts = [
   <JsonLd data={localLandingSchema} />
 
   <PageHero
+    image={m.hero}
     kicker="Epilazione laser · Carmagnola"
     title="Epilazione laser a Carmagnola con _Ice Polar_."
     lead="Diodo Thory a tre lunghezze d'onda con raffreddamento attivo: efficace su una gamma ampia di pelli e peli, e molto più comodo dei laser tradizionali. Valutazione iniziale gratuita."
-    meta={["Da 25,90 €", "Diodo Thory · Ice Polar", "Viale Barbaroux 20"]}
+    bullets={["Comfort reale con manipolo Ice Polar", "Prezzi chiari da 25,90 €", "Valutazione iniziale gratuita"]}
+    meta={["Diodo Thory · Ice Polar", "Viale Barbaroux 20"]}
     ctaPrimary={{ label: "Prenota la valutazione gratuita", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Listino & prezzi", href: "/listino-estetica-laser" }}
   />
@@ -272,6 +279,17 @@ const zoneShortcuts = [
     </div>
   </section>
 
+  {m.mood ? (
+    <FullBleedBand
+      image={m.mood}
+      height="md"
+      align="left"
+      kicker="In cabina, a Carmagnola"
+      quote="Efficace senza farti stringere i denti: è questo il punto."
+      cta={{ label: "Prenota la valutazione gratuita", href: "/contatti" }}
+    />
+  ) : null}
+
   <section class="section">
     <div class="container container--narrow">
       <SectionHead
@@ -292,6 +310,7 @@ const zoneShortcuts = [
       alba: "/epilazione-laser-alba",
       bra: "/epilazione-laser-bra",
       canale: "/epilazione-laser-canale",
+      racconigi: "/epilazione-laser-racconigi",
     }}
   />
 
@@ -305,6 +324,8 @@ const zoneShortcuts = [
       />
     </div>
   </section>
+
+  <StickyBookingBar priceHint="Laser da 25,90 €/zona" primary={{ label: "Valutazione gratuita", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

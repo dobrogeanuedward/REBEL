@@ -5,6 +5,9 @@ import SectionHead from "@/components/SectionHead.astro";
 import FeatureCard from "@/components/FeatureCard.astro";
 import FaqAccordion from "@/components/FaqAccordion.astro";
 import InlineCta from "@/components/InlineCta.astro";
+import SplitFeature from "@/components/SplitFeature.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
+import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import {
   buildBreadcrumbSchema,
@@ -14,6 +17,9 @@ import {
   createPageMeta,
 } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
+import { getPageMedia } from "@/lib/page-media";
+
+const m = getPageMedia("/epilazione-laser-canale");
 
 const meta = createPageMeta({
   title: "Epilazione laser per chi viene da Canale e dal Roero — Rebel (Carmagnola, ~35 min)",
@@ -247,12 +253,14 @@ const nearbyAreas = [
   <JsonLd data={faqSchema} />
 
   <PageHero
+    image={m.hero}
     kicker="Rebel Laser — da Canale (Roero) a Carmagnola"
     title="Epilazione laser per chi viene da Canale: il percorso che nel _Roero_ non c'è."
-    lead="Vivi a Canale, a Castagnito o nei dintorni del Roero? Da Rebel a Carmagnola — trentadue chilometri, mezz'ora di strada — trovi laser diodo Thory con manipolo Ice Polar, settaggio su misura e un percorso scritto in modo onesto, dalla prima seduta in poi."
-    meta={["~32 km da Canale", "~30-35 min via SP29 + SP661", "Da 25,90 € a zona"]}
-    ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
-    ctaSecondary={{ label: "Apri il percorso da Canale", href: "https://www.google.com/maps/dir/?api=1&origin=Canale+CN&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
+    lead="Da Canale a Rebel sono trentadue chilometri, mezz'ora di strada. Trovi laser diodo Thory con manipolo Ice Polar, settaggio su misura e un percorso scritto in modo onesto, dalla prima seduta in poi."
+    bullets={["~30-35 min via SP29 + SP661", "Diodo Thory + Ice Polar", "Prima valutazione gratuita"]}
+    meta={["~32 km da Canale", "Da 25,90 € a zona"]}
+    ctaPrimary={{ label: "Prenota la valutazione gratuita", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp }}
   />
 
   <!-- SEZIONE 1 — Perché venire a Carmagnola dal Roero -->
@@ -281,6 +289,23 @@ const nearbyAreas = [
       </div>
     </div>
   </section>
+
+  <!-- SPLIT — Tecnologia Ice Polar -->
+  {m.splitA ? (
+    <section class="section section--tight">
+      <div class="container">
+        <SplitFeature
+          image={m.splitA}
+          side="right"
+          kicker="Comfort reale"
+          title="Il manipolo _Ice Polar_: efficace senza farti stringere i denti."
+          body="Il timore più comune del laser è il fastidio, soprattutto su ascelle e inguine. Il raffreddamento attivo della punta lavora durante l'impulso: la pelle resta protetta e la seduta diventa sostenibile, anche sulle zone delicate."
+          bullets={["Diodo Thory a tre lunghezze d'onda (755 + 808 + 1064 nm)", "Raffreddamento attivo continuo durante la seduta", "Adatto a un'ampia gamma di fototipi"]}
+          cta={{ label: "Come funziona il comfort Ice Polar", href: "/epilazione-laser-ice-polar-carmagnola" }}
+        />
+      </div>
+    </section>
+  ) : null}
 
   <!-- SEZIONE 2 — Come arrivare da Canale -->
   <section class="section section--scene-ivory">
@@ -397,6 +422,18 @@ const nearbyAreas = [
     </div>
   </section>
 
+  <!-- FULL-BLEED — mood Roero -->
+  {m.mood ? (
+    <FullBleedBand
+      image={m.mood}
+      height="md"
+      align="left"
+      kicker="Dal Roero a Carmagnola"
+      quote="Il laser va impostato sulla tua vita, non la tua vita sul laser."
+      cta={{ label: "Prenota la valutazione gratuita", href: "/contatti" }}
+    />
+  ) : null}
+
   <!-- SEZIONE 5 — Stagionalità -->
   <section class="section">
     <div class="container">
@@ -439,6 +476,24 @@ const nearbyAreas = [
       </div>
     </div>
   </section>
+
+  <!-- SPLIT — La prima valutazione -->
+  {m.splitB ? (
+    <section class="section">
+      <div class="container">
+        <SplitFeature
+          image={m.splitB}
+          side="left"
+          kicker="La prima volta"
+          title="Prima un piano _scritto_, poi la prima seduta."
+          body="La valutazione iniziale è gratuita e dura una quindicina di minuti. Leggiamo pelle, fototipo e zone, mettiamo in conto la tua vita outdoor e ti consegniamo una proposta con prezzi e numero di sedute realistico — non un 'da' che poi cambia."
+          bullets={["Valutazione gratuita, senza impegno", "Proposta scritta con prezzi e tempi", "Si paga seduta per seduta"]}
+          cta={{ label: "Prenota la valutazione", href: "/contatti" }}
+          ctaSecondary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp }}
+        />
+      </div>
+    </section>
+  ) : null}
 
   <!-- SEZIONE 7 — FAQ -->
   <section class="section">
@@ -503,6 +558,8 @@ const nearbyAreas = [
       />
     </div>
   </section>
+
+  <StickyBookingBar priceHint="Laser da 25,90 €/zona" primary={{ label: "Valutazione gratuita", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

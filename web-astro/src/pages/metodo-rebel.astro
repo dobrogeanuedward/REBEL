@@ -4,7 +4,10 @@ import PageHero from "@/components/PageHero.astro";
 import SectionHead from "@/components/SectionHead.astro";
 import StepStrip from "@/components/StepStrip.astro";
 import InlineCta from "@/components/InlineCta.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
+import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
+import { media } from "@/lib/page-media";
 import {
   buildArticleSchema,
   buildBreadcrumbSchema,
@@ -59,9 +62,11 @@ const article = buildArticleSchema({
   <JsonLd data={article} />
 
   <PageHero
+    image={media.studio.cabin}
     kicker="Come lavoriamo · Carmagnola"
     title="Cinque passaggi, dalla _prima visita_ al mantenimento."
     lead="Niente percorsi complicati o pacchetti gonfiati. Da Rebel funziona così: ci scrivi, vieni in studio gratis, decidiamo insieme cosa fare e quando."
+    bullets={["Prima visita gratuita", "Listino sempre online", "Nessun obbligo di acquisto"]}
     meta={["Prima visita gratuita", "Listino sempre online", "Nessun obbligo di acquisto"]}
     ctaPrimary={{ label: "Prenota la prima visita gratuita", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Vedi listino e prezzi", href: "/listino-estetica-laser" }}
@@ -102,6 +107,15 @@ const article = buildArticleSchema({
     </div>
   </section>
 
+  <FullBleedBand
+    image={media.studio.cabin}
+    height="sm"
+    align="left"
+    kicker="Da Rebel, a Carmagnola"
+    quote="Un percorso costruito bene si vede. Per questo iniziamo dall'ascolto."
+    cite="Studio Rebel · Viale Barbaroux 20"
+  />
+
   <section class="section">
     <div class="container">
       <InlineCta
@@ -111,4 +125,6 @@ const article = buildArticleSchema({
       />
     </div>
   </section>
+
+  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
 </BaseLayout>

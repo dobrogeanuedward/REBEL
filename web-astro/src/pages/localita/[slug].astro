@@ -7,9 +7,12 @@ import FeatureCard from "@/components/FeatureCard.astro";
 import KeyPointsGrid from "@/components/KeyPointsGrid.astro";
 import TableOfContents from "@/components/TableOfContents.astro";
 import InlineCta from "@/components/InlineCta.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
+import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import type { LocalAreaPage } from "@/lib/local-pages";
 import { localAreaPages } from "@/lib/local-pages";
+import { media } from "@/lib/page-media";
 import {
   buildArticleSchema,
   buildBreadcrumbSchema,
@@ -26,6 +29,16 @@ export async function getStaticPaths() {
 }
 
 const { area } = Astro.props as { area: LocalAreaPage };
+
+// Locale mood for the hero: real landscape for our pillar towns, studio otherwise.
+const localeMood =
+  area.slug === "alba"
+    ? media.locale.langhe
+    : area.slug === "canale"
+      ? media.locale.roero
+      : area.slug === "bra"
+        ? media.locale.bra
+        : media.studio.cabin;
 
 const meta = createPageMeta({
   title: area.title,
@@ -108,11 +121,12 @@ const tocItems = [
   {faqSchema ? <JsonLd data={faqSchema} /> : null}
 
   <PageHero
+    image={localeMood}
     kicker="Rebel vicino a te"
     title={area.title.replace(area.city, `_${area.city}_`)}
     lead={area.intro}
+    bullets={[`${area.city} e zone limitrofe`, "Prima visita gratuita", "Listino chiaro online"]}
     meta={[
-      `${area.city} e zone limitrofe`,
       `${readingMinutes} min lettura`,
       `Aggiornato ${siteConfig.lastUpdated}`,
     ]}
@@ -250,6 +264,18 @@ const tocItems = [
       </aside>
     </div>
   </section>
+
+  <FullBleedBand
+    image={media.studio.reception}
+    height="sm"
+    align="center"
+    kicker={`Da ${area.city} a Carmagnola`}
+    title="La prima visita è _gratuita_."
+    lead="Quindici minuti per capirci: leggiamo la tua situazione e ti diciamo da dove ha senso partire. Senza impegno."
+    cta={{ label: "Prenota la prima visita", href: "/contatti" }}
+  />
+
+  <StickyBookingBar priceHint="Prima visita gratuita" primary={{ label: "Prenota gratis", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

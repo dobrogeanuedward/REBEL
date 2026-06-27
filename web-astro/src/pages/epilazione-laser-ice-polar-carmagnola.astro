@@ -5,6 +5,9 @@ import SectionHead from "@/components/SectionHead.astro";
 import FeatureCard from "@/components/FeatureCard.astro";
 import FaqAccordion from "@/components/FaqAccordion.astro";
 import InlineCta from "@/components/InlineCta.astro";
+import SplitFeature from "@/components/SplitFeature.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
+import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import {
   buildArticleSchema,
@@ -13,6 +16,9 @@ import {
   createPageMeta,
 } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
+import { getPageMedia } from "@/lib/page-media";
+
+const m = getPageMedia("/epilazione-laser-ice-polar-carmagnola");
 
 const meta = createPageMeta({
   title: "Laser Ice Polar a Carmagnola — Manipolo con Raffreddamento Attivo",
@@ -119,10 +125,12 @@ const shortcuts = [
   <JsonLd data={faqSchema} />
 
   <PageHero
+    image={m.hero}
     kicker="Manipolo Ice Polar · Carmagnola"
     title="Ice Polar: il laser che _resta comodo_, anche dove la pelle è sottile."
     lead="Il manipolo Ice Polar raffredda la pelle in tempo reale durante l'impulso laser. Risultato: ascelle, inguine e baffetti diventano sedute brevi e sopportabili, non un test di resistenza."
-    meta={["Diodo Thory · Ice Polar", "Viale Barbaroux 20", "Valutazione gratuita"]}
+    bullets={["Raffreddamento attivo durante l'impulso", "Più comfort su ascelle, inguine, baffetti", "Test possibile in valutazione gratuita"]}
+    meta={["Diodo Thory · Ice Polar", "Viale Barbaroux 20"]}
     ctaPrimary={{ label: "Prenota la valutazione gratuita", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp }}
   />
@@ -141,6 +149,22 @@ const shortcuts = [
       </div>
     </div>
   </section>
+
+  {m.splitA ? (
+    <section class="section section--tight">
+      <div class="container">
+        <SplitFeature
+          image={m.splitA}
+          side="right"
+          kicker="La punta che raffredda"
+          title="Quel _freddo_ al contatto è la pelle protetta."
+          body="Mentre l'impulso lavora sul follicolo, la punta a contatto resta a bassa temperatura. È questo che abbassa la sensazione di calore e rende la seduta breve e gestibile, anche sulle zone più delicate."
+          bullets={["Raffreddamento attivo, in tempo reale", "Sedute rapide anche su ascelle e inguine", "Comfort che ti fa completare il percorso"]}
+          cta={{ label: "Vedi il percorso laser completo", href: "/epilazione-laser-carmagnola" }}
+        />
+      </div>
+    </section>
+  ) : null}
 
   <section class="section section--scene-ivory">
     <div class="container split">
@@ -171,6 +195,16 @@ const shortcuts = [
     </div>
   </section>
 
+  {m.mood ? (
+    <FullBleedBand
+      image={m.mood}
+      height="sm"
+      align="left"
+      kicker="In cabina, a Carmagnola"
+      quote="Una seduta sopportabile è una seduta che ti fa tornare."
+    />
+  ) : null}
+
   <section class="section">
     <div class="container">
       <SectionHead
@@ -194,6 +228,8 @@ const shortcuts = [
       />
     </div>
   </section>
+
+  <StickyBookingBar priceHint="Prova Ice Polar gratis" primary={{ label: "Valutazione gratuita", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

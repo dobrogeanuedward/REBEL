@@ -5,9 +5,13 @@ import SectionHead from "@/components/SectionHead.astro";
 import FeatureCard from "@/components/FeatureCard.astro";
 import FaqAccordion from "@/components/FaqAccordion.astro";
 import InlineCta from "@/components/InlineCta.astro";
+import SplitFeature from "@/components/SplitFeature.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
+import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import { buildBreadcrumbSchema, buildServiceSchema, buildWebPageSchema, buildArticleSchema, createPageMeta } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
+import { getPageMedia } from "@/lib/page-media";
 
 const meta = createPageMeta({
   title: "Massaggio rilassante per chi viene da Bra — Rebel (Carmagnola, ~22 min)",
@@ -68,6 +72,8 @@ const nearbyAreas = [
   { city: "Canale", href: "/massaggio-rilassante-canale", desc: "Roero, ~35 min." },
   { city: "Tutte le località", href: "/localita", desc: "Panoramica Rebel per zona." },
 ];
+
+const m = getPageMedia("/massaggio-rilassante-bra");
 ---
 
 <BaseLayout meta={meta}>
@@ -79,21 +85,31 @@ const nearbyAreas = [
   <JsonLd data={faqSchema} />
 
   <PageHero
+    image={m.hero}
     kicker="Rebel Massaggi — da Bra a Carmagnola"
     title="Massaggio rilassante per chi viene da Bra: _venti minuti_ di viaggio, 50 di recupero."
     lead="Da Bra a Rebel sono venti minuti via SP7. Il massaggio rilassante è cinquanta minuti dedicati a schiena, spalle e cervicale — le zone dove si accumula tutto. Ritmo graduale, tecnica manuale precisa, effetto percepibile dalla prima seduta."
+    bullets={["50 minuti di vero stacco", "Schiena, spalle, cervicale", "Prima visita gratuita"]}
     meta={["~20 km da Bra", "~22 min via SP7", "Da 55 € a seduta"]}
     ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
     ctaSecondary={{ label: "Apri il percorso da Bra", href: "https://www.google.com/maps/dir/?api=1&origin=Bra&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
   />
 
-  <section class="section section--tight">
-    <div class="container">
-      <div class="editorial-image-frame">
-        <img src="/img/generated/massaggio-rilassante-rebel-editorial.png" alt="Massaggio rilassante schiena e spalle — trattamento professionale benessere" width="1200" height="900" loading="eager" />
+  {m.splitA ? (
+    <section class="section section--tight">
+      <div class="container">
+        <SplitFeature
+          image={m.splitA}
+          side="right"
+          kicker="Stacco vero"
+          title="Cinquanta minuti per _sciogliere_ schiena e cervicale."
+          body="Un massaggio rilassante con ritmo graduale: si parte in ascolto e si lavora dove serve davvero — schiena, spalle, cervicale. Esci con la tensione abbassata, non solo coccolata."
+          bullets={["50 minuti, ritmo graduale", "Focus su schiena, spalle, cervicale", "Ambiente caldo e silenzioso"]}
+          cta={{ label: "Scheda massaggio", href: "/servizi/massaggio-rilassante-carmagnola" }}
+        />
       </div>
-    </div>
-  </section>
+    </section>
+  ) : null}
 
   <section class="section">
     <div class="container">
@@ -137,6 +153,17 @@ const nearbyAreas = [
     </div>
   </section>
 
+  {m.mood ? (
+    <FullBleedBand
+      image={m.mood}
+      height="md"
+      align="left"
+      kicker="Da Bra a Carmagnola"
+      quote="Mezz'ora di viaggio per un'ora di vero stacco."
+      cta={{ label: "Prenota la prima visita", href: "/contatti" }}
+    />
+  ) : null}
+
   <section class="section section--scene-ivory">
     <div class="container container--narrow">
       <SectionHead kicker="Domande frequenti" title="Da Bra: le risposte _dirette_." />
@@ -164,6 +191,8 @@ const nearbyAreas = [
       <InlineCta kicker="Prenota" title="_50 minuti_ per smettere di pensare." lead="Scrivici su WhatsApp con il giorno preferito." primaryLabel="Prenota su WhatsApp" primaryHref={siteConfig.social.whatsapp} secondaryLabel="Scheda massaggio" secondaryHref="/servizi/massaggio-rilassante-carmagnola" />
     </div>
   </section>
+
+  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

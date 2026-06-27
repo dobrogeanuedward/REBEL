@@ -1,0 +1,372 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHead from "@/components/SectionHead.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import FaqAccordion from "@/components/FaqAccordion.astro";
+import InlineCta from "@/components/InlineCta.astro";
+import SplitFeature from "@/components/SplitFeature.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
+import StickyBookingBar from "@/components/StickyBookingBar.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import {
+  buildBreadcrumbSchema,
+  buildServiceSchema,
+  buildWebPageSchema,
+  buildArticleSchema,
+  createPageMeta,
+} from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
+import { getPageMedia } from "@/lib/page-media";
+
+const meta = createPageMeta({
+  title: "Laminazione ciglia e sopracciglia per chi viene da Racconigi — Rebel (Carmagnola, ~14 min)",
+  description:
+    "Da Racconigi a Rebel sono dieci minuti via SS20, senza autostrada. È il comune più vicino: laminazione ciglia Lash Lift vegano e brow lamination, sguardo definito per 6-8 settimane senza mascara.",
+  path: "/laminazione-racconigi",
+  image: "https://www.rebelepigenetica.it/img/brand/laminazione-occhio-purple.png",
+  openGraphType: "article",
+  keywords: [
+    "laminazione ciglia Racconigi",
+    "lash lift Racconigi",
+    "laminazione sopracciglia Racconigi",
+    "ciglia Racconigi CN",
+    "brow lamination Racconigi",
+    "lifting ciglia Racconigi",
+    "ciglia definite Racconigi",
+    "estetista ciglia sopracciglia Racconigi",
+    "laminazione ciglia vicino Racconigi",
+    "lash lift Racconigi Cuneo",
+  ],
+});
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Laminazione Carmagnola", path: "/servizi/laminazione-ciglia-sopracciglia-carmagnola" },
+  { name: "Racconigi", path: "/laminazione-racconigi" },
+]);
+
+const webPage = buildWebPageSchema({
+  name: "Laminazione ciglia e sopracciglia per chi viene da Racconigi",
+  description: meta.description,
+  path: "/laminazione-racconigi",
+});
+
+const articleSchema = buildArticleSchema({
+  headline: "Laminazione ciglia e sopracciglia per chi viene da Racconigi — Rebel (Carmagnola, ~14 min)",
+  description: meta.description,
+  path: "/laminazione-racconigi",
+  keywords: ["laminazione ciglia Racconigi", "lash lift Racconigi", "brow lamination Racconigi CN"],
+  section: "Trattamenti viso",
+  image: "https://www.rebelepigenetica.it/img/brand/laminazione-occhio-purple.png",
+});
+
+const serviceSchema = buildServiceSchema(
+  "Laminazione ciglia e sopracciglia per chi viene da Racconigi",
+  "Lash Lift vegano e brow lamination a Carmagnola per clienti di Racconigi: sguardo aperto e definito per 6-8 settimane. A circa dieci minuti via SS20.",
+  "/laminazione-racconigi",
+  {
+    priceFrom: 55,
+    keywords: ["lash lift Racconigi", "laminazione ciglia Racconigi CN", "brow lamination Racconigi"],
+  },
+);
+
+const geoServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${siteConfig.siteUrl}/laminazione-racconigi#service-geo`,
+  name: "Laminazione ciglia e sopracciglia per chi viene da Racconigi",
+  serviceType: "Lash lift and brow lamination",
+  provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Racconigi",
+      containedInPlace: { "@type": "AdministrativeArea", name: "Provincia di Cuneo" },
+    },
+    {
+      "@type": "GeoCircle",
+      geoMidpoint: { "@type": "GeoCoordinates", latitude: 44.7676, longitude: 7.6786 },
+      geoRadius: "7000",
+    },
+  ],
+  offers: {
+    "@type": "Offer",
+    priceCurrency: "EUR",
+    price: "55.00",
+    url: `${siteConfig.siteUrl}/contatti`,
+    availability: "https://schema.org/InStock",
+  },
+};
+
+const faqs = [
+  {
+    q: "Da Racconigi, quanto tempo serve per arrivare a Rebel?",
+    a: "Una decina di minuti: circa dieci chilometri via SS20 (Via Racconigi), senza autostrada e senza pedaggio. Lo studio è in Viale Barbaroux 20, in centro a Carmagnola, con parcheggio gratuito a un minuto a piedi. È il comune più vicino tra quelli che seguiamo.",
+  },
+  {
+    q: "Quanto dura la laminazione?",
+    a: "Di solito 6-8 settimane. Con le giuste accortezze nei primi giorni il risultato si mantiene al massimo per tutto il ciclo. E visto che da Racconigi sei a dieci minuti, il ritocco successivo diventa una commissione veloce, non un viaggio da programmare.",
+  },
+  {
+    q: "Cosa devo evitare dopo la laminazione?",
+    a: "Solo nelle prime 24 ore: niente acqua, vapore o prodotti oleosi intorno agli occhi. Dopo, si torna alla routine normale. Ti spieghiamo tutto prima che tu esca dallo studio.",
+  },
+  {
+    q: "Posso usare il mascara dopo?",
+    a: "Sì, trascorse le 24 ore. Ma la maggior parte delle clienti smette di usarlo: le ciglia laminate sono già abbastanza definite da rendere il mascara superfluo ogni mattina.",
+  },
+  {
+    q: "Posso abbinarla ad altri trattamenti nello stesso giorno?",
+    a: "Sì, ed essendo a dieci minuti da Racconigi conviene davvero. Si abbina perfettamente con manicure semipermanente, laser corpo e pulizia viso. Se hai il laser viso programmato, lo organizziamo insieme in consulenza.",
+  },
+  {
+    q: "Come prenoto da Racconigi?",
+    a: "Scrivici su WhatsApp con il giorno che preferisci e ti proponiamo gli slot disponibili. Il mercoledì siamo aperti fino alle 19.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
+const speakableSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${siteConfig.siteUrl}/laminazione-racconigi#speakable`,
+  name: "Laminazione ciglia e sopracciglia per chi viene da Racconigi",
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: [".page-hero__title", ".page-hero__lead"],
+  },
+  url: `${siteConfig.siteUrl}/laminazione-racconigi`,
+};
+
+const points = [
+  {
+    kicker: "01 · Lash Lift vegano",
+    title: "Ciglia piegate dalla radice — senza colla, senza extension.",
+    body: "Formula vegana, effetto naturale e definito. Le ciglia vengono alzate verso l'alto dalla radice: lo sguardo si apre, senza artificiosità. Dura 6-8 settimane senza manutenzione.",
+  },
+  {
+    kicker: "02 · Brow lamination",
+    title: "Sopracciglia strutturate, forma fissata per settimane.",
+    body: "I peli vengono pettinati e fissati nella direzione voluta. Il risultato è una sopracciglia più piena e definita, anche senza matita ogni mattina.",
+  },
+  {
+    kicker: "03 · Il comune più vicino",
+    title: "Dieci minuti: il ritocco non è mai un problema.",
+    body: "Da Racconigi sei qui in un quarto d'ora scarso. Quando ciglia e sopracciglia chiedono il rinnovo, ci si torna senza pensarci: diventa una routine, non un evento da incastrare in agenda.",
+  },
+  {
+    kicker: "04 · Cura post semplice",
+    title: "24 ore di attenzione, poi vita normale.",
+    body: "Solo 24 ore senza acqua e prodotti oleosi intorno agli occhi. Nient'altro. Ti spieghiamo tutto al momento della seduta.",
+  },
+];
+
+const combos = [
+  {
+    href: "/manicure-semipermanente-racconigi",
+    title: "Laminazione + manicure",
+    body: "Sguardo e mani in ordine nella stessa visita. A dieci minuti da Racconigi ottimizzi davvero la sosta.",
+  },
+  {
+    href: "/epilazione-laser-racconigi",
+    title: "Laminazione + laser",
+    body: "La laminazione si abbina al laser corpo senza problemi. Sei già in zona: tanto vale fare entrambi.",
+  },
+  {
+    href: "/pulizia-viso-racconigi",
+    title: "Laminazione + pulizia viso",
+    body: "Sguardo definito e pelle luminosa. Un upgrade viso completo in una sola uscita da Racconigi.",
+  },
+];
+
+const nearbyAreas = [
+  { city: "Caramagna Piemonte", href: "/localita/caramagna-piemonte", desc: "A pochi km, sull'asse per Carmagnola." },
+  { city: "Carignano", href: "/localita/carignano", desc: "Subito a nord, lungo la SS20." },
+  { city: "Savigliano", href: "/localita/savigliano", desc: "Poco più a sud, nella pianura cuneese." },
+];
+
+const m = getPageMedia("/laminazione-racconigi");
+---
+
+<BaseLayout meta={meta}>
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={webPage} />
+  <JsonLd data={articleSchema} />
+  <JsonLd data={serviceSchema} />
+  <JsonLd data={geoServiceSchema} />
+  <JsonLd data={faqSchema} />
+  <JsonLd data={speakableSchema} />
+
+  <PageHero
+    image={m.hero}
+    kicker="Rebel Eye — da Racconigi a Carmagnola"
+    title="Laminazione ciglia e sopracciglia per chi viene da Racconigi: _dieci minuti_, sguardo diverso per settimane."
+    lead="Da Racconigi a Rebel sono dieci minuti via SS20, senza autostrada e senza pedaggio. È il comune più vicino: la laminazione ciglia Lash Lift vegano e la brow lamination danno uno sguardo aperto e definito per sei-otto settimane — senza mascara, senza ritocchi quotidiani, e con il rinnovo a un quarto d'ora da casa."
+    bullets={["Sguardo definito per 6-8 settimane", "Lash lift vegano + brow lamination", "Prima visita gratuita"]}
+    meta={["~10 km da Racconigi", "~14 min via SS20", "Da 55 € a seduta"]}
+    ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
+    ctaSecondary={{ label: "Apri il percorso da Racconigi", href: "https://www.google.com/maps/dir/?api=1&origin=Racconigi&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
+  />
+
+  {m.splitA ? (
+    <section class="section section--tight">
+      <div class="container">
+        <SplitFeature
+          image={m.splitA}
+          side="right"
+          kicker="Sguardo definito"
+          title="Ciglia e sopracciglia: _sguardo aperto_ per 6-8 settimane."
+          body="Lash lift e brow lamination ridisegnano lo sguardo senza extension e senza trucco quotidiano. Effetto naturale, niente manutenzione complicata."
+          bullets={["Lash lift vegano, ciglia visibilmente sollevate", "Brow lamination per sopracciglia ordinate", "Risultato che dura 6-8 settimane"]}
+          cta={{ label: "Scheda laminazione", href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola" }}
+        />
+      </div>
+    </section>
+  ) : null}
+
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Vicinissimi"
+        title="Da Racconigi la laminazione diventa _una routine_, non un evento."
+        lead="A dieci minuti porta-a-porta, anche il rinnovo ogni sei-otto settimane è una commissione veloce. La vicinanza è esattamente ciò che rende sostenibile uno sguardo sempre in ordine."
+      />
+      <div class="card-grid card-grid--2">
+        {points.map((p, i) => (
+          <FeatureCard kicker={p.kicker} title={p.title} body={p.body} variant={i === 0 ? "feature" : "default"} index={i + 1} />
+        ))}
+      </div>
+      <div class="cluster" style="margin-top:2rem;">
+        <a class="btn btn--primary" href="/contatti">Prenota su WhatsApp</a>
+        <a class="btn btn--secondary" href="/servizi/laminazione-ciglia-sopracciglia-carmagnola">Scheda completa laminazione</a>
+        <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <div class="split-visual">
+        <div class="split-visual__text">
+          <SectionHead kicker="Prima e dopo" title="La differenza che _parla da sola_." lead="Stesse ciglia, stesso viso — prima e dopo la laminazione." />
+          <p class="body-p">Il Lash Lift vegano piega le ciglia dalla radice: non aggiunge nulla di artificioso, esalta quello che hai già. Le sopracciglia vengono disciplinate e fissate nella forma che funziona meglio per il tuo viso.</p>
+        </div>
+        <div class="split-visual__image">
+          <img src="/img/brand/laminazione-prima-dopo.png" alt="Prima e dopo laminazione ciglia Rebel — risultato naturale e definito" width="1200" height="800" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <SectionHead kicker="Come arrivare" title="Da Racconigi a Rebel: _dieci minuti_ di strada dritta." />
+      <div class="directions-grid">
+        <div>
+          <p class="body-p">Da Racconigi a Carmagnola sono circa dieci chilometri via <strong>SS20 (Via Racconigi)</strong>: si esce dal centro in direzione nord e si arriva quasi sempre in dieci-quattordici minuti, senza autostrada e senza pedaggio. È il tragitto più semplice tra tutti i comuni che seguiamo.</p>
+          <p class="body-p">Lo studio è in <strong>Viale Barbaroux 20</strong>, in pieno centro Carmagnola. Parcheggio gratuito a 30 secondi a piedi.</p>
+          <div class="cluster" style="margin-top:1.4rem;">
+            <a class="btn btn--secondary btn--sm" href="https://www.google.com/maps/dir/?api=1&origin=Racconigi&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" target="_blank" rel="noreferrer">Apri il percorso da Racconigi in Maps</a>
+            <a class="btn btn--secondary btn--sm" href="/contatti">Contatti e mappa</a>
+          </div>
+        </div>
+        <div class="map-frame">
+          <iframe src="https://www.google.com/maps?f=d&source=s_d&saddr=Racconigi&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Percorso da Racconigi a Rebel Carmagnola"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHead kicker="Una sola sosta" title="Abbina la laminazione: _non blocca nulla_." lead="Si combina con manicure, laser e pulizia viso senza conflitti. E a dieci minuti da Racconigi, due trattamenti nella stessa uscita sono la norma." />
+      <div class="card-grid card-grid--3" style="margin-top:2rem;">
+        {combos.map((c) => (<FeatureCard title={c.title} body={c.body} href={c.href} variant="quiet" />))}
+      </div>
+    </div>
+  </section>
+
+  {m.mood ? (
+    <FullBleedBand
+      image={m.mood}
+      height="md"
+      align="left"
+      kicker="Da Racconigi a Carmagnola"
+      quote="Uno sguardo definito non chiede trucco ogni mattina — e il rinnovo è a dieci minuti."
+      cta={{ label: "Prenota la prima visita", href: "/contatti" }}
+    />
+  ) : null}
+
+  <section class="section section--scene-ivory">
+    <div class="container container--narrow">
+      <SectionHead kicker="Domande frequenti" title="Da Racconigi: le risposte _oneste_." />
+      <FaqAccordion items={faqs} kicker="FAQ Laminazione Racconigi" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <InlineCta
+        kicker="Vuoi un piano più ampio?"
+        title="La laminazione non è l'unico motivo per venire a Carmagnola _da Racconigi_."
+        lead="Laser, manicure, pulizia viso e protocolli: la pagina panoramica per chi viene da Racconigi li raccoglie tutti."
+        primaryHref="/localita/racconigi"
+        primaryLabel="Pagina panoramica Rebel per Racconigi"
+        secondaryHref="/epilazione-laser-racconigi"
+        secondaryLabel="Laser da Racconigi"
+      />
+    </div>
+  </section>
+
+  <section class="section section--scene-ivory">
+    <div class="container">
+      <SectionHead kicker="Vicino a Racconigi" title="Comuni vicini: _pagine dedicate_." />
+      <div class="card-grid card-grid--3">
+        {nearbyAreas.map((a, i) => (<FeatureCard kicker="Zona vicina" title={a.city} body={a.desc} href={a.href} variant="quiet" index={i + 1} />))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <InlineCta
+        kicker="Prenota"
+        title="Sguardo definito per _sei-otto settimane_."
+        lead="Scrivici su WhatsApp con il giorno preferito. Ti rispondiamo in poco tempo — e da Racconigi sei qui in dieci minuti."
+        primaryLabel="Prenota su WhatsApp"
+        primaryHref={siteConfig.social.whatsapp}
+        secondaryLabel="Scheda laminazione completa"
+        secondaryHref="/servizi/laminazione-ciglia-sopracciglia-carmagnola"
+      />
+    </div>
+  </section>
+
+  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
+</BaseLayout>
+
+<style>
+  .editorial-image-frame { border-radius: var(--r-lg); overflow: hidden; max-height: 520px; }
+  .editorial-image-frame--portrait { max-height: 680px; max-width: 480px; margin-inline: auto; }
+  .editorial-image-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .section--tight { padding-block: 1.5rem; }
+  .split-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-top: 1rem; }
+  .split-visual__image { border-radius: var(--r-lg); overflow: hidden; max-height: 500px; }
+  .split-visual__image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  @media (max-width: 760px) { .split-visual { grid-template-columns: 1fr; } .split-visual__image { order: -1; } }
+  .directions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.6rem; align-items: start; }
+  @media (max-width: 760px) { .directions-grid { grid-template-columns: 1fr; } }
+  .map-frame { position: relative; aspect-ratio: 4 / 3; border-radius: var(--r-md); overflow: hidden; border: 1px solid var(--line); background: rgba(7, 5, 14, 0.5); }
+  .map-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .body-p { font-size: var(--t-body); line-height: var(--lh-body); color: var(--text); margin: 0 0 0.9rem; max-width: 70ch; }
+  .cluster { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+</style>

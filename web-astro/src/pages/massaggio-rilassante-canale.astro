@@ -5,9 +5,13 @@ import SectionHead from "@/components/SectionHead.astro";
 import FeatureCard from "@/components/FeatureCard.astro";
 import FaqAccordion from "@/components/FaqAccordion.astro";
 import InlineCta from "@/components/InlineCta.astro";
+import SplitFeature from "@/components/SplitFeature.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
+import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import { buildBreadcrumbSchema, buildServiceSchema, buildWebPageSchema, buildArticleSchema, createPageMeta } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
+import { getPageMedia } from "@/lib/page-media";
 
 const meta = createPageMeta({
   title: "Massaggio rilassante per chi viene da Canale e dal Roero — Rebel (Carmagnola, ~35 min)",
@@ -68,6 +72,8 @@ const nearbyAreas = [
   { city: "Bra", href: "/massaggio-rilassante-bra", desc: "~22 min da Carmagnola." },
   { city: "Tutte le località", href: "/localita", desc: "Panoramica Rebel per zona." },
 ];
+
+const m = getPageMedia("/massaggio-rilassante-canale");
 ---
 
 <BaseLayout meta={meta}>
@@ -79,21 +85,31 @@ const nearbyAreas = [
   <JsonLd data={faqSchema} />
 
   <PageHero
+    image={m.hero}
     kicker="Rebel Massaggi — da Canale a Carmagnola"
     title="Massaggio rilassante per chi viene da Canale e dal Roero: _50 minuti_ per scaricare davvero."
     lead="Vivi a Canale o nel Roero? L'offerta di massaggi professionali in zona è ridotta. Da Rebel a Carmagnola sono 35 minuti: trovi cinquanta minuti interamente dedicati a schiena, spalle e cervicale, con una tecnica manuale graduata che lavora sulla tensione muscolare reale."
+    bullets={["50 minuti di vero stacco", "Schiena, spalle, cervicale", "Prima visita gratuita"]}
     meta={["~37 km da Canale", "~35 min via A33", "Da 55 € a seduta"]}
     ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
     ctaSecondary={{ label: "Apri il percorso da Canale", href: "https://www.google.com/maps/dir/?api=1&origin=Canale+CN&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
   />
 
-  <section class="section section--tight">
-    <div class="container">
-      <div class="editorial-image-frame">
-        <img src="/img/generated/massaggio-rilassante-rebel-editorial.png" alt="Massaggio rilassante professionale schiena e spalle — benessere e recupero muscolare" width="1200" height="900" loading="eager" />
+  {m.splitA ? (
+    <section class="section section--tight">
+      <div class="container">
+        <SplitFeature
+          image={m.splitA}
+          side="right"
+          kicker="Stacco vero"
+          title="Cinquanta minuti per _sciogliere_ schiena e cervicale."
+          body="Un massaggio rilassante con ritmo graduale: si parte in ascolto e si lavora dove serve davvero — schiena, spalle, cervicale. Esci con la tensione abbassata, non solo coccolata."
+          bullets={["50 minuti, ritmo graduale", "Focus su schiena, spalle, cervicale", "Ambiente caldo e silenzioso"]}
+          cta={{ label: "Scheda massaggio", href: "/servizi/massaggio-rilassante-carmagnola" }}
+        />
       </div>
-    </div>
-  </section>
+    </section>
+  ) : null}
 
   <section class="section">
     <div class="container">
@@ -152,6 +168,17 @@ const nearbyAreas = [
     </div>
   </section>
 
+  {m.mood ? (
+    <FullBleedBand
+      image={m.mood}
+      height="md"
+      align="left"
+      kicker="Dal Roero a Carmagnola"
+      quote="Mezz'ora di viaggio per un'ora di vero stacco."
+      cta={{ label: "Prenota la prima visita", href: "/contatti" }}
+    />
+  ) : null}
+
   <section class="section">
     <div class="container container--narrow">
       <SectionHead kicker="Domande frequenti" title="Da Canale e dal _Roero_: le risposte." />
@@ -179,6 +206,8 @@ const nearbyAreas = [
       <InlineCta kicker="Prenota" title="_50 minuti_ per smettere davvero di pensare." lead="Scrivici su WhatsApp con il giorno preferito." primaryLabel="Prenota su WhatsApp" primaryHref={siteConfig.social.whatsapp} secondaryLabel="Scheda massaggio" secondaryHref="/servizi/massaggio-rilassante-carmagnola" />
     </div>
   </section>
+
+  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

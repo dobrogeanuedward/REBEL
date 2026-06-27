@@ -1,0 +1,166 @@
+---
+/**
+ * SplitFeature — image on one side, copy on the other.
+ *
+ * The main rhythm-breaker: replaces yet-another card grid with a
+ * photo + text block. Alternate `side` down the page for a magazine feel.
+ * `title` accepts inline `_em_` markers. Body can be passed as `body`
+ * (single paragraph) and/or `bullets`, or via the default <slot>.
+ */
+interface Cta { label: string; href: string; }
+interface Props {
+  image: { src: string; alt: string; ratio?: string };
+  /** Which side the IMAGE sits on (desktop). Default "left". */
+  side?: "left" | "right";
+  kicker?: string;
+  title: string;
+  body?: string;
+  bullets?: string[];
+  cta?: Cta;
+  ctaSecondary?: Cta;
+  priority?: boolean;
+}
+
+const {
+  image,
+  side = "left",
+  kicker,
+  title,
+  body,
+  bullets = [],
+  cta,
+  ctaSecondary,
+  priority = false,
+} = Astro.props;
+
+const renderedTitle = title.replace(/_([^_]+)_/g, (_, t) => `<em>${t}</em>`);
+const hasDefaultSlot = Astro.slots.has("default");
+---
+<div class={`split-feature split-feature--img-${side}`} data-reveal>
+  <div class="split-feature__media">
+    <div class="split-feature__frame" style={`--ratio:${image.ratio ?? "4/5"};`}>
+      <img
+        src={image.src}
+        alt={image.alt}
+        width="1200"
+        height="1500"
+        loading={priority ? "eager" : "lazy"}
+        decoding="async"
+      />
+    </div>
+  </div>
+  <div class="split-feature__body">
+    {kicker ? <p class="split-feature__kicker">{kicker}</p> : null}
+    <h2 class="split-feature__title" set:html={renderedTitle}></h2>
+    {body ? <p class="split-feature__lead">{body}</p> : null}
+    {hasDefaultSlot ? <div class="split-feature__rich"><slot /></div> : null}
+    {bullets.length > 0 ? (
+      <ul class="split-feature__list">
+        {bullets.map((b) => <li>{b}</li>)}
+      </ul>
+    ) : null}
+    {(cta || ctaSecondary) ? (
+      <div class="split-feature__actions cluster cluster--stack-mobile">
+        {cta ? <a class="btn btn--primary" href={cta.href}>{cta.label}</a> : null}
+        {ctaSecondary ? <a class="btn btn--secondary" href={ctaSecondary.href}>{ctaSecondary.label}</a> : null}
+      </div>
+    ) : null}
+  </div>
+</div>
+
+<style>
+  .split-feature {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(1.6rem, 4vw, 3.4rem);
+    align-items: center;
+  }
+  .split-feature--img-right .split-feature__media { order: 2; }
+  .split-feature__frame {
+    position: relative;
+    aspect-ratio: var(--ratio, 4 / 5);
+    overflow: hidden;
+    border-radius: var(--r-lg);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-md);
+    background:
+      radial-gradient(120% 100% at 20% 0%, rgba(91, 43, 216, 0.30), transparent 60%),
+      linear-gradient(180deg, rgba(31, 26, 58, 0.9), rgba(20, 16, 42, 0.9));
+  }
+  .split-feature__frame img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .split-feature__kicker {
+    font-size: var(--t-kicker);
+    letter-spacing: var(--tracking-kicker);
+    text-transform: uppercase;
+    color: var(--mauve);
+    font-weight: 600;
+    margin: 0 0 0.8rem;
+  }
+  .scene-ivory .split-feature__kicker { color: var(--violet-mid); }
+  .split-feature__title {
+    font-family: var(--font-display);
+    font-size: var(--t-display-section);
+    line-height: var(--lh-section);
+    letter-spacing: var(--tracking-section);
+    color: var(--text-strong);
+    margin: 0 0 1rem;
+    text-wrap: balance;
+  }
+  .split-feature__title em {
+    font-style: italic;
+    background: var(--type-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .scene-ivory .split-feature__title em {
+    background: linear-gradient(100deg, var(--violet-mid), var(--violet-hi));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .split-feature__lead,
+  .split-feature__rich :global(p) {
+    font-size: var(--t-body-lg);
+    line-height: var(--lh-body);
+    color: var(--text-muted);
+    margin: 0 0 1rem;
+    max-width: 60ch;
+  }
+  .split-feature__list {
+    list-style: none;
+    margin: 1.2rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.7rem;
+  }
+  .split-feature__list li {
+    position: relative;
+    padding-left: 1.6rem;
+    color: var(--text);
+    font-size: var(--t-body);
+    line-height: 1.5;
+  }
+  .split-feature__list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 999px;
+    background: var(--line-accent);
+  }
+  .split-feature__actions { margin-top: 1.6rem; }
+  @media (max-width: 860px) {
+    .split-feature { grid-template-columns: 1fr; }
+    .split-feature--img-right .split-feature__media { order: 0; }
+  }
+</style>

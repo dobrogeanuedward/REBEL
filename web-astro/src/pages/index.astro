@@ -4,7 +4,9 @@ import SectionHead from "@/components/SectionHead.astro";
 import FeatureCard from "@/components/FeatureCard.astro";
 import StepStrip from "@/components/StepStrip.astro";
 import InlineCta from "@/components/InlineCta.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
 import JsonLd from "@/components/JsonLd.astro";
+import { media } from "@/lib/page-media";
 import HeroPhotoSlider from "@/components/HeroPhotoSlider.tsx";
 import StoreGallery from "@/components/StoreGallery.tsx";
 import InstagramFeed from "@/components/InstagramFeed.astro";
@@ -331,6 +333,18 @@ const faqSchema = {
       <StoreGallery client:visible images={storeGalleryImages} />
     </div>
   </section>
+
+  <!-- ============================================================
+       MOOD BAND — full-bleed breather before the closing CTA.
+       ============================================================ -->
+  <FullBleedBand
+    image={media.studio.cabin}
+    height="md"
+    align="center"
+    kicker="Da Rebel, a Carmagnola"
+    quote="La cura che ti aspetti, fatta con _calma_ e con metodo."
+    cite="Studio Rebel · Viale Barbaroux 20"
+  />
 
   <!-- ============================================================
        FINAL CTA — closes with a clear next step.

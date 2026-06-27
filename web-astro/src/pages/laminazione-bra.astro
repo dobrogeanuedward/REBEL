@@ -5,6 +5,9 @@ import SectionHead from "@/components/SectionHead.astro";
 import FeatureCard from "@/components/FeatureCard.astro";
 import FaqAccordion from "@/components/FaqAccordion.astro";
 import InlineCta from "@/components/InlineCta.astro";
+import SplitFeature from "@/components/SplitFeature.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
+import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import {
   buildBreadcrumbSchema,
@@ -14,6 +17,7 @@ import {
   createPageMeta,
 } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
+import { getPageMedia } from "@/lib/page-media";
 
 const meta = createPageMeta({
   title: "Laminazione ciglia e sopracciglia per chi viene da Bra — Rebel (Carmagnola, ~22 min)",
@@ -178,6 +182,8 @@ const nearbyAreas = [
   { city: "Canale", href: "/laminazione-canale", desc: "Roero, ~35 min." },
   { city: "Tutte le località", href: "/localita", desc: "Panoramica Rebel per zona." },
 ];
+
+const m = getPageMedia("/laminazione-bra");
 ---
 
 <BaseLayout meta={meta}>
@@ -189,27 +195,31 @@ const nearbyAreas = [
   <JsonLd data={faqSchema} />
 
   <PageHero
+    image={m.hero}
     kicker="Rebel Eye — da Bra a Carmagnola"
     title="Laminazione ciglia e sopracciglia per chi viene da Bra: _venti minuti_, sguardo diverso per settimane."
     lead="Da Bra a Rebel sono venti minuti via SP7. La laminazione ciglia Lash Lift vegano e la brow lamination danno uno sguardo aperto e definito che dura sei-otto settimane — senza mascara, senza ritocchi quotidiani, senza pensarci più."
+    bullets={["Sguardo definito per 6-8 settimane", "Lash lift vegano + brow lamination", "Prima visita gratuita"]}
     meta={["~20 km da Bra", "~22 min via SP7", "Da 55 € a seduta"]}
     ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
     ctaSecondary={{ label: "Apri il percorso da Bra", href: "https://www.google.com/maps/dir/?api=1&origin=Bra&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
   />
 
-  <section class="section section--tight">
-    <div class="container">
-      <div class="editorial-image-frame editorial-image-frame--portrait">
-        <img
-          src="/img/brand/laminazione-occhio-purple.png"
-          alt="Risultato laminazione ciglia Rebel — sguardo definito con Lash Lift vegano"
-          width="900"
-          height="1100"
-          loading="eager"
+  {m.splitA ? (
+    <section class="section section--tight">
+      <div class="container">
+        <SplitFeature
+          image={m.splitA}
+          side="right"
+          kicker="Sguardo definito"
+          title="Ciglia e sopracciglia: _sguardo aperto_ per 6-8 settimane."
+          body="Lash lift e brow lamination ridisegnano lo sguardo senza extension e senza trucco quotidiano. Effetto naturale, niente manutenzione complicata."
+          bullets={["Lash lift vegano, ciglia visibilmente sollevate", "Brow lamination per sopracciglia ordinate", "Risultato che dura 6-8 settimane"]}
+          cta={{ label: "Scheda laminazione", href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola" }}
         />
       </div>
-    </div>
-  </section>
+    </section>
+  ) : null}
 
   <section class="section">
     <div class="container">
@@ -273,6 +283,17 @@ const nearbyAreas = [
     </div>
   </section>
 
+  {m.mood ? (
+    <FullBleedBand
+      image={m.mood}
+      height="md"
+      align="left"
+      kicker="Da Bra a Carmagnola"
+      quote="Uno sguardo definito non chiede trucco ogni mattina."
+      cta={{ label: "Prenota la prima visita", href: "/contatti" }}
+    />
+  ) : null}
+
   <section class="section section--scene-ivory">
     <div class="container container--narrow">
       <SectionHead kicker="Domande frequenti" title="Da Bra: le risposte _dirette_." />
@@ -316,6 +337,8 @@ const nearbyAreas = [
       />
     </div>
   </section>
+
+  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

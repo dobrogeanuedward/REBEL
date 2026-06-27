@@ -5,6 +5,9 @@ import SectionHead from "@/components/SectionHead.astro";
 import FeatureCard from "@/components/FeatureCard.astro";
 import FaqAccordion from "@/components/FaqAccordion.astro";
 import InlineCta from "@/components/InlineCta.astro";
+import SplitFeature from "@/components/SplitFeature.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
+import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import {
   buildBreadcrumbSchema,
@@ -14,6 +17,7 @@ import {
   createPageMeta,
 } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
+import { getPageMedia } from "@/lib/page-media";
 
 const meta = createPageMeta({
   title: "Pulizia viso per chi viene da Bra — Rebel (Carmagnola, ~22 min)",
@@ -178,6 +182,8 @@ const nearbyAreas = [
   { city: "Canale", href: "/pulizia-viso-canale", desc: "Roero, ~35 min via SP7." },
   { city: "Tutte le località", href: "/localita", desc: "Panoramica Rebel per zona." },
 ];
+
+const m = getPageMedia("/pulizia-viso-bra");
 ---
 
 <BaseLayout meta={meta}>
@@ -189,28 +195,32 @@ const nearbyAreas = [
   <JsonLd data={faqSchema} />
 
   <PageHero
+    image={m.hero}
     kicker="Rebel Viso — da Bra a Carmagnola"
     title="Pulizia viso per chi viene da Bra: _pelle diversa_ già dalla prima seduta."
     lead="Da Bra a Rebel sono venti minuti via SP7. Abbastanza vicino da scegliere un posto che lavori con metodo. In Rebel la pulizia viso si costruisce per step — osservazione, esfoliazione calibrata, pulizia mirata e chiusura lenitiva — con prodotti professionali scelti per la tua pelle."
+    bullets={["Pelle più luminosa dalla prima seduta", "Prodotti professionali in cabina", "Prima visita gratuita"]}
     meta={["~20 km da Bra", "~22 min via SP7", "Da 49 € a seduta"]}
     ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
     ctaSecondary={{ label: "Apri il percorso da Bra in Maps", href: "https://www.google.com/maps/dir/?api=1&origin=Bra&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
   />
 
-  <!-- IMMAGINE HERO EDITORIALE -->
-  <section class="section section--tight">
-    <div class="container">
-      <div class="editorial-image-frame">
-        <img
-          src="/img/generated/pulizia-viso-rebel-editorial.png"
-          alt="Pulizia viso professionale in cabina Rebel — trattamento delicato per pelle luminosa"
-          width="1200"
-          height="900"
-          loading="eager"
+  <!-- SPLIT — Il risultato -->
+  {m.splitA ? (
+    <section class="section section--tight">
+      <div class="container">
+        <SplitFeature
+          image={m.splitA}
+          side="right"
+          kicker="Il risultato"
+          title="_Grana più fine_, luce restituita."
+          body="Una pulizia viso fatta come si deve si vede e si sente: pelle più pulita, più luminosa, con una grana più fine già dalla prima seduta. Lavoriamo per step, senza gesti inutili."
+          bullets={["Detersione ed esfoliazione calibrata", "Pulizia mirata e fase lenitiva finale", "Pelle pronta per il make-up o per un protocollo"]}
+          cta={{ label: "Scheda pulizia viso", href: "/servizi/pulizia-viso-carmagnola" }}
         />
       </div>
-    </div>
-  </section>
+    </section>
+  ) : null}
 
   <!-- SEZIONE 1 — Il metodo -->
   <section class="section">
@@ -323,6 +333,18 @@ const nearbyAreas = [
     </div>
   </section>
 
+  <!-- FULL-BLEED — mood Bra -->
+  {m.mood ? (
+    <FullBleedBand
+      image={m.mood}
+      height="md"
+      align="left"
+      kicker="Da Bra a Carmagnola"
+      quote="La pelle curata si nota prima di ogni parola."
+      cta={{ label: "Prenota la prima visita", href: "/contatti" }}
+    />
+  ) : null}
+
   <!-- SEZIONE 5 — FAQ -->
   <section class="section">
     <div class="container container--narrow">
@@ -385,6 +407,8 @@ const nearbyAreas = [
       />
     </div>
   </section>
+
+  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

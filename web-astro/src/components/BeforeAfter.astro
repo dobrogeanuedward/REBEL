@@ -1,0 +1,175 @@
+---
+/**
+ * BeforeAfter — interactive before/after comparison slider.
+ *
+ * Drag the handle (or use the range input with keyboard) to reveal the
+ * "after" image over the "before". Progressive: with no JS it degrades to
+ * the after image fully visible with both labels. One self-contained
+ * vanilla script handles all instances on the page.
+ */
+interface ImageSpec { src: string; alt: string }
+interface Props {
+  before: ImageSpec;
+  after: ImageSpec;
+  beforeLabel?: string;
+  afterLabel?: string;
+  caption?: string;
+  ratio?: string;
+}
+
+const {
+  before,
+  after,
+  beforeLabel = "Prima",
+  afterLabel = "Dopo",
+  caption,
+  ratio = "4/3",
+} = Astro.props;
+---
+<figure class="ba" data-reveal>
+  <div class="ba__stage" style={`--ratio:${ratio};`} data-ba>
+    <img class="ba__img ba__img--before" src={before.src} alt={before.alt} loading="lazy" decoding="async" />
+    <div class="ba__after" data-ba-after>
+      <img class="ba__img ba__img--after" src={after.src} alt={after.alt} loading="lazy" decoding="async" />
+    </div>
+    <span class="ba__tag ba__tag--before">{beforeLabel}</span>
+    <span class="ba__tag ba__tag--after">{afterLabel}</span>
+    <div class="ba__divider" data-ba-divider aria-hidden="true">
+      <span class="ba__handle"></span>
+    </div>
+    <input
+      class="ba__range"
+      type="range"
+      min="0"
+      max="100"
+      value="50"
+      aria-label={`Confronto ${beforeLabel} e ${afterLabel}`}
+      data-ba-range
+    />
+  </div>
+  {caption ? <figcaption class="ba__caption">{caption}</figcaption> : null}
+</figure>
+
+<style>
+  .ba { margin: 0; display: grid; gap: 0.7rem; }
+  .ba__stage {
+    position: relative;
+    aspect-ratio: var(--ratio, 4 / 3);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-md);
+    background: linear-gradient(180deg, rgba(31, 26, 58, 0.9), rgba(20, 16, 42, 0.9));
+    user-select: none;
+    touch-action: pan-y;
+  }
+  .ba__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .ba__after {
+    position: absolute;
+    inset: 0;
+    width: 50%;
+    overflow: hidden;
+    will-change: width;
+  }
+  .ba__after .ba__img--after { width: 200%; max-width: none; }
+  .ba__tag {
+    position: absolute;
+    top: 0.8rem;
+    font-size: var(--t-micro);
+    letter-spacing: var(--tracking-micro);
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 0.3rem 0.6rem;
+    border-radius: var(--r-pill);
+    background: rgba(7, 5, 14, 0.6);
+    color: var(--text-strong);
+    border: 1px solid var(--line-strong);
+    backdrop-filter: blur(4px);
+  }
+  .ba__tag--before { right: 0.8rem; }
+  .ba__tag--after { left: 0.8rem; color: var(--mauve); }
+  .ba__divider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    transform: translateX(-50%);
+    background: var(--line-accent);
+    pointer-events: none;
+  }
+  .ba__handle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    background: rgba(7, 5, 14, 0.7);
+    border: 1px solid var(--mauve);
+    box-shadow: var(--shadow-mauve-glow);
+  }
+  .ba__handle::before,
+  .ba__handle::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border-block: 5px solid transparent;
+  }
+  .ba__handle::before {
+    left: 9px;
+    border-right: 7px solid var(--mauve);
+    transform: translateY(-50%);
+  }
+  .ba__handle::after {
+    right: 9px;
+    border-left: 7px solid var(--mauve);
+    transform: translateY(-50%);
+  }
+  .ba__range {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: ew-resize;
+  }
+  .ba__caption {
+    font-size: var(--t-small);
+    color: var(--text-faint);
+    max-width: 70ch;
+  }
+  .scene-ivory .ba__caption { color: var(--on-light-faint); }
+</style>
+
+<script>
+  function initBeforeAfter() {
+    document.querySelectorAll<HTMLElement>("[data-ba]").forEach((stage) => {
+      if (stage.dataset.baReady === "true") return;
+      stage.dataset.baReady = "true";
+      const after = stage.querySelector<HTMLElement>("[data-ba-after]");
+      const divider = stage.querySelector<HTMLElement>("[data-ba-divider]");
+      const range = stage.querySelector<HTMLInputElement>("[data-ba-range]");
+      if (!after || !divider || !range) return;
+      const apply = (v: number) => {
+        after.style.width = `${v}%`;
+        divider.style.left = `${v}%`;
+      };
+      range.addEventListener("input", () => apply(Number(range.value)));
+      apply(Number(range.value));
+    });
+  }
+  initBeforeAfter();
+  document.addEventListener("astro:page-load", initBeforeAfter);
+</script>

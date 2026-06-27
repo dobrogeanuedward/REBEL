@@ -8,7 +8,10 @@ import KeyPointsGrid from "@/components/KeyPointsGrid.astro";
 import EditorialSection from "@/components/EditorialSection.astro";
 import TableOfContents from "@/components/TableOfContents.astro";
 import InlineCta from "@/components/InlineCta.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
+import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
+import { media } from "@/lib/page-media";
 import {
   competencePages,
   servicePages,
@@ -184,6 +187,7 @@ const tocItems = [
   {featuredAreasSchema ? <JsonLd data={featuredAreasSchema} /> : null}
 
   <PageHero
+    image={media.studio.cabin}
     kicker={competence.intent === "commercial" ? "Percorso e prenotazione" : "Guida beauty"}
     title={compactTitle.replace(/(\b\w+\b)$/, "_$1_")}
     lead={competence.longDescription}
@@ -358,6 +362,18 @@ const tocItems = [
       </aside>
     </div>
   </section>
+
+  <FullBleedBand
+    image={media.studio.cabin}
+    height="sm"
+    align="left"
+    kicker="Da Rebel, a Carmagnola"
+    quote="Dalla lettura alla scelta: trasformiamo la guida in un piano concreto."
+    cite="Studio Rebel · Viale Barbaroux 20"
+    cta={{ label: "Prenota la prima visita", href: "/contatti" }}
+  />
+
+  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

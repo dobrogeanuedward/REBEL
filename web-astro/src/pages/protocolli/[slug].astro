@@ -6,7 +6,10 @@ import FaqAccordion from "@/components/FaqAccordion.astro";
 import KeyPointsGrid from "@/components/KeyPointsGrid.astro";
 import EditorialSection from "@/components/EditorialSection.astro";
 import InlineCta from "@/components/InlineCta.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
+import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
+import { media } from "@/lib/page-media";
 import { protocolPages } from "@/lib/protocol-pages";
 import {
   buildArticleSchema,
@@ -81,9 +84,11 @@ const relatedLinksSchema =
   {relatedLinksSchema ? <JsonLd data={relatedLinksSchema} /> : null}
 
   <PageHero
+    image={media.viso.mood}
     kicker="Protocollo epigenetico"
     title={`${protocol.name} a _Carmagnola_.`}
     lead={protocol.longDescription}
+    bullets={[protocol.price, "Lettura iniziale inclusa", "Progressione su misura"]}
     meta={[protocol.price, "Lettura iniziale inclusa", "Progressione su misura"]}
     ctaPrimary={{ label: "Apri lettura iniziale", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Tutti i protocolli", href: "/protocolli-epigenetici" }}
@@ -155,6 +160,15 @@ const relatedLinksSchema =
     </section>
   ) : null}
 
+  <FullBleedBand
+    image={media.viso.mood}
+    height="sm"
+    align="left"
+    kicker="Da Rebel, a Carmagnola"
+    quote="Un percorso lavora dove un singolo gesto non arriva."
+    cite="Studio Rebel · Viale Barbaroux 20"
+  />
+
   <section class="section">
     <div class="container">
       <InlineCta
@@ -168,6 +182,8 @@ const relatedLinksSchema =
       />
     </div>
   </section>
+
+  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

@@ -8,8 +8,11 @@ import KeyPointsGrid from "@/components/KeyPointsGrid.astro";
 import EditorialSection from "@/components/EditorialSection.astro";
 import TableOfContents from "@/components/TableOfContents.astro";
 import InlineCta from "@/components/InlineCta.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
+import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import NearMeBlock from "@/components/NearMeBlock.astro";
+import { media } from "@/lib/page-media";
 import {
   servicePages,
   competencePages,
@@ -34,6 +37,9 @@ export async function getStaticPaths() {
 }
 
 const { service } = Astro.props;
+
+// Mood band image, chosen by service family.
+const moodImage = service.category === "laser" ? media.laser.mood : media.studio.cabin;
 
 const fallbackImage =
   service.category === "laser"
@@ -207,31 +213,49 @@ const nearMeHrefOverridesMap: Record<string, Record<string, string>> = {
     alba: "/pulizia-viso-alba",
     bra: "/pulizia-viso-bra",
     canale: "/pulizia-viso-canale",
+    racconigi: "/pulizia-viso-racconigi",
   },
   "manicure-semipermanente-carmagnola": {
     alba: "/manicure-semipermanente-alba",
     bra: "/manicure-semipermanente-bra",
     canale: "/manicure-semipermanente-canale",
+    racconigi: "/manicure-semipermanente-racconigi",
   },
   "laminazione-ciglia-sopracciglia-carmagnola": {
     alba: "/laminazione-alba",
     bra: "/laminazione-bra",
     canale: "/laminazione-canale",
+    racconigi: "/laminazione-racconigi",
   },
   "massaggio-rilassante-carmagnola": {
     alba: "/massaggio-rilassante-alba",
     bra: "/massaggio-rilassante-bra",
     canale: "/massaggio-rilassante-canale",
+    racconigi: "/massaggio-rilassante-racconigi",
+  },
+  "massaggio-linfodrenante-carmagnola": {
+    alba: "/massaggio-linfodrenante-alba",
+    bra: "/massaggio-linfodrenante-bra",
+    canale: "/massaggio-linfodrenante-canale",
+    racconigi: "/massaggio-linfodrenante-racconigi",
+  },
+  "pedicure-carmagnola": {
+    alba: "/pedicure-alba",
+    bra: "/pedicure-bra",
+    canale: "/pedicure-canale",
+    racconigi: "/pedicure-racconigi",
   },
   "epilazione-laser-viso-carmagnola": {
     alba: "/epilazione-laser-alba",
     bra: "/epilazione-laser-bra",
     canale: "/epilazione-laser-canale",
+    racconigi: "/epilazione-laser-racconigi",
   },
   "epilazione-laser-corpo-carmagnola": {
     alba: "/epilazione-laser-alba",
     bra: "/epilazione-laser-bra",
     canale: "/epilazione-laser-canale",
+    racconigi: "/epilazione-laser-racconigi",
   },
 };
 const nearMeHrefOverrides = nearMeHrefOverridesMap[service.slug] ?? {};
@@ -260,11 +284,12 @@ const tocItems = [
   {featuredAreasSchema ? <JsonLd data={featuredAreasSchema} /> : null}
 
   <PageHero
+    image={service.heroImage}
     kicker={service.category === "laser" ? "Servizio laser" : "Servizio estetica"}
     title={service.name.replace(/Carmagnola/i, "_Carmagnola_")}
     lead={service.longDescription}
+    bullets={[service.priceHint, "Prima visita gratuita", "Su appuntamento · Carmagnola"]}
     meta={[
-      service.priceHint,
       `${readingMinutes} min lettura`,
       `Aggiornato ${siteConfig.lastUpdated}`,
     ]}
@@ -280,18 +305,6 @@ const tocItems = [
             kicker="Cosa puoi notare"
             title={`Benefici di _${baseServiceName}_.`}
           />
-          {service.heroImage ? (
-            <div class="detail-cover">
-              <img
-                src={service.heroImage.src}
-                alt={service.heroImage.alt}
-                width="1600"
-                height="900"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          ) : null}
           <p class="detail-lead">{service.shortDescription}</p>
           <KeyPointsGrid points={service.benefits} />
         </div>
@@ -454,6 +467,16 @@ const tocItems = [
     </div>
   </section>
 
+  <FullBleedBand
+    image={moodImage}
+    height="sm"
+    align="left"
+    kicker="Da Rebel, a Carmagnola"
+    title={`Pronta per _${baseServiceName}_?`}
+    lead="Prima visita gratuita: leggiamo la tua situazione, ti diciamo cosa ha senso e con quali tempi. Senza obbligo di pacchetti."
+    cta={{ label: "Prenota la prima visita", href: "/contatti" }}
+  />
+
   {showNearMe ? (
     <NearMeBlock
       serviceLabel={nearMeLabel}
@@ -464,6 +487,8 @@ const tocItems = [
       hrefOverrides={nearMeHrefOverrides}
     />
   ) : null}
+
+  <StickyBookingBar priceHint={service.priceHint} primary={{ label: "Prenota gratis", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

@@ -4,6 +4,8 @@ import PageHero from "@/components/PageHero.astro";
 import SectionHead from "@/components/SectionHead.astro";
 import FeatureCard from "@/components/FeatureCard.astro";
 import InlineCta from "@/components/InlineCta.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
+import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import NearMeBlock from "@/components/NearMeBlock.astro";
 import {
@@ -14,6 +16,7 @@ import {
 } from "@/lib/seo";
 import { editorialImageAssets, servicePages } from "@/lib/seo-content";
 import { localAreaPages } from "@/lib/local-pages";
+import { media } from "@/lib/page-media";
 
 const meta = createPageMeta({
   title: "Centro Estetico a Carmagnola — Rebel | Viale Barbaroux 20",
@@ -172,10 +175,12 @@ const keyServices = keySlugs
   <JsonLd data={faqSchema} />
 
   <PageHero
+    image={media.studio.reception}
     kicker="Centro estetico · Carmagnola"
     title="Il tuo _centro estetico_ in Viale Barbaroux 20."
-    lead="Pulizia viso, manicure, ceretta, massaggi, epilazione laser Ice Polar e protocolli viso/corpo. Tutta l'estetica che ti serve, fatta con metodo. La prima visita è gratuita."
-    meta={["Viale Barbaroux 20 · Carmagnola (TO)", "Mar–Sab su appuntamento", "Da 25,90 €"]}
+    lead="Pulizia viso, manicure, ceretta, massaggi, epilazione laser Ice Polar e protocolli viso/corpo. Tutta l'estetica che ti serve, fatta con metodo."
+    bullets={["Prima visita gratuita + piccolo regalo", "Listino sempre online", "Mar–Sab su appuntamento"]}
+    meta={["Viale Barbaroux 20 · Carmagnola (TO)", "Da 25,90 €"]}
     ctaPrimary={{ label: "Prenota la prima visita gratuita", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Vedi listino", href: "/listino-estetica-laser" }}
   />
@@ -263,6 +268,15 @@ const keyServices = keySlugs
     }}
   />
 
+  <FullBleedBand
+    image={media.studio.cabin}
+    height="md"
+    align="center"
+    kicker="Lo studio Rebel"
+    quote="Studio nuovo, attrezzatura nuova, ordine vero."
+    cta={{ label: "Prenota la prima visita gratuita", href: "/contatti" }}
+  />
+
   <section class="section">
     <div class="container">
       <InlineCta
@@ -272,6 +286,8 @@ const keyServices = keySlugs
       />
     </div>
   </section>
+
+  <StickyBookingBar priceHint="Prima visita gratuita" primary={{ label: "Prenota gratis", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

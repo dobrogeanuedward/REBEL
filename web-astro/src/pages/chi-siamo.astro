@@ -5,7 +5,10 @@ import SectionHead from "@/components/SectionHead.astro";
 import FeatureCard from "@/components/FeatureCard.astro";
 import InlineCta from "@/components/InlineCta.astro";
 import BrandStrip from "@/components/BrandStrip.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
+import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
+import { media } from "@/lib/page-media";
 import {
   buildArticleSchema,
   buildBreadcrumbSchema,
@@ -91,9 +94,11 @@ const paths = [
   <JsonLd data={article} />
 
   <PageHero
+    image={media.studio.reception}
     kicker="Chi siamo · Carmagnola"
     title="Un centro estetico nuovo, in _Viale Barbaroux 20_."
     lead="Rebel ha aperto da poco a Carmagnola, ma non improvvisiamo. Lavoriamo con tecnologia professionale, prodotti seri e formazione continua. Quello che vedi è quello che porti a casa."
+    bullets={["Studio nuovo · 3 cabine", "Tecnologia laser Thory", "Prima visita gratuita"]}
     meta={["Aperto dal 2025", "Studio nuovo · 3 cabine", "Mar–Sab su appuntamento"]}
     ctaPrimary={{ label: "Prenota la prima visita gratuita", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Come lavoriamo", href: "/metodo-rebel" }}
@@ -175,6 +180,15 @@ const paths = [
     </div>
   </section>
 
+  <FullBleedBand
+    image={media.studio.reception}
+    height="sm"
+    align="left"
+    kicker="Da Rebel, a Carmagnola"
+    quote="Lavoriamo per restare, non per chiudere una vendita oggi."
+    cite="Studio Rebel · Viale Barbaroux 20"
+  />
+
   <section class="section">
     <div class="container">
       <InlineCta
@@ -184,4 +198,6 @@ const paths = [
       />
     </div>
   </section>
+
+  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
 </BaseLayout>

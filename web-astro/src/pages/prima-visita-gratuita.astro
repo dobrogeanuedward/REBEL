@@ -5,8 +5,10 @@ import LandingProof from "@/components/landing/LandingProof.astro";
 import LandingSteps from "@/components/landing/LandingSteps.astro";
 import LandingFaq from "@/components/landing/LandingFaq.astro";
 import LandingFormCard from "@/components/landing/LandingFormCard.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import { createPageMeta, buildBreadcrumbSchema } from "@/lib/seo";
+import { media } from "@/lib/page-media";
 import { siteConfig } from "@/lib/site-config";
 
 const meta = createPageMeta({
@@ -148,6 +150,15 @@ const faqSchema = {
         body: "Se ha senso iniziare, prenoti il primo trattamento sul momento. Senno, ti porti a casa il regalo e tutte le info utili.",
       },
     ]}
+  />
+
+  <FullBleedBand
+    image={media.studio.reception}
+    height="sm"
+    align="center"
+    kicker="Da Rebel, a Carmagnola"
+    quote="Quindici minuti, senza obbligo. E porti via un piccolo _regalo_."
+    cite="Studio Rebel · Viale Barbaroux 20"
   />
 
   <LandingFormCard

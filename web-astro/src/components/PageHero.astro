@@ -15,17 +15,31 @@ interface Props {
   meta?: string[];
   ctaPrimary?: CtaSpec;
   ctaSecondary?: CtaSpec;
+  /**
+   * Optional above-the-fold photo. When set, the hero renders the image
+   * full-bleed behind the copy with a violet veil (like the home hero),
+   * so every landing opens on a real visual instead of a flat gradient.
+   */
+  image?: { src: string; alt: string };
+  /** Optional scannable benefit bullets shown under the lead. */
+  bullets?: string[];
 }
 
-const { kicker, title, lead, meta = [], ctaPrimary, ctaSecondary } = Astro.props;
+const { kicker, title, lead, meta = [], ctaPrimary, ctaSecondary, image, bullets = [] } = Astro.props;
 
 const renderedTitle = title.replace(
   /_([^_]+)_/g,
   (_, inner) => `<em>${inner}</em>`,
 );
 ---
-<section class="page-hero">
+<section class={`page-hero ${image ? "page-hero--media" : ""}`}>
   <div class="page-hero__bg" aria-hidden="true"></div>
+  {image ? (
+    <>
+      <img class="page-hero__photo" src={image.src} alt={image.alt} fetchpriority="high" decoding="async" />
+      <div class="page-hero__veil" aria-hidden="true"></div>
+    </>
+  ) : null}
   <div class="container">
     <div class="page-hero__inner">
       <p class="page-hero__kicker" data-reveal>{kicker}</p>
@@ -37,6 +51,12 @@ const renderedTitle = title.replace(
       />
       {lead ? (
         <p class="page-hero__lead" data-reveal style="--reveal-delay: 120ms;">{lead}</p>
+      ) : null}
+
+      {bullets.length > 0 ? (
+        <ul class="page-hero__bullets" data-reveal style="--reveal-delay: 150ms;">
+          {bullets.map((b) => <li>{b}</li>)}
+        </ul>
       ) : null}
 
       {meta.length > 0 ? (
@@ -64,3 +84,49 @@ const renderedTitle = title.replace(
     Scroll
   </div>
 </section>
+
+<style>
+  /* Media variant — full-bleed photo behind the hero copy. */
+  .page-hero--media { min-height: clamp(560px, 82svh, 880px); }
+  .page-hero__photo {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .page-hero__veil {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(70% 60% at 22% 28%, rgba(46, 16, 101, 0.52), transparent 62%),
+      linear-gradient(180deg, rgba(7, 5, 14, 0.58) 0%, rgba(7, 5, 14, 0.32) 38%, rgba(7, 5, 14, 0.90) 96%);
+  }
+  .page-hero--media .page-hero__bg { display: none; }
+
+  /* Scannable benefit bullets. */
+  .page-hero__bullets {
+    list-style: none;
+    margin: 0.4rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.4rem;
+  }
+  .page-hero__bullets li {
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: var(--t-body);
+    color: var(--text);
+  }
+  .page-hero__bullets li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--mauve);
+    font-weight: 700;
+  }
+</style>

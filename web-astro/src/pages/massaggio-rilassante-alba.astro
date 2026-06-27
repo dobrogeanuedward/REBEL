@@ -5,6 +5,9 @@ import SectionHead from "@/components/SectionHead.astro";
 import FeatureCard from "@/components/FeatureCard.astro";
 import FaqAccordion from "@/components/FaqAccordion.astro";
 import InlineCta from "@/components/InlineCta.astro";
+import SplitFeature from "@/components/SplitFeature.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
+import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import {
   buildBreadcrumbSchema,
@@ -14,6 +17,7 @@ import {
   createPageMeta,
 } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
+import { getPageMedia } from "@/lib/page-media";
 
 const meta = createPageMeta({
   title: "Massaggio rilassante per chi viene da Alba — Rebel (Carmagnola, ~30 min)",
@@ -178,6 +182,8 @@ const nearbyAreas = [
   { city: "Canale", href: "/massaggio-rilassante-canale", desc: "Roero, ~35 min via A33." },
   { city: "Tutte le località", href: "/localita", desc: "Panoramica Rebel per zona." },
 ];
+
+const m = getPageMedia("/massaggio-rilassante-alba");
 ---
 
 <BaseLayout meta={meta}>
@@ -189,27 +195,31 @@ const nearbyAreas = [
   <JsonLd data={faqSchema} />
 
   <PageHero
+    image={m.hero}
     kicker="Rebel Massaggi — da Alba a Carmagnola"
     title="Massaggio rilassante per chi viene da Alba: _50 minuti_ per schiena, spalle e cervicale."
     lead="Vivi ad Alba o nelle Langhe? Da Carmagnola sono trenta minuti via A33. Da Rebel il massaggio rilassante è cinquanta minuti interamente dedicati alle zone più tese — cervicale, trapezi, spalle — con un ritmo graduale che lascia il corpo davvero diverso dalla prima seduta."
+    bullets={["50 minuti di vero stacco", "Schiena, spalle, cervicale", "Prima visita gratuita"]}
     meta={["~33 km da Alba", "~30 min via A33", "Da 55 € a seduta"]}
     ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
     ctaSecondary={{ label: "Apri il percorso da Alba", href: "https://www.google.com/maps/dir/?api=1&origin=Alba&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
   />
 
-  <section class="section section--tight">
-    <div class="container">
-      <div class="editorial-image-frame">
-        <img
-          src="/img/generated/massaggio-rilassante-rebel-editorial.png"
-          alt="Massaggio rilassante schiena e spalle in cabina Rebel — trattamento professionale benessere"
-          width="1200"
-          height="900"
-          loading="eager"
+  {m.splitA ? (
+    <section class="section section--tight">
+      <div class="container">
+        <SplitFeature
+          image={m.splitA}
+          side="right"
+          kicker="Stacco vero"
+          title="Cinquanta minuti per _sciogliere_ schiena e cervicale."
+          body="Un massaggio rilassante con ritmo graduale: si parte in ascolto e si lavora dove serve davvero — schiena, spalle, cervicale. Esci con la tensione abbassata, non solo coccolata."
+          bullets={["50 minuti, ritmo graduale", "Focus su schiena, spalle, cervicale", "Ambiente caldo e silenzioso"]}
+          cta={{ label: "Scheda massaggio", href: "/servizi/massaggio-rilassante-carmagnola" }}
         />
       </div>
-    </div>
-  </section>
+    </section>
+  ) : null}
 
   <section class="section">
     <div class="container">
@@ -278,6 +288,17 @@ const nearbyAreas = [
     </div>
   </section>
 
+  {m.mood ? (
+    <FullBleedBand
+      image={m.mood}
+      height="md"
+      align="left"
+      kicker="Da Alba a Carmagnola"
+      quote="Mezz'ora di viaggio per un'ora di vero stacco."
+      cta={{ label: "Prenota la prima visita", href: "/contatti" }}
+    />
+  ) : null}
+
   <section class="section section--scene-ivory">
     <div class="container container--narrow">
       <SectionHead kicker="Domande frequenti" title="Da Alba e dalle _Langhe_: le risposte." />
@@ -321,6 +342,8 @@ const nearbyAreas = [
       />
     </div>
   </section>
+
+  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

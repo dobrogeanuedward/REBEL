@@ -4,7 +4,10 @@ import PageHero from "@/components/PageHero.astro";
 import SectionHead from "@/components/SectionHead.astro";
 import FeatureCard from "@/components/FeatureCard.astro";
 import InlineCta from "@/components/InlineCta.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
+import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
+import { media } from "@/lib/page-media";
 import { protocolCards } from "@/lib/content";
 import { competencePages, servicePages } from "@/lib/seo-content";
 import {
@@ -98,9 +101,11 @@ const switchItems = [
   <JsonLd data={webPageSchema} />
 
   <PageHero
+    image={media.studio.cabin}
     kicker="Servizi · Carmagnola"
     title="Tutto quello che _facciamo_ in studio."
     lead="Estetica classica, epilazione laser Ice Polar e protocolli viso/corpo. Ogni scheda dice cosa fa il trattamento, quanto dura e quanto costa. La prima visita è gratuita."
+    bullets={["Schede chiare con prezzi", "Epilazione laser Ice Polar", "Prima visita gratuita"]}
     meta={["Estetica & benessere", "Epilazione laser Ice Polar", "Protocolli viso e corpo"]}
     ctaPrimary={{ label: "Prenota la prima visita gratuita", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Scrivici su WhatsApp", href: "https://wa.me/393516919416" }}
@@ -218,6 +223,15 @@ const switchItems = [
     </section>
   ) : null}
 
+  <FullBleedBand
+    image={media.studio.cabin}
+    height="sm"
+    align="left"
+    kicker="Da Rebel, a Carmagnola"
+    quote="Si parte da quello che ti serve adesso, non dal pacchetto più costoso."
+    cite="Studio Rebel · Viale Barbaroux 20"
+  />
+
   <section class="section">
     <div class="container">
       <InlineCta
@@ -231,6 +245,8 @@ const switchItems = [
       />
     </div>
   </section>
+
+  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

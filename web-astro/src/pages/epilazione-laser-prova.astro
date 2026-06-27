@@ -5,8 +5,10 @@ import LandingProof from "@/components/landing/LandingProof.astro";
 import LandingSteps from "@/components/landing/LandingSteps.astro";
 import LandingFaq from "@/components/landing/LandingFaq.astro";
 import LandingFormCard from "@/components/landing/LandingFormCard.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import { createPageMeta, buildBreadcrumbSchema } from "@/lib/seo";
+import { media } from "@/lib/page-media";
 import { siteConfig } from "@/lib/site-config";
 
 const meta = createPageMeta({
@@ -152,6 +154,15 @@ const faqSchema = {
         body: "Numero di sedute stimato, intervalli, prezzo totale. Decidi se iniziare oggi o pensarci a casa.",
       },
     ]}
+  />
+
+  <FullBleedBand
+    image={media.laser.mood}
+    height="sm"
+    align="center"
+    kicker="Epilazione laser · Carmagnola"
+    quote="Provalo prima, _decidi dopo_: nessun pacchetto imposto."
+    cite="Studio Rebel · Viale Barbaroux 20"
   />
 
   <LandingFormCard

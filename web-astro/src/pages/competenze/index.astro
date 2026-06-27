@@ -4,7 +4,10 @@ import PageHero from "@/components/PageHero.astro";
 import SectionHead from "@/components/SectionHead.astro";
 import FeatureCard from "@/components/FeatureCard.astro";
 import InlineCta from "@/components/InlineCta.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
+import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
+import { media } from "@/lib/page-media";
 import { competencePages } from "@/lib/seo-content";
 import {
   buildBreadcrumbSchema,
@@ -67,9 +70,11 @@ const webPageSchema = buildWebPageSchema({
   <JsonLd data={webPageSchema} />
 
   <PageHero
+    image={media.studio.cabin}
     kicker="Guide & approfondimenti"
     title="Tutto quello che serve _sapere prima_."
     lead="Guide pratiche su laser, viso, corpo e routine: cosa fa il trattamento, ogni quanto si fa, cosa aspettarsi davvero. Scritte da chi lo fa in cabina, non da un copy."
+    bullets={["Letture brevi e pratiche", "Scritte da chi lavora in cabina", "Senza claim gonfiati"]}
     meta={["Letture brevi", "Aggiornate periodicamente", "Senza claim gonfiati"]}
     ctaPrimary={{ label: "Prenota la prima visita gratuita", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Vedi tutti i trattamenti", href: "/listino-estetica-laser" }}
@@ -121,6 +126,15 @@ const webPageSchema = buildWebPageSchema({
     </div>
   </section>
 
+  <FullBleedBand
+    image={media.studio.cabin}
+    height="sm"
+    align="left"
+    kicker="Da Rebel, a Carmagnola"
+    quote="Hai letto, hai capito. Il passo successivo è semplice: vieni a provarlo."
+    cite="Studio Rebel · Viale Barbaroux 20"
+  />
+
   <section class="section">
     <div class="container">
       <InlineCta
@@ -134,4 +148,6 @@ const webPageSchema = buildWebPageSchema({
       />
     </div>
   </section>
+
+  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
 </BaseLayout>

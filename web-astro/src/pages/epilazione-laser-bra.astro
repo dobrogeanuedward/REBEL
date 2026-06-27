@@ -5,6 +5,9 @@ import SectionHead from "@/components/SectionHead.astro";
 import FeatureCard from "@/components/FeatureCard.astro";
 import FaqAccordion from "@/components/FaqAccordion.astro";
 import InlineCta from "@/components/InlineCta.astro";
+import SplitFeature from "@/components/SplitFeature.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
+import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import {
   buildBreadcrumbSchema,
@@ -14,6 +17,9 @@ import {
   createPageMeta,
 } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
+import { getPageMedia } from "@/lib/page-media";
+
+const m = getPageMedia("/epilazione-laser-bra");
 
 const meta = createPageMeta({
   title: "Epilazione laser per chi viene da Bra — Rebel (Carmagnola, ~22 min)",
@@ -260,12 +266,14 @@ const nearbyAreas = [
   <JsonLd data={faqSchema} />
 
   <PageHero
+    image={m.hero}
     kicker="Rebel Laser — da Bra a Carmagnola"
     title="Epilazione laser per chi viene da Bra: ventidue minuti di strada, un percorso _impostato con calma_."
-    lead="Da Bra a Rebel sono venti chilometri scarsi: in condizioni normali, ventidue minuti via SP661. È la distanza giusta perché il laser smetta di essere un'eccezione e diventi una routine semplice da tenere — con parametri su misura, manipolo Ice Polar e un calendario settimanale che regge davvero."
-    meta={["~20 km da Bra", "~22 min via SP661", "Da 25,90 € a zona"]}
-    ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
-    ctaSecondary={{ label: "Apri il percorso da Bra", href: "https://www.google.com/maps/dir/?api=1&origin=Bra&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
+    lead="Da Bra a Rebel sono venti minuti scarsi via SP661. La distanza giusta perché il laser smetta di essere un'eccezione e diventi una routine semplice: parametri su misura, manipolo Ice Polar e un calendario che regge davvero."
+    bullets={["~22 min da Bra via SP661", "Diodo Thory + Ice Polar", "Prima valutazione gratuita"]}
+    meta={["~20 km da Bra", "Da 25,90 € a zona"]}
+    ctaPrimary={{ label: "Prenota la valutazione gratuita", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp }}
   />
 
   <!-- SEZIONE 1 — La vicinanza che cambia il percorso -->
@@ -294,6 +302,23 @@ const nearbyAreas = [
       </div>
     </div>
   </section>
+
+  <!-- SPLIT — Tecnologia Ice Polar -->
+  {m.splitA ? (
+    <section class="section section--tight">
+      <div class="container">
+        <SplitFeature
+          image={m.splitA}
+          side="right"
+          kicker="Comfort reale"
+          title="Il manipolo _Ice Polar_: efficace senza farti stringere i denti."
+          body="Il timore più comune del laser è il fastidio, soprattutto su ascelle e inguine. Il raffreddamento attivo della punta lavora durante l'impulso: la pelle resta protetta e la seduta diventa sostenibile, anche sulle zone delicate."
+          bullets={["Diodo Thory a tre lunghezze d'onda (755 + 808 + 1064 nm)", "Raffreddamento attivo continuo durante la seduta", "Adatto a un'ampia gamma di fototipi"]}
+          cta={{ label: "Come funziona il comfort Ice Polar", href: "/epilazione-laser-ice-polar-carmagnola" }}
+        />
+      </div>
+    </section>
+  ) : null}
 
   <!-- SEZIONE 2 — Come arrivare -->
   <section class="section section--scene-ivory">
@@ -389,6 +414,18 @@ const nearbyAreas = [
     </div>
   </section>
 
+  <!-- FULL-BLEED — mood Bra/Roero -->
+  {m.mood ? (
+    <FullBleedBand
+      image={m.mood}
+      height="md"
+      align="left"
+      kicker="Da Bra a Carmagnola"
+      quote="Vicino abbastanza da farne una routine, non un evento."
+      cta={{ label: "Prenota la valutazione gratuita", href: "/contatti" }}
+    />
+  ) : null}
+
   <!-- SEZIONE 5 — Stagionalità -->
   <section class="section">
     <div class="container">
@@ -431,6 +468,24 @@ const nearbyAreas = [
       </div>
     </div>
   </section>
+
+  <!-- SPLIT — La prima valutazione -->
+  {m.splitB ? (
+    <section class="section">
+      <div class="container">
+        <SplitFeature
+          image={m.splitB}
+          side="left"
+          kicker="La prima volta"
+          title="Prima un piano _scritto_, poi la prima seduta."
+          body="La valutazione iniziale è gratuita e dura una quindicina di minuti. Leggiamo pelle, fototipo e zone, capiamo le tue settimane e ti consegniamo una proposta con prezzi e numero di sedute realistico — non un 'da' che poi cambia."
+          bullets={["Valutazione gratuita, senza impegno", "Proposta scritta con prezzi e tempi", "Si paga seduta per seduta"]}
+          cta={{ label: "Prenota la valutazione", href: "/contatti" }}
+          ctaSecondary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp }}
+        />
+      </div>
+    </section>
+  ) : null}
 
   <!-- SEZIONE 7 — FAQ -->
   <section class="section">
@@ -495,6 +550,8 @@ const nearbyAreas = [
       />
     </div>
   </section>
+
+  <StickyBookingBar priceHint="Laser da 25,90 €/zona" primary={{ label: "Valutazione gratuita", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

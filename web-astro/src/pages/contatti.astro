@@ -3,6 +3,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHero from "@/components/PageHero.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import ContactForm from "@/components/ContactForm.tsx";
+import { media } from "@/lib/page-media";
 import {
   buildBreadcrumbSchema,
   buildWebPageSchema,
@@ -102,9 +103,11 @@ const hours = [
   <JsonLd data={contactSchema} />
 
   <PageHero
+    image={media.studio.reception}
     kicker="Contatti · Carmagnola"
     title="Prenota la _prima visita_ gratuita."
     lead="Scrivici su WhatsApp, chiamaci o compila il form: ti rispondiamo entro poche ore negli orari di apertura. La prima visita è gratuita e include un piccolo regalo a tua scelta."
+    bullets={["Viale Barbaroux 20", "Mar–Sab su appuntamento", "Risposta in poche ore"]}
     meta={["Viale Barbaroux 20", "Mar–Sab su appuntamento", "Chiusi lunedì e domenica"]}
     ctaPrimary={{ label: "Apri WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
     ctaSecondary={{ label: "Chiamaci ora", href: `tel:${siteConfig.phoneRaw}` }}
