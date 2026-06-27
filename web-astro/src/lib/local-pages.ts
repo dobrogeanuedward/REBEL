@@ -110,7 +110,7 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          href: "/competenze/pressoterapia-carmagnola",
           description: "Quando può aiutare davvero e come inserirla in un percorso drenante ordinato.",
         },
         {
@@ -150,17 +150,17 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Guida laser inguine",
-          href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-inguine-carmagnola",
           description: "Tempistiche, gestione pratica e come evitare di perdersi tra una seduta e l'altra.",
         },
         {
           label: "Guida laser ascelle",
-          href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-ascelle-carmagnola",
           description: "Cosa aspettarsi davvero su una zona piccola ma intensa (e come renderla più semplice).",
         },
         {
           label: "Laser uomo: guida pratica",
-          href: "/competenze/laser-uomo-carmagnola-guida-pratica",
+          href: "/competenze/laser-uomo-carmagnola",
           description: "Barba/collo, schiena, torace: strategia, calendario e gestione della ricrescita.",
         },
         {
@@ -295,7 +295,7 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          href: "/competenze/pressoterapia-carmagnola",
           description: "Quando ha senso e come inserirla in un percorso drenante ordinato.",
         },
       ],
@@ -393,7 +393,7 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          href: "/competenze/pressoterapia-carmagnola",
           description: "Se cerchi leggerezza sulle gambe: criteri pratici e aspettative sane.",
         },
       ],
@@ -491,7 +491,7 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          href: "/competenze/pressoterapia-carmagnola",
           description: "Per capire se ha senso e come inserirla nel percorso.",
         },
       ],
@@ -594,7 +594,7 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          href: "/competenze/pressoterapia-carmagnola",
           description: "Per orientarti su quando ha senso e come inserirla bene.",
         },
       ],
@@ -721,17 +721,17 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Guida laser inguine",
-          href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-inguine-carmagnola",
           description: "Per partire con ritmo e gestione pratica (senza improvvisare).",
         },
         {
           label: "Guida laser ascelle",
-          href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-ascelle-carmagnola",
           description: "Consigli concreti per una zona piccola ma intensa.",
         },
         {
           label: "Laser uomo: guida pratica",
-          href: "/competenze/laser-uomo-carmagnola-guida-pratica",
+          href: "/competenze/laser-uomo-carmagnola",
           description: "Barba/collo e aree ampie: come impostiamo calendario e aspettative.",
         },
         {
@@ -880,17 +880,17 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Guida laser inguine",
-          href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-inguine-carmagnola",
           description: "Gestione pratica della zona e aspettative realistiche su tempi e ricrescita.",
         },
         {
           label: "Guida laser ascelle",
-          href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-ascelle-carmagnola",
           description: "Cosa cambia tra sudorazione, sensibilità e calendario: in parole semplici.",
         },
         {
           label: "Guida laser gambe",
-          href: "/competenze/laser-gambe-carmagnola-guida-pratica",
+          href: "/competenze/laser-gambe-carmagnola",
           description: "Strategia, stagionalità e mantenimento quando la priorità sono le gambe.",
         },
         {
@@ -1033,12 +1033,12 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Guida laser ascelle",
-          href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-ascelle-carmagnola",
           description: "Una zona spesso scelta come \"prima partenza\": tempi, gestione e comfort.",
         },
         {
           label: "Guida laser inguine",
-          href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-inguine-carmagnola",
           description: "Strategia e gestione pratica su una zona delicata, senza ansie inutili.",
         },
         {
@@ -1177,17 +1177,17 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Guida laser ascelle",
-          href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-ascelle-carmagnola",
           description: "Per partire da una zona \"smart\": come gestire tempi e sedute.",
         },
         {
           label: "Guida laser inguine",
-          href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-inguine-carmagnola",
           description: "Per capire prima regole pratiche, comfort e aspettative sul percorso.",
         },
         {
           label: "Laser uomo: guida pratica",
-          href: "/competenze/laser-uomo-carmagnola-guida-pratica",
+          href: "/competenze/laser-uomo-carmagnola",
           description: "Se cerchi un percorso uomo (barba/collo o aree ampie): come lo impostiamo.",
         },
         {
@@ -1318,12 +1318,12 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Laser uomo: guida pratica",
-          href: "/competenze/laser-uomo-carmagnola-guida-pratica",
+          href: "/competenze/laser-uomo-carmagnola",
           description: "Per capire come impostiamo un percorso uomo (barba/collo e aree ampie).",
         },
         {
           label: "Guida laser schiena",
-          href: "/competenze/laser-schiena-carmagnola-guida-pratica",
+          href: "/competenze/laser-schiena-carmagnola",
           description: "Strategia, calendario e post-seduta quando la zona è la schiena.",
         },
         {
@@ -1451,12 +1451,12 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Guida laser ascelle",
-          href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-ascelle-carmagnola",
           description: "Tempi, gestione pratica e piccoli dettagli che fanno la differenza.",
         },
         {
           label: "Guida laser inguine",
-          href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-inguine-carmagnola",
           description: "Come impostare la zona in modo confortevole e coerente, senza stressarti.",
         },
         {
@@ -1592,7 +1592,7 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          href: "/competenze/pressoterapia-carmagnola",
           description: "Quando ha senso e come inserirla in un percorso drenante ordinato.",
         },
       ],
@@ -1690,7 +1690,7 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          href: "/competenze/pressoterapia-carmagnola",
           description: "Per capire se ha senso e cosa aspettarti davvero.",
         },
       ],
@@ -1785,17 +1785,17 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Guida laser ascelle",
-          href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-ascelle-carmagnola",
           description: "Una zona piccola ma intensa: tempi, gestione e comfort.",
         },
         {
           label: "Guida laser inguine",
-          href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-inguine-carmagnola",
           description: "Regole pratiche e calendario sensato per una zona delicata.",
         },
         {
           label: "Laser uomo: guida pratica",
-          href: "/competenze/laser-uomo-carmagnola-guida-pratica",
+          href: "/competenze/laser-uomo-carmagnola",
           description: "Barba/collo e aree ampie: come impostiamo strategia e appuntamenti.",
         },
         {
@@ -1840,7 +1840,7 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          href: "/competenze/pressoterapia-carmagnola",
           description: "Quando ha senso, cosa aspettarti e come inserirla in modo ordinato nel percorso corpo.",
         },
         {
@@ -1951,7 +1951,7 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          href: "/competenze/pressoterapia-carmagnola",
           description: "Se cerchi leggerezza sulle gambe: criteri pratici e aspettative sane.",
         },
         {
@@ -1976,12 +1976,12 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Guida laser ascelle",
-          href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-ascelle-carmagnola",
           description: "Tempi, comfort e gestione pratica tra le sedute.",
         },
         {
           label: "Guida laser inguine",
-          href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-inguine-carmagnola",
           description: "Regole semplici per una zona delicata (e come non stressarsi).",
         },
         {
@@ -2082,17 +2082,17 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Guida laser ascelle",
-          href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-ascelle-carmagnola",
           description: "Tempi, comfort e gestione pratica su una zona spesso \"sensibile\".",
         },
         {
           label: "Guida laser inguine",
-          href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-inguine-carmagnola",
           description: "Regole semplici per una zona delicata, senza ansia.",
         },
         {
           label: "Laser uomo: guida pratica",
-          href: "/competenze/laser-uomo-carmagnola-guida-pratica",
+          href: "/competenze/laser-uomo-carmagnola",
           description: "Barba/collo e aree ampie: strategia e calendario realistico.",
         },
         {
@@ -2117,7 +2117,7 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          href: "/competenze/pressoterapia-carmagnola",
           description: "Se cerchi leggerezza sulle gambe: quando può aiutare davvero e come inserirla bene.",
         },
         {
@@ -2229,12 +2229,12 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Guida laser gambe",
-          href: "/competenze/laser-gambe-carmagnola-guida-pratica",
+          href: "/competenze/laser-gambe-carmagnola",
           description: "Strategia, stagionalità e mantenimento quando la priorità sono le gambe.",
         },
         {
           label: "Laser uomo: guida pratica",
-          href: "/competenze/laser-uomo-carmagnola-guida-pratica",
+          href: "/competenze/laser-uomo-carmagnola",
           description: "Percorsi uomo: barba/collo e aree ampie con piano ordinato.",
         },
         {
@@ -2264,7 +2264,7 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          href: "/competenze/pressoterapia-carmagnola",
           description: "Quando ha senso e come inserirla bene in un percorso corpo (senza fare confusione).",
         },
         {
@@ -2363,12 +2363,12 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Guida laser ascelle",
-          href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-ascelle-carmagnola",
           description: "Cosa aspettarti dopo le prime sedute e come gestire la zona tra un appuntamento e l'altro.",
         },
         {
           label: "Guida laser inguine",
-          href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-inguine-carmagnola",
           description: "Regole pratiche per comfort e continuità su una zona delicata.",
         },
         {
@@ -2388,7 +2388,7 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          href: "/competenze/pressoterapia-carmagnola",
           description: "Se cerchi leggerezza: cosa aspettarti e quando conviene essere prudenti.",
         },
         {
@@ -2487,17 +2487,17 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Guida laser ascelle",
-          href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-ascelle-carmagnola",
           description: "Tempi, comfort e gestione pratica su una zona che spesso \"fa paura\" all'inizio.",
         },
         {
           label: "Guida laser inguine",
-          href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-inguine-carmagnola",
           description: "Strategia e regole semplici per una zona delicata (senza stressarti).",
         },
         {
           label: "Laser uomo: barba/collo e schiena",
-          href: "/competenze/laser-uomo-carmagnola-guida-pratica",
+          href: "/competenze/laser-uomo-carmagnola",
           description: "Guida pratica: densità, ricrescita e calendario realistico per percorsi uomo.",
         },
         {
@@ -2522,7 +2522,7 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          href: "/competenze/pressoterapia-carmagnola",
           description: "Per orientarti con chiarezza su quando ha senso e come inserirla nel percorso corpo.",
         },
         {
@@ -2532,7 +2532,7 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Laser viso: cosa sapere prima di iniziare",
-          href: "/competenze/epilazione-laser-viso-carmagnola-guida-realistica",
+          href: "/competenze/epilazione-laser-viso-carmagnola-cosa-sapere",
           description: "Aspettative, tempi e attenzione alle zone più delicate del viso.",
         },
         {
@@ -2661,17 +2661,17 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Guida laser ascelle",
-          href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-ascelle-carmagnola",
           description: "Tempi, comfort e gestione pratica dopo le prime sedute.",
         },
         {
           label: "Guida laser inguine",
-          href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-inguine-carmagnola",
           description: "Regole semplici per comfort e continuità su una zona delicata.",
         },
         {
           label: "Laser uomo: guida pratica",
-          href: "/competenze/laser-uomo-carmagnola-guida-pratica",
+          href: "/competenze/laser-uomo-carmagnola",
           description: "Barba/collo e aree ampie: strategia, calendario e ricrescita.",
         },
         {
@@ -2785,12 +2785,12 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Laser uomo: guida pratica",
-          href: "/competenze/laser-uomo-carmagnola-guida-pratica",
+          href: "/competenze/laser-uomo-carmagnola",
           description: "Barba/collo, schiena, torace: strategia e calendario realistico.",
         },
         {
           label: "Guida laser schiena",
-          href: "/competenze/laser-schiena-carmagnola-guida-pratica",
+          href: "/competenze/laser-schiena-carmagnola",
           description: "Timing, ricrescita e gestione pratica su una zona ampia.",
         },
         {
@@ -2902,7 +2902,7 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          href: "/competenze/pressoterapia-carmagnola",
           description: "Quando ha senso e come inserirla in un percorso drenante ordinato.",
         },
       ],
@@ -3005,7 +3005,7 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          href: "/competenze/pressoterapia-carmagnola",
           description: "Quando ha senso e come inserirla bene in un percorso drenante.",
         },
       ],
@@ -3156,7 +3156,7 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          href: "/competenze/pressoterapia-carmagnola",
           description: "Quando ha davvero senso inserirla in un percorso drenante.",
         },
         {
@@ -3284,17 +3284,17 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Guida laser gambe",
-          href: "/competenze/laser-gambe-carmagnola-guida-pratica",
+          href: "/competenze/laser-gambe-carmagnola",
           description: "Strategia, stagionalità e mantenimento quando la priorità sono le gambe.",
         },
         {
           label: "Guida laser ascelle",
-          href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-ascelle-carmagnola",
           description: "Una zona piccola ma intensa: tempi, comfort e gestione tra le sedute.",
         },
         {
           label: "Guida laser inguine",
-          href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-inguine-carmagnola",
           description: "Regole semplici per una zona delicata (e per non stressare la pelle).",
         },
         {
@@ -3304,7 +3304,7 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Laser uomo: guida pratica",
-          href: "/competenze/laser-uomo-carmagnola-guida-pratica",
+          href: "/competenze/laser-uomo-carmagnola",
           description: "Barba/collo e aree ampie: strategia e calendario realistico.",
         },
         {
@@ -3448,22 +3448,22 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Guida laser ascelle",
-          href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-ascelle-carmagnola",
           description: "Tempi, comfort e gestione pratica dopo le prime sedute.",
         },
         {
           label: "Guida laser inguine",
-          href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-inguine-carmagnola",
           description: "Strategia e regole semplici su una zona delicata.",
         },
         {
           label: "Guida laser gambe",
-          href: "/competenze/laser-gambe-carmagnola-guida-pratica",
+          href: "/competenze/laser-gambe-carmagnola",
           description: "Calendario realistico e mantenimento quando la priorità sono le gambe.",
         },
         {
           label: "Laser uomo: guida pratica",
-          href: "/competenze/laser-uomo-carmagnola-guida-pratica",
+          href: "/competenze/laser-uomo-carmagnola",
           description: "Percorsi uomo: barba/collo e schiena/torace, con piano ordinato.",
         },
         {
@@ -3586,12 +3586,12 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Guida laser ascelle",
-          href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-ascelle-carmagnola",
           description: "Tempi, comfort e gestione pratica tra le sedute.",
         },
         {
           label: "Guida laser inguine",
-          href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-inguine-carmagnola",
           description: "Regole semplici per una zona delicata (e aspettative realistiche).",
         },
         {
@@ -3601,7 +3601,7 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Guida laser gambe",
-          href: "/competenze/laser-gambe-carmagnola-guida-pratica",
+          href: "/competenze/laser-gambe-carmagnola",
           description: "Strategia e mantenimento quando la priorità sono le gambe.",
         },
         {
@@ -3721,17 +3721,17 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Guida laser ascelle",
-          href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-ascelle-carmagnola",
           description: "Tempi, comfort e gestione pratica dopo le prime sedute.",
         },
         {
           label: "Guida laser inguine",
-          href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-inguine-carmagnola",
           description: "Regole semplici per una zona delicata (e aspettative realistiche).",
         },
         {
           label: "Guida laser gambe",
-          href: "/competenze/laser-gambe-carmagnola-guida-pratica",
+          href: "/competenze/laser-gambe-carmagnola",
           description: "Strategia, stagionalità e mantenimento quando la priorità sono le gambe.",
         },
         {
@@ -3746,7 +3746,7 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Laser uomo: guida pratica",
-          href: "/competenze/laser-uomo-carmagnola-guida-pratica",
+          href: "/competenze/laser-uomo-carmagnola",
           description: "Barba/collo e aree ampie: strategia e calendario realistico.",
         },
         {
@@ -3861,17 +3861,17 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Guida laser ascelle",
-          href: "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-ascelle-carmagnola",
           description: "Tempi, comfort e gestione pratica tra le sedute.",
         },
         {
           label: "Guida laser inguine",
-          href: "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica",
+          href: "/competenze/epilazione-laser-inguine-carmagnola",
           description: "Regole semplici per una zona delicata (e aspettative realistiche).",
         },
         {
           label: "Guida laser gambe",
-          href: "/competenze/laser-gambe-carmagnola-guida-pratica",
+          href: "/competenze/laser-gambe-carmagnola",
           description: "Strategia, stagionalità e mantenimento quando la priorità sono le gambe.",
         },
         {
@@ -3881,7 +3881,7 @@ export const localAreaPages: LocalAreaPage[] = [
         },
         {
           label: "Laser uomo: guida pratica",
-          href: "/competenze/laser-uomo-carmagnola-guida-pratica",
+          href: "/competenze/laser-uomo-carmagnola",
           description: "Barba/collo e aree ampie: strategia e calendario realistico.",
         },
         {

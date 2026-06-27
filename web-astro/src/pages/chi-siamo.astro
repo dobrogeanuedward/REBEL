@@ -19,7 +19,7 @@ import {
 const meta = createPageMeta({
   title: "Chi siamo — Rebel, centro estetico a Carmagnola",
   description:
-    "Rebel è un centro estetico a Carmagnola in Viale Barbaroux 20. Lavoriamo con tecnologia laser Thory, linee Marbellas ed Eberlin, e formiamo il team su Thory Academy.",
+    "Rebel è un centro estetico a Carmagnola in Viale Barbaroux 20: 4 cabine, tecnologia laser Thory Ice Polar, pressoterapia, tecar e fotobiostimolazione, con linee professionali Marbellas ed Eberlin e formazione continua su Thory Academy.",
   path: "/chi-siamo",
   openGraphType: "article",
   keywords: [
@@ -27,6 +27,9 @@ const meta = createPageMeta({
     "Rebel estetica Carmagnola",
     "centro estetico nuovo Carmagnola",
     "estetista Carmagnola",
+    "pressoterapia Carmagnola",
+    "tecar Carmagnola",
+    "fotobiostimolazione Carmagnola",
   ],
 });
 
@@ -37,15 +40,21 @@ const breadcrumb = buildBreadcrumbSchema([
 const webPage = buildWebPageSchema({
   name: "Chi siamo · Rebel Carmagnola",
   description:
-    "Chi è Rebel: centro estetico aperto a Carmagnola, brand professionali in cabina e formazione continua.",
+    "Chi è Rebel: centro estetico aperto a Carmagnola con 4 cabine, tecnologie laser, tecar, pressoterapia e fotobiostimolazione, brand professionali e formazione continua.",
   path: "/chi-siamo",
 });
 const article = buildArticleSchema({
   headline: "Chi siamo — Rebel, centro estetico a Carmagnola",
   description:
-    "Identità Rebel: studio nuovo a Carmagnola, tecnologia laser Thory, prodotti professionali, formazione continua.",
+    "Identità Rebel: studio nuovo a Carmagnola con 4 cabine, tecnologia laser Thory Ice Polar, pressoterapia, tecar e fotobiostimolazione, prodotti professionali e formazione continua.",
   path: "/chi-siamo",
-  keywords: ["chi siamo Rebel", "centro estetico Carmagnola", "Thory Carmagnola"],
+  keywords: [
+    "chi siamo Rebel",
+    "centro estetico Carmagnola",
+    "Thory Carmagnola",
+    "tecar Carmagnola",
+    "fotobiostimolazione Carmagnola",
+  ],
   section: "Chi siamo",
 });
 
@@ -87,6 +96,29 @@ const paths = [
     href: "/contatti",
   },
 ];
+
+const studio = [
+  {
+    kicker: "Spazi",
+    title: "Quattro cabine dedicate",
+    body: "Quattro cabine più area accoglienza e postazione mani: viso, corpo, laser e benessere lavorano in parallelo, senza sovrapposizioni e con i tempi giusti per ogni trattamento.",
+  },
+  {
+    kicker: "Laser",
+    title: "Thory con manipolo Ice Polar",
+    body: "Laser a diodo con punta raffreddata Ice Polar: epilazione progressiva e confortevole su viso e corpo, con calendario costruito sul tuo ciclo follicolare.",
+  },
+  {
+    kicker: "Corpo",
+    title: "Pressoterapia, tecar e fotobiostimolazione",
+    body: "Pressoterapia per gambe pesanti e drenaggio, tecarterapia per tono e recupero dei tessuti, fotobiostimolazione a supporto di pelle e inestetismi: tecnologie che si combinano nei percorsi corpo.",
+  },
+  {
+    kicker: "Cosmetica",
+    title: "Linee Marbellas ed Eberlin",
+    body: "Cosmetica professionale e biocosmetica epigenetica per i percorsi viso e corpo più avanzati, scelte una a una e usate davvero in cabina.",
+  },
+];
 ---
 <BaseLayout meta={meta}>
   <JsonLd data={breadcrumb} />
@@ -98,8 +130,8 @@ const paths = [
     kicker="Chi siamo · Carmagnola"
     title="Un centro estetico nuovo, in _Viale Barbaroux 20_."
     lead="Rebel ha aperto da poco a Carmagnola, ma non improvvisiamo. Lavoriamo con tecnologia professionale, prodotti seri e formazione continua. Quello che vedi è quello che porti a casa."
-    bullets={["Studio nuovo · 3 cabine", "Tecnologia laser Thory", "Prima visita gratuita"]}
-    meta={["Aperto dal 2025", "Studio nuovo · 3 cabine", "Mar–Sab su appuntamento"]}
+    bullets={["Studio nuovo · 4 cabine", "Laser, tecar, pressoterapia, fotobiostimolazione", "Prima visita gratuita"]}
+    meta={["Aperto dal 2025", "Studio nuovo · 4 cabine", "Mar–Sab su appuntamento"]}
     ctaPrimary={{ label: "Prenota la prima visita gratuita", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Come lavoriamo", href: "/metodo-rebel" }}
   />
@@ -111,10 +143,11 @@ const paths = [
         <h2 class="card__title">Centro estetico classico, avanzato ed epigenetico.</h2>
         <p class="card__body">
           A Carmagnola facciamo quello che ti aspetti da un buon centro estetico:
-          pulizia viso, manicure, ceretta, massaggi, laser. In più, abbiamo aggiunto
-          due cose che qui non si trovano spesso: tecnologia laser Thory con
-          manipolo Ice Polar e una linea cosmetica epigenetica per i percorsi
-          viso e corpo più avanzati.
+          pulizia viso, manicure, pedicure, ceretta, massaggi, laser. In più,
+          su 4 cabine, mettiamo tecnologie che qui non si trovano spesso: laser
+          Thory con manipolo Ice Polar, pressoterapia, tecar e fotobiostimolazione,
+          insieme a una linea cosmetica epigenetica per i percorsi viso e corpo
+          più avanzati.
         </p>
       </article>
       <article class="card">
@@ -127,6 +160,26 @@ const paths = [
           non per chiudere una vendita oggi.
         </p>
       </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker="Lo studio & le tecnologie"
+        title="Quattro cabine, _strumenti veri_."
+        lead="Non è solo questione di spazi: ogni cabina ha la tecnologia giusta per il suo percorso. Ecco cosa trovi a Carmagnola, in Viale Barbaroux 20."
+      />
+      <div class="card-grid card-grid--2">
+        {studio.map((s, i) => (
+          <FeatureCard
+            kicker={s.kicker}
+            title={s.title}
+            body={s.body}
+            index={i + 1}
+          />
+        ))}
+      </div>
     </div>
   </section>
 

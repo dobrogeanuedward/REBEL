@@ -11,7 +11,7 @@ import InlineCta from "@/components/InlineCta.astro";
 import FullBleedBand from "@/components/FullBleedBand.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
-import { media } from "@/lib/page-media";
+import { media, type ImageAsset } from "@/lib/page-media";
 import {
   competencePages,
   servicePages,
@@ -36,6 +36,20 @@ export async function getStaticPaths() {
 
 const { competence } = Astro.props;
 const compactTitle = competence.title.replace(/\s+a Carmagnola$/i, "").trim();
+
+// Per-topic imagery so each guide gets a coherent hero + mood band instead of
+// the same studio shot everywhere (reduces the "templated" duplicate signal).
+const resolveTheme = (slug: string): { hero: ImageAsset; mood: ImageAsset } => {
+  if (/laser|peli-incarniti/.test(slug)) return { hero: media.laser.hero, mood: media.laser.mood };
+  if (/laminazione|ciglia|sopracciglia/.test(slug)) return { hero: media.lamina.hero, mood: media.lamina.mood };
+  if (/semipermanente|manicure|unghie/.test(slug)) return { hero: media.manicure.hero, mood: media.manicure.mood };
+  if (/pedicure|piedi|talloni/.test(slug)) return { hero: media.pedicure.hero, mood: media.pedicure.mood };
+  if (/massaggio|cervicale/.test(slug)) return { hero: media.massaggio.hero, mood: media.massaggio.mood };
+  if (/linfodrenante|drenaggio|drenante|pressoterapia/.test(slug)) return { hero: media.drenante.hero, mood: media.drenante.mood };
+  if (/viso|pelle|contorno-occhi|tono|ovale|opaca|matura|pulizia|scrub/.test(slug)) return { hero: media.viso.hero, mood: media.viso.mood };
+  return { hero: media.studio.cabin, mood: media.studio.reception };
+};
+const theme = resolveTheme(competence.slug);
 
 const meta = createPageMeta({
   title: competence.title,
@@ -187,8 +201,8 @@ const tocItems = [
   {featuredAreasSchema ? <JsonLd data={featuredAreasSchema} /> : null}
 
   <PageHero
-    image={media.studio.cabin}
-    kicker={competence.intent === "commercial" ? "Percorso e prenotazione" : "Guida beauty"}
+    image={theme.hero}
+    kicker={competence.intent === "commercial" ? "Percorso e prenotazione" : "Approfondimento beauty"}
     title={compactTitle.replace(/(\b\w+\b)$/, "_$1_")}
     lead={competence.longDescription}
     meta={[
@@ -205,7 +219,7 @@ const tocItems = [
       <article class="detail-main">
         <div id="punti-chiave">
           <SectionHead
-            kicker={competence.intent === "commercial" ? "Prima di prenotare" : "Guida pratica"}
+            kicker={competence.intent === "commercial" ? "Prima di prenotare" : "In sintesi"}
             title={`Su _${compactTitle}_: ciò che conta davvero.`}
           />
           {competence.heroImage ? (
@@ -313,7 +327,7 @@ const tocItems = [
             <div class="card-grid card-grid--2">
               {relatedCompetences.map((c, i) => (
                 <FeatureCard
-                  kicker="Guida"
+                  kicker="Leggi anche"
                   title={c.title}
                   body={c.shortDescription}
                   href={`/competenze/${c.slug}`}
@@ -364,11 +378,11 @@ const tocItems = [
   </section>
 
   <FullBleedBand
-    image={media.studio.cabin}
+    image={theme.mood}
     height="sm"
     align="left"
     kicker="Da Rebel, a Carmagnola"
-    quote="Dalla lettura alla scelta: trasformiamo la guida in un piano concreto."
+    quote={`${compactTitle}: dalle parole a un piano concreto, pensato sulla tua pelle.`}
     cite="Studio Rebel · Viale Barbaroux 20"
     cta={{ label: "Prenota la prima visita", href: "/contatti" }}
   />

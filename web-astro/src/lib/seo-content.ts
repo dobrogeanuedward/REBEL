@@ -310,7 +310,7 @@ export const servicePages: ServicePage[] = [
     relatedCompetenceSlugs: [
       "drenaggio-corpo-carmagnola",
       "trattamenti-corpo-carmagnola",
-      "linfodrenante-carmagnola-guida-pratica",
+      "linfodrenante-carmagnola",
     ],
     editorialSections: [
       {
@@ -930,9 +930,9 @@ export const servicePages: ServicePage[] = [
     relatedCompetenceSlugs: [
       "epilazione-laser-carmagnola",
       "laser-diodo-carmagnola",
-      "epilazione-laser-viso-carmagnola-guida-realistica",
+      "epilazione-laser-viso-carmagnola-cosa-sapere",
       "epilazione-laser-estate-sole-carmagnola",
-      "laser-uomo-carmagnola-guida-pratica",
+      "laser-uomo-carmagnola",
     ],
     relatedProtocolSlugs: ["eye-genesis"],
     editorialSections: [
@@ -1034,9 +1034,9 @@ export const servicePages: ServicePage[] = [
       "epilazione-laser-corpo-carmagnola-zone-tempi",
       "epilazione-laser-estate-sole-carmagnola",
       "peli-incarniti-laser-carmagnola",
-      "epilazione-laser-inguine-carmagnola-guida-pratica",
-      "epilazione-laser-ascelle-carmagnola-guida-pratica",
-      "laser-uomo-carmagnola-guida-pratica",
+      "epilazione-laser-inguine-carmagnola",
+      "epilazione-laser-ascelle-carmagnola",
+      "laser-uomo-carmagnola",
     ],
     relatedProtocolSlugs: ["rebel-cell-regeneration"],
     editorialSections: [
@@ -1133,8 +1133,8 @@ export const servicePages: ServicePage[] = [
       alt: "Epilazione laser viso uomo Rebel a Carmagnola",
     },
     relatedCompetenceSlugs: [
-      "laser-uomo-carmagnola-guida-pratica",
-      "laser-barba-collo-carmagnola-guida-pratica",
+      "laser-uomo-carmagnola",
+      "laser-barba-collo-carmagnola",
       "epilazione-laser-estate-sole-carmagnola",
       "laser-diodo-carmagnola",
       "epilazione-laser-carmagnola",
@@ -1218,9 +1218,9 @@ export const servicePages: ServicePage[] = [
       alt: "Epilazione laser corpo uomo Rebel a Carmagnola",
     },
     relatedCompetenceSlugs: [
-      "laser-uomo-carmagnola-guida-pratica",
-      "laser-schiena-carmagnola-guida-pratica",
-      "laser-gambe-carmagnola-guida-pratica",
+      "laser-uomo-carmagnola",
+      "laser-schiena-carmagnola",
+      "laser-gambe-carmagnola",
       "epilazione-laser-corpo-carmagnola-zone-tempi",
       "epilazione-laser-estate-sole-carmagnola",
       "laser-diodo-carmagnola",
@@ -1604,7 +1604,7 @@ export const competencePages: CompetencePage[] = [
     ],
     relatedCompetenceSlugs: [
       "laser-diodo-carmagnola",
-      "epilazione-laser-viso-carmagnola-guida-realistica",
+      "epilazione-laser-viso-carmagnola-cosa-sapere",
       "epilazione-laser-corpo-carmagnola-zone-tempi",
       "epilazione-laser-inverno-carmagnola",
       "laser-e-palestra-sport-carmagnola",
@@ -1668,7 +1668,7 @@ export const competencePages: CompetencePage[] = [
     slug: "laser-diodo-carmagnola",
     title: "Laser diodo a Carmagnola",
     shortDescription:
-      "Guida pratica al laser diodo: cosa significa davvero, differenze con IPL e cosa guardare in consulenza (parametri, calendario, post-seduta).",
+      "Laser a diodo spiegato senza tecnicismi: cosa significa davvero, in cosa differisce dall'IPL e quali parametri controllare in consulenza prima di iniziare.",
     longDescription:
       "Cosa significa davvero \"laser diodo\" per l'epilazione: differenze con IPL, cosa aspettarsi, come valutare un centro serio e come impostare un percorso coerente.",
     localAngle:
@@ -1713,7 +1713,7 @@ export const competencePages: CompetencePage[] = [
     ],
     relatedCompetenceSlugs: [
       "epilazione-laser-carmagnola",
-      "epilazione-laser-viso-carmagnola-guida-realistica",
+      "epilazione-laser-viso-carmagnola-cosa-sapere",
       "epilazione-laser-corpo-carmagnola-zone-tempi",
       "epilazione-laser-estate-sole-carmagnola",
       "peli-incarniti-laser-carmagnola",
@@ -1777,7 +1777,7 @@ export const competencePages: CompetencePage[] = [
     shortDescription:
       "Trattamenti viso su luminosità, grana della pelle e comfort, con percorso su misura.",
     longDescription:
-      "Una guida pratica per scegliere il trattamento viso giusto partendo dalla pelle di oggi (non dalla moda del momento). In Rebel lavoriamo per step: lettura iniziale, trattamento mirato e pochi consigli per mantenere il risultato anche a casa.",
+      "Come scegliere il trattamento viso giusto partendo dalla pelle di oggi, non dalla moda del momento. In Rebel lavoriamo per step: lettura iniziale, trattamento mirato e pochi consigli per mantenere il risultato anche a casa.",
     localAngle:
       "Utile se cerchi a Carmagnola un trattamento viso fatto bene e vuoi capire da dove partire.",
     intent: "commercial",
@@ -1924,7 +1924,7 @@ export const competencePages: CompetencePage[] = [
     ],
     relatedCompetenceSlugs: [
       "drenaggio-corpo-carmagnola",
-      "linfodrenante-carmagnola-guida-pratica",
+      "linfodrenante-carmagnola",
       "scrub-corpo-carmagnola-quando-farlo",
       "massaggio-rilassante-carmagnola-cervicale-stress",
       "beauty-routine-carmagnola",
@@ -2030,7 +2030,7 @@ export const competencePages: CompetencePage[] = [
     ],
     relatedCompetenceSlugs: [
       "trattamenti-corpo-carmagnola",
-      "linfodrenante-carmagnola-guida-pratica",
+      "linfodrenante-carmagnola",
       "scrub-corpo-carmagnola-quando-farlo",
       "massaggio-rilassante-carmagnola-cervicale-stress",
     ],
@@ -2183,7 +2183,7 @@ export const competencePages: CompetencePage[] = [
     ],
   },
   {
-    slug: "epilazione-laser-viso-carmagnola-guida-realistica",
+    slug: "epilazione-laser-viso-carmagnola-cosa-sapere",
     title: "Epilazione laser viso a Carmagnola: cosa sapere prima di iniziare",
     shortDescription:
       "Cosa aspettarti dal laser viso: tempi, sedute, attenzione alla pelle e scelte sensate prima di iniziare.",
@@ -2235,7 +2235,7 @@ export const competencePages: CompetencePage[] = [
       "laser-diodo-carmagnola",
       "epilazione-laser-estate-sole-carmagnola",
       "peli-incarniti-laser-carmagnola",
-      "laser-uomo-carmagnola-guida-pratica",
+      "laser-uomo-carmagnola",
     ],
     heroImage: {
       src: editorialImageAssets.laserViso,
@@ -2346,8 +2346,8 @@ export const competencePages: CompetencePage[] = [
       "laser-diodo-carmagnola",
       "epilazione-laser-estate-sole-carmagnola",
       "peli-incarniti-laser-carmagnola",
-      "epilazione-laser-inguine-carmagnola-guida-pratica",
-      "epilazione-laser-ascelle-carmagnola-guida-pratica",
+      "epilazione-laser-inguine-carmagnola",
+      "epilazione-laser-ascelle-carmagnola",
     ],
     heroImage: {
       src: editorialImageAssets.laserCorpo,
@@ -2406,10 +2406,10 @@ export const competencePages: CompetencePage[] = [
     ],
   },
   {
-    slug: "epilazione-laser-inguine-carmagnola-guida-pratica",
+    slug: "epilazione-laser-inguine-carmagnola",
     title: "Laser inguine a Carmagnola: fastidio, preparazione e tempi",
     shortDescription:
-      "Guida pratica su laser inguine (classico o totale): come prepararti, cosa evitare e come impostare un calendario realistico.",
+      "Laser inguine, classico o totale: come prepararti, cosa evitare e come costruire un calendario sostenibile, seduta dopo seduta.",
     longDescription:
       "Se stai valutando il laser inguine a Carmagnola, qui trovi risposte pratiche: fastidio (e comfort con Ice Polar), preparazione, post-seduta e differenza tra inguine classico e totale. L'obiettivo è partire con un piano chiaro, non con dubbi confusi.",
     localAngle:
@@ -2458,7 +2458,7 @@ export const competencePages: CompetencePage[] = [
     ],
     heroImage: {
       src: editorialImageAssets.laserInguineGuida,
-      alt: "Laser inguine: guida pratica con focus su comfort, preparazione e aspettative realistiche.",
+      alt: "Laser inguine: focus su comfort, preparazione e aspettative realistiche.",
     },
     editorialSections: [
       {
@@ -2506,10 +2506,10 @@ export const competencePages: CompetencePage[] = [
     ],
   },
   {
-    slug: "epilazione-laser-ascelle-carmagnola-guida-pratica",
+    slug: "epilazione-laser-ascelle-carmagnola",
     title: "Laser ascelle a Carmagnola: quante sedute e cosa aspettarti",
     shortDescription:
-      "Una guida pratica per le ascelle: calendario, preparazione e gestione della pelle tra una seduta e l'altra.",
+      "Ascelle: come impostare il calendario, prepararti alla seduta e gestire la pelle tra un appuntamento e l'altro.",
     longDescription:
       "Il laser ascelle è una delle richieste più frequenti perché semplifica la quotidianità: meno ricrescita da inseguire e una pelle più tranquilla nel tempo. Qui trovi cosa aspettarti, come prepararti e come impostare un percorso ordinato.",
     localAngle:
@@ -2589,10 +2589,10 @@ export const competencePages: CompetencePage[] = [
     ],
   },
   {
-    slug: "laser-uomo-carmagnola-guida-pratica",
+    slug: "laser-uomo-carmagnola",
     title: "Laser uomo a Carmagnola: barba, schiena e zone più richieste",
     shortDescription:
-      "Guida per uomini: cosa cambia, quali zone sono più richieste (barba/collo/schiena) e come impostare un calendario realistico.",
+      "Per gli uomini: cosa cambia rispetto al percorso femminile, quali zone sono più richieste (barba, collo, schiena) e come impostare un calendario sostenibile.",
     longDescription:
       "Il laser uomo non è \"un'altra cosa\": è lo stesso metodo, ma cambia spesso la zona (barba/collo, schiena, torace) e cambia la gestione della pelle tra una seduta e l'altra. Qui trovi un orientamento pratico per partire bene e senza aspettative sbagliate.",
     localAngle:
@@ -2639,9 +2639,9 @@ export const competencePages: CompetencePage[] = [
       "epilazione-laser-estate-sole-carmagnola",
       "peli-incarniti-laser-carmagnola",
       "epilazione-laser-corpo-carmagnola-zone-tempi",
-      "laser-barba-collo-carmagnola-guida-pratica",
-      "laser-schiena-carmagnola-guida-pratica",
-      "laser-gambe-carmagnola-guida-pratica",
+      "laser-barba-collo-carmagnola",
+      "laser-schiena-carmagnola",
+      "laser-gambe-carmagnola",
     ],
     editorialSections: [
       {
@@ -2678,10 +2678,10 @@ export const competencePages: CompetencePage[] = [
     ],
   },
   {
-    slug: "laser-barba-collo-carmagnola-guida-pratica",
+    slug: "laser-barba-collo-carmagnola",
     title: "Laser barba e collo a Carmagnola: ordine, rasatura e calendario",
     shortDescription:
-      "Guida pratica su barba/collo: cosa aspettarti, come gestire la rasatura e come impostare un percorso coerente.",
+      "Barba e collo: cosa aspettarti seduta dopo seduta, come gestire la rasatura e come tenere insieme un percorso coerente.",
     longDescription:
       "Il laser su barba e collo si imposta in base all'obiettivo (riduzione, ordine della ricrescita, gestione irritazioni da rasatura). Qui trovi una guida concreta: cosa chiedere in consulenza, come prepararti, cosa fare tra una seduta e l'altra e come evitare errori che complicano il percorso.",
     localAngle:
@@ -2721,7 +2721,7 @@ export const competencePages: CompetencePage[] = [
       "epilazione-laser-viso-carmagnola",
     ],
     relatedCompetenceSlugs: [
-      "laser-uomo-carmagnola-guida-pratica",
+      "laser-uomo-carmagnola",
       "peli-incarniti-laser-carmagnola",
       "epilazione-laser-estate-sole-carmagnola",
       "laser-diodo-carmagnola",
@@ -2762,7 +2762,7 @@ export const competencePages: CompetencePage[] = [
     ],
   },
   {
-    slug: "laser-schiena-carmagnola-guida-pratica",
+    slug: "laser-schiena-carmagnola",
     title: "Laser schiena a Carmagnola: strategia, tempi e gestione delle aree ampie",
     shortDescription:
       "Una guida concreta per la schiena: come impostare il percorso, cosa aspettarti e come organizzare il calendario.",
@@ -2805,7 +2805,7 @@ export const competencePages: CompetencePage[] = [
       "epilazione-laser-corpo-carmagnola",
     ],
     relatedCompetenceSlugs: [
-      "laser-uomo-carmagnola-guida-pratica",
+      "laser-uomo-carmagnola",
       "epilazione-laser-corpo-carmagnola-zone-tempi",
       "epilazione-laser-estate-sole-carmagnola",
       "laser-diodo-carmagnola",
@@ -2846,10 +2846,10 @@ export const competencePages: CompetencePage[] = [
     ],
   },
   {
-    slug: "laser-gambe-carmagnola-guida-pratica",
+    slug: "laser-gambe-carmagnola",
     title: "Laser gambe a Carmagnola: tempi, ricrescita e mantenimento",
     shortDescription:
-      "Guida pratica sulle gambe: calendario, cosa aspettarti davvero e come gestire sole, sport e routine tra le sedute.",
+      "Gambe, mezze o intere: che calendario aspettarti, cosa cambia davvero e come gestire sole, sport e routine tra le sedute.",
     longDescription:
       "Il laser gambe è spesso scelto per comodità: meno ricrescita da inseguire e gestione più semplice nel tempo. Qui trovi cosa aspettarti, come impostare un calendario realistico e come gestire il percorso nei mesi più luminosi senza stress.",
     localAngle:
@@ -2939,7 +2939,7 @@ export const competencePages: CompetencePage[] = [
     shortDescription:
       "Quando si può fare, cosa evitare e come pianificare vacanze e sedute in modo sensato.",
     longDescription:
-      "Una guida pratica per gestire laser e sole: non è una questione di divieti assoluti, ma di calendario e protezione. Qui trovi cosa chiedere prima di iniziare e come muoverti tra una seduta e l'altra.",
+      "Laser e sole non sono nemici per forza: è una questione di calendario e protezione, non di divieti assoluti. Qui trovi cosa chiedere prima di iniziare e come muoverti tra una seduta e l'altra.",
     localAngle:
       "Pensata per chi vive a Carmagnola (o arriva dai comuni vicini) e vuole programmare il laser senza complicarsi l'estate.",
     intent: "informational",
@@ -2981,9 +2981,9 @@ export const competencePages: CompetencePage[] = [
       "epilazione-laser-carmagnola",
       "epilazione-laser-inverno-carmagnola",
       "laser-e-palestra-sport-carmagnola",
-      "laser-gambe-carmagnola-guida-pratica",
-      "epilazione-laser-inguine-carmagnola-guida-pratica",
-      "epilazione-laser-ascelle-carmagnola-guida-pratica",
+      "laser-gambe-carmagnola",
+      "epilazione-laser-inguine-carmagnola",
+      "epilazione-laser-ascelle-carmagnola",
     ],
     heroImage: {
       src: editorialImageAssets.laserSoleGuida,
@@ -3087,9 +3087,9 @@ export const competencePages: CompetencePage[] = [
       "laser-diodo-carmagnola",
       "laser-e-palestra-sport-carmagnola",
       "epilazione-laser-estate-sole-carmagnola",
-      "epilazione-laser-inguine-carmagnola-guida-pratica",
-      "epilazione-laser-ascelle-carmagnola-guida-pratica",
-      "laser-gambe-carmagnola-guida-pratica",
+      "epilazione-laser-inguine-carmagnola",
+      "epilazione-laser-ascelle-carmagnola",
+      "laser-gambe-carmagnola",
       "peli-incarniti-laser-carmagnola",
     ],
     heroImage: {
@@ -3193,9 +3193,9 @@ export const competencePages: CompetencePage[] = [
       "epilazione-laser-carmagnola",
       "epilazione-laser-inverno-carmagnola",
       "epilazione-laser-estate-sole-carmagnola",
-      "epilazione-laser-ascelle-carmagnola-guida-pratica",
-      "epilazione-laser-inguine-carmagnola-guida-pratica",
-      "laser-gambe-carmagnola-guida-pratica",
+      "epilazione-laser-ascelle-carmagnola",
+      "epilazione-laser-inguine-carmagnola",
+      "laser-gambe-carmagnola",
       "peli-incarniti-laser-carmagnola",
     ],
     heroImage: {
@@ -3249,7 +3249,7 @@ export const competencePages: CompetencePage[] = [
   },
   {
     slug: "peli-incarniti-laser-carmagnola",
-    title: "Peli incarniti: quando il laser aiuta davvero (guida a Carmagnola)",
+    title: "Peli incarniti a Carmagnola: quando il laser aiuta davvero",
     shortDescription:
       "Cause comuni, routine quotidiana e criteri pratici per capire se un percorso laser ha senso.",
     longDescription:
@@ -3344,7 +3344,7 @@ export const competencePages: CompetencePage[] = [
     slug: "contorno-occhi-gonfiore-occhiaie-carmagnola",
     title: "Contorno occhi a Carmagnola: gonfiore, occhiaie e cosa fare davvero",
     shortDescription:
-      "Una guida pratica sul contorno occhi: perché cambia, cosa peggiora gonfiore/occhiaie e quali scelte sono sensate (senza eccessi).",
+      "Contorno occhi: perché cambia con il tempo, cosa peggiora gonfiore e occhiaie e quali scelte hanno davvero senso, senza eccessi.",
     longDescription:
       "Il contorno occhi è una delle zone che tradisce subito stanchezza, stress e abitudini (struccaggio, sfregamenti, sonno). Qui trovi un orientamento concreto: cosa puoi fare a casa, quando ha senso un trattamento in studio e come impostare un percorso ordinato.",
     localAngle:
@@ -3661,7 +3661,7 @@ export const competencePages: CompetencePage[] = [
     shortDescription:
       "Cosa incide sulla durata e come si rimuove bene (senza strappi o limature aggressive).",
     longDescription:
-      "Una guida pratica (e concreta) per chi vuole un semipermanente bello e ordinato nel tempo: cosa fa durare di più il risultato, come gestire ricrescita e piccoli sollevamenti, quando conviene rifarlo e perché la rimozione è la parte che protegge davvero l'unghia. Il nostro obiettivo è un effetto pulito, curato da vicino, che ti semplifica la vita senza rovinare la base.",
+      "Per chi vuole un semipermanente bello e ordinato nel tempo: cosa fa durare di più il risultato, come gestire ricrescita e piccoli sollevamenti, quando conviene rifarlo e perché la rimozione è la parte che protegge davvero l'unghia. Il nostro obiettivo è un effetto pulito, curato da vicino, che ti semplifica la vita senza rovinare la base.",
     localAngle:
       "Utile se cerchi a Carmagnola un servizio unghie curato e vuoi capire come mantenerlo senza rovinare l'unghia.",
     intent: "informational",
@@ -3762,7 +3762,7 @@ export const competencePages: CompetencePage[] = [
     shortDescription:
       "Quanto dura davvero, cosa evitare subito dopo e come farla restare ordinata più a lungo.",
     longDescription:
-      "Una guida pratica sulla laminazione: cosa aspettarti, cosa cambia nelle prime ore e quali piccole attenzioni fanno la differenza sulla durata del risultato. L'obiettivo è un effetto pulito e naturale, che ti semplifica la mattina: per questo ti diciamo cosa fare subito dopo e come mantenere ciglia e sopracciglia ordinate senza stressare la zona.",
+      "Laminazione di ciglia e sopracciglia: cosa aspettarti, cosa cambia nelle prime ore e quali piccole attenzioni fanno la differenza sulla durata del risultato. L'obiettivo è un effetto pulito e naturale, che ti semplifica la mattina: per questo ti diciamo cosa fare subito dopo e come mantenere ciglia e sopracciglia ordinate senza stressare la zona.",
     localAngle:
       "Scritta per chi cerca a Carmagnola un effetto naturale e pulito, senza eccessi e senza sorprese.",
     intent: "informational",
@@ -4102,7 +4102,7 @@ export const competencePages: CompetencePage[] = [
     ],
   },
   {
-    slug: "linfodrenante-carmagnola-guida-pratica",
+    slug: "linfodrenante-carmagnola",
     title: "Linfodrenante a Carmagnola: quando è utile e come impostare il percorso",
     shortDescription:
       "Massaggio linfodrenante: benefici percepiti, limiti e criteri per impostare un piano fatto bene.",
@@ -4208,10 +4208,10 @@ export const competencePages: CompetencePage[] = [
     ],
   },
   {
-    slug: "pressoterapia-carmagnola-guida-pratica",
+    slug: "pressoterapia-carmagnola",
     title: "Pressoterapia a Carmagnola: quando ha senso e cosa aspettarti",
     shortDescription:
-      "Guida pratica: a chi può essere utile, che sensazioni aspettarti e come inserirla in un percorso drenante ordinato.",
+      "Pressoterapia: a chi può essere utile, che sensazioni aspettarti e come inserirla in un percorso drenante ordinato.",
     longDescription:
       "La pressoterapia viene spesso cercata quando si sente pesantezza, gonfiore o bisogno di \"leggerezza\" sulle gambe. Qui trovi una guida concreta: cosa aspettarti davvero, come si inserisce in un percorso fatto bene (senza esagerare) e quando invece conviene essere prudenti. L'obiettivo è semplice: scegliere con lucidità e costruire un calendario sostenibile, non inseguire promesse.",
     localAngle:
@@ -4254,7 +4254,7 @@ export const competencePages: CompetencePage[] = [
     relatedServiceSlugs: ["massaggio-linfodrenante-carmagnola"],
     relatedCompetenceSlugs: [
       "drenaggio-corpo-carmagnola",
-      "linfodrenante-carmagnola-guida-pratica",
+      "linfodrenante-carmagnola",
       "trattamenti-corpo-carmagnola",
       "beauty-routine-carmagnola",
     ],

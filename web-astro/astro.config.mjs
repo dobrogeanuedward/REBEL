@@ -19,6 +19,27 @@ export default defineConfig({
   build: {
     format: "directory",
   },
+  // 301 redirects: cleaned-up competence slugs (removed "guida pratica/realistica").
+  redirects: {
+    "/competenze/epilazione-laser-viso-carmagnola-guida-realistica":
+      "/competenze/epilazione-laser-viso-carmagnola-cosa-sapere",
+    "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica":
+      "/competenze/epilazione-laser-inguine-carmagnola",
+    "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica":
+      "/competenze/epilazione-laser-ascelle-carmagnola",
+    "/competenze/laser-uomo-carmagnola-guida-pratica":
+      "/competenze/laser-uomo-carmagnola",
+    "/competenze/laser-barba-collo-carmagnola-guida-pratica":
+      "/competenze/laser-barba-collo-carmagnola",
+    "/competenze/laser-schiena-carmagnola-guida-pratica":
+      "/competenze/laser-schiena-carmagnola",
+    "/competenze/laser-gambe-carmagnola-guida-pratica":
+      "/competenze/laser-gambe-carmagnola",
+    "/competenze/linfodrenante-carmagnola-guida-pratica":
+      "/competenze/linfodrenante-carmagnola",
+    "/competenze/pressoterapia-carmagnola-guida-pratica":
+      "/competenze/pressoterapia-carmagnola",
+  },
   prefetch: {
     prefetchAll: true,
     defaultStrategy: "viewport",
