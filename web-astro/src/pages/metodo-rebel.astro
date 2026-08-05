@@ -1,10 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import PageHero from "@/components/PageHero.astro";
-import SectionHead from "@/components/SectionHead.astro";
 import StepStrip from "@/components/StepStrip.astro";
 import InlineCta from "@/components/InlineCta.astro";
-import FullBleedBand from "@/components/FullBleedBand.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import { media } from "@/lib/page-media";
@@ -18,113 +15,176 @@ import {
 import { methodSteps } from "@/lib/content";
 
 const meta = createPageMeta({
-  title: "Come lavoriamo — Metodo Rebel | Centro estetico Carmagnola",
+  title: "Metodo Rebel — Estetica epigenetica e percorsi su misura a Carmagnola",
   description:
-    "Cinque passaggi concreti, dalla prima visita gratuita al mantenimento. Come funziona un percorso da Rebel a Carmagnola: prima visita, proposta, primo trattamento, calendario, mantenimento.",
+    "Il Metodo Rebel unisce valutazione, priorità, Skin Reset, attivi epigenetici, tecnologie e rivalutazione per costruire percorsi viso e corpo su misura a Carmagnola.",
   path: "/metodo-rebel",
   openGraphType: "article",
   keywords: [
-    "metodo estetica Carmagnola",
-    "come funziona centro estetico Carmagnola",
-    "percorso estetica personalizzato Carmagnola",
-    "prima visita centro estetico Carmagnola",
+    "Metodo Rebel",
+    "estetica epigenetica Carmagnola",
+    "percorso estetico personalizzato Carmagnola",
+    "trattamenti viso corpo su misura Carmagnola",
   ],
 });
 
 const breadcrumb = buildBreadcrumbSchema([
   { name: "Home", path: "/" },
-  { name: "Come lavoriamo", path: "/metodo-rebel" },
+  { name: "Metodo Rebel", path: "/metodo-rebel" },
 ]);
 const webPage = buildWebPageSchema({
-  name: "Come lavoriamo — Rebel Carmagnola",
-  description:
-    "Cinque passaggi: prima visita, proposta, primo trattamento, calendario, mantenimento.",
+  name: "Metodo Rebel — estetica epigenetica a Carmagnola",
+  description: meta.description,
   path: "/metodo-rebel",
 });
 const service = buildServiceSchema(
-  "Percorso estetico personalizzato a Carmagnola",
-  "Percorso in cinque passaggi: prima visita gratuita, proposta chiara, primo trattamento, calendario, mantenimento.",
+  "Metodo Rebel — percorso estetico personalizzato",
+  "Valutazione, priorità, Skin Reset, percorso, rivalutazione e mantenimento.",
   "/metodo-rebel",
 );
 const article = buildArticleSchema({
-  headline: "Come lavoriamo — Metodo Rebel",
-  description:
-    "Dal primo messaggio al mantenimento: cinque passaggi semplici per un percorso senza sorprese.",
+  headline: "Metodo Rebel — la bellezza segue il tuo ritmo",
+  description: meta.description,
   path: "/metodo-rebel",
-  keywords: ["metodo Rebel", "come funziona centro estetico Carmagnola"],
+  keywords: ["Metodo Rebel", "estetica epigenetica", "Carmagnola"],
   section: "Metodo",
 });
+
+const priorities = [
+  "Luminosità e uniformità",
+  "Tono, densità e longevità",
+  "Comfort e barriera cutanea",
+  "Contorno occhi e qualità dello sguardo",
+  "Forma, drenaggio e compattezza",
+  "Texture e grana della pelle",
+  "Libertà dal pelo con Ice Polar",
+];
+
+const journeys = [
+  {
+    name: "Glow",
+    body: "Per pelle spenta, irregolare o affaticata. Skin Reset, Catalysis, Cell Regen e attivi epigenetici entrano come strumenti di una progressione luminosa.",
+  },
+  {
+    name: "Longevity",
+    body: "Per tono, densità, comfort e qualità del viso. Lift, Collagen, Rebirth 60+ ed Eye Genesis vengono orchestrati secondo la priorità reale.",
+  },
+  {
+    name: "Forma",
+    body: "Per corpo, drenaggio e rimodellamento. Manualità, LPG, pressomassaggio, Tecar e Lift Body vengono calibrati sulla risposta della persona.",
+  },
+  {
+    name: "Libertà",
+    body: "Il percorso dedicato all’epilazione laser con manipolo Ice Polar: valutazione, parametri personalizzati, comfort e continuità.",
+  },
+];
 ---
-<BaseLayout meta={meta}>
+<BaseLayout meta={meta} bodyClass="page-rebrand page-metodo-rebel">
   <JsonLd data={breadcrumb} />
   <JsonLd data={webPage} />
   <JsonLd data={service} />
   <JsonLd data={article} />
 
-  <PageHero
-    image={media.studio.cabin}
-    kicker="Come lavoriamo · Carmagnola"
-    title="Cinque passaggi, dalla _prima visita_ al mantenimento."
-    lead="Niente percorsi complicati o pacchetti gonfiati. Da Rebel funziona così: ci scrivi, vieni in studio gratis, decidiamo insieme cosa fare e quando."
-    bullets={["Prima visita gratuita", "Listino sempre online", "Nessun obbligo di acquisto"]}
-    meta={["Prima visita gratuita", "Listino sempre online", "Nessun obbligo di acquisto"]}
-    ctaPrimary={{ label: "Prenota la prima visita gratuita", href: "/contatti", halo: true }}
-    ctaSecondary={{ label: "Vedi listino e prezzi", href: "/listino-estetica-laser" }}
-  />
+  <section class="rb-hero rb-hero--method">
+    <div class="rb-hero__media">
+      <img src={media.studio.cabin.src ?? media.studio.cabin} alt="Metodo Rebel nello studio di Carmagnola" />
+    </div>
+    <div class="rb-hero__veil"></div>
+    <div class="container rb-hero__content">
+      <p class="rb-kicker">Estetica epigenetica · Carmagnola</p>
+      <h1>La bellezza segue <em>il tuo ritmo.</em></h1>
+      <p class="rb-lead">
+        Il Metodo Rebel legge il momento reale di pelle e corpo, definisce una priorità e costruisce una progressione in cui manualità, attivi e tecnologie hanno sempre una ragione precisa.
+      </p>
+      <div class="cluster cluster--stack-mobile">
+        <a class="btn btn--primary" href="/contatti">Prenota la valutazione</a>
+        <a class="btn btn--secondary" href="/protocolli-epigenetici">Scopri i percorsi</a>
+      </div>
+      <p class="rb-signature">Be Beautiful. Be Rebel.</p>
+    </div>
+  </section>
 
-  <section class="section">
+  <section class="rb-section rb-section--ivory">
+    <div class="container rb-intro-grid">
+      <div>
+        <p class="rb-kicker">La Mappa Rebel</p>
+        <h2>Prima di scegliere un trattamento, scegliamo una <em>direzione.</em></h2>
+      </div>
+      <div class="rb-copy">
+        <p>La Mappa Rebel collega ciò che desideri, ciò che la pelle manifesta e ciò che può sostenerla davvero in questa fase.</p>
+        <p>Da qui nasce il percorso: non una sequenza standard, ma una regia aggiornata nel tempo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="rb-section rb-section--plum">
     <div class="container">
-      <SectionHead
-        kicker="Il percorso, passo per passo"
-        title="Cinque _step_, ciascuno con un compito preciso."
-        lead="L'ordine conta: ogni passaggio prepara quello successivo. Per questo non saltiamo la prima visita, anche se è gratuita."
-      />
+      <div class="rb-section-head">
+        <p class="rb-kicker">Il Metodo, in sei movimenti</p>
+        <h2>Ogni fase prepara e potenzia <em>la successiva.</em></h2>
+      </div>
       <StepStrip items={methodSteps} />
     </div>
   </section>
 
-  <section class="section section--tight">
-    <div class="container grid-2">
-      <article class="card card--feature">
-        <p class="card__kicker">Perché lavoriamo così</p>
-        <h2 class="card__title">Perché un percorso costruito bene si vede.</h2>
-        <p class="card__body" style="margin-top:1rem;">
-          Un buon trattamento singolo dà un risultato. Un percorso costruito
-          sui tempi e sulle priorità della persona dà un cambiamento. Per questo
-          la prima visita non è un'extra: è la base che ci permette di
-          proporti qualcosa di sensato.
-        </p>
-      </article>
-      <aside class="card">
-        <p class="card__kicker">Cosa porti via dalla prima visita</p>
-        <h2 class="card__title">Tre cose concrete.</h2>
-        <ul class="flow" style="margin-top:1rem; color: var(--text-muted);">
-          <li>Una proposta scritta con prezzi e tempi reali.</li>
-          <li>Risposta chiara: ha senso oppure no? E perché.</li>
-          <li>Il piccolo regalo che hai scelto in fase di prenotazione.</li>
-        </ul>
-      </aside>
+  <section class="rb-section rb-section--ivory">
+    <div class="container">
+      <div class="rb-section-head">
+        <p class="rb-kicker">Le priorità</p>
+        <h2>Sette modi diversi di leggere <em>ciò che viene prima.</em></h2>
+      </div>
+      <ol class="rb-priority-grid">
+        {priorities.map((priority, index) => (
+          <li><span>{String(index + 1).padStart(2, "0")}</span><strong>{priority}</strong></li>
+        ))}
+      </ol>
     </div>
   </section>
 
-  <FullBleedBand
-    image={media.studio.cabin}
-    height="sm"
-    align="left"
-    kicker="Da Rebel, a Carmagnola"
-    quote="Un percorso costruito bene si vede. Per questo iniziamo dall'ascolto."
-    cite="Studio Rebel · Viale Barbaroux 20"
-  />
+  <section class="rb-section rb-section--spectrum">
+    <div class="container">
+      <div class="rb-section-head">
+        <p class="rb-kicker">I percorsi Rebel</p>
+        <h2>I protocolli diventano strumenti dentro una <em>regia più grande.</em></h2>
+      </div>
+      <div class="rb-journey-grid">
+        {journeys.map((journey) => (
+          <article class="rb-journey-card">
+            <p class="rb-kicker">Percorso</p>
+            <h3>{journey.name}</h3>
+            <p>{journey.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
 
-  <section class="section">
+  <section class="rb-section rb-section--ivory">
+    <div class="container rb-intro-grid">
+      <div>
+        <p class="rb-kicker">La Professionista Rebel</p>
+        <h2>La tecnologia entra quando <em>serve davvero.</em></h2>
+      </div>
+      <div class="rb-copy">
+        <p>Ogni strumento viene scelto in base alla priorità, alla sensibilità e alla risposta osservata. Attivi epigenetici, manualità e tecnologie lavorano insieme.</p>
+        <p>La rivalutazione permette di cambiare ritmo, intensità e combinazione senza perdere la direzione iniziale.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="rb-section rb-section--closing">
     <div class="container">
       <InlineCta
-        kicker="Iniziamo"
-        title="Quindici minuti, _gratis_, in studio."
-        lead="Prenota da WhatsApp o dal form. Ti rispondiamo entro poche ore con un orario disponibile."
+        kicker="La tua Mappa Rebel"
+        title="Partiamo da ciò che conta _adesso_."
+        lead="Prenota una valutazione in studio: ascoltiamo la tua priorità e costruiamo la direzione più coerente."
+        primaryHref="/contatti"
+        primaryLabel="Prenota la valutazione"
+        secondaryHref="/protocolli-epigenetici"
+        secondaryLabel="Esplora i percorsi"
       />
     </div>
   </section>
 
-  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
+  <StickyBookingBar primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
 </BaseLayout>
