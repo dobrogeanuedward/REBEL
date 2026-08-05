@@ -1,0 +1,144 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import StickyBookingBar from "@/components/StickyBookingBar.astro";
+import { buildBreadcrumbSchema, buildItemListSchema, buildWebPageSchema, createPageMeta } from "@/lib/seo";
+
+const meta = createPageMeta({
+  title: "Tecnologie estetiche Rebel a Carmagnola — Laser, Tecar e percorsi corpo",
+  description: "Le tecnologie Rebel a Carmagnola entrano nei percorsi solo quando servono: Laser Ice Polar, Tecar 448Revolution, LPG, Lumina K3, InfraPress X2 e CryoShape X2.",
+  path: "/tecnologie-rebel",
+  openGraphType: "article",
+  keywords: ["tecnologie estetiche Carmagnola", "Tecar Carmagnola", "LPG Carmagnola", "pressoterapia Carmagnola", "crioterapia estetica Carmagnola", "Laser Ice Polar Carmagnola"],
+});
+
+const technologies = [
+  {
+    code: "01",
+    name: "Laser Ice Polar",
+    family: "Percorso Libertà",
+    focus: "Epilazione progressiva viso e corpo",
+    copy: "Tecnologia laser con raffreddamento attivo. Parametri, cadenza e zone vengono definiti nella Valutazione Rebel e aggiornati in base alla risposta.",
+    href: "/epilazione-laser-carmagnola",
+  },
+  {
+    code: "02",
+    name: "Tecar 448Revolution",
+    family: "Percorsi Forma e Longevity",
+    focus: "Tessuti, tonicità e qualità cutanea",
+    copy: "Entra nei percorsi quando la priorità richiede un lavoro progressivo sui tessuti. La tecnologia accompagna manualità e attivi, senza sostituire la lettura professionale.",
+  },
+  {
+    code: "03",
+    name: "LPG",
+    family: "Percorso Forma",
+    focus: "Rimodellamento e stimolazione meccanica",
+    copy: "Utilizzata all’interno di programmi corpo calibrati su tonicità, leggerezza e armonia. Frequenza e intensità dipendono dalla Mappa Rebel.",
+  },
+  {
+    code: "04",
+    name: "Lumina K3 3-in-1",
+    family: "Percorsi Glow e Forma",
+    focus: "Viso e corpo, secondo configurazione",
+    copy: "Una piattaforma multifunzione che permette di scegliere il modulo più coerente con la priorità attuale e con la fase del percorso.",
+  },
+  {
+    code: "05",
+    name: "InfraPress X2",
+    family: "Percorso Forma",
+    focus: "Pressomassaggio e leggerezza",
+    copy: "Supporta i percorsi dedicati a microcircolo, sensazione di pesantezza e drenaggio, integrandosi con manualità, routine e rivalutazioni periodiche.",
+  },
+  {
+    code: "06",
+    name: "CryoShape X2",
+    family: "Percorso Forma",
+    focus: "Crioterapia estetica localizzata",
+    copy: "Viene selezionata su aree e obiettivi precisi, all’interno di una progressione costruita sulla persona e non come trattamento isolato standard.",
+  },
+];
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Tecnologie Rebel", path: "/tecnologie-rebel" },
+]);
+const webPage = buildWebPageSchema({ name: "Tecnologie Rebel a Carmagnola", description: meta.description, path: "/tecnologie-rebel" });
+const list = buildItemListSchema({
+  name: "Tecnologie utilizzate nei percorsi Rebel",
+  path: "/tecnologie-rebel",
+  items: technologies.map((item) => ({ name: item.name, path: item.href || "/tecnologie-rebel" })),
+});
+---
+<BaseLayout meta={meta} bodyClass="rebel-rebrand page-tecnologie-rebel">
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={webPage} />
+  <JsonLd data={list} />
+
+  <section class="tech-hero">
+    <div class="rebel-container tech-hero__grid">
+      <div>
+        <p class="rebel-kicker">Rebel Tech · Carmagnola</p>
+        <h1 class="rebel-display">Prima la priorità. Poi la tecnologia.</h1>
+      </div>
+      <div class="tech-hero__copy">
+        <p class="rebel-lead">Le tecnologie non definiscono il percorso: lo rendono più preciso. La Professionista Rebel le seleziona, le combina e ne aggiorna l’intensità attraverso la Mappa Rebel.</p>
+        <div class="rebel-spectrum-rule"></div>
+        <a class="btn btn--primary" href="/contatti">Prenota la Valutazione Rebel</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="rebel-section rebel-section--paper">
+    <div class="rebel-container">
+      <p class="rebel-kicker">La regia</p>
+      <h2 class="rebel-title">Ogni macchina ha un compito. Il risultato nasce dalla sequenza.</h2>
+      <div class="tech-principles">
+        <article><span>01</span><h3>Selezionare</h3><p>La tecnologia entra solo quando è coerente con priorità, sensibilità e obiettivo condiviso.</p></article>
+        <article><span>02</span><h3>Calibrare</h3><p>Parametri, durata e frequenza vengono definiti sulla persona e sulla fase del percorso.</p></article>
+        <article><span>03</span><h3>Integrare</h3><p>Manualità, attivi e tecnologia lavorano come parti della stessa architettura Rebel.</p></article>
+        <article><span>04</span><h3>Rivalutare</h3><p>La risposta osservata guida lo step successivo e mantiene il percorso dinamico.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="rebel-section rebel-section--plum">
+    <div class="rebel-container">
+      <p class="rebel-kicker">Le tecnologie</p>
+      <h2 class="rebel-title">Strumenti diversi, una sola Mappa Rebel.</h2>
+      <div class="tech-list">
+        {technologies.map((tech) => (
+          <article class="tech-card">
+            <div class="tech-card__index">{tech.code}</div>
+            <div class="tech-card__main">
+              <p class="rebel-kicker">{tech.family}</p>
+              <h3>{tech.name}</h3>
+              <strong>{tech.focus}</strong>
+              <p>{tech.copy}</p>
+              {tech.href ? <a href={tech.href}>Scopri il percorso →</a> : null}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="rebel-section">
+    <div class="rebel-container tech-close">
+      <div>
+        <p class="rebel-kicker">Metodo Rebel</p>
+        <h2 class="rebel-title">La tecnologia più adatta è quella che serve adesso.</h2>
+      </div>
+      <div>
+        <p class="rebel-lead">La Valutazione Rebel mette in relazione pelle, corpo, abitudini e obiettivi. Da lì nasce una progressione leggibile, con un primo step e una data di rivalutazione.</p>
+        <div class="rebel-hero__actions"><a class="btn btn--primary" href="/metodo-rebel">Scopri il Metodo</a><a class="btn btn--secondary" href="/contatti">Apri la tua Mappa Rebel</a></div>
+      </div>
+    </div>
+  </section>
+
+  <StickyBookingBar primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
+</BaseLayout>
+
+<style>
+  .tech-hero{padding:clamp(9rem,14vw,13rem) 0 clamp(5rem,9vw,8rem);background:radial-gradient(circle at 82% 18%,rgba(112,71,255,.2),transparent 27rem),radial-gradient(circle at 15% 86%,rgba(233,59,136,.13),transparent 25rem),var(--rebel-porcelain)}
+  .tech-hero__grid,.tech-close{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,7vw,7rem);align-items:end}.tech-hero__copy{padding-bottom:.7rem}.tech-principles{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:3rem;background:var(--rebel-line);border:1px solid var(--rebel-line);border-radius:28px;overflow:hidden}.tech-principles article{padding:2rem;background:var(--rebel-paper)}.tech-principles span{color:var(--rebel-pink);font-weight:800}.tech-principles h3{margin:2.5rem 0 .6rem;font-size:1.5rem}.tech-principles p{margin:0;color:var(--text-muted);line-height:1.6}.tech-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:3rem}.tech-card{display:grid;grid-template-columns:4rem 1fr;gap:1.2rem;padding:clamp(1.5rem,3vw,2.5rem);border:1px solid rgba(255,255,255,.14);border-radius:28px;background:rgba(255,255,255,.055)}.tech-card__index{font-size:2rem;font-weight:800;color:var(--rebel-pink)}.tech-card h3{margin:.2rem 0 .7rem;font-size:clamp(2rem,4vw,3.8rem);line-height:.92;letter-spacing:-.055em}.tech-card strong{display:block;color:#fff}.tech-card p:not(.rebel-kicker){color:rgba(255,255,255,.68);line-height:1.6}.tech-card a{color:#fff;font-weight:800}.tech-close{align-items:start}@media(max-width:900px){.tech-hero__grid,.tech-close,.tech-list{grid-template-columns:1fr}.tech-principles{grid-template-columns:1fr 1fr}.tech-hero{padding-top:8.5rem}}@media(max-width:560px){.tech-principles{grid-template-columns:1fr}.tech-card{grid-template-columns:1fr}.tech-card__index{font-size:1rem}}
+</style>
