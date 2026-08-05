@@ -2,12 +2,12 @@
 import { siteConfig } from "@/lib/site-config";
 
 const primary = [
-  { href: "/centro-estetico-carmagnola", label: "Centro estetico Carmagnola" },
-  { href: "/listino-estetica-laser", label: "Listino e prezzi" },
-  { href: "/epilazione-laser-carmagnola", label: "Epilazione laser" },
-  { href: "/protocolli-epigenetici", label: "Protocolli viso e corpo" },
-  { href: "/metodo-rebel", label: "Come lavoriamo" },
-  { href: "/contatti", label: "Contatti e mappa" },
+  { href: "/metodo-rebel", label: "Metodo Rebel" },
+  { href: "/protocolli-epigenetici", label: "Percorsi Glow, Longevity, Forma e Libertà" },
+  { href: "/epilazione-laser-carmagnola", label: "Laser Ice Polar" },
+  { href: "/listino-estetica-laser", label: "Beauty essentials e listino" },
+  { href: "/chi-siamo", label: "Studio Rebel" },
+  { href: "/contatti", label: "Prenota la valutazione" },
 ];
 
 const days = [
@@ -20,193 +20,60 @@ const days = [
   { day: "Dom", value: "Chiuso", closed: true },
 ];
 ---
-<footer class="site-footer">
+<footer class="site-footer rebel-site-footer">
   <div class="container">
     <div class="site-footer__grid">
       <div class="site-footer__brand">
-        <img
-          src={siteConfig.assets.logoLight}
-          alt="Rebel Estetica Epigenetica"
-          class="site-footer__logo"
-          width="340"
-          height="116"
-          decoding="async"
-          loading="lazy"
-        />
-        <h2 class="site-footer__tagline">
-          Centro estetico a Carmagnola.
-        </h2>
+        <img src={siteConfig.assets.logoLight} alt="Rebel Estetica Epigenetica" class="site-footer__logo" width="340" height="116" decoding="async" loading="lazy" />
+        <h2 class="site-footer__tagline">La bellezza segue il tuo ritmo.</h2>
         <p class="site-footer__copy">
-          Epilazione laser Ice Polar, pulizia viso, manicure, ceretta, massaggi
-          e protocolli viso/corpo in Viale Barbaroux 20.
-          <strong>La prima visita è gratuita.</strong>
+          Estetica epigenetica, tecnologie evolute e manualità professionale diventano un percorso costruito sulla persona. A Carmagnola, in Viale Barbaroux 20.
         </p>
+        <div class="rebel-site-footer__signatures"><span>Be Beautiful. Be Rebel.</span><span>Be Cool. Be Rebel.</span></div>
         <div class="cluster" style="margin-top:1.5rem;">
-          <a class="btn btn--primary" href="/contatti">Prenota la prima visita</a>
+          <a class="btn btn--primary" href="/contatti">Prenota la valutazione</a>
           <a class="btn btn--secondary" href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a>
         </div>
       </div>
 
       <nav aria-label="Pagine principali">
-        <p class="site-footer__title">Sul sito</p>
-        <ul class="site-footer__list">
-          {primary.map((it) => (
-            <li><a href={it.href}>{it.label}</a></li>
-          ))}
-        </ul>
+        <p class="site-footer__title">Rebel World</p>
+        <ul class="site-footer__list">{primary.map((it) => (<li><a href={it.href}>{it.label}</a></li>))}</ul>
       </nav>
 
       <address class="site-footer__contact">
-        <p class="site-footer__title">Trovaci</p>
-        <div class="site-footer__contact-row">
-          <span>Indirizzo</span>
-          <a href={siteConfig.social.maps} target="_blank" rel="noreferrer">
-            {siteConfig.address.streetAddress}, {siteConfig.address.locality}
-          </a>
-        </div>
-        <div class="site-footer__contact-row">
-          <span>Telefono</span>
-          <a href={`tel:${siteConfig.phoneRaw}`}>{siteConfig.phoneDisplay}</a>
-        </div>
-        <div class="site-footer__contact-row">
-          <span>WhatsApp</span>
-          <a href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer">Apri chat</a>
-        </div>
-        <div class="site-footer__contact-row">
-          <span>Email</span>
-          <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
-        </div>
-
+        <p class="site-footer__title">Vieni in studio</p>
+        <div class="site-footer__contact-row"><span>Indirizzo</span><a href={siteConfig.social.maps} target="_blank" rel="noreferrer">{siteConfig.address.streetAddress}, {siteConfig.address.locality}</a></div>
+        <div class="site-footer__contact-row"><span>Telefono</span><a href={`tel:${siteConfig.phoneRaw}`}>{siteConfig.phoneDisplay}</a></div>
+        <div class="site-footer__contact-row"><span>WhatsApp</span><a href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer">Apri chat</a></div>
+        <div class="site-footer__contact-row"><span>Email</span><a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></div>
         <p class="site-footer__title" style="margin-top:1.6rem;">Orari</p>
-        <ul class="site-footer__hours">
-          {days.map((d) => (
-            <li class={d.closed ? "is-closed" : ""}>
-              <span>{d.day}</span><span>{d.value}</span>
-            </li>
-          ))}
-        </ul>
+        <ul class="site-footer__hours">{days.map((d) => (<li class={d.closed ? "is-closed" : ""}><span>{d.day}</span><span>{d.value}</span></li>))}</ul>
       </address>
     </div>
 
-    <div class="site-footer__network" aria-label="Network Thory">
-      <span class="site-footer__network-label">Lavoriamo nel network</span>
-      <div class="site-footer__network-row">
-        {siteConfig.network.map((n) => (
-          <a class="site-footer__network-link" href={n.url} target="_blank" rel="noreferrer">
-            <span class="site-footer__network-name">{n.label}</span>
-            <span class="site-footer__network-note">{n.note}</span>
-          </a>
-        ))}
-      </div>
+    <div class="site-footer__network" aria-label="Network professionale">
+      <span class="site-footer__network-label">Tecnologie, formazione e partner professionali</span>
+      <div class="site-footer__network-row">{siteConfig.network.map((n) => (<a class="site-footer__network-link" href={n.url} target="_blank" rel="noreferrer"><span class="site-footer__network-name">{n.label}</span><span class="site-footer__network-note">{n.note}</span></a>))}</div>
     </div>
 
     <div class="site-footer__bottom">
-      <span class="site-footer__copy-line">
-        <img
-          src={siteConfig.assets.logoLight}
-          alt=""
-          class="site-footer__logo-mini"
-          width="120"
-          height="41"
-          decoding="async"
-          loading="lazy"
-          aria-hidden="true"
-        />
-        © {new Date().getFullYear()} {siteConfig.name} — P.IVA su richiesta — Carmagnola (TO)
-      </span>
-      <a
-        class="site-footer__credit"
-        href={siteConfig.credit.url}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Sito e branding by DOGO Studio"
-      >
-        <span class="site-footer__credit-dot" aria-hidden="true"></span>
-        {siteConfig.credit.label}
-      </a>
+      <span class="site-footer__copy-line">© {new Date().getFullYear()} {siteConfig.name} — Carmagnola (TO)</span>
+      <a class="site-footer__credit" href={siteConfig.credit.url} target="_blank" rel="noreferrer" aria-label="Sito e branding by DOGO Studio"><span class="site-footer__credit-dot" aria-hidden="true"></span>{siteConfig.credit.label}</a>
     </div>
   </div>
 </footer>
 
 <style>
-  .site-footer__hours {
-    list-style: none;
-    margin: 0.5rem 0 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.25rem 1.4rem;
-  }
-  .site-footer__hours li {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.82rem;
-    color: var(--text-muted);
-    padding-block: 0.15rem;
-  }
-  .site-footer__hours li.is-closed { color: var(--text-faint); }
-  .site-footer__hours li span:last-child { font-variant-numeric: tabular-nums; }
-
-  .site-footer__network {
-    margin-top: 2.4rem;
-    padding-top: 1.4rem;
-    border-top: 1px solid var(--line);
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-  .site-footer__network-label {
-    font-size: var(--t-kicker);
-    letter-spacing: var(--tracking-kicker);
-    text-transform: uppercase;
-    color: var(--text-faint);
-  }
-  .site-footer__network-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem 1.6rem;
-  }
-  .site-footer__network-link {
-    display: inline-flex;
-    flex-direction: column;
-    gap: 0.1rem;
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    padding-bottom: 0.15rem;
-    transition: border-color var(--t-fast) var(--ease-soft);
-  }
-  .site-footer__network-link:hover { border-color: var(--mauve); }
-  .site-footer__network-name {
-    font-family: var(--font-body);
-    font-size: 0.92rem;
-    color: var(--text);
-    letter-spacing: 0.02em;
-  }
-  .site-footer__network-note {
-    font-size: 0.72rem;
-    color: var(--text-faint);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
-  .site-footer__credit {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    font-size: 0.78rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--cyan-tech);
-    text-decoration: none;
-    opacity: 0.85;
-    transition: opacity var(--t-fast) var(--ease-soft);
-  }
-  .site-footer__credit:hover { opacity: 1; }
-  .site-footer__credit-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 999px;
-    background: var(--cyan-tech);
-    box-shadow: 0 0 10px rgba(0, 212, 230, 0.55);
-  }
+  .site-footer__hours { list-style:none; margin:.5rem 0 0; padding:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.25rem 1.4rem; }
+  .site-footer__hours li { display:flex; justify-content:space-between; font-size:.82rem; padding-block:.15rem; }
+  .site-footer__hours li span:last-child { font-variant-numeric:tabular-nums; }
+  .site-footer__network { margin-top:2.4rem; padding-top:1.4rem; border-top:1px solid var(--line); display:flex; flex-direction:column; gap:.6rem; }
+  .site-footer__network-label { font-size:var(--t-kicker); letter-spacing:var(--tracking-kicker); text-transform:uppercase; color:var(--text-faint); }
+  .site-footer__network-row { display:flex; flex-wrap:wrap; gap:1rem 1.6rem; }
+  .site-footer__network-link { display:inline-flex; flex-direction:column; gap:.1rem; text-decoration:none; border-bottom:1px solid transparent; padding-bottom:.15rem; }
+  .site-footer__network-name { font-size:.92rem; letter-spacing:.02em; }
+  .site-footer__network-note { font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; }
+  .site-footer__credit { display:inline-flex; align-items:center; gap:.45rem; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--rebel-cyan); text-decoration:none; }
+  .site-footer__credit-dot { width:6px; height:6px; border-radius:999px; background:var(--rebel-cyan); box-shadow:0 0 10px rgba(37,200,209,.55); }
 </style>
