@@ -1,0 +1,84 @@
+/* Visual audit corrections: stable header polarity, mobile proportions and dark-surface contrast. */
+
+/* The header must remain readable over both the light rebrand hero and legacy dark PageHero scenes. */
+.rebel-site-header {
+  background: rgba(255, 253, 249, .94);
+  border-bottom: 1px solid rgba(39, 20, 47, .10);
+  box-shadow: 0 10px 34px rgba(39, 20, 47, .07);
+  backdrop-filter: blur(18px) saturate(130%);
+}
+.rebel-site-header .site-header__logo {
+  filter: none !important;
+  height: clamp(36px, 4vw, 50px);
+}
+.rebel-site-header .site-header__inner { min-height: 58px; }
+.rebel-site-header .site-header__cta {
+  min-height: 42px;
+  padding-inline: 1.05rem;
+  border-radius: 999px;
+  box-shadow: none;
+  white-space: nowrap;
+}
+.rebel-site-header .burger {
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  background: rgba(255,255,255,.72);
+  border-color: rgba(39,20,47,.18);
+}
+.rebel-site-header .burger span { background: var(--rebel-ink); }
+
+/* Dark surfaces own their complete text system; no inherited black copy. */
+.rebel-section--plum,
+.rebel-site-footer,
+.page-hero,
+.section--dark,
+.section--scene-obsidian,
+.full-bleed-band {
+  --text: #fffdf9;
+  --text-strong: #ffffff;
+  --text-muted: rgba(255,255,255,.74);
+  --text-faint: rgba(255,255,255,.54);
+  --line: rgba(255,255,255,.14);
+  --line-strong: rgba(255,255,255,.24);
+  color: var(--text);
+}
+.rebel-section--plum :is(h1,h2,h3,h4,h5,h6,p,li,a,strong,small,span),
+.rebel-site-footer :is(h1,h2,h3,h4,h5,h6,p,li,strong),
+.page-hero :is(h1,h2,h3,h4,h5,h6,p,li,strong),
+.section--dark :is(h1,h2,h3,h4,h5,h6,p,li,strong),
+.section--scene-obsidian :is(h1,h2,h3,h4,h5,h6,p,li,strong),
+.full-bleed-band :is(h1,h2,h3,h4,h5,h6,p,li,strong) { color: inherit; }
+
+.rebel-section--plum .rebel-kicker,
+.page-hero .kicker,
+.section--dark .kicker,
+.section--scene-obsidian .kicker,
+.full-bleed-band .kicker { color: #ff72ad; }
+
+.rebel-section--plum .btn--secondary,
+.page-hero .btn--secondary,
+.section--dark .btn--secondary,
+.section--scene-obsidian .btn--secondary,
+.full-bleed-band .btn--secondary {
+  color: #fff;
+  border-color: rgba(255,255,255,.34);
+  background: rgba(255,255,255,.07);
+}
+
+@media (max-width: 719px) {
+  .rebel-site-header { padding-block: .55rem; }
+  .rebel-site-header .site-header__inner { min-height: 48px; gap: .65rem; }
+  .rebel-site-header .site-header__brand { height: 42px; min-width: 0; }
+  .rebel-site-header .site-header__logo { max-width: min(52vw, 190px); height: auto; }
+  .rebel-site-header .site-header__cta { display: none; }
+  .rebel-drawer { padding-top: max(1rem, env(safe-area-inset-top)); padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
+  .rebel-drawer .drawer__nav { gap: .12rem; align-content: center; }
+  .rebel-drawer .drawer__link { font-size: clamp(1.65rem, 8vw, 2.45rem); line-height: 1.05; padding-block: .48rem; }
+  .rebel-drawer .drawer__foot { display: grid; grid-template-columns: 1fr; }
+}
+
+@media (max-width: 370px) {
+  .rebel-site-header .site-header__logo { max-width: 168px; }
+  .rebel-site-header .burger { width: 40px; height: 40px; flex-basis: 40px; }
+}
