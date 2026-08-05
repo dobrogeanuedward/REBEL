@@ -1,0 +1,122 @@
+/* Final polish — commercial pages aligned with the Rebel rebrand. */
+.page-beauty,
+.page-studio,
+.page-contatti,
+.page-prima-visita {
+  background:
+    radial-gradient(circle at 88% 4%, rgba(112, 71, 255, .10), transparent 30rem),
+    radial-gradient(circle at 4% 34%, rgba(233, 59, 136, .08), transparent 28rem),
+    var(--rebel-paper, #fffdfa);
+  color: var(--rebel-ink, #27142f);
+}
+
+.page-beauty .section,
+.page-studio .section,
+.page-contatti .section,
+.page-prima-visita .section {
+  position: relative;
+}
+
+.page-beauty .section-head__title,
+.page-studio .section-head__title,
+.page-contatti .section-head__title,
+.page-prima-visita .section-head__title,
+.page-beauty .price-row__name {
+  color: var(--rebel-ink, #27142f);
+}
+
+.page-beauty .section-head__lead,
+.page-studio .section-head__lead,
+.page-contatti .section-head__lead,
+.page-prima-visita .section-head__lead,
+.page-beauty .price-row__description {
+  color: rgba(39, 20, 47, .68);
+}
+
+.page-beauty .listino-switch {
+  position: sticky;
+  top: 5.6rem;
+  z-index: 12;
+  padding: .7rem;
+  border: 1px solid rgba(39, 20, 47, .10);
+  border-radius: 999px;
+  background: rgba(255, 253, 249, .84);
+  box-shadow: 0 18px 60px rgba(39, 20, 47, .09);
+  backdrop-filter: blur(18px) saturate(130%);
+}
+
+.page-beauty .listino-switch__btn {
+  background: transparent;
+  border-color: transparent;
+  color: var(--rebel-ink, #27142f);
+  font-weight: 700;
+}
+
+.page-beauty .listino-switch__btn:hover,
+.page-beauty .listino-switch__btn:focus-visible {
+  background: linear-gradient(135deg, rgba(233, 59, 136, .12), rgba(112, 71, 255, .12));
+  border-color: rgba(112, 71, 255, .18);
+  color: var(--rebel-ink, #27142f);
+}
+
+.page-beauty .price-grid {
+  gap: .75rem;
+}
+
+.page-beauty .price-row {
+  border: 1px solid rgba(39, 20, 47, .10);
+  background: rgba(255, 255, 255, .78);
+  box-shadow: 0 16px 42px rgba(39, 20, 47, .055);
+  backdrop-filter: blur(10px);
+}
+
+.page-beauty .price-row:hover {
+  border-color: rgba(233, 59, 136, .35);
+  transform: translateY(-2px);
+  box-shadow: 0 22px 54px rgba(39, 20, 47, .09);
+}
+
+.page-beauty #laser {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(0, 211, 230, .13), transparent 24rem),
+    linear-gradient(145deg, #32173c, #25102f 68%);
+  color: #fff;
+}
+
+.page-beauty #laser .section-head__title,
+.page-beauty #laser .section-head__lead,
+.page-beauty #laser .price-row__name,
+.page-beauty #laser .price-row__description,
+.page-beauty #laser .price-row__price {
+  color: #fff;
+}
+
+.page-beauty #laser .section-head__lead,
+.page-beauty #laser .price-row__description {
+  color: rgba(255, 255, 255, .70);
+}
+
+.page-beauty #laser .price-row {
+  background: rgba(255, 255, 255, .065);
+  border-color: rgba(255, 255, 255, .13);
+  box-shadow: none;
+}
+
+.page-beauty #epigenetica {
+  background:
+    radial-gradient(circle at 12% 24%, rgba(233, 59, 136, .12), transparent 24rem),
+    linear-gradient(180deg, #fffaf7, #f7f0fb);
+}
+
+@media (max-width: 720px) {
+  .page-beauty .listino-switch {
+    position: static;
+    display: grid;
+    grid-template-columns: 1fr;
+    border-radius: 1.3rem;
+  }
+  .page-beauty .listino-switch__btn {
+    justify-content: flex-start;
+    min-height: 48px;
+  }
+}
