@@ -1,0 +1,170 @@
+/* Final precision pass — reduce visual noise and make the system feel authored. */
+:root {
+  --rebel-radius-sm: 14px;
+  --rebel-radius-md: 22px;
+  --rebel-radius-lg: 30px;
+  --rebel-shadow-soft: 0 18px 50px rgba(39,20,47,.07);
+  --rebel-shadow-lift: 0 28px 80px rgba(39,20,47,.11);
+  --rebel-section-space: clamp(4.75rem, 8vw, 8rem);
+}
+
+html { scroll-padding-top: 7rem; }
+body { text-rendering: optimizeLegibility; }
+main { isolation: isolate; }
+
+/* A single rhythm across old and new templates. */
+.rebel-section,
+.section { padding-block: var(--rebel-section-space); }
+.section--tight { padding-block: clamp(2.25rem, 4vw, 3.75rem); }
+.container,
+.rebel-container { width: min(1240px, calc(100% - clamp(2rem, 5vw, 5rem))); }
+.container--narrow { width: min(820px, calc(100% - clamp(2rem, 5vw, 5rem))); }
+
+/* Typography: fewer arbitrary widths and cleaner editorial cadence. */
+.rebel-title,
+.section-head__title,
+.page-hero__title { text-wrap: balance; }
+.rebel-lead,
+.section-head__lead,
+.page-hero__lead { text-wrap: pretty; }
+.rebel-kicker,
+.kicker,
+.section-head__kicker { letter-spacing: .16em; }
+
+/* One button family. */
+.btn {
+  min-height: 48px;
+  padding-inline: 1.25rem;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: .015em;
+  box-shadow: none;
+  transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease, background-color .25s ease, border-color .25s ease, color .25s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn--primary { box-shadow: 0 10px 30px rgba(112,71,255,.18); }
+.btn--primary:hover { box-shadow: 0 16px 38px rgba(112,71,255,.24); }
+.btn--halo { filter: none; }
+
+/* Cards: reduce competing radii, borders and gradients. */
+.feature-card,
+.link-card,
+.price-row,
+.rebel-world__card,
+.rebel-method__steps,
+.rebel-map,
+.tech-card,
+.inline-cta,
+.faq-accordion {
+  border-radius: var(--rebel-radius-md);
+}
+.feature-card,
+.link-card,
+.price-row,
+.rebel-world__card,
+.tech-card {
+  box-shadow: none;
+  border-color: rgba(39,20,47,.12);
+}
+.feature-card:hover,
+.link-card:hover,
+.price-row:hover,
+.rebel-world__card:hover,
+.tech-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--rebel-shadow-soft);
+}
+
+/* Home hero: sharpen composition and remove decorative excess. */
+.rebel-hero { min-height: min(900px, 94svh); padding-bottom: clamp(3.5rem, 7vw, 5.5rem); }
+.rebel-hero::after { opacity: .48; filter: blur(24px); }
+.rebel-hero__copy { max-width: 700px; }
+.rebel-display { max-width: 10ch; }
+.rebel-spectrum-rule { height: 3px; margin-block: 1.1rem 1.6rem; }
+.rebel-hero__signature { margin-top: 1.75rem; }
+
+/* Method: lighter structure, stronger sequence. */
+.rebel-method__steps { gap: 0; background: transparent; overflow: visible; border: 0; }
+.rebel-method__step {
+  position: relative;
+  border-top: 1px solid var(--rebel-line);
+  background: transparent;
+  padding-inline: 0;
+}
+.rebel-method__step:last-child { border-bottom: 1px solid var(--rebel-line); }
+.rebel-method__step b { font-size: clamp(1.4rem, 2.2vw, 2rem); }
+.rebel-map { box-shadow: var(--rebel-shadow-soft); }
+
+/* Priorities should read as a system, not seven decorative objects. */
+.rebel-priority {
+  min-height: 250px;
+  border-radius: var(--rebel-radius-lg);
+  background: rgba(255,255,255,.72);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.rebel-priority:nth-child(n) { background: rgba(255,255,255,.72); }
+.rebel-priority:hover { transform: translateY(-3px); box-shadow: var(--rebel-shadow-soft); border-color: rgba(112,71,255,.24); }
+
+/* Journeys: less card-like, more cinematic. */
+.rebel-journeys { gap: 1px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.12); border-radius: var(--rebel-radius-lg); overflow: hidden; }
+.rebel-journey { border: 0; border-radius: 0; min-height: clamp(390px, 52vw, 560px); }
+.rebel-journey__tags span { background: rgba(255,255,255,.06); backdrop-filter: blur(8px); }
+
+/* Header: quieter, thinner, more fashion than app UI. */
+.rebel-site-header { padding-block: .72rem; }
+.rebel-site-header[data-scrolled="true"] { box-shadow: 0 10px 32px rgba(39,20,47,.06); }
+.rebel-site-header .site-header__link { font-size: .8rem; letter-spacing: .045em; }
+.rebel-site-header .site-header__cta .btn { min-height: 42px; padding-inline: 1rem; }
+
+/* Dark surfaces: consistent contrast without pure white glare. */
+.rebel-section--plum,
+.rebel-site-footer,
+.laser-spotlight,
+.page-hero--dark,
+.full-bleed-band {
+  --text: rgba(255,253,249,.88);
+  --text-strong: #fffdf9;
+  --text-muted: rgba(255,253,249,.68);
+  --text-faint: rgba(255,253,249,.48);
+}
+
+/* Mobile becomes its own composition. */
+@media (max-width: 860px) {
+  :root { --rebel-section-space: clamp(3.8rem, 14vw, 5.5rem); }
+  .container,
+  .rebel-container,
+  .container--narrow { width: min(100% - 1.5rem, 760px); }
+  .rebel-hero { padding-top: 17.5rem; padding-bottom: 3.5rem; }
+  .rebel-display { font-size: clamp(3rem, 14vw, 5.2rem); line-height: .9; }
+  .rebel-hero__actions { display: grid; grid-template-columns: 1fr; }
+  .rebel-hero__actions .btn { width: 100%; justify-content: center; }
+  .rebel-method__step { grid-template-columns: 3rem 1fr; gap: .75rem; }
+  .rebel-priorities { grid-template-columns: repeat(7, minmax(78vw, 1fr)); margin-inline: -.75rem; padding-inline: .75rem; }
+  .rebel-priority { min-height: 220px; }
+  .rebel-journeys { margin-inline: -.75rem; border-radius: 0; border-inline: 0; }
+  .rebel-journey { min-height: 500px; padding: 1.5rem; background-position: 62% center; }
+  .rebel-journey:nth-child(even) { background-position: 38% center; }
+  .rebel-journey__copy h3 { font-size: clamp(2.8rem, 15vw, 4.6rem); }
+  .rebel-world { gap: .75rem; }
+  .rebel-world__card { min-height: 240px; padding: 1.4rem; }
+}
+
+@media (max-width: 380px) {
+  .container,
+  .rebel-container,
+  .container--narrow { width: calc(100% - 1.1rem); }
+  .rebel-hero { padding-top: 16rem; }
+  .rebel-hero__eyebrow { font-size: .64rem; }
+  .rebel-hero__signature { display: grid; gap: .45rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .feature-card,
+  .link-card,
+  .price-row,
+  .rebel-world__card,
+  .tech-card,
+  .rebel-priority { transition: none; }
+}
