@@ -1,0 +1,85 @@
+/* Audit pass: unify legacy commercial templates with the Rebel light system. */
+
+body:has(.laser-spotlight),
+body.page-protocollo-detail {
+  background:
+    radial-gradient(circle at 88% 8%, rgba(112, 71, 255, .12), transparent 28rem),
+    radial-gradient(circle at 4% 38%, rgba(233, 59, 136, .08), transparent 26rem),
+    var(--rebel-porcelain);
+  color: var(--rebel-ink);
+}
+
+body:has(.laser-spotlight) .section,
+body.page-protocollo-detail .section {
+  color: var(--rebel-ink);
+}
+
+body:has(.laser-spotlight) .section-head__title,
+body:has(.laser-spotlight) .card__title,
+body:has(.laser-spotlight) .laser-spotlight__title,
+body.page-protocollo-detail .section-head__title,
+body.page-protocollo-detail .card__title,
+body.page-protocollo-detail .link-card__title {
+  color: var(--rebel-ink);
+}
+
+body:has(.laser-spotlight) .section-head__lead,
+body:has(.laser-spotlight) .card__body,
+body:has(.laser-spotlight) .laser-spotlight__lead,
+body.page-protocollo-detail .section-head__lead,
+body.page-protocollo-detail .card__body,
+body.page-protocollo-detail .link-card__desc {
+  color: rgba(33, 20, 39, .72);
+}
+
+body:has(.laser-spotlight) .card,
+body.page-protocollo-detail .card,
+body.page-protocollo-detail .link-card {
+  border-color: rgba(39, 20, 47, .14);
+  background: rgba(255, 253, 249, .82);
+  box-shadow: 0 24px 70px rgba(39, 20, 47, .08);
+}
+
+body:has(.laser-spotlight) .laser-spotlight {
+  border: 1px solid rgba(39, 20, 47, .14);
+  border-radius: 32px;
+  background: var(--rebel-plum);
+  box-shadow: 0 32px 90px rgba(39, 20, 47, .16);
+  overflow: hidden;
+}
+
+body:has(.laser-spotlight) .laser-spotlight__body,
+body:has(.laser-spotlight) .laser-spotlight__title,
+body:has(.laser-spotlight) .laser-spotlight__lead,
+body:has(.laser-spotlight) .laser-spotlight .kicker {
+  color: var(--rebel-paper);
+}
+
+body:has(.laser-spotlight) .laser-spotlight__lead {
+  color: rgba(255, 253, 249, .72);
+}
+
+body:has(.laser-spotlight) .laser-spotlight .btn--secondary {
+  color: var(--rebel-paper);
+  border-color: rgba(255, 255, 255, .28);
+  background: rgba(255, 255, 255, .06);
+}
+
+body.page-protocollo-detail .editorial-flow {
+  max-width: 88ch;
+}
+
+body.page-protocollo-detail .link-card:hover {
+  border-color: var(--rebel-pink);
+  box-shadow: 0 18px 48px rgba(233, 59, 136, .1);
+}
+
+@media (max-width: 720px) {
+  body:has(.laser-spotlight) .laser-spotlight {
+    border-radius: 24px;
+  }
+
+  body:has(.laser-spotlight) .laser-spotlight__body {
+    padding: 1.4rem;
+  }
+}
