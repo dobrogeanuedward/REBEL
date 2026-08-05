@@ -1,512 +1,213 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import SectionHead from "@/components/SectionHead.astro";
-import FeatureCard from "@/components/FeatureCard.astro";
-import StepStrip from "@/components/StepStrip.astro";
-import InlineCta from "@/components/InlineCta.astro";
-import FullBleedBand from "@/components/FullBleedBand.astro";
 import JsonLd from "@/components/JsonLd.astro";
-import { media } from "@/lib/page-media";
-import HeroPhotoSlider from "@/components/HeroPhotoSlider.tsx";
 import StoreGallery from "@/components/StoreGallery.tsx";
 import InstagramFeed from "@/components/InstagramFeed.astro";
-import BrandStrip from "@/components/BrandStrip.astro";
-import PromoBanner from "@/components/PromoBanner.astro";
+import { storeGalleryImages } from "@/lib/content";
+import { siteConfig } from "@/lib/site-config";
 import {
   buildArticleSchema,
   buildBreadcrumbSchema,
-  buildItemListSchema,
   buildWebPageSchema,
   createPageMeta,
 } from "@/lib/seo";
-import { homeHeroImages, methodSteps, storeGalleryImages } from "@/lib/content";
-import { servicePages } from "@/lib/seo-content";
-import { siteConfig } from "@/lib/site-config";
 
 const meta = createPageMeta({
-  title: "Centro Estetico a Carmagnola — Rebel | Laser, Viso, Mani, Massaggi",
+  title: "Rebel Estetica Epigenetica a Carmagnola — Metodo, Percorsi e Laser",
   description:
-    "Centro estetico a Carmagnola, Viale Barbaroux 20: epilazione laser Ice Polar, pulizia viso, manicure, ceretta, massaggi e protocolli viso/corpo. Prima visita gratuita, listino chiaro online.",
+    "Rebel costruisce percorsi estetici evolutivi a Carmagnola: Valutazione Rebel, Skin Reset, attivi epigenetici, tecnologie e Laser Ice Polar.",
   path: "/",
   keywords: [
     "centro estetico Carmagnola",
-    "estetista Carmagnola",
+    "estetica epigenetica Carmagnola",
+    "Metodo Rebel",
+    "percorsi viso Carmagnola",
+    "rimodellamento corpo Carmagnola",
     "epilazione laser Carmagnola",
-    "pulizia viso Carmagnola",
-    "manicure Carmagnola",
-    "massaggi Carmagnola",
-    "Rebel Carmagnola",
-    "centro estetico Viale Barbaroux Carmagnola",
+    "Laser Ice Polar",
   ],
 });
 
 const breadcrumb = buildBreadcrumbSchema([{ name: "Home", path: "/" }]);
-const webPage = buildWebPageSchema({
-  name: "Rebel — Centro estetico a Carmagnola",
+const webPage = buildWebPageSchema({ name: "Rebel Estetica Epigenetica", description: meta.description, path: "/" });
+const article = buildArticleSchema({
+  headline: "Ogni pelle ha una priorità. Scopri il Metodo Rebel.",
   description: meta.description,
   path: "/",
-});
-const article = buildArticleSchema({
-  headline: "Centro estetico a Carmagnola — Rebel",
-  description:
-    "Epilazione laser Ice Polar, viso, mani, massaggi e protocolli a Carmagnola. Prima visita gratuita.",
-  path: "/",
-  keywords: ["centro estetico Carmagnola", "epilazione laser Carmagnola", "Rebel"],
+  keywords: ["Metodo Rebel", "estetica epigenetica", "Carmagnola"],
   section: "Home",
 });
 
-// Trattamenti più richiesti — l'ordine riflette le priorità di prenotazione.
-const baseSlugs = [
-  "pulizia-viso-carmagnola",
-  "epilazione-laser-corpo-carmagnola",
-  "manicure-semipermanente-carmagnola",
-  "laminazione-ciglia-sopracciglia-carmagnola",
-  "massaggio-rilassante-carmagnola",
-  "pedicure-carmagnola",
+const heroImage = "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/7dc5354b-33e1-4a9e-a21d-ff321ecf4500/public";
+const faceImage = "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/7dc5354b-33e1-4a9e-a21d-ff321ecf4500/public";
+const bodyImage = "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/9d9033f2-f11f-4485-f69c-38d05556bb00/public";
+const freedomImage = "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e63a6c84-f777-4f2d-995b-eef9c7e09900/public";
+
+const method = [
+  ["01", "Valutazione", "Ascoltiamo desideri, abitudini e storia della pelle."],
+  ["02", "Priorità", "Individuiamo ciò che viene prima nel momento attuale."],
+  ["03", "Skin Reset", "Prepariamo la pelle a ricevere il percorso."],
+  ["04", "Percorso", "Combiniamo manualità, attivi e tecnologie con una ragione precisa."],
+  ["05", "Rivalutazione", "Osserviamo la risposta e aggiorniamo sequenza e frequenza."],
+  ["06", "Preservare", "Accompagniamo nel tempo l’equilibrio raggiunto."],
 ];
-const baseServices = baseSlugs
-  .map((slug) => servicePages.find((s) => s.slug === slug))
-  .filter((s): s is NonNullable<typeof s> => Boolean(s));
 
-const baseServicesSchema = baseServices.length > 0
-  ? buildItemListSchema({
-      name: "Trattamenti più richiesti — Rebel Carmagnola",
-      path: "/",
-      items: baseServices.map((s) => ({
-        name: s.name,
-        path: `/servizi/${s.slug}`,
-      })),
-    })
-  : null;
+const priorities = ["Comfort", "Purezza", "Luminosità", "Idratazione", "Struttura", "Uniformità", "Longevità"];
 
-const pillars = [
+const journeys = [
   {
-    kicker: "Viso & corpo",
-    title: "Pulizia viso, massaggi, ceretta",
-    body: "Servizi quotidiani fatti come si deve, con prodotti professionali e tempi di seduta sensati. Niente fretta, niente upsell.",
-    href: "/listino-estetica-laser",
-  },
-  {
-    kicker: "Epilazione laser",
-    title: "Laser con manipolo Ice Polar",
-    body: "Diodo Thory con raffreddamento attivo: comfort vero anche su ascelle e inguine. Valutazione iniziale gratuita.",
-    href: "/epilazione-laser-carmagnola",
-  },
-  {
-    kicker: "Protocolli avanzati",
-    title: "Estetica epigenetica viso/corpo",
-    body: "Quando vuoi un percorso che lavori in profondità: linee Marbellas ed Eberlin, sedute calibrate, risultati nel tempo.",
+    name: "Glow",
+    kicker: "Percorsi viso",
+    copy: "Per una pelle più luminosa, uniforme e vitale. Skin Reset, attivi selezionati e tecnologie entrano in una progressione costruita sulla priorità attuale.",
+    image: faceImage,
+    tags: ["Skin Reset", "Catalysis", "Cell Regen", "Attivi epigenetici"],
     href: "/protocolli-epigenetici",
   },
+  {
+    name: "Longevity",
+    kicker: "Preservare nel tempo",
+    copy: "Un percorso dinamico dedicato a barriera, elasticità, tonicità e qualità della pelle. Lift, Collagen, Rebirth 60+ ed Eye Genesis diventano strumenti della stessa regia.",
+    image: faceImage,
+    tags: ["Lift", "Collagen", "Rebirth 60+", "Eye Genesis"],
+    href: "/protocolli-epigenetici",
+  },
+  {
+    name: "Forma",
+    kicker: "Valorizzare il corpo",
+    copy: "Una valutazione globale di tessuti, tonicità, microcircolo, ritenzione e obiettivi personali apre un programma progressivo per leggerezza, compattezza e armonia.",
+    image: bodyImage,
+    tags: ["Lift Body", "LPG", "Pressomassaggio", "Tecar", "Crioterapia"],
+    href: "/protocolli-epigenetici",
+  },
+  {
+    name: "Libertà",
+    kicker: "Pelle libera, gesto sicuro",
+    copy: "Il percorso dedicato all’epilazione combina Valutazione Rebel, tecnologia Laser Ice Polar e calendario calibrato sulla zona e sulla risposta reale.",
+    image: freedomImage,
+    tags: ["Laser Ice Polar", "Comfort", "Progressione", "Total Body"],
+    href: "/epilazione-laser-carmagnola",
+  },
 ];
-
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "Dove si trova Rebel a Carmagnola?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Rebel è in Viale Barbaroux 20 a Carmagnola (TO), a pochi minuti dal centro città. Riceviamo solo su appuntamento, da martedì a sabato.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "La prima visita è davvero gratuita?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Sì. La prima visita è una consulenza gratuita di circa quindici minuti: ci raccontate cosa vorreste fare e proponiamo un percorso realistico, con prezzi e tempi chiari. Include anche un piccolo regalo a vostra scelta.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Quali tecnologie usate per l'epilazione laser?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Lavoriamo con tecnologia laser a diodo Thory dotata di manipolo Ice Polar (raffreddamento attivo). Riduce sensibilmente il fastidio anche su ascelle e inguine.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Si può prenotare via WhatsApp?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Sì, scriveteci al +39 351 691 9416 oppure dal pulsante WhatsApp del sito. Indicate cosa vorreste fare e una fascia oraria comoda: rispondiamo negli orari di apertura.",
-      },
-    },
-  ],
-};
 ---
-<BaseLayout meta={meta}>
+<BaseLayout meta={meta} bodyClass="rebel-rebrand">
   <JsonLd data={breadcrumb} />
   <JsonLd data={webPage} />
   <JsonLd data={article} />
-  <JsonLd data={faqSchema} />
-  {baseServicesSchema ? <JsonLd data={baseServicesSchema} /> : null}
 
-  <!-- ============================================================
-       HERO — short, direct, locale-first. The italic accent on
-       "Carmagnola" is intentional: it's the keyword, not abstract poetry.
-       ============================================================ -->
-  <section class="home-hero">
-    <div class="home-hero__media">
-      <HeroPhotoSlider client:load images={homeHeroImages} intervalMs={5200} />
-    </div>
-    <div class="container home-hero__overlay">
-      <p class="home-hero__kicker" data-reveal>
-        Centro estetico · Viale Barbaroux 20
-      </p>
-      <h1 class="home-hero__title" data-reveal style="--reveal-delay: 40ms;">
-        Il tuo centro estetico nel cuore di <em>Carmagnola</em>.
-      </h1>
-      <p class="home-hero__lead" data-reveal style="--reveal-delay: 120ms;">
-        Pulizia viso, manicure, ceretta, massaggi, epilazione laser Ice Polar.
-        Tutta la cura che ti aspetti, fatta con calma e con metodo.
-        <strong>La prima visita è gratuita</strong> — e include un piccolo regalo a tua scelta.
-      </p>
-      <div class="home-hero__cta cluster cluster--stack-mobile" data-reveal style="--reveal-delay: 200ms;">
-        <a class="btn btn--primary btn--halo" href="/contatti">Prenota la prima visita gratuita</a>
-        <a class="btn btn--secondary" href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer">Scrivici su WhatsApp</a>
+  <div class="rebel-shell">
+    <section class="rebel-hero" style={`--hero-image: url('${heroImage}')`}>
+      <div class="rebel-container rebel-hero__copy">
+        <div class="rebel-hero__eyebrow" data-reveal>
+          <span>Rebel · Estetica Epigenetica</span><span>Viale Barbaroux 20 · Carmagnola</span>
+        </div>
+        <h1 class="rebel-display" data-reveal style="--reveal-delay:50ms">Ogni pelle ha una priorità.</h1>
+        <div class="rebel-spectrum-rule"></div>
+        <p class="rebel-lead" data-reveal style="--reveal-delay:120ms">
+          Rebel osserva la pelle nel suo contesto e costruisce una direzione precisa. Manualità,
+          attivi e tecnologie entrano nel momento in cui servono. Il percorso evolve insieme a te.
+        </p>
+        <div class="rebel-hero__actions" data-reveal style="--reveal-delay:180ms">
+          <a class="btn btn--primary" href="/metodo-rebel">Scopri il Metodo Rebel</a>
+          <a class="btn btn--secondary" href="/contatti">Prenota la Valutazione Rebel</a>
+        </div>
+        <div class="rebel-hero__signature"><strong>Be Beautiful. Be Rebel.</strong><span>Prima la pelle. Poi la tecnologia.</span></div>
       </div>
-      <ul class="home-hero__metrics" data-reveal style="--reveal-delay: 280ms;">
-        <li>
-          <strong>Gratuita</strong>
-          <span>Prima visita di 15′</span>
-        </li>
-        <li>
-          <strong>Ice Polar</strong>
-          <span>Laser con raffreddamento attivo</span>
-        </li>
-        <li>
-          <strong>Listino online</strong>
-          <span>Prezzi sempre chiari</span>
-        </li>
-      </ul>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================================
-       PROMO BANNER — first-visit gift. Single CTA section.
-       ============================================================ -->
-  <section class="section section--tight">
-    <div class="container">
-      <PromoBanner />
-    </div>
-  </section>
-
-  <!-- ============================================================
-       SEARCH SHORTCUTS — anchor text esatti per le query target locali.
-       Apparentemente "innocua" UI, ma serve due scopi:
-       1) Internal linking forte verso le 4 pagine money con il testo
-          letterale che la gente cerca su Google ("centro estetico
-          Carmagnola", "epilazione laser vicino a me", ecc.).
-       2) UX reale: chi entra dalla home spesso sa già cosa cerca.
-       ============================================================ -->
-  <section class="section section--tight" aria-label="Cosa cerchi oggi a Carmagnola">
-    <div class="container">
-      <p class="search-shortcuts__lead">Cerchi qualcosa di preciso a Carmagnola? Vai dritto.</p>
-      <ul class="search-shortcuts" role="list">
-        <li><a class="search-shortcuts__link" href="/centro-estetico-carmagnola">Centro estetico a Carmagnola</a></li>
-        <li><a class="search-shortcuts__link" href="/epilazione-laser-carmagnola">Epilazione laser vicino a me</a></li>
-        <li><a class="search-shortcuts__link" href="/servizi/manicure-semipermanente-carmagnola">Manicure semipermanente a Carmagnola</a></li>
-        <li><a class="search-shortcuts__link" href="/servizi/laminazione-ciglia-sopracciglia-carmagnola">Laminazione ciglia e sopracciglia a Carmagnola</a></li>
-        <li><a class="search-shortcuts__link" href="/servizi/pulizia-viso-carmagnola">Pulizia viso a Carmagnola</a></li>
-        <li><a class="search-shortcuts__link" href="/servizi/pedicure-carmagnola">Pedicure a Carmagnola</a></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       INSTAGRAM — moved up. It's the most "alive" section of the site:
-       reels and posts shot in cabin act as social proof + atmosphere.
-       ============================================================ -->
-  <section class="section">
-    <div class="container">
-      <SectionHead
-        kicker="Instagram · @rebelesteticaepigenetica"
-        title="Cosa succede in cabina, _ogni settimana_."
-        lead="Reel e post pubblicati direttamente dallo studio: trattamenti reali, atmosfera, dietro le quinte. Tocca per aprire il profilo."
-      />
-      <InstagramFeed
-        showReels={true}
-        showPosts={true}
-        maxReels={4}
-        maxPosts={3}
-        hidePostsOnMobile={true}
-      />
-    </div>
-  </section>
-
-  <!-- ============================================================
-       THREE PILLARS — what we do, in three lanes.
-       ============================================================ -->
-  <section class="section">
-    <div class="container">
-      <SectionHead
-        kicker="Cosa facciamo"
-        title="Tre _modi_ di entrare in studio."
-        lead="Estetica classica e benessere, epilazione laser, protocolli avanzati. Si parte da quello che ti serve adesso, non dal pacchetto più costoso."
-      />
-      <div class="card-grid card-grid--3">
-        {pillars.map((p, idx) => (
-          <FeatureCard
-            kicker={p.kicker}
-            title={p.title}
-            body={p.body}
-            href={p.href}
-            index={idx + 1}
-          />
-        ))}
+    <section class="rebel-section rebel-section--paper">
+      <div class="rebel-container rebel-manifesto">
+        <div>
+          <p class="rebel-kicker">Manifesto</p>
+          <h2 class="rebel-manifesto__quote">La pelle cambia.<br/><em>Il percorso evolve.</em></h2>
+        </div>
+        <div>
+          <p class="rebel-lead">La tua pelle cambia con il tempo, le stagioni e le abitudini. La Professionista Rebel individua la priorità attuale, seleziona gli strumenti e osserva la risposta nel tempo.</p>
+          <p class="rebel-lead"><strong>Estetica Epigenetica</strong> significa accompagnare l’equilibrio della pelle attraverso scelte professionali mirate, coordinate e aggiornabili.</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================================
-       BRAND & TECHNOLOGY — the real differentiator vs. local
-       competitors. Honest framing: "collaborazioni esclusive", not
-       proprietary lines.
-       ============================================================ -->
-  <section class="section">
-    <div class="container">
-      <SectionHead
-        kicker="Brand & tecnologie"
-        title="Le firme con cui _lavoriamo davvero_."
-        lead="Non improvvisiamo: usiamo tecnologie e linee professionali precise, con formazione continua sul team. Qui sotto chi sono e cosa portano in cabina."
-      />
-      <BrandStrip />
-    </div>
-  </section>
-
-  <!-- ============================================================
-       MOST-REQUESTED SERVICES — concrete, prezzi visibili, prenotabili.
-       ============================================================ -->
-  <section class="section">
-    <div class="container">
-      <SectionHead
-        kicker="Trattamenti più richiesti"
-        title="I _servizi_ con cui iniziano la maggior parte delle clienti."
-        lead="Ognuno ha la sua scheda con prezzo, durata indicativa e quando ha senso farlo."
-      />
-      <div class="card-grid card-grid--3">
-        {baseServices.map((s) => (
-          <FeatureCard
-            kicker={s.priceHint}
-            title={s.name}
-            body={s.shortDescription}
-            href={`/servizi/${s.slug}`}
-            variant="quiet"
-          />
-        ))}
+    <section class="rebel-section" id="metodo">
+      <div class="rebel-container rebel-method">
+        <div class="rebel-method__intro">
+          <p class="rebel-kicker">Il Metodo Rebel</p>
+          <h2 class="rebel-title">Una regia professionale in sei passaggi.</h2>
+          <p class="rebel-lead">La consulenza diventa una direzione concreta. Ogni scelta ha una funzione, una sequenza e un momento di rivalutazione.</p>
+          <div class="rebel-map">
+            <div class="rebel-map__head"><strong>MAPPA REBEL</strong><br/><small>Priorità / Percorso / Rivalutazione</small></div>
+            <div class="rebel-map__fields">
+              {['Priorità attuale','Obiettivo condiviso','Percorso consigliato','Primo step','Manualità, attivi e tecnologie','Frequenza iniziale','Data della rivalutazione','Evoluzione del percorso'].map((field)=><span>{field}</span>)}
+            </div>
+          </div>
+        </div>
+        <div class="rebel-method__steps">
+          {method.map(([number,title,text]) => (
+            <article class="rebel-method__step"><b>{number}</b><div><h3>{title}</h3><p>{text}</p></div></article>
+          ))}
+        </div>
       </div>
-      <div class="cluster cluster--stack-mobile" style="margin-top: 1.8rem; justify-content: center;">
-        <a class="btn btn--secondary" href="/listino-estetica-laser">Vedi tutto il listino</a>
+    </section>
+
+    <section class="rebel-section rebel-section--paper">
+      <div class="rebel-container">
+        <p class="rebel-kicker">Le 7 priorità della pelle</p>
+        <h2 class="rebel-title">Prima di scegliere un trattamento, capiamo cosa viene prima.</h2>
+        <div class="rebel-priorities">
+          {priorities.map((priority,index)=><article class="rebel-priority"><small>0{index+1}</small><h3>{priority}</h3></article>)}
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================================
-       METHOD — five concrete steps, no flowery language.
-       ============================================================ -->
-  <section class="section section--tight">
-    <div class="container">
-      <SectionHead
-        kicker="Come lavoriamo"
-        title="Cinque _passaggi_, dalla prima visita al mantenimento."
-        lead="Non un trattamento dopo l'altro: un percorso semplice, chiaro, costruito insieme."
-      />
-      <StepStrip items={methodSteps} />
-    </div>
-  </section>
+    <section class="rebel-section rebel-section--plum">
+      <div class="rebel-container">
+        <p class="rebel-kicker">I Percorsi Rebel</p>
+        <h2 class="rebel-title">I protocolli diventano strumenti. Il percorso diventa la regia.</h2>
+        <p class="rebel-lead">Lift, Rebirth, Eye Genesis, Catalysis, Collagen, Cell Regen e Lift Body non scompaiono: vengono interpolati nella nuova architettura e attivati in base alla priorità.</p>
+        <div class="rebel-journeys">
+          {journeys.map((journey)=>(
+            <a class="rebel-journey" href={journey.href} style={`--journey-image:url('${journey.image}')`}>
+              <div class="rebel-journey__copy"><p class="rebel-kicker">{journey.kicker}</p><h3>{journey.name}</h3><p>{journey.copy}</p><div class="rebel-journey__tags">{journey.tags.map(tag=><span>{tag}</span>)}</div></div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
 
-  <!-- ============================================================
-       STORE — interior shots; helps trust + local SEO image signals.
-       ============================================================ -->
-  <section class="section">
-    <div class="container">
-      <SectionHead
-        kicker="Lo studio"
-        title="Dentro Rebel, in _Viale Barbaroux 20_."
-        lead="Quattro cabine, area accoglienza e una postazione mani. Studio nuovo, attrezzatura nuova, ordine vero."
-      />
-      <StoreGallery client:visible images={storeGalleryImages} />
-    </div>
-  </section>
+    <section class="rebel-section">
+      <div class="rebel-container">
+        <p class="rebel-kicker">Rebel World</p>
+        <h2 class="rebel-title">Un mondo di bellezza, guidato dal metodo.</h2>
+        <div class="rebel-world">
+          <article class="rebel-world__card"><h3>SKIN</h3><p>Percorsi viso, Skin Reset, Laminazione Coreana, sguardo e attivi epigenetici.</p><a href="/protocolli-epigenetici">Esplora Skin →</a></article>
+          <article class="rebel-world__card"><h3>BODY</h3><p>Forma, rimodellamento, pressomassaggio, crioterapia e percorsi corpo.</p><a href="/listino-estetica-laser">Esplora Body →</a></article>
+          <article class="rebel-world__card"><h3>TECH</h3><p>Laser Ice Polar, Tecar Terapia e tecnologie selezionate dalla Professionista Rebel.</p><a href="/epilazione-laser-carmagnola">Esplora Tech →</a></article>
+        </div>
+      </div>
+    </section>
 
-  <!-- ============================================================
-       MOOD BAND — full-bleed breather before the closing CTA.
-       ============================================================ -->
-  <FullBleedBand
-    image={media.studio.cabin}
-    height="md"
-    align="center"
-    kicker="Da Rebel, a Carmagnola"
-    quote="La cura che ti aspetti, fatta con _calma_ e con metodo."
-    cite="Studio Rebel · Viale Barbaroux 20"
-  />
+    <section class="rebel-section rebel-section--paper">
+      <div class="rebel-container">
+        <p class="rebel-kicker">Lo studio reale</p>
+        <h2 class="rebel-title">Quattro cabine. Una sola regia Rebel.</h2>
+        <p class="rebel-lead">Il mondo visual incontra lo spazio reale di Viale Barbaroux 20: accoglienza, tecnologie e professioniste che seguono ogni evoluzione.</p>
+        <StoreGallery client:visible images={storeGalleryImages} />
+      </div>
+    </section>
 
-  <!-- ============================================================
-       FINAL CTA — closes with a clear next step.
-       ============================================================ -->
-  <section class="section">
-    <div class="container">
-      <InlineCta
-        kicker="Pronta a iniziare"
-        title="Prenota la _prima visita_, scegli il tuo regalo."
-        lead="Ti rispondiamo entro poche ore negli orari di apertura. Per il confronto immediato, scrivici su WhatsApp."
-        primaryHref="/contatti"
-        primaryLabel="Prenota la prima visita gratuita"
-        secondaryHref={siteConfig.social.whatsapp}
-        secondaryLabel="Scrivici su WhatsApp"
-      />
-    </div>
-  </section>
+    <section class="rebel-section">
+      <div class="rebel-container">
+        <p class="rebel-kicker">Rebel, ogni settimana</p>
+        <h2 class="rebel-title">Trattamenti, backstage e cultura della pelle.</h2>
+        <InstagramFeed showReels={true} showPosts={true} maxReels={4} maxPosts={3} hidePostsOnMobile={true} />
+      </div>
+    </section>
+
+    <section class="rebel-campaign">
+      <div class="rebel-container">
+        <strong>Be <span>Cool.</span><br/>Be Rebel.</strong>
+        <p>La firma campaign di Rebel vive su ventaglio, bag, fiera, contenuti stagionali e attivazioni più pop. La firma istituzionale resta “Be Beautiful. Be Rebel.”</p>
+        <div class="rebel-hero__actions" style="justify-content:center"><a class="btn btn--primary" href="/contatti">Prenota la Valutazione Rebel</a><a class="btn btn--secondary" href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer">Scrivici su WhatsApp</a></div>
+      </div>
+    </section>
+  </div>
 </BaseLayout>
-
-<style>
-  /* ---------- Search shortcuts (anchor-text strip per SEO locale) ---------- */
-  .search-shortcuts__lead {
-    margin: 0 0 0.85rem;
-    font-size: 0.82rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--text-muted);
-  }
-  .search-shortcuts {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.55rem 0.6rem;
-  }
-  .search-shortcuts__link {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.5rem 0.9rem;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    color: var(--text);
-    text-decoration: none;
-    font-size: 0.92rem;
-    line-height: 1.2;
-    background: rgba(255, 255, 255, 0.02);
-    transition: border-color var(--t-fast) var(--ease-soft),
-      transform var(--t-fast) var(--ease-soft),
-      background-color var(--t-fast) var(--ease-soft);
-  }
-  .search-shortcuts__link:hover,
-  .search-shortcuts__link:focus-visible {
-    border-color: var(--cyan-tech, currentColor);
-    transform: translateY(-1px);
-  }
-
-  /* ---------- Home hero ---------- */
-  .home-hero {
-    position: relative;
-    min-height: clamp(620px, 95vh, 920px);
-    padding-top: clamp(7rem, 11vw, 10rem);
-    padding-bottom: clamp(3rem, 6vw, 5rem);
-    display: flex;
-    align-items: flex-end;
-    overflow: hidden;
-    isolation: isolate;
-  }
-  .home-hero__media {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-  }
-  .home-hero__media :global(.hero-photo-slider) {
-    aspect-ratio: auto;
-    height: 100%;
-    border-radius: 0;
-    border: 0;
-    box-shadow: none;
-  }
-  .home-hero__media :global(.hero-photo-slider__veil) {
-    background:
-      radial-gradient(ellipse at 30% 70%, rgba(46, 16, 101, 0.5), transparent 60%),
-      linear-gradient(180deg, rgba(7, 5, 14, 0.55) 0%, rgba(7, 5, 14, 0.25) 35%, rgba(7, 5, 14, 0.92) 95%);
-  }
-  .home-hero__overlay {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1.4rem;
-    max-width: 920px;
-  }
-  .home-hero__kicker {
-    font-family: var(--font-body);
-    font-size: var(--t-kicker);
-    letter-spacing: var(--tracking-kicker);
-    text-transform: uppercase;
-    color: var(--mauve);
-    font-weight: 600;
-    margin: 0;
-  }
-  .home-hero__title {
-    font-family: var(--font-display);
-    font-size: clamp(2.8rem, 6vw, 5.4rem);
-    line-height: 1.02;
-    letter-spacing: var(--tracking-display);
-    color: var(--text-strong);
-    text-wrap: balance;
-    margin: 0;
-  }
-  .home-hero__title em {
-    font-style: italic;
-    background: var(--type-accent);
-    background-size: 100% 100%;
-    background-position: 0% 50%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  .home-hero__lead {
-    font-size: var(--t-body-lg);
-    line-height: var(--lh-body);
-    color: var(--text-muted);
-    max-width: 60ch;
-    margin: 0;
-  }
-  .home-hero__lead strong {
-    color: var(--text);
-    font-weight: 600;
-  }
-  .home-hero__cta {
-    margin-top: 0.6rem;
-  }
-  .home-hero__metrics {
-    list-style: none;
-    margin: 1.4rem 0 0;
-    padding: 1.2rem 0 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    border-top: 1px solid var(--line);
-    max-width: 620px;
-  }
-  .home-hero__metrics li {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-  .home-hero__metrics strong {
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    color: var(--mauve);
-    letter-spacing: -0.01em;
-    font-style: italic;
-  }
-  .home-hero__metrics span {
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    letter-spacing: 0.04em;
-  }
-  @media (max-width: 720px) {
-    .home-hero__metrics { grid-template-columns: 1fr; gap: 0.6rem; }
-  }
-</style>
