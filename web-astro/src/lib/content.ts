@@ -1,7 +1,5 @@
 /**
- * Editorial content for Metodo Rebel and other static blocks. Once protocol/
- * service pages are ported, the protocol catalogue will move into Astro
- * Content Collections (`src/content/protocols/*.md`).
+ * Editorial content for Metodo Rebel and other static blocks.
  */
 
 import { protocolPages } from "@/lib/protocol-pages";
@@ -13,37 +11,43 @@ export const protocolCards = protocolPages.map((protocol) => ({
   price: protocol.price,
 }));
 
+/**
+ * The canonical six-step Method Rebel from the fair brochure.
+ * Individual protocols are tools inside a journey, never the primary hierarchy.
+ */
 export const methodSteps = [
   {
     step: "01",
-    title: "Prima visita gratuita",
-    text: "Quindici minuti per conoscerci. Ci dici cosa vorresti fare, leggiamo pelle e zona, decidiamo se ha senso iniziare un percorso.",
+    title: "Valutazione",
+    text: "Ascoltiamo desideri, abitudini e storia della pelle. Colleghiamo ciò che vedi, ciò che senti e ciò che la pelle sta vivendo.",
   },
   {
     step: "02",
-    title: "Proposta chiara",
-    text: "Ti mostriamo prezzo, durata e numero di sedute realistico. Niente pacchetti opachi né promesse fuori scala.",
+    title: "Priorità",
+    text: "Individuiamo ciò che viene prima nel momento attuale e definiamo un obiettivo condiviso, comprensibile e concreto.",
   },
   {
     step: "03",
-    title: "Il primo trattamento",
-    text: "Si parte con la prima seduta. Lavoriamo con tecnologia Thory + Ice Polar e prodotti professionali (Marbellas, Eberlin).",
+    title: "Skin Reset",
+    text: "Prepariamo la pelle a ricevere il percorso, migliorandone comfort, uniformità e ricettività agli step successivi.",
   },
   {
     step: "04",
-    title: "Calendario su misura",
-    text: "Concordiamo i richiami in base alla tua agenda: turni di lavoro, stagioni, eventi importanti. Lo studio è aperto Mar–Sab.",
+    title: "Percorso",
+    text: "Combiniamo manualità, attivi e tecnologie con una ragione precisa. I protocolli entrano come strumenti della regia Rebel.",
   },
   {
     step: "05",
-    title: "Mantenimento facile",
-    text: "Due o tre gesti a casa più una seduta di mantenimento. Così non riparti da zero ogni volta che cambia stagione.",
+    title: "Rivalutazione",
+    text: "Osserviamo la risposta e aggiorniamo sequenza, frequenza e intensità. La tua Mappa Rebel evolve insieme alla pelle.",
+  },
+  {
+    step: "06",
+    title: "Preservare",
+    text: "Accompagniamo nel tempo l’equilibrio raggiunto con richiami mirati e una routine essenziale costruita sulla fase attuale.",
   },
 ];
 
-// Hero slider — tre delle immagini originali sono state rimosse perché
-// poco rappresentative; verranno reintegrate quando avremo scatti dedicati.
-// Per ora mostriamo solo le foto realmente forti dello studio.
 export const homeHeroImages = [
   {
     src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/7dc5354b-33e1-4a9e-a21d-ff321ecf4500/public",
