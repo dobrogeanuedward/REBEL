@@ -1,15 +1,10 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import PageHero from "@/components/PageHero.astro";
-import SectionHead from "@/components/SectionHead.astro";
-import FeatureCard from "@/components/FeatureCard.astro";
 import InlineCta from "@/components/InlineCta.astro";
-import FullBleedBand from "@/components/FullBleedBand.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import { media } from "@/lib/page-media";
 import { protocolCards } from "@/lib/content";
-import { competencePages } from "@/lib/seo-content";
 import {
   buildArticleSchema,
   buildBreadcrumbSchema,
@@ -20,180 +15,185 @@ import {
 } from "@/lib/seo";
 
 const meta = createPageMeta({
-  title: "Protocolli Viso e Corpo Epigenetici a Carmagnola — Rebel",
+  title: "Percorsi Rebel — Estetica epigenetica viso e corpo a Carmagnola",
   description:
-    "Protocolli viso e corpo a Carmagnola con linee professionali Marbellas ed Eberlin: pulizia profonda, tono, densità, drenaggio e luminosità su più sedute.",
+    "Scopri i percorsi Glow, Longevity, Forma e Libertà del Metodo Rebel. Protocolli, attivi epigenetici e tecnologie vengono combinati sulla priorità reale di pelle e corpo.",
   path: "/protocolli-epigenetici",
   openGraphType: "article",
   keywords: [
+    "percorsi Rebel",
+    "estetica epigenetica Carmagnola",
     "protocolli viso Carmagnola",
-    "protocolli corpo Carmagnola",
-    "estetica avanzata Carmagnola",
-    "trattamenti viso epigenetici Carmagnola",
-    "Marbellas Carmagnola",
-    "Eberlin Carmagnola",
+    "trattamenti corpo Carmagnola",
+    "percorso estetico personalizzato Carmagnola",
   ],
 });
 
 const breadcrumb = buildBreadcrumbSchema([
   { name: "Home", path: "/" },
-  { name: "Protocolli epigenetici", path: "/protocolli-epigenetici" },
+  { name: "Percorsi Rebel", path: "/protocolli-epigenetici" },
 ]);
 const webPageSchema = buildWebPageSchema({
-  name: "Protocolli epigenetici a Carmagnola",
-  description: "Una panoramica dei protocolli Rebel: viso e corpo, con focus su glow, tono, densità e rigenerazione.",
+  name: "Percorsi Rebel a Carmagnola",
+  description: meta.description,
   path: "/protocolli-epigenetici",
 });
 const serviceSchema = buildServiceSchema(
-  "Trattamenti epigenetici viso e corpo",
-  "Protocolli personalizzati con attivi funzionali e tecnologia calibrata.",
+  "Percorsi Rebel viso e corpo",
+  "Percorsi personalizzati con valutazione, attivi epigenetici, manualità e tecnologie calibrate.",
   "/protocolli-epigenetici",
 );
 const articleSchema = buildArticleSchema({
-  headline: "Protocolli epigenetici a Carmagnola",
-  description: "Cosa sono i protocolli Rebel e come si scelgono: glow, progressione e lettura iniziale.",
+  headline: "Percorsi Rebel — Glow, Longevity, Forma e Libertà",
+  description: meta.description,
   path: "/protocolli-epigenetici",
-  keywords: ["protocolli epigenetici", "estetica epigenetica", "Carmagnola"],
-  section: "Protocolli",
+  keywords: ["percorsi Rebel", "estetica epigenetica", "Carmagnola"],
+  section: "Percorsi",
 });
 const protocolsSchema = buildItemListSchema({
-  name: "Protocolli epigenetici Rebel",
+  name: "Protocolli integrati nei percorsi Rebel",
   path: "/protocolli-epigenetici",
   items: protocolCards.map((p) => ({ name: p.name, path: `/protocolli/${p.slug}` })),
 });
 
-const guideSlugs = [
-  "estetica-avanzata-carmagnola",
-  "trattamenti-viso-carmagnola",
-  "trattamenti-corpo-carmagnola",
-  "beauty-routine-carmagnola",
-  "pelle-opaca-grana-irregolare-carmagnola",
-  "tono-viso-ovale-carmagnola-percorso",
-  "contorno-occhi-gonfiore-occhiaie-carmagnola",
+const journeys = [
+  {
+    name: "Glow",
+    focus: "Luce · uniformità · texture",
+    body: "Un percorso dedicato alla pelle che vuole ritrovare nitidezza, comfort e presenza. Skin Reset, Catalysis e Cell Regen entrano nella progressione quando servono.",
+    tools: ["Skin Reset", "Catalysis", "Cell Regen", "Attivi epigenetici"],
+    href: "/contatti?percorso=glow",
+  },
+  {
+    name: "Longevity",
+    focus: "Tono · densità · qualità",
+    body: "La direzione Rebel per accompagnare la pelle nel tempo. Lift, Collagen, Rebirth 60+ ed Eye Genesis vengono scelti e combinati secondo la priorità reale.",
+    tools: ["Lift", "Collagen", "Rebirth 60+", "Eye Genesis"],
+    href: "/contatti?percorso=longevity",
+  },
+  {
+    name: "Forma",
+    focus: "Corpo · drenaggio · compattezza",
+    body: "Un percorso corpo costruito su manualità e tecnologie. Lift Body, LPG, pressomassaggio e Tecar dialogano in una sequenza calibrata.",
+    tools: ["Lift Body", "LPG", "Pressomassaggio", "Tecar"],
+    href: "/contatti?percorso=forma",
+  },
+  {
+    name: "Libertà",
+    focus: "Laser · comfort · continuità",
+    body: "Il percorso dedicato all’epilazione laser Ice Polar. Valutazione, parametri personalizzati e richiami coerenti trasformano la tecnologia in un’esperienza Rebel.",
+    tools: ["Laser a diodo", "Ice Polar", "Valutazione", "Mantenimento"],
+    href: "/epilazione-laser-carmagnola",
+  },
 ];
-const guides = guideSlugs
-  .map((slug) => competencePages.find((c) => c.slug === slug))
-  .filter((c): c is (typeof competencePages)[number] => Boolean(c));
-const guidesSchema =
-  guides.length > 0
-    ? buildItemListSchema({
-        name: "Guide utili per scegliere un protocollo epigenetico",
-        path: "/protocolli-epigenetici",
-        items: guides.map((g) => ({ name: g.title, path: `/competenze/${g.slug}` })),
-      })
-    : null;
 ---
-<BaseLayout meta={meta} bodyClass="page-protocolli">
+<BaseLayout meta={meta} bodyClass="page-rebrand page-percorsi-rebel">
   <JsonLd data={breadcrumb} />
   <JsonLd data={webPageSchema} />
   <JsonLd data={serviceSchema} />
   <JsonLd data={articleSchema} />
   <JsonLd data={protocolsSchema} />
-  {guidesSchema ? <JsonLd data={guidesSchema} /> : null}
 
-  <PageHero
-    image={media.viso.mood}
-    kicker="Protocolli viso e corpo · Carmagnola"
-    title="Quando un singolo trattamento _non basta_."
-    lead="I protocolli sono percorsi su più sedute, costruiti per lavorare in profondità su tono, densità, luminosità e drenaggio. Linee professionali Marbellas ed Eberlin in cabina."
-    bullets={["Percorsi su più sedute", "Linee Marbellas ed Eberlin", "Prima visita gratuita"]}
-    meta={["Marbellas — linea epigenetica", "Eberlin — biocosmetica", "Percorsi su più sedute"]}
-    ctaPrimary={{ label: "Prenota la prima visita gratuita", href: "/contatti", halo: true }}
-    ctaSecondary={{ label: "Vai al listino", href: "/listino-estetica-laser" }}
-  />
+  <section class="rb-hero rb-hero--journeys">
+    <div class="rb-hero__media">
+      <img src={media.viso.mood.src ?? media.viso.mood} alt="Percorsi viso e corpo del Metodo Rebel" />
+    </div>
+    <div class="rb-hero__veil"></div>
+    <div class="container rb-hero__content">
+      <p class="rb-kicker">I percorsi Rebel · Carmagnola</p>
+      <h1>Una direzione. <em>Molti strumenti.</em></h1>
+      <p class="rb-lead">
+        Glow, Longevity, Forma e Libertà sono le quattro grandi direzioni del Metodo Rebel. I protocolli storici non scompaiono: diventano strumenti scelti e interpolati dentro il percorso giusto.
+      </p>
+      <div class="cluster cluster--stack-mobile">
+        <a class="btn btn--primary" href="/contatti">Prenota la valutazione</a>
+        <a class="btn btn--secondary" href="/metodo-rebel">Scopri il Metodo</a>
+      </div>
+    </div>
+  </section>
 
-  <section class="section">
+  <section class="rb-section rb-section--ivory">
+    <div class="container rb-intro-grid">
+      <div>
+        <p class="rb-kicker">La regia Rebel</p>
+        <h2>Il nome del protocollo viene dopo <em>la priorità.</em></h2>
+      </div>
+      <div class="rb-copy">
+        <p>Due persone possono desiderare lo stesso risultato e ricevere una progressione diversa. La scelta nasce dalla Mappa Rebel, dalla risposta osservata e dal momento reale della pelle o del corpo.</p>
+        <p>Per questo ogni percorso può integrare protocolli, attivi, manualità e tecnologie in modo differente.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="rb-section rb-section--plum">
     <div class="container">
-      <SectionHead
-        kicker="I protocolli attivi"
-        title="Scegli il _risultato_ da cui partire."
-        lead="Ogni scheda racconta cosa fa il protocollo, in quante sedute si sviluppa e a chi è davvero adatto. La priorità la decidiamo in prima visita."
-      />
-      <div class="card-grid card-grid--3">
-        {protocolCards.map((p, i) => (
-          <FeatureCard
-            kicker={p.price}
-            title={p.name}
-            body={p.desc}
-            href={`/protocolli/${p.slug}`}
-            ariaLabel={`Apri il protocollo ${p.name}`}
-            variant="default"
-            index={i + 1}
-          />
+      <div class="rb-section-head">
+        <p class="rb-kicker">Quattro direzioni</p>
+        <h2>Trova la direzione che assomiglia <em>al tuo obiettivo.</em></h2>
+      </div>
+      <div class="rebel-journeys">
+        {journeys.map((journey, index) => (
+          <article class="rebel-journey" style={`--journey-image:url(${index % 2 === 0 ? (media.viso.mood.src ?? media.viso.mood) : (media.studio.cabin.src ?? media.studio.cabin)})`}>
+            <div class="rebel-journey__copy">
+              <p class="rb-kicker">{journey.focus}</p>
+              <h3>{journey.name}</h3>
+              <p>{journey.body}</p>
+              <div class="rebel-journey__tags">
+                {journey.tools.map((tool) => <span>{tool}</span>)}
+              </div>
+              <div style="margin-top:1.5rem"><a class="btn btn--secondary" href={journey.href}>Esplora {journey.name}</a></div>
+            </div>
+          </article>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="section section--scene-ivory">
-    <div class="container split">
-      <article class="card">
-        <p class="kicker">Come si sceglie</p>
-        <h2 class="card__title">Si parte dalla pelle, non dal pacchetto.</h2>
-        <p class="card__body">
-          In prima visita leggiamo insieme pelle, zona e priorità del momento. Ti diciamo
-          se ha senso aprire un protocollo o se basta un trattamento singolo, e ti
-          consegniamo una proposta scritta con prezzi e tempi reali.
-        </p>
-      </article>
-      <article class="card card--feature">
-        <p class="kicker">Cosa cambia davvero</p>
-        <h3 class="card__title">Un percorso lavora dove un singolo gesto non arriva.</h3>
-        <p class="card__body">
-          La differenza fra una pulizia viso e un protocollo viso è il tempo. Più sedute,
-          attivi mirati, ritmo costruito sulla tua pelle: la qualità cresce di seduta in
-          seduta e il mantenimento diventa più semplice.
-        </p>
-      </article>
+  <section class="rb-section rb-section--ivory">
+    <div class="container">
+      <div class="rb-section-head">
+        <p class="rb-kicker">La biblioteca dei protocolli</p>
+        <h2>Rituali e moduli che la Professionista Rebel <em>porta nel percorso.</em></h2>
+      </div>
+      <div class="rb-protocol-grid">
+        {protocolCards.map((protocol, index) => (
+          <a class="rb-protocol-card" href={`/protocolli/${protocol.slug}`}>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <p class="rb-kicker">{protocol.price}</p>
+            <h3>{protocol.name}</h3>
+            <p>{protocol.desc}</p>
+          </a>
+        ))}
+      </div>
     </div>
   </section>
 
-  {guides.length > 0 ? (
-    <section class="section">
-      <div class="container">
-        <SectionHead
-          kicker="Per orientarti"
-          title="Guide _utili_ prima di scegliere."
-          lead="Approfondimenti su pelle, tono, contorno occhi e routine: spiegano cosa guardare e da quale protocollo ha senso partire."
-        />
-        <div class="card-grid card-grid--2">
-          {guides.map((g, i) => (
-            <FeatureCard
-              kicker="Guida"
-              title={g.title}
-              body={g.shortDescription}
-              href={`/competenze/${g.slug}`}
-              variant="quiet"
-              index={i + 1}
-            />
-          ))}
-        </div>
+  <section class="rb-section rb-section--spectrum">
+    <div class="container rb-intro-grid">
+      <div>
+        <p class="rb-kicker">Scegliere bene</p>
+        <h2>La valutazione evita di partire <em>dal nome sbagliato.</em></h2>
       </div>
-    </section>
-  ) : null}
+      <div class="rb-copy">
+        <p>La prima scelta non è tra Lift, Catalysis o Cell Regen. È capire quale priorità viene prima e quale ritmo può sostenere davvero il risultato.</p>
+        <p>Il protocollo giusto emerge dalla direzione, non il contrario.</p>
+      </div>
+    </div>
+  </section>
 
-  <FullBleedBand
-    image={media.viso.mood}
-    height="sm"
-    align="left"
-    kicker="Da Rebel, a Carmagnola"
-    quote="La pelle cambia con il tempo. Un protocollo le tiene il passo."
-    cite="Studio Rebel · Viale Barbaroux 20"
-  />
-
-  <section class="section">
+  <section class="rb-section rb-section--closing">
     <div class="container">
       <InlineCta
-        kicker="Prima visita gratuita"
-        title="Quindici minuti per capire da _dove partire_."
-        lead="Vieni in studio, leggiamo la pelle, decidiamo insieme. Senza obbligo di acquisto e con un piccolo regalo a tua scelta."
+        kicker="La tua direzione Rebel"
+        title="Costruiamo il percorso _intorno a te_."
+        lead="Prenota una valutazione e raccontaci ciò che desideri cambiare, ritrovare o preservare."
         primaryHref="/contatti"
-        primaryLabel="Prenota la prima visita gratuita"
-        secondaryHref="/listino-estetica-laser"
-        secondaryLabel="Vedi listino e prezzi"
+        primaryLabel="Prenota la valutazione"
+        secondaryHref="/metodo-rebel"
+        secondaryLabel="Scopri il Metodo Rebel"
       />
     </div>
   </section>
 
-  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
+  <StickyBookingBar primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
 </BaseLayout>
