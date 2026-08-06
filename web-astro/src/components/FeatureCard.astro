@@ -1,4 +1,6 @@
 ---
+import { clarifyCopy } from "@/lib/copy-clarity";
+
 interface Props {
   kicker?: string;
   title: string;
@@ -19,20 +21,24 @@ const {
   index,
 } = Astro.props;
 
+const clearKicker = kicker ? clarifyCopy(kicker) : undefined;
+const clearTitle = clarifyCopy(title);
+const clearBody = clarifyCopy(body);
+const clearAriaLabel = ariaLabel ? clarifyCopy(ariaLabel) : undefined;
 const cls = `card ${variant === "feature" ? "card--feature" : ""} ${variant === "quiet" ? "card--quiet" : ""}`;
 const Tag = href ? "a" : "article";
 ---
 <Tag
   class={cls}
   href={href}
-  aria-label={ariaLabel}
+  aria-label={clearAriaLabel}
   data-link={href ? "true" : undefined}
   data-reveal
 >
   {typeof index === "number" ? (
     <span class="card__index">{String(index).padStart(2, "0")}</span>
   ) : null}
-  {kicker ? <p class="card__kicker">{kicker}</p> : null}
-  <h3 class="card__title">{title}</h3>
-  <p class="card__body">{body}</p>
+  {clearKicker ? <p class="card__kicker">{clearKicker}</p> : null}
+  <h3 class="card__title">{clearTitle}</h3>
+  <p class="card__body">{clearBody}</p>
 </Tag>
