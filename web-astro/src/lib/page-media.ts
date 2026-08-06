@@ -29,6 +29,42 @@ const siteAsset = (slot: string): string =>
   `/api/site-asset?slot=${encodeURIComponent(slot)}`;
 
 export const media = {
+  method: {
+    hero: {
+      src: siteAsset("home.hero.method.desktop"),
+      alt: "Valutazione iniziale e Mappa Rebel con la professionista",
+      ratio: "16/9",
+      prompt: "Approved professional and client reviewing the real Mappa Rebel; visible hands, document and attentive eye contact.",
+    } as ImageAsset,
+  },
+  journeys: {
+    hero: {
+      src: siteAsset("home.hero.epigenetics.desktop"),
+      alt: "Professionista REBEL durante un trattamento personalizzato",
+      ratio: "16/9",
+      prompt: "Approved professional and client during a credible treatment gesture; human campaign image, never a decorative stripe.",
+    } as ImageAsset,
+    glow: {
+      src: siteAsset("journeys.glow.hero.desktop"),
+      alt: "Percorso Glow per luminosità e uniformità",
+      ratio: "16/9",
+    } as ImageAsset,
+    longevity: {
+      src: siteAsset("journeys.longevity.hero.desktop"),
+      alt: "Percorso Longevity per tono ed elasticità",
+      ratio: "16/9",
+    } as ImageAsset,
+    forma: {
+      src: siteAsset("journeys.forma.hero.desktop"),
+      alt: "Percorso Forma per drenaggio e compattezza",
+      ratio: "16/9",
+    } as ImageAsset,
+    liberta: {
+      src: siteAsset("journeys.liberta.hero.desktop"),
+      alt: "Percorso Libertà per epilazione Laser Ice Polar",
+      ratio: "16/9",
+    } as ImageAsset,
+  },
   laser: {
     hero: {
       src: siteAsset("home.hero.laser.desktop"),
