@@ -1,9 +1,6 @@
 ---
 /**
  * /prenota — ultra-thin landing for paid traffic (Meta Ads / Google Ads cold).
- *
- * Goal: minimum copy, maximum conversion. The form is above the fold even on
- * mobile. `noindex` so it never competes with the canonical pages on SEO.
  */
 import LandingLayout from "@/layouts/LandingLayout.astro";
 import LandingFormCard from "@/components/landing/LandingFormCard.astro";
@@ -12,9 +9,9 @@ import { createPageMeta, buildBreadcrumbSchema } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
 const meta = createPageMeta({
-  title: "Prenota — Rebel Carmagnola",
+  title: "Prenota la prima visita gratuita — Rebel Carmagnola",
   description:
-    "Prenota la tua prima visita gratuita da Rebel a Carmagnola. Bastano nome e numero, ti rispondiamo entro poche ore.",
+    "Prenota una valutazione gratuita di circa 15 minuti da Rebel a Carmagnola. Indica il servizio che ti interessa e ricevi informazioni su trattamento, frequenza e prezzo.",
   path: "/prenota",
   indexable: false,
 });
@@ -36,28 +33,28 @@ const breadcrumb = buildBreadcrumbSchema([
     <div class="container container--narrow">
       <span class="landing-hero__badge">Prima visita gratuita</span>
       <h1 class="landing-ads-hero__title">
-        Prenota la tua prima visita.<br />
-        <em>È gratuita.</em>
+        Prenota una valutazione.<br />
+        <em>Dura circa 15 minuti.</em>
       </h1>
       <p class="landing-ads-hero__lead">
-        Centro estetico a Carmagnola, in Viale Barbaroux 20. Quindici minuti
-        in studio per capire da dove partire — laser, viso, mani, ceretta o
-        massaggi — e una proposta scritta da portare a casa.
+        Ci trovi in Viale Barbaroux 20 a Carmagnola. Indica se ti interessano
+        laser, trattamenti viso, corpo, mani, ceretta o massaggi: durante la visita
+        valutiamo la zona e ti spieghiamo trattamento consigliato, frequenza e prezzo.
       </p>
       <ul class="landing-ads-hero__chips">
-        <li>15 min in studio</li>
-        <li>Senza obbligo</li>
-        <li>Regalo a scelta</li>
+        <li>Circa 15 minuti</li>
+        <li>Trattamento e prezzo spiegati</li>
+        <li>Nessun obbligo di prenotazione</li>
       </ul>
     </div>
   </section>
 
   <LandingFormCard
-    kicker="Form prima visita"
-    title="Bastano nome e telefono."
-    lead="Ti scriviamo entro poche ore via WhatsApp o telefono, con un orario disponibile. Email e dettagli sono opzionali."
+    kicker="Richiesta appuntamento"
+    title="Inserisci nome e telefono."
+    lead="Ti contattiamo negli orari di apertura per concordare giorno e orario. Email e messaggio aggiuntivo sono facoltativi."
     source="landing-prenota"
-    submitLabel="Prenota la prima visita gratuita"
+    submitLabel="Richiedi la prima visita gratuita"
     showRitual={true}
     showMessage={false}
   />
