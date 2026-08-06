@@ -20,9 +20,9 @@ import { getPageMedia } from "@/lib/page-media";
 const m = getPageMedia("/epilazione-laser-carmagnola");
 
 const meta = createPageMeta({
-  title: "Epilazione Laser a Carmagnola (vicino a te) — Diodo Ice Polar | Rebel",
+  title: "Epilazione Laser Ice Polar a Carmagnola — Prezzi, Zone e Sedute | Rebel",
   description:
-    "Epilazione laser a Carmagnola con diodo Thory e manipolo Ice Polar: ascelle, inguine, gambe, viso, uomo. Valutazione gratuita, prezzi chiari da 25,90 €. Anche da Carignano, Racconigi e Torino Sud.",
+    "Epilazione Laser Ice Polar a Carmagnola per ascelle, inguine, gambe, viso e corpo. Diodo Thory a tre lunghezze d’onda, raffreddamento attivo, prezzi da 25,90 € e valutazione gratuita.",
   path: "/epilazione-laser-carmagnola",
   image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e3635dd7-e046-46af-56a5-cf36d8239c00/public",
   openGraphType: "article",
@@ -50,8 +50,8 @@ const breadcrumb = buildBreadcrumbSchema([
 ]);
 
 const laserServiceSchema = buildServiceSchema(
-  "Epilazione laser a Carmagnola",
-  "Percorso di epilazione laser a Carmagnola con tecnologia Thory, valutazione iniziale e piano personalizzato per viso e corpo.",
+  "Epilazione Laser Ice Polar a Carmagnola",
+  "Epilazione laser viso e corpo con tecnologia Thory a tre lunghezze d’onda, raffreddamento attivo, valutazione iniziale e calendario specifico per ogni zona.",
   "/epilazione-laser-carmagnola",
   {
     priceFrom: 25.9,
@@ -71,27 +71,27 @@ const laserServiceSchema = buildServiceSchema(
 const faqs = [
   {
     q: "Quanto costa l'epilazione laser da Rebel a Carmagnola?",
-    a: "I prezzi partono da 25,90 € per area piccola (es. baffetti) e crescono in base alla zona. Il listino completo è sempre online: ascelle, inguine, gambe, schiena, viso, sia donna che uomo. La valutazione iniziale è gratuita.",
+    a: "I prezzi partono da 25,90 € per un’area piccola, come i baffetti, e cambiano in base alla zona. Nel listino online trovi i prezzi di ascelle, inguine, gambe, schiena e viso per donna e uomo. La valutazione iniziale è gratuita.",
   },
   {
-    q: "Quante sedute servono per vedere risultati?",
-    a: "In media servono 6-10 sedute, distanziate in base alla zona e al ciclo del pelo. Già dopo 2-3 sedute la ricrescita risulta più lenta e il pelo più sottile. Definiamo il calendario in prima visita, gratuitamente.",
+    q: "Quante sedute servono?",
+    a: "Il numero varia in base a zona, caratteristiche del pelo, fototipo e risposta individuale. Come riferimento generale vengono spesso programmati cicli di 6-10 sedute, con controlli durante il percorso.",
   },
   {
-    q: "L'epilazione laser fa male?",
-    a: "Il manipolo Ice Polar raffredda la pelle in tempo reale, rendendo la seduta sopportabile anche su zone sensibili come ascelle, inguine e baffetti. Non è una carezza, ma è molto più comodo dei laser tradizionali.",
+    q: "Il trattamento è doloroso?",
+    a: "Il manipolo Ice Polar raffredda la pelle durante gli impulsi e aumenta il comfort, soprattutto su ascelle, inguine e viso. La sensazione può cambiare in base alla zona e alla sensibilità personale.",
   },
   {
-    q: "Funziona anche su pelle scura o pelo chiaro?",
-    a: "Il diodo Thory lavora con tre lunghezze d'onda combinate, quindi è efficace su una gamma ampia di fototipi. Sui peli molto chiari (biondi/grigi) il laser ha sempre limiti: te lo diciamo in valutazione, senza vendere illusioni.",
+    q: "Funziona su tutti i tipi di pelo?",
+    a: "Il diodo Thory combina tre lunghezze d’onda e permette di lavorare su diversi fototipi e profondità del follicolo. I peli biondi molto chiari, bianchi o grigi contengono poca melanina e possono rispondere meno: lo valutiamo prima di iniziare.",
   },
   {
-    q: "Si può fare laser d'estate o se sono abbronzata?",
-    a: "Si lavora con parametri più cauti su pelle abbronzata e si evita esposizione solare diretta nelle 48 ore prima e dopo. In estate continuiamo con zone non esposte (ascelle, inguine) e riprendiamo le altre quando l'abbronzatura cala.",
+    q: "Si può fare in estate o sulla pelle abbronzata?",
+    a: "La possibilità dipende dal livello di abbronzatura, dalla zona e dall’esposizione prevista. Prima della seduta controlliamo la pelle e indichiamo le precauzioni da seguire nelle 48 ore precedenti e successive.",
   },
   {
     q: "Come prenoto la valutazione gratuita?",
-    a: "Scrivici su WhatsApp o compila il form in pagina contatti. Ti rispondiamo entro poche ore con un orario disponibile. La valutazione dura 15 minuti e non c'è obbligo di acquisto.",
+    a: "Scrivi su WhatsApp o compila il modulo nella pagina contatti. La valutazione dura circa 15 minuti e serve a definire zone, parametri, calendario e prezzo prima della prima seduta.",
   },
 ];
 
@@ -110,9 +110,9 @@ const localLandingSchema = {
   "@type": "WebPage",
   "@id": `${siteConfig.siteUrl}/epilazione-laser-carmagnola#webpage`,
   url: `${siteConfig.siteUrl}/epilazione-laser-carmagnola`,
-  name: "Epilazione laser a Carmagnola",
+  name: "Epilazione Laser Ice Polar a Carmagnola",
   description:
-    "Pagina dedicata all'epilazione laser a Carmagnola con percorso personalizzato, comfort evoluto e progressione visibile.",
+    "Prezzi, zone, tecnologia, comfort e prenotazione della valutazione per l’epilazione laser viso e corpo da Rebel a Carmagnola.",
   inLanguage: "it-IT",
   about: [
     "epilazione laser Carmagnola",
@@ -124,7 +124,7 @@ const localLandingSchema = {
   mainEntity: {
     "@type": "Service",
     "@id": `${siteConfig.siteUrl}/epilazione-laser-carmagnola#service`,
-    name: "Epilazione laser a Carmagnola",
+    name: "Epilazione Laser Ice Polar a Carmagnola",
     provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
   },
 };
@@ -132,23 +132,23 @@ const localLandingSchema = {
 const principles = [
   {
     kicker: "01 · Valutazione gratuita",
-    title: "Si parte dalla pelle, non dal pacchetto.",
-    body: "In 15 minuti leggiamo zona, fototipo, fase del ciclo del pelo. Da lì costruiamo un piano sensato e ti diciamo prezzi e tempi reali.",
+    title: "Controlliamo zona, fototipo e caratteristiche del pelo.",
+    body: "La valutazione dura circa 15 minuti e permette di definire indicazioni, parametri iniziali, frequenza e prezzo prima della prima seduta.",
   },
   {
     kicker: "02 · Tecnologia Thory",
-    title: "Diodo a tre lunghezze d'onda.",
-    body: "755 + 808 + 1064 nm combinati: efficacia su una gamma ampia di fototipi e tipologie di pelo. Non un laser \"universale\" generico.",
+    title: "Tre lunghezze d’onda nello stesso manipolo.",
+    body: "755, 808 e 1064 nm lavorano a profondità diverse. I parametri vengono impostati in base alla zona, alla pelle e al pelo osservato.",
   },
   {
-    kicker: "03 · Manipolo Ice Polar",
-    title: "Raffreddamento attivo durante l'impulso.",
-    body: "La pelle viene raffreddata in tempo reale: la seduta resta comoda anche su ascelle, inguine e baffetti. Non zero dolore — molto meno dolore.",
+    kicker: "03 · Ice Polar",
+    title: "Raffreddamento attivo durante gli impulsi.",
+    body: "Il manipolo raffredda la superficie cutanea mentre lavora, aumentando il comfort anche su aree sensibili come ascelle, inguine e viso.",
   },
   {
-    kicker: "04 · Calendario reale",
-    title: "Sedute distanziate sul tuo ciclo.",
-    body: "Niente \"vieni ogni 30 giorni\" standard: la cadenza segue zona e velocità di ricrescita. Risultato progressivo, non illusione di seduta singola.",
+    kicker: "04 · Calendario",
+    title: "Ogni zona segue tempi di ricrescita differenti.",
+    body: "Ascelle, inguine, viso e gambe possono richiedere intervalli diversi. La data successiva viene indicata in base alla zona e alla ricrescita osservata.",
   },
 ];
 
@@ -156,32 +156,32 @@ const guides = [
   {
     href: "/competenze/epilazione-laser-ascelle-carmagnola",
     title: "Laser ascelle",
-    body: "Sedute, comfort, prezzi e ogni quanto rifarlo. La zona da cui parte la maggior parte delle clienti.",
+    body: "Prezzo, durata indicativa, sensazioni durante la seduta e intervalli tra gli appuntamenti.",
   },
   {
     href: "/competenze/epilazione-laser-inguine-carmagnola",
     title: "Laser inguine",
-    body: "Zona delicata: come si lavora, cosa aspettarsi, come gestire il post-seduta in totale serenità.",
+    body: "Come si svolge la seduta, quali aree si possono trattare e come gestire le ore successive.",
   },
   {
     href: "/competenze/laser-gambe-carmagnola",
     title: "Laser gambe",
-    body: "Stagionalità, numero sedute realistico e mantenimento per gambe lisce a lungo.",
+    body: "Tempi, stagionalità, numero indicativo di sedute e mantenimento per gambe complete o parziali.",
   },
   {
     href: "/competenze/epilazione-laser-estate-sole-carmagnola",
-    title: "Laser & sole",
-    body: "Cosa fare prima e dopo l'esposizione, quali zone si possono trattare anche d'estate.",
+    title: "Laser e sole",
+    body: "Indicazioni sull’esposizione solare, la pelle abbronzata e le precauzioni prima e dopo la seduta.",
   },
   {
     href: "/competenze/epilazione-laser-inverno-carmagnola",
     title: "Laser in inverno",
-    body: "Il periodo migliore per partire: pelle non abbronzata, zero stop, risultati pronti per la primavera.",
+    body: "Perché i mesi con minore esposizione solare sono spesso comodi per iniziare un ciclo su gambe e zone esposte.",
   },
   {
     href: "/competenze/laser-e-palestra-sport-carmagnola",
-    title: "Laser & palestra",
-    body: "Sport, doccia, sudore: cosa fare nelle 24-48 ore dopo la seduta per non vanificare la resa.",
+    title: "Laser e palestra",
+    body: "Sport, doccia, sudore e indicazioni pratiche nelle 24-48 ore successive al trattamento.",
   },
 ];
 
@@ -202,21 +202,21 @@ const zoneShortcuts = [
 
   <PageHero
     image={m.hero}
-    kicker="Epilazione laser · Carmagnola"
-    title="Epilazione laser a Carmagnola con _Ice Polar_."
-    lead="Diodo Thory a tre lunghezze d'onda con raffreddamento attivo: efficace su una gamma ampia di pelli e peli, e molto più comodo dei laser tradizionali. Valutazione iniziale gratuita."
-    bullets={["Comfort reale con manipolo Ice Polar", "Prezzi chiari da 25,90 €", "Valutazione iniziale gratuita"]}
-    meta={["Diodo Thory · Ice Polar", "Viale Barbaroux 20"]}
-    ctaPrimary={{ label: "Prenota la valutazione gratuita", href: "/contatti", halo: true }}
-    ctaSecondary={{ label: "Listino & prezzi", href: "/listino-estetica-laser" }}
+    kicker="Epilazione Laser Ice Polar · Carmagnola"
+    title="Laser per _viso e corpo_, con raffreddamento attivo."
+    lead="Il diodo Thory combina tre lunghezze d’onda. Il manipolo Ice Polar raffredda la pelle durante gli impulsi. La valutazione gratuita definisce zone, parametri, frequenza e prezzo."
+    bullets={["Viso, corpo, donna e uomo", "Prezzi da 25,90 €", "Valutazione iniziale gratuita"]}
+    meta={["Diodo Thory · 755 / 808 / 1064 nm", "Viale Barbaroux 20"]}
+    ctaPrimary={{ label: "Prenota la valutazione laser", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Consulta prezzi e zone", href: "/listino-estetica-laser#laser" }}
   />
 
   <section class="section">
     <div class="container">
       <SectionHead
-        kicker="Come funziona"
-        title="Quattro cose che fanno la _differenza_ vera."
-        lead="Senza tecnicismi: ecco cosa cambia tra una seduta laser fatta come si deve e una fatta a caso."
+        kicker="Come si svolge il percorso"
+        title="Valutazione, tecnologia, raffreddamento e calendario."
+        lead="Questi quattro elementi definiscono il trattamento prima della prima seduta e vengono controllati durante gli appuntamenti."
       />
       <div class="card-grid card-grid--2">
         {principles.map((p, i) => (
@@ -244,10 +244,10 @@ const zoneShortcuts = [
           />
         </figure>
         <div class="laser-spotlight__body">
-          <p class="kicker">Viso, corpo, donna & uomo</p>
-          <h2 class="laser-spotlight__title">Apri direttamente la zona che ti interessa.</h2>
+          <p class="kicker">Zone e prezzi</p>
+          <h2 class="laser-spotlight__title">Scegli la zona e apri la scheda dedicata.</h2>
           <p class="laser-spotlight__lead">
-            Per ogni zona trovi durata, comfort e prezzo. Senza preventivi opachi e senza chiamate "per sapere quanto costa".
+            Ogni scheda riporta prezzo, durata indicativa, caratteristiche della zona e informazioni da conoscere prima dell’appuntamento.
           </p>
           <div class="laser-spotlight__cluster">
             {zoneShortcuts.map((z) => (
@@ -263,8 +263,8 @@ const zoneShortcuts = [
     <div class="container">
       <SectionHead
         kicker="Guide pratiche"
-        title="Tutto quello che serve _sapere prima_."
-        lead="Stagionalità, sport, sole, peli incarniti: risposte concrete alle domande più frequenti, scritte da chi lo fa in cabina."
+        title="Ascelle, inguine, gambe, sole e attività sportiva."
+        lead="Approfondimenti specifici su prezzi, tempi, preparazione della pelle e indicazioni dopo la seduta."
       />
       <div class="card-grid card-grid--3">
         {guides.map((g) => (
@@ -284,9 +284,9 @@ const zoneShortcuts = [
       image={m.mood}
       height="md"
       align="left"
-      kicker="In cabina, a Carmagnola"
-      quote="Efficace senza farti stringere i denti: è questo il punto."
-      cta={{ label: "Prenota la valutazione gratuita", href: "/contatti" }}
+      kicker="Ice Polar"
+      quote="Il manipolo raffredda la pelle durante ogni impulso."
+      cta={{ label: "Prenota la valutazione laser", href: "/contatti" }}
     />
   ) : null}
 
@@ -294,7 +294,7 @@ const zoneShortcuts = [
     <div class="container container--narrow">
       <SectionHead
         kicker="Domande frequenti"
-        title="Le _domande_ che ci fate più spesso."
+        title="Prezzi, numero di sedute, comfort, fototipo e sole."
       />
       <FaqAccordion items={faqs} kicker="FAQ Laser" />
     </div>
@@ -317,15 +317,15 @@ const zoneShortcuts = [
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Prima visita gratuita"
-        title="Prenota la _valutazione laser_, in 15 minuti."
-        lead="Capiamo zona, ciclo e calendario reale. Ti consegniamo una proposta scritta con prezzi e tempi. Senza obbligo di acquisto."
-        primaryLabel="Prenota la valutazione gratuita"
+        kicker="Valutazione laser gratuita"
+        title="Ricevi indicazioni su zone, parametri, _frequenza e prezzo_."
+        lead="L’appuntamento dura circa 15 minuti. Valutiamo pelle e pelo, definiamo le zone e ti consegniamo una proposta prima della prima seduta."
+        primaryLabel="Prenota la valutazione laser"
       />
     </div>
   </section>
 
-  <StickyBookingBar priceHint="Laser da 25,90 €/zona" primary={{ label: "Valutazione gratuita", href: "/contatti" }} />
+  <StickyBookingBar priceHint="Laser da 25,90 €/zona" primary={{ label: "Valutazione laser gratuita", href: "/contatti" }} />
 </BaseLayout>
 
 <style>
