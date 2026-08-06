@@ -1,30 +1,29 @@
 ---
+import { clarifyCopy } from "@/lib/copy-clarity";
+
 interface Props {
   items: Array<{ q: string; a: string }>;
   kicker?: string;
 }
-const { items, kicker = "Prima di iniziare" } = Astro.props;
+const { items, kicker = "Domande frequenti" } = Astro.props;
+const clearKicker = clarifyCopy(kicker);
+const clearItems = items.map((item) => ({ q: clarifyCopy(item.q), a: clarifyCopy(item.a) }));
 ---
 <section class="faq" aria-label="Domande frequenti">
-  {items.map((item, i) => (
+  {clearItems.map((item, i) => (
     <details class="faq__item" data-reveal style={`--reveal-delay: ${i * 50}ms;`}>
       <summary class="faq__summary">
-        <span class="faq__kicker">{kicker} · {String(i + 1).padStart(2, "0")}</span>
+        <span class="faq__kicker">{clearKicker} · {String(i + 1).padStart(2, "0")}</span>
         <span class="faq__q">{item.q}</span>
         <span class="faq__icon" aria-hidden="true">+</span>
       </summary>
-      <div class="faq__a">
-        <p>{item.a}</p>
-      </div>
+      <div class="faq__a"><p>{item.a}</p></div>
     </details>
   ))}
 </section>
 
 <style>
-  .faq {
-    display: grid;
-    gap: 0.6rem;
-  }
+  .faq { display: grid; gap: 0.6rem; }
   .faq__item {
     background: linear-gradient(180deg, rgba(31, 26, 58, 0.78), rgba(20, 16, 42, 0.72));
     border: 1px solid var(--line);
@@ -82,11 +81,13 @@ const { items, kicker = "Prima di iniziare" } = Astro.props;
     background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(244, 238, 227, 0.96));
     border-color: var(--line-on-light);
   }
-  .scene-ivory .faq__item[open] {
-    background: linear-gradient(180deg, #fff, rgba(244, 238, 227, 0.98));
-  }
+  .scene-ivory .faq__item[open] { background: linear-gradient(180deg, #fff, rgba(244, 238, 227, 0.98)); }
   .scene-ivory .faq__q { color: var(--on-light); }
   .scene-ivory .faq__a { color: var(--on-light-muted); }
-  .scene-ivory .faq__kicker { color: var(--violet-mid); }
+  .scene-ivory .faq__kicker,
   .scene-ivory .faq__icon { color: var(--violet-mid); }
+  @media (max-width: 680px) {
+    .faq__summary { grid-template-columns: 1fr auto; }
+    .faq__kicker { grid-column: 1 / -1; white-space: normal; }
+  }
 </style>
