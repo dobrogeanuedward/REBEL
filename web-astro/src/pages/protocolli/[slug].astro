@@ -38,7 +38,7 @@ const meta = createPageMeta({
 
 const breadcrumb = buildBreadcrumbSchema([
   { name: "Home", path: "/" },
-  { name: "Protocolli epigenetici", path: "/protocolli-epigenetici" },
+  { name: "Protocolli viso e corpo", path: "/protocolli-epigenetici" },
   { name: protocol.name, path: `/protocolli/${protocol.slug}` },
 ]);
 const webPage = buildWebPageSchema({
@@ -68,7 +68,7 @@ const faqSchema =
 const relatedLinksSchema =
   protocol.relatedLinks.length > 0
     ? buildItemListSchema({
-        name: `Link utili per ${protocol.name}`,
+        name: `Approfondimenti su ${protocol.name}`,
         path: `/protocolli/${protocol.slug}`,
         items: protocol.relatedLinks
           .filter((l) => l.href.startsWith("/"))
@@ -85,22 +85,23 @@ const relatedLinksSchema =
 
   <PageHero
     image={media.viso.mood}
-    kicker="Protocollo epigenetico"
-    title={`${protocol.name} a _Carmagnola_.`}
+    kicker="Protocollo professionale · Carmagnola"
+    title={`${protocol.name}: _obiettivi, benefici e prezzo_.`}
     lead={protocol.longDescription}
-    bullets={[protocol.price, "Lettura iniziale inclusa", "Progressione su misura"]}
-    meta={[protocol.price, "Lettura iniziale inclusa", "Progressione su misura"]}
-    ctaPrimary={{ label: "Apri lettura iniziale", href: "/contatti", halo: true }}
-    ctaSecondary={{ label: "Tutti i protocolli", href: "/protocolli-epigenetici" }}
+    bullets={[protocol.price, "Valutazione iniziale gratuita", "Programma personalizzato"]}
+    meta={[protocol.price, "Visita iniziale di circa 15 minuti", "Viale Barbaroux 20"]}
+    ctaPrimary={{ label: "Prenota la prima visita", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Vedi tutti i protocolli", href: "/protocolli-epigenetici" }}
   />
 
   <section class="section">
     <div class="container">
       <SectionHead
-        kicker="Il protocollo"
-        title={`Cosa rende _${protocol.name}_ un percorso così mirato.`}
+        kicker="A che cosa serve"
+        title={`Gli obiettivi principali di _${protocol.name}_.`}
+        lead="Qui trovi le esigenze a cui è dedicato il protocollo e gli aspetti che valutiamo prima di proporlo."
       />
-      <KeyPointsGrid points={protocol.benefits} title="Punti chiave" />
+      <KeyPointsGrid points={protocol.benefits} title="Obiettivi del trattamento" />
     </div>
   </section>
 
@@ -108,9 +109,9 @@ const relatedLinksSchema =
     <section class="section section--scene-ivory">
       <div class="container">
         <SectionHead
-          kicker="Come lo impostiamo"
-          title="Il protocollo, _seduta dopo seduta_."
-          lead="La pelle cambia con stagione, sonno e routine. Per questo ogni passaggio dialoga col precedente."
+          kicker="Come si svolge"
+          title="Valutazione, sedute e mantenimento."
+          lead="Il numero di appuntamenti e la frequenza vengono definiti in base alle condizioni della pelle, all’obiettivo e alla risposta osservata durante il trattamento."
         />
         <div class="editorial-flow">
           {protocol.editorialSections.map((s) => (
@@ -126,9 +127,9 @@ const relatedLinksSchema =
       <div class="container">
         <SectionHead
           kicker="Domande frequenti"
-          title="Le risposte _utili_ prima di iniziare."
+          title="Indicazioni utili prima di prenotare."
         />
-        <FaqAccordion items={protocol.faqs} kicker="Prima di prenotare" />
+        <FaqAccordion items={protocol.faqs} kicker={`FAQ ${protocol.name}`} />
       </div>
     </section>
   ) : null}
@@ -137,8 +138,8 @@ const relatedLinksSchema =
     <section class="section">
       <div class="container">
         <SectionHead
-          kicker="Link utili"
-          title="Continua a esplorare _Rebel_."
+          kicker="Servizi collegati"
+          title="Altri trattamenti e informazioni utili."
         />
         <div class="link-grid">
           {protocol.relatedLinks.map((l) => {
@@ -164,26 +165,26 @@ const relatedLinksSchema =
     image={media.viso.mood}
     height="sm"
     align="left"
-    kicker="Da Rebel, a Carmagnola"
-    quote="Un percorso lavora dove un singolo gesto non arriva."
+    kicker={`${protocol.name} · Rebel Carmagnola`}
+    quote="La valutazione iniziale definisce obiettivo, sedute, frequenza e mantenimento."
     cite="Studio Rebel · Viale Barbaroux 20"
   />
 
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Prenota"
-        title="Apri la _lettura iniziale_ del tuo protocollo."
-        lead="Definiamo priorità, ritmo e calendario. Da lì il percorso prende forma."
+        kicker="Prima visita gratuita"
+        title={`Scopri se _${protocol.name}_ è adatto alla tua pelle.`}
+        lead="In circa quindici minuti valutiamo la zona, ascoltiamo il tuo obiettivo e ti spieghiamo trattamento, frequenza e prezzo."
         primaryHref="/contatti"
-        primaryLabel="Prenota consulenza"
+        primaryLabel="Prenota la prima visita"
         secondaryHref="/protocolli-epigenetici"
-        secondaryLabel="Tutti i protocolli"
+        secondaryLabel="Vedi tutti i protocolli"
       />
     </div>
   </section>
 
-  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
+  <StickyBookingBar primary={{ label: "Prenota la prima visita", href: "/contatti" }} />
 </BaseLayout>
 
 <style>
