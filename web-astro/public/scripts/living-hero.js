@@ -11,21 +11,21 @@
   const slides = [
     {
       image: 'https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/7dc5354b-33e1-4a9e-a21d-ff321ecf4500/public',
-      title: 'La tua pelle cambia.',
-      lead: 'Anche il percorso deve cambiare. Da Rebel ogni trattamento nasce da una valutazione della pelle, delle tue esigenze e del risultato che vuoi raggiungere.',
-      signature: 'Prima la pelle. Poi la tecnologia.'
+      title: 'Trattamenti viso costruiti sulla tua pelle.',
+      lead: 'Valutiamo idratazione, luminosità, uniformità, comfort e tono. Poi scegliamo trattamenti, attivi epigenetici e tecnologie adatti all’obiettivo che vuoi raggiungere.',
+      signature: 'Viso · valutazione iniziale · percorsi personalizzati'
     },
     {
       image: 'https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/9d9033f2-f11f-4485-f69c-38d05556bb00/public',
-      title: 'Il corpo ritrova il suo ritmo.',
-      lead: 'Manualità e tecnologie vengono scelte per lavorare su leggerezza, tono e armonia, con un percorso costruito sulla tua risposta reale.',
-      signature: 'Forma, leggerezza, continuità.'
+      title: 'Percorsi corpo per drenaggio, tono e compattezza.',
+      lead: 'Manualità, pressomassaggio, LPG, Tecar e altre tecnologie vengono combinate in base alla zona, alle caratteristiche dei tessuti e al risultato desiderato.',
+      signature: 'Corpo · rimodellamento · benessere'
     },
     {
       image: 'https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e63a6c84-f777-4f2d-995b-eef9c7e09900/public',
-      title: 'Pelle liscia. Senza pensieri.',
-      lead: 'Laser Ice Polar, valutazione iniziale e un calendario calibrato sulla zona: il percorso Libertà rende l’epilazione più confortevole e semplice da seguire.',
-      signature: 'Be Cool. Be Rebel.'
+      title: 'Epilazione Laser Ice Polar a Carmagnola.',
+      lead: 'Laser a diodo con tre lunghezze d’onda e raffreddamento attivo per viso e corpo. La valutazione iniziale definisce zone, parametri, frequenza e prezzo.',
+      signature: 'Laser da 25,90 € · valutazione gratuita'
     }
   ];
 
@@ -42,13 +42,13 @@
 
   const controls = document.createElement('div');
   controls.className = 'rebel-hero__controls';
-  controls.setAttribute('aria-label', 'Cambia messaggio principale');
+  controls.setAttribute('aria-label', 'Cambia contenuto principale');
 
   const buttons = slides.map((slide, index) => {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'rebel-hero__dot';
-    button.setAttribute('aria-label', `Mostra messaggio ${index + 1}`);
+    button.setAttribute('aria-label', `Mostra contenuto ${index + 1}`);
     button.setAttribute('aria-current', index === 0 ? 'true' : 'false');
     button.addEventListener('click', () => show(index, true));
     controls.appendChild(button);
