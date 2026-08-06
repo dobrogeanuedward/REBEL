@@ -9,7 +9,7 @@ import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import { media } from "@/lib/page-media";
 import { protocolCards } from "@/lib/content";
-import { competencePages, servicePages } from "@/lib/seo-content";
+import { competencePages, servicePages } from "@/lib/seo-content-refined";
 import {
   buildBreadcrumbSchema,
   buildItemListSchema,
@@ -18,9 +18,9 @@ import {
 } from "@/lib/seo";
 
 const meta = createPageMeta({
-  title: "Servizi — Centro Estetico Rebel a Carmagnola",
+  title: "Servizi viso, corpo, laser e beauty | Rebel Carmagnola",
   description:
-    "Tutti i servizi Rebel a Carmagnola: pulizia viso, manicure, ceretta, massaggi, epilazione laser Ice Polar e protocolli viso/corpo. Schede chiare con prezzi.",
+    "Tutti i servizi Rebel a Carmagnola: pulizia viso, manicure, pedicure, laminazione, ceretta, massaggi, trattamenti corpo, Laser Ice Polar e protocolli viso.",
   path: "/servizi",
   image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e3635dd7-e046-46af-56a5-cf36d8239c00/public",
   keywords: [
@@ -43,7 +43,7 @@ const breadcrumb = buildBreadcrumbSchema([
 const webPageSchema = buildWebPageSchema({
   name: "Servizi Rebel a Carmagnola",
   description:
-    "Panoramica dei servizi Rebel: bellezza viso e corpo, laser e protocolli epigenetici da scegliere e prenotare.",
+    "Elenco dei servizi Rebel con schede dedicate a prezzi, durata, modalità e prenotazione.",
   path: "/servizi",
 });
 const serviceListSchema = buildItemListSchema({
@@ -52,7 +52,7 @@ const serviceListSchema = buildItemListSchema({
   items: servicePages.map((s) => ({ name: s.name, path: `/servizi/${s.slug}` })),
 });
 const protocolListSchema = buildItemListSchema({
-  name: "Protocolli epigenetici Rebel (selezione)",
+  name: "Protocolli professionali Rebel",
   path: "/servizi",
   items: protocolCards.slice(0, 6).map((p) => ({ name: p.name, path: `/protocolli/${p.slug}` })),
 });
@@ -88,10 +88,10 @@ const featuredEditorials = editorialSlugs
   .filter((c): c is (typeof competencePages)[number] => Boolean(c));
 
 const switchItems = [
-  { href: "#estetica", label: "Estetica & benessere", glyph: "✦" },
+  { href: "#estetica", label: "Viso, corpo e beauty", glyph: "✦" },
   { href: "#laser", label: "Epilazione laser", glyph: "◉" },
-  { href: "#epigenetica", label: "Estetica epigenetica", glyph: "⬡" },
-  { href: "#guide", label: "Guide beauty", glyph: "❖" },
+  { href: "#epigenetica", label: "Protocolli viso e corpo", glyph: "⬡" },
+  { href: "#guide", label: "Guide pratiche", glyph: "❖" },
 ];
 ---
 <BaseLayout meta={meta} bodyClass="page-servizi">
@@ -102,12 +102,12 @@ const switchItems = [
 
   <PageHero
     image={media.studio.cabin}
-    kicker="Servizi · Carmagnola"
-    title="Tutto quello che _facciamo_ in studio."
-    lead="Estetica classica, epilazione laser Ice Polar e protocolli viso/corpo. Ogni scheda dice cosa fa il trattamento, quanto dura e quanto costa. La prima visita è gratuita."
-    bullets={["Schede chiare con prezzi", "Epilazione laser Ice Polar", "Prima visita gratuita"]}
-    meta={["Estetica & benessere", "Epilazione laser Ice Polar", "Protocolli viso e corpo"]}
-    ctaPrimary={{ label: "Prenota la prima visita gratuita", href: "/contatti", halo: true }}
+    kicker="Servizi Rebel · Carmagnola"
+    title="Trattamenti per _viso, corpo, laser e beauty_."
+    lead="Apri la scheda del servizio che ti interessa per leggere obiettivo, modalità, prezzo, durata indicativa e informazioni prima dell’appuntamento."
+    bullets={["Prezzi pubblicati online", "Scheda dedicata a ogni servizio", "Prima visita gratuita"]}
+    meta={["Pulizia viso, beauty e massaggi", "Laser Ice Polar", "Protocolli professionali"]}
+    ctaPrimary={{ label: "Prenota la prima visita", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Scrivici su WhatsApp", href: "https://wa.me/393516919416" }}
   />
 
@@ -127,9 +127,9 @@ const switchItems = [
   <section class="section" id="estetica">
     <div class="container">
       <SectionHead
-        kicker="Estetica & benessere"
-        title="I trattamenti _classici_, fatti come si deve."
-        lead="Pulizia viso, manicure, ceretta, massaggi: i servizi su cui contare ogni mese, con tempi sensati e prodotti professionali."
+        kicker="Viso, corpo e beauty"
+        title="Pulizia viso, manicure, pedicure, laminazione, ceretta e massaggi."
+        lead="Servizi prenotabili singolarmente. Ogni scheda riporta prezzo, durata indicativa, obiettivo del trattamento e indicazioni utili."
       />
       <div class="card-grid card-grid--2">
         {esteticaSorted.map((s, i) => (
@@ -138,7 +138,7 @@ const switchItems = [
             title={s.name}
             body={s.shortDescription}
             href={`/servizi/${s.slug}`}
-            ariaLabel={`Apri scheda servizio ${s.name}`}
+            ariaLabel={`Apri la scheda di ${s.name}`}
             index={i + 1}
           />
         ))}
@@ -150,8 +150,8 @@ const switchItems = [
     <div class="container">
       <SectionHead
         kicker="Epilazione laser"
-        title="Laser Thory + manipolo _Ice Polar_."
-        lead="Diodo a tre lunghezze d'onda con raffreddamento attivo. Più comodo anche su ascelle e inguine. Valutazione iniziale gratuita."
+        title="Laser Ice Polar per viso e corpo."
+        lead="Laser a diodo con tre lunghezze d’onda e raffreddamento attivo. Le schede riportano prezzi e informazioni per le diverse zone."
       />
       <div class="card-grid card-grid--2">
         {laser.map((s, i) => (
@@ -160,15 +160,15 @@ const switchItems = [
             title={s.name}
             body={s.shortDescription}
             href={`/servizi/${s.slug}`}
-            ariaLabel={`Apri scheda laser ${s.name}`}
+            ariaLabel={`Apri la scheda laser ${s.name}`}
             variant="feature"
             index={i + 1}
           />
         ))}
       </div>
       <div class="cluster cluster--stack-mobile" style="margin-top:2rem; justify-content:center;">
-        <a class="btn btn--primary btn--halo" href="/epilazione-laser-carmagnola">Vedi il percorso laser</a>
-        <a class="btn btn--secondary" href="/competenze/laser-uomo-carmagnola">Laser uomo</a>
+        <a class="btn btn--primary btn--halo" href="/epilazione-laser-carmagnola">Come funziona il Laser Ice Polar</a>
+        <a class="btn btn--secondary" href="/listino-estetica-laser#laser">Prezzi e zone laser</a>
       </div>
     </div>
   </section>
@@ -176,9 +176,9 @@ const switchItems = [
   <section class="section" id="epigenetica">
     <div class="container">
       <SectionHead
-        kicker="Protocolli avanzati"
-        title="Estetica _epigenetica_ viso e corpo."
-        lead="Percorsi su più sedute con linee Marbellas ed Eberlin. Quando vuoi un risultato che lavori in profondità: tono, densità, luminosità."
+        kicker="Protocolli professionali"
+        title="Trattamenti viso e corpo per esigenze specifiche."
+        lead="Protocolli dedicati a luminosità, idratazione, tono, pelle matura, contorno occhi, texture e compattezza. Ogni scheda riporta prezzo e indicazioni."
       />
       <div class="card-grid card-grid--3">
         {featuredProtocols.map((p, i) => (
@@ -193,7 +193,7 @@ const switchItems = [
         ))}
       </div>
       <div class="cluster cluster--stack-mobile" style="margin-top:2rem; justify-content:center;">
-        <a class="btn btn--primary btn--halo" href="/protocolli-epigenetici">Vedi tutti i protocolli</a>
+        <a class="btn btn--primary btn--halo" href="/protocolli-epigenetici">Confronta tutti i protocolli</a>
         <a class="btn btn--secondary" href="/contatti">Prenota la prima visita</a>
       </div>
     </div>
@@ -203,9 +203,9 @@ const switchItems = [
     <section class="section section--scene-ivory" id="guide">
       <div class="container">
         <SectionHead
-          kicker="Approfondimenti"
-          title="Guide _utili_ prima di scegliere."
-          lead="Spiegano cosa fa un trattamento, quando ha senso e cosa aspettarsi: prepari meglio la prima visita e sai già cosa chiedere."
+          kicker="Guide pratiche"
+          title="Durata, preparazione, frequenza e indicazioni dopo il trattamento."
+          lead="Approfondimenti dedicati alle domande più comuni su laser, pulizia viso, manicure e laminazione."
         />
         <div class="card-grid card-grid--2">
           {featuredEditorials.map((e, i) => (
@@ -227,8 +227,8 @@ const switchItems = [
     image={media.studio.cabin}
     height="sm"
     align="left"
-    kicker="Da Rebel, a Carmagnola"
-    quote="Si parte da quello che ti serve adesso, non dal pacchetto più costoso."
+    kicker="Prima visita gratuita"
+    quote="Valutiamo la zona e ti comunichiamo trattamento, frequenza e prezzo."
     cite="Studio Rebel · Viale Barbaroux 20"
   />
 
@@ -236,17 +236,17 @@ const switchItems = [
     <div class="container">
       <InlineCta
         kicker="Prima visita gratuita"
-        title="Vieni in studio per _quindici minuti_, gratis."
-        lead="Capiamo da dove ha senso partire, ti facciamo una proposta scritta e scegli un piccolo regalo. Senza obbligo di acquisto."
+        title="Non sai quale servizio prenotare? _Valutiamolo insieme_."
+        lead="In circa quindici minuti osserviamo la zona interessata e ti spieghiamo quale trattamento può essere adatto, con frequenza e prezzo."
         primaryHref="/contatti"
-        primaryLabel="Prenota la prima visita gratuita"
+        primaryLabel="Prenota la prima visita"
         secondaryHref="/listino-estetica-laser"
-        secondaryLabel="Vedi listino e prezzi"
+        secondaryLabel="Consulta il listino"
       />
     </div>
   </section>
 
-  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
+  <StickyBookingBar primary={{ label: "Prenota la prima visita", href: "/contatti" }} />
 </BaseLayout>
 
 <style>
