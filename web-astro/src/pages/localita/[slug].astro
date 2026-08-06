@@ -57,7 +57,7 @@ const clearFocus = area.focus
       ...area.focus,
       heading: clarifyCopy(area.focus.heading),
       paragraphs: area.focus.paragraphs.map(clarifyCopy),
-      links: area.focus.links.map((link) => ({
+      links: (area.focus.links ?? []).map((link) => ({
         ...link,
         label: clarifyCopy(link.label),
         description: link.description ? clarifyCopy(link.description) : undefined,
