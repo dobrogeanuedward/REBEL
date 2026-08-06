@@ -1,27 +1,29 @@
 ---
+import { clarifyCopy } from "@/lib/copy-clarity";
+
 interface Props {
   points: string[];
   title?: string;
   variant?: "default" | "quiet";
 }
 const { points, title, variant = "default" } = Astro.props;
+const clearTitle = title ? clarifyCopy(title) : undefined;
+const clearPoints = points.map((point) => clarifyCopy(point.replace(/^[-\s]+/, "")));
 ---
 <div class={`key-points key-points--${variant}`}>
-  {title ? <p class="key-points__title">{title}</p> : null}
+  {clearTitle ? <p class="key-points__title">{clearTitle}</p> : null}
   <ul class="key-points__list">
-    {points.map((p, i) => (
+    {clearPoints.map((point, i) => (
       <li class="key-points__item" data-reveal style={`--reveal-delay: ${i * 60}ms;`}>
         <span class="key-points__num">{String(i + 1).padStart(2, "0")}</span>
-        <span class="key-points__text">{p.replace(/^[-\s]+/, "")}</span>
+        <span class="key-points__text">{point}</span>
       </li>
     ))}
   </ul>
 </div>
 
 <style>
-  .key-points {
-    margin-top: 1.4rem;
-  }
+  .key-points { margin-top: 1.4rem; }
   .key-points__title {
     font-family: var(--font-body);
     font-size: var(--t-kicker);
