@@ -8,7 +8,7 @@ import FullBleedBand from "@/components/FullBleedBand.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import { media } from "@/lib/page-media";
-import { competencePages } from "@/lib/seo-content";
+import { competencePages } from "@/lib/seo-content-refined";
 import {
   buildBreadcrumbSchema,
   buildItemListSchema,
@@ -17,9 +17,9 @@ import {
 } from "@/lib/seo";
 
 const meta = createPageMeta({
-  title: "Guide e Approfondimenti Beauty — Centro Estetico Carmagnola",
+  title: "Guide su laser, viso, corpo e beauty | Rebel Carmagnola",
   description:
-    "Guide pratiche su epilazione laser, pulizia viso, manicure, contorno occhi e trattamenti corpo: cosa aspettarsi, ogni quanto farli, come scegliere a Carmagnola.",
+    "Guide pratiche su epilazione laser, pulizia viso, manicure, laminazione, pedicure, massaggi e trattamenti corpo: durata, frequenza, preparazione e indicazioni.",
   path: "/competenze",
   image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/8d07afc2-b036-4eff-d34e-523a6c656d00/public",
   keywords: [
@@ -51,16 +51,16 @@ const featuredGuides = featuredSlugs
 
 const breadcrumb = buildBreadcrumbSchema([
   { name: "Home", path: "/" },
-  { name: "Competenze", path: "/competenze" },
+  { name: "Guide", path: "/competenze" },
 ]);
 const competenceListSchema = buildItemListSchema({
-  name: "Guide e competenze Rebel",
+  name: "Guide pratiche Rebel",
   path: "/competenze",
   items: competencePages.map((c) => ({ name: c.title, path: `/competenze/${c.slug}` })),
 });
 const webPageSchema = buildWebPageSchema({
-  name: "Guide e competenze Rebel",
-  description: "Guide beauty su laser, viso e corpo per scegliere il trattamento più adatto.",
+  name: "Guide pratiche Rebel",
+  description: "Informazioni su modalità, durata, frequenza, prezzi e indicazioni dei trattamenti Rebel.",
   path: "/competenze",
 });
 ---
@@ -71,27 +71,27 @@ const webPageSchema = buildWebPageSchema({
 
   <PageHero
     image={media.studio.cabin}
-    kicker="Guide & approfondimenti"
-    title="Tutto quello che serve _sapere prima_."
-    lead="Guide pratiche su laser, viso, corpo e routine: cosa fa il trattamento, ogni quanto si fa, cosa aspettarsi davvero. Scritte da chi lo fa in cabina, non da un copy."
-    bullets={["Letture brevi e pratiche", "Scritte da chi lavora in cabina", "Senza claim gonfiati"]}
-    meta={["Letture brevi", "Aggiornate periodicamente", "Senza claim gonfiati"]}
-    ctaPrimary={{ label: "Prenota la prima visita gratuita", href: "/contatti", halo: true }}
-    ctaSecondary={{ label: "Vedi tutti i trattamenti", href: "/listino-estetica-laser" }}
+    kicker="Guide pratiche · Rebel Carmagnola"
+    title="Durata, frequenza e indicazioni _prima del trattamento_."
+    lead="Le guide spiegano come funziona ogni servizio, come prepararsi, che cosa aspettarsi durante la seduta e quali attenzioni seguire dopo."
+    bullets={["Laser, viso, corpo e beauty", "Indicazioni pratiche", "Collegamenti a prezzi e prenotazione"]}
+    meta={["Guide aggiornate", "Servizi disponibili a Carmagnola", "Viale Barbaroux 20"]}
+    ctaPrimary={{ label: "Prenota la prima visita", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Consulta il listino", href: "/listino-estetica-laser" }}
   />
 
   {featuredGuides.length > 0 ? (
     <section class="section">
       <div class="container">
         <SectionHead
-          kicker="Le più lette"
-          title="Le guide _più richieste_ in studio."
-          lead="Sono le domande che ci fanno più spesso: cosa cambia, ogni quanto, cosa aspettarsi. Risposte chiare, senza giri."
+          kicker="Domande frequenti in studio"
+          title="Laser, pulizia viso, manicure, pedicure e trattamenti corpo."
+          lead="Una selezione delle guide più consultate, con risposte su tempi, modalità, preparazione e mantenimento."
         />
         <div class="card-grid card-grid--2">
           {featuredGuides.map((g, i) => (
             <FeatureCard
-              kicker="Guida"
+              kicker="Guida pratica"
               title={compactTitle(g.title)}
               body={g.shortDescription}
               href={`/competenze/${g.slug}`}
@@ -108,13 +108,13 @@ const webPageSchema = buildWebPageSchema({
     <div class="container">
       <SectionHead
         kicker="Tutte le guide"
-        title="L'_archivio completo_ degli approfondimenti."
-        lead="Una pagina per ogni tema: cosa cambia, quando ha senso, come si combina con il resto del percorso."
+        title="Informazioni su servizi, tecnologie e cura dopo la seduta."
+        lead="Apri una guida per leggere indicazioni specifiche e trovare i collegamenti alla scheda del servizio, al prezzo e alla prenotazione."
       />
       <div class="card-grid card-grid--2">
         {competencePages.map((c, i) => (
           <FeatureCard
-            kicker={c.intent === "commercial" ? "Percorso" : "Guida"}
+            kicker={c.intent === "commercial" ? "Servizio e prenotazione" : "Guida pratica"}
             title={c.title}
             body={c.shortDescription}
             href={`/competenze/${c.slug}`}
@@ -130,24 +130,24 @@ const webPageSchema = buildWebPageSchema({
     image={media.studio.cabin}
     height="sm"
     align="left"
-    kicker="Da Rebel, a Carmagnola"
-    quote="Hai letto, hai capito. Il passo successivo è semplice: vieni a provarlo."
+    kicker="Prima visita gratuita"
+    quote="Valutiamo la zona e ti comunichiamo trattamento, frequenza e prezzo."
     cite="Studio Rebel · Viale Barbaroux 20"
   />
 
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Dalla guida alla prenotazione"
-        title="Hai letto, hai capito: _vieni a provarlo_."
-        lead="La prima visita è gratuita. Quindici minuti per trasformare quello che hai letto in un piano concreto, costruito sulla tua pelle."
+        kicker="Hai ancora un dubbio?"
+        title="Spiegaci quale zona o risultato ti _interessa_."
+        lead="In circa quindici minuti valutiamo le informazioni utili e ti indichiamo il servizio più adatto, con prezzo e frequenza."
         primaryHref="/contatti"
-        primaryLabel="Prenota la prima visita gratuita"
+        primaryLabel="Prenota la prima visita"
         secondaryHref="/listino-estetica-laser"
-        secondaryLabel="Vedi listino e prezzi"
+        secondaryLabel="Consulta il listino"
       />
     </div>
   </section>
 
-  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
+  <StickyBookingBar primary={{ label: "Prenota la prima visita", href: "/contatti" }} />
 </BaseLayout>
