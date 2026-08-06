@@ -37,4 +37,14 @@ jobs:
         run: npm run build
 
       - name: Rendered-site copy audit
+        id: rendered_copy_audit
         run: npm run check:rendered-copy
+
+      - name: Upload rendered-copy report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rendered-copy-audit
+          path: web-astro/copy-audit-report.json
+          if-no-files-found: warn
+          retention-days: 7
