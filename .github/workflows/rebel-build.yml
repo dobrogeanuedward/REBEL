@@ -56,7 +56,8 @@ jobs:
           name: rebel-source-snapshot
           path: |
             web-astro/src
-            web-astro/public/scripts
+            web-astro/public
             web-astro/scripts
             web-astro/package.json
+            web-astro/astro.config.mjs
           retention-days: 2
