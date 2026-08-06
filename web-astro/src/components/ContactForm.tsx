@@ -23,8 +23,8 @@ const initial: FormState = {
 };
 
 const ritualOptions: ReadonlyArray<{ value: string; label: string }> = [
-  { value: "", label: "Nessuna preferenza, decidiamo insieme" },
-  { value: "mani", label: "Mini-rituale mani (lima + smalto rapido)" },
+  { value: "", label: "Nessuna preferenza" },
+  { value: "mani", label: "Mini-rituale mani: lima e smalto rapido" },
   { value: "viso-marbellas", label: "Massaggio viso epigenetico Marbellas" },
   { value: "sopracciglia", label: "Disegno e rifinitura sopracciglia" },
 ];
@@ -34,8 +34,6 @@ export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "ok" | "error">("idle");
   const [feedback, setFeedback] = useState("");
 
-  // Pre-fill the ritual field from a `?ritual=` query param so deeplinks from
-  // the homepage promo banner land already configured.
   useEffect(() => {
     if (typeof window === "undefined") return;
     const params = new URLSearchParams(window.location.search);
@@ -60,11 +58,11 @@ export default function ContactForm() {
         message?: string;
       };
       if (!res.ok || !data.ok) {
-        throw new Error(data.message || "Errore durante l'invio.");
+        throw new Error(data.message || "Errore durante l’invio.");
       }
       setStatus("ok");
       setFeedback(
-        "Richiesta ricevuta. Ti scriviamo entro poche ore con un orario disponibile.",
+        "Richiesta ricevuta. Ti contattiamo negli orari di apertura per concordare l’appuntamento.",
       );
       setForm(initial);
     } catch (err) {
@@ -78,8 +76,8 @@ export default function ContactForm() {
       <div className="form__intro">
         <p className="form__kicker">Prima visita gratuita</p>
         <p className="form__note">
-          Quindici minuti per capire da dove partire. In più, il primo accesso
-          include un piccolo regalo a tua scelta.
+          L’appuntamento dura circa quindici minuti. Valutiamo la zona o il servizio
+          che ti interessa e ti spieghiamo trattamento consigliato, frequenza e prezzo.
         </p>
       </div>
 
@@ -124,13 +122,13 @@ export default function ContactForm() {
         <input
           value={form.city}
           onChange={(e) => setForm((v) => ({ ...v, city: e.target.value }))}
-          placeholder="Da dove ci raggiungi (es. Carmagnola)"
+          placeholder="Es. Carmagnola"
           autoComplete="address-level2"
         />
       </label>
 
       <label>
-        Regalo prima visita
+        Omaggio prima visita (facoltativo)
         <select
           value={form.ritual}
           onChange={(e) => setForm((v) => ({ ...v, ritual: e.target.value }))}
@@ -144,13 +142,13 @@ export default function ContactForm() {
       </label>
 
       <label>
-        Cosa vorresti fare*
+        Servizio o risultato che ti interessa*
         <textarea
           required
           rows={5}
           value={form.message}
           onChange={(e) => setForm((v) => ({ ...v, message: e.target.value }))}
-          placeholder="Es. Vorrei iniziare l'epilazione laser inguine + ascelle. In studio sono libera al pomeriggio."
+          placeholder="Es. Vorrei informazioni sul laser inguine e ascelle. Sono disponibile nel pomeriggio."
         />
       </label>
 
@@ -169,12 +167,12 @@ export default function ContactForm() {
         className="btn btn--primary btn--halo"
         disabled={status === "loading"}
       >
-        {status === "loading" ? "Invio in corso…" : "Prenota la prima visita"}
+        {status === "loading" ? "Invio in corso…" : "Richiedi un appuntamento"}
       </button>
 
       <p className="form__small">
-        Inviando il modulo accetti la nostra Privacy Policy. Ti rispondiamo entro
-        poche ore negli orari di apertura.
+        Inviando il modulo accetti la nostra Privacy Policy. Ti rispondiamo negli
+        orari di apertura.
       </p>
 
       {feedback ? (
