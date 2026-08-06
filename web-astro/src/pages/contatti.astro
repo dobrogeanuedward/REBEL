@@ -61,7 +61,7 @@ type QuickContact = {
 const quick: QuickContact[] = [
   {
     label: "WhatsApp",
-    value: "Apri chat",
+    value: "Apri la chat",
     href: siteConfig.social.whatsapp,
     external: true,
     icon: "whatsapp",
@@ -105,22 +105,21 @@ const hours = [
   <PageHero
     image={media.studio.reception}
     kicker="Contatti · Carmagnola"
-    title="Prenota la _prima visita_ gratuita."
-    lead="Scrivici su WhatsApp, chiamaci o compila il form: ti rispondiamo entro poche ore negli orari di apertura. La prima visita è gratuita e include un piccolo regalo a tua scelta."
-    bullets={["Viale Barbaroux 20", "Mar–Sab su appuntamento", "Risposta in poche ore"]}
-    meta={["Viale Barbaroux 20", "Mar–Sab su appuntamento", "Chiusi lunedì e domenica"]}
-    ctaPrimary={{ label: "Apri WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
-    ctaSecondary={{ label: "Chiamaci ora", href: `tel:${siteConfig.phoneRaw}` }}
+    title="Prenota la tua _prima visita_."
+    lead="Ci vogliono circa quindici minuti. Parliamo di ciò che vuoi migliorare, osserviamo da dove partire e ti proponiamo un primo passo chiaro. Poi decidi tu."
+    bullets={["Prima visita gratuita", "Viale Barbaroux 20", "Mar–Sab su appuntamento"]}
+    meta={["Viale Barbaroux 20", "Mar–Sab su appuntamento", "Risposta negli orari di apertura"]}
+    ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
+    ctaSecondary={{ label: "Chiamaci", href: `tel:${siteConfig.phoneRaw}` }}
   />
 
   <section class="section">
     <div class="container grid-2">
       <article class="card card--feature">
-        <p class="card__kicker">Contatti rapidi</p>
-        <h2 class="card__title">Quattro modi per scriverci.</h2>
+        <p class="card__kicker">Contatti</p>
+        <h2 class="card__title">Scegli il modo più comodo.</h2>
         <p class="card__body" style="margin-bottom: 1.4rem;">
-          Scegli quello più comodo. Su WhatsApp scrivi cosa vorresti fare e una fascia
-          oraria comoda: rispondiamo prima che possiamo.
+          Su WhatsApp puoi indicarci il trattamento che ti interessa e una fascia oraria comoda. Ti rispondiamo appena possibile durante gli orari di apertura.
         </p>
         <div class="contact-quick">
           {quick.map((q) => (
@@ -165,7 +164,7 @@ const hours = [
       </article>
 
       <aside class="card">
-        <p class="card__kicker">Orari di apertura</p>
+        <p class="card__kicker">Orari</p>
         <h2 class="card__title">Quando ci trovi in studio.</h2>
         <div class="hours">
           {hours.map((h) => (
@@ -176,8 +175,7 @@ const hours = [
           ))}
         </div>
         <p class="card__body" style="margin-top:1.2rem;">
-          Riceviamo solo su appuntamento. Per la prima visita gratuita scrivici
-          su WhatsApp o usa il form qui sotto.
+          Riceviamo su appuntamento, così ogni visita ha il tempo necessario.
         </p>
       </aside>
     </div>
@@ -199,27 +197,25 @@ const hours = [
   <section class="section">
     <div class="container grid-2">
       <article class="card card--feature">
-        <p class="card__kicker">Form prima visita</p>
-        <h2 class="card__title">Prenota in trenta secondi.</h2>
+        <p class="card__kicker">Prima visita</p>
+        <h2 class="card__title">Raccontaci da dove vuoi partire.</h2>
         <p class="card__body" style="margin-bottom:1.6rem;">
-          Compila il modulo qui sotto: ti rispondiamo via email o WhatsApp. Per
-          il confronto immediato, WhatsApp resta la via più veloce.
+          Compila il modulo e ti ricontatteremo via email o WhatsApp. Per una risposta più rapida puoi scriverci direttamente in chat.
         </p>
         <ContactForm client:load />
       </article>
 
       <aside class="card">
-        <p class="card__kicker">Cosa succede dopo</p>
-        <h2 class="card__title">Quattro passaggi, niente di complicato.</h2>
+        <p class="card__kicker">Dopo la richiesta</p>
+        <h2 class="card__title">Cosa succede, passo dopo passo.</h2>
         <ol class="flow" style="margin-top:1.2rem; counter-reset: step;">
-          <li>Ricevi un messaggio con un orario disponibile.</li>
-          <li>Vieni in studio per la prima visita di 15 minuti.</li>
-          <li>Capiamo insieme da dove ha senso partire.</li>
-          <li>Se decidi di iniziare, prenoti il primo trattamento sul momento.</li>
+          <li>Ti proponiamo un orario disponibile.</li>
+          <li>Ci incontriamo in studio per circa quindici minuti.</li>
+          <li>Parliamo delle tue esigenze e individuiamo la priorità.</li>
+          <li>Ricevi una proposta chiara e scegli liberamente se iniziare.</li>
         </ol>
         <p class="card__body" style="margin-top:1.4rem;">
-          Nessun obbligo di acquisto, nessuna pressione: la prima visita è una
-          chiacchierata utile per entrambi.
+          La prima visita è gratuita e serve a capire quale percorso può essere davvero adatto a te.
         </p>
       </aside>
     </div>
