@@ -15,9 +15,9 @@ import {
 import { methodSteps } from "@/lib/content";
 
 const meta = createPageMeta({
-  title: "Metodo Rebel — Estetica epigenetica e percorsi su misura a Carmagnola",
+  title: "Metodo Rebel — Come scegliamo trattamenti viso e corpo a Carmagnola",
   description:
-    "Il Metodo Rebel unisce valutazione, priorità, Skin Reset, attivi epigenetici, tecnologie e rivalutazione per costruire percorsi viso e corpo su misura a Carmagnola.",
+    "Scopri come funziona la prima visita Rebel: colloquio, valutazione di pelle o corpo, scelta dei trattamenti, calendario, controllo dei risultati e mantenimento.",
   path: "/metodo-rebel",
   openGraphType: "article",
   keywords: [
@@ -33,17 +33,17 @@ const breadcrumb = buildBreadcrumbSchema([
   { name: "Metodo Rebel", path: "/metodo-rebel" },
 ]);
 const webPage = buildWebPageSchema({
-  name: "Metodo Rebel — estetica epigenetica a Carmagnola",
+  name: "Metodo Rebel — come lavoriamo a Carmagnola",
   description: meta.description,
   path: "/metodo-rebel",
 });
 const service = buildServiceSchema(
-  "Metodo Rebel — percorso estetico personalizzato",
-  "Valutazione, priorità, Skin Reset, percorso, rivalutazione e mantenimento.",
+  "Metodo Rebel — valutazione e programma estetico personalizzato",
+  "Colloquio iniziale, valutazione professionale, preparazione della pelle, programma di trattamento, controllo dei risultati e mantenimento.",
   "/metodo-rebel",
 );
 const article = buildArticleSchema({
-  headline: "Metodo Rebel — la bellezza segue il tuo ritmo",
+  headline: "Metodo Rebel — dalla valutazione al mantenimento",
   description: meta.description,
   path: "/metodo-rebel",
   keywords: ["Metodo Rebel", "estetica epigenetica", "Carmagnola"],
@@ -51,31 +51,31 @@ const article = buildArticleSchema({
 });
 
 const priorities = [
-  "Luminosità e uniformità",
-  "Tono, densità e longevità",
-  "Comfort e barriera cutanea",
-  "Contorno occhi e qualità dello sguardo",
-  "Forma, drenaggio e compattezza",
-  "Texture e grana della pelle",
-  "Libertà dal pelo con Ice Polar",
+  "Pelle spenta, macchie e colorito irregolare",
+  "Perdita di tono, elasticità e compattezza",
+  "Sensibilità, secchezza e barriera cutanea",
+  "Gonfiore, segni e stanchezza del contorno occhi",
+  "Ritenzione, pesantezza e tono del corpo",
+  "Impurità, pori e grana irregolare",
+  "Ricrescita dei peli su viso e corpo",
 ];
 
 const journeys = [
   {
     name: "Glow",
-    body: "Per una pelle più luminosa, uniforme e vitale. Skin Reset, Catalysis, Cell Regen e attivi epigenetici vengono scelti in base a ciò che la pelle richiede.",
+    body: "Raccoglie i trattamenti viso dedicati a luminosità, uniformità, idratazione e grana della pelle, tra cui Skin Reset, Catalysis e Cell Regen.",
   },
   {
     name: "Longevity",
-    body: "Per sostenere tono, densità, comfort e qualità del viso nel tempo. Lift, Collagen, Rebirth 60+ ed Eye Genesis entrano nel percorso quando sono davvero utili.",
+    body: "Raccoglie i protocolli viso per tono, elasticità, compattezza, pelle matura e contorno occhi, tra cui Lift, Collagen, Rebirth 60+ ed Eye Genesis.",
   },
   {
     name: "Forma",
-    body: "Per leggerezza, tonicità e armonia del corpo. Manualità, LPG, pressomassaggio, Tecar e Lift Body vengono combinati in base all’obiettivo e alla risposta della persona.",
+    body: "Raccoglie i trattamenti corpo per drenaggio, pesantezza, tonicità e rimodellamento con manualità, LPG, pressomassaggio, Tecar, crioterapia e Lift Body.",
   },
   {
     name: "Libertà",
-    body: "Il percorso dedicato all’epilazione laser con manipolo Ice Polar: valutazione iniziale, parametri personalizzati, comfort e continuità.",
+    body: "È il percorso di epilazione Laser Ice Polar per viso e corpo, con valutazione del fototipo, scelta dei parametri e calendario specifico per ogni zona.",
   },
 ];
 ---
@@ -87,18 +87,18 @@ const journeys = [
 
   <section class="rb-hero rb-hero--method">
     <div class="rb-hero__media">
-      <img src={media.studio.cabin.src ?? media.studio.cabin} alt="Metodo Rebel nello studio di Carmagnola" />
+      <img src={media.studio.cabin.src ?? media.studio.cabin} alt="Valutazione e trattamento nello studio Rebel di Carmagnola" />
     </div>
     <div class="rb-hero__veil"></div>
     <div class="container rb-hero__content">
-      <p class="rb-kicker">Estetica epigenetica · Carmagnola</p>
-      <h1>La bellezza segue <em>il tuo ritmo.</em></h1>
+      <p class="rb-kicker">Metodo Rebel · Carmagnola</p>
+      <h1>Come scegliamo i trattamenti <em>per viso e corpo.</em></h1>
       <p class="rb-lead">
-        Il Metodo Rebel parte dalla tua pelle, dal tuo corpo e da ciò che desideri migliorare. Da lì costruiamo un percorso in cui manualità, attivi e tecnologie vengono scelti con precisione e aggiornati nel tempo.
+        La prima visita raccoglie il tuo obiettivo, le condizioni della pelle o del corpo e le tue abitudini. Con queste informazioni definiamo trattamenti, prodotti, tecnologie, frequenza e controlli.
       </p>
       <div class="cluster cluster--stack-mobile">
-        <a class="btn btn--primary" href="/contatti">Prenota la valutazione</a>
-        <a class="btn btn--secondary" href="/protocolli-epigenetici">Scopri i percorsi</a>
+        <a class="btn btn--primary" href="/contatti">Prenota la prima visita</a>
+        <a class="btn btn--secondary" href="/protocolli-epigenetici">Vedi i percorsi</a>
       </div>
       <p class="rb-signature">Be Beautiful. Be Rebel.</p>
     </div>
@@ -108,11 +108,11 @@ const journeys = [
     <div class="container rb-intro-grid">
       <div>
         <p class="rb-kicker">La Mappa Rebel</p>
-        <h2>Prima di scegliere un trattamento, capiamo <em>da dove partire.</em></h2>
+        <h2>Un riepilogo chiaro di obiettivo, trattamenti e calendario.</h2>
       </div>
       <div class="rb-copy">
-        <p>La Mappa Rebel mette insieme ciò che desideri, ciò che la pelle manifesta e ciò che può sostenerla meglio in questo momento.</p>
-        <p>Da qui nasce un percorso costruito su di te, con obiettivi chiari e momenti di rivalutazione.</p>
+        <p>La Mappa Rebel registra che cosa vuoi migliorare, che cosa abbiamo osservato e quale risultato abbiamo concordato.</p>
+        <p>Indica i trattamenti consigliati, le tecnologie utilizzabili, la frequenza iniziale, la data del controllo e il mantenimento previsto.</p>
       </div>
     </div>
   </section>
@@ -120,8 +120,8 @@ const journeys = [
   <section class="rb-section rb-section--plum">
     <div class="container">
       <div class="rb-section-head">
-        <p class="rb-kicker">Il Metodo, in sei passaggi</p>
-        <h2>Ogni fase prepara <em>quella successiva.</em></h2>
+        <p class="rb-kicker">Come funziona</p>
+        <h2>Dal colloquio iniziale al mantenimento, in sei fasi.</h2>
       </div>
       <StepStrip items={methodSteps} />
     </div>
@@ -130,8 +130,8 @@ const journeys = [
   <section class="rb-section rb-section--ivory">
     <div class="container">
       <div class="rb-section-head">
-        <p class="rb-kicker">Le priorità</p>
-        <h2>Prima del trattamento, individuiamo <em>ciò che conta di più.</em></h2>
+        <p class="rb-kicker">Cosa valutiamo</p>
+        <h2>Le principali esigenze che possiamo trattare su viso e corpo.</h2>
       </div>
       <ol class="rb-priority-grid">
         {priorities.map((priority, index) => (
@@ -145,7 +145,7 @@ const journeys = [
     <div class="container">
       <div class="rb-section-head">
         <p class="rb-kicker">I percorsi Rebel</p>
-        <h2>Ogni protocollo entra nel percorso <em>quando serve davvero.</em></h2>
+        <h2>Glow per la luminosità, Longevity per il tono, Forma per il corpo, Libertà per il laser.</h2>
       </div>
       <div class="rb-journey-grid">
         {journeys.map((journey) => (
@@ -162,12 +162,12 @@ const journeys = [
   <section class="rb-section rb-section--ivory">
     <div class="container rb-intro-grid">
       <div>
-        <p class="rb-kicker">La Professionista Rebel</p>
-        <h2>La tecnologia entra quando <em>serve davvero.</em></h2>
+        <p class="rb-kicker">Manualità, attivi e tecnologie</p>
+        <h2>Scegliamo strumenti e parametri in base alla zona e all’obiettivo.</h2>
       </div>
       <div class="rb-copy">
-        <p>Ogni tecnologia viene scelta in base alla priorità, alla sensibilità e alla risposta osservata. Attivi epigenetici, manualità e tecnologie lavorano insieme.</p>
-        <p>Durante il percorso rivalutiamo frequenza, intensità e combinazioni per accompagnare l’evoluzione della pelle e del corpo.</p>
+        <p>Per ogni trattamento specifichiamo quali prodotti e tecnologie utilizziamo, che cosa devono fare e con quale frequenza vanno applicati.</p>
+        <p>Ai controlli confrontiamo la risposta con l’obiettivo iniziale e aggiorniamo il programma quando necessario.</p>
       </div>
     </div>
   </section>
@@ -175,16 +175,16 @@ const journeys = [
   <section class="rb-section rb-section--closing">
     <div class="container">
       <InlineCta
-        kicker="La tua Mappa Rebel"
-        title="Partiamo da ciò che conta _adesso_."
-        lead="Prenota una valutazione in studio: ascoltiamo le tue esigenze e capiamo insieme da dove iniziare."
+        kicker="Prima visita gratuita"
+        title="Raccontaci che cosa vuoi _migliorare_."
+        lead="In circa quindici minuti valutiamo la zona interessata e ti spieghiamo quali trattamenti, tempi e costi possono essere adatti al tuo obiettivo."
         primaryHref="/contatti"
-        primaryLabel="Prenota la valutazione"
+        primaryLabel="Prenota la prima visita"
         secondaryHref="/protocolli-epigenetici"
-        secondaryLabel="Esplora i percorsi"
+        secondaryLabel="Vedi i percorsi"
       />
     </div>
   </section>
 
-  <StickyBookingBar primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
+  <StickyBookingBar primary={{ label: "Prenota la prima visita", href: "/contatti" }} />
 </BaseLayout>
