@@ -68,5 +68,6 @@ const pathname = Astro.url.pathname;
 
     <SiteFooter />
     <WhatsappLive />
+    {pathname === "/" ? <script src="/scripts/living-hero.js" is:inline></script> : null}
   </body>
 </html>
