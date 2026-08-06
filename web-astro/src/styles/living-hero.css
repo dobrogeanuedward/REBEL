@@ -1,4 +1,4 @@
-/* Living home hero — slow editorial changes, never a promotional carousel. */
+/* Living home hero — concise rotation with stable desktop and mobile composition. */
 .rebel-hero--living {
   --hero-image: none;
   background: var(--rebel-porcelain);
@@ -17,8 +17,9 @@
   background-size: cover;
   background-repeat: no-repeat;
   opacity: 0;
-  transform: scale(1.015);
-  transition: opacity 1.1s ease, transform 8.5s cubic-bezier(.2,.65,.2,1);
+  transform: scale(1.012);
+  transition: opacity .7s ease, transform 3s cubic-bezier(.2,.65,.2,1);
+  will-change: opacity, transform;
 }
 
 .rebel-hero__living-visual.is-active {
@@ -27,34 +28,34 @@
 }
 
 .rebel-hero__copy {
-  transition: opacity .28s ease, transform .28s ease;
+  transition: opacity .2s ease, transform .2s ease;
 }
 
 .rebel-hero__copy.is-changing {
-  opacity: .18;
-  transform: translateY(4px);
+  opacity: .24;
+  transform: translateY(3px);
 }
 
 .rebel-hero__controls {
   display: flex;
   align-items: center;
-  gap: .55rem;
-  margin-top: 1.55rem;
+  gap: .5rem;
+  margin-top: 1.25rem;
 }
 
 .rebel-hero__dot {
-  width: 2.25rem;
-  height: 2px;
+  width: 2rem;
+  height: 3px;
   padding: 0;
   border: 0;
   border-radius: 999px;
   background: rgba(39,20,47,.22);
   cursor: pointer;
-  transition: width .3s ease, background-color .3s ease;
+  transition: width .2s ease, background-color .2s ease;
 }
 
 .rebel-hero__dot[aria-current="true"] {
-  width: 3.8rem;
+  width: 3.25rem;
   background: var(--rebel-pink);
 }
 
@@ -64,17 +65,84 @@
 }
 
 @media (max-width: 860px) {
+  .rebel-hero--living {
+    min-height: auto;
+    padding: 0 0 clamp(2.5rem, 8vw, 4rem);
+    display: block;
+  }
+
   .rebel-hero--living::before {
-    background: linear-gradient(180deg, rgba(248,243,237,.03), rgba(248,243,237,.88) 47%, rgba(248,243,237,1) 69%);
+    background: linear-gradient(180deg, rgba(248,243,237,0) 0 31%, rgba(248,243,237,.64) 46%, rgba(248,243,237,.96) 60%, rgba(248,243,237,1) 72%);
   }
 
   .rebel-hero__living-visual {
-    height: 58%;
-    background-position: 62% 18%;
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: clamp(290px, 58svh, 520px);
+    background-position: 62% 20%;
+  }
+
+  .rebel-hero__living-visual + .rebel-hero__living-visual {
+    position: absolute;
+    inset: 0 0 auto;
+  }
+
+  .rebel-hero--living .rebel-hero__copy {
+    position: relative;
+    z-index: 2;
+    width: min(100% - 1.5rem, 760px);
+    margin: clamp(-5.5rem, -10vw, -3.5rem) auto 0;
+    padding-top: 0;
+  }
+
+  .rebel-hero--living .rebel-display {
+    max-width: 12ch;
+    font-size: clamp(2.65rem, 11.5vw, 4.6rem);
+    line-height: .94;
+  }
+
+  .rebel-hero--living .rebel-lead {
+    max-width: 38rem;
+    font-size: clamp(1rem, 4.2vw, 1.12rem);
+    line-height: 1.5;
+  }
+
+  .rebel-hero--living .rebel-hero__actions {
+    gap: .65rem;
+  }
+
+  .rebel-hero--living .rebel-hero__signature {
+    margin-top: 1rem;
   }
 
   .rebel-hero__controls {
-    margin-top: 1.25rem;
+    margin-top: 1rem;
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+}
+
+@media (max-width: 420px) {
+  .rebel-hero__living-visual {
+    height: clamp(270px, 52svh, 390px);
+    background-position: 64% 18%;
+  }
+
+  .rebel-hero--living .rebel-hero__copy {
+    width: calc(100% - 1.1rem);
+    margin-top: -3.5rem;
+  }
+
+  .rebel-hero--living .rebel-display {
+    font-size: clamp(2.35rem, 12vw, 3.35rem);
+  }
+
+  .rebel-hero__dot {
+    width: 1.7rem;
+  }
+
+  .rebel-hero__dot[aria-current="true"] {
+    width: 2.6rem;
   }
 }
 
