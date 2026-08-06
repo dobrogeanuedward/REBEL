@@ -1,5 +1,6 @@
 ---
 import "@/styles/global.css";
+import "@/lib/copy-clarity-bootstrap";
 import { ClientRouter } from "astro:transitions";
 import type { PageMeta } from "@/lib/seo";
 import {
@@ -36,7 +37,7 @@ const pathname = Astro.url.pathname;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="format-detection" content="telephone=no" />
-    <meta name="theme-color" content="#07050E" />
+    <meta name="theme-color" content="#f8f3ed" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -68,6 +69,6 @@ const pathname = Astro.url.pathname;
 
     <SiteFooter />
     <WhatsappLive />
-    {pathname === "/" ? <script src="/scripts/living-hero.js?v=4" is:inline></script> : null}
+    {pathname === "/" ? <script src="/scripts/living-hero.js?v=5" is:inline></script> : null}
   </body>
 </html>
