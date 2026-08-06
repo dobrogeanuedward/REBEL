@@ -2,12 +2,13 @@
 import { siteConfig } from "@/lib/site-config";
 
 const primary = [
-  { href: "/metodo-rebel", label: "Metodo Rebel" },
-  { href: "/protocolli-epigenetici", label: "Percorsi Glow, Longevity, Forma e Libertà" },
-  { href: "/epilazione-laser-carmagnola", label: "Laser Ice Polar" },
-  { href: "/listino-estetica-laser", label: "Beauty essentials e listino" },
+  { href: "/metodo-rebel", label: "Come scegliamo i trattamenti" },
+  { href: "/protocolli-epigenetici", label: "Percorsi viso, corpo e laser" },
+  { href: "/tecnologie-rebel", label: "Tecnologie disponibili" },
+  { href: "/epilazione-laser-carmagnola", label: "Laser Ice Polar: prezzi e zone" },
+  { href: "/listino-estetica-laser", label: "Listino completo" },
   { href: "/chi-siamo", label: "Studio Rebel" },
-  { href: "/contatti", label: "Prenota la valutazione" },
+  { href: "/contatti", label: "Contatti e prima visita" },
 ];
 
 const days = [
@@ -25,27 +26,27 @@ const days = [
     <div class="site-footer__grid">
       <div class="site-footer__brand">
         <img src={siteConfig.assets.logoLight} alt="Rebel Estetica Epigenetica" class="site-footer__logo" width="340" height="116" decoding="async" loading="lazy" />
-        <h2 class="site-footer__tagline">La bellezza segue il tuo ritmo.</h2>
+        <h2 class="site-footer__tagline">Viso, corpo, laser e beauty a Carmagnola.</h2>
         <p class="site-footer__copy">
-          Estetica epigenetica, tecnologie evolute e manualità professionale diventano un percorso costruito sulla persona. A Carmagnola, in Viale Barbaroux 20.
+          Trattamenti estetici, protocolli epigenetici e tecnologie professionali in Viale Barbaroux 20. La prima visita gratuita definisce trattamento, frequenza e prezzo.
         </p>
         <div class="rebel-site-footer__signatures"><span>Be Beautiful. Be Rebel.</span><span>Be Cool. Be Rebel.</span></div>
         <div class="cluster" style="margin-top:1.5rem;">
-          <a class="btn btn--primary" href="/contatti">Prenota la valutazione</a>
+          <a class="btn btn--primary" href="/contatti">Prenota la prima visita</a>
           <a class="btn btn--secondary" href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a>
         </div>
       </div>
 
       <nav aria-label="Pagine principali">
-        <p class="site-footer__title">Rebel World</p>
+        <p class="site-footer__title">Pagine principali</p>
         <ul class="site-footer__list">{primary.map((it) => (<li><a href={it.href}>{it.label}</a></li>))}</ul>
       </nav>
 
       <address class="site-footer__contact">
-        <p class="site-footer__title">Vieni in studio</p>
+        <p class="site-footer__title">Contatti</p>
         <div class="site-footer__contact-row"><span>Indirizzo</span><a href={siteConfig.social.maps} target="_blank" rel="noreferrer">{siteConfig.address.streetAddress}, {siteConfig.address.locality}</a></div>
         <div class="site-footer__contact-row"><span>Telefono</span><a href={`tel:${siteConfig.phoneRaw}`}>{siteConfig.phoneDisplay}</a></div>
-        <div class="site-footer__contact-row"><span>WhatsApp</span><a href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer">Apri chat</a></div>
+        <div class="site-footer__contact-row"><span>WhatsApp</span><a href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer">Apri la chat</a></div>
         <div class="site-footer__contact-row"><span>Email</span><a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></div>
         <p class="site-footer__title" style="margin-top:1.6rem;">Orari</p>
         <ul class="site-footer__hours">{days.map((d) => (<li class={d.closed ? "is-closed" : ""}><span>{d.day}</span><span>{d.value}</span></li>))}</ul>
@@ -53,7 +54,7 @@ const days = [
     </div>
 
     <div class="site-footer__network" aria-label="Network professionale">
-      <span class="site-footer__network-label">Tecnologie, formazione e partner professionali</span>
+      <span class="site-footer__network-label">Tecnologie e formazione professionale</span>
       <div class="site-footer__network-row">{siteConfig.network.map((n) => (<a class="site-footer__network-link" href={n.url} target="_blank" rel="noreferrer"><span class="site-footer__network-name">{n.label}</span><span class="site-footer__network-note">{n.note}</span></a>))}</div>
     </div>
 
