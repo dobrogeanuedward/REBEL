@@ -1,4 +1,6 @@
 ---
+import { clarifyCopy } from "@/lib/copy-clarity";
+
 interface Props {
   name: string;
   description: string;
@@ -6,14 +8,17 @@ interface Props {
   href?: string;
 }
 const { name, description, price, href } = Astro.props;
+const clearName = clarifyCopy(name);
+const clearDescription = clarifyCopy(description);
+const clearPrice = clarifyCopy(price);
 const Tag = href ? "a" : "article";
 ---
 <Tag class="price-row" href={href} data-link={href ? "true" : undefined} data-reveal>
   <div class="price-row__body">
-    <h3 class="price-row__name">{name}</h3>
-    <p class="price-row__desc">{description}</p>
+    <h3 class="price-row__name">{clearName}</h3>
+    <p class="price-row__desc">{clearDescription}</p>
   </div>
-  <strong class="price-row__price">{price}</strong>
+  <strong class="price-row__price">{clearPrice}</strong>
   {href ? <span class="price-row__cta" aria-hidden="true">→</span> : null}
 </Tag>
 
@@ -65,9 +70,7 @@ const Tag = href ? "a" : "article";
     font-size: 1.1rem;
     transition: transform var(--t-base) var(--ease-cinema);
   }
-  .price-row[data-link="true"]:hover .price-row__cta {
-    transform: translateX(4px);
-  }
+  .price-row[data-link="true"]:hover .price-row__cta { transform: translateX(4px); }
   .scene-ivory .price-row {
     background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(244, 238, 227, 0.95));
     border-color: var(--line-on-light);
@@ -77,12 +80,8 @@ const Tag = href ? "a" : "article";
   .scene-ivory .price-row__desc { color: var(--on-light-muted); }
   .scene-ivory .price-row__price,
   .scene-ivory .price-row__cta { color: var(--violet-mid); }
-
   @media (max-width: 640px) {
-    .price-row {
-      grid-template-columns: 1fr;
-      gap: 0.6rem;
-    }
+    .price-row { grid-template-columns: 1fr; gap: 0.6rem; }
     .price-row__price { font-size: 1.4rem; }
     .price-row__cta { display: none; }
   }
