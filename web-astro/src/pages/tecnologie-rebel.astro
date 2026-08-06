@@ -18,7 +18,7 @@ const technologies = [
     name: "Laser Ice Polar",
     family: "Percorso Libertà",
     focus: "Epilazione progressiva viso e corpo",
-    copy: "Tecnologia laser con raffreddamento attivo. Parametri, cadenza e zone vengono definiti nella Valutazione Rebel e aggiornati in base alla risposta.",
+    copy: "Tecnologia laser con raffreddamento attivo. Parametri, cadenza e zone vengono definiti durante la valutazione e aggiornati in base alla risposta.",
     href: "/epilazione-laser-carmagnola",
   },
   {
@@ -26,35 +26,35 @@ const technologies = [
     name: "Tecar 448Revolution",
     family: "Percorsi Forma e Longevity",
     focus: "Tessuti, tonicità e qualità cutanea",
-    copy: "Entra nei percorsi quando la priorità richiede un lavoro progressivo sui tessuti. La tecnologia accompagna manualità e attivi, senza sostituire la lettura professionale.",
+    copy: "Viene inserita quando il percorso richiede un lavoro progressivo sui tessuti, insieme a manualità e attivi selezionati.",
   },
   {
     code: "03",
     name: "LPG",
     family: "Percorso Forma",
     focus: "Rimodellamento e stimolazione meccanica",
-    copy: "Utilizzata all’interno di programmi corpo calibrati su tonicità, leggerezza e armonia. Frequenza e intensità dipendono dalla Mappa Rebel.",
+    copy: "Utilizzata nei percorsi corpo dedicati a tonicità, leggerezza e armonia. Frequenza e intensità vengono definite sulla persona.",
   },
   {
     code: "04",
     name: "Lumina K3 3-in-1",
     family: "Percorsi Glow e Forma",
     focus: "Viso e corpo, secondo configurazione",
-    copy: "Una piattaforma multifunzione che permette di scegliere il modulo più coerente con la priorità attuale e con la fase del percorso.",
+    copy: "Una piattaforma multifunzione che permette di scegliere il trattamento più adatto alla priorità e alla fase del percorso.",
   },
   {
     code: "05",
     name: "InfraPress X2",
     family: "Percorso Forma",
     focus: "Pressomassaggio e leggerezza",
-    copy: "Supporta i percorsi dedicati a microcircolo, sensazione di pesantezza e drenaggio, integrandosi con manualità, routine e rivalutazioni periodiche.",
+    copy: "Supporta i percorsi dedicati a microcircolo, pesantezza e drenaggio, integrandosi con manualità e richiami periodici.",
   },
   {
     code: "06",
     name: "CryoShape X2",
     family: "Percorso Forma",
     focus: "Crioterapia estetica localizzata",
-    copy: "Viene selezionata su aree e obiettivi precisi, all’interno di una progressione costruita sulla persona e non come trattamento isolato standard.",
+    copy: "Viene scelta per aree e obiettivi precisi, all’interno di un percorso costruito sulla persona.",
   },
 ];
 
@@ -78,25 +78,25 @@ const list = buildItemListSchema({
     <div class="rebel-container tech-hero__grid">
       <div>
         <p class="rebel-kicker">Rebel Tech · Carmagnola</p>
-        <h1 class="rebel-display">Prima la priorità. Poi la tecnologia.</h1>
+        <h1 class="rebel-display">Prima la tua esigenza. Poi la tecnologia.</h1>
       </div>
       <div class="tech-hero__copy">
-        <p class="rebel-lead">Le tecnologie non definiscono il percorso: lo rendono più preciso. La Professionista Rebel le seleziona, le combina e ne aggiorna l’intensità attraverso la Mappa Rebel.</p>
+        <p class="rebel-lead">Le tecnologie rendono il trattamento più preciso, ma la scelta parte sempre dalla persona. Selezioniamo strumenti, parametri e frequenza in base alla pelle, al corpo e all’obiettivo.</p>
         <div class="rebel-spectrum-rule"></div>
-        <a class="btn btn--primary" href="/contatti">Prenota la Valutazione Rebel</a>
+        <a class="btn btn--primary" href="/contatti">Prenota la valutazione</a>
       </div>
     </div>
   </section>
 
   <section class="rebel-section rebel-section--paper">
     <div class="rebel-container">
-      <p class="rebel-kicker">La regia</p>
-      <h2 class="rebel-title">Ogni macchina ha un compito. Il risultato nasce dalla sequenza.</h2>
+      <p class="rebel-kicker">Come le utilizziamo</p>
+      <h2 class="rebel-title">Ogni tecnologia ha una funzione precisa.</h2>
       <div class="tech-principles">
-        <article><span>01</span><h3>Selezionare</h3><p>La tecnologia entra solo quando è coerente con priorità, sensibilità e obiettivo condiviso.</p></article>
+        <article><span>01</span><h3>Scegliere</h3><p>La tecnologia entra quando è coerente con la priorità, la sensibilità e l’obiettivo condiviso.</p></article>
         <article><span>02</span><h3>Calibrare</h3><p>Parametri, durata e frequenza vengono definiti sulla persona e sulla fase del percorso.</p></article>
-        <article><span>03</span><h3>Integrare</h3><p>Manualità, attivi e tecnologia lavorano come parti della stessa architettura Rebel.</p></article>
-        <article><span>04</span><h3>Rivalutare</h3><p>La risposta osservata guida lo step successivo e mantiene il percorso dinamico.</p></article>
+        <article><span>03</span><h3>Combinare</h3><p>Manualità, attivi e tecnologia vengono abbinati per sostenere lo stesso risultato.</p></article>
+        <article><span>04</span><h3>Rivalutare</h3><p>La risposta osservata ci aiuta a definire il passaggio successivo.</p></article>
       </div>
     </div>
   </section>
@@ -104,7 +104,7 @@ const list = buildItemListSchema({
   <section class="rebel-section rebel-section--plum">
     <div class="rebel-container">
       <p class="rebel-kicker">Le tecnologie</p>
-      <h2 class="rebel-title">Strumenti diversi, una sola Mappa Rebel.</h2>
+      <h2 class="rebel-title">Strumenti diversi, scelti per il tuo percorso.</h2>
       <div class="tech-list">
         {technologies.map((tech) => (
           <article class="tech-card">
@@ -129,8 +129,8 @@ const list = buildItemListSchema({
         <h2 class="rebel-title">La tecnologia più adatta è quella che serve adesso.</h2>
       </div>
       <div>
-        <p class="rebel-lead">La Valutazione Rebel mette in relazione pelle, corpo, abitudini e obiettivi. Da lì nasce una progressione leggibile, con un primo step e una data di rivalutazione.</p>
-        <div class="rebel-hero__actions"><a class="btn btn--primary" href="/metodo-rebel">Scopri il Metodo</a><a class="btn btn--secondary" href="/contatti">Apri la tua Mappa Rebel</a></div>
+        <p class="rebel-lead">Durante la valutazione mettiamo in relazione pelle, corpo, abitudini e obiettivi. Da lì definiamo il primo trattamento e quando rivalutare il percorso.</p>
+        <div class="rebel-hero__actions"><a class="btn btn--primary" href="/metodo-rebel">Scopri il Metodo</a><a class="btn btn--secondary" href="/contatti">Prenota la valutazione</a></div>
       </div>
     </div>
   </section>

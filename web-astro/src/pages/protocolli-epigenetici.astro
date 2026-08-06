@@ -17,7 +17,7 @@ import {
 const meta = createPageMeta({
   title: "Percorsi Rebel — Estetica epigenetica viso e corpo a Carmagnola",
   description:
-    "Scopri i percorsi Glow, Longevity, Forma e Libertà del Metodo Rebel. Protocolli, attivi epigenetici e tecnologie vengono combinati sulla priorità reale di pelle e corpo.",
+    "Scopri i percorsi Glow, Longevity, Forma e Libertà del Metodo Rebel. Protocolli, attivi epigenetici e tecnologie vengono scelti in base alle esigenze reali di pelle e corpo.",
   path: "/protocolli-epigenetici",
   openGraphType: "article",
   keywords: [
@@ -40,7 +40,7 @@ const webPageSchema = buildWebPageSchema({
 });
 const serviceSchema = buildServiceSchema(
   "Percorsi Rebel viso e corpo",
-  "Percorsi personalizzati con valutazione, attivi epigenetici, manualità e tecnologie calibrate.",
+  "Percorsi personalizzati con valutazione, attivi epigenetici, manualità e tecnologie selezionate.",
   "/protocolli-epigenetici",
 );
 const articleSchema = buildArticleSchema({
@@ -60,28 +60,28 @@ const journeys = [
   {
     name: "Glow",
     focus: "Luce · uniformità · texture",
-    body: "Un percorso dedicato alla pelle che vuole ritrovare nitidezza, comfort e presenza. Skin Reset, Catalysis e Cell Regen entrano nella progressione quando servono.",
+    body: "Per una pelle più luminosa, uniforme e vitale. Skin Reset, Catalysis, Cell Regen e attivi epigenetici vengono scelti in base a ciò di cui la pelle ha bisogno oggi.",
     tools: ["Skin Reset", "Catalysis", "Cell Regen", "Attivi epigenetici"],
     href: "/contatti?percorso=glow",
   },
   {
     name: "Longevity",
     focus: "Tono · densità · qualità",
-    body: "La direzione Rebel per accompagnare la pelle nel tempo. Lift, Collagen, Rebirth 60+ ed Eye Genesis vengono scelti e combinati secondo la priorità reale.",
+    body: "Per sostenere tono, elasticità, comfort e qualità della pelle nel tempo. Lift, Collagen, Rebirth 60+ ed Eye Genesis entrano nel percorso quando sono davvero utili.",
     tools: ["Lift", "Collagen", "Rebirth 60+", "Eye Genesis"],
     href: "/contatti?percorso=longevity",
   },
   {
     name: "Forma",
     focus: "Corpo · drenaggio · compattezza",
-    body: "Un percorso corpo costruito su manualità e tecnologie. Lift Body, LPG, pressomassaggio e Tecar dialogano in una sequenza calibrata.",
+    body: "Per ritrovare leggerezza, tono e armonia. Manualità, Lift Body, LPG, pressomassaggio e Tecar vengono combinati in base alla risposta del corpo.",
     tools: ["Lift Body", "LPG", "Pressomassaggio", "Tecar"],
     href: "/contatti?percorso=forma",
   },
   {
     name: "Libertà",
     focus: "Laser · comfort · continuità",
-    body: "Il percorso dedicato all’epilazione laser Ice Polar. Valutazione, parametri personalizzati e richiami coerenti trasformano la tecnologia in un’esperienza Rebel.",
+    body: "Il percorso dedicato all’epilazione laser Ice Polar. Parametri, zone e frequenza vengono definiti sulla persona e aggiornati nel tempo.",
     tools: ["Laser a diodo", "Ice Polar", "Valutazione", "Mantenimento"],
     href: "/epilazione-laser-carmagnola",
   },
@@ -101,9 +101,9 @@ const journeys = [
     <div class="rb-hero__veil"></div>
     <div class="container rb-hero__content">
       <p class="rb-kicker">I percorsi Rebel · Carmagnola</p>
-      <h1>Una direzione. <em>Molti strumenti.</em></h1>
+      <h1>Quattro percorsi. <em>Uno pensato per te.</em></h1>
       <p class="rb-lead">
-        Glow, Longevity, Forma e Libertà sono le quattro grandi direzioni del Metodo Rebel. I protocolli storici non scompaiono: diventano strumenti scelti e interpolati dentro il percorso giusto.
+        Glow, Longevity, Forma e Libertà raccolgono trattamenti, attivi e tecnologie diverse. La scelta parte sempre da ciò che vuoi migliorare e da ciò di cui pelle o corpo hanno bisogno.
       </p>
       <div class="cluster cluster--stack-mobile">
         <a class="btn btn--primary" href="/contatti">Prenota la valutazione</a>
@@ -115,12 +115,12 @@ const journeys = [
   <section class="rb-section rb-section--ivory">
     <div class="container rb-intro-grid">
       <div>
-        <p class="rb-kicker">La regia Rebel</p>
-        <h2>Il nome del protocollo viene dopo <em>la priorità.</em></h2>
+        <p class="rb-kicker">Come scegliamo</p>
+        <h2>Prima viene la tua priorità. <em>Poi il trattamento.</em></h2>
       </div>
       <div class="rb-copy">
-        <p>Due persone possono desiderare lo stesso risultato e ricevere una progressione diversa. La scelta nasce dalla Mappa Rebel, dalla risposta osservata e dal momento reale della pelle o del corpo.</p>
-        <p>Per questo ogni percorso può integrare protocolli, attivi, manualità e tecnologie in modo differente.</p>
+        <p>Due persone possono desiderare lo stesso risultato e avere bisogno di percorsi diversi. Per questo osserviamo la pelle, ascoltiamo il tuo obiettivo e definiamo insieme da dove partire.</p>
+        <p>Il percorso può cambiare nel tempo, seguendo la risposta reale di pelle e corpo.</p>
       </div>
     </div>
   </section>
@@ -128,8 +128,8 @@ const journeys = [
   <section class="rb-section rb-section--plum">
     <div class="container">
       <div class="rb-section-head">
-        <p class="rb-kicker">Quattro direzioni</p>
-        <h2>Trova la direzione che assomiglia <em>al tuo obiettivo.</em></h2>
+        <p class="rb-kicker">I percorsi Rebel</p>
+        <h2>Trova quello più vicino <em>al tuo obiettivo.</em></h2>
       </div>
       <div class="rebel-journeys">
         {journeys.map((journey, index) => (
@@ -141,7 +141,7 @@ const journeys = [
               <div class="rebel-journey__tags">
                 {journey.tools.map((tool) => <span>{tool}</span>)}
               </div>
-              <div style="margin-top:1.5rem"><a class="btn btn--secondary" href={journey.href}>Esplora {journey.name}</a></div>
+              <div style="margin-top:1.5rem"><a class="btn btn--secondary" href={journey.href}>Scopri {journey.name}</a></div>
             </div>
           </article>
         ))}
@@ -152,8 +152,8 @@ const journeys = [
   <section class="rb-section rb-section--ivory">
     <div class="container">
       <div class="rb-section-head">
-        <p class="rb-kicker">La biblioteca dei protocolli</p>
-        <h2>Rituali e moduli che la Professionista Rebel <em>porta nel percorso.</em></h2>
+        <p class="rb-kicker">I protocolli</p>
+        <h2>Trattamenti specifici, scelti <em>nel momento giusto.</em></h2>
       </div>
       <div class="rb-protocol-grid">
         {protocolCards.map((protocol, index) => (
@@ -171,12 +171,12 @@ const journeys = [
   <section class="rb-section rb-section--spectrum">
     <div class="container rb-intro-grid">
       <div>
-        <p class="rb-kicker">Scegliere bene</p>
-        <h2>La valutazione evita di partire <em>dal nome sbagliato.</em></h2>
+        <p class="rb-kicker">Da dove partire</p>
+        <h2>La valutazione aiuta a scegliere <em>con più precisione.</em></h2>
       </div>
       <div class="rb-copy">
-        <p>La prima scelta non è tra Lift, Catalysis o Cell Regen. È capire quale priorità viene prima e quale ritmo può sostenere davvero il risultato.</p>
-        <p>Il protocollo giusto emerge dalla direzione, non il contrario.</p>
+        <p>Non devi conoscere già il nome del trattamento. Ti basta raccontarci ciò che vuoi migliorare, ritrovare o mantenere.</p>
+        <p>Da lì individuiamo il primo passo più adatto e definiamo insieme il percorso.</p>
       </div>
     </div>
   </section>
@@ -184,9 +184,9 @@ const journeys = [
   <section class="rb-section rb-section--closing">
     <div class="container">
       <InlineCta
-        kicker="La tua direzione Rebel"
-        title="Costruiamo il percorso _intorno a te_."
-        lead="Prenota una valutazione e raccontaci ciò che desideri cambiare, ritrovare o preservare."
+        kicker="Il tuo percorso Rebel"
+        title="Partiamo da ciò che vuoi _cambiare davvero_."
+        lead="Prenota una valutazione e raccontaci il tuo obiettivo. Ti aiutiamo a capire da dove iniziare."
         primaryHref="/contatti"
         primaryLabel="Prenota la valutazione"
         secondaryHref="/metodo-rebel"

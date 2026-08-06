@@ -61,38 +61,38 @@ const article = buildArticleSchema({
 const ways = [
   {
     kicker: "Ascolto",
-    title: "Si parte sempre da una domanda",
-    body: "“Cosa vorresti vedere cambiato?” è la prima cosa che ti chiediamo. Da lì decidiamo come muoverci, non prima.",
+    title: "Partiamo da ciò che vuoi migliorare",
+    body: "Ti chiediamo cosa desideri vedere cambiare e osserviamo pelle, corpo e abitudini prima di proporti un trattamento.",
   },
   {
-    kicker: "Tecnica",
-    title: "Strumenti e prodotti professionali",
+    kicker: "Competenza",
+    title: "Tecnologie e prodotti professionali",
     body: "Laser Thory con manipolo Ice Polar, linee Marbellas ed Eberlin per viso e corpo, smalti RBL Nails per la cabina mani.",
   },
   {
-    kicker: "Trasparenza",
-    title: "Prezzi chiari, niente sorprese",
-    body: "Listino sempre online, prima visita gratuita, nessun upsell forzato. Se un trattamento non ha senso per te, te lo diciamo.",
+    kicker: "Chiarezza",
+    title: "Un percorso spiegato bene",
+    body: "Prezzi online, prima visita gratuita e indicazioni semplici su tempi, frequenza e risultati realistici.",
   },
 ];
 
 const paths = [
   {
     kicker: "Trattamenti",
-    title: "Listino completo",
-    body: "Viso, corpo, mani, ceretta, massaggi e laser: prezzi e durata indicativa per ogni servizio.",
+    title: "Scopri il listino",
+    body: "Viso, corpo, mani, ceretta, massaggi e laser: trovi prezzi e durata indicativa per ogni servizio.",
     href: "/listino-estetica-laser",
   },
   {
     kicker: "Laser",
-    title: "Epilazione laser",
-    body: "Tecnologia Thory + Ice Polar. Valutazione iniziale gratuita, calendario costruito sul tuo ciclo follicolare.",
+    title: "Epilazione Laser Ice Polar",
+    body: "Valutazione iniziale gratuita e calendario costruito sulla zona e sul ciclo del pelo.",
     href: "/epilazione-laser-carmagnola",
   },
   {
     kicker: "Prima visita",
-    title: "Prenota in trenta secondi",
-    body: "Quindici minuti gratis, un piccolo regalo a tua scelta, nessun obbligo di acquisto.",
+    title: "Vieni a conoscerci",
+    body: "Quindici minuti per parlare delle tue esigenze e capire insieme da dove iniziare.",
     href: "/contatti",
   },
 ];
@@ -101,22 +101,22 @@ const studio = [
   {
     kicker: "Spazi",
     title: "Quattro cabine dedicate",
-    body: "Quattro cabine più area accoglienza e postazione mani: viso, corpo, laser e benessere lavorano in parallelo, senza sovrapposizioni e con i tempi giusti per ogni trattamento.",
+    body: "Quattro cabine, area accoglienza e postazione mani: ogni trattamento ha il suo spazio e il tempo necessario.",
   },
   {
     kicker: "Laser",
     title: "Thory con manipolo Ice Polar",
-    body: "Laser a diodo con punta raffreddata Ice Polar: epilazione progressiva e confortevole su viso e corpo, con calendario costruito sul tuo ciclo follicolare.",
+    body: "Laser a diodo con raffreddamento attivo per un’epilazione progressiva e più confortevole su viso e corpo.",
   },
   {
     kicker: "Corpo",
-    title: "Pressoterapia, tecar e fotobiostimolazione",
-    body: "Pressoterapia per gambe pesanti e drenaggio, tecarterapia per tono e recupero dei tessuti, fotobiostimolazione a supporto di pelle e inestetismi: tecnologie che si combinano nei percorsi corpo.",
+    title: "Pressoterapia, Tecar e fotobiostimolazione",
+    body: "Tecnologie dedicate a leggerezza, tono, qualità dei tessuti e percorsi corpo personalizzati.",
   },
   {
     kicker: "Cosmetica",
     title: "Linee Marbellas ed Eberlin",
-    body: "Cosmetica professionale e biocosmetica epigenetica per i percorsi viso e corpo più avanzati, scelte una a una e usate davvero in cabina.",
+    body: "Cosmetica professionale e biocosmetica epigenetica selezionate per i percorsi viso e corpo.",
   },
 ];
 ---
@@ -127,37 +127,33 @@ const studio = [
 
   <PageHero
     image={media.studio.reception}
-    kicker="Chi siamo · Carmagnola"
-    title="Un centro estetico nuovo, in _Viale Barbaroux 20_."
-    lead="Rebel ha aperto da poco a Carmagnola, ma non improvvisiamo. Lavoriamo con tecnologia professionale, prodotti seri e formazione continua. Quello che vedi è quello che porti a casa."
-    bullets={["Studio nuovo · 4 cabine", "Laser, tecar, pressoterapia, fotobiostimolazione", "Prima visita gratuita"]}
-    meta={["Aperto dal 2025", "Studio nuovo · 4 cabine", "Mar–Sab su appuntamento"]}
-    ctaPrimary={{ label: "Prenota la prima visita gratuita", href: "/contatti", halo: true }}
-    ctaSecondary={{ label: "Come lavoriamo", href: "/metodo-rebel" }}
+    kicker="Lo studio · Carmagnola"
+    title="Uno spazio pensato per _farti stare bene_."
+    lead="Quattro cabine, tecnologie selezionate e professioniste che seguono ogni percorso con attenzione. Rebel ti accoglie in Viale Barbaroux 20, a Carmagnola."
+    bullets={["Studio nuovo · 4 cabine", "Viso, corpo, laser e benessere", "Prima visita gratuita"]}
+    meta={["Viale Barbaroux 20", "Mar–Sab su appuntamento", "Formazione continua"]}
+    ctaPrimary={{ label: "Prenota la prima visita", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Scopri il Metodo", href: "/metodo-rebel" }}
   />
 
   <section class="section">
     <div class="container grid-2">
       <article class="card card--feature">
-        <p class="card__kicker">Cosa siamo</p>
-        <h2 class="card__title">Centro estetico classico, avanzato ed epigenetico.</h2>
+        <p class="card__kicker">Rebel</p>
+        <h2 class="card__title">Estetica, tecnologia e percorsi su misura.</h2>
         <p class="card__body">
-          A Carmagnola facciamo quello che ti aspetti da un buon centro estetico:
-          pulizia viso, manicure, pedicure, ceretta, massaggi, laser. In più,
-          su 4 cabine, mettiamo tecnologie che qui non si trovano spesso: laser
-          Thory con manipolo Ice Polar, pressoterapia, tecar e fotobiostimolazione,
-          insieme a una linea cosmetica epigenetica per i percorsi viso e corpo
-          più avanzati.
+          Da Rebel trovi trattamenti viso e corpo, manicure, pedicure, ceretta,
+          massaggi ed epilazione laser. Quando serve, integriamo tecnologie e
+          cosmetica epigenetica per costruire percorsi più completi e mirati.
         </p>
       </article>
       <article class="card">
-        <p class="card__kicker">Cosa non siamo</p>
-        <h2 class="card__title">Un centro che vende pacchetti a chi entra.</h2>
+        <p class="card__kicker">Il nostro modo di lavorare</p>
+        <h2 class="card__title">Prima ascoltiamo. Poi scegliamo.</h2>
         <p class="card__body">
-          Non ti diciamo che servono dieci sedute se ne bastano tre. Non ti
-          proponiamo un protocollo viso da cinquecento euro per una pelle che
-          ha solo bisogno di pulizia e idratazione. Lavoriamo per restare,
-          non per chiudere una vendita oggi.
+          Ogni percorso parte da una valutazione. Ti spieghiamo cosa consigliamo,
+          perché lo consigliamo e come può evolvere nel tempo. La decisione resta
+          sempre tua.
         </p>
       </article>
     </div>
@@ -167,8 +163,8 @@ const studio = [
     <div class="container">
       <SectionHead
         kicker="Lo studio & le tecnologie"
-        title="Quattro cabine, _strumenti veri_."
-        lead="Non è solo questione di spazi: ogni cabina ha la tecnologia giusta per il suo percorso. Ecco cosa trovi a Carmagnola, in Viale Barbaroux 20."
+        title="Tutto ciò che serve, _nel posto giusto_."
+        lead="Spazi, tecnologie e prodotti professionali scelti per offrire trattamenti precisi, confortevoli e coerenti con il tuo percorso."
       />
       <div class="card-grid card-grid--2">
         {studio.map((s, i) => (
@@ -186,8 +182,8 @@ const studio = [
   <section class="section section--tight">
     <div class="container">
       <SectionHead
-        kicker="Come ragioniamo"
-        title="Tre _criteri_ che reggono ogni seduta."
+        kicker="Come lavoriamo"
+        title="Tre principi semplici."
       />
       <div class="card-grid card-grid--3">
         {ways.map((w, i) => (
@@ -206,8 +202,8 @@ const studio = [
     <div class="container">
       <SectionHead
         kicker="Brand & tecnologie"
-        title="Le firme con cui _lavoriamo davvero_."
-        lead="Niente improvvisazione: tecnologie e linee professionali precise, scelte una a una."
+        title="I marchi che trovi _in cabina_."
+        lead="Tecnologie e linee professionali selezionate per qualità, affidabilità e coerenza con i nostri percorsi."
       />
       <BrandStrip />
     </div>
@@ -217,8 +213,8 @@ const studio = [
     <div class="container">
       <SectionHead
         kicker="Da dove iniziare"
-        title="Tre _porte_ d'ingresso."
-        lead="Scegli quella più vicina a quello che vuoi fare. Il resto si decide insieme alla prima visita."
+        title="Scegli il tuo primo passo."
+        lead="Puoi partire dal listino, dal laser oppure da una prima visita in studio."
       />
       <div class="card-grid card-grid--3">
         {paths.map((p) => (
@@ -237,20 +233,20 @@ const studio = [
     image={media.studio.reception}
     height="sm"
     align="left"
-    kicker="Da Rebel, a Carmagnola"
-    quote="Lavoriamo per restare, non per chiudere una vendita oggi."
-    cite="Studio Rebel · Viale Barbaroux 20"
+    kicker="Rebel · Carmagnola"
+    quote="Ogni percorso inizia dall’ascolto."
+    cite="Viale Barbaroux 20"
   />
 
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Pronta a iniziare"
-        title="Prenota la _prima visita_, scegli il tuo regalo."
-        lead="Quindici minuti per conoscerci. Da lì decidiamo insieme se ha senso partire e con cosa."
+        kicker="Prima visita"
+        title="Vieni a _conoscerci_."
+        lead="Quindici minuti per parlare delle tue esigenze e capire insieme da dove iniziare."
       />
     </div>
   </section>
 
-  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
+  <StickyBookingBar primary={{ label: "Prenota la visita", href: "/contatti" }} />
 </BaseLayout>
