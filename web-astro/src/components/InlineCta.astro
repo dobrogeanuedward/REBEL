@@ -1,4 +1,6 @@
 ---
+import { clarifyCopy } from "@/lib/copy-clarity";
+
 interface Props {
   kicker?: string;
   title: string;
@@ -10,23 +12,28 @@ interface Props {
 }
 
 const {
-  kicker = "Prima visita",
+  kicker = "Prima visita gratuita",
   title,
   lead,
   primaryHref = "/contatti",
-  primaryLabel = "Prenota la prima visita gratuita",
+  primaryLabel = "Prenota la prima visita",
   secondaryHref = "/listino-estetica-laser",
-  secondaryLabel = "Vedi listino e prezzi",
+  secondaryLabel = "Consulta il listino",
 } = Astro.props;
 
-const renderedTitle = title.replace(/_([^_]+)_/g, (_, t) => `<em>${t}</em>`);
+const clearKicker = clarifyCopy(kicker);
+const clearTitle = clarifyCopy(title);
+const clearLead = lead ? clarifyCopy(lead) : undefined;
+const clearPrimaryLabel = clarifyCopy(primaryLabel);
+const clearSecondaryLabel = clarifyCopy(secondaryLabel);
+const renderedTitle = clearTitle.replace(/_([^_]+)_/g, (_, t) => `<em>${t}</em>`);
 ---
 <aside class="inline-cta" data-reveal>
-  <p class="inline-cta__kicker">{kicker}</p>
+  <p class="inline-cta__kicker">{clearKicker}</p>
   <h2 class="inline-cta__title" set:html={renderedTitle}></h2>
-  {lead ? <p class="inline-cta__lead">{lead}</p> : null}
+  {clearLead ? <p class="inline-cta__lead">{clearLead}</p> : null}
   <div class="inline-cta__actions cluster cluster--stack-mobile">
-    <a class="btn btn--primary btn--halo" href={primaryHref}>{primaryLabel}</a>
-    <a class="btn btn--secondary" href={secondaryHref}>{secondaryLabel}</a>
+    <a class="btn btn--primary btn--halo" href={primaryHref}>{clearPrimaryLabel}</a>
+    <a class="btn btn--secondary" href={secondaryHref}>{clearSecondaryLabel}</a>
   </div>
 </aside>
