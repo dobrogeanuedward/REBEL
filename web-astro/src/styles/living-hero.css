@@ -1,0 +1,87 @@
+/* Living home hero — slow editorial changes, never a promotional carousel. */
+.rebel-hero--living {
+  --hero-image: none;
+  background: var(--rebel-porcelain);
+}
+
+.rebel-hero--living::before {
+  background: linear-gradient(90deg, rgba(248,243,237,.97) 0 38%, rgba(248,243,237,.72) 58%, rgba(248,243,237,.08) 78%);
+  z-index: -1;
+}
+
+.rebel-hero__living-visual {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background-position: center 32%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform: scale(1.015);
+  transition: opacity 1.1s ease, transform 8.5s cubic-bezier(.2,.65,.2,1);
+}
+
+.rebel-hero__living-visual.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.rebel-hero__copy {
+  transition: opacity .28s ease, transform .28s ease;
+}
+
+.rebel-hero__copy.is-changing {
+  opacity: .18;
+  transform: translateY(4px);
+}
+
+.rebel-hero__controls {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  margin-top: 1.55rem;
+}
+
+.rebel-hero__dot {
+  width: 2.25rem;
+  height: 2px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(39,20,47,.22);
+  cursor: pointer;
+  transition: width .3s ease, background-color .3s ease;
+}
+
+.rebel-hero__dot[aria-current="true"] {
+  width: 3.8rem;
+  background: var(--rebel-pink);
+}
+
+.rebel-hero__dot:focus-visible {
+  outline: 2px solid var(--rebel-violet);
+  outline-offset: 5px;
+}
+
+@media (max-width: 860px) {
+  .rebel-hero--living::before {
+    background: linear-gradient(180deg, rgba(248,243,237,.03), rgba(248,243,237,.88) 47%, rgba(248,243,237,1) 69%);
+  }
+
+  .rebel-hero__living-visual {
+    height: 58%;
+    background-position: 62% 18%;
+  }
+
+  .rebel-hero__controls {
+    margin-top: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rebel-hero__living-visual,
+  .rebel-hero__copy,
+  .rebel-hero__dot {
+    transition: none;
+  }
+}
