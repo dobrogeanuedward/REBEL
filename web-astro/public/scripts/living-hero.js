@@ -14,8 +14,8 @@
   const secondaryCta = hero.querySelector('.rebel-hero__actions .btn--secondary');
   if (!title || !lead || !copy || !primaryCta || !secondaryCta) return;
 
-  const DISPLAY_MS = 3600;
-  const TRANSITION_MS = 520;
+  const DISPLAY_MS = 5200;
+  const TRANSITION_MS = 650;
   const SWIPE_THRESHOLD = 48;
   const mobileQuery = window.matchMedia('(max-width: 760px)');
   const siteAsset = (slot) => `/api/site-asset?slot=${encodeURIComponent(slot)}`;
@@ -28,8 +28,8 @@
       mobilePosition: '58% 34%',
       tone: 'ivory',
       title: 'Il Metodo Rebel parte dalla tua pelle.',
-      lead: 'La prima visita serve a capire priorità, obiettivi e sensibilità. Da lì nasce un percorso viso o corpo costruito su di te e aggiornato nel tempo.',
-      signature: 'Metodo Rebel · valutazione iniziale · percorso personalizzato',
+      lead: 'Nella prima visita definiamo priorità, risultato, trattamenti, frequenza e controlli. Tutto viene raccolto nella tua Mappa Rebel.',
+      signature: 'Prima visita gratuita · Mappa Rebel · controlli',
       primary: { label: 'Scopri il Metodo Rebel', href: '/metodo-rebel' },
       secondary: { label: 'Prenota la prima visita', href: '/contatti' }
     },
@@ -39,11 +39,23 @@
       desktopPosition: 'center 28%',
       mobilePosition: '55% 30%',
       tone: 'rose',
-      title: 'Trattamenti viso costruiti sulla tua pelle.',
-      lead: 'Idratazione, luminosità, uniformità, comfort e tono vengono valutati prima di scegliere trattamento, attivi epigenetici e tecnologie.',
-      signature: 'Viso · Skin Reset · attivi epigenetici',
+      title: 'Il trattamento viso parte da ciò che vediamo.',
+      lead: 'Valutiamo idratazione, sensibilità, luminosità, uniformità e tono. Poi scegliamo manualità, attivi e tecnologie davvero utili.',
+      signature: 'Viso · valutazione · protocollo personalizzato',
       primary: { label: 'Scopri i percorsi viso', href: '/protocolli-epigenetici' },
       secondary: { label: 'Prenota una valutazione', href: '/contatti?area=viso' }
+    },
+    {
+      desktopImage: siteAsset('home.hero.longevity.desktop'),
+      mobileImage: siteAsset('home.hero.longevity.mobile'),
+      desktopPosition: 'center 38%',
+      mobilePosition: '50% 30%',
+      tone: 'longevity',
+      title: 'Longevity lavora sulla qualità della pelle nel tempo.',
+      lead: 'Perdita di tono, comfort, elasticità, compattezza e contorno occhi vengono trattati con protocolli scelti sulla risposta reale della pelle.',
+      signature: 'Longevity · tono · elasticità · contorno occhi',
+      primary: { label: 'Scopri il percorso Longevity', href: '/protocolli-epigenetici#longevity' },
+      secondary: { label: 'Prenota una valutazione viso', href: '/contatti?area=viso' }
     },
     {
       desktopImage: siteAsset('home.hero.body.desktop'),
@@ -51,9 +63,9 @@
       desktopPosition: 'center 38%',
       mobilePosition: '54% 30%',
       tone: 'sand',
-      title: 'Percorsi corpo per drenaggio, tono e compattezza.',
-      lead: 'Manualità, pressomassaggio, LPG, Tecar e altre tecnologie vengono combinate in base alla zona, ai tessuti e al risultato desiderato.',
-      signature: 'Corpo · rimodellamento · leggerezza',
+      title: 'Il percorso corpo cambia in base a zona e tessuti.',
+      lead: 'Drenaggio, tono e compattezza richiedono combinazioni diverse. Valutiamo la zona prima di inserire manualità, LPG, Tecar o pressomassaggio.',
+      signature: 'Corpo · drenaggio · tono · compattezza',
       primary: { label: 'Scopri i percorsi corpo', href: '/protocolli-epigenetici#forma' },
       secondary: { label: 'Prenota una valutazione corpo', href: '/contatti?area=corpo' }
     },
@@ -65,7 +77,7 @@
       tone: 'violet',
       title: 'Epilazione Laser Ice Polar a Carmagnola.',
       lead: 'Laser a diodo con tre lunghezze d’onda e raffreddamento attivo per viso e corpo. La valutazione definisce zone, parametri, frequenza e prezzo.',
-      signature: 'Laser da 25,90 € · valutazione gratuita',
+      signature: 'Ice Polar · parametri personalizzati · valutazione gratuita',
       primary: { label: 'Scopri il Laser Ice Polar', href: '/epilazione-laser-carmagnola' },
       secondary: { label: 'Guarda prezzi e zone', href: '/listino-estetica-laser#laser' }
     },
@@ -75,8 +87,8 @@
       desktopPosition: '50% 25%',
       mobilePosition: '50% 26%',
       tone: 'peach',
-      title: 'Laminazione Coreana per sopracciglia ordinate e naturali.',
-      lead: 'Un trattamento delicato per disciplinare le sopracciglia, valorizzare la forma e ottenere un effetto lifting naturale.',
+      title: 'Laminazione Coreana, ordine senza rigidità.',
+      lead: 'Discipliniamo il pelo rispettandone direzione, forma e struttura per ottenere sopracciglia ordinate e un lifting naturale.',
       signature: 'Sopracciglia · ordine · effetto lifting naturale',
       primary: { label: 'Scopri la Laminazione Coreana', href: '/listino-estetica-laser#estetica' },
       secondary: { label: 'Prenota il trattamento', href: '/contatti?servizio=laminazione-coreana' }
@@ -87,8 +99,8 @@
       desktopPosition: 'center 34%',
       mobilePosition: '58% 34%',
       tone: 'mint',
-      title: 'Attivi epigenetici scelti in base alla priorità della pelle.',
-      lead: 'Lift, Catalysis, Collagen, Cell Regen, Rebirth 60+ ed Eye Genesis entrano nel percorso quando rispondono davvero all’obiettivo della pelle.',
+      title: 'Gli attivi entrano nel percorso solo quando servono.',
+      lead: 'Lift, Catalysis, Collagen, Cell Regen, Rebirth 60+ ed Eye Genesis vengono scelti in base alla priorità osservata e alla risposta della pelle.',
       signature: 'Estetica epigenetica · viso · protocolli avanzati',
       primary: { label: 'Scopri i protocolli epigenetici', href: '/protocolli-epigenetici' },
       secondary: { label: 'Prenota una valutazione viso', href: '/contatti?area=viso' }
@@ -99,8 +111,8 @@
       desktopPosition: 'center 40%',
       mobilePosition: '52% 32%',
       tone: 'tech',
-      title: 'Tecnologie diverse, scelte per un obiettivo preciso.',
-      lead: 'Laser Ice Polar, Tecar 448Revolution, LPG, Lumina K3, InfraPress X2 e CryoShape X2 vengono inseriti nel percorso quando servono davvero.',
+      title: 'La tecnologia è uno strumento, non il punto di partenza.',
+      lead: 'Laser Ice Polar, Tecar 448Revolution, LPG, Lumina K3, InfraPress X2 e CryoShape X2 vengono inseriti dopo aver definito zona e obiettivo.',
       signature: 'Laser · Tecar · LPG · Pressomassaggio · Crioterapia',
       primary: { label: 'Scopri le tecnologie Rebel', href: '/tecnologie-rebel' },
       secondary: { label: 'Prenota una valutazione', href: '/contatti' }
@@ -111,9 +123,9 @@
       desktopPosition: 'center 30%',
       mobilePosition: '50% 30%',
       tone: 'warm',
-      title: 'Quattro cabine nel centro di Carmagnola.',
-      lead: 'In Viale Barbaroux 20 trovi uno studio dedicato a viso, corpo, laser e benessere, con spazi e tecnologie pensati per seguire ogni fase del percorso.',
-      signature: 'Viale Barbaroux 20 · Carmagnola · Mar–Sab',
+      title: 'Professioniste, metodo e continuità ad ogni appuntamento.',
+      lead: 'Prepariamo il trattamento, registriamo ciò che utilizziamo e controlliamo i cambiamenti. In studio ritrovi lo stesso metodo dalla prima visita al mantenimento.',
+      signature: 'Viale Barbaroux 20 · Carmagnola · su appuntamento',
       primary: { label: 'Scopri lo studio Rebel', href: '/chi-siamo' },
       secondary: { label: 'Indicazioni e orari', href: '/contatti' }
     }
@@ -287,4 +299,3 @@
   updateControls();
   schedule();
 })();
-
