@@ -139,14 +139,11 @@ const accentRules: Array<[RegExp, string]> = [
   [/\bcosi['’]/gi, "così"],
   [/\bperche['’]/gi, "perché"],
   [/\bgia['’]/gi, "già"],
-  [/\b[Ee]['’](?=\s|$|[.,;:!?])/g, (match) => (match[0] === "E" ? "È" : "è") as unknown as string],
 ];
 
 function normalizeItalianTypography(value: string): string {
   let result = value;
-  for (const [pattern, replacement] of accentRules) {
-    result = typeof replacement === "string" ? result.replace(pattern, replacement) : result;
-  }
+  for (const [pattern, replacement] of accentRules) result = result.replace(pattern, replacement);
   return result
     .replace(/\bE['’](?=\s|$|[.,;:!?])/g, "È")
     .replace(/\be['’](?=\s|$|[.,;:!?])/g, "è")
@@ -154,7 +151,6 @@ function normalizeItalianTypography(value: string): string {
     .replace(/\bun frequenza\b/gi, "una frequenza")
     .replace(/\bil frequenza\b/gi, "la frequenza")
     .replace(/\bquesto frequenza\b/gi, "questa frequenza")
-    .replace(/\bun obiettivo iniziale\b/gi, "un obiettivo iniziale")
     .replace(/\bun programma di sedute personalizzata\b/gi, "un programma di sedute personalizzato");
 }
 
