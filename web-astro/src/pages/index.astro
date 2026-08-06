@@ -44,6 +44,7 @@ const faceImage = siteAsset("journeys.glow.hero.desktop");
 const longevityImage = siteAsset("journeys.longevity.hero.desktop");
 const bodyImage = siteAsset("journeys.forma.hero.desktop");
 const freedomImage = siteAsset("journeys.liberta.hero.desktop");
+const studioImage = siteAsset("studio.professional.desktop");
 
 const method = [
   ["01", "Ascoltiamo l’obiettivo", "Ci racconti cosa vuoi migliorare, quali trattamenti hai già provato e quanto tempo puoi dedicare al percorso."],
@@ -55,13 +56,13 @@ const method = [
 ];
 
 const priorities = [
-  "Sensibilità e comfort",
-  "Impurità e imperfezioni",
-  "Pelle spenta",
-  "Disidratazione",
-  "Perdita di tono",
-  "Macchie e colorito irregolare",
-  "Segni del tempo",
+  ["Sensibilità e comfort", "Rossori, reattività e sensazioni di pelle che tira."],
+  ["Impurità e imperfezioni", "Comedoni, lucidità, grana irregolare e zone congestionate."],
+  ["Pelle spenta", "Colorito poco uniforme e luminosità ridotta."],
+  ["Disidratazione", "Comfort ridotto, linee superficiali e bisogno di acqua."],
+  ["Perdita di tono", "Elasticità e compattezza da sostenere nel tempo."],
+  ["Macchie e colorito irregolare", "Discromie e differenze visibili fra le zone del viso."],
+  ["Segni del tempo", "Rughe, contorno occhi e qualità generale della pelle."],
 ];
 
 const journeys = [
@@ -98,6 +99,33 @@ const journeys = [
     href: "/epilazione-laser-carmagnola",
   },
 ];
+
+const worlds = [
+  {
+    number: "01",
+    name: "Viso",
+    copy: "Pulizia viso, Glow, Longevity, attivi epigenetici, contorno occhi e laminazione coreana.",
+    image: faceImage,
+    href: "/protocolli-epigenetici",
+    cta: "Esplora il viso",
+  },
+  {
+    number: "02",
+    name: "Corpo",
+    copy: "Drenaggio, massaggi, rimodellamento, LPG, Tecar, pressomassaggio e crioterapia.",
+    image: bodyImage,
+    href: "/listino-estetica-laser",
+    cta: "Esplora il corpo",
+  },
+  {
+    number: "03",
+    name: "Tecnologie",
+    copy: "Ice Polar, Tecar 448Revolution, LPG, InfraPress X2, CryoShape X2 e Lumina K3.",
+    image: siteAsset("services.technologies.detail.desktop"),
+    href: "/tecnologie-rebel",
+    cta: "Conosci le tecnologie",
+  },
+];
 ---
 <BaseLayout meta={meta} bodyClass="rebel-rebrand">
   <JsonLd data={breadcrumb} />
@@ -110,17 +138,17 @@ const journeys = [
         <div class="rebel-hero__eyebrow" data-reveal>
           <span>Rebel · Estetica Epigenetica</span><span>Viale Barbaroux 20 · Carmagnola</span>
         </div>
-        <h1 class="rebel-display" data-reveal style="--reveal-delay:50ms">Trattamenti viso costruiti sulla tua pelle.</h1>
+        <h1 class="rebel-display" data-reveal style="--reveal-delay:50ms">Il Metodo Rebel parte dalla tua pelle.</h1>
         <div class="rebel-spectrum-rule"></div>
         <p class="rebel-lead" data-reveal style="--reveal-delay:120ms">
-          Valutiamo idratazione, luminosità, uniformità, comfort e tono. Poi scegliamo trattamenti,
-          attivi epigenetici e tecnologie adatti all’obiettivo che vuoi raggiungere.
+          Nella prima visita definiamo priorità, risultato, trattamenti, frequenza e controlli.
+          Tutto viene raccolto nella tua Mappa Rebel.
         </p>
         <div class="rebel-hero__actions" data-reveal style="--reveal-delay:180ms">
-          <a class="btn btn--primary" href="/metodo-rebel">Come lavoriamo</a>
+          <a class="btn btn--primary" href="/metodo-rebel">Scopri il Metodo Rebel</a>
           <a class="btn btn--secondary" href="/contatti">Prenota la prima visita</a>
         </div>
-        <div class="rebel-hero__signature"><strong>Be Beautiful. Be Rebel.</strong><span>Viso · corpo · laser · Carmagnola</span></div>
+        <div class="rebel-hero__signature"><strong>Be Beautiful. Be Rebel.</strong><span>Prima visita gratuita · Mappa Rebel · controlli</span></div>
       </div>
     </section>
 
@@ -143,8 +171,8 @@ const journeys = [
       <div class="rebel-container rebel-method">
         <div class="rebel-method__intro">
           <p class="rebel-kicker">Il Metodo Rebel</p>
-          <h2 class="rebel-title">Dalla prima visita al mantenimento: come lavoriamo.</h2>
-          <p class="rebel-lead">Ti spieghiamo che cosa trattiamo, quali strumenti utilizziamo, con quale frequenza e quando controlliamo i risultati.</p>
+          <h2 class="rebel-title">Sei passaggi. Un percorso leggibile.</h2>
+          <p class="rebel-lead">Sai che cosa trattiamo, quali strumenti utilizziamo, quante volte ci vediamo e quando controlliamo i risultati.</p>
           <div class="rebel-map">
             <div class="rebel-map__head"><strong>MAPPA REBEL</strong><br/><small>Valutazione / Trattamenti / Controlli</small></div>
             <div class="rebel-map__fields">
@@ -165,9 +193,9 @@ const journeys = [
     <section class="rebel-section rebel-section--paper">
       <div class="rebel-container">
         <p class="rebel-kicker">Cosa valutiamo sul viso</p>
-        <h2 class="rebel-title">Sette esigenze comuni della pelle, descritte in modo chiaro.</h2>
+        <h2 class="rebel-title">Sette segnali che orientano la scelta del trattamento.</h2>
         <div class="rebel-priorities">
-          {priorities.map((priority,index)=><article class="rebel-priority"><small>0{index+1}</small><h3>{priority}</h3></article>)}
+          {priorities.map(([priority, detail],index)=><article class="rebel-priority"><small>0{index+1}</small><h3>{priority}</h3><p>{detail}</p></article>)}
         </div>
       </div>
     </section>
@@ -175,8 +203,8 @@ const journeys = [
     <section class="rebel-section rebel-section--plum">
       <div class="rebel-container">
         <p class="rebel-kicker">I Percorsi Rebel</p>
-        <h2 class="rebel-title">Quattro percorsi per viso, corpo ed epilazione laser.</h2>
-        <p class="rebel-lead">Glow lavora su luminosità e uniformità; Longevity su tono e segni del tempo; Forma su drenaggio e compattezza del corpo; Libertà è dedicato al Laser Ice Polar.</p>
+        <h2 class="rebel-title">Quattro percorsi, ciascuno con una priorità precisa.</h2>
+        <p class="rebel-lead">Glow per luminosità e uniformità; Longevity per tono e qualità della pelle; Forma per drenaggio e compattezza; Libertà per il Laser Ice Polar.</p>
         <div class="rebel-journeys">
           {journeys.map((journey)=>(
             <a class="rebel-journey" href={journey.href} style={`--journey-image:url('${journey.image}')`}>
@@ -190,20 +218,36 @@ const journeys = [
     <section class="rebel-section">
       <div class="rebel-container">
         <p class="rebel-kicker">Servizi Rebel</p>
-        <h2 class="rebel-title">Tutti i trattamenti, divisi per area.</h2>
+        <h2 class="rebel-title">Viso, corpo e tecnologie: scegli da dove partire.</h2>
         <div class="rebel-world">
-          <article class="rebel-world__card"><h3>VISO</h3><p>Pulizia viso, percorsi epigenetici, trattamenti per luminosità, tono e contorno occhi, laminazione coreana.</p><a href="/protocolli-epigenetici">Scopri i trattamenti viso →</a></article>
-          <article class="rebel-world__card"><h3>CORPO</h3><p>Massaggi, drenaggio, pressomassaggio, rimodellamento, Tecar, LPG, crioterapia e trattamenti corpo.</p><a href="/listino-estetica-laser">Scopri i trattamenti corpo →</a></article>
-          <article class="rebel-world__card"><h3>TECNOLOGIE</h3><p>Laser Ice Polar, Tecar 448Revolution, LPG, InfraPress X2, CryoShape X2 e Lumina K3.</p><a href="/tecnologie-rebel">Scopri le tecnologie →</a></article>
+          {worlds.map((world) => (
+            <a class="rebel-world__card" href={world.href} style={`--world-image:url('${world.image}')`}>
+              <span class="rebel-world__number">{world.number}</span>
+              <div><h3>{world.name}</h3><p>{world.copy}</p><strong>{world.cta} →</strong></div>
+            </a>
+          ))}
         </div>
       </div>
     </section>
 
     <section class="rebel-section rebel-section--paper">
       <div class="rebel-container">
-        <p class="rebel-kicker">Lo studio</p>
-        <h2 class="rebel-title">Quattro cabine per viso, corpo, laser e beauty.</h2>
-        <p class="rebel-lead">In Viale Barbaroux 20 trovi area accoglienza, postazione mani, cabine dedicate e professioniste che seguono ogni appuntamento.</p>
+        <div class="rebel-studio-proof">
+          <div>
+            <p class="rebel-kicker">Il lavoro in studio</p>
+            <h2 class="rebel-title">Prepariamo, registriamo, controlliamo.</h2>
+            <p class="rebel-lead">La professionista prepara il trattamento, registra prodotti e parametri e confronta la risposta nel tempo. È questo che rende il percorso personalizzato, non il nome del macchinario.</p>
+            <a class="rebel-text-link" href="/chi-siamo">Scopri lo studio e il team →</a>
+          </div>
+          <picture class="rebel-studio-proof__media">
+            <source media="(max-width: 760px)" srcset={siteAsset("studio.professional.mobile")} />
+            <img src={studioImage} alt="Professionista Rebel mentre prepara un trattamento" loading="lazy" />
+          </picture>
+        </div>
+        <div class="rebel-studio-real">
+          <p class="rebel-kicker">Gli spazi reali di Viale Barbaroux 20</p>
+          <p>Quattro cabine, postazione mani, area accoglienza e tecnologie professionali fotografate nel centro REBEL di Carmagnola.</p>
+        </div>
         <StoreGallery client:visible images={storeGalleryImages} />
       </div>
     </section>
@@ -211,15 +255,15 @@ const journeys = [
     <section class="rebel-section">
       <div class="rebel-container">
         <p class="rebel-kicker">Rebel, ogni settimana</p>
-        <h2 class="rebel-title">Trattamenti, backstage, promozioni e consigli.</h2>
-        <InstagramFeed showReels={true} showPosts={true} maxReels={4} maxPosts={3} hidePostsOnMobile={true} />
+        <h2 class="rebel-title">Trattamenti reali, novità e vita in studio.</h2>
+        <InstagramFeed showReels={true} showPosts={false} maxReels={3} maxPosts={0} hidePostsOnMobile={true} />
       </div>
     </section>
 
     <section class="rebel-campaign">
       <div class="rebel-container">
         <strong>Be <span>Cool.</span><br/>Be Rebel.</strong>
-        <p>Segui Rebel per scoprire promozioni stagionali, eventi, nuovi trattamenti e contenuti dallo studio.</p>
+        <p>Prenota la valutazione gratuita: definiamo area, obiettivo, frequenza e prezzo prima di iniziare.</p>
         <div class="rebel-hero__actions" style="justify-content:center"><a class="btn btn--primary" href="/contatti">Prenota la prima visita</a><a class="btn btn--secondary" href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer">Scrivici su WhatsApp</a></div>
       </div>
     </section>
