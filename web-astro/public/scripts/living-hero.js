@@ -17,10 +17,13 @@
   const DISPLAY_MS = 3600;
   const TRANSITION_MS = 520;
   const SWIPE_THRESHOLD = 48;
+  const mobileQuery = window.matchMedia('(max-width: 760px)');
+  const siteAsset = (slot) => `/api/site-asset?slot=${encodeURIComponent(slot)}`;
 
   const slides = [
     {
-      image: 'https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/7dc5354b-33e1-4a9e-a21d-ff321ecf4500/public',
+      desktopImage: siteAsset('home.hero.method.desktop'),
+      mobileImage: siteAsset('home.hero.method.mobile'),
       desktopPosition: 'center 32%',
       mobilePosition: '58% 34%',
       tone: 'ivory',
@@ -31,7 +34,8 @@
       secondary: { label: 'Prenota la prima visita', href: '/contatti' }
     },
     {
-      image: 'https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/7dc5354b-33e1-4a9e-a21d-ff321ecf4500/public',
+      desktopImage: siteAsset('home.hero.face.desktop'),
+      mobileImage: siteAsset('home.hero.face.mobile'),
       desktopPosition: 'center 28%',
       mobilePosition: '55% 30%',
       tone: 'rose',
@@ -42,7 +46,8 @@
       secondary: { label: 'Prenota una valutazione', href: '/contatti?area=viso' }
     },
     {
-      image: 'https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/9d9033f2-f11f-4485-f69c-38d05556bb00/public',
+      desktopImage: siteAsset('home.hero.body.desktop'),
+      mobileImage: siteAsset('home.hero.body.mobile'),
       desktopPosition: 'center 38%',
       mobilePosition: '54% 30%',
       tone: 'sand',
@@ -53,7 +58,8 @@
       secondary: { label: 'Prenota una valutazione corpo', href: '/contatti?area=corpo' }
     },
     {
-      image: 'https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e63a6c84-f777-4f2d-995b-eef9c7e09900/public',
+      desktopImage: siteAsset('home.hero.laser.desktop'),
+      mobileImage: siteAsset('home.hero.laser.mobile'),
       desktopPosition: 'center 38%',
       mobilePosition: '62% 28%',
       tone: 'violet',
@@ -64,7 +70,8 @@
       secondary: { label: 'Guarda prezzi e zone', href: '/listino-estetica-laser#laser' }
     },
     {
-      image: 'https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/7dc5354b-33e1-4a9e-a21d-ff321ecf4500/public',
+      desktopImage: siteAsset('home.hero.lamination.desktop'),
+      mobileImage: siteAsset('home.hero.lamination.mobile'),
       desktopPosition: '50% 25%',
       mobilePosition: '50% 26%',
       tone: 'peach',
@@ -75,7 +82,8 @@
       secondary: { label: 'Prenota il trattamento', href: '/contatti?servizio=laminazione-coreana' }
     },
     {
-      image: 'https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/7dc5354b-33e1-4a9e-a21d-ff321ecf4500/public',
+      desktopImage: siteAsset('home.hero.epigenetics.desktop'),
+      mobileImage: siteAsset('home.hero.epigenetics.mobile'),
       desktopPosition: 'center 34%',
       mobilePosition: '58% 34%',
       tone: 'mint',
@@ -86,7 +94,8 @@
       secondary: { label: 'Prenota una valutazione viso', href: '/contatti?area=viso' }
     },
     {
-      image: 'https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/9d9033f2-f11f-4485-f69c-38d05556bb00/public',
+      desktopImage: siteAsset('home.hero.technologies.desktop'),
+      mobileImage: siteAsset('home.hero.technologies.mobile'),
       desktopPosition: 'center 40%',
       mobilePosition: '52% 32%',
       tone: 'tech',
@@ -97,7 +106,8 @@
       secondary: { label: 'Prenota una valutazione', href: '/contatti' }
     },
     {
-      image: 'https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/7dc5354b-33e1-4a9e-a21d-ff321ecf4500/public',
+      desktopImage: siteAsset('home.hero.studio.desktop'),
+      mobileImage: siteAsset('home.hero.studio.mobile'),
       desktopPosition: 'center 30%',
       mobilePosition: '50% 30%',
       tone: 'warm',
@@ -110,7 +120,8 @@
   ];
 
   function applyVisual(visual, slide) {
-    visual.style.backgroundImage = `url('${slide.image}')`;
+    const image = mobileQuery.matches ? slide.mobileImage : slide.desktopImage;
+    visual.style.backgroundImage = `url('${image}')`;
     visual.style.setProperty('--hero-desktop-position', slide.desktopPosition);
     visual.style.setProperty('--hero-mobile-position', slide.mobilePosition);
   }
@@ -222,6 +233,11 @@
     show(current + 1);
   }
 
+  const onViewportChange = () => {
+    applyVisual(activeVisual, slides[current]);
+    applyVisual(inactiveVisual, slides[(current + 1) % slides.length]);
+  };
+
   const canHover = window.matchMedia('(hover: hover)').matches;
   const onEnter = () => { paused = true; };
   const onLeave = () => { paused = false; schedule(); };
@@ -253,6 +269,7 @@
   hero.addEventListener('touchstart', onTouchStart, { passive: true });
   hero.addEventListener('touchend', onTouchEnd, { passive: true });
   document.addEventListener('visibilitychange', onVisibility);
+  mobileQuery.addEventListener?.('change', onViewportChange);
 
   window.__rebelLivingHeroCleanup = () => {
     destroyed = true;
@@ -264,8 +281,10 @@
     hero.removeEventListener('touchstart', onTouchStart);
     hero.removeEventListener('touchend', onTouchEnd);
     document.removeEventListener('visibilitychange', onVisibility);
+    mobileQuery.removeEventListener?.('change', onViewportChange);
   };
 
   updateControls();
   schedule();
 })();
+

@@ -28,6 +28,9 @@ pnpm-debug.log*
 .env
 .env.local
 .env.production
+.env.r2
+.env.r2.local
+.env*.local
 
 # typescript
 *.tsbuildinfo
