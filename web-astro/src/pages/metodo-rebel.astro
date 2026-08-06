@@ -63,19 +63,19 @@ const priorities = [
 const journeys = [
   {
     name: "Glow",
-    body: "Per pelle spenta, irregolare o affaticata. Skin Reset, Catalysis, Cell Regen e attivi epigenetici entrano come strumenti di una progressione luminosa.",
+    body: "Per una pelle più luminosa, uniforme e vitale. Skin Reset, Catalysis, Cell Regen e attivi epigenetici vengono scelti in base a ciò che la pelle richiede.",
   },
   {
     name: "Longevity",
-    body: "Per tono, densità, comfort e qualità del viso. Lift, Collagen, Rebirth 60+ ed Eye Genesis vengono orchestrati secondo la priorità reale.",
+    body: "Per sostenere tono, densità, comfort e qualità del viso nel tempo. Lift, Collagen, Rebirth 60+ ed Eye Genesis entrano nel percorso quando sono davvero utili.",
   },
   {
     name: "Forma",
-    body: "Per corpo, drenaggio e rimodellamento. Manualità, LPG, pressomassaggio, Tecar e Lift Body vengono calibrati sulla risposta della persona.",
+    body: "Per leggerezza, tonicità e armonia del corpo. Manualità, LPG, pressomassaggio, Tecar e Lift Body vengono combinati in base all’obiettivo e alla risposta della persona.",
   },
   {
     name: "Libertà",
-    body: "Il percorso dedicato all’epilazione laser con manipolo Ice Polar: valutazione, parametri personalizzati, comfort e continuità.",
+    body: "Il percorso dedicato all’epilazione laser con manipolo Ice Polar: valutazione iniziale, parametri personalizzati, comfort e continuità.",
   },
 ];
 ---
@@ -94,7 +94,7 @@ const journeys = [
       <p class="rb-kicker">Estetica epigenetica · Carmagnola</p>
       <h1>La bellezza segue <em>il tuo ritmo.</em></h1>
       <p class="rb-lead">
-        Il Metodo Rebel legge il momento reale di pelle e corpo, definisce una priorità e costruisce una progressione in cui manualità, attivi e tecnologie hanno sempre una ragione precisa.
+        Il Metodo Rebel parte dalla tua pelle, dal tuo corpo e da ciò che desideri migliorare. Da lì costruiamo un percorso in cui manualità, attivi e tecnologie vengono scelti con precisione e aggiornati nel tempo.
       </p>
       <div class="cluster cluster--stack-mobile">
         <a class="btn btn--primary" href="/contatti">Prenota la valutazione</a>
@@ -108,11 +108,11 @@ const journeys = [
     <div class="container rb-intro-grid">
       <div>
         <p class="rb-kicker">La Mappa Rebel</p>
-        <h2>Prima di scegliere un trattamento, scegliamo una <em>direzione.</em></h2>
+        <h2>Prima di scegliere un trattamento, capiamo <em>da dove partire.</em></h2>
       </div>
       <div class="rb-copy">
-        <p>La Mappa Rebel collega ciò che desideri, ciò che la pelle manifesta e ciò che può sostenerla davvero in questa fase.</p>
-        <p>Da qui nasce il percorso: non una sequenza standard, ma una regia aggiornata nel tempo.</p>
+        <p>La Mappa Rebel mette insieme ciò che desideri, ciò che la pelle manifesta e ciò che può sostenerla meglio in questo momento.</p>
+        <p>Da qui nasce un percorso costruito su di te, con obiettivi chiari e momenti di rivalutazione.</p>
       </div>
     </div>
   </section>
@@ -120,8 +120,8 @@ const journeys = [
   <section class="rb-section rb-section--plum">
     <div class="container">
       <div class="rb-section-head">
-        <p class="rb-kicker">Il Metodo, in sei movimenti</p>
-        <h2>Ogni fase prepara e potenzia <em>la successiva.</em></h2>
+        <p class="rb-kicker">Il Metodo, in sei passaggi</p>
+        <h2>Ogni fase prepara <em>quella successiva.</em></h2>
       </div>
       <StepStrip items={methodSteps} />
     </div>
@@ -131,7 +131,7 @@ const journeys = [
     <div class="container">
       <div class="rb-section-head">
         <p class="rb-kicker">Le priorità</p>
-        <h2>Sette modi diversi di leggere <em>ciò che viene prima.</em></h2>
+        <h2>Prima del trattamento, individuiamo <em>ciò che conta di più.</em></h2>
       </div>
       <ol class="rb-priority-grid">
         {priorities.map((priority, index) => (
@@ -145,7 +145,7 @@ const journeys = [
     <div class="container">
       <div class="rb-section-head">
         <p class="rb-kicker">I percorsi Rebel</p>
-        <h2>I protocolli diventano strumenti dentro una <em>regia più grande.</em></h2>
+        <h2>Ogni protocollo entra nel percorso <em>quando serve davvero.</em></h2>
       </div>
       <div class="rb-journey-grid">
         {journeys.map((journey) => (
@@ -166,8 +166,8 @@ const journeys = [
         <h2>La tecnologia entra quando <em>serve davvero.</em></h2>
       </div>
       <div class="rb-copy">
-        <p>Ogni strumento viene scelto in base alla priorità, alla sensibilità e alla risposta osservata. Attivi epigenetici, manualità e tecnologie lavorano insieme.</p>
-        <p>La rivalutazione permette di cambiare ritmo, intensità e combinazione senza perdere la direzione iniziale.</p>
+        <p>Ogni tecnologia viene scelta in base alla priorità, alla sensibilità e alla risposta osservata. Attivi epigenetici, manualità e tecnologie lavorano insieme.</p>
+        <p>Durante il percorso rivalutiamo frequenza, intensità e combinazioni per accompagnare l’evoluzione della pelle e del corpo.</p>
       </div>
     </div>
   </section>
@@ -177,7 +177,7 @@ const journeys = [
       <InlineCta
         kicker="La tua Mappa Rebel"
         title="Partiamo da ciò che conta _adesso_."
-        lead="Prenota una valutazione in studio: ascoltiamo la tua priorità e costruiamo la direzione più coerente."
+        lead="Prenota una valutazione in studio: ascoltiamo le tue esigenze e capiamo insieme da dove iniziare."
         primaryHref="/contatti"
         primaryLabel="Prenota la valutazione"
         secondaryHref="/protocolli-epigenetici"
