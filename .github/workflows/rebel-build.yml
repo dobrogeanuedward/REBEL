@@ -30,8 +30,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Copy clarity check
+      - name: Source copy clarity check
         run: npm run check:copy
 
       - name: Astro check and build
         run: npm run build
+
+      - name: Rendered-site copy audit
+        run: npm run check:rendered-copy
