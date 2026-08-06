@@ -17,9 +17,9 @@ import {
 } from "@/lib/seo";
 
 const meta = createPageMeta({
-  title: "Aree servite — Centro Estetico Carmagnola, Torino Sud e Cuneo",
+  title: "Come raggiungere Rebel da Carmagnola, Torino Sud e Cuneese",
   description:
-    "Da Carmagnola serviamo Torino Sud e parte della provincia di Cuneo. Una pagina per ogni località: come raggiungerci, percorsi laser ed estetica.",
+    "Rebel si trova in Viale Barbaroux 20 a Carmagnola. Consulta le pagine locali con indicazioni, mappa, servizi, listino e prenotazione per Torino Sud e provincia di Cuneo.",
   path: "/localita",
   keywords: [
     "centro estetico Carmagnola e dintorni",
@@ -33,21 +33,21 @@ const meta = createPageMeta({
 const areaGroups = [
   {
     key: "asse-carmagnola" as const,
-    kicker: "Asse Carmagnola",
-    title: "I _comuni_ più vicini allo studio.",
-    lead: "Le zone da cui arrivano più spesso le clienti Rebel.",
+    kicker: "Comuni vicini a Carmagnola",
+    title: "Carignano, Racconigi, Poirino, Villastellone e dintorni.",
+    lead: "Apri il tuo comune per leggere indicazioni stradali, servizi disponibili e collegamenti a listino e prenotazione.",
   },
   {
     key: "torino-sud" as const,
     kicker: "Torino Sud",
-    title: "_Cintura_ torinese a sud.",
-    lead: "Comuni serviti nell'area sud della città metropolitana di Torino.",
+    title: "Moncalieri, Nichelino, Vinovo, La Loggia e comuni limitrofi.",
+    lead: "Pagine con mappa, percorso verso Carmagnola e informazioni sui trattamenti più richiesti.",
   },
   {
     key: "cuneo" as const,
     kicker: "Provincia di Cuneo",
-    title: "Il _cuneese_ che ci raggiunge.",
-    lead: "Comuni della provincia di Cuneo da cui ci raggiungono per percorsi completi.",
+    title: "Alba, Bra, Canale, Savigliano, Fossano, Saluzzo e altre località.",
+    lead: "Indicazioni per raggiungere lo studio e collegamenti a viso, corpo, Laser Ice Polar e prima visita gratuita.",
   },
 ];
 
@@ -56,20 +56,20 @@ const breadcrumb = buildBreadcrumbSchema([
   { name: "Località", path: "/localita" },
 ]);
 const webPageSchema = buildWebPageSchema({
-  name: "Località servite da Rebel",
+  name: "Località e indicazioni per raggiungere Rebel",
   description:
-    "Pagine dedicate alle località da cui ci raggiungono: focus e link utili per iniziare (laser, protocolli, servizi).",
+    "Pagine dedicate ai comuni da cui raggiungere lo studio Rebel di Carmagnola, con mappe, servizi e prenotazione.",
   path: "/localita",
 });
 const localAreaListSchema = buildItemListSchema({
-  name: "Aree servite Rebel",
+  name: "Località servite da Rebel",
   path: "/localita",
   items: localAreaPages.map((a) => ({ name: a.city, path: `/localita/${a.slug}` })),
 });
 
-const groupedAreas = areaGroups.map((g) => ({
-  ...g,
-  areas: localAreaPages.filter((a) => a.cluster === g.key),
+const groupedAreas = areaGroups.map((group) => ({
+  ...group,
+  areas: localAreaPages.filter((area) => area.cluster === group.key),
 }));
 ---
 <BaseLayout meta={meta} bodyClass="page-localita">
@@ -79,28 +79,28 @@ const groupedAreas = areaGroups.map((g) => ({
 
   <PageHero
     image={media.locale.langhe}
-    kicker="Aree servite · Carmagnola"
-    title="Da _Carmagnola_ a Torino Sud e Cuneese."
-    lead="Lo studio è in Viale Barbaroux 20, a Carmagnola. Da qui raggiungiamo regolarmente clienti da Torino Sud e dalla provincia di Cuneo. Per ogni località abbiamo una pagina con indicazioni e i percorsi più richiesti."
-    bullets={[`${localAreaPages.length} località coperte`, "Mappa e indicazioni", "Prima visita gratuita"]}
-    meta={[`${localAreaPages.length} località coperte`, "Mappa e indicazioni", "Parcheggio in zona"]}
-    ctaPrimary={{ label: "Prenota la prima visita gratuita", href: "/contatti", halo: true }}
-    ctaSecondary={{ label: "Vedi pagina Carmagnola", href: "/localita/carmagnola" }}
+    kicker="Come raggiungere Rebel · Carmagnola"
+    title="Indicazioni da Torino Sud e _provincia di Cuneo_."
+    lead="Lo studio è in Viale Barbaroux 20 a Carmagnola. Seleziona il tuo comune per trovare mappa, informazioni di viaggio, servizi, listino e prenotazione."
+    bullets={[`${localAreaPages.length} località`, "Mappe e indicazioni", "Prima visita gratuita"]}
+    meta={["Viale Barbaroux 20 · Carmagnola", "Da martedì a sabato", "Su appuntamento"]}
+    ctaPrimary={{ label: "Prenota la prima visita", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Apri la pagina Carmagnola", href: "/localita/carmagnola" }}
   />
 
-  {groupedAreas.map((g) =>
-    g.areas.length > 0 ? (
+  {groupedAreas.map((group) =>
+    group.areas.length > 0 ? (
       <section class="section">
         <div class="container">
-          <SectionHead kicker={g.kicker} title={g.title} lead={g.lead} />
+          <SectionHead kicker={group.kicker} title={group.title} lead={group.lead} />
           <div class="card-grid card-grid--3">
-            {g.areas.map((a, i) => (
+            {group.areas.map((area, i) => (
               <FeatureCard
-                kicker={g.kicker}
-                title={a.city}
-                body={a.description}
-                href={`/localita/${a.slug}`}
-                ariaLabel={`Apri la pagina ${a.city}`}
+                kicker="Indicazioni e servizi"
+                title={area.city}
+                body={area.description}
+                href={`/localita/${area.slug}`}
+                ariaLabel={`Apri indicazioni e servizi per ${area.city}`}
                 index={i + 1}
               />
             ))}
@@ -113,27 +113,27 @@ const groupedAreas = areaGroups.map((g) => ({
   <section class="section section--scene-ivory">
     <div class="container">
       <SectionHead
-        kicker="Da dove iniziare"
-        title="Tre _direzioni_ utili anche se vieni da fuori."
-        lead="Pagine principali per orientarti subito: percorso laser, protocolli viso/corpo e listino completo."
+        kicker="Informazioni prima di venire"
+        title="Laser Ice Polar, protocolli viso e corpo e listino completo."
+        lead="Consulta le pagine principali per capire che cosa trattiamo, come funziona la prima visita e quanto costano i servizi."
       />
       <div class="card-grid card-grid--3">
         <FeatureCard
-          kicker="Percorso"
-          title="Epilazione laser a Carmagnola"
-          body="Come funziona Ice Polar, calendario sedute, prezzi e cosa aspettarsi davvero."
+          kicker="Epilazione laser"
+          title="Laser Ice Polar: zone, prezzi e sedute"
+          body="Tecnologia, raffreddamento, valutazione iniziale, frequenza e prezzi per viso e corpo."
           href="/epilazione-laser-carmagnola"
         />
         <FeatureCard
-          kicker="Percorso"
-          title="Protocolli viso e corpo"
-          body="Quando un trattamento singolo non basta: percorsi su più sedute con linee Marbellas ed Eberlin."
+          kicker="Trattamenti personalizzati"
+          title="Percorsi viso e corpo"
+          body="Glow per luminosità, Longevity per tono e pelle matura, Forma per drenaggio e compattezza."
           href="/protocolli-epigenetici"
         />
         <FeatureCard
-          kicker="Listino"
-          title="Listino e prezzi"
-          body="Tutti i servizi ordinati per categoria, con prezzi sempre online."
+          kicker="Prezzi"
+          title="Listino completo Rebel"
+          body="Prezzi di viso, corpo, beauty, massaggi, laser e protocolli professionali."
           href="/listino-estetica-laser"
         />
       </div>
@@ -144,24 +144,24 @@ const groupedAreas = areaGroups.map((g) => ({
     image={media.locale.langhe}
     height="sm"
     align="left"
-    kicker="Dalle Langhe al Roero"
-    quote="Vale il viaggio: un percorso costruito con calma, una sola volta."
-    cite="Studio Rebel · Carmagnola"
+    kicker="Studio Rebel · Carmagnola"
+    quote="Viale Barbaroux 20: quattro cabine per viso, corpo, laser e beauty."
+    cite="Da martedì a sabato su appuntamento"
   />
 
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Vieni da fuori Carmagnola?"
-        title="Scrivici due righe, _orientiamo insieme_."
-        lead="Zona, obiettivo, tempi: ti diciamo qual è la scelta più pulita per partire. La prima visita è gratuita."
+        kicker="Vieni da un altro comune?"
+        title="Indicaci località e servizio: ti inviamo _orario e informazioni utili_."
+        lead="Scrivi quale trattamento ti interessa e quando sei disponibile. Ti rispondiamo con appuntamento, indicazioni stradali e prezzo."
         primaryHref="/contatti"
-        primaryLabel="Prenota la prima visita gratuita"
+        primaryLabel="Prenota la prima visita"
         secondaryHref="/servizi"
         secondaryLabel="Vedi tutti i servizi"
       />
     </div>
   </section>
 
-  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
+  <StickyBookingBar primary={{ label: "Prenota la prima visita", href: "/contatti" }} />
 </BaseLayout>
