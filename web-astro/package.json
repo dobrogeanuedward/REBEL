@@ -6,12 +6,13 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro check && astro build && node scripts/upload-rebel-r2.mjs --confirm-if-configured",
     "preview": "astro preview",
     "astro": "astro",
     "test:r2-mcp": "node --import tsx --test scripts/rebel-r2-mcp.test.mjs",
     "check:r2-assets": "node scripts/upload-rebel-r2.mjs",
     "sync:r2-assets": "node scripts/upload-rebel-r2.mjs --confirm",
+    "sync:r2-assets:deploy": "node scripts/upload-rebel-r2.mjs --confirm-if-configured",
     "typecheck": "astro check"
   },
   "dependencies": {
