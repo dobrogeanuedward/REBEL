@@ -1,10 +1,11 @@
-import { readdir, readFile } from "node:fs/promises";
+import { readdir, readFile, writeFile } from "node:fs/promises";
 import { extname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const projectRoot = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const distRoot = resolve(projectRoot, "dist");
-const maxReportedViolations = 60;
+const reportPath = resolve(projectRoot, "copy-audit-report.json");
+const maxReportedViolations = 30;
 
 const forbidden = [
   ["regia", /\bregia\b/gi],
@@ -95,25 +96,36 @@ for (const absolutePath of files) {
       violations.push({
         page: relative(distRoot, absolutePath),
         label,
+        match: match[0],
         excerpt: excerpt(text, match.index ?? 0, match[0].length),
       });
     }
   }
 }
 
+const grouped = new Map();
+for (const violation of violations) {
+  const key = `${violation.page}::${violation.label}`;
+  if (!grouped.has(key)) grouped.set(key, violation);
+}
+
+const fullReport = {
+  generatedAt: new Date().toISOString(),
+  pagesScanned: files.length,
+  occurrences: violations.length,
+  groups: grouped.size,
+  violations: [...grouped.values()],
+};
+await writeFile(reportPath, `${JSON.stringify(fullReport, null, 2)}\n`, "utf8");
+
 if (violations.length > 0) {
-  const grouped = new Map();
-  for (const violation of violations) {
-    const key = `${violation.page}::${violation.label}`;
-    if (!grouped.has(key)) grouped.set(key, violation);
-  }
-  const report = [...grouped.values()].slice(0, maxReportedViolations);
-  console.error(`\nRendered-copy audit failed with ${violations.length} occurrence(s) across ${grouped.size} page/phrase group(s). Every public page must explain service, zone, result, process, duration, frequency or price without vague brand language:\n`);
+  const report = fullReport.violations.slice(0, maxReportedViolations);
+  console.error(`\nRendered-copy audit failed with ${violations.length} occurrence(s) across ${grouped.size} page/phrase group(s). Full JSON report written to copy-audit-report.json.\n`);
   for (const violation of report) {
     console.error(`- ${violation.page} [${violation.label}] ${violation.excerpt}`);
   }
   if (grouped.size > report.length) {
-    console.error(`\n...and ${grouped.size - report.length} additional page/phrase group(s). Fix the reported groups, rebuild and rerun.`);
+    console.error(`\n...and ${grouped.size - report.length} additional page/phrase group(s). Download the CI artifact for the complete report.`);
   }
   process.exit(1);
 }
