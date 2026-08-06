@@ -1,4 +1,6 @@
 ---
+import { clarifyCopy } from "@/lib/copy-clarity";
+
 interface Props {
   id?: string;
   heading: string;
@@ -7,18 +9,18 @@ interface Props {
 }
 const { id, heading, paragraphs, level = 3 } = Astro.props;
 const HeadingTag = level === 2 ? "h2" : "h3";
+const clearHeading = clarifyCopy(heading);
+const clearParagraphs = paragraphs.map(clarifyCopy);
 ---
 <div class="editorial-block" id={id}>
-  <HeadingTag class="editorial-block__heading">{heading}</HeadingTag>
-  {paragraphs.map((p) => (
+  <HeadingTag class="editorial-block__heading">{clearHeading}</HeadingTag>
+  {clearParagraphs.map((p) => (
     <p class="editorial-block__p">{p}</p>
   ))}
 </div>
 
 <style>
-  .editorial-block {
-    margin-top: 1.4rem;
-  }
+  .editorial-block { margin-top: 1.4rem; }
   .editorial-block:first-child { margin-top: 0; }
   .editorial-block__heading {
     font-family: var(--font-display);
