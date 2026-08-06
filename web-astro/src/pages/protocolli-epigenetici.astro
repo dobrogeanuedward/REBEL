@@ -59,6 +59,7 @@ const protocolsSchema = buildItemListSchema({
 const journeys = [
   {
     name: "Glow",
+    image: media.journeys.glow,
     focus: "Viso · luminosità, idratazione e uniformità",
     body: "Indicato quando la pelle appare spenta, disidratata, opaca o irregolare. Può includere Skin Reset, Catalysis, Cell Regen e attivi epigenetici.",
     tools: ["Skin Reset", "Catalysis", "Cell Regen", "Attivi epigenetici"],
@@ -66,6 +67,7 @@ const journeys = [
   },
   {
     name: "Longevity",
+    image: media.journeys.longevity,
     focus: "Viso · tono, elasticità e segni del tempo",
     body: "Indicato per perdita di tono, pelle matura, secchezza, minore elasticità o contorno occhi affaticato. Può includere Lift, Collagen, Rebirth 60+ ed Eye Genesis.",
     tools: ["Lift", "Collagen", "Rebirth 60+", "Eye Genesis"],
@@ -73,6 +75,7 @@ const journeys = [
   },
   {
     name: "Forma",
+    image: media.journeys.forma,
     focus: "Corpo · drenaggio, tono e compattezza",
     body: "Indicato per pesantezza, ritenzione, perdita di tono e rimodellamento. Può combinare manualità, Lift Body, LPG, pressomassaggio, Tecar e crioterapia.",
     tools: ["Lift Body", "LPG", "Pressomassaggio", "Tecar"],
@@ -80,6 +83,7 @@ const journeys = [
   },
   {
     name: "Libertà",
+    image: media.journeys.liberta,
     focus: "Epilazione laser · viso e corpo",
     body: "Percorso Laser Ice Polar per ridurre progressivamente la ricrescita. La valutazione definisce fototipo, pelo, zone, parametri, frequenza e prezzo.",
     tools: ["Laser a diodo", "Ice Polar", "Viso", "Corpo"],
@@ -96,7 +100,7 @@ const journeys = [
 
   <section class="rb-hero rb-hero--journeys">
     <div class="rb-hero__media">
-      <img src={media.viso.mood.src ?? media.viso.mood} alt="Trattamenti viso e corpo nello studio Rebel" />
+      <img src={media.journeys.hero.src} alt={media.journeys.hero.alt} />
     </div>
     <div class="rb-hero__veil"></div>
     <div class="container rb-hero__content">
@@ -133,7 +137,7 @@ const journeys = [
       </div>
       <div class="rebel-journeys">
         {journeys.map((journey, index) => (
-          <article class="rebel-journey" style={`--journey-image:url(${index % 2 === 0 ? (media.viso.mood.src ?? media.viso.mood) : (media.studio.cabin.src ?? media.studio.cabin)})`}>
+          <article class="rebel-journey" style={`--journey-image:url(${journey.image.src})`}>
             <div class="rebel-journey__copy">
               <p class="rb-kicker">{journey.focus}</p>
               <h3>{journey.name}</h3>
