@@ -1,7 +1,10 @@
 import type { APIRoute } from "astro";
 import { resolveAssetUrl } from "@/lib/rebel-r2/assets";
-import { resolveSlot } from "@/lib/rebel-r2/manifest";
-import { getSiteAssetFallback } from "@/lib/site-assets";
+import { headObject } from "@/lib/rebel-r2/client";
+import {
+  getSiteAssetFallback,
+  getSiteAssetR2Key,
+} from "@/lib/site-assets";
 
 export const prerender = false;
 
@@ -18,11 +21,14 @@ export const GET: APIRoute = async ({ request }) => {
 
   let target = fallback;
   let cacheControl = "public, max-age=3600, stale-while-revalidate=86400";
+  const exactR2Key = getSiteAssetR2Key(slot);
 
   try {
-    const resolved = await resolveSlot(slot);
-    if (resolved.selected) {
-      const remote = await resolveAssetUrl(resolved.selected.key);
+    if (exactR2Key) {
+      // Verify that the canonical object exists before redirecting. No fuzzy
+      // resolver is allowed in the public website delivery path.
+      await headObject(exactR2Key);
+      const remote = await resolveAssetUrl(exactR2Key);
       target = remote.url;
       if (remote.signed) {
         cacheControl = "private, max-age=240";
@@ -42,4 +48,3 @@ export const GET: APIRoute = async ({ request }) => {
     },
   });
 };
-

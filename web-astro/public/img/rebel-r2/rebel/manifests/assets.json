@@ -230,16 +230,16 @@
       "mime": "image/webp",
       "width": 1536,
       "height": 1024,
-      "bytes": 64016,
-      "sha256": "c8eafb0b01683ba5f5730793559e1d0154f22d95ac99cd3569d16150dc86d605"
+      "bytes": 25264,
+      "sha256": "b9a872004c86750eaa8174bda7f669072d9cae44ed81d7f2d17907d55c6dac09"
     },
     {
       "key": "rebel/home/hero/body-forma-mobile.webp",
       "mime": "image/webp",
       "width": 1254,
       "height": 1254,
-      "bytes": 76892,
-      "sha256": "c9529555220c66c2c36cc92099b05f4c227fd4d109388128b4bda3e6659fd21c"
+      "bytes": 32468,
+      "sha256": "5e41e4098e325e900602fdc75ff994711f6de735965361cbc2059247b5944628"
     },
     {
       "key": "rebel/home/hero/epigenetics-desktop.webp",

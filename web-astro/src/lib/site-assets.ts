@@ -68,3 +68,19 @@ export function getSiteAssetFallback(slot: string): string | null {
     : null;
 }
 
+const LOCAL_R2_PREFIX = "/img/rebel-r2/";
+
+/**
+ * Return the exact R2 object key paired with a verified local fallback.
+ *
+ * The website must never use fuzzy slot matching: a broad keyword such as
+ * "laser" can otherwise resolve an older manicure or technology image from
+ * the bucket. MCP discovery can remain flexible, while public page delivery
+ * stays deterministic.
+ */
+export function getSiteAssetR2Key(slot: string): string | null {
+  const fallback = getSiteAssetFallback(slot);
+  if (!fallback?.startsWith(LOCAL_R2_PREFIX)) return null;
+
+  return fallback.slice(LOCAL_R2_PREFIX.length);
+}
