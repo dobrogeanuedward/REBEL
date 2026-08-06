@@ -78,7 +78,7 @@
       lead.textContent = slide.lead;
       if (signature) signature.textContent = slide.signature;
       copy.classList.remove('is-changing');
-    }, reduceMotion ? 0 : 220);
+    }, reduceMotion ? 0 : 160);
 
     buttons.forEach((button, index) => {
       button.setAttribute('aria-current', index === next ? 'true' : 'false');
@@ -98,7 +98,7 @@
 
   function restart() {
     window.clearInterval(timer);
-    if (!reduceMotion) timer = window.setInterval(tick, 8500);
+    if (!reduceMotion) timer = window.setInterval(tick, 3000);
   }
 
   hero.addEventListener('mouseenter', () => { paused = true; });
