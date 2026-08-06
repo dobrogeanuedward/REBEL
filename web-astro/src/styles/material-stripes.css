@@ -1,0 +1,48 @@
+.rebel-material-band {
+  position: relative;
+  width: min(100% - 2rem, 1180px);
+  height: clamp(34px, 5vw, 72px);
+  margin: clamp(0.5rem, 2vw, 1.5rem) auto;
+  overflow: hidden;
+  border-radius: 999px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  isolation: isolate;
+  pointer-events: none;
+}
+
+.rebel-material-band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(248, 242, 235, 0.72), transparent 16% 84%, rgba(248, 242, 235, 0.72));
+  mix-blend-mode: screen;
+}
+
+.rebel-material-band--prism {
+  background-image: url("/api/site-asset?slot=brand.prism.desktop");
+  opacity: 0.82;
+}
+
+.rebel-material-band--cut {
+  height: clamp(42px, 6vw, 88px);
+  background-image: url("/api/site-asset?slot=brand.cut.desktop");
+  opacity: 0.92;
+}
+
+@media (max-width: 760px) {
+  .rebel-material-band {
+    width: calc(100% - 1.25rem);
+    border-radius: 28px;
+  }
+
+  .rebel-material-band--prism {
+    background-image: url("/api/site-asset?slot=brand.prism.mobile");
+  }
+
+  .rebel-material-band--cut {
+    background-image: url("/api/site-asset?slot=brand.cut.mobile");
+  }
+}
+

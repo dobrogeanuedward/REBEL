@@ -38,10 +38,12 @@ const article = buildArticleSchema({
   section: "Home",
 });
 
-const heroImage = "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/7dc5354b-33e1-4a9e-a21d-ff321ecf4500/public";
-const faceImage = "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/7dc5354b-33e1-4a9e-a21d-ff321ecf4500/public";
-const bodyImage = "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/9d9033f2-f11f-4485-f69c-38d05556bb00/public";
-const freedomImage = "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e63a6c84-f777-4f2d-995b-eef9c7e09900/public";
+const siteAsset = (slot: string) => `/api/site-asset?slot=${encodeURIComponent(slot)}`;
+const heroImage = siteAsset("home.hero.method.desktop");
+const faceImage = siteAsset("journeys.glow.hero.desktop");
+const longevityImage = siteAsset("journeys.longevity.hero.desktop");
+const bodyImage = siteAsset("journeys.forma.hero.desktop");
+const freedomImage = siteAsset("journeys.liberta.hero.desktop");
 
 const method = [
   ["01", "Ascoltiamo l’obiettivo", "Ci racconti cosa vuoi migliorare, quali trattamenti hai già provato e quanto tempo puoi dedicare al percorso."],
@@ -75,7 +77,7 @@ const journeys = [
     name: "Longevity",
     kicker: "Viso · tono e segni del tempo",
     copy: "Per lavorare su elasticità, compattezza, comfort e qualità della pelle con protocolli dedicati anche al contorno occhi.",
-    image: faceImage,
+    image: longevityImage,
     tags: ["Lift", "Collagen", "Rebirth 60+", "Eye Genesis"],
     href: "/protocolli-epigenetici",
   },
@@ -135,6 +137,8 @@ const journeys = [
       </div>
     </section>
 
+    <div class="rebel-material-band rebel-material-band--prism" aria-hidden="true"></div>
+
     <section class="rebel-section" id="metodo">
       <div class="rebel-container rebel-method">
         <div class="rebel-method__intro">
@@ -155,6 +159,8 @@ const journeys = [
         </div>
       </div>
     </section>
+
+    <div class="rebel-material-band rebel-material-band--cut" aria-hidden="true"></div>
 
     <section class="rebel-section rebel-section--paper">
       <div class="rebel-container">

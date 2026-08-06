@@ -1,0 +1,637 @@
+{
+  "version": "rebel-site-assets-v2",
+  "generatedAt": "2026-08-06",
+  "direction": {
+    "palette": [
+      "warm porcelain",
+      "plum",
+      "controlled prism"
+    ],
+    "photography": [
+      "real skin",
+      "alive expressions",
+      "credible anatomy",
+      "varied camera direction",
+      "no invented centre interiors"
+    ],
+    "brandMaterials": [
+      "Rebel Cut",
+      "Rebel Prism"
+    ]
+  },
+  "home": {
+    "hero": {
+      "method": {
+        "desktop": "rebel/home/hero/method-desktop.webp",
+        "mobile": "rebel/home/hero/method-mobile.webp"
+      },
+      "face": {
+        "desktop": "rebel/home/hero/face-glow-desktop.webp",
+        "mobile": "rebel/home/hero/face-glow-mobile.webp"
+      },
+      "body": {
+        "desktop": "rebel/home/hero/body-forma-desktop.webp",
+        "mobile": "rebel/home/hero/body-forma-mobile.webp"
+      },
+      "laser": {
+        "desktop": "rebel/home/hero/laser-icepolar-desktop.webp",
+        "mobile": "rebel/home/hero/laser-icepolar-mobile.webp"
+      },
+      "longevity": {
+        "desktop": "rebel/home/hero/longevity-desktop.webp",
+        "mobile": "rebel/home/hero/longevity-mobile.webp"
+      },
+      "lamination": {
+        "desktop": "rebel/home/hero/lamination-desktop.webp",
+        "mobile": "rebel/home/hero/lamination-mobile.webp"
+      },
+      "epigenetics": {
+        "desktop": "rebel/home/hero/epigenetics-desktop.webp",
+        "mobile": "rebel/home/hero/epigenetics-mobile.webp"
+      },
+      "technologies": {
+        "desktop": "rebel/home/hero/technologies-desktop.webp",
+        "mobile": "rebel/home/hero/technologies-mobile.webp"
+      },
+      "studio": {
+        "desktop": "rebel/home/hero/studio-desktop.webp",
+        "mobile": "rebel/home/hero/studio-mobile.webp"
+      }
+    }
+  },
+  "journeys": {
+    "glow": {
+      "hero": {
+        "src": "rebel/journeys/glow/hero-desktop.webp",
+        "desktop": "rebel/journeys/glow/hero-desktop.webp",
+        "mobile": "rebel/journeys/glow/hero-mobile.webp"
+      }
+    },
+    "forma": {
+      "hero": {
+        "src": "rebel/journeys/forma/hero-desktop.webp",
+        "desktop": "rebel/journeys/forma/hero-desktop.webp",
+        "mobile": "rebel/journeys/forma/hero-mobile.webp"
+      }
+    },
+    "liberta": {
+      "hero": {
+        "src": "rebel/journeys/liberta/hero-desktop.webp",
+        "desktop": "rebel/journeys/liberta/hero-desktop.webp",
+        "mobile": "rebel/journeys/liberta/hero-mobile.webp"
+      }
+    },
+    "longevity": {
+      "hero": {
+        "src": "rebel/journeys/longevity/hero-desktop.webp",
+        "desktop": "rebel/journeys/longevity/hero-desktop.webp",
+        "mobile": "rebel/journeys/longevity/hero-mobile.webp"
+      }
+    }
+  },
+  "services": {
+    "method": {
+      "consultation": {
+        "mobile": "rebel/services/method/consultation-mobile.webp"
+      }
+    },
+    "face": {
+      "skinTexture": {
+        "mobile": "rebel/services/face/skin-texture-mobile.webp"
+      },
+      "activesTopshot": {
+        "mobile": "rebel/services/face/actives-topshot-mobile.webp"
+      }
+    },
+    "laser": {
+      "handpiece": {
+        "desktop": "rebel/services/laser/handpiece-desktop.webp",
+        "mobile": "rebel/services/laser/handpiece-mobile.webp"
+      }
+    },
+    "lamination": {
+      "detail": {
+        "desktop": "rebel/services/lamination/detail-desktop.webp",
+        "mobile": "rebel/services/lamination/detail-mobile.webp"
+      }
+    },
+    "epigenetics": {
+      "detail": {
+        "desktop": "rebel/services/epigenetics/detail-desktop.webp",
+        "mobile": "rebel/services/epigenetics/detail-mobile.webp"
+      }
+    },
+    "technologies": {
+      "detail": {
+        "desktop": "rebel/services/technologies/detail-desktop.webp",
+        "mobile": "rebel/services/technologies/detail-mobile.webp"
+      }
+    },
+    "manicure": {
+      "hero": {
+        "desktop": "rebel/services/manicure/hero-desktop.webp"
+      },
+      "detail": {
+        "mobile": "rebel/services/manicure/detail-mobile.webp"
+      }
+    },
+    "massage": {
+      "hero": {
+        "desktop": "rebel/services/massage/hero-desktop.webp"
+      },
+      "detail": {
+        "mobile": "rebel/services/massage/detail-mobile.webp"
+      }
+    },
+    "pedicure": {
+      "hero": {
+        "desktop": "rebel/services/pedicure/hero-desktop.webp"
+      },
+      "detail": {
+        "mobile": "rebel/services/pedicure/detail-mobile.webp"
+      }
+    },
+    "draining": {
+      "hero": {
+        "desktop": "rebel/services/draining/hero-desktop.webp"
+      },
+      "detail": {
+        "mobile": "rebel/services/draining/detail-mobile.webp"
+      }
+    }
+  },
+  "brand": {
+    "cut": {
+      "desktop": "rebel/brand/rebel-cut-desktop.webp",
+      "mobile": "rebel/brand/rebel-cut-mobile.webp"
+    },
+    "prism": {
+      "desktop": "rebel/brand/rebel-prism-desktop.webp",
+      "mobile": "rebel/brand/rebel-prism-mobile.webp"
+    },
+    "texture": {
+      "pink": "rebel/brand/rebel-prism-desktop.webp",
+      "violet": "rebel/brand/rebel-cut-desktop.webp"
+    }
+  },
+  "territory": {
+    "racconigi": "rebel/territory/racconigi-wide.webp",
+    "langhe": "rebel/territory/langhe-wide.webp",
+    "roero": "rebel/territory/roero-wide.webp",
+    "bra": "rebel/territory/bra-wide.webp"
+  },
+  "studio": {
+    "professional": {
+      "desktop": "rebel/studio/professional-desktop.webp",
+      "mobile": "rebel/studio/professional-mobile.webp"
+    },
+    "reception": "rebel/studio/professional-desktop.webp"
+  },
+  "technologies": {
+    "laser": {
+      "detail": "rebel/services/laser/handpiece-desktop.webp"
+    }
+  },
+  "assets": [
+    {
+      "key": "rebel/brand/rebel-cut-desktop.webp",
+      "mime": "image/webp",
+      "width": 1774,
+      "height": 887,
+      "bytes": 61976,
+      "sha256": "b99776a7c8629d0dccf72fb00599ccca7ac4f1516ad2f60527850fc58f66db77"
+    },
+    {
+      "key": "rebel/brand/rebel-cut-mobile.webp",
+      "mime": "image/webp",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 119582,
+      "sha256": "a963fc87f4296f89f62b4bff90aa9bcd3158604c4c1d41e76e62f9f168a33745"
+    },
+    {
+      "key": "rebel/brand/rebel-prism-desktop.webp",
+      "mime": "image/webp",
+      "width": 2172,
+      "height": 724,
+      "bytes": 52252,
+      "sha256": "2da3b8a3792065a767c5fb67d5d15154d21b3f0e77a695578bf1c817d9d06b0a"
+    },
+    {
+      "key": "rebel/brand/rebel-prism-mobile.webp",
+      "mime": "image/webp",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 73312,
+      "sha256": "444d9279184ebbc581e1d9dcc0abb7d85d2cacc01ff78e136af851cab33c2b22"
+    },
+    {
+      "key": "rebel/home/hero/body-forma-desktop.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 64016,
+      "sha256": "c8eafb0b01683ba5f5730793559e1d0154f22d95ac99cd3569d16150dc86d605"
+    },
+    {
+      "key": "rebel/home/hero/body-forma-mobile.webp",
+      "mime": "image/webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 76892,
+      "sha256": "c9529555220c66c2c36cc92099b05f4c227fd4d109388128b4bda3e6659fd21c"
+    },
+    {
+      "key": "rebel/home/hero/epigenetics-desktop.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 65860,
+      "sha256": "ad9f881de0716116e6fb36453d31b2c39c02b4d16033d991cca0a531e5ac79d5"
+    },
+    {
+      "key": "rebel/home/hero/epigenetics-mobile.webp",
+      "mime": "image/webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 84718,
+      "sha256": "ccc3982678fd963c548ff678d93aa80c854d11e6220f6654211eca17c243aa9f"
+    },
+    {
+      "key": "rebel/home/hero/face-glow-desktop.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 65098,
+      "sha256": "4505c9a7ed4d9026e12bcb054e70d3850743c867a8d791d91267b7b10b405604"
+    },
+    {
+      "key": "rebel/home/hero/face-glow-mobile.webp",
+      "mime": "image/webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 60246,
+      "sha256": "b85376118efed4e8670b8da9597464077df2bb211de4855c3dfe4362af6ab0be"
+    },
+    {
+      "key": "rebel/home/hero/lamination-desktop.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 66562,
+      "sha256": "2a5424b9f0e370be56a69c530690b9e3a536c41f6812fc5df5a9984f47589f1c"
+    },
+    {
+      "key": "rebel/home/hero/lamination-mobile.webp",
+      "mime": "image/webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 83166,
+      "sha256": "a7361c7ba5e09c0a317913e87c1413a03b7377cfbbca2759068402904255ea0c"
+    },
+    {
+      "key": "rebel/home/hero/laser-icepolar-desktop.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 54362,
+      "sha256": "84605e2c681b7600eb2bc8c6fc49033728773656ad2a59660ec219e3afabcf97"
+    },
+    {
+      "key": "rebel/home/hero/laser-icepolar-mobile.webp",
+      "mime": "image/webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 58782,
+      "sha256": "6a0d11360d0b9a316e46b264b382991819bc21c7d58607f5c14c5568d1f3d3ce"
+    },
+    {
+      "key": "rebel/home/hero/longevity-desktop.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 59736,
+      "sha256": "9dd28a327139816bf3ce5f8acca20ac079d88334a2710e210e85c703dec51be0"
+    },
+    {
+      "key": "rebel/home/hero/longevity-mobile.webp",
+      "mime": "image/webp",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 81900,
+      "sha256": "f5483f402ce2e0dcc09b8aecb9857a7b4d86877c5c01b53b46d9c1478183b935"
+    },
+    {
+      "key": "rebel/home/hero/method-desktop.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 58592,
+      "sha256": "3ba809596ce7f77f4a64918ebca26c7765b6da1faf85eb9233824a671685968a"
+    },
+    {
+      "key": "rebel/home/hero/method-mobile.webp",
+      "mime": "image/webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 57354,
+      "sha256": "7cbbb44bc85778638f3d7629d142eb01e7814b497c65db5e7ad3d5b9626c03d2"
+    },
+    {
+      "key": "rebel/home/hero/studio-desktop.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 57460,
+      "sha256": "1fac4e815ab154fd5375b5410fb494f4b79e7435dcedb177e0a09a9c55fc0a0f"
+    },
+    {
+      "key": "rebel/home/hero/studio-mobile.webp",
+      "mime": "image/webp",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 50514,
+      "sha256": "449c309c7379731fb36ed7ad64e01fdb8911d00ee6f239e27dd70a2d81dabf79"
+    },
+    {
+      "key": "rebel/home/hero/technologies-desktop.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 45024,
+      "sha256": "cccb9013abf6e4c3ea4a06f7c023a39cea670ff45fca270209b1cb5f77a96757"
+    },
+    {
+      "key": "rebel/home/hero/technologies-mobile.webp",
+      "mime": "image/webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 48584,
+      "sha256": "28693ce0e85cfed793cb758b17dd2b6bdcd0ba6a7d761dd2fd0473168e31e248"
+    },
+    {
+      "key": "rebel/journeys/forma/hero-desktop.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 30948,
+      "sha256": "bdaeb6c44086cf904b2360061053ed4398ff1c866b654f21f3273c5ec3179b1b"
+    },
+    {
+      "key": "rebel/journeys/forma/hero-mobile.webp",
+      "mime": "image/webp",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 34894,
+      "sha256": "8a68ef3650d0db86edd8ad7f33596aef76305c533d07b7bd3890b2b2c551c886"
+    },
+    {
+      "key": "rebel/journeys/glow/hero-desktop.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 52882,
+      "sha256": "7873a9a4e6360397d686356221a10ccca5e66e24175bef7d83148ab96c895d72"
+    },
+    {
+      "key": "rebel/journeys/glow/hero-mobile.webp",
+      "mime": "image/webp",
+      "width": 1003,
+      "height": 1568,
+      "bytes": 89124,
+      "sha256": "f433ebe7cf86ed3a0a3f3e6243d2f83716958dfdf3a783f2b0ae60d21a2dc35b"
+    },
+    {
+      "key": "rebel/journeys/liberta/hero-desktop.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 31154,
+      "sha256": "ae93a58a2f4a96f81a4e69c52c94e73f1d6366c6d0e32d842c3efeba7ee279d1"
+    },
+    {
+      "key": "rebel/journeys/liberta/hero-mobile.webp",
+      "mime": "image/webp",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 28718,
+      "sha256": "d7f688a1aca2ca86264de43911039f1169e9008ce50f12d2d3a9b8eeb8b8160e"
+    },
+    {
+      "key": "rebel/journeys/longevity/hero-desktop.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 64538,
+      "sha256": "62565335036dee02d50205f987efd849a25891d09f6d6f69729dbe5b1fb78f43"
+    },
+    {
+      "key": "rebel/journeys/longevity/hero-mobile.webp",
+      "mime": "image/webp",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 69174,
+      "sha256": "0ae88b07d716c7e04250314d0f2716a7e7fcacc881a2bab58d290b351894f485"
+    },
+    {
+      "key": "rebel/services/draining/detail-mobile.webp",
+      "mime": "image/webp",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 55816,
+      "sha256": "adf96a2707792bccab8113544cc80f41a849407410fb37815494f1480a0134f3"
+    },
+    {
+      "key": "rebel/services/draining/hero-desktop.webp",
+      "mime": "image/webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 53138,
+      "sha256": "86c0a7720dde113dbd1e73067ed8956d524cf2a48b769f7ac3621f2d2db96fb8"
+    },
+    {
+      "key": "rebel/services/epigenetics/detail-desktop.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 105938,
+      "sha256": "a066033f2f2a64437eb8ad6528775abf1db5bb05ce8df7807330577a704eae60"
+    },
+    {
+      "key": "rebel/services/epigenetics/detail-mobile.webp",
+      "mime": "image/webp",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 179434,
+      "sha256": "a71fad13d2f4bb6597787ac132ec5c637cad459778e9f95f610af9bd618156f0"
+    },
+    {
+      "key": "rebel/services/face/actives-topshot-mobile.webp",
+      "mime": "image/webp",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 179434,
+      "sha256": "a71fad13d2f4bb6597787ac132ec5c637cad459778e9f95f610af9bd618156f0"
+    },
+    {
+      "key": "rebel/services/face/skin-texture-mobile.webp",
+      "mime": "image/webp",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 64284,
+      "sha256": "ccf5aed87cb4fbc2e867afbd8cbd7b88150ede7cbf675e1b3cf058865d66cb11"
+    },
+    {
+      "key": "rebel/services/lamination/detail-desktop.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 56608,
+      "sha256": "158a89834d8447606b4623320c64559ae9aadbf0b70bbe342d267b77f6b3e65f"
+    },
+    {
+      "key": "rebel/services/lamination/detail-mobile.webp",
+      "mime": "image/webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 83166,
+      "sha256": "a7361c7ba5e09c0a317913e87c1413a03b7377cfbbca2759068402904255ea0c"
+    },
+    {
+      "key": "rebel/services/laser/handpiece-desktop.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 46424,
+      "sha256": "b64c35e08dcb1e7da6c5c6c1b8a73fd0435284b7b0042b8476a63ecd0e0471c4"
+    },
+    {
+      "key": "rebel/services/laser/handpiece-mobile.webp",
+      "mime": "image/webp",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 51492,
+      "sha256": "e4105c4a92f2c1f90cc141a7cb5a47fb6144f60368a47d8e23d502558c2629b0"
+    },
+    {
+      "key": "rebel/services/manicure/detail-mobile.webp",
+      "mime": "image/webp",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 68682,
+      "sha256": "78e77e25c97ca2b3699d769e34caee5bf89deeff58da7b21cb099438279c760b"
+    },
+    {
+      "key": "rebel/services/manicure/hero-desktop.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 102236,
+      "sha256": "6493e13e54b76b2237d3ca96b2368ff015cc6106baa129da269fd5e5de0d2095"
+    },
+    {
+      "key": "rebel/services/massage/detail-mobile.webp",
+      "mime": "image/webp",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 62876,
+      "sha256": "8ef2660c1b21293a11046972aeb44876e4e44d27255d42e6e35c694975e67a4f"
+    },
+    {
+      "key": "rebel/services/massage/hero-desktop.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 54910,
+      "sha256": "8c20fc21d5282ea54e50e44340e5e1423042db1a28f6a10ca491dd76f3ae24d9"
+    },
+    {
+      "key": "rebel/services/method/consultation-mobile.webp",
+      "mime": "image/webp",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 66200,
+      "sha256": "7b3bb3befe65693c8dcb7e13ad15aada56389e63e688b9c416a72b87aae4c5ba"
+    },
+    {
+      "key": "rebel/services/pedicure/detail-mobile.webp",
+      "mime": "image/webp",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 48802,
+      "sha256": "ac540e35f6a9270fea936ae623b89f19d2f0a37c414bdcd4bce08d90cb3d3655"
+    },
+    {
+      "key": "rebel/services/pedicure/hero-desktop.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 75276,
+      "sha256": "c07da9fd4ed605f67adf2fb489aaf2cc4a47323458a93648622a379e126c7c96"
+    },
+    {
+      "key": "rebel/services/technologies/detail-desktop.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 36656,
+      "sha256": "15482e3b8e81ca889a37618fdb3c9d87d6307ed598449c80dd32bc5c43d467a4"
+    },
+    {
+      "key": "rebel/services/technologies/detail-mobile.webp",
+      "mime": "image/webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 48584,
+      "sha256": "28693ce0e85cfed793cb758b17dd2b6bdcd0ba6a7d761dd2fd0473168e31e248"
+    },
+    {
+      "key": "rebel/studio/professional-desktop.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 57460,
+      "sha256": "1fac4e815ab154fd5375b5410fb494f4b79e7435dcedb177e0a09a9c55fc0a0f"
+    },
+    {
+      "key": "rebel/studio/professional-mobile.webp",
+      "mime": "image/webp",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 50514,
+      "sha256": "449c309c7379731fb36ed7ad64e01fdb8911d00ee6f239e27dd70a2d81dabf79"
+    },
+    {
+      "key": "rebel/territory/bra-wide.webp",
+      "mime": "image/webp",
+      "width": 1915,
+      "height": 821,
+      "bytes": 68956,
+      "sha256": "603968c870acfeba45521b20c693595b76172aeccd0ef32226c037dc1dff17b8"
+    },
+    {
+      "key": "rebel/territory/langhe-wide.webp",
+      "mime": "image/webp",
+      "width": 1915,
+      "height": 821,
+      "bytes": 165300,
+      "sha256": "25f0d4027831fd6a797f33eabd643463acdf631cd3d2a40eb405ff9e179e60fe"
+    },
+    {
+      "key": "rebel/territory/racconigi-wide.webp",
+      "mime": "image/webp",
+      "width": 1915,
+      "height": 821,
+      "bytes": 219626,
+      "sha256": "3a8705d795254eb7aa0dfa23abc4e08b7dcc1c6b4bc653ecc788f5f326590818"
+    },
+    {
+      "key": "rebel/territory/roero-wide.webp",
+      "mime": "image/webp",
+      "width": 1915,
+      "height": 821,
+      "bytes": 137528,
+      "sha256": "2fbb2939e3d8195ac882edd539f1aa2ea1d863dfa82465f8a787c9a923e0ce7f"
+    }
+  ]
+}
