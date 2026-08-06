@@ -1,8 +1,17 @@
 /* Living home hero — stable editorial rotation on desktop and mobile. */
 .rebel-hero--living {
   --hero-image: none;
+  --hero-accent: var(--rebel-pink);
   background: var(--rebel-porcelain);
 }
+
+.rebel-hero--living[data-hero-tone="rose"] { --hero-accent: #e93b88; }
+.rebel-hero--living[data-hero-tone="sand"] { --hero-accent: #b67d56; }
+.rebel-hero--living[data-hero-tone="violet"] { --hero-accent: #7047ff; }
+.rebel-hero--living[data-hero-tone="peach"] { --hero-accent: #d87962; }
+.rebel-hero--living[data-hero-tone="mint"] { --hero-accent: #379a93; }
+.rebel-hero--living[data-hero-tone="tech"] { --hero-accent: #5e6bd8; }
+.rebel-hero--living[data-hero-tone="warm"] { --hero-accent: #9c6651; }
 
 .rebel-hero--living::before {
   background: linear-gradient(90deg, rgba(248,243,237,.97) 0 38%, rgba(248,243,237,.72) 58%, rgba(248,243,237,.08) 78%);
@@ -18,7 +27,7 @@
   background-repeat: no-repeat;
   opacity: 0;
   transform: scale(1.01);
-  transition: opacity .65s ease, transform 3.65s cubic-bezier(.2,.65,.2,1);
+  transition: opacity .52s ease, transform 4.1s cubic-bezier(.2,.65,.2,1);
   will-change: opacity, transform;
 }
 
@@ -28,36 +37,50 @@
 }
 
 .rebel-hero__copy {
-  transition: opacity .2s ease, transform .2s ease;
+  transition: opacity .18s ease, transform .18s ease;
 }
 
 .rebel-hero__copy.is-changing {
-  opacity: .28;
+  opacity: .32;
   transform: translateY(2px);
 }
 
 .rebel-hero__controls {
   display: flex;
   align-items: center;
-  gap: .5rem;
+  gap: .45rem;
   margin-top: 1.15rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.rebel-hero__controls::-webkit-scrollbar { display: none; }
+
+.rebel-hero__counter {
+  flex: 0 0 auto;
+  margin-right: .35rem;
+  min-width: 3.8rem;
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  color: rgba(39,20,47,.55);
 }
 
 .rebel-hero__dot {
-  width: 2rem;
-  min-width: 2rem;
+  flex: 0 0 auto;
+  width: 1.5rem;
+  min-width: 1.5rem;
   height: 3px;
   padding: 9px 0;
   border: 0;
   border-radius: 999px;
-  background: linear-gradient(transparent 8px, rgba(39,20,47,.22) 8px 11px, transparent 11px);
+  background: linear-gradient(transparent 8px, rgba(39,20,47,.2) 8px 11px, transparent 11px);
   cursor: pointer;
-  transition: width .2s ease, background-color .2s ease;
+  transition: width .18s ease, background-color .18s ease;
 }
 
 .rebel-hero__dot[aria-current="true"] {
-  width: 3.25rem;
-  background: linear-gradient(transparent 8px, var(--rebel-pink) 8px 11px, transparent 11px);
+  width: 2.7rem;
+  background: linear-gradient(transparent 8px, var(--hero-accent) 8px 11px, transparent 11px);
 }
 
 .rebel-hero__dot:focus-visible {
@@ -65,15 +88,16 @@
   outline-offset: 3px;
 }
 
+.rebel-hero--living .rebel-spectrum-rule { background: var(--hero-accent); }
+
 @media (max-width: 860px) {
-  /* Mobile is deliberately split into a photographic panel and a readable
-     paper panel. No negative overlap, no clipped copy, no empty gradient band. */
   .rebel-hero--living {
     min-height: 0;
     padding: 0 0 calc(2.25rem + env(safe-area-inset-bottom, 0px));
     display: block;
     overflow: clip;
     background: var(--rebel-porcelain);
+    touch-action: pan-y;
   }
 
   .rebel-hero--living::before,
@@ -101,41 +125,44 @@
     width: min(100% - 2rem, 760px);
     max-width: none;
     margin: 0 auto;
-    padding: 1.5rem 0 0;
+    padding: 1.35rem 0 0;
     background: transparent;
   }
 
   .rebel-hero--living .rebel-hero__eyebrow {
     display: grid;
-    gap: .35rem;
-    margin-bottom: .85rem;
-    font-size: .68rem;
+    gap: .3rem;
+    margin-bottom: .75rem;
+    font-size: .66rem;
     line-height: 1.35;
   }
 
   .rebel-hero--living .rebel-display {
     max-width: 13ch;
+    min-height: 2.85em;
     margin: 0;
-    font-size: clamp(2.25rem, 9.8vw, 4rem);
+    font-size: clamp(2.15rem, 9.4vw, 3.8rem);
     line-height: .96;
     letter-spacing: -.045em;
   }
 
   .rebel-hero--living .rebel-spectrum-rule {
-    margin-block: .85rem 1rem;
+    width: 5rem;
+    margin-block: .8rem .9rem;
   }
 
   .rebel-hero--living .rebel-lead {
     max-width: 38rem;
-    margin: 0 0 1.15rem;
-    font-size: clamp(.98rem, 3.9vw, 1.1rem);
-    line-height: 1.52;
+    min-height: 5.25em;
+    margin: 0 0 1.05rem;
+    font-size: clamp(.96rem, 3.8vw, 1.08rem);
+    line-height: 1.5;
   }
 
   .rebel-hero--living .rebel-hero__actions {
     display: grid;
     grid-template-columns: 1fr;
-    gap: .6rem;
+    gap: .55rem;
   }
 
   .rebel-hero--living .rebel-hero__actions .btn {
@@ -146,42 +173,51 @@
 
   .rebel-hero--living .rebel-hero__signature {
     display: grid;
-    gap: .3rem;
-    margin-top: .9rem;
-    font-size: .68rem;
+    gap: .25rem;
+    min-height: 2.7em;
+    margin-top: .85rem;
+    font-size: .66rem;
     line-height: 1.35;
   }
 
   .rebel-hero__controls {
-    margin-top: .8rem;
+    margin-top: .75rem;
+    padding-bottom: .15rem;
   }
 }
 
 @media (max-width: 420px) {
   .rebel-hero__living-visual {
-    height: clamp(250px, 39svh, 330px);
+    height: clamp(245px, 38svh, 320px);
   }
 
   .rebel-hero--living .rebel-hero__copy {
     width: calc(100% - 1.4rem);
-    padding-top: 1.2rem;
+    padding-top: 1.1rem;
   }
 
   .rebel-hero--living .rebel-display {
-    font-size: clamp(2.05rem, 9.8vw, 2.85rem);
+    min-height: 3.05em;
+    font-size: clamp(1.95rem, 9.5vw, 2.75rem);
   }
 
   .rebel-hero--living .rebel-lead {
-    font-size: .96rem;
+    min-height: 6.3em;
+    font-size: .94rem;
+  }
+
+  .rebel-hero__counter {
+    min-width: 3.4rem;
+    font-size: .63rem;
   }
 
   .rebel-hero__dot {
-    width: 1.75rem;
-    min-width: 1.75rem;
+    width: 1.25rem;
+    min-width: 1.25rem;
   }
 
   .rebel-hero__dot[aria-current="true"] {
-    width: 2.7rem;
+    width: 2.2rem;
   }
 }
 
