@@ -1,4 +1,6 @@
 ---
+import { clarifyCopy } from "@/lib/copy-clarity";
+
 interface Props {
   kicker?: string;
   title: string;
@@ -7,11 +9,14 @@ interface Props {
 }
 
 const { kicker, title, lead, centered = false } = Astro.props;
-const renderedTitle = title.replace(/_([^_]+)_/g, (_, t) => `<em>${t}</em>`);
+const clearKicker = kicker ? clarifyCopy(kicker) : undefined;
+const clearTitle = clarifyCopy(title);
+const clearLead = lead ? clarifyCopy(lead) : undefined;
+const renderedTitle = clearTitle.replace(/_([^_]+)_/g, (_, t) => `<em>${t}</em>`);
 ---
 <header class={`section__head ${centered ? "section__head--centered" : ""}`} data-reveal>
-  {kicker ? <p class="kicker">{kicker}</p> : null}
+  {clearKicker ? <p class="kicker">{clearKicker}</p> : null}
   <h2 class="section__title" set:html={renderedTitle}></h2>
-  {lead ? <p class="section__lead">{lead}</p> : null}
+  {clearLead ? <p class="section__lead">{clearLead}</p> : null}
   <span class="hairline" aria-hidden="true"></span>
 </header>
