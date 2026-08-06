@@ -1,0 +1,37 @@
+name: Rebel Astro build
+
+on:
+  push:
+    branches:
+      - main
+      - codex/rebel-living-hero
+  pull_request:
+    paths:
+      - "web-astro/**"
+      - ".github/workflows/rebel-build.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web-astro
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: web-astro/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Copy clarity check
+        run: npm run check:copy
+
+      - name: Astro check and build
+        run: npm run build
