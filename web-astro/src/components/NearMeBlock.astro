@@ -1,53 +1,32 @@
 ---
-/**
- * NearMeBlock — sezione "vicino a me" SEO-ottimizzata.
- *
- * Scopo: intercettare le query con intent geografico esplicito ("epilazione
- * laser vicino a me", "centro estetico vicino a me", ecc.) usando due segnali:
- *   1. Anchor text geo-target verso le pagine /localita/* (cross-link forte).
- *   2. Frase naturale che cita l'intent "vicino" + la lista comuni vicini.
- *
- * Da inserire sulle pagine "money" (centro estetico Carmagnola, epilazione
- * laser Carmagnola, manicure semipermanente, laminazione ciglia).
- */
 import SectionHead from "@/components/SectionHead.astro";
 import { localAreaPages } from "@/lib/local-pages";
+import { clarifyCopy } from "@/lib/copy-clarity";
 
 interface Props {
-  /** Etichetta del servizio così come la cercano gli utenti (es. "Epilazione laser"). */
   serviceLabel: string;
-  /** Variante per il sottotitolo (es. "Vieni da fuori Carmagnola?"). */
   kicker?: string;
-  /** Anchor text per il link a ciascuna città. Default: "<serviceLabel> a <City>". */
   anchorPattern?: (serviceLabel: string, city: string) => string;
-  /** Numero massimo di città mostrate. Default: 8. */
   limit?: number;
-  /** Filtra per cluster geografico (default: tutti). */
   clusters?: Array<"asse-carmagnola" | "torino-sud" | "cuneo">;
-  /**
-   * Sovrascrittura URL per città specifiche (slug → href).
-   * Permette di linkare a pagine servizio×città dedicate (es. /epilazione-laser-alba)
-   * invece del generico /localita/{slug}.
-   * Le città non presenti qui usano il fallback /localita/{slug}.
-   */
   hrefOverrides?: Record<string, string>;
 }
 
 const {
   serviceLabel,
-  kicker = "Vicino a Carmagnola",
-  anchorPattern = (s: string, c: string) => `${s} a ${c}`,
+  kicker = "Come raggiungerci dai comuni vicini",
+  anchorPattern = (s: string, c: string) => `${s} per chi arriva da ${c}`,
   limit = 8,
   clusters,
   hrefOverrides = {},
 } = Astro.props as Props;
 
+const clearServiceLabel = clarifyCopy(serviceLabel);
+const clearKicker = clarifyCopy(kicker);
 const filtered = clusters
-  ? localAreaPages.filter((a) => clusters.includes(a.cluster) && a.slug !== "carmagnola")
-  : localAreaPages.filter((a) => a.slug !== "carmagnola");
+  ? localAreaPages.filter((area) => clusters.includes(area.cluster) && area.slug !== "carmagnola")
+  : localAreaPages.filter((area) => area.slug !== "carmagnola");
 
-// Ordering: "asse-carmagnola" first (le città più rilevanti), poi torino-sud,
-// poi cuneo. Usiamo l'ordine già pensato in localAreaPages.
 const order: Record<string, number> = {
   "asse-carmagnola": 0,
   "torino-sud": 1,
@@ -58,22 +37,22 @@ const cities = [...filtered]
   .slice(0, limit);
 ---
 
-<section class="section near-me-section" aria-label={`${serviceLabel} vicino a Carmagnola`}>
+<section class="section near-me-section" aria-label={`${clearServiceLabel}: indicazioni dai comuni vicini`}>
   <div class="container">
     <SectionHead
-      kicker={kicker}
-      title={`_${serviceLabel}_ anche se arrivi da fuori Carmagnola.`}
-      lead={`Lavoriamo regolarmente con persone che cercano "${serviceLabel.toLowerCase()} vicino a me" partendo dai comuni intorno a Carmagnola. Qui sotto le pagine dedicate, con indicazioni su come arrivare e tempi reali.`}
+      kicker={clearKicker}
+      title={`${clearServiceLabel}: mappe e informazioni per chi arriva da altri comuni.`}
+      lead="Apri la tua località per trovare indicazioni verso Viale Barbaroux 20 a Carmagnola e collegamenti a servizi, prezzi e prenotazione."
     />
     <ul class="near-me-list" role="list">
       {cities.map((city) => {
         const href = hrefOverrides[city.slug] ?? `/localita/${city.slug}`;
-        const isDedicated = !!hrefOverrides[city.slug];
+        const isDedicated = Boolean(hrefOverrides[city.slug]);
         return (
           <li class="near-me-item">
             <a class="near-me-link" href={href}>
-              <span class="near-me-link__service">{anchorPattern(serviceLabel, city.city)}</span>
-              <span class="near-me-link__hint">{isDedicated ? `Pagina dedicata · ${city.city}` : `Zona · ${city.city}`}</span>
+              <span class="near-me-link__service">{clarifyCopy(anchorPattern(clearServiceLabel, city.city))}</span>
+              <span class="near-me-link__hint">{isDedicated ? `Servizio e prezzi · ${city.city}` : `Mappa e indicazioni · ${city.city}`}</span>
             </a>
           </li>
         );
@@ -83,9 +62,7 @@ const cities = [...filtered]
 </section>
 
 <style>
-  .near-me-section {
-    padding-block: clamp(3rem, 6vw, 5rem);
-  }
+  .near-me-section { padding-block: clamp(3rem, 6vw, 5rem); }
   .near-me-list {
     list-style: none;
     margin: clamp(1.4rem, 3vw, 2rem) 0 0;
@@ -124,4 +101,3 @@ const cities = [...filtered]
     letter-spacing: 0.06em;
   }
 </style>
-

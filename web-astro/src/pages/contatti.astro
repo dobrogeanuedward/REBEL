@@ -12,9 +12,9 @@ import {
 import { siteConfig } from "@/lib/site-config";
 
 const meta = createPageMeta({
-  title: "Contatti — Rebel Carmagnola | WhatsApp, telefono, mappa, orari",
+  title: "Contatti e prima visita — Rebel Carmagnola | WhatsApp, mappa e orari",
   description:
-    "Contatta Rebel a Carmagnola: WhatsApp +39 351 691 9416, Viale Barbaroux 20, orari Mar–Sab. Prenota la prima visita gratuita.",
+    "Prenota la prima visita gratuita da Rebel a Carmagnola. WhatsApp +39 351 691 9416, Viale Barbaroux 20, orari da martedì a sabato.",
   path: "/contatti",
   keywords: [
     "contatti centro estetico Carmagnola",
@@ -31,9 +31,9 @@ const breadcrumb = buildBreadcrumbSchema([
 ]);
 
 const webPage = buildWebPageSchema({
-  name: "Contatti Rebel Carmagnola — WhatsApp, telefono, mappa",
+  name: "Contatti e prima visita Rebel Carmagnola",
   description:
-    "WhatsApp, telefono, email, mappa e orari per raggiungere Rebel in Viale Barbaroux 20 a Carmagnola.",
+    "WhatsApp, telefono, email, mappa, orari e modulo per prenotare la prima visita gratuita da Rebel.",
   path: "/contatti",
 });
 
@@ -104,11 +104,11 @@ const hours = [
 
   <PageHero
     image={media.studio.reception}
-    kicker="Contatti · Carmagnola"
-    title="Prenota la tua _prima visita_."
-    lead="Ci vogliono circa quindici minuti. Parliamo di ciò che vuoi migliorare, osserviamo da dove partire e ti proponiamo un primo passo chiaro. Poi decidi tu."
-    bullets={["Prima visita gratuita", "Viale Barbaroux 20", "Mar–Sab su appuntamento"]}
-    meta={["Viale Barbaroux 20", "Mar–Sab su appuntamento", "Risposta negli orari di apertura"]}
+    kicker="Prima visita gratuita · Carmagnola"
+    title="Prenota una valutazione di _viso, corpo o laser_."
+    lead="L’appuntamento dura circa quindici minuti. Ci indichi la zona o il servizio che ti interessa, valutiamo le informazioni utili e ti spieghiamo trattamento consigliato, frequenza e prezzo."
+    bullets={["Circa 15 minuti", "Viale Barbaroux 20", "Da martedì a sabato"]}
+    meta={["Viso, corpo, laser e beauty", "Su appuntamento", "Prima visita gratuita"]}
     ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
     ctaSecondary={{ label: "Chiamaci", href: `tel:${siteConfig.phoneRaw}` }}
   />
@@ -116,10 +116,10 @@ const hours = [
   <section class="section">
     <div class="container grid-2">
       <article class="card card--feature">
-        <p class="card__kicker">Contatti</p>
-        <h2 class="card__title">Scegli il modo più comodo.</h2>
+        <p class="card__kicker">Contatti diretti</p>
+        <h2 class="card__title">WhatsApp, telefono, email e indicazioni stradali.</h2>
         <p class="card__body" style="margin-bottom: 1.4rem;">
-          Su WhatsApp puoi indicarci il trattamento che ti interessa e una fascia oraria comoda. Ti rispondiamo appena possibile durante gli orari di apertura.
+          Su WhatsApp scrivi quale trattamento o zona ti interessa e indica i giorni o gli orari in cui sei disponibile. Rispondiamo durante gli orari di apertura.
         </p>
         <div class="contact-quick">
           {quick.map((q) => (
@@ -164,8 +164,8 @@ const hours = [
       </article>
 
       <aside class="card">
-        <p class="card__kicker">Orari</p>
-        <h2 class="card__title">Quando ci trovi in studio.</h2>
+        <p class="card__kicker">Orari di apertura</p>
+        <h2 class="card__title">Riceviamo da martedì a sabato.</h2>
         <div class="hours">
           {hours.map((h) => (
             <div class={`hours__row ${h.closed ? "is-closed" : ""}`}>
@@ -175,7 +175,7 @@ const hours = [
           ))}
         </div>
         <p class="card__body" style="margin-top:1.2rem;">
-          Riceviamo su appuntamento, così ogni visita ha il tempo necessario.
+          Gli appuntamenti permettono di riservare il tempo necessario a consulenze e trattamenti.
         </p>
       </aside>
     </div>
@@ -197,25 +197,25 @@ const hours = [
   <section class="section">
     <div class="container grid-2">
       <article class="card card--feature">
-        <p class="card__kicker">Prima visita</p>
-        <h2 class="card__title">Raccontaci da dove vuoi partire.</h2>
+        <p class="card__kicker">Modulo di richiesta</p>
+        <h2 class="card__title">Indica il servizio e la tua disponibilità.</h2>
         <p class="card__body" style="margin-bottom:1.6rem;">
-          Compila il modulo e ti ricontatteremo via email o WhatsApp. Per una risposta più rapida puoi scriverci direttamente in chat.
+          Compila il modulo con i tuoi contatti, il trattamento che ti interessa e un messaggio breve. Ti ricontatteremo via email o WhatsApp.
         </p>
         <ContactForm client:load />
       </article>
 
       <aside class="card">
-        <p class="card__kicker">Dopo la richiesta</p>
-        <h2 class="card__title">Cosa succede, passo dopo passo.</h2>
+        <p class="card__kicker">Come funziona la prima visita</p>
+        <h2 class="card__title">Dalla richiesta alla proposta di trattamento.</h2>
         <ol class="flow" style="margin-top:1.2rem; counter-reset: step;">
-          <li>Ti proponiamo un orario disponibile.</li>
+          <li>Ti proponiamo un giorno e un orario disponibili.</li>
           <li>Ci incontriamo in studio per circa quindici minuti.</li>
-          <li>Parliamo delle tue esigenze e individuiamo la priorità.</li>
-          <li>Ricevi una proposta chiara e scegli liberamente se iniziare.</li>
+          <li>Valutiamo la zona, il risultato desiderato e le informazioni utili al trattamento.</li>
+          <li>Ti spieghiamo trattamento consigliato, frequenza, prezzo e possibili alternative.</li>
         </ol>
         <p class="card__body" style="margin-top:1.4rem;">
-          La prima visita è gratuita e serve a capire quale percorso può essere davvero adatto a te.
+          La valutazione è gratuita. Dopo aver ricevuto tutte le informazioni scegli liberamente se prenotare il primo trattamento.
         </p>
       </aside>
     </div>

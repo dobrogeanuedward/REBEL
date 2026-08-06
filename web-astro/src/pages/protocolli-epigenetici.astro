@@ -15,9 +15,9 @@ import {
 } from "@/lib/seo";
 
 const meta = createPageMeta({
-  title: "Percorsi Rebel — Estetica epigenetica viso e corpo a Carmagnola",
+  title: "Percorsi viso, corpo e laser a Carmagnola | Rebel",
   description:
-    "Scopri i percorsi Glow, Longevity, Forma e Libertà del Metodo Rebel. Protocolli, attivi epigenetici e tecnologie vengono scelti in base alle esigenze reali di pelle e corpo.",
+    "Glow per luminosità e uniformità, Longevity per tono e pelle matura, Forma per drenaggio e compattezza, Libertà per epilazione Laser Ice Polar.",
   path: "/protocolli-epigenetici",
   openGraphType: "article",
   keywords: [
@@ -34,24 +34,24 @@ const breadcrumb = buildBreadcrumbSchema([
   { name: "Percorsi Rebel", path: "/protocolli-epigenetici" },
 ]);
 const webPageSchema = buildWebPageSchema({
-  name: "Percorsi Rebel a Carmagnola",
+  name: "Percorsi viso, corpo e laser Rebel a Carmagnola",
   description: meta.description,
   path: "/protocolli-epigenetici",
 });
 const serviceSchema = buildServiceSchema(
-  "Percorsi Rebel viso e corpo",
-  "Percorsi personalizzati con valutazione, attivi epigenetici, manualità e tecnologie selezionate.",
+  "Percorsi Rebel viso, corpo e laser",
+  "Trattamenti personalizzati per luminosità, tono, pelle matura, contorno occhi, drenaggio, compattezza ed epilazione laser.",
   "/protocolli-epigenetici",
 );
 const articleSchema = buildArticleSchema({
-  headline: "Percorsi Rebel — Glow, Longevity, Forma e Libertà",
+  headline: "Glow, Longevity, Forma e Libertà: i percorsi Rebel",
   description: meta.description,
   path: "/protocolli-epigenetici",
   keywords: ["percorsi Rebel", "estetica epigenetica", "Carmagnola"],
   section: "Percorsi",
 });
 const protocolsSchema = buildItemListSchema({
-  name: "Protocolli integrati nei percorsi Rebel",
+  name: "Protocolli professionali Rebel",
   path: "/protocolli-epigenetici",
   items: protocolCards.map((p) => ({ name: p.name, path: `/protocolli/${p.slug}` })),
 });
@@ -59,30 +59,30 @@ const protocolsSchema = buildItemListSchema({
 const journeys = [
   {
     name: "Glow",
-    focus: "Luce · uniformità · texture",
-    body: "Per una pelle più luminosa, uniforme e vitale. Skin Reset, Catalysis, Cell Regen e attivi epigenetici vengono scelti in base a ciò di cui la pelle ha bisogno oggi.",
+    focus: "Viso · luminosità, idratazione e uniformità",
+    body: "Indicato quando la pelle appare spenta, disidratata, opaca o irregolare. Può includere Skin Reset, Catalysis, Cell Regen e attivi epigenetici.",
     tools: ["Skin Reset", "Catalysis", "Cell Regen", "Attivi epigenetici"],
     href: "/contatti?percorso=glow",
   },
   {
     name: "Longevity",
-    focus: "Tono · densità · qualità",
-    body: "Per sostenere tono, elasticità, comfort e qualità della pelle nel tempo. Lift, Collagen, Rebirth 60+ ed Eye Genesis entrano nel percorso quando sono davvero utili.",
+    focus: "Viso · tono, elasticità e segni del tempo",
+    body: "Indicato per perdita di tono, pelle matura, secchezza, minore elasticità o contorno occhi affaticato. Può includere Lift, Collagen, Rebirth 60+ ed Eye Genesis.",
     tools: ["Lift", "Collagen", "Rebirth 60+", "Eye Genesis"],
     href: "/contatti?percorso=longevity",
   },
   {
     name: "Forma",
-    focus: "Corpo · drenaggio · compattezza",
-    body: "Per ritrovare leggerezza, tono e armonia. Manualità, Lift Body, LPG, pressomassaggio e Tecar vengono combinati in base alla risposta del corpo.",
+    focus: "Corpo · drenaggio, tono e compattezza",
+    body: "Indicato per pesantezza, ritenzione, perdita di tono e rimodellamento. Può combinare manualità, Lift Body, LPG, pressomassaggio, Tecar e crioterapia.",
     tools: ["Lift Body", "LPG", "Pressomassaggio", "Tecar"],
     href: "/contatti?percorso=forma",
   },
   {
     name: "Libertà",
-    focus: "Laser · comfort · continuità",
-    body: "Il percorso dedicato all’epilazione laser Ice Polar. Parametri, zone e frequenza vengono definiti sulla persona e aggiornati nel tempo.",
-    tools: ["Laser a diodo", "Ice Polar", "Valutazione", "Mantenimento"],
+    focus: "Epilazione laser · viso e corpo",
+    body: "Percorso Laser Ice Polar per ridurre progressivamente la ricrescita. La valutazione definisce fototipo, pelo, zone, parametri, frequenza e prezzo.",
+    tools: ["Laser a diodo", "Ice Polar", "Viso", "Corpo"],
     href: "/epilazione-laser-carmagnola",
   },
 ];
@@ -96,18 +96,18 @@ const journeys = [
 
   <section class="rb-hero rb-hero--journeys">
     <div class="rb-hero__media">
-      <img src={media.viso.mood.src ?? media.viso.mood} alt="Percorsi viso e corpo del Metodo Rebel" />
+      <img src={media.viso.mood.src ?? media.viso.mood} alt="Trattamenti viso e corpo nello studio Rebel" />
     </div>
     <div class="rb-hero__veil"></div>
     <div class="container rb-hero__content">
-      <p class="rb-kicker">I percorsi Rebel · Carmagnola</p>
-      <h1>Quattro percorsi. <em>Uno pensato per te.</em></h1>
+      <p class="rb-kicker">Trattamenti personalizzati · Carmagnola</p>
+      <h1>Percorsi per viso, corpo <em>ed epilazione laser.</em></h1>
       <p class="rb-lead">
-        Glow, Longevity, Forma e Libertà raccolgono trattamenti, attivi e tecnologie diverse. La scelta parte sempre da ciò che vuoi migliorare e da ciò di cui pelle o corpo hanno bisogno.
+        Glow è dedicato a luminosità e uniformità del viso; Longevity a tono, pelle matura e contorno occhi; Forma a drenaggio e compattezza del corpo; Libertà al Laser Ice Polar.
       </p>
       <div class="cluster cluster--stack-mobile">
-        <a class="btn btn--primary" href="/contatti">Prenota la valutazione</a>
-        <a class="btn btn--secondary" href="/metodo-rebel">Scopri il Metodo</a>
+        <a class="btn btn--primary" href="/contatti">Prenota la prima visita</a>
+        <a class="btn btn--secondary" href="/metodo-rebel">Come scegliamo i trattamenti</a>
       </div>
     </div>
   </section>
@@ -115,12 +115,12 @@ const journeys = [
   <section class="rb-section rb-section--ivory">
     <div class="container rb-intro-grid">
       <div>
-        <p class="rb-kicker">Come scegliamo</p>
-        <h2>Prima viene la tua priorità. <em>Poi il trattamento.</em></h2>
+        <p class="rb-kicker">Scelta del trattamento</p>
+        <h2>Colleghiamo il risultato che desideri alle condizioni di pelle o corpo.</h2>
       </div>
       <div class="rb-copy">
-        <p>Due persone possono desiderare lo stesso risultato e avere bisogno di percorsi diversi. Per questo osserviamo la pelle, ascoltiamo il tuo obiettivo e definiamo insieme da dove partire.</p>
-        <p>Il percorso può cambiare nel tempo, seguendo la risposta reale di pelle e corpo.</p>
+        <p>Durante la valutazione ci racconti che cosa vuoi migliorare. Osserviamo la zona interessata e ti spieghiamo quali trattamenti possono essere adatti.</p>
+        <p>Il programma indica prodotti, manualità, tecnologie, numero indicativo di sedute, frequenza iniziale e data del controllo.</p>
       </div>
     </div>
   </section>
@@ -128,8 +128,8 @@ const journeys = [
   <section class="rb-section rb-section--plum">
     <div class="container">
       <div class="rb-section-head">
-        <p class="rb-kicker">I percorsi Rebel</p>
-        <h2>Trova quello più vicino <em>al tuo obiettivo.</em></h2>
+        <p class="rb-kicker">Quattro aree di trattamento</p>
+        <h2>Che cosa tratta ogni percorso Rebel.</h2>
       </div>
       <div class="rebel-journeys">
         {journeys.map((journey, index) => (
@@ -141,7 +141,7 @@ const journeys = [
               <div class="rebel-journey__tags">
                 {journey.tools.map((tool) => <span>{tool}</span>)}
               </div>
-              <div style="margin-top:1.5rem"><a class="btn btn--secondary" href={journey.href}>Scopri {journey.name}</a></div>
+              <div style="margin-top:1.5rem"><a class="btn btn--secondary" href={journey.href}>{journey.name === "Libertà" ? "Prezzi e zone laser" : `Richiedi informazioni su ${journey.name}`}</a></div>
             </div>
           </article>
         ))}
@@ -152,8 +152,8 @@ const journeys = [
   <section class="rb-section rb-section--ivory">
     <div class="container">
       <div class="rb-section-head">
-        <p class="rb-kicker">I protocolli</p>
-        <h2>Trattamenti specifici, scelti <em>nel momento giusto.</em></h2>
+        <p class="rb-kicker">Protocolli viso e corpo</p>
+        <h2>Trattamenti professionali con obiettivi, prezzo e indicazioni specifiche.</h2>
       </div>
       <div class="rb-protocol-grid">
         {protocolCards.map((protocol, index) => (
@@ -171,12 +171,12 @@ const journeys = [
   <section class="rb-section rb-section--spectrum">
     <div class="container rb-intro-grid">
       <div>
-        <p class="rb-kicker">Da dove partire</p>
-        <h2>La valutazione aiuta a scegliere <em>con più precisione.</em></h2>
+        <p class="rb-kicker">Prima visita gratuita</p>
+        <h2>Ti aiutiamo a scegliere tra trattamenti viso, corpo e laser.</h2>
       </div>
       <div class="rb-copy">
-        <p>Non devi conoscere già il nome del trattamento. Ti basta raccontarci ciò che vuoi migliorare, ritrovare o mantenere.</p>
-        <p>Da lì individuiamo il primo passo più adatto e definiamo insieme il percorso.</p>
+        <p>Non è necessario conoscere già il nome del protocollo. Puoi dirci, per esempio, che desideri più luminosità, meno pesantezza alle gambe, maggiore tono o meno ricrescita.</p>
+        <p>Valutiamo la zona e ti presentiamo una proposta con trattamento, frequenza e prezzo.</p>
       </div>
     </div>
   </section>
@@ -184,16 +184,16 @@ const journeys = [
   <section class="rb-section rb-section--closing">
     <div class="container">
       <InlineCta
-        kicker="Il tuo percorso Rebel"
-        title="Partiamo da ciò che vuoi _cambiare davvero_."
-        lead="Prenota una valutazione e raccontaci il tuo obiettivo. Ti aiutiamo a capire da dove iniziare."
+        kicker="Prima visita gratuita"
+        title="Raccontaci che cosa vuoi _migliorare_."
+        lead="In circa quindici minuti valutiamo la zona interessata e ti spieghiamo quali trattamenti possono essere adatti, con tempi e costi indicativi."
         primaryHref="/contatti"
-        primaryLabel="Prenota la valutazione"
+        primaryLabel="Prenota la prima visita"
         secondaryHref="/metodo-rebel"
-        secondaryLabel="Scopri il Metodo Rebel"
+        secondaryLabel="Come lavoriamo"
       />
     </div>
   </section>
 
-  <StickyBookingBar primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
+  <StickyBookingBar primary={{ label: "Prenota la prima visita", href: "/contatti" }} />
 </BaseLayout>

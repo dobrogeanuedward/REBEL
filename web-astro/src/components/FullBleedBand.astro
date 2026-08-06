@@ -1,24 +1,16 @@
 ---
-/**
- * FullBleedBand — edge-to-edge atmospheric image with overlaid copy.
- *
- * The single biggest "break the wall of text" device. Drop it between
- * dense sections. Place it OUTSIDE `.container` (it goes full viewport
- * width on its own). `title` accepts inline `_em_` markers.
- */
+import { clarifyCopy } from "@/lib/copy-clarity";
+
 interface Cta { label: string; href: string; }
 interface Props {
   image: { src: string; alt: string };
   kicker?: string;
   title?: string;
   lead?: string;
-  /** Short pull-quote rendered large instead of title (mutually exclusive vibe). */
   quote?: string;
   cite?: string;
   cta?: Cta;
-  /** Text alignment / position. Default "center". */
   align?: "center" | "left";
-  /** Band height. Default "md". */
   height?: "sm" | "md" | "lg";
 }
 
@@ -34,28 +26,34 @@ const {
   height = "md",
 } = Astro.props;
 
-const renderedTitle = title ? title.replace(/_([^_]+)_/g, (_, t) => `<em>${t}</em>`) : "";
+const clearKicker = kicker ? clarifyCopy(kicker) : undefined;
+const clearTitle = title ? clarifyCopy(title) : undefined;
+const clearLead = lead ? clarifyCopy(lead) : undefined;
+const clearQuote = quote ? clarifyCopy(quote) : undefined;
+const clearCite = cite ? clarifyCopy(cite) : undefined;
+const clearCta = cta ? { ...cta, label: clarifyCopy(cta.label) } : undefined;
+const renderedTitle = clearTitle ? clearTitle.replace(/_([^_]+)_/g, (_, t) => `<em>${t}</em>`) : "";
 ---
 <section
   class={`fullbleed fullbleed--${height} fullbleed--${align}`}
-  aria-label={title ?? quote ?? image.alt}
+  aria-label={clearTitle ?? clearQuote ?? image.alt}
 >
   <img class="fullbleed__img" src={image.src} alt={image.alt} loading="lazy" decoding="async" />
   <div class="fullbleed__veil" aria-hidden="true"></div>
   <div class="container fullbleed__inner">
-    {kicker ? <p class="fullbleed__kicker" data-reveal>{kicker}</p> : null}
-    {quote ? (
+    {clearKicker ? <p class="fullbleed__kicker" data-reveal>{clearKicker}</p> : null}
+    {clearQuote ? (
       <blockquote class="fullbleed__quote" data-reveal>
-        <p>{quote}</p>
-        {cite ? <cite>{cite}</cite> : null}
+        <p>{clearQuote}</p>
+        {clearCite ? <cite>{clearCite}</cite> : null}
       </blockquote>
-    ) : title ? (
+    ) : clearTitle ? (
       <h2 class="fullbleed__title" data-reveal set:html={renderedTitle}></h2>
     ) : null}
-    {lead ? <p class="fullbleed__lead" data-reveal>{lead}</p> : null}
-    {cta ? (
+    {clearLead ? <p class="fullbleed__lead" data-reveal>{clearLead}</p> : null}
+    {clearCta ? (
       <div class="fullbleed__actions" data-reveal>
-        <a class="btn btn--primary btn--halo" href={cta.href}>{cta.label}</a>
+        <a class="btn btn--primary btn--halo" href={clearCta.href}>{clearCta.label}</a>
       </div>
     ) : null}
   </div>
@@ -128,10 +126,7 @@ const renderedTitle = title ? title.replace(/_([^_]+)_/g, (_, t) => `<em>${t}</e
     background-clip: text;
     color: transparent;
   }
-  .fullbleed__quote {
-    margin: 0;
-    max-width: 24ch;
-  }
+  .fullbleed__quote { margin: 0; max-width: 24ch; }
   .fullbleed__quote p {
     font-family: var(--font-display);
     font-style: italic;

@@ -38,7 +38,6 @@ export async function getStaticPaths() {
 
 const { service } = Astro.props;
 
-// Mood band image, chosen by service family.
 const moodImage = service.category === "laser" ? media.laser.mood : media.studio.cabin;
 
 const fallbackImage =
@@ -47,8 +46,6 @@ const fallbackImage =
     : "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/7dc5354b-33e1-4a9e-a21d-ff321ecf4500/public";
 
 const baseServiceName = service.name.replace(/\s+a Carmagnola$/i, "").trim();
-// Numeric "from" price extracted from priceHint ("da EUR 26" → 26) so we can
-// add a Schema.org Offer to the Service node (helps service-specific SERPs).
 const priceFromMatch = service.priceHint.match(/(\d+(?:[.,]\d+)?)/);
 const priceFrom = priceFromMatch ? Number(priceFromMatch[1].replace(",", ".")) : undefined;
 const priceIntentKeywords = [
@@ -153,7 +150,7 @@ const featuredAreas = localAreaPages.filter((a) => a.cluster === "asse-carmagnol
 const relatedCompetencesSchema =
   relatedCompetences.length > 0
     ? buildItemListSchema({
-        name: `Competenze correlate a ${service.name}`,
+        name: `Guide correlate a ${service.name}`,
         path: `/servizi/${service.slug}`,
         items: relatedCompetences.map((c) => ({ name: c.title, path: `/competenze/${c.slug}` })),
       })
@@ -161,7 +158,7 @@ const relatedCompetencesSchema =
 const relatedProtocolsSchema =
   relatedProtocols.length > 0
     ? buildItemListSchema({
-        name: `Protocolli epigenetici utili dopo ${service.name}`,
+        name: `Protocolli professionali collegati a ${service.name}`,
         path: `/servizi/${service.slug}`,
         items: relatedProtocols.map((p) => ({ name: p.name, path: `/protocolli/${p.slug}` })),
       })
@@ -169,7 +166,7 @@ const relatedProtocolsSchema =
 const siblingServicesSchema =
   siblingServices.length > 0
     ? buildItemListSchema({
-        name: `Altri servizi simili a ${service.name}`,
+        name: `Altri servizi della stessa categoria di ${service.name}`,
         path: `/servizi/${service.slug}`,
         items: siblingServices.map((s) => ({ name: s.name, path: `/servizi/${s.slug}` })),
       })
@@ -177,7 +174,7 @@ const siblingServicesSchema =
 const featuredAreasSchema =
   featuredAreas.length > 0
     ? buildItemListSchema({
-        name: `Località vicine per ${service.name}`,
+        name: `Indicazioni dai comuni vicini per ${service.name}`,
         path: `/servizi/${service.slug}`,
         items: featuredAreas.map((a) => ({ name: a.city, path: `/localita/${a.slug}` })),
       })
@@ -186,10 +183,6 @@ const featuredAreasSchema =
 const editorialSections = service.editorialSections ?? [];
 const sourceLinks = service.sourceLinks ?? [];
 
-// "Money" services: pages where it's worth carpet-bombing the "near me"
-// intent with an extra anchor-text block (semipermanente, laminazione,
-// pedicure, laser viso/corpo). Anchor pattern = "<service short> a <City>",
-// the literal phrase users type into Google.
 const moneySlugs = new Set([
   "manicure-semipermanente-carmagnola",
   "laminazione-ciglia-sopracciglia-carmagnola",
@@ -200,14 +193,10 @@ const moneySlugs = new Set([
   "epilazione-laser-corpo-carmagnola",
 ]);
 const showNearMe = moneySlugs.has(service.slug);
-// Short label for anchor text (without "a Carmagnola" tail) so Google sees
-// "Manicure semipermanente a Carignano" — exact "<service> a <city>" pattern.
 const nearMeLabel = baseServiceName
   .replace(/\s+a\s+Carmagnola$/i, "")
   .replace(/\s+ciglia\s+e\s+sopracciglia$/i, " ciglia/sopracciglia");
 
-// Dedicated service×city pages — href overrides so NearMeBlock links to the
-// money page instead of the generic /localita/{slug} for these 3 cities.
 const nearMeHrefOverridesMap: Record<string, Record<string, string>> = {
   "pulizia-viso-carmagnola": {
     alba: "/pulizia-viso-alba",
@@ -261,15 +250,15 @@ const nearMeHrefOverridesMap: Record<string, Record<string, string>> = {
 const nearMeHrefOverrides = nearMeHrefOverridesMap[service.slug] ?? {};
 
 const tocItems = [
-  { id: "benefici", label: "Benefici" },
-  { id: "prezzi", label: "Prezzi" },
-  ...(editorialSections.length > 0 ? [{ id: "dettagli", label: "Dettagli utili" }] : []),
+  { id: "benefici", label: "Obiettivi" },
+  { id: "prezzi", label: "Prezzo" },
+  ...(editorialSections.length > 0 ? [{ id: "dettagli", label: "Come si svolge" }] : []),
   { id: "faq", label: "Domande frequenti" },
-  { id: "guide", label: "Guide utili" },
-  ...(sourceLinks.length > 0 ? [{ id: "fonti", label: "Fonti e riferimenti" }] : []),
-  ...(relatedProtocols.length > 0 ? [{ id: "protocolli", label: "Passo più avanzato" }] : []),
-  { id: "anche", label: "Guarda anche" },
-  ...(featuredAreas.length > 0 ? [{ id: "localita", label: "Località vicine" }] : []),
+  { id: "guide", label: "Guide collegate" },
+  ...(sourceLinks.length > 0 ? [{ id: "fonti", label: "Fonti" }] : []),
+  ...(relatedProtocols.length > 0 ? [{ id: "protocolli", label: "Protocolli collegati" }] : []),
+  { id: "anche", label: "Servizi simili" },
+  ...(featuredAreas.length > 0 ? [{ id: "localita", label: "Come raggiungerci" }] : []),
 ];
 ---
 <BaseLayout meta={meta} bodyClass={`page-servizio-detail ${service.category === "laser" ? "page-servizio-laser" : "page-servizio-classica"}`}>
@@ -285,16 +274,16 @@ const tocItems = [
 
   <PageHero
     image={service.heroImage}
-    kicker={service.category === "laser" ? "Servizio laser" : "Servizio estetica"}
+    kicker={service.category === "laser" ? "Epilazione laser · Carmagnola" : "Trattamento estetico · Carmagnola"}
     title={service.name.replace(/Carmagnola/i, "_Carmagnola_")}
     lead={service.longDescription}
-    bullets={[service.priceHint, "Prima visita gratuita", "Su appuntamento · Carmagnola"]}
+    bullets={[service.priceHint, "Scheda con modalità e indicazioni", "Su appuntamento · Carmagnola"]}
     meta={[
-      `${readingMinutes} min lettura`,
+      `${readingMinutes} min di lettura`,
       `Aggiornato ${siteConfig.lastUpdated}`,
     ]}
-    ctaPrimary={{ label: "Prenota consulenza", href: "/contatti", halo: true }}
-    ctaSecondary={{ label: "WhatsApp", href: siteConfig.social.whatsapp }}
+    ctaPrimary={{ label: "Prenota la prima visita", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp }}
   />
 
   <section class="section">
@@ -302,8 +291,9 @@ const tocItems = [
       <article class="detail-main">
         <div id="benefici">
           <SectionHead
-            kicker="Cosa puoi notare"
-            title={`Benefici di _${baseServiceName}_.`}
+            kicker="Obiettivi del trattamento"
+            title={`A che cosa serve _${baseServiceName}_.`}
+            lead="Questa sezione riassume le esigenze a cui è dedicato il servizio e i risultati estetici che può sostenere."
           />
           <p class="detail-lead">{service.shortDescription}</p>
           <KeyPointsGrid points={service.benefits} />
@@ -311,20 +301,20 @@ const tocItems = [
 
         <div id="prezzi" class="detail-section">
           <SectionHead
-            kicker="Prezzi"
+            kicker="Prezzo"
             title={`Quanto costa _${baseServiceName}_ a Carmagnola.`}
-            lead={`Per ${service.name} il riferimento parte da ${service.priceHint}. Il prezzo è una scelta coerente col risultato, non un numero isolato.`}
+            lead={`Il prezzo indicato per ${baseServiceName} è ${service.priceHint}. Apri il listino completo per confrontare eventuali varianti di zona, durata o modalità.`}
           />
           <div class="card-grid card-grid--2">
             <FeatureCard
-              kicker="Come si legge"
-              title="Prezzo come ingresso al risultato"
-              body="Intensità, frequenza e progressione vengono adattate a pelle e obiettivo. Il prezzo è la porta — non la promessa."
+              kicker="Prezzo indicato"
+              title={service.priceHint}
+              body="La scheda riporta il prezzo di riferimento del servizio. Quando esistono varianti per zona, durata o tipologia, sono indicate nel listino o comunicate prima della prenotazione."
             />
             <FeatureCard
-              kicker="Vuoi il quadro completo?"
-              title="Listino aggiornato"
-              body="Tutti i trattamenti Rebel — estetica, laser, protocolli — con prezzi indicativi aggiornati."
+              kicker="Tutti i prezzi"
+              title="Listino completo Rebel"
+              body="Prezzi di trattamenti viso, corpo, beauty, epilazione laser e protocolli professionali."
               href="/listino-estetica-laser"
             />
           </div>
@@ -333,8 +323,9 @@ const tocItems = [
         {editorialSections.length > 0 ? (
           <div id="dettagli" class="detail-section">
             <SectionHead
-              kicker="Da sapere"
-              title={`Prima di prenotare _${baseServiceName}_.`}
+              kicker="Come si svolge"
+              title={`Preparazione, seduta e indicazioni per _${baseServiceName}_.`}
+              lead="Le sezioni seguenti spiegano che cosa succede prima, durante e dopo l’appuntamento."
             />
             <div class="editorial-flow">
               {editorialSections.map((s) => (
@@ -347,16 +338,16 @@ const tocItems = [
         <div id="faq" class="detail-section">
           <SectionHead
             kicker="Domande frequenti"
-            title="Le risposte _utili_ prima di scegliere."
+            title={`Durata, frequenza, preparazione e indicazioni su _${baseServiceName}_.`}
           />
-          <FaqAccordion items={service.faqs} kicker={`Su ${baseServiceName}`} />
+          <FaqAccordion items={service.faqs} kicker={`FAQ ${baseServiceName}`} />
         </div>
 
         {sourceLinks.length > 0 ? (
           <div id="fonti" class="detail-section">
             <SectionHead
               kicker="Fonti e riferimenti"
-              title="Da dove viene _ciò che diciamo_."
+              title="Documenti utilizzati per le informazioni tecniche della pagina."
             />
             <ul class="source-list">
               {sourceLinks.map((s) => (
@@ -371,8 +362,9 @@ const tocItems = [
         {relatedCompetences.length > 0 ? (
           <div id="guide" class="detail-section">
             <SectionHead
-              kicker="Approfondimenti"
-              title={`Guide utili se valuti _${baseServiceName}_.`}
+              kicker="Guide collegate"
+              title={`Approfondimenti pratici su _${baseServiceName}_.`}
+              lead="Informazioni aggiuntive su preparazione, frequenza, risultati e situazioni specifiche."
             />
             <div class="card-grid card-grid--2">
               {relatedCompetences.map((c, i) => (
@@ -392,9 +384,9 @@ const tocItems = [
         {relatedProtocols.length > 0 ? (
           <div id="protocolli" class="detail-section">
             <SectionHead
-              kicker="Passo più avanzato"
-              title="Quando vuoi _alzare l'asticella_."
-              lead="Alcune persone entrano da qui e poi scelgono un protocollo più completo per glow, tono, densità."
+              kicker="Protocolli collegati"
+              title="Trattamenti professionali che possono integrare questo servizio."
+              lead="Le schede riportano obiettivo, prezzo e indicazioni dei protocolli viso o corpo collegati."
             />
             <div class="card-grid card-grid--2">
               {relatedProtocols.map((p, i) => (
@@ -413,8 +405,8 @@ const tocItems = [
 
         <div id="anche" class="detail-section">
           <SectionHead
-            kicker="Continua a esplorare"
-            title={`Se ti interessa _${baseServiceName}_, guarda anche.`}
+            kicker="Servizi simili"
+            title={`Altri trattamenti della stessa categoria di _${baseServiceName}_.`}
           />
           <div class="card-grid card-grid--2">
             {siblingServices.map((s, i) => (
@@ -432,9 +424,9 @@ const tocItems = [
         {featuredAreas.length > 0 ? (
           <div id="localita" class="detail-section">
             <SectionHead
-              kicker="Località vicine"
-              title="Se _arrivi da fuori_."
-              lead="Pagine dedicate ai comuni vicini, con focus diversi (laser, viso/corpo, protocolli)."
+              kicker="Come raggiungerci"
+              title="Indicazioni per chi arriva dai comuni vicini."
+              lead="Apri la pagina del tuo comune per leggere distanza e percorso verso Viale Barbaroux 20 a Carmagnola."
             />
             <div class="card-grid card-grid--2">
               {featuredAreas.map((a, i) => (
@@ -455,13 +447,13 @@ const tocItems = [
       <aside class="detail-aside">
         <TableOfContents items={tocItems} />
         <InlineCta
-          kicker="Apri il servizio giusto"
-          title={`Definiamo se _${baseServiceName}_ è la scelta migliore.`}
-          lead="Scrivici zona, obiettivo e tempi: orientiamo verso il trattamento più coerente."
+          kicker="Prima visita gratuita"
+          title={`Scopri se _${baseServiceName}_ è adatto alla tua esigenza.`}
+          lead="In circa quindici minuti valutiamo la zona e ti comunichiamo trattamento, frequenza e prezzo prima della prenotazione."
           primaryHref="/contatti"
-          primaryLabel="Apri consulenza"
+          primaryLabel="Prenota la prima visita"
           secondaryHref="/listino-estetica-laser"
-          secondaryLabel="Listino"
+          secondaryLabel="Consulta il listino"
         />
       </aside>
     </div>
@@ -471,9 +463,9 @@ const tocItems = [
     image={moodImage}
     height="sm"
     align="left"
-    kicker="Da Rebel, a Carmagnola"
-    title={`Pronta per _${baseServiceName}_?`}
-    lead="Prima visita gratuita: leggiamo la tua situazione, ti diciamo cosa ha senso e con quali tempi. Senza obbligo di pacchetti."
+    kicker={`${baseServiceName} · Rebel Carmagnola`}
+    title={`Prenota _${baseServiceName}_ a Carmagnola.`}
+    lead="La prima visita gratuita chiarisce modalità del trattamento, frequenza indicativa, prezzo e possibili alternative."
     cta={{ label: "Prenota la prima visita", href: "/contatti" }}
   />
 
@@ -488,7 +480,7 @@ const tocItems = [
     />
   ) : null}
 
-  <StickyBookingBar priceHint={service.priceHint} primary={{ label: "Prenota gratis", href: "/contatti" }} />
+  <StickyBookingBar priceHint={service.priceHint} primary={{ label: "Prenota la prima visita", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

@@ -37,8 +37,6 @@ export async function getStaticPaths() {
 const { competence } = Astro.props;
 const compactTitle = competence.title.replace(/\s+a Carmagnola$/i, "").trim();
 
-// Per-topic imagery so each guide gets a coherent hero + mood band instead of
-// the same studio shot everywhere (reduces the "templated" duplicate signal).
 const resolveTheme = (slug: string): { hero: ImageAsset; mood: ImageAsset } => {
   if (/laser|peli-incarniti/.test(slug)) return { hero: media.laser.hero, mood: media.laser.mood };
   if (/laminazione|ciglia|sopracciglia/.test(slug)) return { hero: media.lamina.hero, mood: media.lamina.mood };
@@ -88,7 +86,7 @@ const slugifyId = (value: string) =>
 
 const breadcrumb = buildBreadcrumbSchema([
   { name: "Home", path: "/" },
-  { name: "Competenze", path: "/competenze" },
+  { name: "Guide", path: "/competenze" },
   { name: competence.title, path: `/competenze/${competence.slug}` },
 ]);
 const webPage = buildWebPageSchema({
@@ -101,7 +99,7 @@ const articleSchema = buildArticleSchema({
   description: competence.longDescription,
   path: `/competenze/${competence.slug}`,
   keywords: competence.keywords,
-  section: competence.intent === "commercial" ? "Guide commerciali" : "Guide informative",
+  section: competence.intent === "commercial" ? "Guide a servizi e prenotazione" : "Guide pratiche",
   image: competence.heroImage?.src,
 });
 const faqSchema = {
@@ -146,7 +144,7 @@ const featuredAreas = localAreaPages.filter((a) => a.cluster === "asse-carmagnol
 const relatedServicesSchema =
   relatedServices.length > 0
     ? buildItemListSchema({
-        name: `Servizi consigliati per ${competence.title}`,
+        name: `Servizi collegati a ${competence.title}`,
         path: `/competenze/${competence.slug}`,
         items: relatedServices.map((s) => ({ name: s.name, path: `/servizi/${s.slug}` })),
       })
@@ -154,7 +152,7 @@ const relatedServicesSchema =
 const relatedCompetencesSchema =
   relatedCompetences.length > 0
     ? buildItemListSchema({
-        name: `Guide correlate a ${competence.title}`,
+        name: `Altre guide su ${competence.title}`,
         path: `/competenze/${competence.slug}`,
         items: relatedCompetences.map((c) => ({ name: c.title, path: `/competenze/${c.slug}` })),
       })
@@ -162,7 +160,7 @@ const relatedCompetencesSchema =
 const relatedProtocolsSchema =
   relatedProtocols.length > 0
     ? buildItemListSchema({
-        name: `Protocolli epigenetici utili per ${competence.title}`,
+        name: `Protocolli professionali collegati a ${competence.title}`,
         path: `/competenze/${competence.slug}`,
         items: relatedProtocols.map((p) => ({ name: p.name, path: `/protocolli/${p.slug}` })),
       })
@@ -170,7 +168,7 @@ const relatedProtocolsSchema =
 const featuredAreasSchema =
   featuredAreas.length > 0
     ? buildItemListSchema({
-        name: `Località vicine per ${competence.title}`,
+        name: `Indicazioni dai comuni vicini per ${competence.title}`,
         path: `/competenze/${competence.slug}`,
         items: featuredAreas.map((a) => ({ name: a.city, path: `/localita/${a.slug}` })),
       })
@@ -180,14 +178,14 @@ const editorialSections = competence.editorialSections ?? [];
 const sourceLinks = competence.sourceLinks ?? [];
 
 const tocItems = [
-  { id: "punti-chiave", label: "Punti chiave" },
-  ...(editorialSections.length > 0 ? [{ id: "guida", label: "Guida dal nostro studio" }] : []),
+  { id: "punti-chiave", label: "Informazioni principali" },
+  ...(editorialSections.length > 0 ? [{ id: "guida", label: "Come funziona" }] : []),
   { id: "faq", label: "Domande frequenti" },
-  ...(relatedServices.length > 0 ? [{ id: "servizi", label: "Servizi abbinati" }] : []),
-  ...(sourceLinks.length > 0 ? [{ id: "fonti", label: "Fonti e riferimenti" }] : []),
-  ...(relatedProtocols.length > 0 ? [{ id: "protocolli", label: "Passo più avanzato" }] : []),
-  ...(relatedCompetences.length > 0 ? [{ id: "correlate", label: "Guide correlate" }] : []),
-  ...(featuredAreas.length > 0 ? [{ id: "localita", label: "Comuni vicini" }] : []),
+  ...(relatedServices.length > 0 ? [{ id: "servizi", label: "Servizi collegati" }] : []),
+  ...(sourceLinks.length > 0 ? [{ id: "fonti", label: "Fonti" }] : []),
+  ...(relatedProtocols.length > 0 ? [{ id: "protocolli", label: "Protocolli collegati" }] : []),
+  ...(relatedCompetences.length > 0 ? [{ id: "correlate", label: "Altre guide" }] : []),
+  ...(featuredAreas.length > 0 ? [{ id: "localita", label: "Come raggiungerci" }] : []),
 ];
 ---
 <BaseLayout meta={meta} bodyClass={`page-competenza-detail page-competenza-${competence.intent === "commercial" ? "commercial" : "informational"}`}>
@@ -202,16 +200,16 @@ const tocItems = [
 
   <PageHero
     image={theme.hero}
-    kicker={competence.intent === "commercial" ? "Percorso e prenotazione" : "Approfondimento beauty"}
+    kicker={competence.intent === "commercial" ? "Servizi, prezzi e prenotazione" : "Guida pratica Rebel"}
     title={compactTitle.replace(/(\b\w+\b)$/, "_$1_")}
     lead={competence.longDescription}
     meta={[
       competence.localAngle,
-      `${readingMinutes} min lettura`,
+      `${readingMinutes} min di lettura`,
       `Aggiornato ${siteConfig.lastUpdated}`,
     ]}
-    ctaPrimary={{ label: "Apri consulenza", href: "/contatti", halo: true }}
-    ctaSecondary={{ label: "WhatsApp", href: siteConfig.social.whatsapp }}
+    ctaPrimary={{ label: "Prenota la prima visita", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp }}
   />
 
   <section class="section">
@@ -219,8 +217,8 @@ const tocItems = [
       <article class="detail-main">
         <div id="punti-chiave">
           <SectionHead
-            kicker={competence.intent === "commercial" ? "Prima di prenotare" : "In sintesi"}
-            title={`Su _${compactTitle}_: ciò che conta davvero.`}
+            kicker={competence.intent === "commercial" ? "Informazioni prima di prenotare" : "Informazioni principali"}
+            title={`Che cosa sapere su _${compactTitle}_.`}
           />
           {competence.heroImage ? (
             <div class="detail-cover">
@@ -235,14 +233,15 @@ const tocItems = [
             </div>
           ) : null}
           <p class="detail-lead">{competence.shortDescription}</p>
-          <KeyPointsGrid title="Punti chiave (pratici)" points={competence.benefits} />
+          <KeyPointsGrid title="Informazioni essenziali" points={competence.benefits} />
         </div>
 
         {editorialSections.length > 0 ? (
           <div id="guida" class="detail-section">
             <SectionHead
-              kicker="Dal nostro studio"
-              title={`Su _${compactTitle}_: l'esperienza in cabina.`}
+              kicker="Come funziona nello studio Rebel"
+              title={`Preparazione, trattamento e indicazioni su _${compactTitle}_.`}
+              lead="Le sezioni seguenti spiegano modalità, tempi, precauzioni e gestione dopo l’appuntamento."
             />
             <div class="editorial-flow">
               {editorialSections.map((s) => (
@@ -255,16 +254,16 @@ const tocItems = [
         <div id="faq" class="detail-section">
           <SectionHead
             kicker="Domande frequenti"
-            title={`Su _${compactTitle}_, le risposte chiare.`}
+            title={`Risposte su tempi, modalità e indicazioni per _${compactTitle}_.`}
           />
-          <FaqAccordion items={competence.faqs} kicker={`Su ${compactTitle}`} />
+          <FaqAccordion items={competence.faqs} kicker={`FAQ ${compactTitle}`} />
         </div>
 
         {sourceLinks.length > 0 ? (
           <div id="fonti" class="detail-section">
             <SectionHead
               kicker="Fonti e riferimenti"
-              title="Da dove vengono _le nostre fonti_."
+              title="Documenti utilizzati per le informazioni tecniche della guida."
             />
             <ul class="source-list">
               {sourceLinks.map((s) => (
@@ -279,8 +278,9 @@ const tocItems = [
         {relatedServices.length > 0 ? (
           <div id="servizi" class="detail-section">
             <SectionHead
-              kicker="Servizi abbinati"
-              title={`Trattamenti che si abbinano a _${compactTitle}_.`}
+              kicker="Servizi collegati"
+              title={`Trattamenti Rebel collegati a _${compactTitle}_.`}
+              lead="Apri le schede per leggere descrizione, prezzo, durata e indicazioni di prenotazione."
             />
             <div class="card-grid card-grid--2">
               {relatedServices.map((s, i) => (
@@ -299,9 +299,9 @@ const tocItems = [
         {relatedProtocols.length > 0 ? (
           <div id="protocolli" class="detail-section">
             <SectionHead
-              kicker="Passo più avanzato"
-              title="Quando vuoi un percorso _più ricco_."
-              lead="Protocolli centrali quando desideri progressione: più glow, tono, densità, resa complessiva."
+              kicker="Protocolli collegati"
+              title="Trattamenti professionali per esigenze specifiche di viso o corpo."
+              lead="Ogni scheda riporta obiettivo, prezzo, modalità e indicazioni prima della prenotazione."
             />
             <div class="card-grid card-grid--2">
               {relatedProtocols.map((p, i) => (
@@ -321,13 +321,13 @@ const tocItems = [
         {relatedCompetences.length > 0 ? (
           <div id="correlate" class="detail-section">
             <SectionHead
-              kicker="Guide correlate"
-              title={curatedCompetences.length > 0 ? "Letture _scelte per te_." : "Altre guide _simili_."}
+              kicker="Altre guide"
+              title="Approfondimenti su servizi ed esigenze collegate."
             />
             <div class="card-grid card-grid--2">
               {relatedCompetences.map((c, i) => (
                 <FeatureCard
-                  kicker="Leggi anche"
+                  kicker="Guida"
                   title={c.title}
                   body={c.shortDescription}
                   href={`/competenze/${c.slug}`}
@@ -342,9 +342,9 @@ const tocItems = [
         {featuredAreas.length > 0 ? (
           <div id="localita" class="detail-section">
             <SectionHead
-              kicker="Comuni vicini"
-              title="Se _arrivi da fuori Carmagnola_."
-              lead="Pagine dedicate ai comuni vicini, ognuna con un focus diverso."
+              kicker="Come raggiungerci"
+              title="Indicazioni per chi arriva dai comuni vicini."
+              lead="Apri la pagina del tuo comune per leggere distanza e percorso verso Viale Barbaroux 20 a Carmagnola."
             />
             <div class="card-grid card-grid--2">
               {featuredAreas.map((a, i) => (
@@ -365,13 +365,13 @@ const tocItems = [
       <aside class="detail-aside">
         <TableOfContents items={tocItems} />
         <InlineCta
-          kicker="Porta la guida nel tuo percorso"
-          title={`_${compactTitle}_: trasforma la lettura in scelta.`}
-          lead="Definiamo priorità, calendario e il trattamento più coerente con la tua pelle."
+          kicker="Prima visita gratuita"
+          title={`Hai bisogno di sapere quale servizio prenotare per _${compactTitle}_?`}
+          lead="In circa quindici minuti valutiamo la zona e ti comunichiamo trattamento consigliato, frequenza e prezzo."
           primaryHref="/contatti"
-          primaryLabel="Apri consulenza"
+          primaryLabel="Prenota la prima visita"
           secondaryHref="/listino-estetica-laser"
-          secondaryLabel="Listino"
+          secondaryLabel="Consulta il listino"
         />
       </aside>
     </div>
@@ -381,13 +381,13 @@ const tocItems = [
     image={theme.mood}
     height="sm"
     align="left"
-    kicker="Da Rebel, a Carmagnola"
-    quote={`${compactTitle}: dalle parole a un piano concreto, pensato sulla tua pelle.`}
+    kicker={`${compactTitle} · Rebel Carmagnola`}
+    quote={`Informazioni, servizi e prenotazione per ${compactTitle}.`}
     cite="Studio Rebel · Viale Barbaroux 20"
     cta={{ label: "Prenota la prima visita", href: "/contatti" }}
   />
 
-  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
+  <StickyBookingBar primary={{ label: "Prenota la prima visita", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

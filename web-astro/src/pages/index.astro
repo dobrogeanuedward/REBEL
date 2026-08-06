@@ -13,9 +13,9 @@ import {
 } from "@/lib/seo";
 
 const meta = createPageMeta({
-  title: "Rebel Estetica Epigenetica a Carmagnola — Metodo, Percorsi e Laser",
+  title: "Rebel Estetica Epigenetica a Carmagnola — Viso, Corpo e Laser",
   description:
-    "Rebel crea percorsi estetici personalizzati a Carmagnola: valutazione iniziale, attivi epigenetici, tecnologie e Laser Ice Polar.",
+    "Centro estetico a Carmagnola per trattamenti viso, percorsi corpo, epilazione Laser Ice Polar, manicure e benessere. Valutazione iniziale gratuita.",
   path: "/",
   keywords: [
     "centro estetico Carmagnola",
@@ -31,7 +31,7 @@ const meta = createPageMeta({
 const breadcrumb = buildBreadcrumbSchema([{ name: "Home", path: "/" }]);
 const webPage = buildWebPageSchema({ name: "Rebel Estetica Epigenetica", description: meta.description, path: "/" });
 const article = buildArticleSchema({
-  headline: "La tua pelle cambia. Anche il percorso deve cambiare.",
+  headline: "Trattamenti viso, percorsi corpo ed epilazione laser a Carmagnola",
   description: meta.description,
   path: "/",
   keywords: ["Metodo Rebel", "estetica epigenetica", "Carmagnola"],
@@ -44,47 +44,55 @@ const bodyImage = "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/9d9033f2-f11
 const freedomImage = "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e63a6c84-f777-4f2d-995b-eef9c7e09900/public";
 
 const method = [
-  ["01", "Ti ascoltiamo", "Partiamo da ciò che vuoi migliorare e da come vivi la tua pelle ogni giorno."],
-  ["02", "Osserviamo la pelle", "Valutiamo il momento attuale e capiamo quali aspetti meritano più attenzione."],
-  ["03", "Definiamo la priorità", "Stabiliamo insieme da dove iniziare e quale risultato vogliamo raggiungere."],
-  ["04", "Costruiamo il percorso", "Scegliamo manualità, attivi e tecnologie in funzione delle tue esigenze."],
-  ["05", "Seguiamo l’evoluzione", "Controlliamo la risposta della pelle e aggiorniamo frequenza e intensità."],
-  ["06", "Manteniamo il risultato", "Consolidiamo ciò che hai ottenuto con richiami mirati e una routine essenziale."],
+  ["01", "Ascoltiamo l’obiettivo", "Ci racconti cosa vuoi migliorare, quali trattamenti hai già provato e quanto tempo puoi dedicare al percorso."],
+  ["02", "Valutiamo pelle o corpo", "Osserviamo idratazione, sensibilità, tono, uniformità, tessuti e caratteristiche della zona interessata."],
+  ["03", "Definiamo il risultato", "Stabiliamo un obiettivo concreto e realistico, così sai che cosa stiamo trattando e perché."],
+  ["04", "Scegliamo i trattamenti", "Combiniamo manualità, attivi e tecnologie adatti alla zona e al risultato concordato."],
+  ["05", "Controlliamo i cambiamenti", "Verifichiamo la risposta e modifichiamo frequenza, intensità o combinazioni quando necessario."],
+  ["06", "Manteniamo il risultato", "Programmiamo richiami e una routine essenziale per conservare ciò che hai ottenuto."],
 ];
 
-const priorities = ["Comfort", "Purezza", "Luminosità", "Idratazione", "Struttura", "Uniformità", "Longevità"];
+const priorities = [
+  "Sensibilità e comfort",
+  "Impurità e imperfezioni",
+  "Pelle spenta",
+  "Disidratazione",
+  "Perdita di tono",
+  "Macchie e colorito irregolare",
+  "Segni del tempo",
+];
 
 const journeys = [
   {
     name: "Glow",
-    kicker: "Percorsi viso",
-    copy: "Per una pelle più luminosa, uniforme e vitale. Ogni fase viene scelta in base alla priorità del momento.",
+    kicker: "Viso · luminosità e uniformità",
+    copy: "Per pelle spenta, irregolare o disidratata. Può includere Skin Reset, Catalysis, Cell Regen e attivi epigenetici.",
     image: faceImage,
     tags: ["Skin Reset", "Catalysis", "Cell Regen", "Attivi epigenetici"],
     href: "/protocolli-epigenetici",
   },
   {
     name: "Longevity",
-    kicker: "Mantenere ciò che hai conquistato",
-    copy: "Un percorso dedicato a elasticità, tonicità e qualità della pelle, pensato per accompagnarla nel tempo.",
+    kicker: "Viso · tono e segni del tempo",
+    copy: "Per lavorare su elasticità, compattezza, comfort e qualità della pelle con protocolli dedicati anche al contorno occhi.",
     image: faceImage,
     tags: ["Lift", "Collagen", "Rebirth 60+", "Eye Genesis"],
     href: "/protocolli-epigenetici",
   },
   {
     name: "Forma",
-    kicker: "Ritrovare leggerezza e tono",
-    copy: "Un programma progressivo costruito su tessuti, microcircolo, ritenzione e obiettivi personali.",
+    kicker: "Corpo · drenaggio e compattezza",
+    copy: "Per pesantezza, ritenzione, tono e rimodellamento. Può combinare Lift Body, LPG, pressomassaggio, Tecar e crioterapia.",
     image: bodyImage,
     tags: ["Lift Body", "LPG", "Pressomassaggio", "Tecar", "Crioterapia"],
     href: "/protocolli-epigenetici",
   },
   {
     name: "Libertà",
-    kicker: "Pelle liscia. Senza pensieri.",
-    copy: "Il percorso dedicato all’epilazione combina valutazione iniziale, Laser Ice Polar e un calendario costruito sulla zona e sulla risposta reale.",
+    kicker: "Epilazione laser · viso e corpo",
+    copy: "Laser Ice Polar con valutazione iniziale, parametri personalizzati e calendario definito per ogni zona.",
     image: freedomImage,
-    tags: ["Laser Ice Polar", "Comfort", "Progressione", "Total Body"],
+    tags: ["Laser Ice Polar", "Viso", "Corpo", "Total Body"],
     href: "/epilazione-laser-carmagnola",
   },
 ];
@@ -100,29 +108,29 @@ const journeys = [
         <div class="rebel-hero__eyebrow" data-reveal>
           <span>Rebel · Estetica Epigenetica</span><span>Viale Barbaroux 20 · Carmagnola</span>
         </div>
-        <h1 class="rebel-display" data-reveal style="--reveal-delay:50ms">La tua pelle cambia.</h1>
+        <h1 class="rebel-display" data-reveal style="--reveal-delay:50ms">Trattamenti viso costruiti sulla tua pelle.</h1>
         <div class="rebel-spectrum-rule"></div>
         <p class="rebel-lead" data-reveal style="--reveal-delay:120ms">
-          Anche il percorso deve cambiare. Da Rebel ogni trattamento nasce da una valutazione della pelle,
-          delle tue esigenze e del risultato che vuoi raggiungere.
+          Valutiamo idratazione, luminosità, uniformità, comfort e tono. Poi scegliamo trattamenti,
+          attivi epigenetici e tecnologie adatti all’obiettivo che vuoi raggiungere.
         </p>
         <div class="rebel-hero__actions" data-reveal style="--reveal-delay:180ms">
-          <a class="btn btn--primary" href="/metodo-rebel">Scopri il Metodo Rebel</a>
+          <a class="btn btn--primary" href="/metodo-rebel">Come lavoriamo</a>
           <a class="btn btn--secondary" href="/contatti">Prenota la prima visita</a>
         </div>
-        <div class="rebel-hero__signature"><strong>Be Beautiful. Be Rebel.</strong><span>Prima la pelle. Poi la tecnologia.</span></div>
+        <div class="rebel-hero__signature"><strong>Be Beautiful. Be Rebel.</strong><span>Viso · corpo · laser · Carmagnola</span></div>
       </div>
     </section>
 
     <section class="rebel-section rebel-section--paper">
       <div class="rebel-container rebel-manifesto">
         <div>
-          <p class="rebel-kicker">Come lavoriamo</p>
-          <h2 class="rebel-manifesto__quote">La pelle cambia.<br/><em>Il percorso evolve.</em></h2>
+          <p class="rebel-kicker">Estetica epigenetica</p>
+          <h2 class="rebel-manifesto__quote">Valutiamo la pelle.<br/><em>Costruiamo il trattamento.</em></h2>
         </div>
         <div>
-          <p class="rebel-lead">La tua pelle cambia con il tempo, le stagioni e le abitudini. Per questo partiamo sempre da ciò che serve davvero oggi.</p>
-          <p class="rebel-lead"><strong>Estetica Epigenetica</strong> significa scegliere con precisione trattamenti, attivi e tecnologie e aggiornarli nel tempo in base alla risposta della pelle.</p>
+          <p class="rebel-lead">Durante la prima visita osserviamo le condizioni della pelle o del corpo, ascoltiamo il risultato che desideri e definiamo un programma comprensibile.</p>
+          <p class="rebel-lead"><strong>Estetica epigenetica</strong> significa scegliere attivi, manualità e tecnologie in base alle caratteristiche della persona e controllare nel tempo come risponde.</p>
         </div>
       </div>
     </section>
@@ -131,12 +139,12 @@ const journeys = [
       <div class="rebel-container rebel-method">
         <div class="rebel-method__intro">
           <p class="rebel-kicker">Il Metodo Rebel</p>
-          <h2 class="rebel-title">Sei passaggi per costruire il percorso giusto.</h2>
-          <p class="rebel-lead">La prima visita serve a capire da dove partire. Ogni scelta ha un obiettivo preciso e viene aggiornata nel tempo.</p>
+          <h2 class="rebel-title">Dalla prima visita al mantenimento: come lavoriamo.</h2>
+          <p class="rebel-lead">Ti spieghiamo che cosa trattiamo, quali strumenti utilizziamo, con quale frequenza e quando controlliamo i risultati.</p>
           <div class="rebel-map">
-            <div class="rebel-map__head"><strong>MAPPA REBEL</strong><br/><small>Priorità / Percorso / Rivalutazione</small></div>
+            <div class="rebel-map__head"><strong>MAPPA REBEL</strong><br/><small>Valutazione / Trattamenti / Controlli</small></div>
             <div class="rebel-map__fields">
-              {['Priorità attuale','Obiettivo condiviso','Percorso consigliato','Primo step','Manualità, attivi e tecnologie','Frequenza iniziale','Data della rivalutazione','Evoluzione del percorso'].map((field)=><span>{field}</span>)}
+              {['Esigenza principale','Condizione osservata','Risultato concordato','Trattamenti indicati','Tecnologie utilizzabili','Frequenza iniziale','Controllo dei risultati','Mantenimento'].map((field)=><span>{field}</span>)}
             </div>
           </div>
         </div>
@@ -150,8 +158,8 @@ const journeys = [
 
     <section class="rebel-section rebel-section--paper">
       <div class="rebel-container">
-        <p class="rebel-kicker">Le 7 priorità della pelle</p>
-        <h2 class="rebel-title">Prima di scegliere un trattamento, capiamo cosa viene prima.</h2>
+        <p class="rebel-kicker">Cosa valutiamo sul viso</p>
+        <h2 class="rebel-title">Sette esigenze comuni della pelle, descritte in modo chiaro.</h2>
         <div class="rebel-priorities">
           {priorities.map((priority,index)=><article class="rebel-priority"><small>0{index+1}</small><h3>{priority}</h3></article>)}
         </div>
@@ -161,8 +169,8 @@ const journeys = [
     <section class="rebel-section rebel-section--plum">
       <div class="rebel-container">
         <p class="rebel-kicker">I Percorsi Rebel</p>
-        <h2 class="rebel-title">Ogni percorso nasce da una priorità precisa.</h2>
-        <p class="rebel-lead">Lift, Rebirth, Eye Genesis, Catalysis, Collagen, Cell Regen e Lift Body vengono scelti e combinati in base alla pelle, al corpo e al risultato che vuoi raggiungere.</p>
+        <h2 class="rebel-title">Quattro percorsi per viso, corpo ed epilazione laser.</h2>
+        <p class="rebel-lead">Glow lavora su luminosità e uniformità; Longevity su tono e segni del tempo; Forma su drenaggio e compattezza del corpo; Libertà è dedicato al Laser Ice Polar.</p>
         <div class="rebel-journeys">
           {journeys.map((journey)=>(
             <a class="rebel-journey" href={journey.href} style={`--journey-image:url('${journey.image}')`}>
@@ -175,12 +183,12 @@ const journeys = [
 
     <section class="rebel-section">
       <div class="rebel-container">
-        <p class="rebel-kicker">Tutto Rebel</p>
-        <h2 class="rebel-title">Viso, corpo e tecnologia. In un unico percorso.</h2>
+        <p class="rebel-kicker">Servizi Rebel</p>
+        <h2 class="rebel-title">Tutti i trattamenti, divisi per area.</h2>
         <div class="rebel-world">
-          <article class="rebel-world__card"><h3>SKIN</h3><p>Percorsi viso, Skin Reset, Laminazione Coreana, sguardo e attivi epigenetici.</p><a href="/protocolli-epigenetici">Scopri i percorsi viso →</a></article>
-          <article class="rebel-world__card"><h3>BODY</h3><p>Forma, rimodellamento, pressomassaggio, crioterapia e percorsi corpo.</p><a href="/listino-estetica-laser">Scopri i percorsi corpo →</a></article>
-          <article class="rebel-world__card"><h3>TECH</h3><p>Laser Ice Polar, Tecar e tecnologie selezionate in base alle tue esigenze.</p><a href="/tecnologie-rebel">Scopri le tecnologie →</a></article>
+          <article class="rebel-world__card"><h3>VISO</h3><p>Pulizia viso, percorsi epigenetici, trattamenti per luminosità, tono e contorno occhi, laminazione coreana.</p><a href="/protocolli-epigenetici">Scopri i trattamenti viso →</a></article>
+          <article class="rebel-world__card"><h3>CORPO</h3><p>Massaggi, drenaggio, pressomassaggio, rimodellamento, Tecar, LPG, crioterapia e trattamenti corpo.</p><a href="/listino-estetica-laser">Scopri i trattamenti corpo →</a></article>
+          <article class="rebel-world__card"><h3>TECNOLOGIE</h3><p>Laser Ice Polar, Tecar 448Revolution, LPG, InfraPress X2, CryoShape X2 e Lumina K3.</p><a href="/tecnologie-rebel">Scopri le tecnologie →</a></article>
         </div>
       </div>
     </section>
@@ -188,8 +196,8 @@ const journeys = [
     <section class="rebel-section rebel-section--paper">
       <div class="rebel-container">
         <p class="rebel-kicker">Lo studio</p>
-        <h2 class="rebel-title">Quattro cabine. Un percorso costruito su di te.</h2>
-        <p class="rebel-lead">In Viale Barbaroux 20 trovi accoglienza, tecnologie e professioniste che seguono ogni fase del tuo percorso.</p>
+        <h2 class="rebel-title">Quattro cabine per viso, corpo, laser e beauty.</h2>
+        <p class="rebel-lead">In Viale Barbaroux 20 trovi area accoglienza, postazione mani, cabine dedicate e professioniste che seguono ogni appuntamento.</p>
         <StoreGallery client:visible images={storeGalleryImages} />
       </div>
     </section>
@@ -197,7 +205,7 @@ const journeys = [
     <section class="rebel-section">
       <div class="rebel-container">
         <p class="rebel-kicker">Rebel, ogni settimana</p>
-        <h2 class="rebel-title">Trattamenti, backstage e consigli per la pelle.</h2>
+        <h2 class="rebel-title">Trattamenti, backstage, promozioni e consigli.</h2>
         <InstagramFeed showReels={true} showPosts={true} maxReels={4} maxPosts={3} hidePostsOnMobile={true} />
       </div>
     </section>
@@ -205,7 +213,7 @@ const journeys = [
     <section class="rebel-campaign">
       <div class="rebel-container">
         <strong>Be <span>Cool.</span><br/>Be Rebel.</strong>
-        <p>La firma più libera e pop di Rebel, pensata per campagne stagionali, eventi e materiali speciali.</p>
+        <p>Segui Rebel per scoprire promozioni stagionali, eventi, nuovi trattamenti e contenuti dallo studio.</p>
         <div class="rebel-hero__actions" style="justify-content:center"><a class="btn btn--primary" href="/contatti">Prenota la prima visita</a><a class="btn btn--secondary" href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer">Scrivici su WhatsApp</a></div>
       </div>
     </section>

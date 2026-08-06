@@ -43,7 +43,7 @@ export default function SiteHeader({ pathname }: Props) {
             ))}
           </nav>
 
-          <a href="/contatti" className="btn btn--primary btn--sm site-header__cta" aria-label="Prenota la valutazione Rebel">Prenota</a>
+          <a href="/contatti" className="btn btn--primary btn--sm site-header__cta" aria-label="Prenota la prima visita gratuita">Prenota</a>
 
           <button type="button" className="burger" data-open={open} aria-label={open ? "Chiudi menu" : "Apri menu"} aria-expanded={open} onClick={() => setOpen((v) => !v)}>
             <span /><span /><span />
@@ -60,14 +60,14 @@ export default function SiteHeader({ pathname }: Props) {
             </a>
             <button type="button" className="burger" data-open={true} onClick={() => setOpen(false)} aria-label="Chiudi menu"><span /><span /><span /></button>
           </div>
-          <p className="rebel-drawer__intro">Metodo, percorsi, tecnologia e beauty essentials. Tutto parte dalla tua Mappa Rebel.</p>
+          <p className="rebel-drawer__intro">Trattamenti viso e corpo, Laser Ice Polar, beauty, tecnologie, prezzi e prenotazione della prima visita.</p>
           <nav className="drawer__nav" aria-label="Menu mobile">
             {mainNavigation.map((it) => (
               <a key={it.href} href={it.href} className="drawer__link" data-active={isActive(it.href)}><span>{it.index}</span>{it.label}</a>
             ))}
           </nav>
           <div className="drawer__foot">
-            <a href="/contatti" className="btn btn--primary">Prenota la valutazione</a>
+            <a href="/contatti" className="btn btn--primary">Prenota la prima visita</a>
             <a href={siteConfig.social.whatsapp} className="btn btn--secondary" target="_blank" rel="noreferrer">WhatsApp</a>
             <small>Be Cool. Be Rebel.</small>
           </div>

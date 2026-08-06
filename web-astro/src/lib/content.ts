@@ -13,38 +13,38 @@ export const protocolCards = protocolPages.map((protocol) => ({
 
 /**
  * The canonical six-step Method Rebel from the fair brochure.
- * Individual protocols are tools inside a journey, never the primary hierarchy.
+ * Each step must explain what happens to a first-time visitor.
  */
 export const methodSteps = [
   {
     step: "01",
-    title: "Valutazione",
-    text: "Ascoltiamo desideri, abitudini e storia della pelle. Colleghiamo ciò che vedi, ciò che senti e ciò che la pelle sta vivendo.",
+    title: "Colloquio iniziale",
+    text: "Ci racconti che cosa vuoi migliorare, quali trattamenti hai già provato, la tua routine e quanto tempo puoi dedicare agli appuntamenti.",
   },
   {
     step: "02",
-    title: "Priorità",
-    text: "Individuiamo ciò che viene prima nel momento attuale e definiamo un obiettivo condiviso, comprensibile e concreto.",
+    title: "Valutazione professionale",
+    text: "Osserviamo pelle o corpo e rileviamo gli aspetti da trattare: idratazione, sensibilità, luminosità, tono, uniformità, tessuti o ricrescita del pelo.",
   },
   {
     step: "03",
-    title: "Skin Reset",
-    text: "Prepariamo la pelle a ricevere il percorso, migliorandone comfort, uniformità e ricettività agli step successivi.",
+    title: "Preparazione della pelle",
+    text: "Quando necessario iniziamo con Skin Reset o con un trattamento preparatorio, così la pelle riceve meglio gli attivi e le sedute successive.",
   },
   {
     step: "04",
-    title: "Percorso",
-    text: "Combiniamo manualità, attivi e tecnologie con una ragione precisa. I protocolli entrano come strumenti della regia Rebel.",
+    title: "Programma di trattamento",
+    text: "Definiamo quali trattamenti, prodotti e tecnologie usare, quante sedute prevedere e con quale frequenza iniziare.",
   },
   {
     step: "05",
-    title: "Rivalutazione",
-    text: "Osserviamo la risposta e aggiorniamo sequenza, frequenza e intensità. La tua Mappa Rebel evolve insieme alla pelle.",
+    title: "Controllo dei risultati",
+    text: "Durante gli appuntamenti verifichiamo come risponde la pelle o il corpo e modifichiamo intensità, frequenza o combinazioni quando necessario.",
   },
   {
     step: "06",
-    title: "Preservare",
-    text: "Accompagniamo nel tempo l’equilibrio raggiunto con richiami mirati e una routine essenziale costruita sulla fase attuale.",
+    title: "Mantenimento",
+    text: "Dopo la fase iniziale programmiamo richiami e una routine semplice per conservare il risultato raggiunto.",
   },
 ];
 

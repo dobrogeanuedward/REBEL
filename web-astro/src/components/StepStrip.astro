@@ -1,4 +1,6 @@
 ---
+import { clarifyCopy } from "@/lib/copy-clarity";
+
 interface Step {
   step: string;
   title: string;
@@ -10,9 +12,14 @@ interface Props {
 }
 
 const { items } = Astro.props;
+const clearItems = items.map((item) => ({
+  step: clarifyCopy(item.step),
+  title: clarifyCopy(item.title),
+  text: clarifyCopy(item.text),
+}));
 ---
 <div class="steps">
-  {items.map((it, idx) => (
+  {clearItems.map((it, idx) => (
     <article class="step" data-reveal style={`--reveal-delay: ${idx * 80}ms;`}>
       <span class="step__index">{String(idx + 1).padStart(2, "0")}</span>
       <p class="step__kicker">{it.step}</p>

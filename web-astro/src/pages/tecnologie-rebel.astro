@@ -5,8 +5,8 @@ import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import { buildBreadcrumbSchema, buildItemListSchema, buildWebPageSchema, createPageMeta } from "@/lib/seo";
 
 const meta = createPageMeta({
-  title: "Tecnologie estetiche Rebel a Carmagnola — Laser, Tecar e percorsi corpo",
-  description: "Le tecnologie Rebel a Carmagnola entrano nei percorsi solo quando servono: Laser Ice Polar, Tecar 448Revolution, LPG, Lumina K3, InfraPress X2 e CryoShape X2.",
+  title: "Tecnologie estetiche a Carmagnola — Laser, Tecar, LPG e Pressomassaggio | Rebel",
+  description: "Scopri le tecnologie disponibili da Rebel a Carmagnola: Laser Ice Polar, Tecar 448Revolution, LPG, Lumina K3, InfraPress X2 e CryoShape X2, con funzioni e utilizzi spiegati chiaramente.",
   path: "/tecnologie-rebel",
   openGraphType: "article",
   keywords: ["tecnologie estetiche Carmagnola", "Tecar Carmagnola", "LPG Carmagnola", "pressoterapia Carmagnola", "crioterapia estetica Carmagnola", "Laser Ice Polar Carmagnola"],
@@ -16,45 +16,45 @@ const technologies = [
   {
     code: "01",
     name: "Laser Ice Polar",
-    family: "Percorso Libertà",
-    focus: "Epilazione progressiva viso e corpo",
-    copy: "Tecnologia laser con raffreddamento attivo. Parametri, cadenza e zone vengono definiti durante la valutazione e aggiornati in base alla risposta.",
+    family: "Epilazione viso e corpo",
+    focus: "Riduzione progressiva della ricrescita",
+    copy: "Laser a diodo con tre lunghezze d’onda e raffreddamento attivo. La valutazione stabilisce fototipo, caratteristiche del pelo, zone, parametri e distanza tra le sedute.",
     href: "/epilazione-laser-carmagnola",
   },
   {
     code: "02",
     name: "Tecar 448Revolution",
-    family: "Percorsi Forma e Longevity",
-    focus: "Tessuti, tonicità e qualità cutanea",
-    copy: "Viene inserita quando il percorso richiede un lavoro progressivo sui tessuti, insieme a manualità e attivi selezionati.",
+    family: "Trattamenti viso e corpo",
+    focus: "Tono, qualità dei tessuti e comfort",
+    copy: "Tecnologia a radiofrequenza utilizzabile nei programmi dedicati a tono e qualità cutanea. Intensità, durata e abbinamento con manualità o cosmetici dipendono dalla zona trattata.",
   },
   {
     code: "03",
     name: "LPG",
-    family: "Percorso Forma",
-    focus: "Rimodellamento e stimolazione meccanica",
-    copy: "Utilizzata nei percorsi corpo dedicati a tonicità, leggerezza e armonia. Frequenza e intensità vengono definite sulla persona.",
+    family: "Rimodellamento corpo",
+    focus: "Stimolazione meccanica, tonicità e leggerezza",
+    copy: "Trattamento meccanico dei tessuti inserito nei programmi corpo per lavorare su tonicità, compattezza e sensazione di leggerezza. Frequenza e intensità vengono definite dopo la valutazione.",
   },
   {
     code: "04",
     name: "Lumina K3 3-in-1",
-    family: "Percorsi Glow e Forma",
-    focus: "Viso e corpo, secondo configurazione",
-    copy: "Una piattaforma multifunzione che permette di scegliere il trattamento più adatto alla priorità e alla fase del percorso.",
+    family: "Trattamenti viso e corpo",
+    focus: "Piattaforma con funzioni selezionabili",
+    copy: "Piattaforma multifunzione per protocolli viso e corpo. La funzione utilizzata viene scelta in base alla zona, alle condizioni osservate e al risultato concordato.",
   },
   {
     code: "05",
     name: "InfraPress X2",
-    family: "Percorso Forma",
-    focus: "Pressomassaggio e leggerezza",
-    copy: "Supporta i percorsi dedicati a microcircolo, pesantezza e drenaggio, integrandosi con manualità e richiami periodici.",
+    family: "Pressomassaggio",
+    focus: "Gambe pesanti, drenaggio e microcircolo",
+    copy: "Pressomassaggio utilizzato nei programmi dedicati a pesantezza, ritenzione e drenaggio. La seduta può essere abbinata a manualità e altri trattamenti corpo.",
   },
   {
     code: "06",
     name: "CryoShape X2",
-    family: "Percorso Forma",
-    focus: "Crioterapia estetica localizzata",
-    copy: "Viene scelta per aree e obiettivi precisi, all’interno di un percorso costruito sulla persona.",
+    family: "Crioterapia estetica localizzata",
+    focus: "Trattamento di aree specifiche del corpo",
+    copy: "Tecnologia localizzata inserita nei programmi corpo dopo la valutazione della zona e dell’obiettivo. Il piano specifica area trattata, numero indicativo di sedute e controlli.",
   },
 ];
 
@@ -62,9 +62,9 @@ const breadcrumb = buildBreadcrumbSchema([
   { name: "Home", path: "/" },
   { name: "Tecnologie Rebel", path: "/tecnologie-rebel" },
 ]);
-const webPage = buildWebPageSchema({ name: "Tecnologie Rebel a Carmagnola", description: meta.description, path: "/tecnologie-rebel" });
+const webPage = buildWebPageSchema({ name: "Tecnologie estetiche Rebel a Carmagnola", description: meta.description, path: "/tecnologie-rebel" });
 const list = buildItemListSchema({
-  name: "Tecnologie utilizzate nei percorsi Rebel",
+  name: "Tecnologie disponibili nello studio Rebel",
   path: "/tecnologie-rebel",
   items: technologies.map((item) => ({ name: item.name, path: item.href || "/tecnologie-rebel" })),
 });
@@ -77,34 +77,34 @@ const list = buildItemListSchema({
   <section class="tech-hero">
     <div class="rebel-container tech-hero__grid">
       <div>
-        <p class="rebel-kicker">Rebel Tech · Carmagnola</p>
-        <h1 class="rebel-display">Prima la tua esigenza. Poi la tecnologia.</h1>
+        <p class="rebel-kicker">Tecnologie estetiche · Carmagnola</p>
+        <h1 class="rebel-display">Laser, Tecar, LPG, pressomassaggio e crioterapia.</h1>
       </div>
       <div class="tech-hero__copy">
-        <p class="rebel-lead">Le tecnologie rendono il trattamento più preciso, ma la scelta parte sempre dalla persona. Selezioniamo strumenti, parametri e frequenza in base alla pelle, al corpo e all’obiettivo.</p>
+        <p class="rebel-lead">Nello studio Rebel utilizziamo tecnologie per epilazione, trattamenti viso, drenaggio, tono e rimodellamento corpo. La valutazione definisce quale utilizzare, su quale zona, con quali parametri e con quale frequenza.</p>
         <div class="rebel-spectrum-rule"></div>
-        <a class="btn btn--primary" href="/contatti">Prenota la valutazione</a>
+        <a class="btn btn--primary" href="/contatti">Prenota la prima visita</a>
       </div>
     </div>
   </section>
 
   <section class="rebel-section rebel-section--paper">
     <div class="rebel-container">
-      <p class="rebel-kicker">Come le utilizziamo</p>
-      <h2 class="rebel-title">Ogni tecnologia ha una funzione precisa.</h2>
+      <p class="rebel-kicker">Come viene definito il trattamento</p>
+      <h2 class="rebel-title">Obiettivo, zona, parametri e controllo dei risultati.</h2>
       <div class="tech-principles">
-        <article><span>01</span><h3>Scegliere</h3><p>La tecnologia entra quando è coerente con la priorità, la sensibilità e l’obiettivo condiviso.</p></article>
-        <article><span>02</span><h3>Calibrare</h3><p>Parametri, durata e frequenza vengono definiti sulla persona e sulla fase del percorso.</p></article>
-        <article><span>03</span><h3>Combinare</h3><p>Manualità, attivi e tecnologia vengono abbinati per sostenere lo stesso risultato.</p></article>
-        <article><span>04</span><h3>Rivalutare</h3><p>La risposta osservata ci aiuta a definire il passaggio successivo.</p></article>
+        <article><span>01</span><h3>Obiettivo</h3><p>Stabiliamo che cosa vuoi migliorare: ricrescita dei peli, pesantezza, drenaggio, tono, compattezza o qualità della pelle.</p></article>
+        <article><span>02</span><h3>Zona e parametri</h3><p>Valutiamo l’area interessata e definiamo intensità, durata, modalità e precauzioni specifiche.</p></article>
+        <article><span>03</span><h3>Abbinamenti</h3><p>Quando utile, associamo la tecnologia a manualità, cosmetici professionali o altri trattamenti compatibili.</p></article>
+        <article><span>04</span><h3>Controllo</h3><p>Verifichiamo la risposta durante gli appuntamenti e aggiorniamo parametri o frequenza quando necessario.</p></article>
       </div>
     </div>
   </section>
 
   <section class="rebel-section rebel-section--plum">
     <div class="rebel-container">
-      <p class="rebel-kicker">Le tecnologie</p>
-      <h2 class="rebel-title">Strumenti diversi, scelti per il tuo percorso.</h2>
+      <p class="rebel-kicker">Tecnologie disponibili</p>
+      <h2 class="rebel-title">Che cosa fanno e in quali trattamenti vengono utilizzate.</h2>
       <div class="tech-list">
         {technologies.map((tech) => (
           <article class="tech-card">
@@ -114,7 +114,7 @@ const list = buildItemListSchema({
               <h3>{tech.name}</h3>
               <strong>{tech.focus}</strong>
               <p>{tech.copy}</p>
-              {tech.href ? <a href={tech.href}>Scopri il percorso →</a> : null}
+              {tech.href ? <a href={tech.href}>Scopri prezzi e zone del laser →</a> : null}
             </div>
           </article>
         ))}
@@ -125,17 +125,17 @@ const list = buildItemListSchema({
   <section class="rebel-section">
     <div class="rebel-container tech-close">
       <div>
-        <p class="rebel-kicker">Metodo Rebel</p>
-        <h2 class="rebel-title">La tecnologia più adatta è quella che serve adesso.</h2>
+        <p class="rebel-kicker">Prima visita gratuita</p>
+        <h2 class="rebel-title">Ti spieghiamo quale tecnologia può essere adatta al tuo obiettivo.</h2>
       </div>
       <div>
-        <p class="rebel-lead">Durante la valutazione mettiamo in relazione pelle, corpo, abitudini e obiettivi. Da lì definiamo il primo trattamento e quando rivalutare il percorso.</p>
-        <div class="rebel-hero__actions"><a class="btn btn--primary" href="/metodo-rebel">Scopri il Metodo</a><a class="btn btn--secondary" href="/contatti">Prenota la valutazione</a></div>
+        <p class="rebel-lead">Durante la valutazione osserviamo la zona, raccogliamo le informazioni utili e ti presentiamo un programma con trattamento consigliato, frequenza indicativa e prezzo.</p>
+        <div class="rebel-hero__actions"><a class="btn btn--primary" href="/metodo-rebel">Come lavoriamo</a><a class="btn btn--secondary" href="/contatti">Prenota la prima visita</a></div>
       </div>
     </div>
   </section>
 
-  <StickyBookingBar primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
+  <StickyBookingBar primary={{ label: "Prenota la prima visita", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

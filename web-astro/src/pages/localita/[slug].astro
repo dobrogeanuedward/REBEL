@@ -13,6 +13,7 @@ import JsonLd from "@/components/JsonLd.astro";
 import type { LocalAreaPage } from "@/lib/local-pages";
 import { localAreaPages } from "@/lib/local-pages";
 import { media } from "@/lib/page-media";
+import { clarifyCopy } from "@/lib/copy-clarity";
 import {
   buildArticleSchema,
   buildBreadcrumbSchema,
@@ -30,7 +31,6 @@ export async function getStaticPaths() {
 
 const { area } = Astro.props as { area: LocalAreaPage };
 
-// Locale mood for the hero: real landscape for our pillar towns, studio otherwise.
 const localeMood =
   area.slug === "alba"
     ? media.locale.langhe
@@ -40,9 +40,34 @@ const localeMood =
         ? media.locale.bra
         : media.studio.cabin;
 
+const clearTitle = clarifyCopy(area.title);
+const clearDescription = clarifyCopy(area.description);
+const clearIntro = clarifyCopy(area.intro);
+const clearWhyRebel = area.whyRebel.map(clarifyCopy);
+const clearFaqs = (area.faqs ?? []).map((faq) => ({ q: clarifyCopy(faq.q), a: clarifyCopy(faq.a) }));
+const clearDirections = area.directions
+  ? {
+      ...area.directions,
+      heading: clarifyCopy(area.directions.heading),
+      paragraphs: area.directions.paragraphs.map(clarifyCopy),
+    }
+  : undefined;
+const clearFocus = area.focus
+  ? {
+      ...area.focus,
+      heading: clarifyCopy(area.focus.heading),
+      paragraphs: area.focus.paragraphs.map(clarifyCopy),
+      links: (area.focus.links ?? []).map((link) => ({
+        ...link,
+        label: clarifyCopy(link.label),
+        description: link.description ? clarifyCopy(link.description) : undefined,
+      })),
+    }
+  : undefined;
+
 const meta = createPageMeta({
-  title: area.title,
-  description: area.description,
+  title: clearTitle,
+  description: clearDescription,
   path: `/localita/${area.slug}`,
   keywords: area.keywords,
   openGraphType: "article",
@@ -54,14 +79,14 @@ const readingMinutes = Math.max(
   Math.round(
     toWords(
       [
-        area.intro,
-        area.description,
-        area.whyRebel.join(" "),
-        area.directions?.heading ?? "",
-        (area.directions?.paragraphs ?? []).join(" "),
-        area.focus?.heading ?? "",
-        (area.focus?.paragraphs ?? []).join(" "),
-        (area.faqs ?? []).map((f) => `${f.q} ${f.a}`).join(" "),
+        clearIntro,
+        clearDescription,
+        clearWhyRebel.join(" "),
+        clearDirections?.heading ?? "",
+        (clearDirections?.paragraphs ?? []).join(" "),
+        clearFocus?.heading ?? "",
+        (clearFocus?.paragraphs ?? []).join(" "),
+        clearFaqs.map((f) => `${f.q} ${f.a}`).join(" "),
       ].join(" "),
     ).length / 190,
   ),
@@ -73,25 +98,24 @@ const breadcrumb = buildBreadcrumbSchema([
   { name: area.city, path: `/localita/${area.slug}` },
 ]);
 const webPage = buildWebPageSchema({
-  name: area.title,
-  description: area.description,
+  name: clearTitle,
+  description: clearDescription,
   path: `/localita/${area.slug}`,
 });
 const articleSchema = buildArticleSchema({
-  headline: area.title,
-  description: area.description,
+  headline: clearTitle,
+  description: clearDescription,
   path: `/localita/${area.slug}`,
   keywords: area.keywords,
-  section: "Aree servite",
+  section: "Come raggiungere Rebel",
 });
 
-const pageFaqs = area.faqs ?? [];
 const faqSchema =
-  pageFaqs.length > 0
+  clearFaqs.length > 0
     ? {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        mainEntity: pageFaqs.map((faq) => ({
+        mainEntity: clearFaqs.map((faq) => ({
           "@type": "Question",
           name: faq.q,
           acceptedAnswer: { "@type": "Answer", text: faq.a },
@@ -99,19 +123,18 @@ const faqSchema =
       }
     : null;
 
-const focusLinks = area.focus?.links ?? [];
-
+const focusLinks = clearFocus?.links ?? [];
 const relatedAreas = localAreaPages
-  .filter((i) => i.slug !== area.slug && i.cluster === area.cluster)
+  .filter((item) => item.slug !== area.slug && item.cluster === area.cluster)
   .slice(0, 6);
 
 const tocItems = [
-  { id: "perche", label: `Perché Rebel (${area.city})` },
-  { id: "partire", label: "Da dove partire" },
-  ...(area.directions ? [{ id: "come-arrivare", label: "Come arrivare" }] : []),
-  ...(area.focus ? [{ id: "focus", label: "Approfondimento locale" }] : []),
-  ...(pageFaqs.length > 0 ? [{ id: "faq", label: "Domande frequenti" }] : []),
-  ...(relatedAreas.length > 0 ? [{ id: "vicini", label: "Comuni vicini" }] : []),
+  { id: "servizi", label: "Servizi e vantaggi" },
+  { id: "prenotare", label: "Prezzi e prenotazione" },
+  ...(clearDirections ? [{ id: "come-arrivare", label: "Percorso e mappa" }] : []),
+  ...(clearFocus ? [{ id: "focus", label: "Informazioni per la zona" }] : []),
+  ...(clearFaqs.length > 0 ? [{ id: "faq", label: "Domande frequenti" }] : []),
+  ...(relatedAreas.length > 0 ? [{ id: "vicini", label: "Altri comuni" }] : []),
 ];
 ---
 <BaseLayout meta={meta} bodyClass="page-localita-detail">
@@ -122,125 +145,140 @@ const tocItems = [
 
   <PageHero
     image={localeMood}
-    kicker="Rebel vicino a te"
-    title={area.title.replace(area.city, `_${area.city}_`)}
-    lead={area.intro}
-    bullets={[`${area.city} e zone limitrofe`, "Prima visita gratuita", "Listino chiaro online"]}
+    kicker={`Centro estetico per chi arriva da ${area.city}`}
+    title={clearTitle.replace(area.city, `_${area.city}_`)}
+    lead={clearIntro}
+    bullets={[`Indicazioni da ${area.city}`, "Listino online", "Prima visita gratuita"]}
     meta={[
-      `${readingMinutes} min lettura`,
-      `Aggiornato ${siteConfig.lastUpdated}`,
+      `${readingMinutes} min di lettura`,
+      `Studio in Viale Barbaroux 20 · Carmagnola`,
     ]}
-    ctaPrimary={{ label: "Prenota ora", href: "/contatti", halo: true }}
-    ctaSecondary={{ label: "Apri Maps", href: siteConfig.social.maps }}
+    ctaPrimary={{ label: "Prenota la prima visita", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Apri il percorso su Maps", href: siteConfig.social.maps }}
   />
 
   <section class="section">
     <div class="container detail-grid">
       <article class="detail-main">
-        <div id="perche">
+        <div id="servizi">
           <SectionHead
-            kicker={`Perché Rebel`}
-            title={`Perché chi arriva da _${area.city}_ sceglie Rebel.`}
+            kicker={`Rebel per chi arriva da ${area.city}`}
+            title="Servizi, prezzi e informazioni prima dell’appuntamento."
+            lead={`Lo studio offre trattamenti viso, corpo, laser e beauty. Le schede online riportano prezzo, durata indicativa e modalità di ogni servizio.`}
           />
-          <KeyPointsGrid points={area.whyRebel} />
+          <KeyPointsGrid points={clearWhyRebel} title="Informazioni utili" />
         </div>
 
-        <div id="partire" class="detail-section">
+        <div id="prenotare" class="detail-section">
           <SectionHead
-            kicker="Da dove partire"
-            title={`Se _arrivi da ${area.city}_: il primo passo.`}
-            lead={`Scegliamo insieme una priorità (laser, viso o corpo) e impostiamo ritmo e obiettivo.`}
+            kicker="Prezzi e prenotazione"
+            title={`Come scegliere e prenotare un trattamento da ${area.city}.`}
+            lead="Puoi consultare il listino, aprire la scheda del servizio oppure prenotare una visita gratuita di circa quindici minuti per ricevere indicazioni su trattamento, frequenza e prezzo."
           />
           {focusLinks.length > 0 ? (
             <div class="card-grid card-grid--2">
-              {focusLinks.slice(0, 4).map((l, i) => (
-                l.external || l.href.startsWith("http") ? (
-                  <a class="card card--quiet" href={l.href} target="_blank" rel="noreferrer" data-link="true" data-reveal>
+              {focusLinks.slice(0, 4).map((link, i) => (
+                link.external || link.href.startsWith("http") ? (
+                  <a class="card card--quiet" href={link.href} target="_blank" rel="noreferrer" data-link="true" data-reveal>
                     <span class="card__index">{String(i + 1).padStart(2, "0")}</span>
-                    <p class="card__kicker">Link utile</p>
-                    <h3 class="card__title">{l.label}</h3>
-                    {l.description ? <p class="card__body">{l.description}</p> : null}
+                    <p class="card__kicker">Informazione utile</p>
+                    <h3 class="card__title">{link.label}</h3>
+                    {link.description ? <p class="card__body">{link.description}</p> : null}
                   </a>
                 ) : (
                   <FeatureCard
-                    kicker="Link utile"
-                    title={l.label}
-                    body={l.description ?? ""}
-                    href={l.href}
+                    kicker="Informazione utile"
+                    title={link.label}
+                    body={link.description ?? "Apri la pagina per leggere informazioni, prezzo o modalità di prenotazione."}
+                    href={link.href}
                     variant="quiet"
                     index={i + 1}
                   />
                 )
               ))}
             </div>
-          ) : null}
+          ) : (
+            <div class="card-grid card-grid--2">
+              <FeatureCard
+                kicker="Prezzi"
+                title="Consulta il listino Rebel"
+                body="Prezzi di viso, corpo, laser, manicure, pedicure, massaggi e protocolli professionali."
+                href="/listino-estetica-laser"
+                variant="quiet"
+                index={1}
+              />
+              <FeatureCard
+                kicker="Prima visita"
+                title="Prenota una valutazione gratuita"
+                body="In circa quindici minuti valutiamo la zona e ti comunichiamo trattamento, frequenza e prezzo."
+                href="/contatti"
+                variant="quiet"
+                index={2}
+              />
+            </div>
+          )}
         </div>
 
-        {area.directions ? (
+        {clearDirections ? (
           <div id="come-arrivare" class="detail-section">
-            <SectionHead kicker="Come arrivare" title={area.directions.heading} />
+            <SectionHead kicker="Percorso e mappa" title={clearDirections.heading} />
             <div class="directions-grid">
               <div>
-                {area.directions.paragraphs.map((p) => (
-                  <p class="directions-p">{p}</p>
+                {clearDirections.paragraphs.map((paragraph) => (
+                  <p class="directions-p">{paragraph}</p>
                 ))}
                 <div class="cluster" style="margin-top:1.4rem;">
-                  <a class="btn btn--secondary btn--sm" href={area.directions.mapsUrl} target="_blank" rel="noreferrer">
-                    Apri percorso su Google Maps
-                  </a>
-                  <a class="btn btn--secondary btn--sm" href="/contatti">Contatti</a>
+                  <a class="btn btn--secondary btn--sm" href={clearDirections.mapsUrl} target="_blank" rel="noreferrer">Apri Google Maps</a>
+                  <a class="btn btn--secondary btn--sm" href="/contatti">Telefono, WhatsApp e orari</a>
                 </div>
               </div>
               <div class="map-frame">
                 <iframe
-                  src={area.directions.embedUrl ?? "https://www.google.com/maps?q=Viale+Barbaroux+20,+Carmagnola&output=embed"}
+                  src={clearDirections.embedUrl ?? "https://www.google.com/maps?q=Viale+Barbaroux+20,+Carmagnola&output=embed"}
                   loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"
-                  title={`Mappa percorso verso Rebel da ${area.city}`}
+                  title={`Mappa del percorso da ${area.city} a Rebel Carmagnola`}
                 ></iframe>
               </div>
             </div>
           </div>
         ) : null}
 
-        {area.focus ? (
+        {clearFocus ? (
           <div id="focus" class="detail-section">
-            <SectionHead
-              kicker="Approfondimento locale"
-              title={area.focus.heading}
-            />
+            <SectionHead kicker={`Informazioni per chi arriva da ${area.city}`} title={clearFocus.heading} />
             <div class="editorial-flow">
-              {area.focus.paragraphs.map((p) => (
-                <p class="focus-p">{p}</p>
+              {clearFocus.paragraphs.map((paragraph) => (
+                <p class="focus-p">{paragraph}</p>
               ))}
             </div>
           </div>
         ) : null}
 
-        {pageFaqs.length > 0 ? (
+        {clearFaqs.length > 0 ? (
           <div id="faq" class="detail-section">
             <SectionHead
               kicker="Domande frequenti"
-              title={`Da _${area.city}_, le risposte oneste.`}
+              title={`Distanza, appuntamenti, prezzi e servizi per chi arriva da ${area.city}.`}
             />
-            <FaqAccordion items={pageFaqs} kicker={`Da ${area.city}`} />
+            <FaqAccordion items={clearFaqs} kicker={`Da ${area.city}`} />
           </div>
         ) : null}
 
         {relatedAreas.length > 0 ? (
           <div id="vicini" class="detail-section">
             <SectionHead
-              kicker="Comuni vicini"
-              title={`_Vicino_ a ${area.city}.`}
-              lead="Le pagine dei comuni vicini, ognuna con un focus diverso."
+              kicker="Altri comuni della zona"
+              title="Indicazioni per raggiungere Rebel dai comuni vicini."
+              lead="Ogni pagina riporta informazioni locali e collegamenti a servizi, listino e prenotazione."
             />
             <div class="card-grid card-grid--3">
-              {relatedAreas.map((a, i) => (
+              {relatedAreas.map((relatedArea, i) => (
                 <FeatureCard
                   kicker="Località"
-                  title={a.city}
-                  body={a.description}
-                  href={`/localita/${a.slug}`}
+                  title={relatedArea.city}
+                  body={relatedArea.description}
+                  href={`/localita/${relatedArea.slug}`}
                   variant="quiet"
                   index={i + 1}
                 />
@@ -253,13 +291,13 @@ const tocItems = [
       <aside class="detail-aside">
         <TableOfContents items={tocItems} />
         <InlineCta
-          kicker="Da dove parti?"
-          title={`Da _${area.city}_, definiamo il primo passo.`}
-          lead="Scrivici zona, obiettivo, tempi: orientiamo verso il trattamento più adatto."
+          kicker="Prima visita gratuita"
+          title={`Vieni da ${area.city}? Prenota una valutazione in studio.`}
+          lead="Indicaci il servizio o la zona che ti interessa. Ti comunichiamo appuntamento, trattamento, frequenza e prezzo."
           primaryHref="/contatti"
-          primaryLabel="Apri consulenza"
+          primaryLabel="Prenota la prima visita"
           secondaryHref="/servizi"
-          secondaryLabel="Tutti i servizi"
+          secondaryLabel="Vedi tutti i servizi"
         />
       </aside>
     </div>
@@ -269,13 +307,13 @@ const tocItems = [
     image={media.studio.reception}
     height="sm"
     align="center"
-    kicker={`Da ${area.city} a Carmagnola`}
-    title="La prima visita è _gratuita_."
-    lead="Quindici minuti per capirci: leggiamo la tua situazione e ti diciamo da dove ha senso partire. Senza impegno."
+    kicker={`Da ${area.city} a Rebel Carmagnola`}
+    title="Prima visita gratuita di circa _quindici minuti_."
+    lead="Valutiamo la zona interessata e ti comunichiamo trattamento consigliato, frequenza e prezzo prima della prenotazione."
     cta={{ label: "Prenota la prima visita", href: "/contatti" }}
   />
 
-  <StickyBookingBar priceHint="Prima visita gratuita" primary={{ label: "Prenota gratis", href: "/contatti" }} />
+  <StickyBookingBar priceHint="Prima visita gratuita" primary={{ label: "Prenota la prima visita", href: "/contatti" }} />
 </BaseLayout>
 
 <style>
