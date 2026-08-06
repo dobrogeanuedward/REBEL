@@ -1,0 +1,37 @@
+name: Rebel source copy locator
+
+on:
+  push:
+    branches:
+      - codex/rebel-living-hero
+  pull_request:
+    paths:
+      - "web-astro/src/**"
+      - "web-astro/public/**"
+      - "web-astro/scripts/locate-vague-copy-sources.mjs"
+      - ".github/workflows/rebel-copy-source-locator.yml"
+
+jobs:
+  locate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web-astro
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Scan source and static pages
+        run: node scripts/locate-vague-copy-sources.mjs
+
+      - name: Upload source report
+        uses: actions/upload-artifact@v4
+        with:
+          name: source-vague-copy-report
+          path: web-astro/source-vague-copy-report.json
+          retention-days: 7

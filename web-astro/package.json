@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
+    "check:copy": "node scripts/check-copy-clarity.mjs",
+    "check:rendered-copy": "node scripts/check-rendered-copy.mjs",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro"
