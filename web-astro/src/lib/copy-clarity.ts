@@ -9,7 +9,9 @@ type CopyContent = {
   editorialSections?: EditorialSection[];
 };
 
-const sentenceRules: Array<[RegExp, string]> = [
+type Rule = readonly [RegExp, string];
+
+const sentenceRules: Rule[] = [
   [/Prima la tua esigenza\. Poi la tecnologia\./gi, "Valutiamo la zona e l’obiettivo, poi scegliamo la tecnologia e i parametri adatti."],
   [/Prima la pelle\. Poi la tecnologia\./gi, "Valutiamo la pelle, poi scegliamo prodotti, manualità e tecnologie adatti."],
   [/Prima di scegliere un trattamento, capiamo (?:cosa|che cosa) viene prima\./gi, "Valutiamo pelle o corpo e definiamo quale esigenza trattare per prima."],
@@ -23,11 +25,9 @@ const sentenceRules: Array<[RegExp, string]> = [
   [/Il prezzo è la porta[^.]*\./gi, "Il prezzo viene comunicato prima della prenotazione insieme a modalità e durata del trattamento."],
   [/Il prezzo è una scelta[^.]*\./gi, "Il prezzo dipende dal servizio, dalla zona e dalla durata indicati nella scheda."],
   [/Il risultato migliore è quello che[^.]*\./gi, "Il trattamento viene adattato alla sensibilità e all’obiettivo concordato."],
-  [/La differenza la fa l['’]impostazione:[^.]*\./gi, "Pressione, zone e frequenza vengono adattate alle condizioni della pelle."],
-  [/L['’]idea è partire bene, non fare tutto insieme\./gi, "Gli altri servizi possono essere aggiunti in un secondo momento, solo se utili."],
+  [/La differenza la fa l[’']impostazione:[^.]*\./gi, "Pressione, zone e frequenza vengono adattate alle condizioni della pelle."],
+  [/L[’']idea è partire bene, non fare tutto insieme\./gi, "Gli altri servizi possono essere aggiunti in un secondo momento, solo se utili."],
   [/Meglio un[^.]*che una[^.]*\./gi, "La frequenza viene scelta in modo realistico e compatibile con i tuoi impegni."],
-  [/Se non sai da dove partire/gi, "Se non sai quale trattamento scegliere"],
-  [/Non sai da dove partire/gi, "Non sai quale trattamento scegliere"],
   [/Scritte da chi lo fa in cabina, non da un copy\./gi, "Basate sui servizi e sulle modalità utilizzate nello studio."],
   [/Hai letto, hai capito[^.]*\./gi, "Dopo la guida puoi prenotare una valutazione gratuita e ricevere indicazioni specifiche."],
   [/Si parte da quello che ti serve adesso[^.]*\./gi, "Il trattamento viene scelto in base alla zona e al risultato che vuoi ottenere."],
@@ -36,22 +36,12 @@ const sentenceRules: Array<[RegExp, string]> = [
   [/Sono servizi richiesti spesso perché cambiano la sensazione subito, senza complicarti la settimana\./gi, "Sono servizi che possono migliorare subito aspetto o comfort e si prenotano anche singolarmente."],
 ];
 
-const phraseRules: Array<[RegExp, string]> = [
-  [/\buna regia professionale\b/gi, "un programma professionale"],
-  [/\bla regia Rebel\b/gi, "il programma Rebel"],
-  [/\bregia\b/gi, "programma"],
-  [/\barchitettura del percorso\b/gi, "programma di trattamento"],
-  [/\barchitettura Rebel\b/gi, "programma Rebel"],
-  [/\barchitettura\b/gi, "programma"],
-  [/\buna progressione coerente\b/gi, "un programma con frequenza definita"],
-  [/\bprogressione personalizzata\b/gi, "programma personalizzato"],
-  [/\bprogressione luminosa\b/gi, "programma dedicato alla luminosità"],
-  [/\bprogressione pulita\b/gi, "programma con frequenza definita"],
+const phraseRules: Rule[] = [
+  [/\b(?:una |la )?regia(?: professionale| Rebel)?\b/gi, "programma"],
+  [/\barchitettura(?: del percorso| Rebel)?\b/gi, "programma di trattamento"],
+  [/\bprogressione (?:personalizzata|luminosa|pulita|coerente)\b/gi, "programma con frequenza definita"],
   [/\bprogressione\b/gi, "programma di sedute"],
-  [/\bun ritmo ben costruito\b/gi, "una frequenza regolare"],
-  [/\bun ritmo coerente\b/gi, "una frequenza regolare"],
-  [/\bun ritmo sensato\b/gi, "una frequenza adatta"],
-  [/\bun ritmo che ti viene naturale\b/gi, "una frequenza compatibile con i tuoi impegni"],
+  [/\bun ritmo (?:ben costruito|coerente|sensato|che ti viene naturale)\b/gi, "una frequenza compatibile con i tuoi impegni"],
   [/\britmo graduale\b/gi, "pressione e intensità graduali"],
   [/\britmo regolare\b/gi, "frequenza regolare"],
   [/\britmo\b/gi, "frequenza"],
@@ -65,7 +55,6 @@ const phraseRules: Array<[RegExp, string]> = [
   [/\bresa estetica\b/gi, "risultato estetico"],
   [/\bresa\b/gi, "risultato"],
   [/\bpresenza più raffinata\b/gi, "aspetto più uniforme"],
-  [/\bpresenza\b/gi, "aspetto"],
   [/\bcustodire\b/gi, "mantenere"],
   [/\bcustodisce\b/gi, "mantiene"],
   [/\bcustodita\b/gi, "mantenuta"],
@@ -86,10 +75,10 @@ const phraseRules: Array<[RegExp, string]> = [
   [/\bcoerente con\b/gi, "adatto a"],
   [/\bche abbia senso per te\b/gi, "adatto alla zona e all’obiettivo"],
   [/\babbia senso\b/gi, "sia adatto"],
-  [/\bporta d['’]ingresso al risultato\b/gi, "prezzo iniziale del trattamento"],
+  [/\bporta d[’']ingresso al risultato\b/gi, "prezzo iniziale del trattamento"],
   [/\bpasso più avanzato\b/gi, "protocollo collegato"],
   [/\bpasso successivo\b/gi, "trattamento successivo"],
-  [/\balzare l['’]asticella\b/gi, "valutare un protocollo più specifico"],
+  [/\balzare l[’']asticella\b/gi, "valutare un protocollo più specifico"],
   [/\bapri consulenza\b/gi, "prenota la prima visita"],
   [/\bpiacevole da abitare\b/gi, "più confortevole"],
   [/\bresta addosso\b/gi, "si mantiene più a lungo"],
@@ -105,8 +94,7 @@ const phraseRules: Array<[RegExp, string]> = [
   [/\bgesto\b/gi, "trattamento"],
   [/\bdialogano\b/gi, "vengono combinati"],
   [/\bdialoga\b/gi, "viene combinato"],
-  [/\battivato\b/gi, "utilizzato"],
-  [/\battivati\b/gi, "utilizzati"],
+  [/\battivat([ioa]|e)\b/gi, "utilizzat$1"],
   [/\bfar crescere\b/gi, "migliorare"],
   [/\bfar durare\b/gi, "mantenere"],
   [/\btrasformare il sollievo iniziale in\b/gi, "mantenere"],
@@ -114,10 +102,8 @@ const phraseRules: Array<[RegExp, string]> = [
   [/\bsenza stravolgere\b/gi, "con un risultato naturale"],
   [/\bsenza eccessi\b/gi, "con un risultato naturale"],
   [/\bsenza confusione\b/gi, "con indicazioni chiare"],
-  [/\bfatto come si deve\b/gi, "eseguito con modalità professionali"],
-  [/\bfatti come si deve\b/gi, "eseguiti con modalità professionali"],
-  [/\blavori in profondità\b/gi, "agisca su un obiettivo specifico"],
-  [/\blavorare in profondità\b/gi, "trattare un obiettivo specifico"],
+  [/\bfatt[oi] come si deve\b/gi, "eseguito con modalità professionali"],
+  [/\blavor(?:i|are) in profondità\b/gi, "trattare un obiettivo specifico"],
   [/\bleggere la pelle da vicino\b/gi, "valutare la pelle"],
   [/\bleggere la pelle\b/gi, "valutare la pelle"],
   [/\bleggiamo la pelle\b/gi, "valutiamo la pelle"],
@@ -126,15 +112,14 @@ const phraseRules: Array<[RegExp, string]> = [
   [/\bluce più leggibile\b/gi, "maggiore luminosità"],
   [/\brisposte oneste\b/gi, "risposte pratiche"],
   [/\bsenza claim gonfiati\b/gi, "con informazioni su modalità, durata e limiti"],
-  [/\bsentirti a posto\b/gi, "avere un aspetto curato"],
-  [/\bsentirsi a posto\b/gi, "avere un aspetto curato"],
+  [/\bsentirt[ei] a posto\b/gi, "avere un aspetto curato"],
   [/\bingolfat([aei])\b/gi, "sovraccaricat$1"],
-  [/\bscegliendo bene l['’]ordine\b/gi, "definendo una sequenza di trattamenti"],
+  [/\bscegliendo bene l[’']ordine\b/gi, "definendo una sequenza di trattamenti"],
   [/\brimettiamo al centro\b/gi, "valutiamo"],
   [/\bla priorità è il laser\b/gi, "l’obiettivo è l’epilazione laser"],
   [/\bcambiano tanto la gestione quotidiana\b/gi, "possono semplificare la gestione quotidiana"],
   [/\bimpostate con regole pratiche semplici\b/gi, "programmate con intervalli e precauzioni precise"],
-  [/\blogiche un po['’] diverse\b/gi, "parametri e intervalli differenti"],
+  [/\blogiche un po[’'] diverse\b/gi, "parametri e intervalli differenti"],
   [/\bpoche scelte fatte bene\b/gi, "pochi trattamenti mirati"],
   [/\bpassaggi sensati\b/gi, "fasi definite"],
   [/\bcalendario che non ti stressi\b/gi, "calendario compatibile con i tuoi impegni"],
@@ -145,34 +130,34 @@ const phraseRules: Array<[RegExp, string]> = [
   [/\bstep\b/gi, "fase"],
 ];
 
-const accentRules: Array<[RegExp, string]> = [
-  [/\bpiu['’]/gi, "più"],
-  [/\bqualita['’]/gi, "qualità"],
-  [/\bluminosita['’]/gi, "luminosità"],
-  [/\bsensibilita['’]/gi, "sensibilità"],
-  [/\btonicita['’]/gi, "tonicità"],
-  [/\bmodalita['’]/gi, "modalità"],
-  [/\bprofondita['’]/gi, "profondità"],
-  [/\bintensita['’]/gi, "intensità"],
-  [/\bcontinuita['’]/gi, "continuità"],
-  [/\bnecessita['’]/gi, "necessità"],
-  [/\battivita['’]/gi, "attività"],
-  [/\bpossibilita['’]/gi, "possibilità"],
-  [/\breattivita['’]/gi, "reattività"],
-  [/\belasticita['’]/gi, "elasticità"],
-  [/\buniformita['’]/gi, "uniformità"],
-  [/\bcitta['’]/gi, "città"],
-  [/\bcosi['’]/gi, "così"],
-  [/\bperche['’]/gi, "perché"],
-  [/\bgia['’]/gi, "già"],
+const accentRules: Rule[] = [
+  [/\bpiu[’']/gi, "più"],
+  [/\bqualita[’']/gi, "qualità"],
+  [/\bluminosita[’']/gi, "luminosità"],
+  [/\bsensibilita[’']/gi, "sensibilità"],
+  [/\btonicita[’']/gi, "tonicità"],
+  [/\bmodalita[’']/gi, "modalità"],
+  [/\bprofondita[’']/gi, "profondità"],
+  [/\bintensita[’']/gi, "intensità"],
+  [/\bcontinuita[’']/gi, "continuità"],
+  [/\bnecessita[’']/gi, "necessità"],
+  [/\battivita[’']/gi, "attività"],
+  [/\bpossibilita[’']/gi, "possibilità"],
+  [/\breattivita[’']/gi, "reattività"],
+  [/\belasticita[’']/gi, "elasticità"],
+  [/\buniformita[’']/gi, "uniformità"],
+  [/\bcitta[’']/gi, "città"],
+  [/\bcosi[’']/gi, "così"],
+  [/\bperche[’']/gi, "perché"],
+  [/\bgia[’']/gi, "già"],
 ];
 
 function normalizeItalianTypography(value: string): string {
   let result = value;
   for (const [pattern, replacement] of accentRules) result = result.replace(pattern, replacement);
   return result
-    .replace(/\bE['’](?=\s|$|[.,;:!?])/g, "È")
-    .replace(/\be['’](?=\s|$|[.,;:!?])/g, "è")
+    .replace(/\bE[’'](?=\s|$|[.,;:!?])/g, "È")
+    .replace(/\be[’'](?=\s|$|[.,;:!?])/g, "è")
     .replace(/'/g, "’")
     .replace(/\bun frequenza\b/gi, "una frequenza")
     .replace(/\bil frequenza\b/gi, "la frequenza")
@@ -203,7 +188,7 @@ export function clarifyContent<T extends CopyContent>(content: T): T {
       heading: clarifyCopy(section.heading),
       paragraphs: section.paragraphs.map(clarifyCopy),
     })),
-  };
+  } as T;
 }
 
 export function clarifyCollection<T extends CopyContent>(items: T[]): T[] {
