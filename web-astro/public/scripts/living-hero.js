@@ -123,7 +123,7 @@
       desktopPosition: 'center 30%',
       mobilePosition: '50% 30%',
       tone: 'warm',
-      title: 'Professioniste, metodo e continuità ad ogni appuntamento.',
+      title: 'Metodo e continuità, ad ogni appuntamento.',
       lead: 'Prepariamo il trattamento, registriamo ciò che utilizziamo e controlliamo i cambiamenti. In studio ritrovi lo stesso metodo dalla prima visita al mantenimento.',
       signature: 'Viale Barbaroux 20 · Carmagnola · su appuntamento',
       primary: { label: 'Scopri lo studio Rebel', href: '/chi-siamo' },
