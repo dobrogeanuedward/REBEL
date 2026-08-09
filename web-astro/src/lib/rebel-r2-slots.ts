@@ -178,13 +178,6 @@ export const SLOT_RULES: SlotRule[] = [
     label: "Tecnologie · laser detail",
   },
   {
-    slot: "technologies.thory.luminaX1Pro",
-    prefixes: ["rebel/technologies/thory/lumina-x1-pro/"],
-    keywords: ["official-front-three-quarter"],
-    variant: "any",
-    label: "THORY · Lumina X1 Pro",
-  },
-  {
     slot: "technologies.thory.luminaX3",
     prefixes: ["rebel/technologies/thory/lumina-x3/"],
     keywords: ["hero"],

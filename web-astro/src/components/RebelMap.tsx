@@ -1,161 +1,152 @@
-import { useEffect, useMemo, useRef, useState } from "react";
-import { siteConfig } from "@/lib/site-config";
-import {
-  areaOptions,
-  modeOptions,
-  prioritiesByArea,
-  worldResults,
-  type MapAreaId,
-  type MapModeId,
-} from "@/lib/rebel-map-data";
+import { useMemo, useState } from "react";
+import { rebelJourneys, type RebelJourney } from "@/lib/rebel-journeys";
 import "@/styles/rebel-map-live.css";
 
-const getLabel = <T extends { id: string; label: string }>(items: T[], id: string) =>
-  items.find((item) => item.id === id)?.label ?? "Da definire";
+type JourneyFilter = "all" | RebelJourney["area"];
 
-const nextStepByMode: Record<MapModeId, { label: string; body: string }> = {
-  esplorare: {
-    label: "Esplora il primo percorso",
-    body: "Apri la prima pagina suggerita e confrontala con gli altri percorsi dello stesso mondo.",
-  },
-  percorso: {
-    label: "Costruiamo il percorso",
-    body: "Porta questo orientamento in valutazione: frequenza, controlli e combinazioni verranno costruiti insieme.",
-  },
-  valutare: {
-    label: "Valutiamolo insieme",
-    body: "Non devi scegliere prima della visita: partiremo da ciò che hai indicato e verificheremo ogni voce in studio.",
-  },
-};
+const filters: Array<{ id: JourneyFilter; label: string }> = [
+  { id: "all", label: "Tutti" },
+  { id: "Viso", label: "Viso" },
+  { id: "Corpo", label: "Corpo" },
+  { id: "Epilazione", label: "Laser" },
+];
+
+const worldNames = {
+  glow: "Glow",
+  longevity: "Longevity",
+  forma: "Forma",
+  liberta: "Libertà",
+} as const;
+
+const journeyName = (journey: RebelJourney) =>
+  journey.slug === "white" ? "Uniformare" : journey.name;
+
+const journeySignature = (journey: RebelJourney) =>
+  journey.slug === "white" ? "White" : journey.priority;
+
+const startingPrice = (journey: RebelJourney) =>
+  journey.price.replace(/^da\s+/i, "");
 
 export default function RebelMap() {
-  const [step, setStep] = useState(0);
-  const [area, setArea] = useState<MapAreaId | "">("");
-  const [priority, setPriority] = useState("");
-  const [mode, setMode] = useState<MapModeId | "">("");
-  const stageRef = useRef<HTMLFormElement>(null);
+  const [filter, setFilter] = useState<JourneyFilter>("all");
 
-  const priorities = area ? prioritiesByArea[area] : [];
-  const selectedPriority = priorities.find((item) => item.id === priority);
-  const result = selectedPriority ? worldResults[selectedPriority.world] : null;
-  const firstPath = selectedPriority?.firstPath ?? result?.paths[0]?.slug;
-  const nextStep = mode ? nextStepByMode[mode] : null;
-
-  useEffect(() => {
-    if (step === 0) return;
-    const focusTarget = stageRef.current?.querySelector<HTMLElement>("legend, [data-result-title]");
-    window.requestAnimationFrame(() => focusTarget?.focus({ preventScroll: true }));
-  }, [step]);
-
-  const contactHref = useMemo(() => {
-    if (!result || !selectedPriority) return "/contatti";
-    const params = new URLSearchParams({
-      source: "mappa-rebel",
-      area: area || "insieme",
-      priorita: selectedPriority.id,
-      percorso: selectedPriority.world,
-      modalita: mode || "valutare",
-    });
-    return `/contatti?${params.toString()}`;
-  }, [area, mode, result, selectedPriority]);
-
-  const whatsappHref = useMemo(() => {
-    if (!result || !selectedPriority) return siteConfig.social.whatsapp;
-    const text = `Ciao REBEL, ho compilato la Mappa online. Primo orientamento: ${result.name}. Priorità: ${selectedPriority.label}. Vorrei valutarlo insieme.`;
-    return `${siteConfig.social.whatsapp}?text=${encodeURIComponent(text)}`;
-  }, [result, selectedPriority]);
-
-  const next = () => {
-    if (step === 0 && area) setStep(1);
-    if (step === 1 && priority) setStep(2);
-    if (step === 2 && mode) setStep(3);
-  };
-
-  const back = () => setStep((value) => Math.max(0, value - 1));
-  const reset = () => { setStep(0); setArea(""); setPriority(""); setMode(""); };
+  const visibleJourneys = useMemo(
+    () => filter === "all" ? rebelJourneys : rebelJourneys.filter((journey) => journey.area === filter),
+    [filter],
+  );
 
   return (
-    <div className="rb-map" data-world={result?.name.toLowerCase() ?? "open"}>
-      <noscript><style>{`.rb-map__stage fieldset,.rb-map__progress,.rb-map__nav{display:none!important}.rb-map__fallback{margin-top:0!important;padding-top:0!important;border-top:0!important}`}</style></noscript>
-      <aside className="rb-map__dossier" aria-label="Riepilogo della Mappa REBEL">
-        <div className="rb-map__dossier-head">
-          <span>Mappa Rebel</span>
-          <small>Orientamento online</small>
+    <section className="rb-map" aria-labelledby="rb-map-title">
+      <noscript>
+        <style>{`.rb-map__filters{display:none!important}.rb-map__journey[hidden]{display:block!important}`}</style>
+      </noscript>
+
+      <header className="rb-map__intro">
+        <div className="rb-map__edition" aria-label="Nove percorsi in quattro mondi">
+          <strong>09</strong>
+          <span>percorsi<br />4 mondi</span>
         </div>
-        <dl>
-          <div><dt>Area di partenza</dt><dd>{area ? getLabel(areaOptions, area) : "Da scegliere"}</dd></div>
-          <div><dt>Priorità percepita</dt><dd>{selectedPriority?.label ?? "Da scegliere"}</dd></div>
-          <div><dt>Modalità</dt><dd>{mode ? getLabel(modeOptions, mode) : "Da scegliere"}</dd></div>
-          <div className="rb-map__dossier-result"><dt>Primo orientamento</dt><dd>{result?.name ?? "Si compila con te"}</dd></div>
-          <div><dt>Trattamenti</dt><dd>Da definire in studio</dd></div>
-          <div><dt>Tecnologie</dt><dd>Da definire in studio</dd></div>
-          <div><dt>Frequenza e controlli</dt><dd>Da definire in studio</dd></div>
-        </dl>
-        <p>Questa mappa orienta la conversazione. Non è una diagnosi e non sostituisce la valutazione professionale.</p>
-      </aside>
+        <div>
+          <p className="rebel-kicker">Mappa REBEL · orientamento</p>
+          <h3 id="rb-map-title"><span>Scegli il percorso.</span><em>Apri la materia.</em></h3>
+          <p>Confronta priorità, prezzo di partenza, attivi, botaniche e tecnologie. La valutazione trasforma poi la scelta in un programma personale.</p>
+        </div>
+      </header>
 
-      <form className="rb-map__stage" ref={stageRef} onSubmit={(event) => event.preventDefault()}>
-        {step < 3 ? <div className="rb-map__progress" aria-label={`Passaggio ${step + 1} di 3`}><span style={{ width: `${((step + 1) / 3) * 100}%` }}></span><small>{step + 1} / 3</small></div> : null}
+      <div className="rb-map__toolbar">
+        <div className="rb-map__filters" role="group" aria-label="Filtra i percorsi per area">
+          {filters.map((item) => {
+            const count = item.id === "all"
+              ? rebelJourneys.length
+              : rebelJourneys.filter((journey) => journey.area === item.id).length;
+            return (
+              <button
+                key={item.id}
+                type="button"
+                aria-pressed={filter === item.id}
+                onClick={() => setFilter(item.id)}
+              >
+                <span>{item.label}</span><small>{String(count).padStart(2, "0")}</small>
+              </button>
+            );
+          })}
+        </div>
+        <p aria-live="polite">{visibleJourneys.length} {visibleJourneys.length === 1 ? "percorso" : "percorsi"}</p>
+      </div>
 
-        {step === 0 ? (
-          <fieldset>
-            <legend tabIndex={-1}>Da dove vuoi partire?</legend>
-            <p className="rb-map__hint">Non serve conoscere il nome del trattamento: scegli soltanto l’area che senti più vicina.</p>
-            <div className="rb-map__choices">
-              {areaOptions.map((option) => <label key={option.id}><input type="radio" name="area" value={option.id} checked={area === option.id} onChange={() => { setArea(option.id); setPriority(""); }} /><span><strong>{option.label}</strong><small>{option.detail}</small></span></label>)}
-            </div>
-          </fieldset>
-        ) : null}
+      <div className="rb-map__journeys">
+        {rebelJourneys.map((journey) => {
+          const isVisible = filter === "all" || journey.area === filter;
+          const displayName = journeyName(journey);
+          return (
+            <details
+              key={journey.slug}
+              className="rb-map__journey"
+              data-world={journey.world}
+              hidden={!isVisible}
+            >
+              <summary>
+                <span className="rb-map__number">{journey.number}</span>
+                <span className="rb-map__identity">
+                  <small>{worldNames[journey.world]} · {journeySignature(journey)}</small>
+                  <strong>{displayName}</strong>
+                </span>
+                <span className="rb-map__price">
+                  <small>A partire da</small>
+                  <strong>{startingPrice(journey)}</strong>
+                </span>
+                <span className="rb-map__chevron" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none">
+                    <path d="M5 9.5 12 16l7-6.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </summary>
 
-        {step === 1 ? (
-          <fieldset>
-            <legend tabIndex={-1}>Quale priorità senti oggi?</legend>
-            <p className="rb-map__hint">È un primo orientamento: la professionista verificherà condizioni iniziali e obiettivo.</p>
-            <div className="rb-map__choices">
-              {priorities.map((option) => <label key={option.id}><input type="radio" name="priority" value={option.id} checked={priority === option.id} onChange={() => setPriority(option.id)} /><span><strong>{option.label}</strong><small>{option.detail}</small></span></label>)}
-            </div>
-          </fieldset>
-        ) : null}
+              <div className="rb-map__panel">
+                <div className="rb-map__description">
+                  <p>{journey.summary}</p>
+                  <dl>
+                    <div><dt>Può essere il tuo punto di partenza quando</dt><dd>{journey.recognize}</dd></div>
+                    <div><dt>Durata indicativa</dt><dd>{journey.duration}</dd></div>
+                  </dl>
+                </div>
 
-        {step === 2 ? (
-          <fieldset>
-            <legend tabIndex={-1}>Come preferisci iniziare?</legend>
-            <p className="rb-map__hint">La risposta cambia il prossimo passo, non il trattamento.</p>
-            <div className="rb-map__choices">
-              {modeOptions.map((option) => <label key={option.id}><input type="radio" name="mode" value={option.id} checked={mode === option.id} onChange={() => setMode(option.id)} /><span><strong>{option.label}</strong><small>{option.detail}</small></span></label>)}
-            </div>
-          </fieldset>
-        ) : null}
+                <div className="rb-map__matter-grid">
+                  <section className="rb-map__matter">
+                    <h4>Attivi e complessi</h4>
+                    <ul>{journey.actives.map((item) => <li key={item.name}>{item.name}</li>)}</ul>
+                  </section>
+                  <section className="rb-map__matter">
+                    <h4>Botaniche</h4>
+                    <ul>{journey.botanicals.map((item) => <li key={item.name}>{item.name}</li>)}</ul>
+                  </section>
+                  {journey.technologies.length > 0 ? (
+                    <section className="rb-map__matter">
+                      <h4>Tecnologie possibili</h4>
+                      <ul>{journey.technologies.map((technology) => <li key={technology}>{technology}</li>)}</ul>
+                    </section>
+                  ) : (
+                    <section className="rb-map__matter rb-map__matter--note">
+                      <h4>Come si costruisce</h4>
+                      <p>{journey.technologyNote}</p>
+                    </section>
+                  )}
+                </div>
 
-        {step < 3 ? (
-          <div className="rb-map__nav">
-            <button type="button" className="rb-map__back" onClick={back} disabled={step === 0}>Indietro</button>
-            <button type="button" className="btn btn--primary" onClick={next} disabled={(step === 0 && !area) || (step === 1 && !priority) || (step === 2 && !mode)}>Continua</button>
-          </div>
-        ) : result && selectedPriority ? (
-          <section className="rb-map__result" aria-live="polite">
-            <p className="rebel-kicker">Il tuo primo orientamento</p>
-            <h3 data-result-title tabIndex={-1}>{result.name}</h3>
-            <strong>{result.eyebrow}</strong>
-            <p>{result.summary}</p>
-            <div className="rb-map__evaluate"><small>Che cosa verifichiamo in studio</small><p>{result.evaluate}</p></div>
-            {nextStep ? <div className="rb-map__evaluate"><small>Il prossimo passo che hai scelto</small><p>{nextStep.body}</p></div> : null}
-            <div className="rb-map__paths" aria-label={`Percorsi del mondo ${result.name}`}>
-              {result.paths.map((path) => <a key={path.slug} href={`/percorsi/${path.slug}`} data-primary={path.slug === firstPath}>{path.name}<span>→</span></a>)}
-            </div>
-            <div className="rb-map__actions">
-              {mode === "esplorare" ? <a className="btn btn--primary" href={`/percorsi/${firstPath}`}>{nextStep?.label}</a> : <a className="btn btn--primary" href={contactHref}>{nextStep?.label ?? "Porta la Mappa in valutazione"}</a>}
-              <a className="btn btn--secondary" href={whatsappHref} target="_blank" rel="noreferrer">Portala su WhatsApp</a>
-              <button type="button" className="rb-map__reset" onClick={reset}>Ricomincia</button>
-            </div>
-          </section>
-        ) : null}
+                <footer className="rb-map__actions">
+                  <a className="btn btn--primary" href={`/percorsi/${journey.slug}`}>Scopri {displayName}</a>
+                  <a className="rb-map__text-link" href={`/contatti?source=mappa-rebel&percorso=${encodeURIComponent(journey.slug)}`}>Portalo in valutazione <span>→</span></a>
+                </footer>
+              </div>
+            </details>
+          );
+        })}
+      </div>
 
-        <nav className="rb-map__fallback" aria-label="Esplora direttamente i quattro mondi REBEL">
-          <small>Esplora direttamente i quattro mondi</small>
-          <div><a href="/percorsi#glow">Glow</a><a href="/percorsi#longevity">Longevity</a><a href="/percorsi/forma">Forma</a><a href="/percorsi/liberta">Libertà</a></div>
-        </nav>
-      </form>
-    </div>
+      <footer className="rb-map__closing">
+        <p><strong>Non sai quale aprire?</strong> Non devi arrivare con una risposta già pronta.</p>
+        <a href="/contatti?source=mappa-rebel&percorso=valutazione">Partiamo dalla valutazione <span>→</span></a>
+      </footer>
+    </section>
   );
 }

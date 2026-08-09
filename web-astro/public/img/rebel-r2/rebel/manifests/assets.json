@@ -208,7 +208,6 @@
       }
     },
     "thory": {
-      "luminaX1Pro": "rebel/technologies/thory/lumina-x1-pro/official-front-three-quarter.webp",
       "luminaX3": "rebel/technologies/thory/lumina-x3/hero.webp",
       "luminaK3": "rebel/technologies/thory/lumina-k3/hero.webp",
       "auraQ2": "rebel/technologies/thory/aura-q2/hero.webp",
@@ -737,14 +736,6 @@
       "height": 1024,
       "bytes": 31004,
       "sha256": "44627da5cf04d47e1644951a1cd073c715d2eeaf33d04f1702cfcd5de6d4d792"
-    },
-    {
-      "key": "rebel/technologies/thory/lumina-x1-pro/official-front-three-quarter.webp",
-      "mime": "image/webp",
-      "width": 1280,
-      "height": 725,
-      "bytes": 29024,
-      "sha256": "a0a44fb7ff55cccd368f82ae9f43d064b164dd2701b129d931111a0ec4603a08"
     },
     {
       "key": "rebel/technologies/thory/lumina-x3/hero.webp",
