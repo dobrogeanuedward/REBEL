@@ -159,7 +159,6 @@ const scenes = [
     const chapters = Array.from(root.querySelectorAll<HTMLElement>("[data-atlas-chapter]"));
     if (!theatre || !sticky || scenes.length !== 3 || chapters.length !== 3) return;
 
-    let visible = false;
     let raf = 0;
     const interaction = new AbortController();
 
@@ -180,7 +179,7 @@ const scenes = [
 
     const render = () => {
       raf = 0;
-      if (!visible || reduceMotion.matches || staticLayout.matches) {
+      if (reduceMotion.matches || staticLayout.matches) {
         renderStatic();
         return;
       }
@@ -212,8 +211,7 @@ const scenes = [
     };
 
     const observer = new IntersectionObserver(([entry]) => {
-      visible = entry.isIntersecting;
-      if (visible) requestRender();
+      if (entry.isIntersecting) requestRender();
     }, { rootMargin: "30% 0px 30% 0px" });
 
     observer.observe(root);
