@@ -622,48 +622,48 @@
       "mime": "image/webp",
       "width": 1672,
       "height": 941,
-      "bytes": 141444,
-      "sha256": "6ab192c8b7bffb0c1e5c8809dea9eda0ce506351bc86a1d55ccb033570d3b9ef"
+      "bytes": 108158,
+      "sha256": "e1970779d44ae8fce5d629c484d2b06f05186f1e22fb756439f0c3f2d65d8db5"
     },
     {
       "key": "rebel/studio/real-exterior-mobile.webp",
       "mime": "image/webp",
       "width": 752,
       "height": 940,
-      "bytes": 62088,
-      "sha256": "7b2b7c32e496214617fdfa365bec2df8422df465b27c30925f951beac4e5016a"
+      "bytes": 52924,
+      "sha256": "90a7d25d4c55a2d4e1439727e9733b2ee7674dc880aaa4b9a152018ee872d525"
     },
     {
       "key": "rebel/studio/real-overview-desktop.webp",
       "mime": "image/webp",
       "width": 1672,
       "height": 941,
-      "bytes": 72868,
-      "sha256": "f6d5aee3cd4688411c6b6a8c99216bfe964e710e040eff8e201adf86e14da043"
+      "bytes": 74586,
+      "sha256": "35e08959033eb984797f4257288d24eb552b839c74fd537fc3b8074e82d0f1d4"
     },
     {
       "key": "rebel/studio/real-overview-mobile.webp",
       "mime": "image/webp",
       "width": 752,
       "height": 940,
-      "bytes": 31968,
-      "sha256": "7e8756168309df2f61858a7949d0ed3146ae266c0972e5ce74e02dc5914432a1"
+      "bytes": 41720,
+      "sha256": "4e12ba448b28c4ae5a5134c917d77767cd07432d53638e6a43d433611ee71d13"
     },
     {
       "key": "rebel/studio/thory-room-desktop.webp",
       "mime": "image/webp",
       "width": 1672,
       "height": 941,
-      "bytes": 52756,
-      "sha256": "6806c7ac8fbce406ee747d456c872d61409899098674d12dfd5adc7358d5f5fb"
+      "bytes": 55594,
+      "sha256": "4ce407634fe19a94969ea8514b6bed1c4ef42983a9fae3d0f9780adabb306c8a"
     },
     {
       "key": "rebel/studio/thory-room-mobile.webp",
       "mime": "image/webp",
       "width": 752,
       "height": 940,
-      "bytes": 36890,
-      "sha256": "3b66ee2b0e39ecee9009ac9a4f647858a450433f396a1c7eb849d3bd123d119f"
+      "bytes": 39880,
+      "sha256": "fb05fc3e69039e7ff819a8302b48470b3bf8f5d4f17152cbdebce88fc2999606"
     },
     {
       "key": "rebel/territory/bra-wide.webp",
