@@ -31,7 +31,8 @@ const escapeXml = (value: string) =>
 export const GET: APIRoute = () => {
   const baseUrl = siteConfig.siteUrl.replace(/\/$/, "");
   const lastmod = new Date().toISOString();
-  const defaultImage = `${baseUrl}${siteConfig.assets.ogImage}`;
+  const absoluteUrl = (value: string) => new URL(value, `${baseUrl}/`).toString();
+  const defaultImage = absoluteUrl(siteConfig.assets.ogImage);
 
   const make = (
     path: string,
@@ -99,7 +100,7 @@ export const GET: APIRoute = () => {
       "weekly",
       service.category === "laser" ? 0.84 : 0.82,
       service.heroImage?.src
-        ? `${baseUrl}${service.heroImage.src}`
+        ? absoluteUrl(service.heroImage.src)
         : undefined,
     ),
   );
@@ -110,7 +111,7 @@ export const GET: APIRoute = () => {
       "weekly",
       competence.intent === "commercial" ? 0.8 : 0.78,
       competence.heroImage?.src
-        ? `${baseUrl}${competence.heroImage.src}`
+        ? absoluteUrl(competence.heroImage.src)
         : undefined,
     ),
   );

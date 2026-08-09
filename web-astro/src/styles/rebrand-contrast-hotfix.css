@@ -31,13 +31,13 @@
 
 .rebel-site-header .site-header__logo,
 .rebel-drawer .site-header__logo {
-  filter:none !important;
+  filter:none;
   width:auto;
   height:auto;
   max-width:clamp(112px,12vw,154px);
 }
 .rebel-site-header .site-header__brand:hover .site-header__logo,
-.rebel-drawer .site-header__brand:hover .site-header__logo { filter:none !important; }
+.rebel-drawer .site-header__brand:hover .site-header__logo { filter:none; }
 .rebel-site-header .site-header__brand { height:clamp(42px,4.4vw,56px); }
 .rebel-site-header[data-scrolled="true"] {
   background:rgba(255,253,249,.9);

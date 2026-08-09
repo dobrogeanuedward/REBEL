@@ -86,7 +86,7 @@
 .rebel-priority {
   min-height: 220px;
   border-radius: var(--audit-radius);
-  background: rgba(255,255,255,.76) !important;
+  background: rgba(255,255,255,.76);
   padding: 1.35rem;
 }
 .rb-priority-grid strong,

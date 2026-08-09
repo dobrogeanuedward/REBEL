@@ -38,8 +38,7 @@ const pathname = Astro.url.pathname;
     <meta name="format-detection" content="telephone=no" />
     <meta name="theme-color" content="#07050E" />
     <link rel="manifest" href="/manifest.webmanifest" />
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href={siteConfig.assets.logoLight} />
 
     <link rel="preconnect" href="https://imagedelivery.net" crossorigin />
     <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
@@ -68,6 +67,6 @@ const pathname = Astro.url.pathname;
 
     <SiteFooter />
     <WhatsappLive />
-    {pathname === "/" ? <script src="/scripts/living-hero.js?v=8" is:inline></script> : null}
+    {pathname === "/" ? <script src="/scripts/living-hero.js?v=10" data-astro-rerun is:inline></script> : null}
   </body>
 </html>
