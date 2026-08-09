@@ -1,62 +1,97 @@
 ---
-import { luminaX1Pro } from "@/lib/rebel-technologies";
 import "@/styles/technology-theatre.css";
 
 const siteAsset = (slot: string) => `/api/site-asset?slot=${encodeURIComponent(slot)}`;
 const chapters = [
   {
-    id: "spectrum",
+    id: "reading",
     number: "01",
-    eyebrow: "4-Wavelength Spectrum",
-    title: "Quattro lunghezze d’onda. Una sola missione.",
-    body: "Lumina X1 Pro integra 755, 808, 940 e 1064 nm. La configurazione viene definita dalla professionista in relazione ad area, pelle e caratteristiche del pelo.",
-    readout: "755 · 808 · 940 · 1064 nm",
+    eyebrow: "Prima della seduta",
+    title: "La tecnologia arriva dopo aver letto pelle, pelo e zona.",
+    body: "Area, fototipo, caratteristiche del pelo e sensibilità costruiscono il punto di partenza. Da qui definiamo parametri e calendario senza applicare lo stesso schema a tutte.",
+    readout: "Pelle · pelo · zona",
+    mediaSlot: "services.method.consultation.mobile",
+    mediaAlt: "Professionista REBEL e cliente durante la valutazione iniziale",
+    mediaWidth: 1122,
+    mediaHeight: 1402,
   },
   {
-    id: "parameters",
+    id: "spectrum",
     number: "02",
-    eyebrow: "Parameter Control",
-    title: "I parametri restano leggibili.",
-    body: "Energia, frequenza, durata dell’impulso e raffreddamento vengono gestiti dal display touchscreen. Online mostriamo soltanto dati tecnici documentati, senza trasformarli in promesse.",
-    readout: "1–10 Hz · 1–400 ms",
+    eyebrow: "Lumina X1 Pro",
+    title: "Quattro lunghezze d’onda. Parametri costruiti sulla zona.",
+    body: "Lumina X1 Pro integra 755, 808, 940 e 1064 nm. Energia, frequenza e durata dell’impulso vengono impostate dalla professionista in relazione a ciò che ha osservato.",
+    readout: "755 · 808 · 940 · 1064 nm",
+    mediaSlot: "home.hero.laser.desktop",
+    mediaAlt: "Professionista REBEL durante una seduta laser con la cliente",
+    mediaWidth: 1536,
+    mediaHeight: 1024,
   },
   {
-    id: "contact",
+    id: "comfort",
     number: "03",
-    eyebrow: "Ice Point Cooling",
-    title: "Il comfort parte dal contatto.",
-    body: "La documentazione THORY descrive un raffreddamento a contatto in zaffiro integrato nel manipolo, insieme a circuito ad acqua, modulo TEC e aria.",
+    eyebrow: "ICE Polar",
+    title: "Il freddo accompagna il gesto, dal primo contatto.",
+    body: "Il raffreddamento a contatto in zaffiro aiuta a gestire la componente termica mentre il manipolo segue la zona. La percezione resta personale e viene ascoltata durante la seduta.",
     readout: "Contatto in zaffiro",
+    mediaSlot: "services.laser.handpiece.desktop",
+    mediaAlt: "Manipolo con raffreddamento a contatto durante una seduta laser",
+    mediaWidth: 1536,
+    mediaHeight: 1024,
   },
   {
-    id: "method",
+    id: "control",
     number: "04",
-    eyebrow: "Dentro il Metodo REBEL",
-    title: "La macchina non è il punto di partenza.",
-    body: "Prima vengono Mappa, zona e priorità. Poi si definiscono parametri, calendario e controlli. La tecnologia entra nel percorso soltanto quando serve.",
-    readout: "Mappa → parametri → controllo",
+    eyebrow: "Controllo REBEL",
+    title: "Ogni seduta aggiorna il percorso, non soltanto il calendario.",
+    body: "Osserviamo risposta della pelle, ricrescita e comfort. I controlli servono a confermare o modificare parametri e frequenza, così il percorso Libertà rimane leggibile nel tempo.",
+    readout: "Seduta · risposta · controllo",
+    mediaSlot: "journeys.liberta.hero.desktop",
+    mediaAlt: "Cliente REBEL al termine del suo percorso Libertà",
+    mediaWidth: 1536,
+    mediaHeight: 1024,
   },
 ];
 ---
-<section class="technology-theatre" data-technology-theatre>
+
+<section class="technology-theatre" data-technology-theatre aria-labelledby="laser-showcase-title">
   <div class="rebel-container">
     <header class="technology-theatre__head">
-      <div><p class="rebel-kicker">Technology Theatre · Lumina X1 Pro</p><h2 class="rebel-title">Una tecnologia reale, raccontata senza scorciatoie.</h2></div>
-      <p>Quattro capitoli mostrano ciò che conta nel percorso Libertà: spettro, controllo dei parametri, contatto e integrazione nel Metodo REBEL.</p>
+      <div>
+        <p class="rebel-kicker">Epilazione & comfort · percorso Libertà</p>
+        <h2 class="rebel-title" id="laser-showcase-title">Dentro la seduta, dal primo sguardo al controllo.</h2>
+      </div>
+      <p>Per capire cosa cambia davvero, entriamo nella seduta: dalla lettura iniziale al comfort, fino ai controlli che accompagnano il percorso.</p>
     </header>
 
-    <nav class="technology-theatre__index" aria-label="Capitoli Lumina X1 Pro">
-      {chapters.map((chapter, index) => <a href={`#tech-${chapter.id}`} data-tech-nav={index} aria-current={index === 0 ? "step" : undefined}><span>{chapter.number}</span>{chapter.eyebrow}</a>)}
+    <nav class="technology-theatre__index" aria-label="I quattro momenti del percorso laser">
+      {chapters.map((chapter, index) => (
+        <a href={`#tech-${chapter.id}`} data-tech-nav={index} aria-current={index === 0 ? "step" : undefined}>
+          <span>{chapter.number}</span>{chapter.eyebrow}
+        </a>
+      ))}
     </nav>
 
     <div class="technology-theatre__layout">
-      <div class="technology-theatre__visual" data-tech-visual>
+      <div class="technology-theatre__visual" data-tech-visual data-active="0">
         <div class="technology-theatre__halo" aria-hidden="true"></div>
-        <img src={siteAsset(luminaX1Pro.imageSlot)} alt={luminaX1Pro.imageAlt} width={luminaX1Pro.imageWidth} height={luminaX1Pro.imageHeight} loading="lazy" decoding="async" />
+        <div class="technology-theatre__media-stack">
+          {chapters.map((chapter, index) => (
+            <img
+              src={siteAsset(chapter.mediaSlot)}
+              alt={chapter.mediaAlt}
+              width={chapter.mediaWidth}
+              height={chapter.mediaHeight}
+              loading={index === 0 ? "eager" : "lazy"}
+              decoding="async"
+              data-tech-media={index}
+            />
+          ))}
+        </div>
         <div class="technology-theatre__readouts" aria-hidden="true">
           {chapters.map((chapter, index) => <span data-tech-readout={index}>{chapter.readout}</span>)}
         </div>
-        <p class="technology-theatre__caption">THORY · {luminaX1Pro.name} · {luminaX1Pro.descriptor}</p>
+        <p class="technology-theatre__caption">Lumina X1 Pro · ICE Polar · Metodo REBEL</p>
       </div>
 
       <div class="technology-theatre__chapters">
@@ -69,16 +104,15 @@ const chapters = [
           </article>
         ))}
         <details class="technology-theatre__specs">
-          <summary>Scheda tecnica documentata</summary>
+          <summary>Vuoi capire meglio Lumina X1 Pro?</summary>
           <dl>
             <div><dt>Lunghezze d’onda</dt><dd>755 + 808 + 940 + 1064 nm</dd></div>
-            <div><dt>Frequenza</dt><dd>1–10 Hz, regolabile</dd></div>
-            <div><dt>Durata impulso</dt><dd>1–400 ms, regolabile</dd></div>
+            <div><dt>Frequenza regolabile</dt><dd>1–10 Hz</dd></div>
+            <div><dt>Durata impulso</dt><dd>1–400 ms</dd></div>
             <div><dt>Spot</dt><dd>13 × 30 mm · opzionale 13 × 40 mm</dd></div>
-            <div><dt>Display</dt><dd>Touchscreen 10,4”</dd></div>
             <div><dt>Raffreddamento</dt><dd>Acqua + TEC + aria + contatto in zaffiro</dd></div>
           </dl>
-          <p>La scheda descrive la piattaforma. Parametri, frequenza e calendario vengono definiti soltanto dopo la valutazione di area, pelle e caratteristiche del pelo.</p>
+          <p>I dati descrivono la piattaforma. Quelli della tua seduta vengono scelti soltanto dopo la valutazione.</p>
         </details>
       </div>
     </div>
@@ -104,7 +138,9 @@ const chapters = [
       };
 
       const observer = new IntersectionObserver((entries) => {
-        const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
         if (!visible) return;
         activate(Number((visible.target as HTMLElement).dataset.techChapter ?? 0));
       }, { rootMargin: "-24% 0px -43%", threshold: [0, .25, .55, .8] });
@@ -112,7 +148,10 @@ const chapters = [
       chapters.forEach((chapter) => observer.observe(chapter));
       nav.forEach((button, index) => button.addEventListener("click", (event) => {
         event.preventDefault();
-        chapters[index]?.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" });
+        chapters[index]?.scrollIntoView({
+          behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+          block: "center",
+        });
       }));
       activate(0);
       document.addEventListener("astro:before-swap", () => observer.disconnect(), { once: true });

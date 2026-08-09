@@ -5,95 +5,240 @@ import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import TechnologyTheatre from "@/components/TechnologyTheatre.astro";
 import { thoryTechnologies } from "@/lib/rebel-technologies";
 import { buildBreadcrumbSchema, buildItemListSchema, buildWebPageSchema, createPageMeta } from "@/lib/seo";
+import "@/styles/technology-showcase.css";
 
 const meta = createPageMeta({
-  title: "Tecnologie REBEL e portfolio THORY a Carmagnola",
-  description: "Lumina X1 Pro, Lumina X3, Lumina K3, Aura Q2, CryoShape X2, InfraPress X2 e Tecar 448Revolution, più ICE Polar e LPG nei percorsi REBEL.",
+  title: "Tecnologie estetiche REBEL a Carmagnola — viso, corpo e laser",
+  description: "Scopri le tecnologie che possono entrare nei percorsi REBEL per viso, corpo ed epilazione: Lumina, Aura, CryoShape, InfraPress, Tecar, ICE Polar e LPG.",
   path: "/tecnologie-rebel",
   openGraphType: "article",
   keywords: ["tecnologie estetiche Carmagnola", "THORY Carmagnola", "Lumina X1 Pro", "LPG Carmagnola", "ICE Polar"],
 });
+
 const siteAsset = (slot: string) => `/api/site-asset?slot=${encodeURIComponent(slot)}`;
 const portfolio = thoryTechnologies.slice(1);
-const breadcrumb = buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Tecnologie REBEL", path: "/tecnologie-rebel" }]);
-const webPage = buildWebPageSchema({ name: "Tecnologie REBEL e portfolio THORY", description: meta.description, path: "/tecnologie-rebel" });
-const list = buildItemListSchema({ name: "Tecnologie raccontate da REBEL", path: "/tecnologie-rebel", items: [...thoryTechnologies.map((item) => ({ name: item.name, path: `/tecnologie-rebel#${item.slug}` })), { name: "ICE Polar", path: "/tecnologie-rebel#ice-polar" }, { name: "LPG", path: "/tecnologie-rebel#lpg" }] });
+const clientFrames: Record<string, { focus: string; title: string; tone: string }> = {
+  "lumina-x3": {
+    focus: "Epilazione e qualità della pelle",
+    title: "Tre funzioni coordinate nello stesso incontro.",
+    tone: "violet",
+  },
+  "lumina-k3": {
+    focus: "Epilazione e fotobiostimolazione",
+    title: "Tre funzioni, scelte a partire dalla tua pelle.",
+    tone: "prism",
+  },
+  "aura-q2": {
+    focus: "Percorsi viso Structure",
+    title: "Due modalità al plasma, scelte sulla priorità della pelle.",
+    tone: "rose",
+  },
+  "cryoshape-x2": {
+    focus: "Percorsi corpo Forma",
+    title: "Applicatori diversi per aree e priorità diverse.",
+    tone: "ice",
+  },
+  "infrapress-x2": {
+    focus: "Leggerezza e programmi corpo",
+    title: "Pressione e calore accompagnano il tuo programma corpo.",
+    tone: "air",
+  },
+  "tecar-448-revolution": {
+    focus: "Tono, tessuti e qualità nel tempo",
+    title: "Due modalità scelte in base ai tessuti e alla zona.",
+    tone: "warm",
+  },
+};
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Tecnologie REBEL", path: "/tecnologie-rebel" },
+]);
+const webPage = buildWebPageSchema({
+  name: "Tecnologie estetiche REBEL",
+  description: meta.description,
+  path: "/tecnologie-rebel",
+});
+const list = buildItemListSchema({
+  name: "Tecnologie nei percorsi REBEL",
+  path: "/tecnologie-rebel",
+  items: [
+    ...thoryTechnologies.map((item) => ({ name: item.name, path: `/tecnologie-rebel#${item.slug}` })),
+    { name: "ICE Polar", path: "/tecnologie-rebel#ice-polar" },
+    { name: "LPG endomassaggio", path: "/tecnologie-rebel#lpg" },
+  ],
+});
 ---
+
 <BaseLayout meta={meta} bodyClass="rebel-rebrand page-tecnologie-rebel">
   <JsonLd data={breadcrumb} />
   <JsonLd data={webPage} />
   <JsonLd data={list} />
 
-  <main>
-    <section class="tech-new-hero">
-      <div class="rebel-container tech-new-hero__grid">
-        <div class="tech-new-hero__copy">
-          <p class="rebel-kicker">Tecnologia, dentro un metodo</p>
-          <h1 class="rebel-display">Non scegliamo una macchina.<br/>Costruiamo un percorso.</h1>
-          <p class="rebel-lead">Lumina X1 Pro è il cuore tecnologico di Libertà. Il portfolio THORY amplia ciò che possiamo attivare quando la Mappa, la priorità e la valutazione lo rendono pertinente.</p>
-          <div class="rebel-hero__actions"><a class="btn btn--primary" href="#lumina-x1-pro">Entra nel Technology Theatre</a><a class="btn btn--secondary" href="/contatti">Prenota la valutazione</a></div>
+  <div class="tech-showcase" data-tech-showcase>
+    <section class="tech-showcase-hero" aria-labelledby="tech-showcase-title">
+      <picture class="tech-showcase-hero__media">
+        <source media="(max-width:720px)" srcset={siteAsset("home.hero.laser.mobile")} />
+        <img src={siteAsset("home.hero.laser.desktop")} alt="Professionista REBEL durante una seduta con tecnologia laser" width="1536" height="1024" fetchpriority="high" decoding="async" />
+      </picture>
+      <div class="tech-showcase-hero__veil" aria-hidden="true"></div>
+      <div class="rebel-container tech-showcase-hero__content">
+        <p class="rebel-kicker">Tecnologie nel Metodo REBEL</p>
+        <h1 id="tech-showcase-title"><span>Più possibilità.</span><em>Una direzione: la tua.</em></h1>
+        <p>Pelle, corpo ed epilazione richiedono strumenti diversi. La valutazione ci permette di scegliere il gesto, la materia e la tecnologia che danno senso al tuo percorso.</p>
+        <div class="rebel-hero__actions">
+          <a class="btn btn--primary" href="#laser-liberta">Entra nella seduta laser</a>
+          <a class="btn btn--secondary" href="#showcase-tecnologie">Esplora tutte le tecnologie</a>
         </div>
-        <div class="tech-new-hero__visual">
-          <span>THORY · Lumina Pro Series</span>
-          <img src={siteAsset("technologies.thory.luminaX1Pro")} alt="Lumina X1 Pro THORY con display e manipolo" width="1280" height="725" fetchpriority="high" decoding="async" />
-        </div>
+        <nav class="tech-showcase-hero__paths" aria-label="Percorsi collegati alle tecnologie">
+          <a href="/percorsi/liberta"><span>01</span> Epilazione · Libertà</a>
+          <a href="/percorsi/structure"><span>02</span> Viso · Structure</a>
+          <a href="/percorsi/forma"><span>03</span> Corpo · Forma</a>
+        </nav>
       </div>
     </section>
 
-    <div id="lumina-x1-pro"><TechnologyTheatre /></div>
+    <div id="laser-liberta"><TechnologyTheatre /></div>
 
-    <section class="rebel-section tech-portfolio">
+    <section class="rebel-section tech-showroom" id="showcase-tecnologie" aria-labelledby="showroom-title">
       <div class="rebel-container">
-        <header class="tech-portfolio__head"><div><p class="rebel-kicker">Portfolio THORY · attivabile su valutazione</p><h2 class="rebel-title">Altre piattaforme, quando servono davvero.</h2></div><p>Pertinenza, configurazione e disponibilità vengono confermate prima di inserire una tecnologia nella proposta REBEL.</p></header>
-        <div class="tech-portfolio__grid">
+        <header class="tech-showroom__head">
+          <div>
+            <p class="rebel-kicker">Lo showcase REBEL</p>
+            <h2 class="rebel-title" id="showroom-title">Ogni tecnologia racconta una possibilità diversa.</h2>
+          </div>
+          <p>Apri i dati essenziali, scopri in quale percorso può entrare e porta la tua curiosità in valutazione. La scelta finale nasce sempre dalla tua priorità.</p>
+        </header>
+
+        <nav class="tech-showroom__index" aria-label="Indice delle tecnologie">
           {portfolio.map((tech, index) => (
-            <article id={tech.slug} class="tech-portfolio__card" data-review={tech.reviewLevel}>
-              <div class="tech-portfolio__media"><span>{String(index + 2).padStart(2,"0")}</span><img src={siteAsset(tech.imageSlot)} alt={tech.imageAlt} width={tech.imageWidth} height={tech.imageHeight} loading="lazy" decoding="async" /></div>
-              <div class="tech-portfolio__copy">
-                <p class="rebel-kicker">{tech.descriptor}</p>
-                <h3>{tech.name}</h3>
-                <strong>{tech.technicalDescriptor}</strong>
-                <p>{tech.summary}</p>
-                <ul>{tech.highlights.map((item) => <li><b>{item.value}</b><span>{item.label}</span></li>)}</ul>
-                <div class="tech-portfolio__links">{tech.journeyLinks.map((journey) => <a href={journey.href}>{journey.label} →</a>)}</div>
-                <small>{tech.note}</small>
-              </div>
-            </article>
+            <a href={`#${tech.slug}`} data-showroom-nav={index} aria-current={index === 0 ? "true" : undefined}>
+              <span>{String(index + 1).padStart(2, "0")}</span>{tech.name}
+            </a>
           ))}
+        </nav>
+
+        <div class="tech-showroom__scenes">
+          {portfolio.map((tech, index) => {
+            const frame = clientFrames[tech.slug];
+            return (
+              <article id={tech.slug} class="tech-showroom__scene" data-tech-scene={index} data-tone={frame?.tone ?? "violet"}>
+                <div class="tech-showroom__media">
+                  <span class="tech-showroom__serial">{String(index + 1).padStart(2, "0")}</span>
+                  <img src={siteAsset(tech.imageSlot)} alt={tech.imageAlt} width={tech.imageWidth} height={tech.imageHeight} loading="lazy" decoding="async" />
+                  <p>THORY · {tech.descriptor}</p>
+                </div>
+                <div class="tech-showroom__copy">
+                  <p class="rebel-kicker">{frame?.focus}</p>
+                  <h3>{tech.name}</h3>
+                  <em>{frame?.title ?? tech.headline}</em>
+                  <p>{tech.summary}</p>
+                  <details>
+                    <summary>Cosa c’è dietro</summary>
+                    <ul>{tech.highlights.map((item) => <li><b>{item.value}</b><span>{item.label}</span></li>)}</ul>
+                  </details>
+                  <div class="tech-showroom__journeys">
+                    <small>Può entrare in</small>
+                    {tech.journeyLinks.map((journey) => <a href={journey.href}>{journey.label} <span>→</span></a>)}
+                  </div>
+                  <a class="tech-showroom__contact" href={`/contatti?source=tecnologie&tecnologia=${encodeURIComponent(tech.slug)}`}>Parliamone nella valutazione <span>→</span></a>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
 
-    <section class="rebel-section rebel-section--paper tech-rebel-tools">
+    <section class="rebel-section rebel-section--paper tech-in-cabin" aria-labelledby="in-cabin-title">
       <div class="rebel-container">
-        <p class="rebel-kicker">Tecnologie REBEL · non THORY</p>
-        <h2 class="rebel-title">ICE Polar e LPG restano capitoli separati.</h2>
-        <div class="tech-rebel-tools__grid">
-          <article id="ice-polar" style={`--tool-image:url('${siteAsset("services.laser.handpiece.desktop")}')`}>
-            <div><p class="rebel-kicker">Comfort durante il laser</p><h3>ICE Polar</h3><p>Nel percorso Libertà, ICE Polar è il nome commerciale REBEL per il comfort del freddo che accompagna la seduta. La scheda Lumina X1 Pro documenta separatamente il raffreddamento a contatto in zaffiro.</p><a href="/percorsi/liberta">Scopri Libertà →</a></div>
+        <header class="tech-in-cabin__head">
+          <p class="rebel-kicker">La tecnologia diventa esperienza</p>
+          <h2 class="rebel-title" id="in-cabin-title">Quello che accade in cabina conta più del nome sulla macchina.</h2>
+        </header>
+        <div class="tech-in-cabin__grid">
+          <article id="ice-polar" style={`--experience-image:url('${siteAsset("services.laser.handpiece.desktop")}')`}>
+            <div>
+              <p class="rebel-kicker">Nel percorso Libertà</p>
+              <h3>ICE Polar</h3>
+              <em>Il freddo accompagna il laser.</em>
+              <p>Il raffreddamento a contatto segue il gesto del manipolo e aiuta a gestire la componente termica durante la seduta. Ti ascoltiamo zona per zona, senza dare per scontata la stessa percezione per tutte.</p>
+              <a href="/percorsi/liberta">Scopri Libertà <span>→</span></a>
+            </div>
           </article>
-          <article id="lpg" style={`--tool-image:url('${siteAsset("journeys.forma.hero.desktop")}')`}>
-            <div><p class="rebel-kicker">Tecnologia meccanica corpo</p><h3>LPG endomassaggio</h3><p>Può entrare nei programmi Forma insieme a manualità e altre tecnologie. Configurazione e frequenza vengono definite dopo la valutazione.</p><a href="/percorsi/forma">Scopri Forma →</a></div>
+          <article id="lpg" style={`--experience-image:url('${siteAsset("journeys.forma.hero.desktop")}')`}>
+            <div>
+              <p class="rebel-kicker">Nel percorso Forma</p>
+              <h3>LPG endomassaggio</h3>
+              <em>Un gesto meccanico inserito nel programma corpo.</em>
+              <p>LPG può affiancare manualità, attivi e altre tecnologie nei programmi Forma. Zone, ritmo e frequenza vengono costruiti a partire da tessuti, sensazioni e priorità osservate.</p>
+              <a href="/percorsi/forma">Scopri Forma <span>→</span></a>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="rebel-section">
-      <div class="rebel-container tech-method-strip">
-        <div><span>01</span><strong>Mappa</strong><p>Area, priorità e condizioni iniziali.</p></div>
-        <div><span>02</span><strong>Scelta</strong><p>Materia, manualità e tecnologia pertinente.</p></div>
-        <div><span>03</span><strong>Parametri</strong><p>Configurazione e frequenza leggibili.</p></div>
-        <div><span>04</span><strong>Controllo</strong><p>La proposta cambia con la risposta osservata.</p></div>
+    <section class="rebel-section tech-method" aria-labelledby="tech-method-title">
+      <div class="rebel-container">
+        <header class="tech-method__head">
+          <p class="rebel-kicker">Dal desiderio alla seduta</p>
+          <h2 class="rebel-title" id="tech-method-title">Ogni tecnologia deve avere un perché, anche per te.</h2>
+        </header>
+        <div class="tech-method__strip">
+          <div><span>01</span><strong>Ti ascoltiamo</strong><p>Partiamo da ciò che vuoi migliorare e da come lo percepisci.</p></div>
+          <div><span>02</span><strong>Valutiamo</strong><p>Leggiamo pelle, tessuti, zona e condizioni iniziali.</p></div>
+          <div><span>03</span><strong>Costruiamo</strong><p>Mettiamo insieme materia, manualità, tecnologia e frequenza.</p></div>
+          <div><span>04</span><strong>Controlliamo</strong><p>La risposta osservata può confermare o cambiare il programma.</p></div>
+        </div>
       </div>
     </section>
 
-    <section class="rebel-campaign"><div class="rebel-container"><strong>Prima la priorità.<br/><span>Poi la tecnologia.</span></strong><p>Durante la valutazione ti spieghiamo quale strumento può entrare nel percorso, con quale logica e a quale prezzo.</p><div class="rebel-hero__actions" style="justify-content:center"><a class="btn btn--primary" href="/contatti">Prenota la valutazione REBEL</a><a class="btn btn--secondary" href="/percorsi">Esplora i nove percorsi</a></div></div></section>
-  </main>
+    <section class="rebel-campaign">
+      <div class="rebel-container">
+        <strong>Il tuo percorso.<br /><span>Con più possibilità.</span></strong>
+        <p>Durante la valutazione trasformiamo la tua priorità in una proposta chiara: cosa facciamo, con quali strumenti, con quale frequenza e a quale prezzo.</p>
+        <div class="rebel-hero__actions" style="justify-content:center">
+          <a class="btn btn--primary" href="/contatti">Prenota la valutazione REBEL</a>
+          <a class="btn btn--secondary" href="/percorsi">Esplora i nove percorsi</a>
+        </div>
+      </div>
+    </section>
+  </div>
 
   <StickyBookingBar primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
-</BaseLayout>
 
-<style>
-  .tech-new-hero{padding:clamp(9rem,14vw,13rem) 0 clamp(4rem,8vw,7rem);overflow:hidden;background:radial-gradient(circle at 78% 20%,rgba(111,76,220,.22),transparent 30rem),radial-gradient(circle at 13% 90%,rgba(233,59,136,.14),transparent 25rem),#f8f3ed}.tech-new-hero__grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(28rem,1.1fr);gap:clamp(2rem,6vw,6rem);align-items:center}.tech-new-hero__copy .rebel-display{max-width:12ch;font-size:clamp(4.2rem,6vw,6.5rem);line-height:.86}.tech-new-hero__visual{position:relative;min-height:clamp(25rem,46vw,43rem);display:grid;place-items:center;border:1px solid rgba(49,27,68,.12);border-radius:2rem;background:radial-gradient(circle,rgba(255,255,255,.97),rgba(233,224,237,.72));box-shadow:0 2rem 5rem rgba(46,25,61,.12)}.tech-new-hero__visual::after{content:"";position:absolute;inset:auto 12% 9%;height:7%;background:#3a2d42;filter:blur(28px);opacity:.2;border-radius:50%}.tech-new-hero__visual>span{position:absolute;top:1.25rem;left:1.25rem;color:#6d5b75;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.tech-new-hero__visual img{position:relative;z-index:1;width:92%;height:auto;object-fit:contain}.tech-portfolio{background:#f8f3ed}.tech-portfolio__head{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,7vw,7rem);align-items:end}.tech-portfolio__head>p{margin:0;color:#6b5c71;line-height:1.7}.tech-portfolio__grid{display:grid;gap:1.2rem;margin-top:3rem}.tech-portfolio__card{display:grid;grid-template-columns:minmax(20rem,.88fr) minmax(0,1.12fr);gap:clamp(1.5rem,5vw,5rem);overflow:hidden;border:1px solid rgba(49,29,69,.13);border-radius:2rem;background:rgba(255,255,255,.75)}.tech-portfolio__card:nth-child(even){grid-template-columns:minmax(0,1.12fr) minmax(20rem,.88fr)}.tech-portfolio__card:nth-child(even) .tech-portfolio__media{order:2}.tech-portfolio__media{position:relative;min-height:36rem;display:grid;place-items:center;background:radial-gradient(circle,white 12%,#eee9ef 72%)}.tech-portfolio__media>span{position:absolute;top:1.25rem;left:1.25rem;z-index:1;color:#b61f64;font-size:1.2rem;font-weight:900}.tech-portfolio__media img{width:min(82%,31rem);max-height:32rem;object-fit:contain;filter:drop-shadow(0 1.6rem 1.3rem rgba(45,26,58,.16))}.tech-portfolio__copy{display:flex;flex-direction:column;justify-content:center;padding:clamp(1.5rem,4vw,3.5rem)}.tech-portfolio__copy h3{margin:.15rem 0 .5rem;font-size:clamp(2.7rem,6vw,5.5rem);line-height:.84;letter-spacing:-.065em}.tech-portfolio__copy>strong{color:#6d3b87}.tech-portfolio__copy>p{color:#695b70;line-height:1.65}.tech-portfolio__copy ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.6rem;margin:1.25rem 0;padding:0;list-style:none}.tech-portfolio__copy li{padding:.85rem;border:1px solid rgba(49,29,69,.13);border-radius:.8rem;background:#fff}.tech-portfolio__copy li b,.tech-portfolio__copy li span{display:block}.tech-portfolio__copy li b{font-size:.9rem}.tech-portfolio__copy li span{margin-top:.25rem;color:#77687d;font-size:.72rem;line-height:1.4}.tech-portfolio__links{display:flex;flex-wrap:wrap;gap:.5rem}.tech-portfolio__links a{padding:.55rem .7rem;border-radius:999px;background:#2c183b;color:white;text-decoration:none;font-size:.77rem;font-weight:800}.tech-portfolio__copy>small{margin-top:1.2rem;color:#75677b;line-height:1.5}.tech-portfolio__card[data-review="descriptive-only"]{border-style:dashed}.tech-rebel-tools__grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2.5rem}.tech-rebel-tools__grid article{--tool-image:none;position:relative;min-height:38rem;display:flex;align-items:end;overflow:hidden;border-radius:2rem;color:white;isolation:isolate;background:#1b0d29}.tech-rebel-tools__grid article::before{content:"";position:absolute;inset:0;z-index:-2;background-image:var(--tool-image);background-size:cover;background-position:center}.tech-rebel-tools__grid article::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(12,6,20,.05),rgba(12,6,20,.91) 88%)}.tech-rebel-tools__grid article>div{padding:clamp(1.5rem,4vw,3rem)}.tech-rebel-tools h3{margin:.2rem 0 .8rem;color:white;font-size:clamp(2.8rem,6vw,5rem);line-height:.86;letter-spacing:-.06em}.tech-rebel-tools article p:not(.rebel-kicker){max-width:38rem;color:rgba(255,255,255,.78);line-height:1.65}.tech-rebel-tools article a{color:white;font-weight:850}.tech-method-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;padding:1px;border-radius:1.5rem;overflow:hidden;background:rgba(50,28,69,.14)}.tech-method-strip>div{padding:1.5rem;background:#fff}.tech-method-strip span{color:#b61f64;font-weight:900}.tech-method-strip strong{display:block;margin:2rem 0 .5rem;font-size:1.4rem}.tech-method-strip p{margin:0;color:#6a5b70;line-height:1.5}@media(max-width:960px){.tech-new-hero__grid,.tech-portfolio__head,.tech-portfolio__card,.tech-portfolio__card:nth-child(even){grid-template-columns:1fr}.tech-portfolio__card:nth-child(even) .tech-portfolio__media{order:0}.tech-rebel-tools__grid{grid-template-columns:1fr}.tech-method-strip{grid-template-columns:1fr 1fr}.tech-portfolio__media{min-height:30rem}}@media(max-width:620px){.tech-new-hero__grid{display:block}.tech-new-hero__copy .rebel-display{font-size:clamp(3.1rem,15vw,5rem)}.tech-new-hero__visual{min-height:23rem;margin-top:2rem}.tech-portfolio__media{min-height:24rem}.tech-portfolio__copy ul{grid-template-columns:1fr}.tech-method-strip{grid-template-columns:1fr}.tech-rebel-tools__grid article{min-height:32rem}}
-</style>
+<script>
+  const initTechnologyShowcase = () => {
+    document.querySelectorAll<HTMLElement>("[data-tech-showcase]").forEach((root) => {
+      if (root.dataset.showcaseReady === "true") return;
+      root.dataset.showcaseReady = "true";
+      const scenes = Array.from(root.querySelectorAll<HTMLElement>("[data-tech-scene]"));
+      const links = Array.from(root.querySelectorAll<HTMLAnchorElement>("[data-showroom-nav]"));
+      if (scenes.length === 0) return;
+
+      const activate = (index: number) => {
+        scenes.forEach((scene, sceneIndex) => scene.toggleAttribute("data-active", sceneIndex === index));
+        links.forEach((link, linkIndex) => {
+          if (linkIndex === index) link.setAttribute("aria-current", "true");
+          else link.removeAttribute("aria-current");
+        });
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        const current = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!current) return;
+        activate(Number((current.target as HTMLElement).dataset.techScene ?? 0));
+      }, { rootMargin: "-22% 0px -48%", threshold: [0, .2, .5, .8] });
+
+      scenes.forEach((scene) => observer.observe(scene));
+      activate(0);
+      document.addEventListener("astro:before-swap", () => observer.disconnect(), { once: true });
+    });
+  };
+  initTechnologyShowcase();
+  document.addEventListener("astro:page-load", initTechnologyShowcase);
+</script>
+</BaseLayout>
