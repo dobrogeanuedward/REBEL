@@ -15,7 +15,7 @@ import {
   createPageMeta,
 } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
-import { getPageMedia } from "@/lib/page-media";
+import { getPageMedia, media } from "@/lib/page-media";
 
 const m = getPageMedia("/epilazione-laser-carmagnola");
 
@@ -194,7 +194,7 @@ const zoneShortcuts = [
   { href: "/competenze/peli-incarniti-laser-carmagnola", label: "Peli incarniti" },
 ];
 ---
-<BaseLayout meta={meta}>
+<BaseLayout meta={meta} bodyClass="page-laser">
   <JsonLd data={breadcrumb} />
   <JsonLd data={laserServiceSchema} />
   <JsonLd data={faqSchema} />
@@ -236,12 +236,17 @@ const zoneShortcuts = [
     <div class="container">
       <div class="laser-spotlight">
         <figure class="laser-spotlight__media">
-          <img
-            src="https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e3635dd7-e046-46af-56a5-cf36d8239c00/public"
-            alt="Epilazione laser corpo in cabina Rebel a Carmagnola"
-            loading="lazy"
-            decoding="async"
-          />
+          <picture>
+            {media.studio.cabin.srcMobile ? <source media="(max-width: 880px) and (orientation: portrait)" srcset={media.studio.cabin.srcMobile} /> : null}
+            <img
+              src={media.studio.cabin.src}
+              alt={media.studio.cabin.alt}
+              width="1672"
+              height="941"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
         </figure>
         <div class="laser-spotlight__body">
           <p class="kicker">Zone e prezzi</p>
@@ -359,9 +364,13 @@ const zoneShortcuts = [
     position: relative;
     z-index: 1;
   }
+  .laser-spotlight__media picture,
   .laser-spotlight__media img {
+    display: block;
     width: 100%;
     height: 100%;
+  }
+  .laser-spotlight__media img {
     object-fit: cover;
   }
   .laser-spotlight__body {

@@ -25,8 +25,40 @@
 .rebel-hero--living[data-hero-tone="tech"] { --hero-accent: #5965d8; --hero-accent-ink: #414eb4; --hero-accent-bright: #aeb7ff; --hero-accent-soft: rgba(89,101,216,.34); }
 .rebel-hero--living[data-hero-tone="warm"] { --hero-accent: #965f4c; --hero-accent-ink: #744638; --hero-accent-bright: #ffc3aa; --hero-accent-soft: rgba(150,95,76,.31); }
 
+.rebel-hero:not(.rebel-hero--living) .rebel-hero__controls { display: none; }
+.rebel-hero__pause[hidden] { display: none; }
+
+.rebel-hero__fallback-media {
+  position: absolute;
+  inset: 0;
+  z-index: -4;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity .28s ease;
+}
+
+.rebel-hero__fallback-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 34%;
+}
+
+.rebel-hero--living[data-hero-ready="true"] .rebel-hero__fallback-media {
+  opacity: 0;
+}
+
 .rebel-hero--living::before {
   display: block;
+  position: absolute;
+  inset: 0;
+  width: auto;
+  height: auto;
+  min-height: 0;
   z-index: -2;
   background:
     linear-gradient(90deg,
@@ -283,6 +315,8 @@
 }
 
 @media (max-width: 860px) {
+  .rebel-hero__fallback-media img { object-position: 58% 35%; }
+
   .rebel-hero--living {
     min-height: max(720px, 100svh);
     min-height: max(720px, 100dvh);
@@ -548,6 +582,8 @@
 }
 
 @media (max-width: 1024px) and (orientation: landscape) and (max-height: 620px) {
+  .rebel-hero__fallback-media img { object-position: center 34%; }
+
   .rebel-hero--living {
     min-height: max(360px, 100svh);
     min-height: max(360px, 100dvh);

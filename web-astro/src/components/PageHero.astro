@@ -10,7 +10,7 @@ interface Props {
   meta?: string[];
   ctaPrimary?: CtaSpec;
   ctaSecondary?: CtaSpec;
-  image?: { src: string; alt: string };
+  image?: { src: string; srcMobile?: string; alt: string; width?: number; height?: number };
   bullets?: string[];
 }
 
@@ -29,7 +29,18 @@ const renderedTitle = clearTitle.replace(/_([^_]+)_/g, (_, inner) => `<em>${inne
   <div class="page-hero__bg" aria-hidden="true"></div>
   {image ? (
     <>
-      <img class="page-hero__photo" src={image.src} alt={image.alt} fetchpriority="high" decoding="async" />
+      <picture>
+        {image.srcMobile ? <source media="(max-width: 860px) and (orientation: portrait)" srcset={image.srcMobile} /> : null}
+        <img
+          class="page-hero__photo"
+          src={image.src}
+          alt={image.alt}
+          width={image.width}
+          height={image.height}
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
       <div class="page-hero__veil" aria-hidden="true"></div>
     </>
   ) : null}
@@ -41,26 +52,26 @@ const renderedTitle = clearTitle.replace(/_([^_]+)_/g, (_, inner) => `<em>${inne
         <p class="page-hero__lead" data-reveal style="--reveal-delay: 120ms;">{clearLead}</p>
       ) : null}
 
-      {clearBullets.length > 0 ? (
-        <ul class="page-hero__bullets" data-reveal style="--reveal-delay: 150ms;">
-          {clearBullets.map((b) => <li>{b}</li>)}
-        </ul>
-      ) : null}
-
-      {clearMeta.length > 0 ? (
-        <div class="page-hero__meta" data-reveal style="--reveal-delay: 180ms;">
-          {clearMeta.map((m) => <span>{m}</span>)}
-        </div>
-      ) : null}
-
       {(clearPrimary || clearSecondary) ? (
-        <div class="page-hero__cta cluster cluster--stack-mobile" data-reveal style="--reveal-delay: 220ms;">
+        <div class="page-hero__cta cluster cluster--stack-mobile" data-reveal style="--reveal-delay: 150ms;">
           {clearPrimary ? (
             <a class={`btn btn--primary ${clearPrimary.halo ? "btn--halo" : ""}`} href={clearPrimary.href}>{clearPrimary.label}</a>
           ) : null}
           {clearSecondary ? (
             <a class="btn btn--secondary" href={clearSecondary.href}>{clearSecondary.label}</a>
           ) : null}
+        </div>
+      ) : null}
+
+      {clearBullets.length > 0 ? (
+        <ul class="page-hero__bullets" data-reveal style="--reveal-delay: 180ms;">
+          {clearBullets.map((b) => <li>{b}</li>)}
+        </ul>
+      ) : null}
+
+      {clearMeta.length > 0 ? (
+        <div class="page-hero__meta" data-reveal style="--reveal-delay: 210ms;">
+          {clearMeta.map((m) => <span>{m}</span>)}
         </div>
       ) : null}
     </div>
@@ -70,11 +81,22 @@ const renderedTitle = clearTitle.replace(/_([^_]+)_/g, (_, inner) => `<em>${inne
 </section>
 
 <style>
-  .page-hero--media { min-height: clamp(560px, 82svh, 880px); }
-  .page-hero__photo {
+  .page-hero--media {
+    --text: #f4eee3;
+    --text-strong: #fffdf9;
+    --text-muted: rgba(244, 238, 227, .76);
+    min-height: clamp(560px, 82svh, 880px);
+    color-scheme: dark;
+  }
+  .page-hero > picture {
     position: absolute;
     inset: 0;
     z-index: -1;
+  }
+  .page-hero__photo {
+    position: absolute;
+    inset: 0;
+    z-index: auto;
     width: 100%;
     height: 100%;
     object-fit: cover;

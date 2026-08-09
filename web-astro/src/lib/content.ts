@@ -66,13 +66,25 @@ export const homeHeroImages = [
   },
 ];
 
+const siteAsset = (slot: string) => `/api/site-asset?slot=${encodeURIComponent(slot)}`;
+
 export const storeGalleryImages = [
-  { src: "https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769377/0_c3xnae.webp", alt: "Rebel Carmagnola — Accoglienza" },
-  { src: "https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769376/3-1_azvdla.webp", alt: "Rebel Carmagnola — Postazione nails" },
-  { src: "https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769379/6-1-1_qutptv.webp", alt: "Rebel Carmagnola — Cabina 1" },
-  { src: "https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769379/2_ymmjmu.webp", alt: "Rebel Carmagnola — Cabina 2" },
-  { src: "https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769377/7_neoi9k.webp", alt: "Rebel Carmagnola — Cabina 3" },
-  { src: "https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769378/5_jjooec.webp", alt: "Rebel Carmagnola — Cabina 4" },
-  { src: "https://res.cloudinary.com/dx8tfq82f/image/upload/v1770769379/3_ic7ggj.webp", alt: "Rebel Carmagnola — Postazione nails e corridoio" },
-  { src: "https://res.cloudinary.com/dx8tfq82f/image/upload/v1770770035/20_qq681e.webp", alt: "Rebel Carmagnola — Esterno, entrata e vetrina" },
+  {
+    src: siteAsset("studio.real.overview.desktop"),
+    alt: "REBEL Carmagnola — spazi interni dello studio",
+    width: 1672,
+    height: 941,
+  },
+  {
+    src: siteAsset("technologies.studio.thory.desktop"),
+    alt: "REBEL Carmagnola — cabina reale con lettino e attrezzatura THORY",
+    width: 1672,
+    height: 941,
+  },
+  {
+    src: siteAsset("studio.real.exterior.desktop"),
+    alt: "REBEL Carmagnola — facciata e vetrina reali in Viale Barbaroux 20",
+    width: 1672,
+    height: 941,
+  },
 ];

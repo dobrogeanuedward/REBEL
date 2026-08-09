@@ -30,6 +30,14 @@ html {
   scroll-padding-top: clamp(5.5rem, 8vw, 8rem);
 }
 
+/* Keep editorial hero words intact: the global reset otherwise permits mid-word breaks. */
+.page-metodo-rebel .rb-hero__content h1 {
+  max-width: 14ch;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
 ::selection {
   background: rgba(112,71,255,.24);
   color: var(--rebel-ink, #211427);

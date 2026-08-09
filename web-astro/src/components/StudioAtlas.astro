@@ -1,0 +1,245 @@
+---
+import "@/styles/studio-atlas.css";
+
+const siteAsset = (slot: string) => `/api/site-asset?slot=${encodeURIComponent(slot)}`;
+
+const scenes = [
+  {
+    number: "01",
+    label: "Spazio",
+    title: "Luce, materia, profondità.",
+    body: "Avorio, legno chiaro, vetro e prospettive aperte. La luce resta credibile; il linguaggio REBEL accompagna lo spazio senza cancellarne geometrie e identità.",
+    desktop: siteAsset("studio.real.overview.desktop"),
+    mobile: siteAsset("studio.real.overview.mobile"),
+    alt: "Interno reale dello studio REBEL con postazione nails e teca prodotti",
+    className: "overview",
+  },
+  {
+    number: "02",
+    label: "Tecnologia",
+    title: "La cabina è il punto di precisione.",
+    body: "È il luogo in cui strumenti, prodotti e parametri entrano nel trattamento. Qui trovi le dotazioni THORY realmente presenti nello studio.",
+    desktop: siteAsset("technologies.studio.thory.desktop"),
+    mobile: siteAsset("technologies.studio.thory.mobile"),
+    alt: "Cabina reale REBEL con lettino e attrezzatura THORY",
+    className: "cabin",
+  },
+  {
+    number: "03",
+    label: "Carmagnola",
+    title: "Una destinazione riconoscibile.",
+    body: "La facciata, l’insegna e la vetrina di Viale Barbaroux 20. REBEL è qui: un centro reale, con un’identità che comincia già dalla strada.",
+    desktop: siteAsset("studio.real.exterior.desktop"),
+    mobile: siteAsset("studio.real.exterior.mobile"),
+    alt: "Facciata e vetrina reali di REBEL in Viale Barbaroux 20 a Carmagnola",
+    className: "facade",
+  },
+];
+---
+
+<section class="studio-atlas" data-studio-atlas aria-labelledby="studio-atlas-title">
+  <div class="studio-atlas__optics" aria-hidden="true"></div>
+  <div class="container">
+    <header class="studio-atlas__intro">
+      <div>
+        <p class="studio-atlas__kicker">Viale Barbaroux 20 · Dentro REBEL</p>
+        <h2 id="studio-atlas-title" class="studio-atlas__title">
+          Uno spazio vero.<br /><em>Portato alla luce.</em>
+        </h2>
+      </div>
+      <div class="studio-atlas__lead">
+        <p>REBEL si racconta attraverso fotografie dello spazio, rilette con luce, prospettiva e materia.</p>
+        <p>Proporzioni, dotazioni e segni di Carmagnola restano riconoscibili; il loro carattere viene semplicemente portato in primo piano.</p>
+        <ul class="studio-atlas__facts" aria-label="Lo studio in sintesi">
+          <li>4 cabine</li><li>Postazione nails</li><li>Tecnologie professionali</li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="studio-atlas__body">
+      <div class="studio-atlas__theatre" data-atlas-theatre>
+        <div class="studio-atlas__sticky" data-atlas-sticky>
+          <div class="studio-atlas__rail" aria-hidden="true"><span></span></div>
+          {scenes.map((scene, index) => (
+            <figure
+              class={`studio-atlas__frame studio-atlas__frame--${scene.className}`}
+              data-atlas-scene={index}
+              data-active={index === 0 ? "true" : undefined}
+            >
+              <picture>
+                <source media="(max-width: 899px) and (orientation: portrait)" srcset={scene.mobile} />
+                <img
+                  src={scene.desktop}
+                  alt={scene.alt}
+                  width="1672"
+                  height="941"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+              <figcaption><b>{scene.number}</b><span>{scene.label}</span></figcaption>
+            </figure>
+          ))}
+          <div class="studio-atlas__stamp" aria-hidden="true">
+            <span>20</span><small>Viale Barbaroux · Carmagnola</small>
+          </div>
+        </div>
+      </div>
+
+      <ol class="studio-atlas__chapters" aria-label="Atlante dello studio">
+        {scenes.map((scene, index) => (
+          <li data-atlas-chapter={index} data-active={index === 0 ? "true" : undefined}>
+            <span>{scene.number} / {scene.label}</span>
+            <h3>{scene.title}</h3>
+            <p>{scene.body}</p>
+          </li>
+        ))}
+        <li class="studio-atlas__cta">
+          <a class="btn btn--primary" href="/contatti">Vieni a conoscere REBEL</a>
+          <a class="rebel-text-link" href="/tecnologie-rebel">Scopri le tecnologie →</a>
+        </li>
+      </ol>
+    </div>
+
+    <ol class="studio-atlas__mobile-flow" aria-label="Atlante dello studio">
+      {scenes.map((scene) => (
+        <li>
+          <figure class={`studio-atlas__mobile-frame studio-atlas__mobile-frame--${scene.className}`}>
+            <picture>
+              <source media="(orientation: landscape)" srcset={scene.desktop} />
+              <img
+                src={scene.mobile}
+                alt={scene.alt}
+                width="752"
+                height="940"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+            <figcaption><b>{scene.number}</b><span>{scene.label}</span></figcaption>
+          </figure>
+          <article>
+            <span>{scene.number} / {scene.label}</span>
+            <h3>{scene.title}</h3>
+            <p>{scene.body}</p>
+          </article>
+        </li>
+      ))}
+      <li class="studio-atlas__mobile-cta">
+        <a class="btn btn--primary" href="/contatti">Vieni a conoscere REBEL</a>
+        <a class="rebel-text-link" href="/tecnologie-rebel">Scopri le tecnologie →</a>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<script>
+  type AtlasWindow = Window & {
+    __rebelStudioAtlasLifecycle?: AbortController;
+    __rebelStudioAtlasCleanups?: Set<() => void>;
+  };
+
+  const atlasWindow = window as AtlasWindow;
+  atlasWindow.__rebelStudioAtlasLifecycle?.abort();
+  atlasWindow.__rebelStudioAtlasCleanups?.forEach((cleanup) => cleanup());
+
+  const lifecycle = new AbortController();
+  const cleanups = new Set<() => void>();
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const staticLayout = window.matchMedia("(max-width: 899px), (max-height: 650px) and (orientation: landscape)");
+  atlasWindow.__rebelStudioAtlasLifecycle = lifecycle;
+  atlasWindow.__rebelStudioAtlasCleanups = cleanups;
+
+  const clamp = (value: number) => Math.min(1, Math.max(0, value));
+
+  const setupAtlas = (root: HTMLElement) => {
+    const theatre = root.querySelector<HTMLElement>("[data-atlas-theatre]");
+    const sticky = root.querySelector<HTMLElement>("[data-atlas-sticky]");
+    const scenes = Array.from(root.querySelectorAll<HTMLElement>("[data-atlas-scene]"));
+    const chapters = Array.from(root.querySelectorAll<HTMLElement>("[data-atlas-chapter]"));
+    if (!theatre || !sticky || scenes.length !== 3 || chapters.length !== 3) return;
+
+    let visible = false;
+    let raf = 0;
+    const interaction = new AbortController();
+
+    const renderStatic = () => {
+      scenes.forEach((scene) => {
+        scene.style.removeProperty("transform");
+        scene.dataset.active = "false";
+      });
+      chapters.forEach((chapter) => {
+        chapter.dataset.active = "false";
+        chapter.removeAttribute("aria-current");
+      });
+      root.style.setProperty("--atlas-progress", "0");
+      root.style.setProperty("--atlas-rail-width", "14%");
+      root.style.setProperty("--atlas-aura-x", "0px");
+      root.style.setProperty("--atlas-aura-y", "0px");
+    };
+
+    const render = () => {
+      raf = 0;
+      if (!visible || reduceMotion.matches || staticLayout.matches) {
+        renderStatic();
+        return;
+      }
+
+      const rect = theatre.getBoundingClientRect();
+      const stickyTop = Math.max(72, window.innerHeight * 0.09);
+      const travel = Math.max(1, theatre.offsetHeight - sticky.offsetHeight);
+      const progress = clamp((stickyTop - rect.top) / travel);
+      const active = Math.min(2, Math.floor(progress * 3));
+
+      root.style.setProperty("--atlas-progress", progress.toFixed(4));
+      root.style.setProperty("--atlas-rail-width", `${(14 + progress * 86).toFixed(2)}%`);
+      root.style.setProperty("--atlas-aura-x", `${(-14 * progress).toFixed(2)}px`);
+      root.style.setProperty("--atlas-aura-y", `${(10 * progress).toFixed(2)}px`);
+      scenes[0].style.transform = `translate3d(${(-12 * progress).toFixed(2)}px, ${(-8 * progress).toFixed(2)}px, 0) scale(${(1 - progress * 0.012).toFixed(4)})`;
+      scenes[1].style.transform = `translate3d(${(12 - progress * 18).toFixed(2)}px, ${(8 - progress * 14).toFixed(2)}px, 0) rotate(${(1.1 - progress * 0.7).toFixed(3)}deg)`;
+      scenes[2].style.transform = `translate3d(${(progress * 10).toFixed(2)}px, ${(-6 + progress * 12).toFixed(2)}px, 0) rotate(${(-1 + progress * 0.55).toFixed(3)}deg)`;
+
+      scenes.forEach((scene, index) => { scene.dataset.active = index === active ? "true" : "false"; });
+      chapters.forEach((chapter, index) => {
+        chapter.dataset.active = index === active ? "true" : "false";
+        if (index === active) chapter.setAttribute("aria-current", "step");
+        else chapter.removeAttribute("aria-current");
+      });
+    };
+
+    const requestRender = () => {
+      if (!raf) raf = window.requestAnimationFrame(render);
+    };
+
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (visible) requestRender();
+    }, { rootMargin: "30% 0px 30% 0px" });
+
+    observer.observe(root);
+    window.addEventListener("scroll", requestRender, { passive: true, signal: interaction.signal });
+    window.addEventListener("resize", requestRender, { passive: true, signal: interaction.signal });
+    reduceMotion.addEventListener("change", requestRender, { signal: interaction.signal });
+    staticLayout.addEventListener("change", requestRender, { signal: interaction.signal });
+    requestRender();
+
+    const cleanup = () => {
+      observer.disconnect();
+      interaction.abort();
+      window.cancelAnimationFrame(raf);
+      cleanups.delete(cleanup);
+    };
+    cleanups.add(cleanup);
+  };
+
+  const init = () => {
+    cleanups.forEach((cleanup) => cleanup());
+    document.querySelectorAll<HTMLElement>("[data-studio-atlas]").forEach(setupAtlas);
+  };
+
+  init();
+  document.addEventListener("astro:page-load", init, { signal: lifecycle.signal });
+  document.addEventListener("astro:before-swap", () => {
+    cleanups.forEach((cleanup) => cleanup());
+  }, { signal: lifecycle.signal });
+</script>

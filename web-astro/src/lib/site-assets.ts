@@ -54,10 +54,16 @@ export const SITE_ASSET_FALLBACKS = {
   "territory.langhe": "/img/rebel-r2/rebel/territory/langhe-wide.webp",
   "territory.roero": "/img/rebel-r2/rebel/territory/roero-wide.webp",
   "territory.bra": "/img/rebel-r2/rebel/territory/bra-wide.webp",
+  "studio.real.overview.desktop": "/img/rebel-r2/rebel/studio/real-overview-desktop.webp",
+  "studio.real.overview.mobile": "/img/rebel-r2/rebel/studio/real-overview-mobile.webp",
+  "studio.real.exterior.desktop": "/img/rebel-r2/rebel/studio/real-exterior-desktop.webp",
+  "studio.real.exterior.mobile": "/img/rebel-r2/rebel/studio/real-exterior-mobile.webp",
   "studio.professional.desktop": "/img/rebel-r2/rebel/studio/professional-desktop.webp",
   "studio.professional.mobile": "/img/rebel-r2/rebel/studio/professional-mobile.webp",
-  "studio.reception": "/img/rebel-r2/rebel/studio/professional-desktop.webp",
+  "studio.reception": "/img/rebel-r2/rebel/studio/real-overview-desktop.webp",
   "technologies.laser.detail": "/img/rebel-r2/rebel/services/laser/handpiece-desktop.webp",
+  "technologies.studio.thory.desktop": "/img/rebel-r2/rebel/studio/thory-room-desktop.webp",
+  "technologies.studio.thory.mobile": "/img/rebel-r2/rebel/studio/thory-room-mobile.webp",
 } as const;
 
 export type SiteAssetSlot = keyof typeof SITE_ASSET_FALLBACKS;

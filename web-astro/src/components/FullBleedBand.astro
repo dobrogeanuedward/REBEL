@@ -3,7 +3,7 @@ import { clarifyCopy } from "@/lib/copy-clarity";
 
 interface Cta { label: string; href: string; }
 interface Props {
-  image: { src: string; alt: string };
+  image: { src: string; srcMobile?: string; alt: string };
   kicker?: string;
   title?: string;
   lead?: string;
@@ -33,18 +33,22 @@ const clearQuote = quote ? clarifyCopy(quote) : undefined;
 const clearCite = cite ? clarifyCopy(cite) : undefined;
 const clearCta = cta ? { ...cta, label: clarifyCopy(cta.label) } : undefined;
 const renderedTitle = clearTitle ? clearTitle.replace(/_([^_]+)_/g, (_, t) => `<em>${t}</em>`) : "";
+const renderedQuote = clearQuote ? clearQuote.replace(/_([^_]+)_/g, (_, t) => `<em>${t}</em>`) : "";
 ---
 <section
   class={`fullbleed fullbleed--${height} fullbleed--${align}`}
   aria-label={clearTitle ?? clearQuote ?? image.alt}
 >
-  <img class="fullbleed__img" src={image.src} alt={image.alt} loading="lazy" decoding="async" />
+  <picture>
+    {image.srcMobile ? <source media="(max-width: 860px) and (orientation: portrait)" srcset={image.srcMobile} /> : null}
+    <img class="fullbleed__img" src={image.src} alt={image.alt} loading="lazy" decoding="async" />
+  </picture>
   <div class="fullbleed__veil" aria-hidden="true"></div>
   <div class="container fullbleed__inner">
     {clearKicker ? <p class="fullbleed__kicker" data-reveal>{clearKicker}</p> : null}
     {clearQuote ? (
       <blockquote class="fullbleed__quote" data-reveal>
-        <p>{clearQuote}</p>
+        <p set:html={renderedQuote}></p>
         {clearCite ? <cite>{clearCite}</cite> : null}
       </blockquote>
     ) : clearTitle ? (
@@ -61,25 +65,33 @@ const renderedTitle = clearTitle ? clearTitle.replace(/_([^_]+)_/g, (_, t) => `<
 
 <style>
   .fullbleed {
+    --text-strong: #fffdf9;
+    --text: #fffdf9;
     position: relative;
-    width: 100vw;
-    margin-left: 50%;
-    transform: translateX(-50%);
+    width: 100%;
+    margin-left: 0;
+    transform: none;
     display: grid;
     align-items: center;
     overflow: hidden;
     isolation: isolate;
+    color: #fffdf9;
   }
   .fullbleed--sm { min-height: clamp(280px, 38vw, 420px); }
   .fullbleed--md { min-height: clamp(380px, 52vw, 600px); }
   .fullbleed--lg { min-height: clamp(480px, 68vw, 760px); }
+  .fullbleed > picture {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
   .fullbleed__img {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -2;
+    z-index: auto;
   }
   .fullbleed__veil {
     position: absolute;
@@ -137,6 +149,7 @@ const renderedTitle = clearTitle ? clearTitle.replace(/_([^_]+)_/g, (_, t) => `<
     margin: 0 0 0.8rem;
     text-wrap: balance;
   }
+  .fullbleed__quote em { color: #f1b4d0; }
   .fullbleed__quote cite {
     font-style: normal;
     font-size: var(--t-kicker);

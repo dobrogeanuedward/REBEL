@@ -76,6 +76,13 @@
   to   { opacity: 1; transform: none; }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}
+
 /* ---------- Scroll progress bar ---------- */
 .scroll-progress {
   position: fixed;
@@ -129,6 +136,23 @@
   box-shadow:
     0 0 0 1px rgba(224, 170, 255, 0.6),
     0 20px 60px rgba(139, 92, 246, 0.7);
+}
+
+body[data-rebel-drawer-open="true"] .whatsapp-live,
+body[data-booking-bar-visible="true"] .whatsapp-live {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(10px) scale(.92);
+}
+
+@media (max-width: 860px) {
+  body.rebel-rebrand:has(.rebel-site-header:not([data-scrolled="true"])) .whatsapp-live {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(10px) scale(.92);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

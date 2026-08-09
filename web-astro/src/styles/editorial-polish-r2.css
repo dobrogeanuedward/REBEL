@@ -245,7 +245,7 @@
   z-index: -1;
   background:
     linear-gradient(90deg, #f8f3ed 0, rgba(248,243,237,.18) 28%, rgba(248,243,237,.04)),
-    url("/api/site-asset?slot=services.technologies.detail.desktop") center / cover no-repeat;
+    url("/api/site-asset?slot=technologies.studio.thory.desktop") center / cover no-repeat;
   opacity: .72;
 }
 
@@ -274,7 +274,18 @@
   .rebel-studio-proof__media img { min-height: 460px; }
   .rebel-studio-real { display: block; }
   .rebel-studio-real .rebel-kicker { margin-bottom: .7rem; }
-  .page-tecnologie-rebel .tech-hero::before { inset: 34% 0 0; opacity: .42; }
+  .page-tecnologie-rebel .tech-hero::before {
+    inset: 34% 0 0;
+    opacity: .42;
+  }
+}
+
+@media (max-width: 920px) and (orientation: portrait) {
+  .page-tecnologie-rebel .tech-hero::before {
+    background:
+      linear-gradient(180deg, #f8f3ed 0, rgba(248,243,237,.16) 34%, rgba(248,243,237,.04)),
+      url("/api/site-asset?slot=technologies.studio.thory.mobile") center 42% / cover no-repeat;
+  }
 }
 
 @media (max-width: 760px) {

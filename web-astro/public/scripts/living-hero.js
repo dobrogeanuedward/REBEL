@@ -21,7 +21,7 @@
   const portraitImageQuery = window.matchMedia('(max-width: 860px) and (orientation: portrait)');
   const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
   const siteAsset = (slot) => `/api/site-asset?slot=${encodeURIComponent(slot)}`;
-  const preloadedSources = new Set();
+  const sourcePromises = new Map();
   const addMediaListener = (query, listener) => {
     if (typeof query.addEventListener === 'function') query.addEventListener('change', listener);
     else query.addListener?.(listener);
@@ -79,7 +79,7 @@
       tone: 'sand',
       title: 'Il percorso corpo cambia in base a zona e tessuti.',
       accent: 'corpo',
-      lead: 'Drenaggio, tono e compattezza richiedono combinazioni diverse. Valutiamo la zona prima di inserire manualità, LPG, Tecar o pressomassaggio.',
+      lead: 'Drenaggio, tono e compattezza richiedono combinazioni diverse. Valutiamo la zona prima di inserire manualità e LPG nel percorso.',
       signature: 'Corpo · drenaggio · tono · compattezza',
       primary: { label: 'Scopri i percorsi corpo', href: '/protocolli-epigenetici#forma' },
       secondary: { label: 'Prenota una valutazione corpo', href: '/contatti?area=corpo' }
@@ -124,10 +124,10 @@
       secondary: { label: 'Prenota una valutazione viso', href: '/contatti?area=viso' }
     },
     {
-      desktopImage: siteAsset('home.hero.technologies.desktop'),
-      mobileImage: siteAsset('home.hero.technologies.mobile'),
-      desktopPosition: 'center 42%',
-      mobilePosition: '52% 32%',
+      desktopImage: siteAsset('technologies.studio.thory.desktop'),
+      mobileImage: siteAsset('technologies.studio.thory.mobile'),
+      desktopPosition: 'center 48%',
+      mobilePosition: '45% 42%',
       tone: 'tech',
       title: 'La tecnologia è uno strumento, non il punto di partenza.',
       accent: 'tecnologia',
@@ -137,8 +137,8 @@
       secondary: { label: 'Prenota una valutazione', href: '/contatti' }
     },
     {
-      desktopImage: siteAsset('home.hero.studio.desktop'),
-      mobileImage: siteAsset('home.hero.studio.mobile'),
+      desktopImage: siteAsset('studio.real.overview.desktop'),
+      mobileImage: siteAsset('studio.real.overview.mobile'),
       desktopPosition: 'center 32%',
       mobilePosition: '50% 30%',
       tone: 'warm',
@@ -211,10 +211,6 @@
   applyVisual(visualB, slides[(current + 1) % slides.length]);
   hero.prepend(visualB);
   hero.prepend(visualA);
-  hero.classList.add('rebel-hero--living');
-  hero.setAttribute('role', 'region');
-  hero.setAttribute('aria-roledescription', 'carousel');
-  hero.setAttribute('aria-label', 'Contenuti in evidenza Rebel');
   applyContent(slides[current], current);
 
   const controls = document.createElement('div');
@@ -258,7 +254,6 @@
   next.appendChild(nextIcon);
 
   controls.append(previous, counter, dots, pause, next);
-  copy.appendChild(controls);
 
   let activeVisual = visualA;
   let inactiveVisual = visualB;
@@ -266,9 +261,14 @@
   let contentTimer = 0;
   let preloadHandle = 0;
   let preloadUsesIdleCallback = false;
-  let paused = false;
   let manualPaused = false;
+  let hovered = false;
+  let focusWithin = false;
+  let touching = false;
+  let pageHidden = document.hidden;
+  let heroReady = false;
   let destroyed = false;
+  let transitionRequest = 0;
   let touchStartX = 0;
   let touchStartY = 0;
   let reduceMotion = reduceMotionQuery.matches;
@@ -286,7 +286,7 @@
     button.className = 'rebel-hero__dot';
     button.setAttribute('aria-label', `Mostra: ${slide.title}`);
     button.setAttribute('aria-current', index === current ? 'true' : 'false');
-    button.addEventListener('click', () => show(index, true));
+    button.addEventListener('click', () => void show(index, true));
     dots.appendChild(button);
     return button;
   });
@@ -308,28 +308,84 @@
   };
 
   const preloadSource = (source) => {
-    if (!source || preloadedSources.has(source)) return;
-    preloadedSources.add(source);
-    const image = new Image();
-    image.decoding = 'async';
-    image.src = source;
+    if (!source) return Promise.resolve(false);
+    if (sourcePromises.has(source)) return sourcePromises.get(source);
+
+    const promise = new Promise((resolve) => {
+      const image = new Image();
+      image.decoding = 'async';
+      image.onload = async () => {
+        try {
+          await image.decode?.();
+        } catch {
+          // A loaded image remains usable if decode() is unavailable or rejects.
+        }
+        resolve(true);
+      };
+      image.onerror = () => {
+        sourcePromises.delete(source);
+        resolve(false);
+      };
+      image.src = source;
+    });
+
+    sourcePromises.set(source, promise);
+    return promise;
   };
+
+  const initialSource = portraitImageQuery.matches
+    ? slides[current].mobileImage
+    : slides[current].desktopImage;
+  const initialRequest = transitionRequest;
+
+  const activateHero = () => {
+    if (destroyed || heroReady) return;
+    heroReady = true;
+    hero.classList.add('rebel-hero--living');
+    hero.dataset.heroReady = 'true';
+    hero.setAttribute('role', 'region');
+    hero.setAttribute('aria-roledescription', 'carousel');
+    hero.setAttribute('aria-label', 'Contenuti in evidenza Rebel');
+    copy.appendChild(controls);
+    updateControls();
+    updatePauseControl();
+    schedule();
+  };
+
+  void preloadSource(initialSource).then((loaded) => {
+    const sourceStillCurrent = (portraitImageQuery.matches
+      ? slides[current].mobileImage
+      : slides[current].desktopImage) === initialSource;
+    if (loaded && !destroyed && initialRequest === transitionRequest && sourceStillCurrent) {
+      activateHero();
+    }
+  });
 
   const preloadAround = (index) => {
     [0, 1, 2].forEach((offset) => {
       const slide = slides[(index + offset) % slides.length];
-      preloadSource(portraitImageQuery.matches ? slide.mobileImage : slide.desktopImage);
+      void preloadSource(portraitImageQuery.matches ? slide.mobileImage : slide.desktopImage);
     });
   };
 
+  const isAutoBlocked = () => (
+    !heroReady ||
+    reduceMotion ||
+    manualPaused ||
+    hovered ||
+    focusWithin ||
+    touching ||
+    pageHidden
+  );
+
   const schedule = (delay = DISPLAY_MS) => {
     window.clearTimeout(timer);
-    if (!reduceMotion && !manualPaused && !destroyed) {
+    if (!isAutoBlocked() && !destroyed) {
       timer = window.setTimeout(tick, delay);
     }
   };
 
-  function show(nextIndex, userInitiated = false) {
+  async function show(nextIndex, userInitiated = false) {
     if (destroyed) return;
 
     const normalized = (nextIndex + slides.length) % slides.length;
@@ -339,6 +395,17 @@
     }
 
     const slide = slides[normalized];
+    const targetSource = portraitImageQuery.matches ? slide.mobileImage : slide.desktopImage;
+    const request = ++transitionRequest;
+    window.clearTimeout(timer);
+    const loaded = await preloadSource(targetSource);
+
+    if (destroyed || request !== transitionRequest || (!userInitiated && isAutoBlocked())) return;
+    if (!loaded) {
+      schedule();
+      return;
+    }
+
     window.clearTimeout(contentTimer);
     applyVisual(inactiveVisual, slide);
     inactiveVisual.classList.add('is-active');
@@ -363,30 +430,48 @@
   }
 
   function tick() {
-    if (paused || manualPaused) {
-      return;
-    }
-    show(current + 1);
+    if (isAutoBlocked()) return;
+    void show(current + 1);
   }
 
-  const onViewportChange = () => {
-    applyVisual(activeVisual, slides[current]);
+  const onViewportChange = async () => {
+    const request = ++transitionRequest;
+    const currentSlide = slides[current];
+    const nextSource = portraitImageQuery.matches
+      ? currentSlide.mobileImage
+      : currentSlide.desktopImage;
+    const loaded = await preloadSource(nextSource);
+
+    if (!loaded || destroyed || request !== transitionRequest) return;
+    applyVisual(activeVisual, currentSlide);
     applyVisual(inactiveVisual, slides[(current + 1) % slides.length]);
+    activateHero();
     preloadAround(current);
+    schedule();
   };
   const canHover = window.matchMedia('(hover: hover)').matches;
-  const onEnter = () => { paused = true; };
-  const onLeave = () => { paused = false; schedule(); };
-  const onFocusIn = () => { paused = true; };
+  const onEnter = () => {
+    hovered = true;
+    window.clearTimeout(timer);
+  };
+  const onLeave = () => {
+    hovered = false;
+    schedule();
+  };
+  const onFocusIn = () => {
+    focusWithin = true;
+    window.clearTimeout(timer);
+  };
   const onFocusOut = (event) => {
     if (!hero.contains(event.relatedTarget)) {
-      paused = false;
+      focusWithin = false;
       schedule();
     }
   };
   const onVisibility = () => {
-    paused = document.hidden;
-    if (!paused) schedule();
+    pageHidden = document.hidden;
+    if (pageHidden) window.clearTimeout(timer);
+    else schedule();
   };
   const onPauseToggle = () => {
     manualPaused = !manualPaused;
@@ -415,35 +500,37 @@
     const touch = event.changedTouches[0];
     touchStartX = touch.clientX;
     touchStartY = touch.clientY;
-    paused = true;
+    touching = true;
+    window.clearTimeout(timer);
   };
   const onTouchEnd = (event) => {
     const touch = event.changedTouches[0];
     const deltaX = touch.clientX - touchStartX;
     const deltaY = touch.clientY - touchStartY;
+    touching = false;
     if (Math.abs(deltaX) > SWIPE_THRESHOLD && Math.abs(deltaX) > Math.abs(deltaY)) {
-      show(current + (deltaX < 0 ? 1 : -1), true);
+      void show(current + (deltaX < 0 ? 1 : -1), true);
+    } else {
+      schedule();
     }
-    paused = false;
-    schedule();
   };
   const onTouchCancel = () => {
-    paused = false;
+    touching = false;
     schedule();
   };
   const onControlsKeydown = (event) => {
     if (event.key === 'ArrowLeft') {
       event.preventDefault();
-      show(current - 1, true);
+      void show(current - 1, true);
     }
     if (event.key === 'ArrowRight') {
       event.preventDefault();
-      show(current + 1, true);
+      void show(current + 1, true);
     }
   };
 
-  previous.addEventListener('click', () => show(current - 1, true));
-  next.addEventListener('click', () => show(current + 1, true));
+  previous.addEventListener('click', () => void show(current - 1, true));
+  next.addEventListener('click', () => void show(current + 1, true));
   pause.addEventListener('click', onPauseToggle);
   controls.addEventListener('keydown', onControlsKeydown);
   hero.addEventListener('focusin', onFocusIn);
@@ -478,6 +565,13 @@
   const cleanup = () => {
     if (destroyed) return;
     destroyed = true;
+    heroReady = false;
+    delete hero.dataset.heroReady;
+    hero.classList.remove('rebel-hero--living');
+    hero.removeAttribute('role');
+    hero.removeAttribute('aria-roledescription');
+    hero.removeAttribute('aria-label');
+    transitionRequest += 1;
     window.clearTimeout(timer);
     window.clearTimeout(contentTimer);
     if (preloadHandle) {

@@ -1,0 +1,201 @@
+/* Production contrast contract.
+   Rebrand tokens are global, but page surfaces are not: dark pages default
+   to readable ivory copy, while explicitly light templates opt into ink. */
+
+body {
+  color-scheme: dark;
+  --text: #f4eee3;
+  --text-strong: #fffdf9;
+  --text-muted: rgba(244, 238, 227, .72);
+  --text-faint: rgba(244, 238, 227, .52);
+  --line: rgba(244, 238, 227, .12);
+  --line-strong: rgba(244, 238, 227, .24);
+}
+
+body:is(
+  .rebel-rebrand,
+  .page-rebrand,
+  .page-beauty,
+  .page-laser,
+  .page-studio,
+  .page-contatti,
+  .page-prima-visita,
+  .page-protocollo-detail
+) {
+  color-scheme: light;
+  --text: var(--rebel-ink, #211427);
+  --text-strong: #180c1d;
+  --text-muted: rgba(33, 20, 39, .72);
+  --text-faint: rgba(33, 20, 39, .54);
+  --line: rgba(39, 20, 47, .13);
+  --line-strong: rgba(39, 20, 47, .25);
+}
+
+/* The Method/Percorsi templates use the rb-* namespace rather than the
+   newer rebel-section namespace, so they need the same dark-surface tokens. */
+.rb-section--plum {
+  color-scheme: dark;
+  --text: var(--rebel-on-dark, #fffdf9);
+  --text-strong: #fff;
+  --text-muted: rgba(255, 253, 249, .76);
+  --text-faint: rgba(255, 253, 249, .58);
+  --line: rgba(255, 255, 255, .15);
+  --line-strong: rgba(255, 255, 255, .3);
+  color: var(--text);
+}
+
+.rb-section--plum :is(h2, h3, h4, strong) { color: var(--text-strong); }
+.rb-section--plum :is(p, small) { color: var(--text-muted); }
+.rb-section--plum .rb-kicker { color: #ff78b5; }
+
+.page-beauty #laser {
+  color-scheme: dark;
+  --text: #fffdf9;
+  --text-strong: #fff;
+  --text-muted: rgba(255, 253, 249, .74);
+  --text-faint: rgba(255, 253, 249, .54);
+  --line: rgba(255, 255, 255, .15);
+  --line-strong: rgba(255, 255, 255, .28);
+}
+
+body.page-beauty :is(#estetica, #epigenetica) .price-row {
+  --text: var(--rebel-ink, #211427);
+  --text-strong: #180c1d;
+  --text-muted: rgba(33, 20, 39, .72);
+  color: var(--text);
+  border-color: rgba(39, 20, 47, .12);
+  background: rgba(255, 255, 255, .82);
+}
+
+body.page-beauty :is(#estetica, #epigenetica) .price-row__name { color: var(--text-strong); }
+body.page-beauty :is(#estetica, #epigenetica) .price-row__desc { color: var(--text-muted); }
+body.page-beauty :is(#estetica, #epigenetica) :is(.price-row__price, .price-row__cta) {
+  color: var(--rebel-violet, #7047ff);
+}
+
+.page-beauty #laser .price-row__desc { color: rgba(255, 255, 255, .7); }
+
+/* Dark inset surfaces that live inside otherwise light templates. */
+.rebel-map__head > strong { color: #fff; }
+
+body.page-contatti .card--feature,
+body.page-studio .brand-card {
+  color-scheme: dark;
+  --text: #fffdf9;
+  --text-strong: #fff;
+  --text-muted: rgba(255, 253, 249, .74);
+  --text-faint: rgba(255, 253, 249, .54);
+  --line: rgba(255, 255, 255, .15);
+  --line-strong: rgba(255, 255, 255, .28);
+  color: var(--text);
+}
+
+/* Contact feature cards are deliberately dark inside a light page. */
+body.page-contatti .card--feature .form :is(label, .form__note) {
+  color: rgba(255, 253, 249, .76);
+}
+
+body.page-contatti .card--feature .form :is(input, textarea, select) {
+  color: #fff;
+  border-color: rgba(255, 255, 255, .22);
+  background: rgba(10, 4, 14, .38);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08);
+}
+
+body.page-contatti .card--feature .form :is(input, textarea)::placeholder {
+  color: rgba(255, 255, 255, .6);
+}
+
+body.page-contatti .card--feature .form :is(input, textarea, select):focus {
+  color: #fff;
+  border-color: rgba(224, 170, 255, .78);
+  background: rgba(10, 4, 14, .58);
+  box-shadow: 0 0 0 4px rgba(224, 170, 255, .16);
+}
+
+/* Electric pink stays on dark scenes; light paper uses the denser rose so
+   small uppercase labels remain readable rather than merely decorative. */
+:is(.rebel-section--paper, .rb-section--ivory, .rb-section--spectrum, .studio-atlas) :is(.rebel-kicker, .rb-kicker),
+body:is(.page-beauty, .page-studio, .page-contatti, .page-prima-visita) .section :is(.kicker, .section__kicker) {
+  color: #a51e58;
+}
+
+body.rebel-rebrand .instagram-group__link { color: #6c2f70; }
+body.rebel-rebrand .instagram-group__link:is(:hover, :focus-visible) { color: #481c4d; }
+
+/* Every editorial hero starts on the same optical rail as the home copy and
+   official mark. Section containers keep their own centered measure. */
+:root {
+  --rebel-site-rail: max(
+    var(--rebel-page-rail, clamp(1rem, 3.4vw, 4.75rem)),
+    calc((100vw - 1680px) / 2)
+  );
+}
+
+@media (min-width: 861px) {
+  :is(.page-hero, .rb-hero, .tech-hero, .landing-hero)
+    > :is(.container, .rebel-container, .landing-hero__inner) {
+    width: min(
+      1240px,
+      calc(100% - var(--rebel-site-rail) - var(--rebel-site-rail))
+    );
+    max-width: none;
+    margin-left: var(--rebel-site-rail);
+    margin-right: auto;
+    padding-inline: 0;
+    text-align: left;
+  }
+
+  .rb-hero > .rb-hero__content h1 { max-width: 720px; }
+  .landing-hero > .landing-hero__inner > * { max-width: 720px; }
+
+  .landing-header > .landing-header__inner {
+    width: min(
+      1680px,
+      calc(100% - var(--rebel-site-rail) - var(--rebel-site-rail))
+    );
+    max-width: none;
+    margin-left: var(--rebel-site-rail);
+    margin-right: auto;
+    padding-inline: 0;
+  }
+}
+
+/* Long commercial heroes keep the primary action in the first laptop
+   viewport without shrinking the editorial headline into ordinary UI copy. */
+@media (min-width: 861px) and (max-height: 950px) {
+  .page-hero--media {
+    min-height: min(100svh, 880px);
+    padding-block: clamp(5.8rem, 11vh, 7rem) clamp(2.4rem, 5vh, 3.5rem);
+  }
+
+  .page-hero--media .page-hero__inner { gap: clamp(.78rem, 1.65vh, 1.12rem); }
+  .page-hero--media .page-hero__title { font-size: clamp(3.8rem, 7.15vw, 7rem); }
+  .page-hero--media .page-hero__lead { font-size: 1rem; line-height: 1.48; }
+  .page-hero--media .page-hero__meta { margin-top: .15rem; }
+  .page-hero--media .page-hero__scroll { display: none; }
+}
+
+@media (max-width: 860px) {
+  .page-hero--media {
+    min-height: auto;
+    padding-block: clamp(6.25rem, 23vw, 7.6rem) clamp(2.8rem, 10vw, 4rem);
+  }
+
+  .page-hero--media .page-hero__inner { gap: 1rem; }
+  .page-hero--media .page-hero__title {
+    font-size: clamp(2.7rem, 13.5vw, 5.2rem);
+    line-height: .94;
+  }
+  .page-hero--media .page-hero__lead { font-size: .98rem; line-height: 1.5; }
+  .page-hero--media .page-hero__meta { gap: .55rem 1rem; margin-top: .2rem; }
+  .page-hero--media .page-hero__scroll { display: none; }
+}
+
+@media (max-width: 360px) and (max-height: 740px) {
+  .page-hero--media { padding-block: 5.8rem 2.6rem; }
+  .page-hero--media .page-hero__title { font-size: clamp(2.45rem, 12.8vw, 3.2rem); }
+  .page-hero--media .page-hero__bullets li,
+  .page-hero--media .page-hero__meta { font-size: .78rem; }
+  .page-hero--media .page-hero__cta .btn { min-height: 44px; }
+}

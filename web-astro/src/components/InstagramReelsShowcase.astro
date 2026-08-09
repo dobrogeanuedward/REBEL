@@ -1,6 +1,7 @@
 ---
 import { extractInstagramId } from "@/lib/instagram-config";
 import { siteConfig } from "@/lib/site-config";
+import InstagramEmbed from "@/components/InstagramEmbed.astro";
 
 interface Props {
   reels: string[];
@@ -34,43 +35,9 @@ function toReelPermalink(input: string): string {
       const permalink = toReelPermalink(reel);
       return (
         <article class="instagram-reel-card">
-          <blockquote
-            class="instagram-media instagram-reel-embed"
-            data-instgrm-permalink={permalink}
-            data-instgrm-version="14"
-            data-instgrm-captioned="false"
-          >
-            <a href={permalink} target="_blank" rel="noreferrer">
-              Guarda il reel su Instagram
-            </a>
-          </blockquote>
+          <InstagramEmbed urlOrId={permalink} captioned={false} />
         </article>
       );
     })}
   </div>
 </section>
-
-<script>
-  // Loads the official Instagram embed script once and (re-)processes after View Transitions.
-  function processEmbeds() {
-    const w = window as any;
-    w.instgrm?.Embeds?.process?.();
-  }
-  function ensureScript() {
-    if (document.getElementById("instagram-embed-script")) {
-      processEmbeds();
-      return;
-    }
-    const s = document.createElement("script");
-    s.id = "instagram-embed-script";
-    s.src = "https://www.instagram.com/embed.js";
-    s.async = true;
-    s.defer = true;
-    s.onload = () => processEmbeds();
-    document.body.appendChild(s);
-  }
-  ensureScript();
-  document.addEventListener("astro:page-load", () => {
-    setTimeout(processEmbeds, 80);
-  });
-</script>

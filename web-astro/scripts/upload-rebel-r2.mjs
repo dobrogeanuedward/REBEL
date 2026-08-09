@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { createReadStream } from "node:fs";
 import { readFile, stat } from "node:fs/promises";
 import { extname, join } from "node:path";
@@ -74,6 +75,26 @@ async function put(key, filePath, metadata = {}) {
   console.log(`PUT ${key} ${info.size} bytes`);
 }
 
+async function sha256(filePath) {
+  const hash = createHash("sha256");
+  for await (const chunk of createReadStream(filePath)) hash.update(chunk);
+  return hash.digest("hex");
+}
+
+async function validateLocalAsset(asset, filePath) {
+  const info = await stat(filePath);
+  if (Number(info.size) !== Number(asset.bytes)) {
+    throw new Error(`Local byte mismatch for ${asset.key}: manifest=${asset.bytes}, file=${info.size}`);
+  }
+
+  if (asset.sha256) {
+    const actualSha256 = await sha256(filePath);
+    if (actualSha256 !== asset.sha256) {
+      throw new Error(`Local checksum mismatch for ${asset.key}`);
+    }
+  }
+}
+
 async function verify(key, expectedBytes, expectedSha256 = "") {
   const remote = await client.send(new HeadObjectCommand({ Bucket: bucket, Key: key }));
   if (Number(remote.ContentLength) !== Number(expectedBytes)) {
@@ -90,14 +111,16 @@ if (confirmIfConfigured && missing.length) {
 
 for (let start = 0; start < assets.length; start += 4) {
   const batch = assets.slice(start, start + 4);
-  await Promise.all(batch.map((asset) =>
-    put(asset.key, join(root, asset.key), {
+  await Promise.all(batch.map(async (asset) => {
+    const filePath = join(root, asset.key);
+    await validateLocalAsset(asset, filePath);
+    await put(asset.key, filePath, {
       width: asset.width,
       height: asset.height,
       sha256: asset.sha256,
       collection: "rebel-site-assets-v2",
-    }),
-  ));
+    });
+  }));
 }
 
 await put("rebel/manifests/assets.json", manifestPath, {

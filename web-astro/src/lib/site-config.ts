@@ -88,7 +88,7 @@ export const siteConfig = {
       kind: "Formazione professionale",
       url: "https://academy.thory-tech.com/",
       blurb:
-        "Il team si forma su Thory Academy: percorsi certificati per Operatore Laser ed estetiste qualificate. Aggiornamento continuo, non attestati raccolti a caso.",
+        "Il team segue un percorso di formazione continua Thory Academy, dedicato all'uso consapevole delle tecnologie e all'aggiornamento professionale.",
     },
   ],
   // Sister sites in the Thory / DOGO network. Used in the footer.

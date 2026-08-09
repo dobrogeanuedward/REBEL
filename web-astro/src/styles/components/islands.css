@@ -167,7 +167,11 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
   gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
+.store-gallery__thumbs li { min-width: 0; }
 .store-gallery__thumbs button {
   position: relative;
   aspect-ratio: 4 / 3;
