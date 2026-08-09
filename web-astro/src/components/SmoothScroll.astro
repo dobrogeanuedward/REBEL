@@ -8,11 +8,16 @@
 
   let instance: Lenis | null = null;
   let rafId = 0;
+  const reduceQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  type SmoothWindow = Window & { __rebelSmoothLifecycle?: AbortController };
+  const smoothWindow = window as SmoothWindow;
+  smoothWindow.__rebelSmoothLifecycle?.abort();
+  const lifecycle = new AbortController();
+  smoothWindow.__rebelSmoothLifecycle = lifecycle;
 
   const start = () => {
-    if (reduce) return;
+    if (reduceQuery.matches) return;
     if (instance) return;
     instance = new Lenis({
       lerp: 0.085,
@@ -34,9 +39,16 @@
     instance = null;
   };
 
+  const onMotionPreference = () => {
+    if (reduceQuery.matches) stop();
+    else start();
+  };
+
   // Astro view transitions: tear down before swap, reinit after.
-  document.addEventListener("astro:page-load", start);
-  document.addEventListener("astro:before-swap", stop);
+  start();
+  document.addEventListener("astro:page-load", start, { signal: lifecycle.signal });
+  document.addEventListener("astro:before-swap", stop, { signal: lifecycle.signal });
+  reduceQuery.addEventListener("change", onMotionPreference, { signal: lifecycle.signal });
 </script>
 
 <style is:global>

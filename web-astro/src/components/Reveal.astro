@@ -3,8 +3,20 @@
 // to elements with `[data-reveal]`. CSS does the rest. Vanilla TS, no React.
 ---
 <script>
+  type RevealWindow = Window & {
+    __rebelRevealCleanup?: () => void;
+    __rebelRevealLifecycle?: AbortController;
+  };
+
+  const revealWindow = window as RevealWindow;
+  revealWindow.__rebelRevealLifecycle?.abort();
+  const lifecycle = new AbortController();
+  revealWindow.__rebelRevealLifecycle = lifecycle;
+
   const init = () => {
+    revealWindow.__rebelRevealCleanup?.();
     const els = document.querySelectorAll<HTMLElement>("[data-reveal]");
+    document.documentElement.dataset.motionReady = "true";
     if (!("IntersectionObserver" in window) || els.length === 0) {
       els.forEach((el) => el.setAttribute("data-revealed", "true"));
       return;
@@ -21,6 +33,17 @@
       { rootMargin: "0px 0px -10% 0px", threshold: 0.08 },
     );
     els.forEach((el) => io.observe(el));
+
+    const cleanup = () => {
+      io.disconnect();
+      if (revealWindow.__rebelRevealCleanup === cleanup) {
+        revealWindow.__rebelRevealCleanup = undefined;
+      }
+    };
+    revealWindow.__rebelRevealCleanup = cleanup;
   };
-  document.addEventListener("astro:page-load", init);
+
+  init();
+  document.addEventListener("astro:page-load", init, { signal: lifecycle.signal });
+  document.addEventListener("astro:before-swap", () => revealWindow.__rebelRevealCleanup?.(), { signal: lifecycle.signal });
 </script>

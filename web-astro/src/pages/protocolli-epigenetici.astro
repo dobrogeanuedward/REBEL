@@ -77,8 +77,8 @@ const journeys = [
     name: "Forma",
     image: media.journeys.forma,
     focus: "Corpo · drenaggio, tono e compattezza",
-    body: "Indicato per pesantezza, ritenzione, perdita di tono e rimodellamento. Può combinare manualità, Lift Body, LPG, pressomassaggio, Tecar e crioterapia.",
-    tools: ["Lift Body", "LPG", "Pressomassaggio", "Tecar"],
+    body: "Indicato per pesantezza, ritenzione, perdita di tono e rimodellamento. Può combinare manualità, LPG e trattamenti corpo scelti dopo la valutazione.",
+    tools: ["Manualità", "LPG", "Valutazione", "Controlli"],
     href: "/contatti?percorso=forma",
   },
   {
@@ -136,7 +136,7 @@ const journeys = [
         <h2>Che cosa tratta ogni percorso Rebel.</h2>
       </div>
       <div class="rebel-journeys">
-        {journeys.map((journey, index) => (
+        {journeys.map((journey) => (
           <article class="rebel-journey" style={`--journey-image:url(${journey.image.src})`}>
             <div class="rebel-journey__copy">
               <p class="rb-kicker">{journey.focus}</p>

@@ -6,7 +6,18 @@
 </div>
 
 <script>
+  type ProgressWindow = Window & {
+    __rebelScrollProgressCleanup?: () => void;
+    __rebelScrollProgressLifecycle?: AbortController;
+  };
+
+  const progressWindow = window as ProgressWindow;
+  progressWindow.__rebelScrollProgressLifecycle?.abort();
+  const lifecycle = new AbortController();
+  progressWindow.__rebelScrollProgressLifecycle = lifecycle;
+
   const init = () => {
+    progressWindow.__rebelScrollProgressCleanup?.();
     const bar = document.getElementById("scroll-progress-bar");
     if (!bar) return;
     let raf = 0;
@@ -23,7 +34,19 @@
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", update, { passive: true });
+
+    const cleanup = () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", update);
+      if (raf) cancelAnimationFrame(raf);
+      if (progressWindow.__rebelScrollProgressCleanup === cleanup) {
+        progressWindow.__rebelScrollProgressCleanup = undefined;
+      }
+    };
+    progressWindow.__rebelScrollProgressCleanup = cleanup;
   };
-  // Fire on first load + on every Astro view transition.
-  document.addEventListener("astro:page-load", init);
+
+  init();
+  document.addEventListener("astro:page-load", init, { signal: lifecycle.signal });
+  document.addEventListener("astro:before-swap", () => progressWindow.__rebelScrollProgressCleanup?.(), { signal: lifecycle.signal });
 </script>

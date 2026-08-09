@@ -3,7 +3,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import StoreGallery from "@/components/StoreGallery.tsx";
 import InstagramFeed from "@/components/InstagramFeed.astro";
-import { storeGalleryImages } from "@/lib/content";
+import { methodSteps, storeGalleryImages } from "@/lib/content";
 import { siteConfig } from "@/lib/site-config";
 import {
   buildArticleSchema,
@@ -40,20 +40,12 @@ const article = buildArticleSchema({
 
 const siteAsset = (slot: string) => `/api/site-asset?slot=${encodeURIComponent(slot)}`;
 const heroImage = siteAsset("home.hero.method.desktop");
+const heroMobileImage = siteAsset("home.hero.method.mobile");
 const faceImage = siteAsset("journeys.glow.hero.desktop");
 const longevityImage = siteAsset("journeys.longevity.hero.desktop");
 const bodyImage = siteAsset("journeys.forma.hero.desktop");
 const freedomImage = siteAsset("journeys.liberta.hero.desktop");
-const studioImage = siteAsset("studio.professional.desktop");
-
-const method = [
-  ["01", "Ascoltiamo l’obiettivo", "Ci racconti cosa vuoi migliorare, quali trattamenti hai già provato e quanto tempo puoi dedicare al percorso."],
-  ["02", "Valutiamo pelle o corpo", "Osserviamo idratazione, sensibilità, tono, uniformità, tessuti e caratteristiche della zona interessata."],
-  ["03", "Definiamo il risultato", "Stabiliamo un obiettivo concreto e realistico, così sai che cosa stiamo trattando e perché."],
-  ["04", "Scegliamo i trattamenti", "Combiniamo manualità, attivi e tecnologie adatti alla zona e al risultato concordato."],
-  ["05", "Controlliamo i cambiamenti", "Verifichiamo la risposta e modifichiamo frequenza, intensità o combinazioni quando necessario."],
-  ["06", "Manteniamo il risultato", "Programmiamo richiami e una routine essenziale per conservare ciò che hai ottenuto."],
-];
+const studioImage = siteAsset("studio.real.overview.desktop");
 
 const priorities = [
   ["Sensibilità e comfort", "Rossori, reattività e sensazioni di pelle che tira."],
@@ -85,9 +77,9 @@ const journeys = [
   {
     name: "Forma",
     kicker: "Corpo · drenaggio e compattezza",
-    copy: "Per pesantezza, ritenzione, tono e rimodellamento. Può combinare Lift Body, LPG, pressomassaggio, Tecar e crioterapia.",
+    copy: "Per pesantezza, ritenzione, tono e rimodellamento. Può combinare manualità, LPG e trattamenti corpo scelti dopo la valutazione.",
     image: bodyImage,
-    tags: ["Lift Body", "LPG", "Pressomassaggio", "Tecar", "Crioterapia"],
+    tags: ["Manualità", "LPG", "Valutazione", "Controlli"],
     href: "/protocolli-epigenetici",
   },
   {
@@ -112,7 +104,7 @@ const worlds = [
   {
     number: "02",
     name: "Corpo",
-    copy: "Drenaggio, massaggi, rimodellamento, LPG, Tecar, pressomassaggio e crioterapia.",
+    copy: "Drenaggio, massaggi, rimodellamento e LPG in percorsi definiti dopo la valutazione.",
     image: bodyImage,
     href: "/listino-estetica-laser",
     cta: "Esplora il corpo",
@@ -120,8 +112,8 @@ const worlds = [
   {
     number: "03",
     name: "Tecnologie",
-    copy: "THORY Lumina X1 Pro con ICE Polar, LPG, Tecar 448Revolution, InfraPress X2, CryoShape X2 e Lumina K3.",
-    image: siteAsset("services.technologies.detail.desktop"),
+    copy: "THORY Lumina X1 Pro, ICE Polar e LPG: strumenti inseriti dopo aver definito zona, priorità e obiettivo.",
+    image: siteAsset("technologies.studio.thory.desktop"),
     href: "/tecnologie-rebel",
     cta: "Conosci le tecnologie",
   },
@@ -133,7 +125,21 @@ const worlds = [
   <JsonLd data={article} />
 
   <div class="rebel-shell">
-    <section class="rebel-hero" style={`--hero-image: url('${heroImage}')`}>
+    <section
+      class="rebel-hero"
+      style={`--hero-image: url('${heroImage}'); --hero-image-mobile: url('${heroMobileImage}')`}
+    >
+      <picture class="rebel-hero__fallback-media" aria-hidden="true">
+        <source media="(max-width: 860px) and (orientation: portrait)" srcset={heroMobileImage} />
+        <img
+          src={heroImage}
+          alt=""
+          width="1536"
+          height="1024"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
       <div class="rebel-container rebel-hero__copy">
         <div class="rebel-hero__eyebrow" data-reveal>
           <span>Rebel · Estetica Epigenetica</span><span>Viale Barbaroux 20 · Carmagnola</span>
@@ -181,8 +187,8 @@ const worlds = [
           </div>
         </div>
         <div class="rebel-method__steps">
-          {method.map(([number,title,text]) => (
-            <article class="rebel-method__step"><b>{number}</b><div><h3>{title}</h3><p>{text}</p></div></article>
+          {methodSteps.map(({ step, title, text }) => (
+            <article class="rebel-method__step"><b>{step}</b><div><h3>{title}</h3><p>{text}</p></div></article>
           ))}
         </div>
       </div>
@@ -234,14 +240,14 @@ const worlds = [
       <div class="rebel-container">
         <div class="rebel-studio-proof">
           <div>
-            <p class="rebel-kicker">Il lavoro in studio</p>
-            <h2 class="rebel-title">Prepariamo, registriamo, controlliamo.</h2>
-            <p class="rebel-lead">La professionista prepara il trattamento, registra prodotti e parametri e confronta la risposta nel tempo. È questo che rende il percorso personalizzato, non il nome del macchinario.</p>
+            <p class="rebel-kicker">Dentro Rebel</p>
+            <h2 class="rebel-title">Il metodo prende forma qui.</h2>
+            <p class="rebel-lead">Quattro cabine, una postazione mani e tecnologie professionali: Viale Barbaroux 20 è il luogo reale in cui valutazione, trattamento e controllo diventano il tuo percorso.</p>
             <a class="rebel-text-link" href="/chi-siamo">Scopri lo studio e il team →</a>
           </div>
           <picture class="rebel-studio-proof__media">
-            <source media="(max-width: 760px)" srcset={siteAsset("studio.professional.mobile")} />
-            <img src={studioImage} alt="Professionista Rebel mentre prepara un trattamento" loading="lazy" />
+            <source media="(max-width: 760px)" srcset={siteAsset("studio.real.overview.mobile")} />
+            <img src={studioImage} alt="Interno reale dello studio REBEL a Carmagnola" width="1672" height="941" loading="lazy" decoding="async" />
           </picture>
         </div>
         <div class="rebel-studio-real">
@@ -262,7 +268,7 @@ const worlds = [
 
     <section class="rebel-campaign">
       <div class="rebel-container">
-        <strong>Be <span>Cool.</span><br/>Be Rebel.</strong>
+        <strong>Be <span>Beautiful.</span><br/>Be Rebel.</strong>
         <p>Prenota la valutazione gratuita: definiamo area, obiettivo, frequenza e prezzo prima di iniziare.</p>
         <div class="rebel-hero__actions" style="justify-content:center"><a class="btn btn--primary" href="/contatti">Prenota la prima visita</a><a class="btn btn--secondary" href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer">Scrivici su WhatsApp</a></div>
       </div>

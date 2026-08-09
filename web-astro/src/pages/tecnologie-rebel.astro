@@ -2,31 +2,33 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
+import { media } from "@/lib/page-media";
 import { buildBreadcrumbSchema, buildItemListSchema, buildWebPageSchema, createPageMeta } from "@/lib/seo";
 
 const meta = createPageMeta({
-  title: "Tecnologie estetiche a Carmagnola — Laser, Tecar, LPG e Pressomassaggio | Rebel",
-  description: "Scopri le tecnologie disponibili da Rebel a Carmagnola: THORY Lumina X1 Pro con ICE Polar, Tecar 448Revolution, LPG, Lumina K3, InfraPress X2 e CryoShape X2.",
+  title: "Tecnologie estetiche a Carmagnola — THORY, ICE Polar e LPG | Rebel",
+  description: "Scopri le tecnologie REBEL a Carmagnola: THORY Lumina X1 Pro, sistema ICE Polar per il comfort del laser e LPG nei percorsi corpo personalizzati.",
   path: "/tecnologie-rebel",
   openGraphType: "article",
-  keywords: ["tecnologie estetiche Carmagnola", "Tecar Carmagnola", "LPG Carmagnola", "pressoterapia Carmagnola", "crioterapia estetica Carmagnola", "Laser Ice Polar Carmagnola"],
+  keywords: ["tecnologie estetiche Carmagnola", "THORY Lumina X1 Pro Carmagnola", "LPG Carmagnola", "Laser ICE Polar Carmagnola"],
 });
 
 const technologies = [
   {
     code: "01",
-    name: "THORY Lumina X1 Pro + ICE Polar",
+    name: "THORY Lumina X1 Pro",
     family: "Epilazione viso e corpo",
     focus: "Riduzione progressiva della ricrescita",
-    copy: "Dispositivo laser a diodo THORY Lumina X1 Pro con manipolo ICE Polar. La valutazione stabilisce fototipo, caratteristiche del pelo, zone, parametri e distanza tra le sedute; il raffreddamento è orientato al comfort.",
+    copy: "Piattaforma utilizzata per l’epilazione laser di viso e corpo. La valutazione stabilisce fototipo, caratteristiche del pelo, zone, parametri e distanza tra le sedute.",
     href: "/epilazione-laser-carmagnola",
   },
   {
     code: "02",
-    name: "Tecar 448Revolution",
-    family: "Trattamenti viso e corpo",
-    focus: "Tono, qualità dei tessuti e comfort",
-    copy: "Tecnologia a radiofrequenza utilizzabile nei programmi dedicati a tono e qualità cutanea. Intensità, durata e abbinamento con manualità o cosmetici dipendono dalla zona trattata.",
+    name: "ICE Polar",
+    family: "Comfort durante il laser",
+    focus: "Raffreddamento della zona trattata",
+    copy: "Il sistema di raffreddamento accompagna il trattamento laser ed è pensato per il comfort. Non sostituisce la valutazione iniziale né la scelta personalizzata dei parametri.",
   },
   {
     code: "03",
@@ -34,27 +36,6 @@ const technologies = [
     family: "Rimodellamento corpo",
     focus: "Stimolazione meccanica, tonicità e leggerezza",
     copy: "Trattamento meccanico dei tessuti inserito nei programmi corpo per lavorare su tonicità, compattezza e sensazione di leggerezza. Frequenza e intensità vengono definite dopo la valutazione.",
-  },
-  {
-    code: "04",
-    name: "Lumina K3 3-in-1",
-    family: "Trattamenti viso e corpo",
-    focus: "Piattaforma con funzioni selezionabili",
-    copy: "Piattaforma multifunzione per protocolli viso e corpo. La funzione utilizzata viene scelta in base alla zona, alle condizioni osservate e al risultato concordato.",
-  },
-  {
-    code: "05",
-    name: "InfraPress X2",
-    family: "Pressomassaggio",
-    focus: "Gambe pesanti, drenaggio e microcircolo",
-    copy: "Pressomassaggio utilizzato nei programmi dedicati a pesantezza, ritenzione e drenaggio. La seduta può essere abbinata a manualità e altri trattamenti corpo.",
-  },
-  {
-    code: "06",
-    name: "CryoShape X2",
-    family: "Crioterapia estetica localizzata",
-    focus: "Trattamento di aree specifiche del corpo",
-    copy: "Tecnologia localizzata inserita nei programmi corpo dopo la valutazione della zona e dell’obiettivo. Il piano specifica area trattata, numero indicativo di sedute e controlli.",
   },
 ];
 
@@ -78,10 +59,10 @@ const list = buildItemListSchema({
     <div class="rebel-container tech-hero__grid">
       <div>
         <p class="rebel-kicker">Tecnologie estetiche · Carmagnola</p>
-        <h1 class="rebel-display">THORY Lumina X1 Pro, LPG e tecnologie per viso e corpo.</h1>
+        <h1 class="rebel-display">THORY Lumina X1 Pro, ICE Polar e LPG.</h1>
       </div>
       <div class="tech-hero__copy">
-        <p class="rebel-lead">Nello studio Rebel utilizziamo tecnologie per epilazione, trattamenti viso, drenaggio, tono e rimodellamento corpo. La valutazione definisce quale utilizzare, su quale zona, con quali parametri e con quale frequenza.</p>
+        <p class="rebel-lead">Nello studio REBEL la tecnologia non è una promessa astratta: è uno strumento inserito soltanto dopo aver definito zona, priorità e obiettivo del percorso.</p>
         <div class="rebel-spectrum-rule"></div>
         <a class="btn btn--primary" href="/contatti">Prenota la prima visita</a>
       </div>
@@ -100,6 +81,15 @@ const list = buildItemListSchema({
       </div>
     </div>
   </section>
+
+  <FullBleedBand
+    image={media.studio.technologyRoom}
+    height="md"
+    align="left"
+    kicker="Tecnologia nello spazio reale"
+    quote="La macchina non è il punto di partenza. È uno strumento dentro il Metodo REBEL."
+    cite="Cabina REBEL · Carmagnola"
+  />
 
   <section class="rebel-section rebel-section--plum">
     <div class="rebel-container">
@@ -140,5 +130,5 @@ const list = buildItemListSchema({
 
 <style>
   .tech-hero{padding:clamp(9rem,14vw,13rem) 0 clamp(5rem,9vw,8rem);background:radial-gradient(circle at 82% 18%,rgba(112,71,255,.2),transparent 27rem),radial-gradient(circle at 15% 86%,rgba(233,59,136,.13),transparent 25rem),var(--rebel-porcelain)}
-  .tech-hero__grid,.tech-close{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,7vw,7rem);align-items:end}.tech-hero__copy{padding-bottom:.7rem}.tech-principles{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:3rem;background:var(--rebel-line);border:1px solid var(--rebel-line);border-radius:28px;overflow:hidden}.tech-principles article{padding:2rem;background:var(--rebel-paper)}.tech-principles span{color:var(--rebel-pink);font-weight:800}.tech-principles h3{margin:2.5rem 0 .6rem;font-size:1.5rem}.tech-principles p{margin:0;color:var(--text-muted);line-height:1.6}.tech-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:3rem}.tech-card{display:grid;grid-template-columns:4rem 1fr;gap:1.2rem;padding:clamp(1.5rem,3vw,2.5rem);border:1px solid rgba(255,255,255,.14);border-radius:28px;background:rgba(255,255,255,.055)}.tech-card__index{font-size:2rem;font-weight:800;color:var(--rebel-pink)}.tech-card h3{margin:.2rem 0 .7rem;font-size:clamp(2rem,4vw,3.8rem);line-height:.92;letter-spacing:-.055em}.tech-card strong{display:block;color:#fff}.tech-card p:not(.rebel-kicker){color:rgba(255,255,255,.68);line-height:1.6}.tech-card a{color:#fff;font-weight:800}.tech-close{align-items:start}@media(max-width:900px){.tech-hero__grid,.tech-close,.tech-list{grid-template-columns:1fr}.tech-principles{grid-template-columns:1fr 1fr}.tech-hero{padding-top:8.5rem}}@media(max-width:560px){.tech-principles{grid-template-columns:1fr}.tech-card{grid-template-columns:1fr}.tech-card__index{font-size:1rem}}
+  .tech-hero__grid{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(1.5rem,3vw,2.5rem);align-items:start}.tech-hero__copy{max-width:720px;padding-bottom:.7rem}.tech-close{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,7vw,7rem);align-items:start}.tech-principles{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:3rem;background:var(--rebel-line);border:1px solid var(--rebel-line);border-radius:28px;overflow:hidden}.tech-principles article{padding:2rem;background:var(--rebel-paper)}.tech-principles span{color:var(--rebel-pink);font-weight:800}.tech-principles h3{margin:2.5rem 0 .6rem;font-size:1.5rem}.tech-principles p{margin:0;color:var(--text-muted);line-height:1.6}.tech-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:3rem}.tech-card{display:grid;grid-template-columns:3rem 1fr;gap:1rem;padding:clamp(1.5rem,3vw,2.5rem);border:1px solid rgba(255,255,255,.14);border-radius:28px;background:rgba(255,255,255,.055)}.tech-card__index{font-size:2rem;font-weight:800;color:var(--rebel-pink)}.tech-card h3{margin:.2rem 0 .7rem;font-size:clamp(1.9rem,3.2vw,3.25rem);line-height:.94;letter-spacing:-.05em}.tech-card strong{display:block;color:#fff}.tech-card p:not(.rebel-kicker){color:rgba(255,255,255,.68);line-height:1.6}.tech-card a{color:#fff;font-weight:800}@media(max-width:1100px){.tech-list{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:900px){.tech-hero__grid,.tech-close,.tech-list{grid-template-columns:1fr}.tech-principles{grid-template-columns:1fr 1fr}.tech-hero{padding-top:8.5rem}}@media(max-width:560px){.tech-principles{grid-template-columns:1fr}.tech-card{grid-template-columns:1fr}.tech-card__index{font-size:1rem}}
 </style>

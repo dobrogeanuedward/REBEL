@@ -13,7 +13,7 @@ import { siteConfig } from "@/lib/site-config";
   {siteConfig.brands.map((b, i) => (
     <article class="brand-card" data-reveal style={`--reveal-delay: ${i * 60}ms;`}>
       <header class="brand-card__head">
-        <span class="brand-card__mark" aria-hidden="true">{b.name}</span>
+        <h3 class="brand-card__mark">{b.name}</h3>
         <span class="brand-card__kind">{b.kind}</span>
       </header>
       <p class="brand-card__blurb">{b.blurb}</p>
@@ -70,6 +70,7 @@ import { siteConfig } from "@/lib/site-config";
     gap: 0.4rem;
   }
   .brand-card__mark {
+    margin: 0;
     font-family: var(--font-display);
     font-size: 1.45rem;
     line-height: 1;

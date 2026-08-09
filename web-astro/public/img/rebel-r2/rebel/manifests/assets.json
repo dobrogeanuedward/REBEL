@@ -1,6 +1,6 @@
 {
   "version": "rebel-site-assets-v2",
-  "generatedAt": "2026-08-06",
+  "generatedAt": "2026-08-09",
   "direction": {
     "palette": [
       "warm porcelain",
@@ -185,11 +185,27 @@
       "desktop": "rebel/studio/professional-desktop.webp",
       "mobile": "rebel/studio/professional-mobile.webp"
     },
-    "reception": "rebel/studio/professional-desktop.webp"
+    "real": {
+      "overview": {
+        "desktop": "rebel/studio/real-overview-desktop.webp",
+        "mobile": "rebel/studio/real-overview-mobile.webp"
+      },
+      "exterior": {
+        "desktop": "rebel/studio/real-exterior-desktop.webp",
+        "mobile": "rebel/studio/real-exterior-mobile.webp"
+      }
+    },
+    "reception": "rebel/studio/real-overview-desktop.webp"
   },
   "technologies": {
     "laser": {
       "detail": "rebel/services/laser/handpiece-desktop.webp"
+    },
+    "studio": {
+      "thory": {
+        "desktop": "rebel/studio/thory-room-desktop.webp",
+        "mobile": "rebel/studio/thory-room-mobile.webp"
+      }
     }
   },
   "assets": [
@@ -600,6 +616,54 @@
       "height": 1402,
       "bytes": 50514,
       "sha256": "449c309c7379731fb36ed7ad64e01fdb8911d00ee6f239e27dd70a2d81dabf79"
+    },
+    {
+      "key": "rebel/studio/real-exterior-desktop.webp",
+      "mime": "image/webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 141444,
+      "sha256": "6ab192c8b7bffb0c1e5c8809dea9eda0ce506351bc86a1d55ccb033570d3b9ef"
+    },
+    {
+      "key": "rebel/studio/real-exterior-mobile.webp",
+      "mime": "image/webp",
+      "width": 752,
+      "height": 940,
+      "bytes": 62088,
+      "sha256": "7b2b7c32e496214617fdfa365bec2df8422df465b27c30925f951beac4e5016a"
+    },
+    {
+      "key": "rebel/studio/real-overview-desktop.webp",
+      "mime": "image/webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 72868,
+      "sha256": "f6d5aee3cd4688411c6b6a8c99216bfe964e710e040eff8e201adf86e14da043"
+    },
+    {
+      "key": "rebel/studio/real-overview-mobile.webp",
+      "mime": "image/webp",
+      "width": 752,
+      "height": 940,
+      "bytes": 31968,
+      "sha256": "7e8756168309df2f61858a7949d0ed3146ae266c0972e5ce74e02dc5914432a1"
+    },
+    {
+      "key": "rebel/studio/thory-room-desktop.webp",
+      "mime": "image/webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 52756,
+      "sha256": "6806c7ac8fbce406ee747d456c872d61409899098674d12dfd5adc7358d5f5fb"
+    },
+    {
+      "key": "rebel/studio/thory-room-mobile.webp",
+      "mime": "image/webp",
+      "width": 752,
+      "height": 940,
+      "bytes": 36890,
+      "sha256": "3b66ee2b0e39ecee9009ac9a4f647858a450433f396a1c7eb849d3bd123d119f"
     },
     {
       "key": "rebel/territory/bra-wide.webp",

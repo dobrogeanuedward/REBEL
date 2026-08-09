@@ -6,6 +6,7 @@ import FeatureCard from "@/components/FeatureCard.astro";
 import InlineCta from "@/components/InlineCta.astro";
 import BrandStrip from "@/components/BrandStrip.astro";
 import FullBleedBand from "@/components/FullBleedBand.astro";
+import StudioAtlas from "@/components/StudioAtlas.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import { media } from "@/lib/page-media";
@@ -27,9 +28,9 @@ const meta = createPageMeta({
     "Rebel estetica Carmagnola",
     "centro estetico nuovo Carmagnola",
     "estetista Carmagnola",
-    "pressoterapia Carmagnola",
-    "tecar Carmagnola",
-    "fotobiostimolazione Carmagnola",
+    "LPG Carmagnola",
+    "ICE Polar Carmagnola",
+    "Lumina X1 Pro Carmagnola",
   ],
 });
 
@@ -40,7 +41,7 @@ const breadcrumb = buildBreadcrumbSchema([
 const webPage = buildWebPageSchema({
   name: "Studio Rebel · Centro estetico a Carmagnola",
   description:
-    "Quattro cabine per trattamenti viso, corpo, epilazione laser e beauty, con tecnologie professionali e prodotti Marbellas, Eberlin e RBL Nails.",
+    "Quattro cabine per trattamenti viso, corpo, epilazione laser e beauty, con tecnologie professionali e un metodo di lavoro personalizzato.",
   path: "/chi-siamo",
 });
 const article = buildArticleSchema({
@@ -52,8 +53,8 @@ const article = buildArticleSchema({
     "chi siamo Rebel",
     "centro estetico Carmagnola",
     "Thory Carmagnola",
-    "tecar Carmagnola",
-    "fotobiostimolazione Carmagnola",
+    "LPG Carmagnola",
+    "Lumina X1 Pro Carmagnola",
   ],
   section: "Chi siamo",
 });
@@ -67,7 +68,7 @@ const ways = [
   {
     kicker: "Trattamento",
     title: "Utilizziamo prodotti e tecnologie professionali",
-    body: "THORY Lumina X1 Pro con manipolo ICE Polar, Tecar, LPG, pressomassaggio, crioterapia, linee Marbellas ed Eberlin e prodotti RBL Nails.",
+    body: "THORY Lumina X1 Pro con ICE Polar, LPG e cosmetica professionale entrano nel percorso dopo aver definito zona, priorità e obiettivo.",
   },
   {
     kicker: "Controlli",
@@ -97,38 +98,16 @@ const paths = [
   },
 ];
 
-const studio = [
-  {
-    kicker: "Spazi",
-    title: "Quattro cabine e una postazione mani",
-    body: "Lo studio comprende area accoglienza, quattro cabine dedicate e una postazione per manicure, semipermanente e trattamenti nails.",
-  },
-  {
-    kicker: "Laser",
-    title: "Thory con manipolo Ice Polar",
-    body: "Laser a diodo con tre lunghezze d’onda e raffreddamento attivo per epilazione progressiva di viso e corpo.",
-  },
-  {
-    kicker: "Corpo",
-    title: "LPG, pressomassaggio, Tecar e crioterapia",
-    body: "Tecnologie disponibili nei programmi dedicati a drenaggio, pesantezza, tonicità, compattezza e rimodellamento corpo.",
-  },
-  {
-    kicker: "Viso",
-    title: "Cosmetica professionale ed epigenetica",
-    body: "Linee Marbellas ed Eberlin utilizzate nei trattamenti per idratazione, luminosità, uniformità, tono, pelle matura e contorno occhi.",
-  },
-];
 ---
-<BaseLayout meta={meta}>
+<BaseLayout meta={meta} bodyClass="page-studio">
   <JsonLd data={breadcrumb} />
   <JsonLd data={webPage} />
   <JsonLd data={article} />
 
   <PageHero
-    image={media.studio.reception}
+    image={media.studio.professional}
     kicker="Studio Rebel · Carmagnola"
-    title="Centro estetico per _viso, corpo, laser e beauty_."
+    title="Qui il Metodo Rebel diventa _spazio, gesto e tecnologia_."
     lead="In Viale Barbaroux 20 trovi quattro cabine, una postazione mani, tecnologie professionali e trattamenti personalizzati. Riceviamo da martedì a sabato su appuntamento."
     bullets={["4 cabine e postazione nails", "Viso, corpo, laser e beauty", "Prima visita gratuita"]}
     meta={["Viale Barbaroux 20", "Mar–Sab su appuntamento", "Carmagnola"]}
@@ -136,48 +115,7 @@ const studio = [
     ctaSecondary={{ label: "Consulta il listino", href: "/listino-estetica-laser" }}
   />
 
-  <section class="section">
-    <div class="container grid-2">
-      <article class="card card--feature">
-        <p class="card__kicker">Servizi</p>
-        <h2 class="card__title">Trattamenti estetici quotidiani e programmi avanzati.</h2>
-        <p class="card__body">
-          Da Rebel puoi prenotare pulizia viso, manicure, pedicure, ceretta,
-          massaggi, laminazione ed epilazione laser. Per obiettivi più specifici
-          proponiamo percorsi viso e corpo con cosmetica epigenetica e tecnologie professionali.
-        </p>
-      </article>
-      <article class="card">
-        <p class="card__kicker">Prima visita</p>
-        <h2 class="card__title">Valutazione gratuita con indicazioni, tempi e prezzi.</h2>
-        <p class="card__body">
-          Ci racconti che cosa vuoi migliorare, osserviamo la zona interessata
-          e ti presentiamo un programma chiaro. Sai quali trattamenti proponiamo,
-          con quale frequenza e a quale costo prima di decidere.
-        </p>
-      </article>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <SectionHead
-        kicker="Spazi e tecnologie"
-        title="Quattro cabine dedicate a _viso, corpo e laser_."
-        lead="Ogni area dello studio è organizzata per una famiglia di trattamenti e dispone degli strumenti professionali necessari."
-      />
-      <div class="card-grid card-grid--2">
-        {studio.map((s, i) => (
-          <FeatureCard
-            kicker={s.kicker}
-            title={s.title}
-            body={s.body}
-            index={i + 1}
-          />
-        ))}
-      </div>
-    </div>
-  </section>
+  <StudioAtlas />
 
   <section class="section section--tight">
     <div class="container">
@@ -230,11 +168,11 @@ const studio = [
   </section>
 
   <FullBleedBand
-    image={media.studio.reception}
+    image={media.studio.realExterior}
     height="sm"
     align="left"
     kicker="Rebel · Carmagnola"
-    quote="Quattro cabine per trattamenti viso, corpo, laser e beauty."
+    quote="Una soglia reale. Un metodo preciso. La luce REBEL dentro uno spazio vero."
     cite="Viale Barbaroux 20"
   />
 

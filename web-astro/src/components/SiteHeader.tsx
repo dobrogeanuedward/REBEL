@@ -50,6 +50,7 @@ export default function SiteHeader({ pathname }: Props) {
 
     const drawer = drawerRef.current;
     const previousOverflow = document.documentElement.style.overflow;
+    const previousDrawerState = document.body.dataset.rebelDrawerOpen;
     const backgroundState = Array.from(
       document.querySelectorAll<HTMLElement>(".rebel-site-header, #content, .rebel-site-footer, .whatsapp-live"),
     ).map((node) => ({
@@ -59,6 +60,7 @@ export default function SiteHeader({ pathname }: Props) {
     }));
 
     document.documentElement.style.overflow = "hidden";
+    document.body.dataset.rebelDrawerOpen = "true";
     backgroundState.forEach(({ node }) => {
       node.inert = true;
       node.setAttribute("aria-hidden", "true");
@@ -101,6 +103,8 @@ export default function SiteHeader({ pathname }: Props) {
       window.cancelAnimationFrame(focusFrame);
       document.removeEventListener("keydown", onKeyDown);
       document.documentElement.style.overflow = previousOverflow;
+      if (previousDrawerState === undefined) delete document.body.dataset.rebelDrawerOpen;
+      else document.body.dataset.rebelDrawerOpen = previousDrawerState;
       backgroundState.forEach(({ node, inert, ariaHidden }) => {
         node.inert = inert;
         if (ariaHidden === null) node.removeAttribute("aria-hidden");
@@ -174,7 +178,7 @@ export default function SiteHeader({ pathname }: Props) {
           <div className="drawer__foot">
             <a href="/contatti" className="btn btn--primary" onClick={closeMenu}>Prenota la prima visita</a>
             <a href={siteConfig.social.whatsapp} className="btn btn--secondary" target="_blank" rel="noreferrer">WhatsApp</a>
-            <small>Be Cool. Be Rebel.</small>
+            <small>Be Beautiful. Be Rebel.</small>
           </div>
         </div>
       ) : null}

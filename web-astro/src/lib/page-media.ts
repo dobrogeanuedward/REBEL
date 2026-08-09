@@ -16,7 +16,10 @@ export const BRAND_STYLE =
 
 export interface ImageAsset {
   src: string;
+  srcMobile?: string;
   alt: string;
+  width?: number;
+  height?: number;
   ratio?: string;
   prompt?: string;
   existing?: boolean;
@@ -251,17 +254,49 @@ export const media = {
     } as ImageAsset,
   },
   studio: {
+    professional: {
+      src: siteAsset("studio.professional.desktop"),
+      srcMobile: siteAsset("studio.professional.mobile"),
+      alt: "Professionista REBEL mentre prepara un trattamento",
+      width: 1536,
+      height: 1024,
+      ratio: "3/2",
+      existing: true,
+    } as ImageAsset,
     cabin: {
-      src: siteAsset("home.hero.studio.desktop"),
-      alt: "Professionista REBEL durante la preparazione del trattamento",
+      src: siteAsset("technologies.studio.thory.desktop"),
+      srcMobile: siteAsset("technologies.studio.thory.mobile"),
+      alt: "Cabina reale REBEL con lettino e attrezzatura THORY",
       ratio: "16/9",
-      prompt: "Recurring professional preparing compress and bowl in a tight material crop; no room overview.",
+      existing: true,
     } as ImageAsset,
     reception: {
-      src: siteAsset("studio.professional.desktop"),
-      alt: "Gesto di cura della professionista REBEL",
+      src: siteAsset("studio.real.overview.desktop"),
+      srcMobile: siteAsset("studio.real.overview.mobile"),
+      alt: "Interno reale dello studio REBEL in Viale Barbaroux 20",
       ratio: "16/9",
-      prompt: "Professional hands and authentic work gesture, not an invented reception or entrance.",
+      existing: true,
+    } as ImageAsset,
+    realOverview: {
+      src: siteAsset("studio.real.overview.desktop"),
+      srcMobile: siteAsset("studio.real.overview.mobile"),
+      alt: "Spazi interni dello studio REBEL a Carmagnola",
+      ratio: "16/9",
+      existing: true,
+    } as ImageAsset,
+    realExterior: {
+      src: siteAsset("studio.real.exterior.desktop"),
+      srcMobile: siteAsset("studio.real.exterior.mobile"),
+      alt: "Ingresso dello studio REBEL in Viale Barbaroux 20",
+      ratio: "16/9",
+      existing: true,
+    } as ImageAsset,
+    technologyRoom: {
+      src: siteAsset("technologies.studio.thory.desktop"),
+      srcMobile: siteAsset("technologies.studio.thory.mobile"),
+      alt: "Cabina REBEL con dotazioni professionali",
+      ratio: "16/9",
+      existing: true,
     } as ImageAsset,
   },
 } as const;
@@ -458,5 +493,3 @@ export const pageMedia: Record<string, PageMedia> = {
 
 /** Convenience accessor used by pages. */
 export const getPageMedia = (path: string): PageMedia => pageMedia[path] ?? {};
-
-

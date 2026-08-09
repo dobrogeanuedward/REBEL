@@ -165,7 +165,7 @@
   }
   .rebel-hero::before {
     display: block;
-    background: var(--hero-image) 62% 24% / cover no-repeat;
+    background: var(--hero-image-mobile, var(--hero-image)) 58% 35% / cover no-repeat;
   }
   .rb-hero__media img { min-height: 48svh; object-position: 62% 28%; }
   .rebel-hero::after,
