@@ -2,6 +2,7 @@ import type { APIRoute } from "astro";
 import { competencePages, servicePages } from "@/lib/seo-content";
 import { localAreaPages } from "@/lib/local-pages";
 import { protocolPages } from "@/lib/protocol-pages";
+import { rebelJourneys } from "@/lib/rebel-journeys";
 import { siteConfig } from "@/lib/site-config";
 
 type ChangeFreq =
@@ -82,6 +83,8 @@ export const GET: APIRoute = () => {
     make("/chi-siamo", "weekly", 0.9),
     make("/metodo-rebel", "weekly", 0.88),
     make("/protocolli-epigenetici", "weekly", 0.89),
+    make("/percorsi", "weekly", 0.95),
+    make("/tecnologie-rebel", "weekly", 0.93),
     make("/listino-estetica-laser", "weekly", 0.95),
     make("/servizi", "weekly", 0.93),
     make("/competenze", "weekly", 0.91),
@@ -120,6 +123,10 @@ export const GET: APIRoute = () => {
     make(`/protocolli/${protocol.slug}`, "weekly", 0.76),
   );
 
+  const journeyEntries: Entry[] = rebelJourneys.map((journey) =>
+    make(`/percorsi/${journey.slug}`, "weekly", journey.world === "liberta" ? 0.91 : 0.88),
+  );
+
   const localEntries: Entry[] = localAreaPages.map((area) =>
     make(
       `/localita/${area.slug}`,
@@ -137,6 +144,7 @@ export const GET: APIRoute = () => {
     ...serviceEntries,
     ...competenceEntries,
     ...protocolEntries,
+    ...journeyEntries,
     ...localEntries,
   ];
 

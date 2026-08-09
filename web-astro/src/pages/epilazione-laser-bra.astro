@@ -24,7 +24,7 @@ const m = getPageMedia("/epilazione-laser-bra");
 const meta = createPageMeta({
   title: "Epilazione laser per chi viene da Bra — Rebel (Carmagnola, ~22 min)",
   description:
-    "Da Bra a Rebel sono venti minuti scarsi. Impostiamo il laser come una routine semplice da tenere: parametri su misura, manipolo Ice Polar, calendario settimanale realistico. Prenotazione rapida su WhatsApp.",
+    "Da Bra a Rebel sono venti minuti scarsi. Impostiamo il laser come una routine semplice da tenere: Lumina X1 Pro di THORY, comfort ICE Polar e calendario realistico.",
   path: "/epilazione-laser-bra",
   image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/8d07afc2-b036-4eff-d34e-523a6c656d00/public",
   openGraphType: "article",
@@ -73,7 +73,7 @@ const articleSchema = buildArticleSchema({
 
 const laserServiceSchema = buildServiceSchema(
   "Epilazione laser per chi viene da Bra",
-  "Percorso di epilazione laser per clienti provenienti da Bra: laser diodo Thory con manipolo Ice Polar, valutazione iniziale e piano personalizzato.",
+  "Percorso di epilazione laser per clienti provenienti da Bra: Lumina X1 Pro di THORY con comfort Ice Polar, valutazione iniziale e piano personalizzato.",
   "/epilazione-laser-bra",
   {
     priceFrom: 25.9,
@@ -170,9 +170,9 @@ const principles = [
     body: "A questa distanza, una seduta ogni quattro settimane non è un impegno faticoso, è un caffè in più nell'agenda. Ed è proprio questa continuità a fare il risultato: il laser premia chi riesce a mantenere il ritmo.",
   },
   {
-    kicker: "02 · Diodo Thory + Ice Polar",
+    kicker: "02 · Lumina X1 Pro · comfort ICE Polar",
     title: "Tecnologia, non nome in vetrina.",
-    body: "Tre lunghezze d'onda combinate e raffreddamento attivo durante la seduta. Efficace su una gamma ampia di pelli e peli, con comfort migliorato anche su zone sensibili come inguine e ascelle.",
+    body: "Lumina X1 Pro di THORY integra 755, 808, 940 e 1064 nm e il raffreddamento a contatto in zaffiro Ice Point Cooling. Il comfort ICE Polar accompagna la seduta come elemento distinto.",
   },
   {
     kicker: "03 · Piano scritto, non a voce",
@@ -269,10 +269,10 @@ const nearbyAreas = [
     image={m.hero}
     kicker="Rebel Laser — da Bra a Carmagnola"
     title="Epilazione laser per chi viene da Bra: ventidue minuti di strada, un percorso _impostato con calma_."
-    lead="Da Bra a Rebel sono venti minuti scarsi via SP661. La distanza giusta perché il laser smetta di essere un'eccezione e diventi una routine semplice: parametri su misura, manipolo Ice Polar e un calendario che regge davvero."
-    bullets={["~22 min da Bra via SP661", "Diodo Thory + Ice Polar", "Prima valutazione gratuita"]}
+    lead="Da Bra a Rebel sono venti minuti scarsi via SP661. La distanza giusta perché il laser diventi una routine semplice: Lumina X1 Pro di THORY, comfort ICE Polar e un calendario che regge davvero."
+    bullets={["~22 min da Bra via SP661", "Lumina X1 Pro · comfort ICE Polar", "Valutazione 30–40 min"]}
     meta={["~20 km da Bra", "Da 25,90 € a zona"]}
-    ctaPrimary={{ label: "Prenota la valutazione gratuita", href: "/contatti", halo: true }}
+    ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp }}
   />
 
@@ -311,9 +311,9 @@ const nearbyAreas = [
           image={m.splitA}
           side="right"
           kicker="Comfort reale"
-          title="Il manipolo _Ice Polar_: efficace senza farti stringere i denti."
-          body="Il timore più comune del laser è il fastidio, soprattutto su ascelle e inguine. Il raffreddamento attivo della punta lavora durante l'impulso: la pelle resta protetta e la seduta diventa sostenibile, anche sulle zone delicate."
-          bullets={["Diodo Thory a tre lunghezze d'onda (755 + 808 + 1064 nm)", "Raffreddamento attivo continuo durante la seduta", "Adatto a un'ampia gamma di fototipi"]}
+          title="Il comfort _ICE Polar_ accompagna la seduta."
+          body="La percezione cambia da persona a persona e da zona a zona. Il comfort ICE Polar accompagna il percorso, mentre la valutazione definisce parametri e pertinenza del trattamento."
+          bullets={["Lumina X1 Pro di THORY · quattro lunghezze d’onda", "Ice Point Cooling a contatto in zaffiro", "Idoneità verificata in valutazione"]}
           cta={{ label: "Come funziona il comfort Ice Polar", href: "/epilazione-laser-ice-polar-carmagnola" }}
         />
       </div>
@@ -422,7 +422,7 @@ const nearbyAreas = [
       align="left"
       kicker="Da Bra a Carmagnola"
       quote="Vicino abbastanza da farne una routine, non un evento."
-      cta={{ label: "Prenota la valutazione gratuita", href: "/contatti" }}
+      cta={{ label: "Prenota la valutazione", href: "/contatti" }}
     />
   ) : null}
 
@@ -478,8 +478,8 @@ const nearbyAreas = [
           side="left"
           kicker="La prima volta"
           title="Prima un piano _scritto_, poi la prima seduta."
-          body="La valutazione iniziale è gratuita e dura una quindicina di minuti. Leggiamo pelle, fototipo e zone, capiamo le tue settimane e ti consegniamo una proposta con prezzi e numero di sedute realistico — non un 'da' che poi cambia."
-          bullets={["Valutazione gratuita, senza impegno", "Proposta scritta con prezzi e tempi", "Si paga seduta per seduta"]}
+          body="Valutazione e analisi durano 30–40 minuti e sono gratuite quando finalizzate alla costruzione del Percorso. Leggiamo pelle, fototipo e zone, consideriamo le tue settimane e prepariamo una proposta con calendario e prezzi."
+          bullets={["Gratuita quando costruiamo il Percorso", "Proposta scritta con prezzi e tempi", "Si paga seduta per seduta"]}
           cta={{ label: "Prenota la valutazione", href: "/contatti" }}
           ctaSecondary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp }}
         />
@@ -540,10 +540,10 @@ const nearbyAreas = [
   <section class="section section--scene-ivory">
     <div class="container">
       <InlineCta
-        kicker="Prima visita gratuita"
-        title="Prenota la _valutazione laser_, in 15 minuti."
-        lead="Capiamo zona, ciclo e calendario reale. Ti consegniamo una proposta scritta con prezzi e tempi. Senza obbligo di acquisto."
-        primaryLabel="Prenota la valutazione gratuita"
+        kicker="Valutazione e analisi"
+        title="Prenota la _valutazione laser_: 30–40 minuti."
+        lead="Capiamo zona, ciclo e calendario reale. La valutazione dura 30–40 minuti ed è gratuita quando finalizzata alla costruzione del Percorso REBEL; home care separata."
+        primaryLabel="Prenota la valutazione"
         primaryHref="/contatti"
         secondaryLabel="Scrivi su WhatsApp"
         secondaryHref={siteConfig.social.whatsapp}
@@ -551,7 +551,7 @@ const nearbyAreas = [
     </div>
   </section>
 
-  <StickyBookingBar priceHint="Laser da 25,90 €/zona" primary={{ label: "Valutazione gratuita", href: "/contatti" }} />
+  <StickyBookingBar priceHint="Laser da 25,90 €/zona" primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

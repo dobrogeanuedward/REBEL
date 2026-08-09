@@ -1,64 +1,37 @@
 ---
 /**
- * PromoBanner — First-visit promo: free 15-minute consultation + a small
- * complimentary gesture chosen by the visitor. The three options deeplink
- * to /contatti?ritual=... so the ContactForm prefills the dropdown.
- *
- * Single CTA per page rule: this banner counts as the page-level call to
- * action when present. Don't pair with another `btn--halo` in the same
- * viewport.
+ * PromoBanner — entry point to the 30–40 minute REBEL evaluation.
+ * The evaluation is free only when it is finalized to build a REBEL Journey;
+ * any recommended home care remains separate.
  */
-const rituals = [
-  {
-    key: "mani",
-    title: "Mini-rituale mani",
-    body: "Lima, cura cuticole e smalto rapido a finire. Quindici minuti, mani in ordine.",
-  },
-  {
-    key: "viso-marbellas",
-    title: "Massaggio viso Marbellas",
-    body: "Breve trattamento viso con la linea epigenetica: pelle più luminosa appena uscita.",
-  },
-  {
-    key: "sopracciglia",
-    title: "Disegno sopracciglia",
-    body: "Studio della forma e rifinitura. Sguardo ordinato, niente stravolgimenti.",
-  },
-];
 ---
 <aside class="promo" data-reveal>
   <div class="promo__bg" aria-hidden="true"></div>
   <div class="promo__inner">
     <header class="promo__head">
-      <p class="promo__kicker">Prima visita · Carmagnola</p>
+      <p class="promo__kicker">Valutazione REBEL · Carmagnola</p>
       <h2 class="promo__title">
-        Quindici minuti per conoscerci, gratis. <span>E un piccolo regalo a tua scelta.</span>
+        Trenta–quaranta minuti per leggere la priorità. <span>E costruire il Percorso.</span>
       </h2>
       <p class="promo__lead">
-        Vieni in studio, ci dici cosa vorresti fare e leggiamo pelle / zona /
-        obiettivo. Decidiamo insieme se ha senso iniziare un percorso. In
-        regalo, scegli uno dei tre rituali qui sotto.
+        Leggiamo pelle o zona, ascoltiamo l’obiettivo e definiamo tecnologie,
+        frequenza e prezzo. La valutazione è gratuita quando viene finalizzata
+        alla costruzione del Percorso REBEL; l’home care resta separata.
       </p>
     </header>
 
     <ul class="promo__rituals">
-      {rituals.map((r) => (
-        <li class="promo__ritual">
-          <h3 class="promo__ritual-title">{r.title}</h3>
-          <p class="promo__ritual-body">{r.body}</p>
-          <a class="promo__ritual-cta" href={`/contatti?ritual=${r.key}`}>
-            Prenoto questo →
-          </a>
-        </li>
-      ))}
+      <li class="promo__ritual"><h3 class="promo__ritual-title">30–40 minuti</h3><p class="promo__ritual-body">Tempo dedicato a valutazione e analisi, senza comprimere la lettura.</p></li>
+      <li class="promo__ritual"><h3 class="promo__ritual-title">Percorso chiaro</h3><p class="promo__ritual-body">Priorità, trattamenti, frequenza e prezzo vengono messi in ordine.</p></li>
+      <li class="promo__ritual"><h3 class="promo__ritual-title">Home care separata</h3><p class="promo__ritual-body">Se consigliata, viene indicata a parte e non è inclusa automaticamente.</p></li>
     </ul>
 
     <div class="promo__foot">
       <a class="btn btn--primary btn--halo" href="/contatti">
-        Prenota la prima visita gratuita
+        Prenota la valutazione
       </a>
       <p class="promo__small">
-        Nessun obbligo di acquisto. La proposta nasce dal confronto, non da un pacchetto preconfezionato.
+        Gratuita quando finalizzata alla costruzione del Percorso REBEL.
       </p>
     </div>
   </div>

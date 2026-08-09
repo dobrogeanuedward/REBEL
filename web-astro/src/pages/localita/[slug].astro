@@ -148,12 +148,12 @@ const tocItems = [
     kicker={`Centro estetico per chi arriva da ${area.city}`}
     title={clearTitle.replace(area.city, `_${area.city}_`)}
     lead={clearIntro}
-    bullets={[`Indicazioni da ${area.city}`, "Listino online", "Prima visita gratuita"]}
+    bullets={[`Indicazioni da ${area.city}`, "Listino online", "Valutazione REBEL · 30–40 min"]}
     meta={[
       `${readingMinutes} min di lettura`,
       `Studio in Viale Barbaroux 20 · Carmagnola`,
     ]}
-    ctaPrimary={{ label: "Prenota la prima visita", href: "/contatti", halo: true }}
+    ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Apri il percorso su Maps", href: siteConfig.social.maps }}
   />
 
@@ -173,7 +173,7 @@ const tocItems = [
           <SectionHead
             kicker="Prezzi e prenotazione"
             title={`Come scegliere e prenotare un trattamento da ${area.city}.`}
-            lead="Puoi consultare il listino, aprire la scheda del servizio oppure prenotare una visita gratuita di circa quindici minuti per ricevere indicazioni su trattamento, frequenza e prezzo."
+            lead="Puoi consultare il listino, aprire la scheda del servizio oppure prenotare una valutazione REBEL di 30–40 minuti per definire trattamento, frequenza e prezzo. È gratuita quando finalizzata al Percorso; home care separata."
           />
           {focusLinks.length > 0 ? (
             <div class="card-grid card-grid--2">
@@ -209,8 +209,8 @@ const tocItems = [
               />
               <FeatureCard
                 kicker="Prima visita"
-                title="Prenota una valutazione gratuita"
-                body="In circa quindici minuti valutiamo la zona e ti comunichiamo trattamento, frequenza e prezzo."
+                title="Prenota la valutazione REBEL"
+                body="In 30–40 minuti valutiamo la zona e definiamo trattamento, frequenza e prezzo. Gratuita quando finalizzata al Percorso; home care separata."
                 href="/contatti"
                 variant="quiet"
                 index={2}
@@ -291,11 +291,11 @@ const tocItems = [
       <aside class="detail-aside">
         <TableOfContents items={tocItems} />
         <InlineCta
-          kicker="Prima visita gratuita"
+          kicker="Valutazione REBEL · 30–40 minuti"
           title={`Vieni da ${area.city}? Prenota una valutazione in studio.`}
           lead="Indicaci il servizio o la zona che ti interessa. Ti comunichiamo appuntamento, trattamento, frequenza e prezzo."
           primaryHref="/contatti"
-          primaryLabel="Prenota la prima visita"
+          primaryLabel="Prenota la valutazione"
           secondaryHref="/servizi"
           secondaryLabel="Vedi tutti i servizi"
         />
@@ -308,12 +308,12 @@ const tocItems = [
     height="sm"
     align="center"
     kicker={`Da ${area.city} a Rebel Carmagnola`}
-    title="Prima visita gratuita di circa _quindici minuti_."
-    lead="Valutiamo la zona interessata e ti comunichiamo trattamento consigliato, frequenza e prezzo prima della prenotazione."
-    cta={{ label: "Prenota la prima visita", href: "/contatti" }}
+    title="Valutazione REBEL di _30–40 minuti_."
+    lead="Valutiamo la zona e definiamo trattamento, frequenza e prezzo. È gratuita quando finalizzata alla costruzione del Percorso; home care separata."
+    cta={{ label: "Prenota la valutazione", href: "/contatti" }}
   />
 
-  <StickyBookingBar priceHint="Prima visita gratuita" primary={{ label: "Prenota la prima visita", href: "/contatti" }} />
+  <StickyBookingBar priceHint="Valutazione 30–40 min" primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

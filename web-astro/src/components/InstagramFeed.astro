@@ -1,7 +1,7 @@
 ---
 import InstagramEmbed from "@/components/InstagramEmbed.astro";
 import InstagramReelsShowcase from "@/components/InstagramReelsShowcase.astro";
-import { instagramConfig, isReel } from "@/lib/instagram-config";
+import { instagramConfig } from "@/lib/instagram-config";
 import { siteConfig } from "@/lib/site-config";
 
 interface Props {
@@ -20,7 +20,7 @@ const {
   hidePostsOnMobile = false,
 } = Astro.props;
 
-const reels = instagramConfig.featuredReels.filter((it) => isReel(it)).slice(0, maxReels);
+const reels = instagramConfig.featuredReels.slice(0, maxReels);
 const posts = instagramConfig.latestPosts.slice(0, maxPosts);
 const isEmpty = reels.length === 0 && posts.length === 0;
 ---

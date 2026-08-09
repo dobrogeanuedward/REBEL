@@ -4,6 +4,7 @@ import StepStrip from "@/components/StepStrip.astro";
 import InlineCta from "@/components/InlineCta.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
+import RebelMap from "@/components/RebelMap.tsx";
 import { media } from "@/lib/page-media";
 import {
   buildArticleSchema,
@@ -13,6 +14,7 @@ import {
   createPageMeta,
 } from "@/lib/seo";
 import { methodSteps } from "@/lib/content";
+import { rebelWorlds, getJourneysByWorld } from "@/lib/rebel-journeys";
 
 const meta = createPageMeta({
   title: "Metodo Rebel — Come scegliamo trattamenti viso e corpo a Carmagnola",
@@ -60,24 +62,7 @@ const priorities = [
   "Ricrescita dei peli su viso e corpo",
 ];
 
-const journeys = [
-  {
-    name: "Glow",
-    body: "Raccoglie i trattamenti viso dedicati a luminosità, uniformità, idratazione e grana della pelle, tra cui Skin Reset, Catalysis e Cell Regen.",
-  },
-  {
-    name: "Longevity",
-    body: "Raccoglie i protocolli viso per tono, elasticità, compattezza, pelle matura e contorno occhi, tra cui Lift, Collagen, Rebirth 60+ ed Eye Genesis.",
-  },
-  {
-    name: "Forma",
-    body: "Raccoglie i trattamenti corpo per drenaggio, pesantezza, tonicità e rimodellamento con manualità e LPG, selezionati in base a zona e priorità.",
-  },
-  {
-    name: "Libertà",
-    body: "È il percorso di epilazione Laser Ice Polar per viso e corpo, con valutazione del fototipo, scelta dei parametri e calendario specifico per ogni zona.",
-  },
-];
+const journeys = rebelWorlds.map((world) => ({ ...world, paths: getJourneysByWorld(world.id) }));
 ---
 <BaseLayout meta={meta} bodyClass="page-rebrand page-metodo-rebel">
   <JsonLd data={breadcrumb} />
@@ -98,9 +83,19 @@ const journeys = [
       </p>
       <div class="cluster cluster--stack-mobile">
         <a class="btn btn--primary" href="/contatti">Prenota la prima visita</a>
-        <a class="btn btn--secondary" href="/protocolli-epigenetici">Vedi i percorsi</a>
+        <a class="btn btn--secondary" href="/percorsi">Vedi i nove percorsi</a>
       </div>
       <p class="rb-signature">Be Beautiful. Be Rebel.</p>
+    </div>
+  </section>
+
+  <section class="rb-section rb-section--ivory" id="mappa-rebel-live">
+    <div class="container">
+      <div class="rb-section-head">
+        <p class="rb-kicker">Mappa REBEL Live</p>
+        <h2>Tre domande per trovare un primo orientamento.</h2>
+      </div>
+      <RebelMap client:visible />
     </div>
   </section>
 
@@ -145,15 +140,16 @@ const journeys = [
     <div class="container">
       <div class="rb-section-head">
         <p class="rb-kicker">I percorsi Rebel</p>
-        <h2>Glow per la luminosità, Longevity per il tono, Forma per il corpo, Libertà per il laser.</h2>
+        <h2>Quattro mondi aprono i nove percorsi della brochure REBEL.</h2>
       </div>
       <div class="rb-journey-grid">
         {journeys.map((journey) => (
-          <article class="rb-journey-card">
-            <p class="rb-kicker">Percorso</p>
+          <a class="rb-journey-card" href={journey.href}>
+            <p class="rb-kicker">Mondo REBEL</p>
             <h3>{journey.name}</h3>
-            <p>{journey.body}</p>
-          </article>
+            <p>{journey.summary}</p>
+            <p>{journey.paths.map((path) => path.slug === "white" ? "Uniformare" : path.name).join(" · ")}</p>
+          </a>
         ))}
       </div>
     </div>
@@ -175,16 +171,16 @@ const journeys = [
   <section class="rb-section rb-section--closing">
     <div class="container">
       <InlineCta
-        kicker="Prima visita gratuita"
+        kicker="Valutazione REBEL · 30–40 minuti"
         title="Raccontaci che cosa vuoi _migliorare_."
-        lead="In circa quindici minuti valutiamo la zona interessata e ti spieghiamo quali trattamenti, tempi e costi possono essere adatti al tuo obiettivo."
+        lead="In 30–40 minuti definiamo la priorità e ti spieghiamo quali percorsi, tempi e costi possono essere pertinenti. La valutazione è gratuita quando viene finalizzata alla costruzione del Percorso REBEL."
         primaryHref="/contatti"
-        primaryLabel="Prenota la prima visita"
-        secondaryHref="/protocolli-epigenetici"
-        secondaryLabel="Vedi i percorsi"
+        primaryLabel="Prenota la valutazione"
+        secondaryHref="/percorsi"
+        secondaryLabel="Vedi i nove percorsi"
       />
     </div>
   </section>
 
-  <StickyBookingBar primary={{ label: "Prenota la prima visita", href: "/contatti" }} />
+  <StickyBookingBar primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
 </BaseLayout>

@@ -105,7 +105,7 @@ const switchItems = [
     kicker="Servizi Rebel · Carmagnola"
     title="Trattamenti per _viso, corpo, laser e beauty_."
     lead="Apri la scheda del servizio che ti interessa per leggere obiettivo, modalità, prezzo, durata indicativa e informazioni prima dell’appuntamento."
-    bullets={["Prezzi pubblicati online", "Scheda dedicata a ogni servizio", "Prima visita gratuita"]}
+    bullets={["Prezzi pubblicati online", "Scheda dedicata a ogni servizio", "Valutazione REBEL · 30–40 min"]}
     meta={["Pulizia viso, beauty e massaggi", "Laser Ice Polar", "Protocolli professionali"]}
     ctaPrimary={{ label: "Prenota la prima visita", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Scrivici su WhatsApp", href: "https://wa.me/393516919416" }}
@@ -150,8 +150,8 @@ const switchItems = [
     <div class="container">
       <SectionHead
         kicker="Epilazione laser"
-        title="Laser Ice Polar per viso e corpo."
-        lead="Laser a diodo con tre lunghezze d’onda e raffreddamento attivo. Le schede riportano prezzi e informazioni per le diverse zone."
+        title="Lumina X1 Pro con comfort ICE Polar per viso e corpo."
+        lead="Laser a diodo THORY con quattro lunghezze d’onda; il comfort ICE Polar accompagna la seduta. Le schede riportano prezzi e informazioni per le diverse zone."
       />
       <div class="card-grid card-grid--2">
         {laser.map((s, i) => (
@@ -167,7 +167,7 @@ const switchItems = [
         ))}
       </div>
       <div class="cluster cluster--stack-mobile" style="margin-top:2rem; justify-content:center;">
-        <a class="btn btn--primary btn--halo" href="/epilazione-laser-carmagnola">Come funziona il Laser Ice Polar</a>
+        <a class="btn btn--primary btn--halo" href="/epilazione-laser-carmagnola">Come funziona il percorso laser</a>
         <a class="btn btn--secondary" href="/listino-estetica-laser#laser">Prezzi e zone laser</a>
       </div>
     </div>
@@ -227,7 +227,7 @@ const switchItems = [
     image={media.studio.cabin}
     height="sm"
     align="left"
-    kicker="Prima visita gratuita"
+    kicker="Valutazione REBEL · 30–40 minuti"
     quote="Valutiamo la zona e ti comunichiamo trattamento, frequenza e prezzo."
     cite="Studio Rebel · Viale Barbaroux 20"
   />
@@ -235,18 +235,18 @@ const switchItems = [
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Prima visita gratuita"
+        kicker="Valutazione REBEL · 30–40 minuti"
         title="Non sai quale servizio prenotare? _Valutiamolo insieme_."
-        lead="In circa quindici minuti osserviamo la zona interessata e ti spieghiamo quale trattamento può essere adatto, con frequenza e prezzo."
+        lead="In 30–40 minuti osserviamo la zona e definiamo priorità, trattamento, frequenza e prezzo. La valutazione è gratuita quando finalizzata al Percorso REBEL; home care separata."
         primaryHref="/contatti"
-        primaryLabel="Prenota la prima visita"
+        primaryLabel="Prenota la valutazione"
         secondaryHref="/listino-estetica-laser"
         secondaryLabel="Consulta il listino"
       />
     </div>
   </section>
 
-  <StickyBookingBar primary={{ label: "Prenota la prima visita", href: "/contatti" }} />
+  <StickyBookingBar primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

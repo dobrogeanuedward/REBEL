@@ -889,7 +889,7 @@ export const servicePages: ServicePage[] = [
     shortDescription:
       "Laser viso (baffetti, mento e altre zone) con percorso su misura e comfort Ice Polar.",
     longDescription:
-      "L'epilazione laser viso da Rebel è pensata per chi vuole mettere ordine nella ricrescita su zone delicate. Impostiamo parametri e calendario in base a fototipo, zona e obiettivo, con manipolo Ice Polar per un comfort migliore. Tra una seduta e l'altra ti lasciamo poche regole pratiche per tenere la pelle tranquilla.",
+      "L'epilazione laser viso da Rebel è pensata per chi vuole mettere ordine nella ricrescita su zone delicate. Impostiamo parametri e calendario in base a fototipo, zona e obiettivo con Lumina X1 Pro di THORY; il comfort ICE Polar accompagna la seduta come elemento distinto.",
     priceHint: "da EUR 25.90 per zona",
     category: "laser",
     benefits: [
@@ -990,7 +990,7 @@ export const servicePages: ServicePage[] = [
     shortDescription:
       "Laser corpo su aree singole o multiple, con piano sedute organizzato e comfort Ice Polar.",
     longDescription:
-      "Il laser corpo da Rebel si pianifica sulle zone che vuoi trattare, mettendo in fila priorità, calendario e controlli. Usiamo Thory con manipolo Ice Polar per migliorare il comfort durante la seduta e lavoriamo con settaggio su misura. Tra una seduta e l'altra ti lasciamo regole pratiche per non irritare la pelle.",
+      "Il laser corpo da Rebel si pianifica sulle zone che vuoi trattare, mettendo in fila priorità, calendario e controlli. Usiamo Lumina X1 Pro di THORY con settaggio su misura; il comfort ICE Polar accompagna la seduta come elemento distinto.",
     priceHint: "da EUR 25.90 a 103.60",
     category: "laser",
     benefits: [
@@ -1094,7 +1094,7 @@ export const servicePages: ServicePage[] = [
     shortDescription:
       "Laser viso uomo su barba/collo/zigomi: percorso su misura, con gestione pratica della rasatura.",
     longDescription:
-      "Il laser viso uomo da Rebel è pensato per chi vuole ridurre o rendere più gestibile la ricrescita su barba e collo, oppure mettere ordine in zone specifiche (zigomi, baffi, contorni). Impostiamo parametri e calendario in base a pelle, pelo e obiettivo reale, con manipolo Ice Polar per migliorare il comfort. Tra una seduta e l'altra ti diciamo come gestire rasatura e pelle senza improvvisare.",
+      "Il laser viso uomo da Rebel è pensato per chi vuole ridurre o rendere più gestibile la ricrescita su barba e collo, oppure mettere ordine in zone specifiche (zigomi, baffi, contorni). Impostiamo parametri e calendario in base a pelle, pelo e obiettivo reale con Lumina X1 Pro di THORY; il comfort ICE Polar accompagna la seduta.",
     priceHint: "EUR 51.80 / EUR 25.90 per zona",
     category: "laser",
     benefits: [
@@ -1179,7 +1179,7 @@ export const servicePages: ServicePage[] = [
     shortDescription:
       "Laser corpo uomo su schiena, torace e aree ampie: strategia, calendario e percorso su misura.",
     longDescription:
-      "Il laser corpo uomo da Rebel viene impostato come un percorso: scegliamo priorità, calendario e controlli, in base a zone e obiettivo (schiena, torace, addome, spalle). Usiamo Thory con manipolo Ice Polar per migliorare il comfort durante la seduta e lavoriamo con settaggio su misura. Tra una seduta e l'altra ti diciamo cosa fare per tenere la pelle tranquilla e rendere il risultato più stabile.",
+      "Il laser corpo uomo da Rebel viene impostato come un percorso: scegliamo priorità, calendario e controlli, in base a zone e obiettivo (schiena, torace, addome, spalle). Usiamo Lumina X1 Pro di THORY con settaggio su misura; il comfort ICE Polar accompagna la seduta come elemento distinto.",
     priceHint: "da EUR 25.90 a 103.60",
     category: "laser",
     benefits: [
@@ -1630,7 +1630,7 @@ export const competencePages: CompetencePage[] = [
       {
         heading: "Comfort durante la seduta: Ice Polar come aiuto pratico",
         paragraphs: [
-          "Molte persone temono il fastidio, soprattutto su alcune zone. In Rebel usiamo anche il manipolo Ice Polar per migliorare il comfort durante la seduta.",
+          "Molte persone temono il fastidio, soprattutto su alcune zone. In Rebel il comfort ICE Polar accompagna la seduta con Lumina X1 Pro di THORY, senza promettere una percezione uguale per tutti.",
           "È un aiuto concreto all'esperienza, ma non sostituisce il metodo: la differenza vera resta nel settaggio corretto e nel percorso seguito nel tempo.",
         ],
       },
@@ -4577,4 +4577,3 @@ export function getServiceBySlug(slug: string) {
 export function getCompetenceBySlug(slug: string) {
   return competencePages.find((item) => item.slug === slug);
 }
-

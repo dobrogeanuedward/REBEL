@@ -132,7 +132,7 @@ export default function SiteHeader({ pathname }: Props) {
             ))}
           </nav>
 
-          <a href="/contatti" className="btn btn--primary btn--sm site-header__cta" aria-label="Prenota la prima visita gratuita">Prenota</a>
+          <a href="/contatti" className="btn btn--primary btn--sm site-header__cta" aria-label="Prenota la valutazione REBEL">Prenota</a>
           <button
             ref={triggerRef}
             type="button"

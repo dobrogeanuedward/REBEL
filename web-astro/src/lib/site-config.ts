@@ -4,9 +4,9 @@ export const siteConfig = {
   tagline: "Centro estetico a Carmagnola.",
   locale: "it-IT",
   regionCode: "IT-TO",
-  lastUpdated: "2026-02-25",
+  lastUpdated: "2026-08-09",
   description:
-    "Centro estetico a Carmagnola, in Viale Barbaroux 20: epilazione laser Ice Polar, pulizia viso, manicure, ceretta, massaggi e protocolli viso/corpo. Prima visita gratuita.",
+    "Centro estetico a Carmagnola, in Viale Barbaroux 20: epilazione laser Ice Polar, pulizia viso, manicure, ceretta, massaggi e percorsi viso/corpo. Valutazione REBEL di 30–40 minuti.",
   siteUrl: "https://www.rebelepigenetica.it",
   assets: {
     logoLight:
@@ -60,7 +60,7 @@ export const siteConfig = {
       kind: "Tecnologia laser",
       url: "https://www.thory-tech.com/",
       blurb:
-        "Dispositivo THORY Lumina X1 Pro con manipolo ICE Polar: parametri calibrati su zona e fototipo, con raffreddamento attivo orientato al comfort.",
+        "THORY Lumina X1 Pro integra quattro lunghezze d’onda e raffreddamento a contatto in zaffiro Ice Point Cooling. Nei percorsi REBEL il comfort ICE Polar accompagna la seduta come elemento distinto.",
     },
     {
       name: "Marbellas",

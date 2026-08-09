@@ -1,0 +1,39 @@
+/* Final surface contract: decorative pink may stay vivid, but small copy uses
+   accessible rose on light surfaces and pale pink on dark surfaces. */
+body.rebel-rebrand .rebel-kicker,
+body.page-rebrand .rebel-kicker,
+body.rebel-rebrand .rb-kicker,
+body.page-rebrand .rb-kicker {
+  color: #b61f64;
+  font-size: max(.76rem, 12px);
+  line-height: 1.35;
+}
+
+:is(
+  .rebel-section--plum,
+  .rb-section--plum,
+  .rb-hero,
+  .rebel-campaign,
+  .journey-hero,
+  .journey-tech,
+  .technology-theatre,
+  .tech-rebel-tools__grid article
+) :is(.rebel-kicker, .rb-kicker) {
+  color: #ff8fc6;
+}
+
+:is(.rb-hero, .rebel-section--plum) .rb-signature,
+:is(.rb-hero, .rebel-section--plum) .rebel-hero__signature {
+  color: #fffdf9;
+}
+
+:is(a, button, input, textarea, select, summary):focus-visible {
+  outline: 3px solid #7259d9;
+  outline-offset: 3px;
+}
+
+@media (forced-colors: active) {
+  :is(a, button, input, textarea, select, summary):focus-visible {
+    outline: 3px solid Highlight;
+  }
+}

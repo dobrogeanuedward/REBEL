@@ -1,21 +1,14 @@
 ---
-import { extractInstagramId } from "@/lib/instagram-config";
+import type { InstagramFeaturedItem } from "@/lib/instagram-config";
 import { siteConfig } from "@/lib/site-config";
-import InstagramEmbed from "@/components/InstagramEmbed.astro";
 
 interface Props {
-  reels: string[];
+  reels: InstagramFeaturedItem[];
 }
 const { reels } = Astro.props;
 
-function toReelPermalink(input: string): string {
-  if (input.startsWith("http")) {
-    const cleaned = input.split("?")[0];
-    if (cleaned.includes("/reel/")) return cleaned.endsWith("/") ? cleaned : `${cleaned}/`;
-    return `https://www.instagram.com/reel/${extractInstagramId(input)}/`;
-  }
-  return `https://www.instagram.com/reel/${extractInstagramId(input)}/`;
-}
+const siteAsset = (slot: string) => `/api/site-asset?slot=${encodeURIComponent(slot)}`;
+const embedUrl = (url: string) => `${url.split("?")[0].replace(/\/?$/, "/")}embed/`;
 ---
 <section class="instagram-group instagram-reels-rebuild">
   <div class="instagram-group__head">
@@ -32,12 +25,74 @@ function toReelPermalink(input: string): string {
 
   <div class="instagram-reels-grid">
     {reels.map((reel) => {
-      const permalink = toReelPermalink(reel);
+      const permalink = reel.url.split("?")[0].replace(/\/?$/, "/");
       return (
-        <article class="instagram-reel-card">
-          <InstagramEmbed urlOrId={permalink} captioned={false} />
+        <article class="instagram-reel-card" data-instagram-card>
+          <div class="instagram-reel-poster">
+            <img src={siteAsset(reel.posterSlot)} alt="" width="1122" height="1402" loading="lazy" decoding="async" />
+            <div class="instagram-reel-poster__veil" aria-hidden="true"></div>
+            <div class="instagram-reel-poster__copy"><small>{reel.eyebrow}</small><strong>{reel.title}</strong></div>
+            <button type="button" data-instagram-play aria-label={reel.ariaLabel}><span aria-hidden="true">▶</span></button>
+          </div>
+          <template data-instagram-template>
+            <iframe
+              src={embedUrl(permalink)}
+              title={`Instagram Reel · ${reel.title}`}
+              class="instagram-embed-iframe"
+              loading="lazy"
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              allowfullscreen
+              sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms allow-top-navigation-by-user-activation"
+              referrerpolicy="strict-origin-when-cross-origin"
+            ></iframe>
+          </template>
+          <a class="instagram-reel-card__direct" href={permalink} target="_blank" rel="noreferrer">Apri su Instagram ↗</a>
+          <noscript><a href={permalink} target="_blank" rel="noreferrer">Apri il Reel su Instagram</a></noscript>
         </article>
       );
     })}
   </div>
 </section>
+
+<script>
+  const initInstagramPosters = () => {
+    document.querySelectorAll<HTMLElement>("[data-instagram-card]").forEach((card) => {
+      if (card.dataset.ready === "true") return;
+      card.dataset.ready = "true";
+      const button = card.querySelector<HTMLButtonElement>("[data-instagram-play]");
+      const template = card.querySelector<HTMLTemplateElement>("[data-instagram-template]");
+      button?.addEventListener("click", () => {
+        if (!template || card.dataset.loaded === "true" || card.dataset.loading === "true") return;
+        const frame = template.content.firstElementChild?.cloneNode(true) as HTMLIFrameElement | undefined;
+        if (!frame) return;
+        const poster = card.querySelector<HTMLElement>(".instagram-reel-poster");
+        const direct = card.querySelector<HTMLElement>(".instagram-reel-card__direct");
+        card.dataset.loading = "true";
+        frame.dataset.instagramLoading = "true";
+        button.disabled = true;
+
+        let settled = false;
+        const finish = (loaded: boolean) => {
+          if (settled) return;
+          settled = true;
+          delete card.dataset.loading;
+          button.disabled = false;
+          if (loaded) {
+            card.dataset.loaded = "true";
+            delete frame.dataset.instagramLoading;
+            poster?.remove();
+          } else {
+            frame.remove();
+          }
+        };
+
+        const timeout = window.setTimeout(() => finish(false), 12000);
+        frame.addEventListener("load", () => { window.clearTimeout(timeout); finish(true); }, { once: true });
+        frame.addEventListener("error", () => { window.clearTimeout(timeout); finish(false); }, { once: true });
+        card.insertBefore(frame, direct);
+      });
+    });
+  };
+  initInstagramPosters();
+  document.addEventListener("astro:page-load", initInstagramPosters);
+</script>

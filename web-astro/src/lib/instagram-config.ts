@@ -3,13 +3,38 @@
  * extractor accepts both shapes.
  */
 
+export type InstagramFeaturedItem = {
+  url: string;
+  title: string;
+  eyebrow: string;
+  posterSlot: string;
+  ariaLabel: string;
+};
+
 export const instagramConfig = {
   featuredReels: [
-    "https://www.instagram.com/p/DQKKGh8CAUo/",
-    "https://www.instagram.com/reel/DQRXLXNCDu8/",
-    "https://www.instagram.com/reel/DQjzVYZCE1c/",
-    "https://www.instagram.com/reel/DQR2Gg1CBVz/",
-  ] as string[],
+    {
+      url: "https://www.instagram.com/reel/DQRXLXNCDu8/",
+      title: "Vita in studio",
+      eyebrow: "REBEL · Carmagnola",
+      posterSlot: "studio.real.overview.mobile",
+      ariaLabel: "Carica il Reel Instagram Vita in studio",
+    },
+    {
+      url: "https://www.instagram.com/reel/DQjzVYZCE1c/",
+      title: "Il Metodo REBEL",
+      eyebrow: "Valutazione · Mappa · percorso",
+      posterSlot: "services.method.consultation.mobile",
+      ariaLabel: "Carica il Reel Instagram dedicato al Metodo REBEL",
+    },
+    {
+      url: "https://www.instagram.com/reel/DQR2Gg1CBVz/",
+      title: "Tecnologie in cabina",
+      eyebrow: "Strumenti dentro il metodo",
+      posterSlot: "technologies.studio.thory.mobile",
+      ariaLabel: "Carica il Reel Instagram dedicato alle tecnologie REBEL",
+    },
+  ] satisfies InstagramFeaturedItem[],
   latestPosts: [
     "https://www.instagram.com/p/DUWIpwvCBIy/?img_index=1",
     "https://www.instagram.com/p/DTA_62KCBDH/?img_index=1",

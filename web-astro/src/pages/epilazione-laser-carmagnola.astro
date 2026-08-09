@@ -22,7 +22,7 @@ const m = getPageMedia("/epilazione-laser-carmagnola");
 const meta = createPageMeta({
   title: "Epilazione Laser Ice Polar a Carmagnola — Prezzi, Zone e Sedute | Rebel",
   description:
-    "Epilazione Laser Ice Polar a Carmagnola per ascelle, inguine, gambe, viso e corpo. Diodo Thory a tre lunghezze d’onda, raffreddamento attivo, prezzi da 25,90 € e valutazione gratuita.",
+    "Epilazione Laser Ice Polar a Carmagnola per viso e corpo. Lumina X1 Pro di THORY, comfort ICE Polar, prezzi da 25,90 € e valutazione REBEL di 30–40 minuti.",
   path: "/epilazione-laser-carmagnola",
   image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e3635dd7-e046-46af-56a5-cf36d8239c00/public",
   openGraphType: "article",
@@ -51,7 +51,7 @@ const breadcrumb = buildBreadcrumbSchema([
 
 const laserServiceSchema = buildServiceSchema(
   "Epilazione Laser Ice Polar a Carmagnola",
-  "Epilazione laser viso e corpo con tecnologia Thory a tre lunghezze d’onda, raffreddamento attivo, valutazione iniziale e calendario specifico per ogni zona.",
+  "Epilazione laser viso e corpo con Lumina X1 Pro di THORY, quattro lunghezze d’onda, comfort ICE Polar, valutazione iniziale e calendario specifico per ogni zona.",
   "/epilazione-laser-carmagnola",
   {
     priceFrom: 25.9,
@@ -71,7 +71,7 @@ const laserServiceSchema = buildServiceSchema(
 const faqs = [
   {
     q: "Quanto costa l'epilazione laser da Rebel a Carmagnola?",
-    a: "I prezzi partono da 25,90 € per un’area piccola, come i baffetti, e cambiano in base alla zona. Nel listino online trovi i prezzi di ascelle, inguine, gambe, schiena e viso per donna e uomo. La valutazione iniziale è gratuita.",
+    a: "I prezzi partono da 25,90 € per un’area piccola, come i baffetti, e cambiano in base alla zona. Nel listino online trovi i prezzi di ascelle, inguine, gambe, schiena e viso per donna e uomo. La valutazione è gratuita quando finalizzata alla costruzione del Percorso REBEL.",
   },
   {
     q: "Quante sedute servono?",
@@ -79,19 +79,19 @@ const faqs = [
   },
   {
     q: "Il trattamento è doloroso?",
-    a: "Il manipolo Ice Polar raffredda la pelle durante gli impulsi e aumenta il comfort, soprattutto su ascelle, inguine e viso. La sensazione può cambiare in base alla zona e alla sensibilità personale.",
+    a: "Il comfort ICE Polar accompagna la seduta, soprattutto su ascelle, inguine e viso. La sensazione può cambiare in base alla zona e alla sensibilità personale; per questo impostiamo i parametri dopo la valutazione.",
   },
   {
     q: "Funziona su tutti i tipi di pelo?",
-    a: "Il diodo Thory combina tre lunghezze d’onda e permette di lavorare su diversi fototipi e profondità del follicolo. I peli biondi molto chiari, bianchi o grigi contengono poca melanina e possono rispondere meno: lo valutiamo prima di iniziare.",
+    a: "Lumina X1 Pro di THORY integra 755, 808, 940 e 1064 nm. La pertinenza del trattamento dipende da pelle, zona e caratteristiche del pelo: lo valutiamo prima di iniziare, senza promettere un esito uguale per ogni persona.",
   },
   {
     q: "Si può fare in estate o sulla pelle abbronzata?",
     a: "La possibilità dipende dal livello di abbronzatura, dalla zona e dall’esposizione prevista. Prima della seduta controlliamo la pelle e indichiamo le precauzioni da seguire nelle 48 ore precedenti e successive.",
   },
   {
-    q: "Come prenoto la valutazione gratuita?",
-    a: "Scrivi su WhatsApp o compila il modulo nella pagina contatti. La valutazione dura circa 15 minuti e serve a definire zone, parametri, calendario e prezzo prima della prima seduta.",
+    q: "Come prenoto la valutazione?",
+    a: "Scrivi su WhatsApp o compila il modulo nella pagina contatti. Valutazione e analisi durano 30–40 minuti e sono gratuite quando finalizzate alla costruzione del Percorso; servono a definire zone, parametri, calendario e prezzo.",
   },
 ];
 
@@ -131,19 +131,19 @@ const localLandingSchema = {
 
 const principles = [
   {
-    kicker: "01 · Valutazione gratuita",
+    kicker: "01 · Valutazione · 30–40 minuti",
     title: "Controlliamo zona, fototipo e caratteristiche del pelo.",
-    body: "La valutazione dura circa 15 minuti e permette di definire indicazioni, parametri iniziali, frequenza e prezzo prima della prima seduta.",
+    body: "Valutazione e analisi durano 30–40 minuti e sono gratuite quando finalizzate alla costruzione del Percorso. Definiamo indicazioni, parametri iniziali, frequenza e prezzo prima della prima seduta.",
   },
   {
     kicker: "02 · Tecnologia Thory",
-    title: "Tre lunghezze d’onda nello stesso manipolo.",
-    body: "755, 808 e 1064 nm lavorano a profondità diverse. I parametri vengono impostati in base alla zona, alla pelle e al pelo osservato.",
+    title: "Quattro lunghezze d’onda nello stesso sistema.",
+    body: "Lumina X1 Pro integra 755, 808, 940 e 1064 nm. I parametri vengono impostati in base alla zona, alla pelle e al pelo osservato.",
   },
   {
     kicker: "03 · Ice Polar",
-    title: "Raffreddamento attivo durante gli impulsi.",
-    body: "Il manipolo raffredda la superficie cutanea mentre lavora, aumentando il comfort anche su aree sensibili come ascelle, inguine e viso.",
+    title: "Comfort che accompagna la seduta.",
+    body: "ICE Polar è il naming REBEL dedicato al comfort del freddo durante la seduta. Il sistema tecnico THORY è Ice Point Cooling, con raffreddamento a contatto in zaffiro.",
   },
   {
     kicker: "04 · Calendario",
@@ -204,9 +204,9 @@ const zoneShortcuts = [
     image={m.hero}
     kicker="Epilazione Laser Ice Polar · Carmagnola"
     title="Laser per _viso e corpo_, con raffreddamento attivo."
-    lead="Il diodo Thory combina tre lunghezze d’onda. Il manipolo Ice Polar raffredda la pelle durante gli impulsi. La valutazione gratuita definisce zone, parametri, frequenza e prezzo."
-    bullets={["Viso, corpo, donna e uomo", "Prezzi da 25,90 €", "Valutazione iniziale gratuita"]}
-    meta={["Diodo Thory · 755 / 808 / 1064 nm", "Viale Barbaroux 20"]}
+    lead="Lumina X1 Pro di THORY integra quattro lunghezze d’onda e raffreddamento a contatto in zaffiro Ice Point Cooling. Il comfort ICE Polar accompagna la seduta; la valutazione definisce zone, parametri, frequenza e prezzo."
+    bullets={["Viso, corpo, donna e uomo", "Prezzi da 25,90 €", "Valutazione REBEL · 30–40 min"]}
+    meta={["Lumina X1 Pro · 755 / 808 / 940 / 1064 nm", "Viale Barbaroux 20"]}
     ctaPrimary={{ label: "Prenota la valutazione laser", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Consulta prezzi e zone", href: "/listino-estetica-laser#laser" }}
   />
@@ -322,15 +322,15 @@ const zoneShortcuts = [
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Valutazione laser gratuita"
+        kicker="Valutazione laser · 30–40 minuti"
         title="Ricevi indicazioni su zone, parametri, _frequenza e prezzo_."
-        lead="L’appuntamento dura circa 15 minuti. Valutiamo pelle e pelo, definiamo le zone e ti consegniamo una proposta prima della prima seduta."
+        lead="Valutazione e analisi durano 30–40 minuti e sono gratuite quando finalizzate alla costruzione del Percorso. Valutiamo pelle e pelo, definiamo le zone e ti consegniamo una proposta prima della prima seduta."
         primaryLabel="Prenota la valutazione laser"
       />
     </div>
   </section>
 
-  <StickyBookingBar priceHint="Laser da 25,90 €/zona" primary={{ label: "Valutazione laser gratuita", href: "/contatti" }} />
+  <StickyBookingBar priceHint="Laser da 25,90 €/zona" primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

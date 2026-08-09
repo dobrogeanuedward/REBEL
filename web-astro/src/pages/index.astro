@@ -2,8 +2,10 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import StoreGallery from "@/components/StoreGallery.tsx";
+import RebelMap from "@/components/RebelMap.tsx";
 import InstagramFeed from "@/components/InstagramFeed.astro";
 import { methodSteps, storeGalleryImages } from "@/lib/content";
+import { rebelWorlds, getJourneysByWorld } from "@/lib/rebel-journeys";
 import { siteConfig } from "@/lib/site-config";
 import {
   buildArticleSchema,
@@ -15,7 +17,7 @@ import {
 const meta = createPageMeta({
   title: "Rebel Estetica Epigenetica a Carmagnola — Viso, Corpo e Laser",
   description:
-    "Centro estetico a Carmagnola per trattamenti viso, percorsi corpo, epilazione Laser Ice Polar, manicure e benessere. Valutazione iniziale gratuita.",
+    "Centro estetico a Carmagnola per trattamenti viso, percorsi corpo, epilazione laser, manicure e benessere. Valutazione REBEL di 30–40 minuti.",
   path: "/",
   keywords: [
     "centro estetico Carmagnola",
@@ -57,40 +59,15 @@ const priorities = [
   ["Segni del tempo", "Rughe, contorno occhi e qualità generale della pelle."],
 ];
 
-const journeys = [
-  {
-    name: "Glow",
-    kicker: "Viso · luminosità e uniformità",
-    copy: "Per pelle spenta, irregolare o disidratata. Può includere Skin Reset, Catalysis, Cell Regen e attivi epigenetici.",
-    image: faceImage,
-    tags: ["Skin Reset", "Catalysis", "Cell Regen", "Attivi epigenetici"],
-    href: "/protocolli-epigenetici",
-  },
-  {
-    name: "Longevity",
-    kicker: "Viso · tono e segni del tempo",
-    copy: "Per lavorare su elasticità, compattezza, comfort e qualità della pelle con protocolli dedicati anche al contorno occhi.",
-    image: longevityImage,
-    tags: ["Lift", "Collagen", "Rebirth 60+", "Eye Genesis"],
-    href: "/protocolli-epigenetici",
-  },
-  {
-    name: "Forma",
-    kicker: "Corpo · drenaggio e compattezza",
-    copy: "Per pesantezza, ritenzione, tono e rimodellamento. Può combinare manualità, LPG e trattamenti corpo scelti dopo la valutazione.",
-    image: bodyImage,
-    tags: ["Manualità", "LPG", "Valutazione", "Controlli"],
-    href: "/protocolli-epigenetici",
-  },
-  {
-    name: "Libertà",
-    kicker: "Epilazione laser · viso e corpo",
-    copy: "Laser Ice Polar con valutazione iniziale, parametri personalizzati e calendario definito per ogni zona.",
-    image: freedomImage,
-    tags: ["Laser Ice Polar", "Viso", "Corpo", "Total Body"],
-    href: "/epilazione-laser-carmagnola",
-  },
-];
+const journeyImages = { glow: faceImage, longevity: longevityImage, forma: bodyImage, liberta: freedomImage };
+const journeys = rebelWorlds.map((world) => ({
+  name: world.name,
+  kicker: world.eyebrow,
+  copy: world.summary,
+  image: journeyImages[world.id],
+  tags: getJourneysByWorld(world.id).map((journey) => journey.slug === "white" ? "Uniformare" : journey.name),
+  href: world.href,
+}));
 
 const worlds = [
   {
@@ -98,7 +75,7 @@ const worlds = [
     name: "Viso",
     copy: "Pulizia viso, Glow, Longevity, attivi epigenetici, contorno occhi e laminazione coreana.",
     image: faceImage,
-    href: "/protocolli-epigenetici",
+    href: "/percorsi",
     cta: "Esplora il viso",
   },
   {
@@ -106,13 +83,13 @@ const worlds = [
     name: "Corpo",
     copy: "Drenaggio, massaggi, rimodellamento e LPG in percorsi definiti dopo la valutazione.",
     image: bodyImage,
-    href: "/listino-estetica-laser",
+    href: "/percorsi/forma",
     cta: "Esplora il corpo",
   },
   {
     number: "03",
     name: "Tecnologie",
-    copy: "THORY Lumina X1 Pro, ICE Polar e LPG: strumenti inseriti dopo aver definito zona, priorità e obiettivo.",
+    copy: "Lumina X1 Pro, portfolio THORY, ICE Polar e LPG: strumenti selezionati solo dopo aver definito zona, priorità e obiettivo.",
     image: siteAsset("technologies.studio.thory.desktop"),
     href: "/tecnologie-rebel",
     cta: "Conosci le tecnologie",
@@ -147,14 +124,14 @@ const worlds = [
         <h1 class="rebel-display" data-reveal style="--reveal-delay:50ms">Il Metodo Rebel parte dalla tua pelle.</h1>
         <div class="rebel-spectrum-rule"></div>
         <p class="rebel-lead" data-reveal style="--reveal-delay:120ms">
-          Nella prima visita definiamo priorità, risultato, trattamenti, frequenza e controlli.
+          Nella valutazione REBEL di 30–40 minuti definiamo priorità, risultato, trattamenti, frequenza e controlli.
           Tutto viene raccolto nella tua Mappa Rebel.
         </p>
         <div class="rebel-hero__actions" data-reveal style="--reveal-delay:180ms">
           <a class="btn btn--primary" href="/metodo-rebel">Scopri il Metodo Rebel</a>
-          <a class="btn btn--secondary" href="/contatti">Prenota la prima visita</a>
+          <a class="btn btn--secondary" href="/contatti">Prenota la valutazione</a>
         </div>
-        <div class="rebel-hero__signature"><strong>Be Beautiful. Be Rebel.</strong><span>Prima visita gratuita · Mappa Rebel · controlli</span></div>
+        <div class="rebel-hero__signature"><strong>Be Beautiful. Be Rebel.</strong><span>Valutazione 30–40 min · Mappa Rebel · controlli</span></div>
       </div>
     </section>
 
@@ -165,9 +142,18 @@ const worlds = [
           <h2 class="rebel-manifesto__quote">Valutiamo la pelle.<br/><em>Costruiamo il trattamento.</em></h2>
         </div>
         <div>
-          <p class="rebel-lead">Durante la prima visita osserviamo le condizioni della pelle o del corpo, ascoltiamo il risultato che desideri e definiamo un programma comprensibile.</p>
+          <p class="rebel-lead">Durante la valutazione osserviamo le condizioni della pelle o del corpo, ascoltiamo il risultato che desideri e definiamo un programma comprensibile.</p>
           <p class="rebel-lead"><strong>Estetica epigenetica</strong> significa scegliere attivi, manualità e tecnologie in base alle caratteristiche della persona e controllare nel tempo come risponde.</p>
         </div>
+      </div>
+    </section>
+
+    <section class="rebel-section" id="mappa-rebel-live">
+      <div class="rebel-container">
+        <p class="rebel-kicker">Mappa REBEL Live</p>
+        <h2 class="rebel-title">Tre domande per trovare un primo orientamento.</h2>
+        <p class="rebel-lead">Non è una diagnosi e non sceglie un trattamento al posto della professionista. Ti aiuta a capire quale mondo esplorare e che cosa porteremo nella valutazione.</p>
+        <RebelMap client:visible />
       </div>
     </section>
 
@@ -179,12 +165,7 @@ const worlds = [
           <p class="rebel-kicker">Il Metodo Rebel</p>
           <h2 class="rebel-title">Sei passaggi. Un percorso leggibile.</h2>
           <p class="rebel-lead">Sai che cosa trattiamo, quali strumenti utilizziamo, quante volte ci vediamo e quando controlliamo i risultati.</p>
-          <div class="rebel-map">
-            <div class="rebel-map__head"><strong>MAPPA REBEL</strong><br/><small>Valutazione / Trattamenti / Controlli</small></div>
-            <div class="rebel-map__fields">
-              {['Esigenza principale','Condizione osservata','Risultato concordato','Trattamenti indicati','Tecnologie utilizzabili','Frequenza iniziale','Controllo dei risultati','Mantenimento'].map((field)=><span>{field}</span>)}
-            </div>
-          </div>
+          <a class="rebel-text-link" href="/metodo-rebel">Leggi tutte le fasi del Metodo →</a>
         </div>
         <div class="rebel-method__steps">
           {methodSteps.map(({ step, title, text }) => (
@@ -209,8 +190,8 @@ const worlds = [
     <section class="rebel-section rebel-section--plum">
       <div class="rebel-container">
         <p class="rebel-kicker">I Percorsi Rebel</p>
-        <h2 class="rebel-title">Quattro percorsi, ciascuno con una priorità precisa.</h2>
-        <p class="rebel-lead">Glow per luminosità e uniformità; Longevity per tono e qualità della pelle; Forma per drenaggio e compattezza; Libertà per il Laser Ice Polar.</p>
+        <h2 class="rebel-title">Quattro mondi aprono nove percorsi.</h2>
+        <p class="rebel-lead">Glow raccoglie cinque priorità viso; Longevity due percorsi dedicati a struttura e continuità; Forma e Libertà hanno una pagina completa ciascuno.</p>
         <div class="rebel-journeys">
           {journeys.map((journey)=>(
             <a class="rebel-journey" href={journey.href} style={`--journey-image:url('${journey.image}')`}>
@@ -269,8 +250,8 @@ const worlds = [
     <section class="rebel-campaign">
       <div class="rebel-container">
         <strong>Be <span>Beautiful.</span><br/>Be Rebel.</strong>
-        <p>Prenota la valutazione gratuita: definiamo area, obiettivo, frequenza e prezzo prima di iniziare.</p>
-        <div class="rebel-hero__actions" style="justify-content:center"><a class="btn btn--primary" href="/contatti">Prenota la prima visita</a><a class="btn btn--secondary" href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer">Scrivici su WhatsApp</a></div>
+        <p>Prenota la valutazione: in 30–40 minuti definiamo area, obiettivo, frequenza e prezzo. È gratuita quando finalizzata al Percorso REBEL; home care separata.</p>
+        <div class="rebel-hero__actions" style="justify-content:center"><a class="btn btn--primary" href="/contatti">Prenota la valutazione</a><a class="btn btn--secondary" href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer">Scrivici su WhatsApp</a></div>
       </div>
     </section>
   </div>

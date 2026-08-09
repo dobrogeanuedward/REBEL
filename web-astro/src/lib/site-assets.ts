@@ -64,6 +64,13 @@ export const SITE_ASSET_FALLBACKS = {
   "technologies.laser.detail": "/img/rebel-r2/rebel/services/laser/handpiece-desktop.webp",
   "technologies.studio.thory.desktop": "/img/rebel-r2/rebel/studio/thory-room-desktop.webp",
   "technologies.studio.thory.mobile": "/img/rebel-r2/rebel/studio/thory-room-mobile.webp",
+  "technologies.thory.luminaX1Pro": "/img/rebel-r2/rebel/technologies/thory/lumina-x1-pro/official-front-three-quarter.webp",
+  "technologies.thory.luminaX3": "/img/rebel-r2/rebel/technologies/thory/lumina-x3/hero.webp",
+  "technologies.thory.luminaK3": "/img/rebel-r2/rebel/technologies/thory/lumina-k3/hero.webp",
+  "technologies.thory.auraQ2": "/img/rebel-r2/rebel/technologies/thory/aura-q2/hero.webp",
+  "technologies.thory.cryoShapeX2": "/img/rebel-r2/rebel/technologies/thory/cryoshape-x2/hero.webp",
+  "technologies.thory.infraPressX2": "/img/rebel-r2/rebel/technologies/thory/infrapress-x2/hero.webp",
+  "technologies.thory.tecar448": "/img/rebel-r2/rebel/technologies/thory/tecar-448-revolution/hero.webp",
 } as const;
 
 export type SiteAssetSlot = keyof typeof SITE_ASSET_FALLBACKS;

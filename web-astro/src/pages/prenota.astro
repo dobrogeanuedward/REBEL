@@ -14,7 +14,7 @@ import { siteConfig } from "@/lib/site-config";
 const meta = createPageMeta({
   title: "Prenota — Rebel Carmagnola",
   description:
-    "Prenota la tua prima visita gratuita da Rebel a Carmagnola. Bastano nome e numero, ti rispondiamo entro poche ore.",
+    "Prenota la valutazione REBEL di 30–40 minuti a Carmagnola. È gratuita quando finalizzata alla costruzione del Percorso; home care separata.",
   path: "/prenota",
   indexable: false,
 });
@@ -34,31 +34,31 @@ const breadcrumb = buildBreadcrumbSchema([
 
   <section class="landing-ads-hero">
     <div class="container container--narrow">
-      <span class="landing-hero__badge">Prima visita gratuita</span>
+      <span class="landing-hero__badge">Valutazione · 30–40 minuti</span>
       <h1 class="landing-ads-hero__title">
-        Prenota la tua prima visita.<br />
-        <em>È gratuita.</em>
+        Prenota la valutazione.<br />
+        <em>Costruiamo il Percorso.</em>
       </h1>
       <p class="landing-ads-hero__lead">
-        Centro estetico a Carmagnola, in Viale Barbaroux 20. Quindici minuti
-        in studio per capire da dove partire — laser, viso, mani, ceretta o
-        massaggi — e una proposta scritta da portare a casa.
+        Centro estetico a Carmagnola, in Viale Barbaroux 20. In 30–40 minuti
+        leggiamo pelle, zona e priorità e definiamo una proposta con frequenza
+        e prezzo. La valutazione è gratuita quando finalizzata al Percorso REBEL.
       </p>
       <ul class="landing-ads-hero__chips">
-        <li>15 min in studio</li>
-        <li>Senza obbligo</li>
-        <li>Regalo a scelta</li>
+        <li>30–40 min in studio</li>
+        <li>Percorso e prezzo chiari</li>
+        <li>Home care separata</li>
       </ul>
     </div>
   </section>
 
   <LandingFormCard
-    kicker="Form prima visita"
+    kicker="Form valutazione"
     title="Bastano nome e telefono."
     lead="Ti scriviamo entro poche ore via WhatsApp o telefono, con un orario disponibile. Email e dettagli sono opzionali."
     source="landing-prenota"
-    submitLabel="Prenota la prima visita gratuita"
-    showRitual={true}
+    submitLabel="Prenota la valutazione"
+    showRitual={false}
     showMessage={false}
   />
 

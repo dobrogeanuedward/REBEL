@@ -21,7 +21,7 @@ import { media } from "@/lib/page-media";
 const meta = createPageMeta({
   title: "Centro Estetico a Carmagnola — Rebel | Viale Barbaroux 20",
   description:
-    "Centro estetico a Carmagnola per pulizia viso, manicure, pedicure, laminazione, ceretta, massaggi, trattamenti corpo ed epilazione Laser Ice Polar. Prima visita gratuita.",
+    "Centro estetico a Carmagnola per viso, corpo, beauty ed epilazione Laser Ice Polar. Valutazione REBEL di 30–40 minuti e listino online.",
   path: "/centro-estetico-carmagnola",
   keywords: [
     "centro estetico Carmagnola",
@@ -74,7 +74,7 @@ const queryTargets: QueryTarget[] = [
   {
     label: "Epilazione laser",
     href: "/epilazione-laser-carmagnola",
-    description: "Laser Thory a tre lunghezze d’onda con raffreddamento Ice Polar per viso e corpo.",
+    description: "Lumina X1 Pro di THORY a quattro lunghezze d’onda, con comfort ICE Polar nel percorso viso e corpo.",
     image: { src: editorialImageAssets.laserCorpo, alt: "Epilazione laser corpo a Carmagnola" },
   },
   {
@@ -144,7 +144,7 @@ const faqSchema = {
       name: "Dove posso vedere i prezzi?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Il listino online riporta i prezzi dei servizi e delle zone laser. Per i percorsi personalizzati è disponibile una prima visita gratuita di circa 15 minuti.",
+        text: "Il listino online riporta i prezzi dei servizi e delle zone laser. Valutazione e analisi REBEL durano 30–40 minuti e sono gratuite quando finalizzate alla costruzione del Percorso; l’home care resta separata.",
       },
     },
     {
@@ -179,7 +179,7 @@ const keyServices = keySlugs
     kicker="Centro estetico · Carmagnola"
     title="Viso, corpo, laser e beauty in _Viale Barbaroux 20_."
     lead="Da Rebel puoi prenotare pulizia viso, manicure, pedicure, ceretta, massaggi, laminazione, trattamenti corpo, protocolli viso ed epilazione Laser Ice Polar."
-    bullets={["Listino online", "Prima visita gratuita", "Da martedì a sabato"]}
+    bullets={["Listino online", "Valutazione REBEL · 30–40 min", "Da martedì a sabato"]}
     meta={["Viale Barbaroux 20 · Carmagnola", "Viso, corpo, laser e beauty"]}
     ctaPrimary={{ label: "Prenota la prima visita", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Consulta il listino", href: "/listino-estetica-laser" }}
@@ -213,7 +213,7 @@ const keyServices = keySlugs
     <div class="container">
       <SectionHead
         kicker="Quattro servizi da conoscere"
-        title="Pedicure, scrub corpo e Laser Ice Polar per viso e corpo."
+        title="Pedicure, scrub corpo e percorso Laser con comfort ICE Polar."
         lead="Queste schede raccolgono prezzo, durata e informazioni pratiche su quattro servizi frequentemente prenotati."
       />
       <div class="card-grid card-grid--2">
@@ -280,14 +280,14 @@ const keyServices = keySlugs
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Prima visita gratuita"
+        kicker="Valutazione REBEL · 30–40 minuti"
         title="Ricevi indicazioni su trattamento, _frequenza e prezzo_."
-        lead="L’appuntamento dura circa quindici minuti. Valutiamo la zona interessata e ti presentiamo una proposta prima di prenotare il trattamento."
+        lead="Valutiamo la zona e definiamo una proposta in 30–40 minuti. La valutazione è gratuita quando finalizzata al Percorso REBEL; home care separata."
       />
     </div>
   </section>
 
-  <StickyBookingBar priceHint="Prima visita gratuita" primary={{ label: "Prenota la prima visita", href: "/contatti" }} />
+  <StickyBookingBar priceHint="Valutazione 30–40 min" primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

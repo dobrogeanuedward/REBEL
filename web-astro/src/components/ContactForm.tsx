@@ -6,7 +6,6 @@ type FormState = {
   phone: string;
   city: string;
   message: string;
-  ritual: string;
   source: string;
   website: string;
 };
@@ -17,31 +16,64 @@ const initial: FormState = {
   phone: "",
   city: "",
   message: "",
-  ritual: "",
   source: "contatti",
   website: "",
 };
 
-const ritualOptions: ReadonlyArray<{ value: string; label: string }> = [
-  { value: "", label: "Nessuna preferenza, decidiamo insieme" },
-  { value: "mani", label: "Mini-rituale mani (lima + smalto rapido)" },
-  { value: "viso-marbellas", label: "Massaggio viso epigenetico Marbellas" },
-  { value: "sopracciglia", label: "Disegno e rifinitura sopracciglia" },
-];
+const areaLabels: Record<string, string> = {
+  viso: "Viso",
+  corpo: "Corpo",
+  epilazione: "Epilazione",
+  insieme: "Da valutare insieme",
+};
+
+const journeyLabels: Record<string, string> = {
+  "skin-reset": "Skin Reset",
+  barrier: "Barrier",
+  balance: "Balance",
+  glow: "Glow",
+  white: "Uniformare · White",
+  structure: "Structure",
+  longevity: "Longevity",
+  forma: "Forma",
+  liberta: "Libertà",
+};
+
+const allowedSources = new Set(["contatti", "mappa-rebel", "percorso"]);
+const modeLabels: Record<string, string> = {
+  esplorare: "Capire un trattamento",
+  percorso: "Costruire un percorso con controlli",
+  valutare: "Valutarlo insieme",
+};
 
 export default function ContactForm() {
   const [form, setForm] = useState<FormState>(initial);
   const [status, setStatus] = useState<"idle" | "loading" | "ok" | "error">("idle");
   const [feedback, setFeedback] = useState("");
 
-  // Pre-fill the ritual field from a `?ritual=` query param so deeplinks from
-  // the homepage promo banner land already configured.
+  // Whitelisted deep links let the Mappa and journey pages carry context
+  // without accepting arbitrary query-string content into the message.
   useEffect(() => {
     if (typeof window === "undefined") return;
     const params = new URLSearchParams(window.location.search);
-    const ritual = params.get("ritual");
-    if (ritual && ritualOptions.some((o) => o.value === ritual)) {
-      setForm((v) => ({ ...v, ritual }));
+    const sourceParam = params.get("source") ?? "contatti";
+    const source = allowedSources.has(sourceParam) ? sourceParam : "contatti";
+    const area = params.get("area") ?? "";
+    const path = params.get("percorso") ?? "";
+    const priority = params.get("priorita") ?? "";
+    const mode = params.get("modalita") ?? "";
+
+    if (source === "mappa-rebel") {
+      const lines = ["Ho compilato la Mappa REBEL online."];
+      if (areaLabels[area]) lines.push(`Area: ${areaLabels[area]}.`);
+      if (journeyLabels[path]) lines.push(`Primo orientamento: ${journeyLabels[path]}.`);
+      else if (["glow", "longevity", "forma", "liberta"].includes(path)) lines.push(`Mondo: ${path === "liberta" ? "Libertà" : path[0].toUpperCase() + path.slice(1)}.`);
+      if (/^[a-z0-9-]{2,32}$/.test(priority)) lines.push(`Priorità selezionata: ${priority.replaceAll("-", " ")}.`);
+      if (modeLabels[mode]) lines.push(`Preferenza di partenza: ${modeLabels[mode]}.`);
+      lines.push("Vorrei valutarlo insieme in studio.");
+      setForm((value) => ({ ...value, source, message: lines.join("\n") }));
+    } else if (source === "percorso" && journeyLabels[path]) {
+      setForm((value) => ({ ...value, source, message: `Vorrei valutare il percorso ${journeyLabels[path]} e capire la combinazione più adatta alla mia priorità.` }));
     }
   }, []);
 
@@ -74,12 +106,12 @@ export default function ContactForm() {
   };
 
   return (
-    <form className="form" onSubmit={onSubmit} noValidate>
+    <form className="form" action="/api/contact" method="post" onSubmit={onSubmit}>
       <div className="form__intro">
-        <p className="form__kicker">Prima visita gratuita</p>
+        <p className="form__kicker">Valutazione REBEL · 30–40 minuti</p>
         <p className="form__note">
-          Quindici minuti per capire da dove partire. In più, il primo accesso
-          include un piccolo regalo a tua scelta.
+          Una valutazione di 30–40 minuti per capire da dove partire. È gratuita
+          quando viene finalizzata alla costruzione del Percorso REBEL.
         </p>
       </div>
 
@@ -87,6 +119,7 @@ export default function ContactForm() {
         Nome e cognome*
         <input
           required
+          name="name"
           value={form.name}
           onChange={(e) => setForm((v) => ({ ...v, name: e.target.value }))}
           placeholder="Es. Martina Rossi"
@@ -96,9 +129,9 @@ export default function ContactForm() {
 
       <div className="form__row">
         <label>
-          Email*
+          Email (facoltativa)
           <input
-            required
+            name="email"
             type="email"
             value={form.email}
             onChange={(e) => setForm((v) => ({ ...v, email: e.target.value }))}
@@ -110,6 +143,7 @@ export default function ContactForm() {
           Telefono / WhatsApp*
           <input
             required
+            name="phone"
             type="tel"
             value={form.phone}
             onChange={(e) => setForm((v) => ({ ...v, phone: e.target.value }))}
@@ -122,6 +156,7 @@ export default function ContactForm() {
       <label>
         Città
         <input
+          name="city"
           value={form.city}
           onChange={(e) => setForm((v) => ({ ...v, city: e.target.value }))}
           placeholder="Da dove ci raggiungi (es. Carmagnola)"
@@ -130,23 +165,9 @@ export default function ContactForm() {
       </label>
 
       <label>
-        Regalo prima visita
-        <select
-          value={form.ritual}
-          onChange={(e) => setForm((v) => ({ ...v, ritual: e.target.value }))}
-        >
-          {ritualOptions.map((opt) => (
-            <option key={opt.value} value={opt.value}>
-              {opt.label}
-            </option>
-          ))}
-        </select>
-      </label>
-
-      <label>
-        Cosa vorresti fare*
+        Cosa vorresti fare (facoltativo)
         <textarea
-          required
+          name="message"
           rows={5}
           value={form.message}
           onChange={(e) => setForm((v) => ({ ...v, message: e.target.value }))}
@@ -156,6 +177,7 @@ export default function ContactForm() {
 
       <input
         type="text"
+        name="website"
         className="form__honeypot"
         tabIndex={-1}
         autoComplete="off"
@@ -163,6 +185,8 @@ export default function ContactForm() {
         value={form.website}
         onChange={(e) => setForm((v) => ({ ...v, website: e.target.value }))}
       />
+
+      <input type="hidden" name="source" value={form.source} />
 
       <button
         type="submit"
