@@ -14,7 +14,7 @@
 .tech-showcase-hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: 57% center; }
 .tech-showcase-hero__veil { position: absolute; inset: 0; z-index: -2; background: linear-gradient(90deg, rgba(248,243,237,.98) 0 33%, rgba(248,243,237,.88) 47%, rgba(248,243,237,.26) 72%, rgba(248,243,237,.05)), linear-gradient(180deg, rgba(248,243,237,.18), rgba(248,243,237,.08) 62%, rgba(248,243,237,.72)); }
 .tech-showcase-hero::after { content: ""; position: absolute; width: 32rem; aspect-ratio: 1; left: -18rem; bottom: -19rem; z-index: -1; border-radius: 50%; background: conic-gradient(from 190deg, rgba(233,59,136,.3), rgba(112,71,255,.3), rgba(37,200,209,.18), rgba(233,59,136,.3)); filter: blur(32px); }
-.tech-showcase-hero__content { width: 100%; }
+.tech-showcase-hero__content { position: relative; }
 .tech-showcase-hero__content h1 { display: flex; flex-direction: column; max-width: 11ch; margin: 0; font-size: clamp(4rem,8vw,8.5rem); line-height: .82; letter-spacing: -.075em; }
 .tech-showcase-hero__content h1 span { font-family: var(--font-body); font-weight: 700; text-transform: uppercase; }
 .tech-showcase-hero__content h1 em { margin-left: .85em; font-family: var(--font-display); font-weight: 500; color: #713c8d; }
