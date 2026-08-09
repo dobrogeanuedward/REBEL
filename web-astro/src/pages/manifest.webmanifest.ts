@@ -29,13 +29,8 @@ export const GET: APIRoute = () => {
     ],
     icons: [
       {
-        src: "/favicon.ico",
-        sizes: "48x48",
-        type: "image/x-icon",
-      },
-      {
         src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/8e57610c-3a93-48fa-e535-b864967a4e00/public",
-        sizes: "192x192 512x512",
+        sizes: "1366x577",
         type: "image/png",
         purpose: "any",
       },

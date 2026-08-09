@@ -60,7 +60,7 @@ export const siteConfig = {
       kind: "Tecnologia laser",
       url: "https://www.thory-tech.com/",
       blurb:
-        "Laser a diodo con manipolo Ice Polar: parametri calibrati su zona e fototipo, raffreddamento attivo per restare comode anche su ascelle e inguine.",
+        "Dispositivo THORY Lumina X1 Pro con manipolo ICE Polar: parametri calibrati su zona e fototipo, con raffreddamento attivo orientato al comfort.",
     },
     {
       name: "Marbellas",
