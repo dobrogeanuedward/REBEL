@@ -633,7 +633,7 @@ export const localAreaPages: LocalAreaPage[] = [
     whyRebel: [
       "Valutazione iniziale e settaggio su misura (zona, pelle, obiettivo)",
       "Percorso seguito nel tempo, con calendario e controlli",
-      "Manipolo Ice Polar per migliorare il comfort durante la seduta",
+      "Lumina X1 Pro di THORY con comfort ICE Polar durante la seduta",
     ],
     directions: {
       heading: "Come arrivare da Carignano a Rebel (Carmagnola)",
@@ -783,7 +783,7 @@ export const localAreaPages: LocalAreaPage[] = [
     whyRebel: [
       "Valutazione iniziale e settaggio su misura (zona, pelle, obiettivo)",
       "Percorso seguito seduta dopo seduta, con micro-aggiustamenti quando serve",
-      "Manipolo Ice Polar per migliorare il comfort durante il laser",
+      "Lumina X1 Pro di THORY con comfort ICE Polar durante il laser",
     ],
     directions: {
       heading: "Come arrivare da Racconigi a Rebel (Carmagnola)",
@@ -921,7 +921,7 @@ export const localAreaPages: LocalAreaPage[] = [
         a: "Sì, ed è uno dei motivi per cui molte persone iniziano. Serve valutare zona e pelle, poi impostare calendario e settaggio in modo coerente.",
       },
       {
-        q: "Ice Polar rende il laser indolore?",
+        q: "Che sensazione si avverte durante il laser con comfort ICE Polar?",
         a: "Aiuta molto il comfort, ma la percezione cambia in base a zona e sensibilità. Noi regoliamo sempre in modo graduale e sensato.",
       },
       {
@@ -948,7 +948,7 @@ export const localAreaPages: LocalAreaPage[] = [
     whyRebel: [
       "Valutazione iniziale e piano sedute costruito su zona, pelle e obiettivo",
       "Calendario ordinato e consigli pratici tra una seduta e l'altra",
-      "Tecnologia Thory con manipolo Ice Polar per migliorare il comfort",
+      "Lumina X1 Pro di THORY con comfort ICE Polar",
       "Un solo studio per laser, viso, corpo e percorsi epigenetici",
     ],
     directions: {
@@ -967,7 +967,7 @@ export const localAreaPages: LocalAreaPage[] = [
       paragraphs: [
         "Da Sommariva del Bosco la domanda ricorrente è sempre quella: \"Posso iniziare anche se tra un po' mi espongo al sole o ho le vacanze?\". La risposta non è uguale per tutti, ma quasi sempre si può pianificare bene senza bloccarsi mesi.",
         "La parte più importante non è \"fare presto\": è avere un calendario coerente e adattabile. Se in un periodo ti esponi di più o cambiano le abitudini, il percorso si può ritarare senza perdere la direzione.",
-        "In studio lavoriamo anche con manipolo Ice Polar per migliorare il comfort durante la seduta. È un aiuto concreto, ma resta un pezzo del metodo: parametri impostati con competenza e una progressione che puoi seguire con serenità.",
+        "In studio lavoriamo con Lumina X1 Pro di THORY; il comfort ICE Polar accompagna la seduta come elemento distinto. Restano decisivi i parametri impostati con competenza e una progressione coerente.",
         "Quando invece la richiesta è viso più fresco (ovale, tono, luminosità), spesso consigliamo Rebel Lift Protocol: è un protocollo epigenetico orientato a tono e luce, pensato per risultati progressivi e non solo \"bella in giornata\".",
         "Se invece sai già che in estate sei sempre fuori, un trucco semplice è partire in inverno: è più facile essere costanti e arrivare alla primavera con il percorso già impostato (senza corse dell'ultimo minuto).",
         "Se arrivi da Sommariva del Bosco, l'idea è ottimizzare: o parti dal laser e poi inseriamo il viso, oppure fai il contrario. L'importante è scegliere una priorità e tenere il filo.",
@@ -1091,7 +1091,7 @@ export const localAreaPages: LocalAreaPage[] = [
     whyRebel: [
       "Valutazione iniziale e priorità chiare (zona per zona)",
       "Calendario e regole pratiche tra una seduta e l'altra",
-      "Tecnologia Thory con manipolo Ice Polar per maggiore comfort",
+      "Lumina X1 Pro di THORY con comfort ICE Polar",
       "Listino trasparente e percorso costruito su tempi reali",
     ],
     directions: {
@@ -1245,7 +1245,7 @@ export const localAreaPages: LocalAreaPage[] = [
       "Distanza comoda da Villastellone",
       "Competenza e settaggio su misura in base a pelle, zona e obiettivo",
       "Percorso ordinato, con calendario e controlli durante il ciclo",
-      "Manipolo Ice Polar per un'esperienza più confortevole",
+      "Lumina X1 Pro di THORY con comfort ICE Polar",
     ],
     directions: {
       heading: "Come arrivare da Villastellone a Rebel (Carmagnola)",
@@ -1261,7 +1261,7 @@ export const localAreaPages: LocalAreaPage[] = [
     focus: {
       heading: "Da Villastellone: laser confortevole + un protocollo rigenerazione molto richiesto",
       paragraphs: [
-        "Se vivi a Villastellone e stai pensando al laser, capiamo benissimo il dubbio più comune: \"Sarò a mio agio durante la seduta?\". Per questo in studio lavoriamo con manipolo Ice Polar, che aiuta a rendere il trattamento più confortevole.",
+        "Se vivi a Villastellone e stai pensando al laser, capiamo benissimo il dubbio più comune: \"Sarò a mio agio durante la seduta?\". Per questo il comfort ICE Polar accompagna il percorso con Lumina X1 Pro di THORY, senza promettere la stessa percezione a tutti.",
         "Ma il comfort da solo non basta. Quello che fa davvero la differenza è la competenza con cui si impostano parametri e calendario: zona per zona, pelle per pelle, con una progressione chiara e senza corse.",
         "Se ti alleni spesso o fai sport, lo diciamo subito: si può fare. Basta pianificare la seduta e gestire bene le prime 24-48 ore (calore, sudore e sfregamenti), soprattutto su ascelle e inguine.",
         "Se vuoi impostare il laser con il ritmo più semplice possibile, l'inverno è spesso il periodo ideale: meno esposizione, più costanza, meno interruzioni.",
@@ -1354,7 +1354,7 @@ export const localAreaPages: LocalAreaPage[] = [
         a: "Sì. Impostiamo il piano in base al tempo reale che hai: meglio poche sedute fatte bene che un programma impossibile da seguire.",
       },
       {
-        q: "Ice Polar vuol dire che il laser non si sente?",
+        q: "Come cambia la percezione durante il laser con comfort ICE Polar?",
         a: "Aiuta molto il comfort, ma la percezione cambia da persona a persona e da zona a zona. In studio regoliamo sempre in modo graduale e sensato.",
       },
       {
@@ -1380,7 +1380,7 @@ export const localAreaPages: LocalAreaPage[] = [
     whyRebel: [
       "Pre e post-seduta: regole pratiche (senza liste infinite)",
       "Calendario coerente e adattabile alle tue abitudini",
-      "Tecnologia Thory con manipolo Ice Polar per migliorare il comfort",
+      "Lumina X1 Pro di THORY con comfort ICE Polar",
       "Supporto rapido su WhatsApp durante tutto il percorso",
     ],
     directions: {
@@ -2034,7 +2034,7 @@ export const localAreaPages: LocalAreaPage[] = [
     whyRebel: [
       "Valutazione iniziale e percorso costruito su pelle, zona e obiettivo",
       "Consigli pratici tra le sedute (così non vai a tentativi)",
-      "Tecnologia Thory con manipolo Ice Polar per maggiore comfort",
+      "Lumina X1 Pro di THORY con comfort ICE Polar",
       "Un solo studio per laser e cura della pelle (viso e corpo)",
     ],
     directions: {
@@ -2180,7 +2180,7 @@ export const localAreaPages: LocalAreaPage[] = [
     whyRebel: [
       "Valutazione iniziale e piano sedute costruito su zona, pelle e obiettivo",
       "Calendario coerente e aggiustamenti quando serve (senza perdere il filo)",
-      "Tecnologia Thory con manipolo Ice Polar per migliorare il comfort",
+      "Lumina X1 Pro di THORY con comfort ICE Polar",
       "Consigli pratici su mantenimento e richiami",
     ],
     directions: {
@@ -2299,7 +2299,7 @@ export const localAreaPages: LocalAreaPage[] = [
         a: "Non succede \"un disastro\", ma il calendario perde continuità. Se capita, riorganizziamo il piano in modo sensato e ti diciamo come riprendere senza perdere il filo.",
       },
       {
-        q: "Ice Polar significa che non sentirò nulla?",
+        q: "Che sensazione si avverte durante il laser con comfort ICE Polar?",
         a: "Aiuta molto il comfort, ma la percezione varia da zona a zona e da persona a persona. In studio lavoriamo sempre in modo graduale e su misura.",
       },
     ],
@@ -2321,7 +2321,7 @@ export const localAreaPages: LocalAreaPage[] = [
     whyRebel: [
       "Spiegazioni chiare su cosa aspettarti dopo le prime sedute",
       "Calendario e controlli per mantenere il percorso coerente",
-      "Tecnologia Thory con manipolo Ice Polar per migliorare il comfort",
+      "Lumina X1 Pro di THORY con comfort ICE Polar",
       "Supporto rapido su WhatsApp, prima e dopo",
     ],
     directions: {
@@ -3043,7 +3043,7 @@ export const localAreaPages: LocalAreaPage[] = [
       "Da Canale e dai paesi del Roero ci raggiungono persone che hanno una richiesta semplice: smettere di accontentarsi della prima opzione disponibile in zona e scegliere un centro con metodo. Noi rispondiamo in un modo solo — costruiamo un piano realistico, con tempi sostenibili, e te lo raccontiamo come se a sceglierlo fossi tu.",
     whyRebel: [
       "Percorsi viso e corpo con metodo: priorità chiara, progressione e mantenimento",
-      "Epilazione laser diodo Thory con Ice Polar: tecnica seria, non standard di settore",
+      "Lumina X1 Pro di THORY con comfort ICE Polar: tecnologia e metodo distinti",
       "Protocolli epigenetici (Collagen Code, Eye Genesis) per chi cerca di più del classico",
       "Servizi base curati come ganci pratici: pulizia viso, semipermanente, laminazione",
       "Supporto rapido su WhatsApp tra una seduta e l'altra",
@@ -3509,7 +3509,7 @@ export const localAreaPages: LocalAreaPage[] = [
         a: "Spesso sì, ma va gestita l'esposizione solare in modo sensato. In consulenza ti spieghiamo come organizzare calendario e protezione, così il percorso resta semplice.",
       },
       {
-        q: "Ice Polar significa che non sentirò nulla?",
+        q: "Che sensazione si avverte durante il laser con comfort ICE Polar?",
         a: "Aiuta molto il comfort, ma la percezione varia da zona a zona e da persona a persona. In studio lavoriamo sempre in modo graduale e su misura.",
       },
       {
@@ -4034,4 +4034,3 @@ if (process.env.NODE_ENV !== "production" && localPagesValidation.warnings.lengt
 export function getLocalAreaBySlug(slug: string) {
   return localAreaPages.find((item) => item.slug === slug);
 }
-

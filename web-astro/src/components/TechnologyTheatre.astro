@@ -1,0 +1,123 @@
+---
+import { luminaX1Pro } from "@/lib/rebel-technologies";
+import "@/styles/technology-theatre.css";
+
+const siteAsset = (slot: string) => `/api/site-asset?slot=${encodeURIComponent(slot)}`;
+const chapters = [
+  {
+    id: "spectrum",
+    number: "01",
+    eyebrow: "4-Wavelength Spectrum",
+    title: "Quattro lunghezze d’onda. Una sola missione.",
+    body: "Lumina X1 Pro integra 755, 808, 940 e 1064 nm. La configurazione viene definita dalla professionista in relazione ad area, pelle e caratteristiche del pelo.",
+    readout: "755 · 808 · 940 · 1064 nm",
+  },
+  {
+    id: "parameters",
+    number: "02",
+    eyebrow: "Parameter Control",
+    title: "I parametri restano leggibili.",
+    body: "Energia, frequenza, durata dell’impulso e raffreddamento vengono gestiti dal display touchscreen. Online mostriamo soltanto dati tecnici documentati, senza trasformarli in promesse.",
+    readout: "1–10 Hz · 1–400 ms",
+  },
+  {
+    id: "contact",
+    number: "03",
+    eyebrow: "Ice Point Cooling",
+    title: "Il comfort parte dal contatto.",
+    body: "La documentazione THORY descrive un raffreddamento a contatto in zaffiro integrato nel manipolo, insieme a circuito ad acqua, modulo TEC e aria.",
+    readout: "Contatto in zaffiro",
+  },
+  {
+    id: "method",
+    number: "04",
+    eyebrow: "Dentro il Metodo REBEL",
+    title: "La macchina non è il punto di partenza.",
+    body: "Prima vengono Mappa, zona e priorità. Poi si definiscono parametri, calendario e controlli. La tecnologia entra nel percorso soltanto quando serve.",
+    readout: "Mappa → parametri → controllo",
+  },
+];
+---
+<section class="technology-theatre" data-technology-theatre>
+  <div class="rebel-container">
+    <header class="technology-theatre__head">
+      <div><p class="rebel-kicker">Technology Theatre · Lumina X1 Pro</p><h2 class="rebel-title">Una tecnologia reale, raccontata senza scorciatoie.</h2></div>
+      <p>Quattro capitoli mostrano ciò che conta nel percorso Libertà: spettro, controllo dei parametri, contatto e integrazione nel Metodo REBEL.</p>
+    </header>
+
+    <nav class="technology-theatre__index" aria-label="Capitoli Lumina X1 Pro">
+      {chapters.map((chapter, index) => <a href={`#tech-${chapter.id}`} data-tech-nav={index} aria-current={index === 0 ? "step" : undefined}><span>{chapter.number}</span>{chapter.eyebrow}</a>)}
+    </nav>
+
+    <div class="technology-theatre__layout">
+      <div class="technology-theatre__visual" data-tech-visual>
+        <div class="technology-theatre__halo" aria-hidden="true"></div>
+        <img src={siteAsset(luminaX1Pro.imageSlot)} alt={luminaX1Pro.imageAlt} width={luminaX1Pro.imageWidth} height={luminaX1Pro.imageHeight} loading="lazy" decoding="async" />
+        <div class="technology-theatre__readouts" aria-hidden="true">
+          {chapters.map((chapter, index) => <span data-tech-readout={index}>{chapter.readout}</span>)}
+        </div>
+        <p class="technology-theatre__caption">THORY · {luminaX1Pro.name} · {luminaX1Pro.descriptor}</p>
+      </div>
+
+      <div class="technology-theatre__chapters">
+        {chapters.map((chapter, index) => (
+          <article id={`tech-${chapter.id}`} data-tech-chapter={index}>
+            <span>{chapter.number}</span>
+            <p class="rebel-kicker">{chapter.eyebrow}</p>
+            <h3>{chapter.title}</h3>
+            <p>{chapter.body}</p>
+          </article>
+        ))}
+        <details class="technology-theatre__specs">
+          <summary>Scheda tecnica documentata</summary>
+          <dl>
+            <div><dt>Lunghezze d’onda</dt><dd>755 + 808 + 940 + 1064 nm</dd></div>
+            <div><dt>Frequenza</dt><dd>1–10 Hz, regolabile</dd></div>
+            <div><dt>Durata impulso</dt><dd>1–400 ms, regolabile</dd></div>
+            <div><dt>Spot</dt><dd>13 × 30 mm · opzionale 13 × 40 mm</dd></div>
+            <div><dt>Display</dt><dd>Touchscreen 10,4”</dd></div>
+            <div><dt>Raffreddamento</dt><dd>Acqua + TEC + aria + contatto in zaffiro</dd></div>
+          </dl>
+          <p>La scheda descrive la piattaforma. Parametri, frequenza e calendario vengono definiti soltanto dopo la valutazione di area, pelle e caratteristiche del pelo.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const initTechnologyTheatres = () => {
+    document.querySelectorAll<HTMLElement>("[data-technology-theatre]").forEach((root) => {
+      if (root.dataset.ready === "true") return;
+      root.dataset.ready = "true";
+      const visual = root.querySelector<HTMLElement>("[data-tech-visual]");
+      const chapters = Array.from(root.querySelectorAll<HTMLElement>("[data-tech-chapter]"));
+      const nav = Array.from(root.querySelectorAll<HTMLAnchorElement>("[data-tech-nav]"));
+      if (!visual || chapters.length === 0) return;
+
+      const activate = (index: number) => {
+        visual.dataset.active = String(index);
+        nav.forEach((button, buttonIndex) => {
+          if (buttonIndex === index) button.setAttribute("aria-current", "step");
+          else button.removeAttribute("aria-current");
+        });
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+        activate(Number((visible.target as HTMLElement).dataset.techChapter ?? 0));
+      }, { rootMargin: "-24% 0px -43%", threshold: [0, .25, .55, .8] });
+
+      chapters.forEach((chapter) => observer.observe(chapter));
+      nav.forEach((button, index) => button.addEventListener("click", (event) => {
+        event.preventDefault();
+        chapters[index]?.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" });
+      }));
+      activate(0);
+      document.addEventListener("astro:before-swap", () => observer.disconnect(), { once: true });
+    });
+  };
+  initTechnologyTheatres();
+  document.addEventListener("astro:page-load", initTechnologyTheatres);
+</script>

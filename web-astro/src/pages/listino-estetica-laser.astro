@@ -15,12 +15,13 @@ import {
   createPageMeta,
 } from "@/lib/seo";
 import { protocolCards } from "@/lib/content";
+import { rebelJourneys } from "@/lib/rebel-journeys";
 import { servicePages } from "@/lib/seo-content";
 
 const meta = createPageMeta({
   title: "Listino centro estetico, laser e protocolli | Rebel Carmagnola",
   description:
-    "Prezzi Rebel a Carmagnola per pulizia viso, manicure, pedicure, ceretta, massaggi, epilazione Laser Ice Polar e protocolli viso e corpo.",
+    "Prezzi Rebel a Carmagnola per i nove percorsi viso, corpo ed epilazione, più beauty, laser e protocolli mirati.",
   path: "/listino-estetica-laser",
   keywords: [
     "listino centro estetico Carmagnola",
@@ -54,34 +55,34 @@ const listinoSchema = buildItemListSchema({
     path: `/servizi/${s.slug}`,
   })),
 });
-const protocolSchema = buildItemListSchema({
-  name: "Protocolli professionali Rebel",
+const journeySchema = buildItemListSchema({
+  name: "I nove percorsi Rebel",
   path: "/listino-estetica-laser",
-  items: protocolCards.map((p) => ({
-    name: p.name,
-    path: `/protocolli/${p.slug}`,
+  items: rebelJourneys.map((journey) => ({
+    name: journey.name,
+    path: `/percorsi/${journey.slug}`,
   })),
 });
 
 const switchItems = [
   { href: "#estetica", label: "Viso, corpo e beauty", glyph: "✦" },
   { href: "#laser", label: "Epilazione laser", glyph: "◉" },
-  { href: "#epigenetica", label: "Protocolli viso e corpo", glyph: "⬡" },
+  { href: "#percorsi", label: "I 9 Percorsi REBEL", glyph: "⬡" },
 ];
 ---
 <BaseLayout meta={meta} bodyClass="page-beauty page-listino">
   <JsonLd data={breadcrumb} />
   <JsonLd data={webPage} />
   <JsonLd data={listinoSchema} />
-  <JsonLd data={protocolSchema} />
+  <JsonLd data={journeySchema} />
 
   <PageHero
     image={media.studio.cabin}
     kicker="Listino Rebel · Carmagnola"
     title="Prezzi di _viso, corpo, beauty e laser_."
-    lead="Consulta i prezzi dei singoli servizi e apri la relativa scheda per leggere descrizione, durata indicativa e informazioni utili. Per i percorsi personalizzati è disponibile una valutazione iniziale gratuita."
-    bullets={["Prezzi pubblicati online", "Scheda per ogni servizio", "Valutazione iniziale gratuita"]}
-    meta={["Viso, corpo e beauty", "Laser Ice Polar", "Protocolli professionali"]}
+    lead="Consulta i prezzi dei singoli servizi e apri la relativa scheda per leggere descrizione, durata indicativa e informazioni utili. La valutazione REBEL è gratuita quando finalizzata alla costruzione del Percorso."
+    bullets={["Prezzi pubblicati online", "Scheda per ogni servizio", "Valutazione REBEL · 30–40 min"]}
+    meta={["Nove percorsi con prezzo", "Viso, corpo e laser", "Valutazione professionale"]}
     ctaPrimary={{ label: "Prenota la prima visita", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Scrivici su WhatsApp", href: "https://wa.me/393516919416" }}
   />
@@ -124,7 +125,7 @@ const switchItems = [
       <SectionHead
         kicker="Epilazione laser"
         title="Prezzi Laser Ice Polar per viso e corpo."
-        lead="Laser a diodo con tre lunghezze d’onda e raffreddamento attivo. Apri la zona interessata per leggere prezzo e informazioni specifiche."
+        lead="Lumina X1 Pro di THORY integra quattro lunghezze d’onda documentate; il comfort ICE Polar accompagna la seduta come elemento distinto. Apri la zona interessata per leggere prezzo e informazioni specifiche."
       />
       <div class="price-grid">
         {laser.map((item) => (
@@ -138,27 +139,40 @@ const switchItems = [
       </div>
       <div class="cluster cluster--stack-mobile" style="margin-top:2rem;">
         <a class="btn btn--primary btn--halo" href="/contatti">Prenota la valutazione laser</a>
-        <a class="btn btn--secondary" href="/epilazione-laser-carmagnola">Come funziona il Laser Ice Polar</a>
+        <a class="btn btn--secondary" href="/epilazione-laser-carmagnola">Come funziona il percorso laser</a>
       </div>
     </div>
   </section>
 
-  <section class="section" id="epigenetica">
+  <section class="section" id="percorsi">
     <div class="container">
       <SectionHead
-        kicker="Protocolli professionali"
-        title="Trattamenti viso e corpo con obiettivi specifici."
-        lead="Protocolli dedicati a luminosità, tono, pelle matura, contorno occhi, compattezza e qualità cutanea. Ogni scheda riporta prezzo e indicazioni."
+        kicker="I nove Percorsi REBEL"
+        title="Una priorità, una pagina, un prezzo di partenza."
+        lead="Skin Reset, Barrier, Balance, Glow, White, Structure, Longevity, Forma e Libertà. Ogni scheda riporta durata, materia, botaniche e tecnologie selezionabili."
       />
       <div class="price-grid">
-        {protocolCards.map((item) => (
+        {rebelJourneys.map((item) => (
           <PriceRow
-            name={item.name}
-            description={item.desc}
+            name={item.slug === "white" ? "Uniformare · White" : item.name}
+            description={`${item.priority} · ${item.summary} · ${item.duration}`}
             price={item.price}
-            href={`/protocolli/${item.slug}`}
+            href={`/percorsi/${item.slug}`}
           />
         ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight" id="protocolli-mirati">
+    <div class="container">
+      <SectionHead
+        kicker="Protocolli mirati"
+        title="Trattamenti professionali già prenotabili."
+        lead="Lift, Rebirth 60+, Eye Genesis, Catalysis, Collagen e Cell Regen restano disponibili con la propria scheda e il proprio prezzo."
+      />
+      <div class="price-grid">
+        {protocolCards.map((item) => <PriceRow name={item.name} description={item.desc} price={item.price} href={`/protocolli/${item.slug}`} />)}
       </div>
     </div>
   </section>
@@ -168,16 +182,16 @@ const switchItems = [
     height="sm"
     align="left"
     kicker="Listino Rebel · Carmagnola"
-    quote="Prezzi online e valutazione gratuita per i percorsi personalizzati."
+    quote="Prezzi online e valutazione REBEL di 30–40 minuti per i percorsi personalizzati."
     cite="Studio Rebel · Viale Barbaroux 20"
   />
 
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Prima visita gratuita"
+        kicker="Valutazione REBEL · 30–40 minuti"
         title="Ricevi una proposta con trattamento, _frequenza e prezzo_."
-        lead="In circa quindici minuti valutiamo la zona interessata e ti spieghiamo il programma consigliato prima di prenotare."
+        lead="In 30–40 minuti valutiamo la zona interessata e ti spieghiamo il programma consigliato prima di prenotare. La valutazione è gratuita quando viene finalizzata alla costruzione del Percorso REBEL."
       />
     </div>
   </section>

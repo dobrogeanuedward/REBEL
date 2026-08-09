@@ -12,50 +12,46 @@ import { media } from "@/lib/page-media";
 import { siteConfig } from "@/lib/site-config";
 
 const meta = createPageMeta({
-  title: "Prima visita gratuita — Centro Estetico Carmagnola | Rebel",
+  title: "Valutazione e analisi REBEL a Carmagnola | 30–40 minuti",
   description:
-    "Prenota la prima visita gratuita da Rebel a Carmagnola: 15 minuti per leggere pelle e zona, una proposta scritta su misura e un piccolo regalo a tua scelta. Senza obbligo di acquisto.",
+    "Prenota la valutazione REBEL a Carmagnola: 30–40 minuti per leggere pelle, zona e priorità e costruire una proposta chiara. Gratuita quando finalizzata al Percorso REBEL; home care separata.",
   path: "/prima-visita-gratuita",
   keywords: [
-    "prima visita gratuita Carmagnola",
-    "consulenza estetica gratuita Carmagnola",
-    "prova centro estetico Carmagnola",
-    "promozione centro estetico Carmagnola",
+    "valutazione estetica Carmagnola",
+    "analisi pelle Carmagnola",
+    "prima visita Rebel Carmagnola",
+    "Percorso Rebel Carmagnola",
   ],
 });
 
 const breadcrumb = buildBreadcrumbSchema([
   { name: "Home", path: "/" },
-  { name: "Prima visita gratuita", path: "/prima-visita-gratuita" },
+  { name: "Valutazione REBEL", path: "/prima-visita-gratuita" },
 ]);
 
-const promoSchema = {
+const evaluationSchema = {
   "@context": "https://schema.org",
-  "@type": "Offer",
-  name: "Prima visita gratuita + regalo a scelta",
+  "@type": "Service",
+  name: "Valutazione e analisi REBEL",
   description:
-    "Quindici minuti di prima visita gratuita presso Rebel a Carmagnola. Lettura della pelle/zona, proposta scritta personalizzata e mini-rituale in regalo.",
-  price: "0",
-  priceCurrency: "EUR",
-  availability: "https://schema.org/InStock",
-  validFrom: siteConfig.lastUpdated,
+    "Valutazione di 30–40 minuti per leggere pelle, zona e priorità e costruire il Percorso REBEL. Gratuita quando finalizzata alla costruzione del Percorso; home care separata.",
   url: `${siteConfig.siteUrl}/prima-visita-gratuita`,
-  seller: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
+  provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
   areaServed: siteConfig.areasServed,
 };
 
 const faqs = [
   {
-    q: "La prima visita è davvero gratuita?",
-    a: "Sì, completamente. Quindici minuti in studio, senza obbligo di prenotare un trattamento. Il regalo a tua scelta è incluso e te lo facciamo lo stesso giorno.",
+    q: "Quando la valutazione REBEL è gratuita?",
+    a: "Valutazione e analisi sono gratuite quando vengono finalizzate alla costruzione del Percorso REBEL. Prima di iniziare chiarifichiamo sempre che cosa comprende la proposta.",
   },
   {
-    q: "Cosa succede in 15 minuti?",
-    a: "Ci racconti cosa vorresti fare, leggiamo insieme pelle, zona e priorità. Da lì ti diciamo se ha senso iniziare e con cosa, ti consegniamo una proposta scritta con prezzi reali e scegli il tuo regalo.",
+    q: "Cosa succede nei 30–40 minuti?",
+    a: "Ascoltiamo il tuo obiettivo, leggiamo pelle o zona e definiamo priorità, tecnologie, frequenza e prezzo del possibile Percorso REBEL.",
   },
   {
-    q: "Quali sono i tre regali tra cui scegliere?",
-    a: "Mini-rituale mani (lima + smalto rapido), massaggio viso epigenetico Marbellas (5-10 minuti), oppure disegno e rifinitura sopracciglia. Scegli in fase di prenotazione o decidiamo insieme in studio.",
+    q: "L’home care è inclusa?",
+    a: "No. L’home care eventualmente consigliata è separata dalla valutazione e dal prezzo del Percorso, e viene sempre indicata con chiarezza.",
   },
   {
     q: "Quando posso venire?",
@@ -81,24 +77,24 @@ const faqSchema = {
   meta={meta}
   bodyClass="page-landing--prima-visita"
   ctaHref="#form"
-  ctaLabel="Prenota gratis"
+  ctaLabel="Prenota la valutazione"
 >
   <JsonLd data={breadcrumb} />
-  <JsonLd data={promoSchema} />
+  <JsonLd data={evaluationSchema} />
   <JsonLd data={faqSchema} />
 
   <LandingHero
-    badge="Promo attiva"
+    badge="Valutazione · 30–40 minuti"
     kicker="Centro estetico · Carmagnola"
-    title="La prima visita è _gratuita_. E porti via un piccolo regalo."
-    lead="Quindici minuti in studio, senza obbligo. Capiamo da dove ha senso partire — pulizia viso, mani, ceretta, laser, protocolli — e ti consegniamo una proposta scritta con prezzi e tempi reali."
+    title="Una valutazione per costruire il _Percorso REBEL_."
+    lead="In 30–40 minuti leggiamo pelle, zona e priorità e definiamo una proposta con tecnologie, frequenza e prezzo. La valutazione è gratuita quando viene finalizzata alla costruzione del Percorso REBEL."
     bullets={[
-      { text: "Prima visita di 15 minuti, 100% gratuita." },
-      { text: "Regalo a tua scelta tra 3 mini-rituali." },
-      { text: "Proposta scritta con prezzi chiari da portare a casa." },
-      { text: "Nessun obbligo di acquisto, nessuna pressione." },
+      { text: "Valutazione e analisi di 30–40 minuti." },
+      { text: "Priorità, percorso, frequenza e prezzo messi in chiaro." },
+      { text: "Gratuita quando finalizzata alla costruzione del Percorso." },
+      { text: "Home care eventualmente consigliata, sempre separata." },
     ]}
-    primaryCta={{ label: "Prenota la prima visita", href: "#form" }}
+    primaryCta={{ label: "Prenota la valutazione", href: "#form" }}
     secondaryCta={{
       label: "Scrivici su WhatsApp",
       href: siteConfig.social.whatsapp,
@@ -116,7 +112,7 @@ const faqSchema = {
       },
       {
         title: "Tecnologia Thory",
-        body: "Laser diodo Ice Polar con raffreddamento attivo. Comodo anche su ascelle e inguine.",
+        body: "Lumina X1 Pro di THORY integra quattro lunghezze d’onda. Il comfort ICE Polar accompagna la seduta; la valutazione definisce se e come usarlo.",
       },
       {
         title: "Linee professionali",
@@ -142,12 +138,12 @@ const faqSchema = {
         body: "Via WhatsApp o telefono, con un orario disponibile. Mai email automatiche fredde.",
       },
       {
-        title: "Vieni in studio per 15 minuti",
-        body: "Ti accogliamo, leggiamo pelle/zona, ti consegniamo una proposta scritta. E scegli il tuo regalo.",
+        title: "Vieni in studio per 30–40 minuti",
+        body: "Leggiamo pelle o zona, ascoltiamo la priorità e costruiamo una proposta chiara con tempi e prezzi.",
       },
       {
-        title: "Decidi tu",
-        body: "Se ha senso iniziare, prenoti il primo trattamento sul momento. Senno, ti porti a casa il regalo e tutte le info utili.",
+        title: "Costruiamo il Percorso",
+        body: "Se la valutazione viene finalizzata al Percorso REBEL è gratuita. L’home care eventualmente consigliata resta separata.",
       },
     ]}
   />
@@ -157,17 +153,17 @@ const faqSchema = {
     height="sm"
     align="center"
     kicker="Da Rebel, a Carmagnola"
-    quote="Quindici minuti, senza obbligo. E porti via un piccolo _regalo_."
+    quote="Trenta–quaranta minuti per dare a ogni scelta una _direzione_."
     cite="Studio Rebel · Viale Barbaroux 20"
   />
 
   <LandingFormCard
-    kicker="Form prima visita"
-    title="Prenota in trenta secondi."
+    kicker="Form valutazione"
+    title="Prenota la valutazione."
     lead="Solo nome e telefono. Email e dettagli sono opzionali — possiamo sentirci anche su WhatsApp."
     source="landing-prima-visita"
-    submitLabel="Prenota la prima visita gratuita"
-    showRitual={true}
+    submitLabel="Prenota la valutazione"
+    showRitual={false}
     showMessage={true}
   />
 

@@ -21,18 +21,18 @@ import { getPageMedia } from "@/lib/page-media";
 const m = getPageMedia("/epilazione-laser-ice-polar-carmagnola");
 
 const meta = createPageMeta({
-  title: "Laser Ice Polar a Carmagnola — Manipolo con Raffreddamento Attivo",
+  title: "Laser Ice Polar a Carmagnola — Comfort durante la seduta",
   description:
-    "Cos'è Ice Polar e perché rende l'epilazione laser più comoda anche su ascelle e inguine. Manipolo con raffreddamento attivo, in cabina da Rebel a Carmagnola.",
+    "ICE Polar è il naming REBEL dedicato al comfort durante l'epilazione laser con Lumina X1 Pro di THORY a Carmagnola. Valutazione e parametri personalizzati.",
   path: "/epilazione-laser-ice-polar-carmagnola",
   openGraphType: "article",
   keywords: [
     "Ice Polar Carmagnola",
     "laser Ice Polar Carmagnola",
-    "manipolo Ice Polar",
+    "comfort Ice Polar",
     "laser con raffreddamento Carmagnola",
     "epilazione laser comoda Carmagnola",
-    "diodo Thory Ice Polar",
+    "Lumina X1 Pro Carmagnola",
   ],
 });
 
@@ -43,15 +43,15 @@ const breadcrumb = buildBreadcrumbSchema([
 ]);
 
 const serviceSchema = buildServiceSchema(
-  "Epilazione laser con manipolo Ice Polar a Carmagnola",
-  "Approfondimento sul comfort del laser: cosa fa Ice Polar, perché è utile e come impostiamo un percorso coerente per viso e corpo.",
+  "Epilazione laser con comfort ICE Polar a Carmagnola",
+  "Approfondimento sul comfort ICE Polar nel percorso laser con Lumina X1 Pro di THORY e sulla valutazione per viso e corpo.",
   "/epilazione-laser-ice-polar-carmagnola",
 );
 
 const articleSchema = buildArticleSchema({
   headline: "Epilazione laser con Ice Polar a Carmagnola",
   description:
-    "Una guida chiara sul manipolo Ice Polar: comfort, metodo e consigli pratici prima di iniziare un percorso laser.",
+    "Una guida chiara sul comfort ICE Polar, sul metodo e sui consigli pratici prima di iniziare un percorso laser.",
   path: "/epilazione-laser-ice-polar-carmagnola",
   keywords: ["Ice Polar", "laser con raffreddamento", "epilazione laser Carmagnola", "comfort laser"],
   section: "Laser",
@@ -60,11 +60,11 @@ const articleSchema = buildArticleSchema({
 const faqs = [
   {
     q: "Cos'è esattamente Ice Polar?",
-    a: "È il manipolo del laser diodo Thory con raffreddamento attivo integrato: durante l'impulso laser la punta a contatto con la pelle resta a bassa temperatura. Risultato: la sensazione di calore/dolore è molto inferiore rispetto ai laser tradizionali.",
+    a: "ICE Polar è il naming usato da REBEL per raccontare il comfort del freddo che accompagna la seduta. Il dispositivo è Lumina X1 Pro di THORY; il suo raffreddamento tecnico si chiama Ice Point Cooling e lavora a contatto in zaffiro.",
   },
   {
-    q: "Ice Polar rende il laser indolore?",
-    a: "Non parliamo di zero dolore, parliamo di molto meno dolore. Su zone sensibili (ascelle, inguine, baffetti) la differenza è evidente: la seduta resta gestibile e finisce in pochi minuti.",
+    q: "Che sensazione si avverte durante la seduta?",
+    a: "La percezione cambia da persona a persona e da zona a zona. Il comfort ICE Polar accompagna la seduta, mentre la professionista adatta i parametri alla risposta della pelle.",
   },
   {
     q: "Su quali zone si nota di più la differenza?",
@@ -72,11 +72,11 @@ const faqs = [
   },
   {
     q: "Ice Polar basta da solo per avere un buon risultato?",
-    a: "No. Il comfort è importante, ma la differenza la fanno parametri impostati bene, lettura corretta del fototipo e calendario delle sedute. Il manipolo è un mezzo, non il risultato.",
+    a: "No. Il comfort è un elemento del percorso; valutazione, parametri e calendario vengono definiti sulla persona. Non promettiamo risultati uguali o un numero fisso di sedute.",
   },
   {
     q: "Posso provarlo prima di iniziare un percorso?",
-    a: "Sì: in valutazione gratuita possiamo fare un piccolo test su una zona limitata, così senti tu stessa la differenza. Senza obbligo di acquisto.",
+    a: "Durante la valutazione di 30–40 minuti definiamo se il percorso è pertinente e come impostarlo. La valutazione è gratuita quando finalizzata al Percorso REBEL; l’home care resta separata.",
   },
 ];
 
@@ -93,18 +93,18 @@ const faqSchema = {
 const principles = [
   {
     kicker: "Cosa fa",
-    title: "Raffredda mentre lavora",
-    body: "La punta del manipolo abbassa la temperatura cutanea durante l'impulso laser. La sensazione di calore/dolore cala drasticamente, anche dove la pelle è sottile.",
+    title: "Accompagna il comfort",
+    body: "ICE Polar è il linguaggio REBEL per il comfort del freddo durante la seduta. Il raffreddamento tecnico di Lumina X1 Pro è Ice Point Cooling, a contatto in zaffiro.",
   },
   {
     kicker: "Come lo usiamo",
     title: "Parametri sempre tarati",
-    body: "Il comfort non sostituisce il metodo. Lavoriamo su settaggio, fototipo e calendario reali: il manipolo aiuta, non improvvisa.",
+    body: "Il comfort non sostituisce il metodo. Lavoriamo su settaggio, pelle, caratteristiche del pelo e calendario reali: la tecnologia viene sempre adattata alla valutazione.",
   },
   {
     kicker: "Perché conta",
-    title: "Più comoda = continuità",
-    body: "Una seduta sopportabile è una seduta che ti fa tornare. Il percorso laser funziona se lo segui: il comfort è la condizione che lo rende possibile.",
+    title: "Comfort e continuità",
+    body: "Una seduta gestibile rende più semplice seguire il calendario concordato. La continuità resta parte del metodo, senza garanzie uguali per tutti.",
   },
 ];
 
@@ -126,12 +126,12 @@ const shortcuts = [
 
   <PageHero
     image={m.hero}
-    kicker="Manipolo Ice Polar · Carmagnola"
-    title="Ice Polar: il laser che _resta comodo_, anche dove la pelle è sottile."
-    lead="Il manipolo Ice Polar raffredda la pelle in tempo reale durante l'impulso laser. Risultato: ascelle, inguine e baffetti diventano sedute brevi e sopportabili, non un test di resistenza."
-    bullets={["Raffreddamento attivo durante l'impulso", "Più comfort su ascelle, inguine, baffetti", "Test possibile in valutazione gratuita"]}
-    meta={["Diodo Thory · Ice Polar", "Viale Barbaroux 20"]}
-    ctaPrimary={{ label: "Prenota la valutazione gratuita", href: "/contatti", halo: true }}
+    kicker="Comfort ICE Polar · Carmagnola"
+    title="ICE Polar: il comfort che _accompagna_ il percorso laser."
+    lead="Lumina X1 Pro di THORY è il dispositivo laser. ICE Polar è il naming REBEL dedicato al comfort del freddo durante la seduta: due informazioni distinte, raccontate con chiarezza."
+    bullets={["Raffreddamento tecnico Ice Point Cooling", "Comfort ICE Polar nel percorso REBEL", "Valutazione · 30–40 minuti"]}
+    meta={["Lumina X1 Pro di THORY · comfort ICE Polar", "Viale Barbaroux 20"]}
+    ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp }}
   />
 
@@ -140,7 +140,7 @@ const shortcuts = [
       <SectionHead
         kicker="Come funziona"
         title="Tre cose che servono _davvero_ a saperlo."
-        lead="Il manipolo Ice Polar in tre punti: cosa fa, come lo usiamo in cabina, perché ti permette di completare il percorso laser senza saltarlo."
+        lead="Il comfort ICE Polar in tre punti: che cosa indica, come entra nel metodo REBEL e perché la valutazione resta decisiva."
       />
       <div class="card-grid card-grid--3">
         {principles.map((p) => (
@@ -156,10 +156,10 @@ const shortcuts = [
         <SplitFeature
           image={m.splitA}
           side="right"
-          kicker="La punta che raffredda"
-          title="Quel _freddo_ al contatto è la pelle protetta."
-          body="Mentre l'impulso lavora sul follicolo, la punta a contatto resta a bassa temperatura. È questo che abbassa la sensazione di calore e rende la seduta breve e gestibile, anche sulle zone più delicate."
-          bullets={["Raffreddamento attivo, in tempo reale", "Sedute rapide anche su ascelle e inguine", "Comfort che ti fa completare il percorso"]}
+          kicker="Tecnologia e comfort"
+          title="Il freddo al contatto, raccontato _senza confondere i nomi_."
+          body="Lumina X1 Pro integra Ice Point Cooling, il raffreddamento THORY a contatto in zaffiro. ICE Polar resta il naming REBEL per il comfort che accompagna la seduta."
+          bullets={["Lumina X1 Pro di THORY", "Ice Point Cooling a contatto in zaffiro", "Comfort ICE Polar nel percorso REBEL"]}
           cta={{ label: "Vedi il percorso laser completo", href: "/epilazione-laser-carmagnola" }}
         />
       </div>
@@ -172,15 +172,14 @@ const shortcuts = [
         <p class="kicker">In studio</p>
         <h2 class="card__title">Il comfort è una condizione, non una promessa.</h2>
         <p class="card__body">
-          Ice Polar è il manipolo del nostro laser diodo Thory, con sistema di raffreddamento attivo
-          integrato. Quando senti il "freddo" al contatto, è la pelle che viene protetta in tempo reale
-          mentre l'impulso lavora sul follicolo. Su ascelle, inguine e baffetti è la differenza tra
-          una seduta comoda e una difficile da reggere.
+          Il dispositivo è Lumina X1 Pro di THORY, con raffreddamento Ice Point Cooling a contatto in
+          zaffiro. ICE Polar è invece il naming REBEL dedicato al comfort del freddo che accompagna la
+          seduta. La percezione resta personale e viene ascoltata durante il trattamento.
         </p>
         <p class="card__body">
           Detto questo: il laser è un percorso, non una seduta singola. Il comfort serve a farti
           arrivare alla fine. Quello che fa la differenza vera sono i parametri impostati bene e un
-          calendario sensato — non il manipolo da solo.
+          calendario sensato — non un singolo elemento tecnologico.
         </p>
       </article>
       <aside class="card card--feature">
@@ -219,17 +218,17 @@ const shortcuts = [
     <div class="container">
       <InlineCta
         kicker="Vuoi sentirlo tu?"
-        title="Prova Ice Polar in _valutazione gratuita_."
-        lead="Quindici minuti in studio: ti raccontiamo la tecnologia, leggiamo zona e fototipo, e se vuoi facciamo un piccolo test su una zona limitata. Senza obbligo di acquisto."
+        title="Valuta il percorso con comfort _ICE Polar_."
+        lead="Valutazione e analisi durano 30–40 minuti e sono gratuite quando finalizzate alla costruzione del Percorso: raccontiamo la tecnologia, leggiamo zona e fototipo e definiamo i passi successivi."
         primaryHref="/contatti"
-        primaryLabel="Prenota la valutazione gratuita"
+        primaryLabel="Prenota la valutazione"
         secondaryHref="/epilazione-laser-carmagnola"
         secondaryLabel="Vedi il percorso laser"
       />
     </div>
   </section>
 
-  <StickyBookingBar priceHint="Prova Ice Polar gratis" primary={{ label: "Valutazione gratuita", href: "/contatti" }} />
+  <StickyBookingBar priceHint="Valutazione 30–40 min" primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

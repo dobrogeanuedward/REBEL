@@ -41,8 +41,8 @@ export default function LandingForm({
   source,
   defaultMessage = "",
   defaultRitual = "",
-  submitLabel = "Prenota la prima visita gratuita",
-  showRitual = true,
+  submitLabel = "Prenota la valutazione",
+  showRitual = false,
   showMessage = true,
   successMessage,
 }: Props) {

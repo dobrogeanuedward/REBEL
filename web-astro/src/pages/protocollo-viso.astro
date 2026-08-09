@@ -12,9 +12,9 @@ import { media } from "@/lib/page-media";
 import { siteConfig } from "@/lib/site-config";
 
 const meta = createPageMeta({
-  title: "Protocollo viso epigenetico Carmagnola — prima consulenza gratuita | Rebel",
+  title: "Protocollo viso epigenetico Carmagnola — valutazione REBEL | Rebel",
   description:
-    "Protocollo viso con linea epigenetica Marbellas e biocosmetica Eberlin a Carmagnola. Prima visita di lettura pelle gratuita: capiamo da dove partire e quante sedute servono davvero.",
+    "Protocollo viso con Marbellas ed Eberlin a Carmagnola. Valutazione REBEL di 30–40 minuti, gratuita quando finalizzata al Percorso; home care separata.",
   path: "/protocollo-viso",
   keywords: [
     "protocollo viso Carmagnola",
@@ -38,7 +38,7 @@ const serviceSchema = {
   provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
   areaServed: siteConfig.areasServed,
   description:
-    "Protocollo viso costruito sulla tua pelle: lettura iniziale, scelta della linea (Marbellas epigenetica o Eberlin biocosmetica) e calendario di sedute calibrato. Prima visita gratuita.",
+    "Protocollo viso costruito sulla tua pelle: valutazione di 30–40 minuti, scelta della linea e calendario calibrato. Gratuita quando finalizzata al Percorso REBEL; home care separata.",
 };
 
 const faqs = [
@@ -56,7 +56,7 @@ const faqs = [
   },
   {
     q: "Cosa succede nella prima visita?",
-    a: "Quindici minuti gratuiti in studio: leggiamo la pelle (idratazione, sebo, sensibilità, segni del tempo), capiamo la tua routine attuale e ti diciamo se ha senso partire da una pulizia viso classica o da un protocollo strutturato. Esci con una proposta scritta.",
+    a: "In 30–40 minuti leggiamo la pelle, ascoltiamo la priorità e definiamo un possibile Percorso REBEL con frequenza e prezzo. La valutazione è gratuita quando finalizzata al Percorso; l’home care eventualmente consigliata resta separata.",
   },
   {
     q: "Quanto costa un trattamento viso da Rebel?",
@@ -78,24 +78,24 @@ const faqSchema = {
   meta={meta}
   bodyClass="page-landing--viso"
   ctaHref="#form"
-  ctaLabel="Prenota gratis"
+  ctaLabel="Prenota la valutazione"
 >
   <JsonLd data={breadcrumb} />
   <JsonLd data={serviceSchema} />
   <JsonLd data={faqSchema} />
 
   <LandingHero
-    badge="Prima visita gratuita"
+    badge="Valutazione · 30–40 minuti"
     kicker="Trattamento viso · Carmagnola"
     title="Protocollo viso costruito sulla _tua_ pelle."
-    lead="Niente trattamento standard uguale per tutte. Leggiamo la tua pelle in studio, scegliamo la linea giusta — Marbellas (epigenetica) o Eberlin (biocosmetica) — e definiamo insieme un calendario di sedute calibrato. La prima visita è gratuita."
+    lead="Leggiamo la pelle, scegliamo la linea pertinente — Marbellas o Eberlin — e definiamo il calendario del possibile Percorso. La valutazione è gratuita quando finalizzata al Percorso REBEL; home care separata."
     bullets={[
       { text: "Lettura della pelle in studio (idratazione, sebo, sensibilità, segni)." },
       { text: "Scelta della linea: Marbellas epigenetica o Eberlin biocosmetica." },
       { text: "Calendario sedute realistico, non pacchetti pre-imposti." },
       { text: "Prezzi pubblici: pulizia viso 55 €, protocolli avanzati da 75 €." },
     ]}
-    primaryCta={{ label: "Prenota la prima visita", href: "#form" }}
+    primaryCta={{ label: "Prenota la valutazione", href: "#form" }}
     secondaryCta={{
       label: "Scopri Marbellas / Eberlin",
       href: "/protocolli-epigenetici",
@@ -134,8 +134,8 @@ const faqSchema = {
         body: "Nome, telefono e — se vuoi — cosa vorresti migliorare (luminosità, segni, sensibilità…).",
       },
       {
-        title: "Prima visita di 15 minuti",
-        body: "Lettura della pelle, valutazione delle priorità e scelta della linea adatta alla tua pelle.",
+        title: "Valutazione di 30–40 minuti",
+        body: "Lettura della pelle, valutazione delle priorità e scelta della linea pertinente.",
       },
       {
         title: "Proposta scritta",
@@ -158,13 +158,12 @@ const faqSchema = {
   />
 
   <LandingFormCard
-    kicker="Prima visita viso"
-    title="Prenota la tua lettura pelle gratuita."
+    kicker="Valutazione viso"
+    title="Prenota la lettura della pelle."
     lead="Bastano nome e numero. Se vuoi, scrivici già cosa vorresti migliorare (luminosità, idratazione, segni, sensibilità…)."
     source="landing-viso"
-    defaultRitual="viso-marbellas"
-    submitLabel="Prenota la prima visita gratuita"
-    showRitual={true}
+    submitLabel="Prenota la valutazione"
+    showRitual={false}
     showMessage={true}
   />
 

@@ -12,14 +12,14 @@ import { media } from "@/lib/page-media";
 import { siteConfig } from "@/lib/site-config";
 
 const meta = createPageMeta({
-  title: "Epilazione laser Carmagnola — prima prova gratuita | Rebel",
+  title: "Epilazione laser Carmagnola — valutazione 30–40 minuti | Rebel",
   description:
-    "Provala prima di comprarla: prima visita laser gratuita con Thory Ice Polar a Carmagnola. Ti spieghiamo zone, sedute e prezzi senza pacchetti pre-confezionati.",
+    "Valutazione laser di 30–40 minuti a Carmagnola con Lumina X1 Pro di THORY e comfort ICE Polar. Gratuita quando finalizzata al Percorso REBEL; home care separata.",
   path: "/epilazione-laser-prova",
   keywords: [
     "epilazione laser Carmagnola",
     "laser diodo Carmagnola",
-    "prova laser gratuita Carmagnola",
+    "valutazione laser Carmagnola",
     "Ice Polar Carmagnola",
     "epilazione definitiva Carmagnola",
   ],
@@ -27,25 +27,18 @@ const meta = createPageMeta({
 
 const breadcrumb = buildBreadcrumbSchema([
   { name: "Home", path: "/" },
-  { name: "Prova laser gratuita", path: "/epilazione-laser-prova" },
+  { name: "Valutazione laser", path: "/epilazione-laser-prova" },
 ]);
 
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "Epilazione laser diodo Ice Polar",
+  name: "Epilazione laser con Lumina X1 Pro e comfort ICE Polar",
   serviceType: "Epilazione laser",
   provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
   areaServed: siteConfig.areasServed,
   description:
-    "Trattamento di epilazione laser con diodo Thory Ice Polar a Carmagnola. Prima visita di valutazione gratuita: lettura di pelle, fototipo e zona, parametri calibrati e proposta scritta.",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "EUR",
-    description: "Prima visita di valutazione laser, gratuita e senza obbligo",
-    url: `${siteConfig.siteUrl}/epilazione-laser-prova`,
-  },
+    "Trattamento con Lumina X1 Pro di THORY e comfort ICE Polar. Valutazione di 30–40 minuti, gratuita quando finalizzata al Percorso REBEL; home care separata.",
 };
 
 const faqs = [
@@ -54,8 +47,8 @@ const faqs = [
     a: "Dipende dalla zona. Per esempio, ascelle 25 €, inguine completo 45 €, gambe complete 110 €. Tutti i prezzi sono pubblici nel listino e non cambiano in base a chi entra. Pacchetti solo se ha senso, mai imposti.",
   },
   {
-    q: "Cosa include la prima visita gratuita?",
-    a: "Quindici minuti in studio: lettura del fototipo, valutazione di pelle e zona, spiegazione su come funziona il laser Ice Polar e una proposta scritta con numero stimato di sedute, intervalli e costo totale.",
+    q: "Cosa include la valutazione laser?",
+    a: "Trenta–quaranta minuti in studio: lettura del fototipo, valutazione di pelle e zona, spiegazione di Lumina X1 Pro e del comfort ICE Polar, più una proposta scritta con intervalli e costi indicativi. La valutazione è gratuita quando è finalizzata alla costruzione del Percorso.",
   },
   {
     q: "Quante sedute servono?",
@@ -63,15 +56,15 @@ const faqs = [
   },
   {
     q: "Fa male?",
-    a: "Il manipolo Ice Polar ha raffreddamento attivo a contatto: la maggior parte delle persone lo descrive come una sensazione calda, non dolorosa. Su zone più sensibili (inguine, viso) modifichiamo i parametri.",
+    a: "La percezione cambia in base alla persona e alla zona. Il comfort ICE Polar accompagna la seduta; su aree più sensibili, come inguine e viso, adattiamo i parametri alla risposta della pelle.",
   },
   {
     q: "Posso fare il laser d'estate?",
     a: "Sì, sulle zone non esposte al sole (ascelle, inguine, addome). Per gambe e viso valutiamo insieme: se ti esponi al sole spesso, conviene partire da settembre.",
   },
   {
-    q: "Per quali fototipi è adatto?",
-    a: "Il diodo Ice Polar lavora dal fototipo I al VI. La cosa importante è la valutazione iniziale per calibrare i parametri sul tuo specifico colore di pelle e tipo di pelo.",
+    q: "Come capisco se il laser è adatto a me?",
+    a: "Lo verifichiamo nella valutazione iniziale osservando pelle, zona e caratteristiche del pelo. Non diamo per scontata l'idoneità sulla base del solo fototipo e calibrare i parametri viene sempre prima della seduta.",
   },
 ];
 
@@ -89,24 +82,24 @@ const faqSchema = {
   meta={meta}
   bodyClass="page-landing--laser"
   ctaHref="#form"
-  ctaLabel="Prova gratis"
+  ctaLabel="Prenota la valutazione"
 >
   <JsonLd data={breadcrumb} />
   <JsonLd data={serviceSchema} />
   <JsonLd data={faqSchema} />
 
   <LandingHero
-    badge="Prima visita gratuita"
+    badge="Valutazione 30–40 min"
     kicker="Epilazione laser · Carmagnola"
-    title="Provalo prima. _Decidi dopo._"
-    lead="Prima visita laser di 15 minuti, gratuita: leggiamo pelle e fototipo, ti spieghiamo come lavora il manipolo Thory Ice Polar e ti consegniamo una proposta scritta con numero stimato di sedute e costi reali. Senza pacchetti imposti."
+    title="Valuta prima. _Costruisci il Percorso._"
+    lead="Valutazione laser di 30–40 minuti: leggiamo pelle e fototipo, ti spieghiamo Lumina X1 Pro di THORY e il comfort ICE Polar, poi prepariamo una proposta con calendario e costi reali. È gratuita quando costruiamo insieme il Percorso."
     bullets={[
-      { text: "Tecnologia Thory Ice Polar con raffreddamento attivo." },
-      { text: "Adatto a tutti i fototipi (I–VI), parametri calibrati su di te." },
+      { text: "Lumina X1 Pro di THORY, 755 / 808 / 940 / 1064 nm." },
+      { text: "Comfort ICE Polar e parametri definiti dopo la valutazione." },
       { text: "Listino pubblico: ascelle 25 €, inguine completo 45 €." },
       { text: "Niente pacchetti pre-confezionati. Paghi seduta per seduta o a pacchetto, decidi tu." },
     ]}
-    primaryCta={{ label: "Prenota la prima visita gratuita", href: "#form" }}
+    primaryCta={{ label: "Prenota la valutazione", href: "#form" }}
     secondaryCta={{ label: "Vedi listino completo", href: "/listino-estetica-laser" }}
     footnote="Risposta entro poche ore via WhatsApp o telefono."
   />
@@ -115,8 +108,8 @@ const faqSchema = {
     kicker="Perché farlo da noi"
     items={[
       {
-        title: "Manipolo Ice Polar",
-        body: "Diodo di nuova generazione con punta refrigerata: zona dopo zona resta una sensazione tiepida, non un dolore.",
+        title: "Comfort ICE Polar",
+        body: "Il freddo accompagna la seduta; percezione e parametri vengono gestiti zona per zona, senza promettere assenza di sensazioni.",
       },
       {
         title: "Operatori formati",
@@ -135,7 +128,7 @@ const faqSchema = {
 
   <LandingSteps
     kicker="Come funziona la prima visita"
-    title="Quindici minuti per capire se è la cosa giusta per te."
+    title="Trenta–quaranta minuti per costruire il Percorso con criterio."
     steps={[
       {
         title: "Compili il form",
@@ -161,17 +154,17 @@ const faqSchema = {
     height="sm"
     align="center"
     kicker="Epilazione laser · Carmagnola"
-    quote="Provalo prima, _decidi dopo_: nessun pacchetto imposto."
+    quote="Valutazione, parametri e calendario: il Percorso nasce da qui."
     cite="Studio Rebel · Viale Barbaroux 20"
   />
 
   <LandingFormCard
-    kicker="Prima visita laser"
-    title="Prenota la tua prima visita laser."
+    kicker="Valutazione laser"
+    title="Prenota la valutazione laser."
     lead="Bastano nome e numero. Se vuoi, scrivici già la zona che ti interesserebbe trattare (ascelle, inguine, gambe, viso…)."
     source="landing-laser"
     defaultMessage=""
-    submitLabel="Prenota la prima visita gratuita"
+    submitLabel="Prenota la valutazione"
     showRitual={false}
     showMessage={true}
   />

@@ -88,9 +88,9 @@ const relatedLinksSchema =
     kicker="Protocollo professionale · Carmagnola"
     title={`${protocol.name}: _obiettivi, benefici e prezzo_.`}
     lead={protocol.longDescription}
-    bullets={[protocol.price, "Valutazione iniziale gratuita", "Programma personalizzato"]}
-    meta={[protocol.price, "Visita iniziale di circa 15 minuti", "Viale Barbaroux 20"]}
-    ctaPrimary={{ label: "Prenota la prima visita", href: "/contatti", halo: true }}
+    bullets={[protocol.price, "Valutazione REBEL · 30–40 minuti", "Programma personalizzato"]}
+    meta={[protocol.price, "Gratuita se finalizzata al Percorso", "Viale Barbaroux 20"]}
+    ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Vedi tutti i protocolli", href: "/protocolli-epigenetici" }}
   />
 
@@ -173,18 +173,18 @@ const relatedLinksSchema =
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Prima visita gratuita"
+        kicker="Valutazione REBEL · 30–40 minuti"
         title={`Scopri se _${protocol.name}_ è adatto alla tua pelle.`}
-        lead="In circa quindici minuti valutiamo la zona, ascoltiamo il tuo obiettivo e ti spieghiamo trattamento, frequenza e prezzo."
+        lead="In 30–40 minuti valutiamo la zona, ascoltiamo l’obiettivo e definiamo trattamento, frequenza e prezzo. La valutazione è gratuita quando finalizzata al Percorso REBEL; home care separata."
         primaryHref="/contatti"
-        primaryLabel="Prenota la prima visita"
+        primaryLabel="Prenota la valutazione"
         secondaryHref="/protocolli-epigenetici"
         secondaryLabel="Vedi tutti i protocolli"
       />
     </div>
   </section>
 
-  <StickyBookingBar primary={{ label: "Prenota la prima visita", href: "/contatti" }} />
+  <StickyBookingBar primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

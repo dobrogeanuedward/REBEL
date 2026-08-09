@@ -29,7 +29,7 @@ const sentenceRules: Array<[RegExp, string]> = [
   [/Se non sai da dove partire/gi, "Se non sai quale trattamento scegliere"],
   [/Non sai da dove partire/gi, "Non sai quale trattamento scegliere"],
   [/Scritte da chi lo fa in cabina, non da un copy\./gi, "Basate sui servizi e sulle modalità utilizzate nello studio."],
-  [/Hai letto, hai capito[^.]*\./gi, "Dopo la guida puoi prenotare una valutazione gratuita e ricevere indicazioni specifiche."],
+  [/Hai letto, hai capito[^.]*\./gi, "Dopo la guida puoi prenotare una valutazione REBEL di 30–40 minuti e ricevere indicazioni specifiche."],
   [/Si parte da quello che ti serve adesso[^.]*\./gi, "Il trattamento viene scelto in base alla zona e al risultato che vuoi ottenere."],
   [/In pratica: poche scelte fatte bene, portate avanti con continuità\./gi, "In pratica: pochi trattamenti mirati, programmati con frequenza regolare e controlli."],
   [/A Carmagnola spesso si parte da una richiesta semplice:[^.]*\./gi, "Le richieste più comuni riguardano luminosità del viso, ordine di mani e sopracciglia, comfort dei piedi, rilassamento ed epilazione laser."],

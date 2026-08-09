@@ -1,5 +1,5 @@
 {
-  "version": "rebel-site-assets-v2",
+  "version": "rebel-site-assets-v3",
   "generatedAt": "2026-08-09",
   "direction": {
     "palette": [
@@ -206,6 +206,15 @@
         "desktop": "rebel/studio/thory-room-desktop.webp",
         "mobile": "rebel/studio/thory-room-mobile.webp"
       }
+    },
+    "thory": {
+      "luminaX1Pro": "rebel/technologies/thory/lumina-x1-pro/official-front-three-quarter.webp",
+      "luminaX3": "rebel/technologies/thory/lumina-x3/hero.webp",
+      "luminaK3": "rebel/technologies/thory/lumina-k3/hero.webp",
+      "auraQ2": "rebel/technologies/thory/aura-q2/hero.webp",
+      "cryoShapeX2": "rebel/technologies/thory/cryoshape-x2/hero.webp",
+      "infraPressX2": "rebel/technologies/thory/infrapress-x2/hero.webp",
+      "tecar448": "rebel/technologies/thory/tecar-448-revolution/hero.webp"
     }
   },
   "assets": [
@@ -696,6 +705,62 @@
       "height": 821,
       "bytes": 137528,
       "sha256": "2fbb2939e3d8195ac882edd539f1aa2ea1d863dfa82465f8a787c9a923e0ce7f"
+    },
+    {
+      "key": "rebel/technologies/thory/aura-q2/hero.webp",
+      "mime": "image/webp",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 43490,
+      "sha256": "c8c36210923a6d842c95779686d478d213501632503a47d5872a1bbc190f1841"
+    },
+    {
+      "key": "rebel/technologies/thory/cryoshape-x2/hero.webp",
+      "mime": "image/webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 37274,
+      "sha256": "edbf752f5b2545db52e433838b6af5e0480cbf4432d8f1f1756e28231a89dfa8"
+    },
+    {
+      "key": "rebel/technologies/thory/infrapress-x2/hero.webp",
+      "mime": "image/webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 11342,
+      "sha256": "03277fb309697b9430e58c9f3d59a227f1e21d02380f841bf40622aaf8372f57"
+    },
+    {
+      "key": "rebel/technologies/thory/lumina-k3/hero.webp",
+      "mime": "image/webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 31004,
+      "sha256": "44627da5cf04d47e1644951a1cd073c715d2eeaf33d04f1702cfcd5de6d4d792"
+    },
+    {
+      "key": "rebel/technologies/thory/lumina-x1-pro/official-front-three-quarter.webp",
+      "mime": "image/webp",
+      "width": 1280,
+      "height": 725,
+      "bytes": 29024,
+      "sha256": "a0a44fb7ff55cccd368f82ae9f43d064b164dd2701b129d931111a0ec4603a08"
+    },
+    {
+      "key": "rebel/technologies/thory/lumina-x3/hero.webp",
+      "mime": "image/webp",
+      "width": 1055,
+      "height": 1491,
+      "bytes": 35264,
+      "sha256": "6aa97103347afda2b6af6af39fd17c4fa2653e13a89b1d82d8711523bcae2c69"
+    },
+    {
+      "key": "rebel/technologies/thory/tecar-448-revolution/hero.webp",
+      "mime": "image/webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 32898,
+      "sha256": "6dcccb97ab605f8fe4691c8674b058dafbcaed4616e70ed860229e6176a97ccd"
     }
   ]
 }

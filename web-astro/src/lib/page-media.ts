@@ -73,11 +73,11 @@ export const media = {
       src: siteAsset("home.hero.laser.desktop"),
       alt: "Epilazione laser Ice Polar con protezioni e gesto professionale",
       ratio: "16/9",
-      prompt: "Real Ice Polar treatment in progress, protective eyewear, one coherent leg segment and device contact; tight crop, no room.",
+      prompt: "Real professional laser treatment in progress, protective eyewear, one coherent leg segment and device contact; tight crop, no room.",
     } as ImageAsset,
     handpiece: {
       src: siteAsset("services.laser.handpiece.desktop"),
-      alt: "Manipolo laser Ice Polar in appoggio corretto sulla pelle",
+      alt: "Applicatore laser professionale in appoggio corretto sulla pelle",
       ratio: "4/5",
       prompt: "Tangent macro of the handpiece in real contact with natural skin; coherent hand, cable and pressure.",
     } as ImageAsset,

@@ -18,33 +18,33 @@ export const protocolCards = protocolPages.map((protocol) => ({
 export const methodSteps = [
   {
     step: "01",
-    title: "Colloquio iniziale",
-    text: "Ci racconti che cosa vuoi migliorare, quali trattamenti hai già provato, la tua routine e quanto tempo puoi dedicare agli appuntamenti.",
+    title: "Valutazione",
+    text: "In 30–40 minuti raccogliamo obiettivi, abitudini e informazioni utili, poi osserviamo pelle, corpo o area da trattare.",
   },
   {
     step: "02",
-    title: "Valutazione professionale",
-    text: "Osserviamo pelle o corpo e rileviamo gli aspetti da trattare: idratazione, sensibilità, luminosità, tono, uniformità, tessuti o ricrescita del pelo.",
+    title: "Priorità",
+    text: "Definiamo una priorità leggibile — preparare, proteggere, equilibrare, illuminare, uniformare, rigenerare, preservare, rimodellare o semplificare.",
   },
   {
     step: "03",
-    title: "Preparazione della pelle",
-    text: "Quando necessario iniziamo con Skin Reset o con un trattamento preparatorio, così la pelle riceve meglio gli attivi e le sedute successive.",
+    title: "Skin Reset",
+    text: "Quando necessario prepariamo la pelle prima di chiedere un risultato più specifico, così materia e sedute successive partono da una base più ricettiva.",
   },
   {
     step: "04",
-    title: "Programma di trattamento",
-    text: "Definiamo quali trattamenti, prodotti e tecnologie usare, quante sedute prevedere e con quale frequenza iniziare.",
+    title: "Percorso",
+    text: "Costruiamo la combinazione di attivi, botaniche, manualità e tecnologie, con durata, frequenza e prezzo dichiarati prima di iniziare.",
   },
   {
     step: "05",
-    title: "Controllo dei risultati",
-    text: "Durante gli appuntamenti verifichiamo come risponde la pelle o il corpo e modifichiamo intensità, frequenza o combinazioni quando necessario.",
+    title: "Rivalutazione",
+    text: "Durante il programma confrontiamo la risposta con la Mappa e modifichiamo intensità, frequenza o combinazioni quando serve.",
   },
   {
     step: "06",
-    title: "Mantenimento",
-    text: "Dopo la fase iniziale programmiamo richiami e una routine semplice per conservare il risultato raggiunto.",
+    title: "Preservare",
+    text: "Dopo la fase iniziale definiamo richiami e una routine sostenibile per accompagnare la qualità raggiunta nel tempo.",
   },
 ];
 

@@ -285,16 +285,6 @@ export function buildLocalBusinessSchema() {
         },
       ],
     },
-    makesOffer: [
-      {
-        "@type": "Offer",
-        name: "Prima visita gratuita + regalo",
-        price: "0",
-        priceCurrency: "EUR",
-        availability: "https://schema.org/InStock",
-        url: `${siteConfig.siteUrl}/prima-visita-gratuita`,
-      },
-    ],
     sameAs: [
       ...primaryActivityProfiles,
       siteConfig.social.tiktok,
