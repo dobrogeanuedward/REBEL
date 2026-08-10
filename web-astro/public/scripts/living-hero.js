@@ -41,9 +41,9 @@
       title: 'Il Metodo Rebel parte dalla tua pelle.',
       accent: 'pelle',
       lead: 'Nella prima visita definiamo priorità, risultato, trattamenti, frequenza e controlli. Tutto viene raccolto nella tua Mappa Rebel.',
-      signature: 'Prima visita gratuita · Mappa Rebel · controlli',
+      signature: 'Valutazione Rebel · Mappa · controlli',
       primary: { label: 'Scopri il Metodo Rebel', href: '/metodo-rebel' },
-      secondary: { label: 'Prenota la prima visita', href: '/contatti' }
+      secondary: { label: 'Prenota la valutazione', href: '/contatti' }
     },
     {
       desktopImage: siteAsset('home.hero.face.desktop'),
@@ -94,8 +94,8 @@
       accent: 'ICE Polar',
       lead: 'La valutazione definisce zone, parametri e frequenza. ICE Polar accompagna il trattamento con un raffreddamento pensato per il comfort.',
       signature: 'ICE Polar · comfort · parametri personalizzati',
-      primary: { label: 'Scopri il Laser ICE Polar', href: '/epilazione-laser-carmagnola' },
-      secondary: { label: 'Guarda prezzi e zone', href: '/listino-estetica-laser#laser' }
+      primary: { label: 'Scopri la promo laser', href: '/promo-epilazione-laser-carmagnola' },
+      secondary: { label: 'Come funziona il percorso', href: '/epilazione-laser-carmagnola' }
     },
     {
       desktopImage: siteAsset('home.hero.lamination.desktop'),

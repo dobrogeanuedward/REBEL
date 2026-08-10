@@ -9,6 +9,7 @@ import FullBleedBand from "@/components/FullBleedBand.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import NearMeBlock from "@/components/NearMeBlock.astro";
+import LaserOffer from "@/components/LaserOffer.astro";
 import {
   buildBreadcrumbSchema,
   buildServiceSchema,
@@ -16,13 +17,14 @@ import {
 } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 import { getPageMedia, media } from "@/lib/page-media";
+import { laserOffer } from "@/lib/laser-offer";
 
 const m = getPageMedia("/epilazione-laser-carmagnola");
 
 const meta = createPageMeta({
   title: "Epilazione laser ICE Polar a Carmagnola — Viso e corpo",
   description:
-    "Epilazione laser con ICE Polar a Carmagnola per viso e corpo. Lumina X1 Pro di THORY, prezzi da €25,90 e valutazione REBEL di 30–40 minuti.",
+    "Epilazione laser con ICE Polar a Carmagnola per viso e corpo. Lumina X1 Pro di THORY, listino ordinario da €25,90 e valutazione REBEL di 30–40 minuti.",
   path: "/epilazione-laser-carmagnola",
   image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e3635dd7-e046-46af-56a5-cf36d8239c00/public",
   openGraphType: "article",
@@ -54,7 +56,6 @@ const laserServiceSchema = buildServiceSchema(
   "Epilazione laser viso e corpo con Lumina X1 Pro di THORY, quattro lunghezze d’onda, comfort ICE Polar, valutazione iniziale e calendario specifico per ogni zona.",
   "/epilazione-laser-carmagnola",
   {
-    priceFrom: 25.9,
     keywords: [
       "epilazione laser Carmagnola",
       "epilazione laser vicino a me",
@@ -71,7 +72,7 @@ const laserServiceSchema = buildServiceSchema(
 const faqs = [
   {
     q: "Quanto costa l’epilazione laser da Rebel a Carmagnola?",
-    a: "I prezzi partono da €25,90 per una singola area e cambiano in base alla zona. Nel listino online trovi i prezzi per viso e corpo. Se scegli di iniziare il Percorso REBEL, la valutazione è gratuita.",
+    a: "Fuori dalla promozione, il prezzo ordinario parte da €25,90 per una singola zona e cambia in base all’estensione. Nel listino online trovi i prezzi per viso e corpo. Se scegli di iniziare il Percorso REBEL, la valutazione iniziale è gratuita.",
   },
   {
     q: "Quante sedute servono?",
@@ -91,7 +92,7 @@ const faqs = [
   },
   {
     q: "Come prenoto la valutazione?",
-    a: "Scrivi su WhatsApp o compila il modulo nella pagina contatti. In 30–40 minuti valutiamo pelle, pelo e zone, poi ti spieghiamo parametri, calendario e prezzo. Se scegli di iniziare il Percorso REBEL, la valutazione è gratuita.",
+    a: "Scrivi su WhatsApp o compila il modulo nella pagina contatti. In 30–40 minuti valutiamo pelle, pelo e zone, poi ti spieghiamo parametri, calendario e prezzo. Se scegli di iniziare il Percorso REBEL, la valutazione iniziale è gratuita.",
   },
 ];
 
@@ -133,7 +134,7 @@ const principles = [
   {
     kicker: "01 · Valutazione · 30–40 minuti",
     title: "Controlliamo zona, fototipo e caratteristiche del pelo.",
-    body: "In 30–40 minuti valutiamo pelle, pelo e zona. Prima della prima seduta ti spieghiamo parametri iniziali, frequenza e prezzo. Se scegli di iniziare il Percorso REBEL, la valutazione è gratuita.",
+    body: "In 30–40 minuti valutiamo pelle, pelo e zona. Prima della prima seduta ti spieghiamo parametri iniziali, frequenza e prezzo. Se scegli di iniziare il Percorso REBEL, la valutazione iniziale è gratuita.",
   },
   {
     kicker: "02 · Tecnologia Thory",
@@ -205,11 +206,17 @@ const zoneShortcuts = [
     kicker="Epilazione Laser ICE Polar · Carmagnola"
     title="Laser per _viso e corpo_, con raffreddamento attivo."
     lead="Lumina X1 Pro di THORY integra quattro lunghezze d’onda e il raffreddamento a contatto in zaffiro Ice Point Cooling. ICE Polar raffredda la pelle durante la seduta; la valutazione definisce zone, parametri, frequenza e prezzo."
-    bullets={["Viso, corpo, donna e uomo", "Prezzi da €25,90", "Valutazione REBEL · 30–40 min"]}
+    bullets={["Viso, corpo, donna e uomo", "Listino ordinario da €25,90", "Valutazione REBEL · 30–40 min"]}
     meta={["Lumina X1 Pro · 755 / 808 / 940 / 1064 nm", "Viale Barbaroux 20"]}
     ctaPrimary={{ label: "Prenota la valutazione laser", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Consulta prezzi e zone", href: "/listino-estetica-laser#laser" }}
   />
+
+  <section class="section section--tight">
+    <div class="container">
+      <LaserOffer />
+    </div>
+  </section>
 
   <section class="section">
     <div class="container">
@@ -324,13 +331,13 @@ const zoneShortcuts = [
       <InlineCta
         kicker="Valutazione laser · 30–40 minuti"
         title="Ricevi indicazioni su zone, parametri, _frequenza e prezzo_."
-        lead="In 30–40 minuti valutiamo pelle, pelo e zone e ti spieghiamo parametri, frequenza e prezzo. Se scegli di iniziare il Percorso REBEL, la valutazione è gratuita."
+        lead="In 30–40 minuti valutiamo pelle, pelo e zone e ti spieghiamo parametri, frequenza e prezzo. Se scegli di iniziare il Percorso REBEL, la valutazione iniziale è gratuita."
         primaryLabel="Prenota la valutazione laser"
       />
     </div>
   </section>
 
-  <StickyBookingBar priceHint="Laser da €25,90 per area" primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
+  <StickyBookingBar promo priceHint={laserOffer.stickyLabel} primary={{ label: "Richiedi la promo", href: laserOffer.contactPath }} />
 </BaseLayout>
 
 <style>

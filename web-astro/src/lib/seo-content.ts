@@ -83,7 +83,7 @@ export const servicePages: ServicePage[] = [
     slug: "pulizia-viso-carmagnola",
     name: "Pulizia viso a Carmagnola",
     shortDescription:
-      "Pulizia viso delicata per rimuovere le impurità superficiali e lasciare la pelle più fresca, uniforme e luminosa.",
+      "Trattamento viso con detersione, esfoliazione delicata e passaggi mirati in base alle impurità osservate e alla sensibilità della pelle.",
     longDescription:
       "La seduta inizia con l’osservazione della pelle e comprende detersione, esfoliazione delicata, pulizia mirata e una fase finale lenitiva. Adattiamo prodotti e intensità alle condizioni della pelle, sia come trattamento singolo sia come preparazione a un percorso viso.",
     priceHint: "da 49 €",
@@ -104,7 +104,7 @@ export const servicePages: ServicePage[] = [
       },
       {
         q: "Dopo la pulizia viso avrò rossore?",
-        a: "Può succedere un lieve rossore, soprattutto se la pelle è reattiva. Lavoriamo in modo graduale e chiudiamo sempre con una fase lenitiva per lasciare la pelle il più tranquilla possibile.",
+        a: "Può comparire un lieve rossore, soprattutto se la pelle è reattiva. Lavoriamo in modo graduale e scegliamo intensità e prodotti in base alla sensibilità osservata.",
       },
       {
         q: "Cosa conviene fare (e non fare) dopo la seduta?",
@@ -133,7 +133,7 @@ export const servicePages: ServicePage[] = [
       {
         heading: "Che cosa comprende la pulizia viso",
         paragraphs: [
-          "La pulizia viso rimuove le impurità superficiali e può lasciare la pelle più fresca, uniforme e luminosa.",
+          "La pulizia viso viene adattata alle impurità, alla grana e alla sensibilità osservate all’inizio della seduta.",
           "La seduta comprende osservazione iniziale, detersione, esfoliazione delicata, pulizia mirata e una fase finale riequilibrante.",
         ],
       },
@@ -178,7 +178,7 @@ export const servicePages: ServicePage[] = [
     slug: "scrub-corpo-carmagnola",
     name: "Scrub corpo a Carmagnola",
     shortDescription:
-      "Scrub corpo con esfoliazione controllata per lasciare la pelle più liscia, uniforme e morbida al tatto.",
+      "Scrub corpo con esfoliazione controllata, adattata alla zona e alla sensibilità della pelle.",
     longDescription:
       "Lo scrub corpo è un trattamento esfoliante che rimuove le cellule superficiali in eccesso. Scegliamo prodotto, pressione e durata in base alla zona e alla sensibilità della pelle, poi completiamo la seduta con una fase idratante o lenitiva.",
     priceHint: "da 49 €",
@@ -286,11 +286,11 @@ export const servicePages: ServicePage[] = [
       },
       {
         q: "Su quali zone lavorate di solito?",
-        a: "Spesso su gambe e addome, ma adattiamo sempre le zone in base a come ti senti e a che tipo di obiettivo hai in mente.",
+        a: "Spesso su gambe e addome, ma scegliamo le zone in base a dove avverti pesantezza e all’esigenza che ci descrivi.",
       },
       {
         q: "C'è qualcosa da fare dopo la seduta?",
-        a: "Al termine ti diamo indicazioni adatte alla tua giornata. In genere consigliamo di idratarsi e di evitare subito calore eccessivo o attività molto intensa se ci si sente affaticati.",
+        a: "Al termine ti spieghiamo che cosa fare nelle ore successive, in base al trattamento e a come ti senti. In genere consigliamo di idratarsi e di evitare subito calore eccessivo o attività molto intensa se ci si sente affaticati.",
       },
       {
         q: "Se ho una condizione specifica, posso farlo comunque?",
@@ -338,7 +338,7 @@ export const servicePages: ServicePage[] = [
         heading: "Tra una seduta e l'altra",
         paragraphs: [
           "Movimento regolare e idratazione possono accompagnare il programma, quando sono compatibili con le tue condizioni e le indicazioni del medico.",
-          "Al termine di ogni seduta ti lasciamo soltanto le indicazioni pertinenti al trattamento svolto.",
+          "Al termine di ogni seduta ti diamo indicazioni semplici e coerenti con il trattamento svolto.",
         ],
       },
     ],
@@ -454,7 +454,7 @@ export const servicePages: ServicePage[] = [
       },
       {
         q: "Serve una cura a casa?",
-        a: "Sì, semplice e rapida, con consigli dedicati.",
+        a: "Sì. Dopo la seduta ti spieghiamo come trattare ciglia e sopracciglia nelle prime ore e nei giorni successivi.",
       },
       {
         q: "È adatta anche se ho ciglia/sopracciglia sottili?",
@@ -503,7 +503,7 @@ export const servicePages: ServicePage[] = [
       {
         heading: "Ciglia e sopracciglia nella routine quotidiana",
         paragraphs: [
-          "Ciglia e sopracciglia più disciplinate possono richiedere meno interventi nella routine quotidiana.",
+          "Ciglia e sopracciglia più disciplinate possono rendere più semplice la routine quotidiana.",
           "L’effetto può essere discreto e naturale oppure più definito, in base a ciò che concordiamo prima della seduta.",
         ],
       },
@@ -544,8 +544,8 @@ export const servicePages: ServicePage[] = [
         a: "Sì. Possiamo scegliere tonalità neutre e finiture discrete, adatte al colore della pelle e alla forma dell’unghia.",
       },
       {
-        q: "Voglio sentirmi subito in ordine: è una buona scelta?",
-        a: "Sì, se desideri mani curate e un colore che richieda meno ritocchi dello smalto classico. Possiamo realizzare sia effetti naturali sia finiture più visibili.",
+        q: "Per chi è indicato il semipermanente?",
+        a: "Per chi desidera mani curate e un colore che richieda meno ritocchi rispetto allo smalto classico. Possiamo realizzare finiture naturali o più visibili.",
       },
       {
         q: "Cosa conviene evitare per farlo durare meglio?",
@@ -628,14 +628,14 @@ export const servicePages: ServicePage[] = [
     slug: "pedicure-carmagnola",
     name: "Pedicure VIP con scrub a Carmagnola",
     shortDescription:
-      "Pedicure VIP con scrub per rifinire unghie e pelle e lasciare i piedi più lisci, ordinati e confortevoli.",
+      "Pedicure VIP con scrub per rifinire unghie e pelle e lasciare i piedi più lisci e ordinati.",
     longDescription:
       "Il Pedicure VIP unisce la cura estetica di unghie e cuticole a uno scrub dedicato alla pelle del piede. Adattiamo intensità e passaggi alle condizioni osservate, con particolare delicatezza su talloni secchi o zone più ispessite.",
     priceHint: "44 €",
     category: "estetica-classica",
     benefits: [
-      "Piedi più ordinati e curati, anche da vicino",
-      "Pelle più liscia e confortevole, soprattutto sui talloni secchi",
+      "Cura estetica di unghie, cuticole e pelle del piede",
+      "Attenzione mirata a talloni secchi e zone più ispessite",
       "Scrub e rifinitura adattati alle condizioni della pelle",
     ],
     faqs: [
@@ -684,13 +684,13 @@ export const servicePages: ServicePage[] = [
         heading: "Che cosa comprende il Pedicure VIP",
         paragraphs: [
           "Il trattamento comprende la cura estetica di unghie e cuticole, uno scrub dedicato alla pelle del piede e la rifinitura finale.",
-          "Adattiamo i passaggi alle condizioni della pelle per lasciare i piedi ordinati e confortevoli.",
+          "Adattiamo i passaggi alle condizioni della pelle, con maggiore delicatezza sulle zone sensibili.",
         ],
       },
       {
         heading: "Talloni secchi e pelle ispessita",
         paragraphs: [
-          "Sulle zone secche o ispessite procediamo con particolare delicatezza e senza forzare la pelle in una sola seduta.",
+          "Se la pelle è molto secca o ispessita, lavoriamo per gradi e ti spieghiamo come proseguire a casa.",
           "Al termine ti diamo indicazioni semplici per l’idratazione e la cura a casa.",
         ],
       },
@@ -893,7 +893,7 @@ export const servicePages: ServicePage[] = [
     priceHint: "da 25,90 € per zona",
     category: "laser",
     benefits: [
-      "Ricrescita progressivamente più gestibile nel tempo",
+      "Riduzione progressiva della ricrescita, con controlli durante il percorso",
       "Parametri adattati a fototipo, pelo e zona",
       "Calendario definito e aggiornato durante il percorso",
       "ICE Polar per rendere la seduta più confortevole",
@@ -901,7 +901,7 @@ export const servicePages: ServicePage[] = [
     faqs: [
       {
         q: "Il laser viso è adatto alle pelli sensibili?",
-        a: "Dipende dalle condizioni della pelle e dalla zona. Prima di iniziare facciamo una valutazione e, se il trattamento è indicato, adattiamo i parametri alla risposta cutanea.",
+        a: "Dipende dalle condizioni della pelle e dalla zona. Prima di iniziare facciamo una valutazione e, se il trattamento è indicato, adattiamo i parametri in base a come reagisce la pelle.",
       },
       {
         q: "Devo radermi prima della seduta?",
@@ -1006,7 +1006,7 @@ export const servicePages: ServicePage[] = [
       },
       {
         q: "Posso trattare più zone nello stesso appuntamento?",
-        a: "Sì. Decidiamo insieme in base a zone, tempi e tollerabilità: a volte conviene fare più aree, altre volte è meglio impostare una priorità per mantenere il percorso più semplice.",
+        a: "Sì. Decidiamo insieme in base alle zone, alla durata dell’appuntamento e al tuo comfort: a volte possiamo trattare più aree, altre volte è preferibile cominciare dalle zone prioritarie.",
       },
       {
         q: "Cosa conviene fare prima della seduta?",
@@ -1095,7 +1095,7 @@ export const servicePages: ServicePage[] = [
       "Epilazione laser per barba, collo e zigomi, con parametri personalizzati e indicazioni pratiche per la rasatura tra le sedute.",
     longDescription:
       "Il trattamento può interessare barba, collo, zigomi, baffi o contorni, in base al risultato che desideri. Definiamo parametri e calendario dopo aver valutato pelle, pelo e zona; utilizziamo Lumina X1 Pro di THORY e ICE Polar per migliorare il comfort della seduta.",
-    priceHint: "51,80 € / 25,90 € per zona",
+    priceHint: "da 25,90 € per zona",
     category: "laser",
     benefits: [
       "Zone di barba, collo e viso definite durante la valutazione",
@@ -1184,7 +1184,7 @@ export const servicePages: ServicePage[] = [
     category: "laser",
     benefits: [
       "Priorità e calendario definiti per schiena, torace e altre aree",
-      "Percorso monitorato e adattato alla risposta individuale",
+      "Controlli e parametri aggiornati in base a ciò che osserviamo durante le sedute",
       "ICE Polar per rendere la seduta più confortevole",
       "Indicazioni personalizzate prima e dopo l’appuntamento",
     ],

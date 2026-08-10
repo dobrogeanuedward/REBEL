@@ -1,4 +1,5 @@
 import { useEffect, useState, type FormEvent } from "react";
+import { laserOfferContactMessage } from "@/lib/laser-offer";
 
 type FormState = {
   name: string;
@@ -39,7 +40,7 @@ const journeyLabels: Record<string, string> = {
   liberta: "Libertà",
 };
 
-const allowedSources = new Set(["contatti", "mappa-rebel", "percorso"]);
+const allowedSources = new Set(["contatti", "mappa-rebel", "percorso", "promo-laser"]);
 const modeLabels: Record<string, string> = {
   esplorare: "Capire un trattamento",
   percorso: "Scegliere un percorso e monitorarlo",
@@ -74,6 +75,8 @@ export default function ContactForm() {
       setForm((value) => ({ ...value, source, message: lines.join("\n") }));
     } else if (source === "percorso" && journeyLabels[path]) {
       setForm((value) => ({ ...value, source, message: `Mi interessa il percorso ${journeyLabels[path]}. Vorrei capire se può essere adatto alle mie esigenze e come si svolge.` }));
+    } else if (source === "promo-laser") {
+      setForm((value) => ({ ...value, source, message: laserOfferContactMessage }));
     }
   }, []);
 
@@ -111,7 +114,7 @@ export default function ContactForm() {
         <p className="form__kicker">Valutazione REBEL · 30–40 minuti</p>
         <p className="form__note">
           Parliamo di ciò che vuoi migliorare e capiamo quale trattamento può essere adatto.
-          Se scegli di iniziare il percorso proposto, la valutazione è gratuita.
+          Se scegli di iniziare il percorso proposto, la valutazione iniziale è gratuita.
         </p>
       </div>
 

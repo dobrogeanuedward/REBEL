@@ -12,6 +12,7 @@ import FullBleedBand from "@/components/FullBleedBand.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import NearMeBlock from "@/components/NearMeBlock.astro";
+import LaserOffer from "@/components/LaserOffer.astro";
 import { media, type ImageAsset } from "@/lib/page-media";
 import {
   servicePages,
@@ -28,6 +29,7 @@ import {
   createPageMeta,
 } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
+import { laserOffer } from "@/lib/laser-offer";
 
 export async function getStaticPaths() {
   return servicePages.map((s) => ({
@@ -61,6 +63,15 @@ const fallbackImage =
     : "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/7dc5354b-33e1-4a9e-a21d-ff321ecf4500/public";
 
 const baseServiceName = service.name.replace(/\s+a Carmagnola$/i, "").trim();
+const serviceNameLower = `${baseServiceName.charAt(0).toLocaleLowerCase("it-IT")}${baseServiceName.slice(1)}`;
+const serviceArticle = /^epilazione\b/i.test(serviceNameLower)
+  ? "l’"
+  : /^scrub\b/i.test(serviceNameLower)
+    ? "lo "
+    : /^(?:pulizia|laminazione|manicure)\b/i.test(serviceNameLower)
+      ? "la "
+      : "il ";
+const serviceWithArticle = `${serviceArticle}${serviceNameLower}`;
 const priceFromMatch = service.priceHint.match(/(\d+(?:[.,]\d+)?)/);
 const priceFrom = priceFromMatch ? Number(priceFromMatch[1].replace(",", ".")) : undefined;
 const formatPrice = (value: string) =>
@@ -117,7 +128,7 @@ const serviceSchema = buildServiceSchema(
   service.longDescription,
   `/servizi/${service.slug}`,
   {
-    priceFrom,
+    priceFrom: service.category === "laser" ? undefined : priceFrom,
     keywords: [...service.keywords, ...priceIntentKeywords],
   },
 );
@@ -268,7 +279,7 @@ const tocItems = [
   { id: "faq", label: "Domande frequenti" },
   { id: "guide", label: "Approfondimenti" },
   ...(sourceLinks.length > 0 ? [{ id: "fonti", label: "Fonti" }] : []),
-  ...(relatedProtocols.length > 0 ? [{ id: "protocolli", label: "Percorsi REBEL" }] : []),
+  ...(relatedProtocols.length > 0 ? [{ id: "protocolli", label: "Protocolli REBEL" }] : []),
   { id: "anche", label: "Altri trattamenti" },
   ...(featuredAreas.length > 0 ? [{ id: "localita", label: "Come raggiungerci" }] : []),
 ];
@@ -289,7 +300,7 @@ const tocItems = [
     kicker={service.category === "laser" ? "Epilazione laser · Carmagnola" : "Trattamento estetico · Carmagnola"}
     title={service.name.replace(/Carmagnola/i, "_Carmagnola_")}
     lead={service.longDescription}
-    bullets={[displayPrice, "Come si svolge e che cosa sapere", "Su appuntamento · Carmagnola"]}
+    bullets={[service.category === "laser" ? `Listino ordinario · ${displayPrice}` : displayPrice, "Come si svolge e che cosa sapere", "Su appuntamento · Carmagnola"]}
     meta={[
       "Viale Barbaroux 20",
       "Da martedì a sabato",
@@ -298,14 +309,20 @@ const tocItems = [
     ctaSecondary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp }}
   />
 
+  {service.category === "laser" ? (
+    <section class="section section--tight">
+      <div class="container"><LaserOffer compact /></div>
+    </section>
+  ) : null}
+
   <section class="section">
     <div class="container detail-grid">
       <article class="detail-main">
         <div id="benefici">
           <SectionHead
             kicker="Obiettivi del trattamento"
-            title={`A che cosa serve _${baseServiceName}_.`}
-            lead="Scopri a quale esigenza è dedicato e come si svolge."
+            title={`Quando scegliere _${serviceWithArticle}_.`}
+            lead="Qui trovi obiettivi, modalità e indicazioni utili prima di prenotare."
           />
           <p class="detail-lead">{service.shortDescription}</p>
           <KeyPointsGrid points={service.benefits} />
@@ -314,14 +331,18 @@ const tocItems = [
         <div id="prezzi" class="detail-section">
           <SectionHead
             kicker="Prezzo"
-            title={`Quanto costa _${baseServiceName}_ a Carmagnola.`}
-            lead={`Il prezzo indicato è ${displayPrice}. Se varia per zona o durata, te lo confermiamo prima.`}
+            title={`Quanto costa _${serviceWithArticle}_.`}
+            lead={service.category === "laser"
+              ? `Prezzo ordinario indicato: ${displayPrice}. Le condizioni della promozione sono riportate sopra e vengono confermate prima dell’appuntamento.`
+              : `Prezzo indicato: ${displayPrice}. Se cambia in base alla zona, alla durata o alla tipologia, te lo confermiamo prima dell’appuntamento.`}
           />
           <div class="card-grid card-grid--2">
             <FeatureCard
-              kicker="Prezzo indicato"
+              kicker={service.category === "laser" ? "Listino ordinario" : "Prezzo indicato"}
               title={displayPrice}
-              body="Se il servizio prevede varianti per zona, durata o tipologia, ti confermiamo il prezzo prima dell’appuntamento."
+              body={service.category === "laser"
+                ? "Fuori dalla promozione, il prezzo ordinario varia in base alla zona e alla tipologia. Te lo confermiamo prima dell’appuntamento."
+                : "Se il servizio prevede varianti per zona, durata o tipologia, ti confermiamo il prezzo prima dell’appuntamento."}
             />
             <FeatureCard
               kicker="Tutti i prezzi"
@@ -336,8 +357,8 @@ const tocItems = [
           <div id="dettagli" class="detail-section">
             <SectionHead
               kicker="Come si svolge"
-              title={`Preparazione, seduta e indicazioni per _${baseServiceName}_.`}
-              lead="Qui trovi che cosa succede prima, durante e dopo l’appuntamento."
+              title="Prima, durante e _dopo la seduta_."
+              lead="Ti spieghiamo come prepararti, che cosa succede durante l’appuntamento e quali accorgimenti seguire dopo."
             />
             <div class="editorial-flow">
               {editorialSections.map((s, i) => {
@@ -409,9 +430,9 @@ const tocItems = [
         {relatedProtocols.length > 0 ? (
           <div id="protocolli" class="detail-section">
             <SectionHead
-              kicker="Percorsi REBEL"
-              title="Percorsi che possono includere questo trattamento."
-              lead="In ogni scheda trovi obiettivo, prezzo e indicazioni utili prima di prenotare."
+              kicker="Protocolli REBEL"
+              title="Protocolli collegati a questo trattamento."
+              lead="In ogni scheda trovi esigenze, prezzo e modalità del protocollo."
             />
             <div class="card-grid card-grid--2">
               {relatedProtocols.map((p, i) => (
@@ -431,7 +452,7 @@ const tocItems = [
         <div id="anche" class="detail-section">
           <SectionHead
             kicker="Altri trattamenti"
-            title="Altri servizi per esigenze vicine."
+            title="Scopri anche questi trattamenti."
           />
           <div class="card-grid card-grid--2">
             {siblingServices.map((s, i) => (
@@ -473,8 +494,8 @@ const tocItems = [
         <TableOfContents items={tocItems} />
         <InlineCta
           kicker="Appuntamenti REBEL · Carmagnola"
-          title={`Vuoi prenotare _${baseServiceName}_?`}
-          lead="Scrivici: ti confermiamo disponibilità, durata e prezzo. Se prima è utile una valutazione REBEL, dura 30–40 minuti; se scegli di iniziare il percorso proposto, la valutazione è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi."
+          title={`Vuoi prenotare _${serviceWithArticle}_?`}
+          lead="Scrivici: ti confermiamo disponibilità, durata e prezzo. Se prima serve una valutazione REBEL, dedichiamo 30–40 minuti a capire che cosa può essere adatto a te. Se scegli di iniziare il percorso proposto, la valutazione iniziale è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi."
           primaryHref="/contatti"
           primaryLabel="Chiedi un appuntamento"
           secondaryHref="/listino-estetica-laser"
@@ -489,7 +510,7 @@ const tocItems = [
     height="sm"
     align="left"
     kicker={`${baseServiceName} · Rebel Carmagnola`}
-    title={`Chiedi un appuntamento per _${baseServiceName}_.`}
+    title={`Prenota _${serviceWithArticle}_.`}
     lead="Ti confermiamo disponibilità, durata e prezzo prima dell’appuntamento. Se serve una valutazione REBEL, ti spieghiamo subito come funziona."
     cta={{ label: "Contattaci", href: "/contatti" }}
   />
@@ -505,7 +526,13 @@ const tocItems = [
     />
   ) : null}
 
-  <StickyBookingBar priceHint={displayPrice} primary={{ label: "Chiedi un appuntamento", href: "/contatti" }} />
+  <StickyBookingBar
+    priceHint={service.category === "laser" ? laserOffer.stickyLabel : displayPrice}
+    promo={service.category === "laser"}
+    primary={service.category === "laser"
+      ? { label: "Richiedi la promo", href: laserOffer.contactPath }
+      : { label: "Chiedi un appuntamento", href: "/contatti" }}
+  />
 </BaseLayout>
 
 <style>

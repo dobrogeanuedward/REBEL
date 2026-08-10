@@ -2,9 +2,11 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
+import LaserOffer from "@/components/LaserOffer.astro";
 import { rebelJourneys, type RebelJourney } from "@/lib/rebel-journeys";
 import { getJourneyVisual } from "@/lib/journey-visuals";
 import { buildBreadcrumbSchema, buildWebPageSchema, createPageMeta } from "@/lib/seo";
+import { laserOffer } from "@/lib/laser-offer";
 import "@/styles/journey-pages.css";
 
 export function getStaticPaths() {
@@ -24,7 +26,7 @@ const descriptions: Record<string, string> = {
   structure: "Structure è il percorso viso REBEL per tono, elasticità e compattezza. A Carmagnola, circa 60 minuti, da €109.",
   longevity: "Longevity accompagna nel tempo idratazione, luminosità, tono ed elasticità della pelle. A Carmagnola, sedute da €79.",
   forma: "Forma è il programma corpo REBEL per pesantezza, tono e compattezza. A Carmagnola, sedute da €79.",
-  liberta: "Libertà è il percorso di epilazione progressiva REBEL con Lumina X1 Pro e ICE Polar. A Carmagnola, da €25,90 per area.",
+  liberta: "Libertà è il percorso di epilazione progressiva REBEL con Lumina X1 Pro e ICE Polar. A Carmagnola, prezzo ordinario da €25,90 a zona.",
 };
 const meta = createPageMeta({
   title: journey.slug === "liberta"
@@ -49,6 +51,23 @@ const breadcrumb = buildBreadcrumbSchema([
 ]);
 const webPage = buildWebPageSchema({ name: displayName, description: meta.description, path: `/percorsi/${journey.slug}` });
 const contactHref = `/contatti?source=percorso&percorso=${encodeURIComponent(journey.slug)}`;
+const matterTitle = journey.area === "Viso"
+  ? "Attivi e ingredienti scelti per la tua pelle."
+  : journey.area === "Corpo"
+    ? "Prodotti e ingredienti del percorso."
+    : "Cura cosmetica dopo la seduta.";
+const matterLead = journey.slug === "liberta"
+  ? "Dopo la seduta valutiamo se consigliare un prodotto cosmetico in base alla zona e a come si presenta la pelle."
+  : "Attivi e ingredienti vengono scelti dopo la valutazione e possono cambiare in base a ciò che osserviamo durante il percorso.";
+const progressTitle = journey.area === "Viso"
+  ? "Controlliamo come cambia la pelle tra una seduta e l’altra."
+  : journey.area === "Corpo"
+    ? "Controlliamo come cambia la zona durante il percorso."
+    : "Controlliamo ricrescita e risposta della pelle durante il percorso.";
+const progressCopy = journey.area === "Epilazione"
+  ? "Durante i controlli aggiorniamo parametri e frequenza in base alla ricrescita osservata e a come risponde la pelle."
+  : "Durante i controlli aggiorniamo prodotti, intensità o frequenza in base ai cambiamenti osservati.";
+const siblingAreaLabel = journey.area === "Viso" ? "per il viso" : journey.area === "Corpo" ? "per il corpo" : "di epilazione";
 ---
 <BaseLayout meta={meta} bodyClass="rebel-rebrand">
   <JsonLd data={breadcrumb} />
@@ -67,10 +86,19 @@ const contactHref = `/contatti?source=percorso&percorso=${encodeURIComponent(jou
         <h1><small>{journey.priority}</small>{journey.name}</h1>
         <div class="journey-hero__bottom">
           <p class="journey-hero__summary">{journey.summary}</p>
-          <div class="journey-price"><span>{journey.price}</span><small>{journey.duration}</small></div>
+          <div class="journey-price">
+            {journey.slug === "liberta" ? <small class="journey-price__label">Listino ordinario</small> : null}
+            <span>{journey.price}</span><small>{journey.duration}</small>
+          </div>
         </div>
       </div>
     </section>
+
+    {journey.slug === "liberta" ? (
+      <section class="rebel-section rebel-section--laser-offer">
+        <div class="rebel-container"><LaserOffer compact /></div>
+      </section>
+    ) : null}
 
     <section class="rebel-section">
       <div class="rebel-container journey-recognition">
@@ -79,7 +107,7 @@ const contactHref = `/contatti?source=percorso&percorso=${encodeURIComponent(jou
           <strong>{journey.priority}</strong>
         </div>
         <div class="journey-recognition__copy">
-          <article class="journey-recognition__card"><small>Può essere adatto se</small><p>{journey.recognize}</p></article>
+          <article class="journey-recognition__card"><small>Quando valutarlo</small><p>{journey.recognize}</p></article>
           <article class="journey-recognition__card"><small>Obiettivo del percorso</small><p>{journey.objective}</p></article>
         </div>
       </div>
@@ -98,9 +126,9 @@ const contactHref = `/contatti?source=percorso&percorso=${encodeURIComponent(jou
             <img src={siteAsset(journey.heroDesktopSlot)} alt={journey.heroAlt} width="1536" height="1024" loading="lazy" decoding="async" />
           </picture>
           <figcaption>
-            <small>Cosa osserviamo nel tempo</small>
-            <strong>{journey.objective}</strong>
-            <span>I risultati possono variare: durante i controlli osserviamo i cambiamenti e adattiamo il percorso.</span>
+            <small>Durante il percorso</small>
+            <strong>{progressTitle}</strong>
+            <span>{progressCopy}</span>
           </figcaption>
         </figure>
       </div>
@@ -111,8 +139,8 @@ const contactHref = `/contatti?source=percorso&percorso=${encodeURIComponent(jou
         <div class="journey-matter__side">
           <div class="journey-matter__intro">
             <p class="rebel-kicker">Attivi e botaniche</p>
-            <h2 class="rebel-title">Cosa scegliamo per la tua pelle.</h2>
-            <p>La combinazione viene definita dopo la valutazione e può cambiare durante il percorso.</p>
+            <h2 class="rebel-title">{matterTitle}</h2>
+            <p>{matterLead}</p>
           </div>
         </div>
         <div class="journey-matter__groups">
@@ -134,7 +162,7 @@ const contactHref = `/contatti?source=percorso&percorso=${encodeURIComponent(jou
       <section class="rebel-section rebel-section--paper">
         <div class="rebel-container">
           <div class="journey-tech">
-            <div><p class="rebel-kicker">Tecnologie nel percorso</p><h2 class="rebel-title">Scegliamo la tecnologia in base alla zona e all’obiettivo.</h2><p>{journey.technologyNote}</p><a class="btn btn--primary" href="/tecnologie-rebel">Scopri le tecnologie REBEL</a></div>
+            <div><p class="rebel-kicker">Tecnologie nel percorso</p><h2 class="rebel-title">{journey.slug === "liberta" ? "La tecnologia del percorso Libertà." : "Scegliamo la tecnologia in base alla zona e all’obiettivo."}</h2><p>{journey.technologyNote}</p><a class="btn btn--primary" href="/tecnologie-rebel">Scopri le tecnologie REBEL</a></div>
             <div class="journey-tech__stage">
               {visual.technologyVisuals.length > 0 ? (
                 <div class="journey-tech__visuals">
@@ -153,14 +181,20 @@ const contactHref = `/contatti?source=percorso&percorso=${encodeURIComponent(jou
         <div class="journey-recognition__label"><p class="rebel-kicker">Durata e prezzo</p><strong>{journey.price}</strong></div>
         <div class="journey-recognition__copy">
           <article class="journey-recognition__card"><small>Durata indicativa</small><p>{journey.duration}</p></article>
-          <article class="journey-recognition__card"><small>Da cosa può variare il prezzo</small><p>{journey.priceNote}</p></article>
+          <article class="journey-recognition__card"><small>Come viene definito il prezzo</small><p>{journey.priceNote}</p></article>
           <a class="btn btn--primary" href={contactHref}>Prenota la valutazione REBEL</a>
         </div>
       </div>
     </section>
 
-    {siblings.length > 0 ? <section class="rebel-section rebel-section--paper"><div class="rebel-container"><p class="rebel-kicker">Altri percorsi</p><h2 class="rebel-title">Altri percorsi per la stessa area.</h2><div class="journey-siblings">{siblings.map((sibling) => <a href={`/percorsi/${sibling.slug}`}><span>{sibling.slug === "white" ? "Uniformare · White" : `${sibling.priority} · ${sibling.name}`}</span><span>→</span></a>)}</div></div></section> : null}
+    {siblings.length > 0 ? <section class="rebel-section rebel-section--paper"><div class="rebel-container"><p class="rebel-kicker">Altri percorsi</p><h2 class="rebel-title">Altri percorsi {siblingAreaLabel}.</h2><div class="journey-siblings">{siblings.map((sibling) => <a href={`/percorsi/${sibling.slug}`}><span>{sibling.slug === "white" ? "Uniformare · White" : `${sibling.priority} · ${sibling.name}`}</span><span>→</span></a>)}</div></div></section> : null}
   </main>
 
-  <StickyBookingBar primary={{ label: "Prenota la valutazione", href: contactHref }} />
+  <StickyBookingBar
+    priceHint={journey.slug === "liberta" ? laserOffer.stickyLabel : undefined}
+    promo={journey.slug === "liberta"}
+    primary={journey.slug === "liberta"
+      ? { label: "Richiedi la promo", href: laserOffer.contactPath }
+      : { label: "Prenota la valutazione", href: contactHref }}
+  />
 </BaseLayout>

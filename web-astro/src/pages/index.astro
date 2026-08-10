@@ -4,6 +4,7 @@ import JsonLd from "@/components/JsonLd.astro";
 import StoreGallery from "@/components/StoreGallery.tsx";
 import RebelMap from "@/components/RebelMap.tsx";
 import InstagramFeed from "@/components/InstagramFeed.astro";
+import LaserOffer from "@/components/LaserOffer.astro";
 import { methodSteps, storeGalleryImages } from "@/lib/content";
 import { rebelWorlds, getJourneysByWorld } from "@/lib/rebel-journeys";
 import { siteConfig } from "@/lib/site-config";
@@ -157,11 +158,17 @@ const worlds = [
       </div>
     </section>
 
+    <section class="rebel-section rebel-section--laser-offer">
+      <div class="rebel-container">
+        <LaserOffer />
+      </div>
+    </section>
+
     <section class="rebel-section" id="mappa-rebel-live">
       <div class="rebel-container">
         <p class="rebel-kicker">Mappa REBEL</p>
         <h2 class="rebel-title">Confronta i nove percorsi.</h2>
-        <p class="rebel-lead">Per ogni percorso trovi esigenze, prezzo di partenza, ingredienti e tecnologie che può includere. Puoi così capire quali vuoi approfondire durante la valutazione.</p>
+        <p class="rebel-lead">Per ogni percorso trovi esigenze, prezzo di partenza, ingredienti e tecnologie previsti. Puoi così capire quali vuoi approfondire durante la valutazione.</p>
         <RebelMap client:visible />
       </div>
     </section>
@@ -269,7 +276,7 @@ const worlds = [
     <section class="rebel-campaign">
       <div class="rebel-container">
         <strong>Be <span>Beautiful.</span><br/>Be Rebel.</strong>
-        <p>Prenota la valutazione: in 30–40 minuti definiamo area, obiettivo, frequenza e prezzo. Se scegli di iniziare il Percorso REBEL, la valutazione è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi.</p>
+        <p>Prenota la valutazione: in 30–40 minuti definiamo zona, obiettivo, frequenza e prezzo. Se scegli di iniziare il Percorso REBEL, la valutazione iniziale è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi.</p>
         <div class="rebel-hero__actions" style="justify-content:center"><a class="btn btn--primary" href="/contatti">Prenota la valutazione</a><a class="btn btn--secondary" href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer">Scrivici su WhatsApp</a></div>
       </div>
     </section>

@@ -7,6 +7,7 @@ import InlineCta from "@/components/InlineCta.astro";
 import FullBleedBand from "@/components/FullBleedBand.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
+import LaserOffer from "@/components/LaserOffer.astro";
 import { media } from "@/lib/page-media";
 import {
   buildBreadcrumbSchema,
@@ -95,7 +96,7 @@ const switchItems = [
     image={media.studio.cabin}
     kicker="Listino Rebel · Carmagnola"
     title="Prezzi chiari per _trattamenti, percorsi e laser_."
-    lead="Consulta prezzi, durata indicativa e informazioni utili prima di prenotare. Se scegli di iniziare il percorso proposto, la valutazione REBEL è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi."
+    lead="Consulta prezzi, durata indicativa e informazioni utili prima di prenotare. Se scegli di iniziare il percorso proposto, la valutazione iniziale REBEL è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi."
     bullets={["Prezzi pubblicati online", "Dettagli per ogni servizio", "Valutazione REBEL · 30–40 min"]}
     meta={["Trattamenti singoli", "Nove percorsi REBEL", "Epilazione laser"]}
     ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
@@ -142,6 +143,8 @@ const switchItems = [
         title="Prezzi dell’epilazione laser per viso e corpo."
         lead="Per l’epilazione utilizziamo Lumina X1 Pro di THORY con raffreddamento a contatto ICE Polar. Scegli la zona per vedere prezzo e informazioni specifiche."
       />
+      <LaserOffer compact />
+      <p class="listino-laser-label">Listino ordinario</p>
       <div class="price-grid">
         {laser.map((item) => (
           <PriceRow
@@ -206,7 +209,7 @@ const switchItems = [
       <InlineCta
         kicker="Valutazione REBEL · 30–40 minuti"
         title="Hai un dubbio? Ti aiutiamo a scegliere _come iniziare_."
-        lead="Durante la valutazione parliamo del risultato che desideri, osserviamo la pelle o l’area da trattare e ti spieghiamo trattamento, frequenza e prezzo. Se scegli di iniziare il percorso proposto, la valutazione è gratuita."
+        lead="Durante la valutazione parliamo del risultato che desideri, osserviamo la pelle o la zona da trattare e ti spieghiamo trattamento, frequenza e prezzo. Se scegli di iniziare il percorso proposto, la valutazione iniziale è gratuita."
       />
     </div>
   </section>
@@ -248,5 +251,14 @@ const switchItems = [
     gap: 0.6rem;
     max-width: 980px;
     margin-inline: auto;
+  }
+  .listino-laser-label {
+    max-width: 980px;
+    margin: 2.5rem auto .8rem;
+    color: var(--mauve);
+    font-size: .68rem;
+    font-weight: 850;
+    letter-spacing: .14em;
+    text-transform: uppercase;
   }
 </style>
