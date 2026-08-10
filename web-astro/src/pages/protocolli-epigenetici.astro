@@ -3,7 +3,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import InlineCta from "@/components/InlineCta.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
-import { media } from "@/lib/page-media";
+import { media, type ImageAsset } from "@/lib/page-media";
 import { protocolCards } from "@/lib/content";
 import {
   buildArticleSchema,
@@ -55,6 +55,15 @@ const protocolsSchema = buildItemListSchema({
   path: "/protocolli-epigenetici",
   items: protocolCards.map((p) => ({ name: p.name, path: `/protocolli/${p.slug}` })),
 });
+const protocolMedia: Record<string, ImageAsset> = {
+  "rebel-lift-protocol": media.journeys.longevity,
+  "rebirth-60-plus": media.viso.texture,
+  "eye-genesis": media.viso.hero,
+  "catalysis-ritual": media.viso.products,
+  "collagen-code": media.studio.professional,
+  "rebel-cell-regeneration": media.journeys.glow,
+};
+const getProtocolMedia = (slug: string) => protocolMedia[slug] ?? media.studio.professional;
 
 ---
 <BaseLayout meta={meta} bodyClass="page-rebrand page-percorsi-rebel">
@@ -73,7 +82,7 @@ const protocolsSchema = buildItemListSchema({
       <p class="rb-kicker">Trattamenti professionali · Carmagnola</p>
       <h1>Protocolli per viso <em>e corpo.</em></h1>
       <p class="rb-lead">
-        Scopri a quali esigenze è dedicato ogni protocollo, come viene programmato e quanto costa. La scelta parte sempre dalla valutazione della pelle o della zona.
+        Scopri a quali esigenze è dedicato ogni protocollo, come si svolge e quanto costa. La scelta parte dalla valutazione della pelle o della zona.
       </p>
       <div class="cluster cluster--stack-mobile">
         <a class="btn btn--primary" href="/contatti">Prenota la valutazione</a>
@@ -86,11 +95,11 @@ const protocolsSchema = buildItemListSchema({
     <div class="container rb-intro-grid">
       <div>
         <p class="rb-kicker">Scelta del trattamento</p>
-        <h2>Partiamo da ciò che vuoi migliorare e dalle condizioni osservate.</h2>
+        <h2>Partiamo da ciò che vuoi migliorare e da come si presenta la zona.</h2>
       </div>
       <div class="rb-copy">
         <p>Durante la valutazione ci racconti che cosa vuoi migliorare. Osserviamo la zona interessata e ti spieghiamo quali trattamenti possono essere adatti.</p>
-        <p>Il programma indica prodotti, manualità, tecnologie, numero indicativo di sedute, frequenza iniziale e data del controllo.</p>
+        <p>Prima di iniziare ti spieghiamo quali prodotti e trattamenti useremo, quante sedute prevediamo e quando faremo il primo controllo.</p>
       </div>
     </div>
   </section>
@@ -102,14 +111,29 @@ const protocolsSchema = buildItemListSchema({
         <h2>Trattamenti professionali con obiettivi, prezzo e indicazioni specifiche.</h2>
       </div>
       <div class="rb-protocol-grid">
-        {protocolCards.map((protocol, index) => (
-          <a class="rb-protocol-card" href={`/protocolli/${protocol.slug}`}>
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <p class="rb-kicker">{protocol.price}</p>
-            <h3>{protocol.name}</h3>
-            <p>{protocol.desc}</p>
-          </a>
-        ))}
+        {protocolCards.map((protocol, index) => {
+          const visual = getProtocolMedia(protocol.slug);
+          return (
+            <a class="rb-protocol-card" href={`/protocolli/${protocol.slug}`}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <figure>
+                <img
+                  src={visual.src}
+                  alt={visual.alt}
+                  width={visual.width ?? 1200}
+                  height={visual.height ?? 900}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <div class="rb-protocol-card__copy">
+                <p class="rb-kicker">{protocol.price}</p>
+                <h3>{protocol.name}</h3>
+                <p>{protocol.desc}</p>
+              </div>
+            </a>
+          );
+        })}
       </div>
     </div>
   </section>
@@ -122,7 +146,7 @@ const protocolsSchema = buildItemListSchema({
       </div>
       <div class="rb-copy">
         <p>Non è necessario conoscere già il nome del protocollo. Puoi dirci, per esempio, che desideri più luminosità, meno pesantezza alle gambe, maggiore tono o meno ricrescita.</p>
-        <p>Valutiamo la zona e ti spieghiamo trattamento, frequenza e prezzo.</p>
+        <p>Osserviamo la zona e ti aiutiamo a capire da dove partire.</p>
         <p>Per confrontare anche i nove percorsi viso, corpo e laser, consulta la sezione Percorsi REBEL.</p>
         <p><a class="btn btn--secondary" href="/percorsi">Vedi i nove percorsi</a></p>
       </div>

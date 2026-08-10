@@ -20,9 +20,9 @@ import { siteConfig } from "@/lib/site-config";
 import { getPageMedia } from "@/lib/page-media";
 
 const meta = createPageMeta({
-  title: "Pulizia viso per chi viene da Alba — Rebel (Carmagnola, ~30 min)",
+  title: "Pulizia viso per chi viene da Alba | REBEL",
   description:
-    "Vivi ad Alba o nelle Langhe? Da Rebel a Carmagnola la pulizia viso comprende osservazione, esfoliazione calibrata, pulizia mirata e fase lenitiva. Trenta minuti via A33. Prenotazione su WhatsApp.",
+    "Per chi arriva da Alba: pulizia viso a Carmagnola con osservazione, esfoliazione calibrata, pulizia mirata e fase lenitiva. Prenota su WhatsApp.",
   path: "/pulizia-viso-alba",
   image: "https://www.rebelepigenetica.it/img/generated/pulizia-viso-rebel-editorial.png",
   openGraphType: "article",
@@ -53,7 +53,7 @@ const webPage = buildWebPageSchema({
 });
 
 const articleSchema = buildArticleSchema({
-  headline: "Pulizia viso per chi viene da Alba — Rebel (Carmagnola, ~30 min)",
+  headline: "Pulizia viso per chi viene da Alba — Rebel Carmagnola",
   description: meta.description,
   path: "/pulizia-viso-alba",
   keywords: ["pulizia viso Alba", "trattamento viso Alba", "estetista viso Alba"],
@@ -101,8 +101,8 @@ const geoServiceSchema = {
 
 const faqs = [
   {
-    q: "Quanto ci vuole da Alba a Rebel?",
-    a: "Circa trenta minuti via A33 uscita Marene, poi SP661 fino a Carmagnola. Sono 33 km. Lo studio è in centro, Viale Barbaroux 20, possibilità di parcheggio nelle vicinanze.",
+    q: "Come arrivo da Alba a Rebel?",
+    a: "Lo studio è in Viale Barbaroux 20 a Carmagnola. Apri Google Maps per controllare il percorso da Alba, il traffico e i tempi aggiornati prima di partire.",
   },
   {
     q: "La pulizia viso lascia arrossamento? Ho un evento tra qualche giorno.",
@@ -114,7 +114,7 @@ const faqs = [
   },
   {
     q: "Ogni quanto conviene farla?",
-    a: "Spesso si valuta un intervallo di 4-6 settimane, ma non c'è una cadenza uguale per tutte. Dopo la prima seduta ne riparliamo in base a come risponde la pelle e alle tue preferenze.",
+    a: "Non c'è una cadenza uguale per tutte. Dopo la seduta ti suggeriamo quando potrebbe essere utile ripeterla, in base a come si presenta e risponde la pelle.",
   },
   {
     q: "Posso abbinarla a un altro trattamento nello stesso giorno?",
@@ -143,8 +143,8 @@ const points = [
     body: "Ci racconti i prodotti che usi, le sensibilità e le esposizioni recenti. Da qui scegliamo intensità e prodotti adatti alla seduta.",
   },
   {
-    kicker: "02 · Passaggi con senso",
-    title: "Nessun gesto inutile.",
+    kicker: "02 · Passaggi scelti per la seduta",
+    title: "Adattiamo ogni fase a come si presenta la pelle.",
     body: "Detersione, esfoliazione calibrata, pulizia mirata e fase lenitiva finale. Manteniamo solo i passaggi utili per come si presenta la pelle quel giorno.",
   },
   {
@@ -153,9 +153,9 @@ const points = [
     body: "Usiamo linee professionali Eberlin e Marbellas, scegliendo i prodotti in base alla seduta. Sensazioni e risposta della pelle possono variare da persona a persona.",
   },
   {
-    kicker: "04 · Calendario realistico",
-    title: "Un ritmo che si riesce a tenere.",
-    body: "Dopo il primo appuntamento possiamo suggerirti una frequenza indicativa, tenendo conto della risposta della pelle e della tua agenda. Non sei obbligata ad acquistare un pacchetto.",
+    kicker: "04 · Dopo la seduta",
+    title: "Ti suggeriamo quando potrebbe essere utile ripeterla.",
+    body: "Valutiamo la risposta della pelle e le tue preferenze. Sarai poi libera di decidere se e quando fissare un altro appuntamento.",
   },
 ];
 
@@ -178,8 +178,8 @@ const combos = [
 ];
 
 const nearbyAreas = [
-  { city: "Bra", href: "/pulizia-viso-bra", desc: "~22 min da Carmagnola, via SP7." },
-  { city: "Canale", href: "/pulizia-viso-canale", desc: "Roero, ~35 min via A33." },
+  { city: "Bra", href: "/pulizia-viso-bra", desc: "Scopri la pagina dedicata a Bra." },
+  { city: "Canale", href: "/pulizia-viso-canale", desc: "Scopri la pagina dedicata a Canale." },
   { city: "Tutte le località", href: "/localita", desc: "Scopri servizi e indicazioni per ogni zona." },
 ];
 
@@ -198,9 +198,9 @@ const m = getPageMedia("/pulizia-viso-alba");
     image={m.hero}
     kicker="Rebel Viso — da Alba a Carmagnola"
     title="Pulizia viso per chi viene da Alba: _una seduta costruita sulla tua pelle_."
-    lead="Vivi ad Alba o nelle Langhe? Da Carmagnola sono trenta minuti via A33. In Rebel la pulizia viso si svolge per passaggi — osservazione, esfoliazione calibrata, pulizia mirata e chiusura lenitiva — scelti in base a come si presenta la pelle."
-    bullets={["Passaggi adattati alla pelle", "Prodotti professionali in cabina", "Valutazione REBEL · 30–40 min"]}
-    meta={["~33 km da Alba", "~30 min via A33", "Da 49 € a seduta"]}
+    lead="Se vieni da Alba o dalle Langhe, da Rebel trovi una pulizia viso svolta per passaggi: osservazione, esfoliazione calibrata, pulizia mirata e fase lenitiva, scelti in base a come si presenta la pelle."
+    bullets={["Passaggi adattati alla pelle", "Prodotti professionali in cabina", "Confronto iniziale"]}
+    meta={["Studio a Carmagnola", "Indicazioni su Google Maps", "Da 49 € a seduta"]}
     ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
     ctaSecondary={{ label: "Apri il percorso da Alba", href: "https://www.google.com/maps/dir/?api=1&origin=Alba&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
   />
@@ -228,7 +228,7 @@ const m = getPageMedia("/pulizia-viso-alba");
       <SectionHead
         kicker="Il metodo Rebel"
         title="Cosa trovi da Rebel _venendo da Alba_."
-        lead="A circa trenta minuti via A33 trovi una pulizia viso organizzata per passaggi, con prodotti professionali Eberlin e Marbellas e indicazioni chiare prima della seduta."
+        lead="La seduta segue passaggi scelti in base a come si presenta la pelle, con prodotti professionali Eberlin e Marbellas e indicazioni chiare prima di iniziare."
       />
       <div class="card-grid card-grid--2">
         {points.map((p, i) => (
@@ -254,20 +254,17 @@ const m = getPageMedia("/pulizia-viso-alba");
     <div class="container">
       <SectionHead
         kicker="Come arrivare"
-        title="Da Alba a Rebel: trenta minuti _tra Langhe e pianura_."
+        title="Da Alba a Rebel: _controlla il percorso su Maps_."
       />
       <div class="directions-grid">
         <div>
           <p class="body-p">
-            Da Alba a Rebel sono circa 33 chilometri. Il percorso più rapido è
-            l'<strong>A33 in direzione Torino</strong>, uscita Marene, poi
-            <strong>SP661 fino a Carmagnola</strong>: in condizioni normali sei in studio
-            in trenta minuti. Chi preferisce la provinciale può prendere SP7 e SP661
-            (cinque minuti in più, ma panorama più rilassato tra le colline del Roero).
+            REBEL è in <strong>Viale Barbaroux 20</strong>, nel centro di Carmagnola.
+            Apri Google Maps per controllare il percorso da Alba, il traffico e i tempi
+            aggiornati prima di partire.
           </p>
           <p class="body-p">
-            Lo studio è in <strong>Viale Barbaroux 20</strong>, nel centro di Carmagnola.
-            Possibilità di parcheggio nelle vicinanze.
+            Per informazioni aggiornate sui parcheggi disponibili in zona, consulta Maps.
           </p>
           <div class="cluster" style="margin-top:1.4rem;">
             <a
@@ -297,7 +294,7 @@ const m = getPageMedia("/pulizia-viso-alba");
   <section class="section">
     <div class="container">
       <SectionHead
-        kicker="Una sola sosta"
+        kicker="Servizi abbinabili"
         title="Se desideri abbinare un altro _trattamento_."
         lead="Se vuoi aggiungere un altro servizio allo stesso appuntamento, diccelo quando prenoti: verifichiamo disponibilità, tempi e compatibilità."
       />
@@ -318,18 +315,17 @@ const m = getPageMedia("/pulizia-viso-alba");
   <section class="section section--scene-ivory">
     <div class="container container--narrow">
       <SectionHead
-        kicker="Oltre la pulizia"
-        title="Vuoi conoscere anche _gli altri percorsi viso_?"
-        lead="Se cerchi un trattamento diverso dalla pulizia viso, possiamo illustrarti i protocolli disponibili e aiutarti a capire quale appuntamento approfondire."
+        kicker="Altri trattamenti viso"
+        title="Scopri i protocolli disponibili _da Rebel_."
+        lead="Se ti interessa un trattamento diverso dalla pulizia viso, ti spieghiamo come si svolge e quanto costa prima di fissare un appuntamento."
       />
       <p class="body-p">
-        Da Rebel lavoriamo con protocolli Eberlin come il <strong>Rebel Lift Protocol</strong>,
-        il <strong>Collagen Code</strong> e il <strong>Catalysis Ritual</strong>, disponibili
-        in studio. Ti spieghiamo passaggi, tempi e costi prima di decidere se fissare
-        un appuntamento dedicato.
+        Tra i protocolli Eberlin disponibili da Rebel ci sono il <strong>Rebel Lift Protocol</strong>,
+        il <strong>Collagen Code</strong> e il <strong>Catalysis Ritual</strong>. Prima di prenotare
+        ti spieghiamo passaggi, tempi e costi.
       </p>
       <div class="cluster" style="margin-top:1.6rem;">
-        <a class="btn btn--primary" href="/protocolli-epigenetici">Tutti i protocolli</a>
+        <a class="btn btn--primary" href="/protocolli-epigenetici">Scopri i protocolli</a>
         <a class="btn btn--secondary" href="/servizi/pulizia-viso-carmagnola">Scopri la pulizia viso</a>
       </div>
     </div>
@@ -342,7 +338,7 @@ const m = getPageMedia("/pulizia-viso-alba");
       height="md"
       align="left"
       kicker="Da Alba a Carmagnola"
-      quote="La pelle curata si nota prima di ogni parola."
+      quote="Ogni seduta viene adattata a come si presenta la pelle."
       cta={{ label: "Prenota la valutazione", href: "/contatti" }}
     />
   ) : null}
@@ -352,7 +348,7 @@ const m = getPageMedia("/pulizia-viso-alba");
     <div class="container container--narrow">
       <SectionHead
         kicker="Domande frequenti"
-        title="Da Alba e dalle _Langhe_: le risposte oneste."
+        title="Da Alba e dalle _Langhe_: informazioni chiare."
       />
       <FaqAccordion items={faqs} kicker="FAQ Pulizia Viso Alba" />
     </div>
@@ -362,11 +358,11 @@ const m = getPageMedia("/pulizia-viso-alba");
   <section class="section section--scene-ivory">
     <div class="container">
       <InlineCta
-        kicker="Vuoi un piano più ampio?"
-        title="La pulizia viso non è l'unico motivo per venire a Carmagnola _dalle Langhe_."
-        lead="Se ti interessa anche il laser, la manicure semipermanente, i protocolli corpo o la laminazione ciglia, la guida ai servizi per chi arriva da Alba li raccoglie in un’unica pagina."
+        kicker="Altri servizi"
+        title="Scopri gli altri trattamenti disponibili da _Rebel_."
+        lead="Nella pagina dedicata ad Alba trovi anche laser, manicure semipermanente, protocolli corpo e laminazione ciglia."
         primaryHref="/localita/alba"
-        primaryLabel="Scopri i servizi REBEL da Alba"
+        primaryLabel="Vedi i servizi per Alba"
         secondaryHref="/protocolli-epigenetici"
         secondaryLabel="Scopri i percorsi viso"
       />
@@ -377,13 +373,13 @@ const m = getPageMedia("/pulizia-viso-alba");
   <section class="section">
     <div class="container">
       <SectionHead
-        kicker="Vicino ad Alba"
-        title="Comuni vicini: _pagine dedicate_ per la pulizia viso."
+        kicker="Altre località"
+        title="Cerchi informazioni per _un'altra zona_?"
       />
       <div class="card-grid card-grid--3">
         {nearbyAreas.map((a, i) => (
           <FeatureCard
-            kicker="Zona vicina"
+            kicker="Altra località"
             title={a.city}
             body={a.desc}
             href={a.href}
@@ -399,9 +395,9 @@ const m = getPageMedia("/pulizia-viso-alba");
   <section class="section section--scene-ivory">
     <div class="container">
       <InlineCta
-        kicker="Valutazione REBEL · 30–40 minuti"
+        kicker="Prima della seduta"
         title="Valutiamo insieme la _pulizia viso_."
-        lead="Ti ascoltiamo, leggiamo la pelle, facciamo la seduta. Poi, se ha senso, costruiamo un ritmo insieme. Nessun obbligo di pacchetti."
+        lead="Parliamo delle tue abitudini e osserviamo come si presenta la pelle, poi scegliamo i passaggi della seduta. Al termine possiamo suggerirti una frequenza indicativa."
         primaryLabel="Prenota su WhatsApp"
         primaryHref={siteConfig.social.whatsapp}
         secondaryLabel="Scopri la pulizia viso"
@@ -410,7 +406,7 @@ const m = getPageMedia("/pulizia-viso-alba");
     </div>
   </section>
 
-  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
+  <StickyBookingBar primary={{ label: "Chiedi un appuntamento", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

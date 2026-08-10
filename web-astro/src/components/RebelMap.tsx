@@ -21,6 +21,9 @@ const journeySignature = (journey: RebelJourney) =>
 const startingPrice = (journey: RebelJourney) =>
   journey.price.replace(/^da\s+/i, "");
 
+const siteAsset = (slot: string) =>
+  `/api/site-asset?slot=${encodeURIComponent(slot)}`;
+
 export default function RebelMap() {
   const [filter, setFilter] = useState<JourneyFilter>("all");
 
@@ -81,6 +84,16 @@ export default function RebelMap() {
               hidden={!isVisible}
             >
               <summary>
+                <span className="rb-map__journey-media" aria-hidden="true">
+                  <img
+                    src={siteAsset(visual.momentSlot)}
+                    alt=""
+                    width="1200"
+                    height="800"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
                 <span className="rb-map__number">{journey.number}</span>
                 <span className="rb-map__identity">
                   <small>{journey.area} · {journeySignature(journey)}</small>
@@ -98,10 +111,6 @@ export default function RebelMap() {
               </summary>
 
               <div className="rb-map__panel">
-                <figure className="rb-map__botanical">
-                  <img src={visual.botanicalCardSrc} alt={visual.botanicalAlt} width="560" height="560" loading="lazy" decoding="async" />
-                  <figcaption>{journey.botanicals.map((item) => item.name).join(" · ")}</figcaption>
-                </figure>
                 <div className="rb-map__description">
                   <p>{journey.summary}</p>
                   <dl>
@@ -110,23 +119,38 @@ export default function RebelMap() {
                   </dl>
                 </div>
 
-                <div className="rb-map__matter-grid">
-                  <section className="rb-map__matter">
-                      <h4>Ingredienti e complessi cosmetici</h4>
-                    <ul>{journey.actives.map((item) => <li key={item.name}>{item.name}</li>)}</ul>
-                  </section>
-                  <section className="rb-map__matter">
+                <div className="rb-map__ingredients">
+                  <figure className="rb-map__ingredients-visual">
+                    <img
+                      src={visual.botanicalSrc}
+                      alt={visual.botanicalAlt}
+                      width="1000"
+                      height="1000"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </figure>
+                  <div className="rb-map__ingredient-lists">
+                    <section className="rb-map__ingredient-group">
+                      <h4>Attivi e complessi cosmetici</h4>
+                      <ul>{journey.actives.map((item) => <li key={item.name}><strong>{item.name}</strong><span>{item.role}</span></li>)}</ul>
+                    </section>
+                    <section className="rb-map__ingredient-group">
                       <h4>Estratti vegetali e altri ingredienti</h4>
-                    <ul>{journey.botanicals.map((item) => <li key={item.name}>{item.name}</li>)}</ul>
-                  </section>
+                      <ul>{journey.botanicals.map((item) => <li key={item.name}><strong>{item.name}</strong><span>{item.role}</span></li>)}</ul>
+                    </section>
+                  </div>
+                </div>
+
+                <div className="rb-map__technology">
                   {journey.technologies.length > 0 ? (
-                    <section className="rb-map__matter">
-                      <h4>Tecnologie che il percorso può includere</h4>
+                    <section>
+                      <h4>Tecnologie che possiamo utilizzare</h4>
                       <ul>{journey.technologies.map((technology) => <li key={technology}>{technology}</li>)}</ul>
                     </section>
                   ) : (
-                    <section className="rb-map__matter rb-map__matter--note">
-                      <h4>Come si costruisce</h4>
+                    <section>
+                      <h4>Come scegliamo il trattamento</h4>
                       <p>{journey.technologyNote}</p>
                     </section>
                   )}

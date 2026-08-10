@@ -20,9 +20,9 @@ import { siteConfig } from "@/lib/site-config";
 import { getPageMedia } from "@/lib/page-media";
 
 const meta = createPageMeta({
-  title: "Manicure semipermanente per chi viene da Bra — Rebel (Carmagnola, ~22 min)",
+  title: "Manicure semipermanente da Bra | REBEL",
   description:
-    "Vivi a Bra? Da Rebel a Carmagnola sono venti minuti scarsi. Manicure semipermanente fatta bene: lamina preparata, gel professionale, colori che tengono settimane. Prenota su WhatsApp.",
+    "Per chi arriva da Bra: manicure semipermanente a Carmagnola con preparazione accurata, gel professionale e durata indicativa fino a 3-4 settimane.",
   path: "/manicure-semipermanente-bra",
   image: "https://www.rebelepigenetica.it/img/generated/manicure-semipermanente-rebel-editorial.png",
   openGraphType: "article",
@@ -53,7 +53,7 @@ const webPage = buildWebPageSchema({
 });
 
 const articleSchema = buildArticleSchema({
-  headline: "Manicure semipermanente per chi viene da Bra — Rebel (Carmagnola, ~22 min)",
+  headline: "Manicure semipermanente per chi viene da Bra — Rebel Carmagnola",
   description: meta.description,
   path: "/manicure-semipermanente-bra",
   keywords: ["manicure semipermanente Bra", "smalto gel Bra", "nail Bra CN"],
@@ -101,8 +101,8 @@ const geoServiceSchema = {
 
 const faqs = [
   {
-    q: "Quanto ci vuole da Bra a Rebel?",
-    a: "Venti minuti scarsi via SP7 verso Carmagnola. Sono 20 km. Lo studio è in Viale Barbaroux 20, possibilità di parcheggio nelle vicinanze.",
+    q: "Come arrivo da Bra a Rebel?",
+    a: "Lo studio è in Viale Barbaroux 20 a Carmagnola. Apri Google Maps per controllare il percorso da Bra, il traffico e i tempi aggiornati prima di partire.",
   },
   {
     q: "Quanto dura la semipermanente?",
@@ -138,9 +138,9 @@ const faqSchema = {
 
 const points = [
   {
-    kicker: "01 · Da Bra a Carmagnola",
-    title: "Circa venti-ventidue minuti di viaggio.",
-    body: "Puoi organizzare l'appuntamento in base ai tuoi impegni e agli orari disponibili dello studio."
+    kicker: "01 · Preparazione della lamina",
+    title: "Il colore viene applicato su una base preparata con cura.",
+    body: "Prepariamo cuticole, bordi e superficie prima di applicare il gel."
   },
   {
     kicker: "02 · Lamina preparata bene",
@@ -150,7 +150,7 @@ const points = [
   {
     kicker: "03 · Gel professionale",
     title: "Prodotti scelti per adesione e finitura.",
-    body: "Non usiamo prodotti da scaffale. Il gel professionale ha una formulazione diversa: aderisce meglio, resiste all'usura quotidiana e rimane compatto sui bordi liberi.",
+    body: "Applichiamo il gel con attenzione a bordi e superficie. La durata varia anche in base alle caratteristiche dell'unghia e all'uso delle mani.",
   },
   {
     kicker: "04 · Rimozione delicata",
@@ -173,13 +173,13 @@ const combos = [
   {
     href: "/pulizia-viso-bra",
     title: "Manicure + pulizia viso",
-    body: "Mani e viso nella stessa visita. Per chi vuole ottimizzare il viaggio da Bra.",
+    body: "Se vuoi curare mani e viso nello stesso appuntamento, verifichiamo disponibilità e tempi prima di confermare.",
   },
 ];
 
 const nearbyAreas = [
-  { city: "Alba", href: "/manicure-semipermanente-alba", desc: "Langhe, ~30 min via A33." },
-  { city: "Canale", href: "/manicure-semipermanente-canale", desc: "Roero, ~35 min." },
+  { city: "Alba", href: "/manicure-semipermanente-alba", desc: "Scopri la pagina dedicata ad Alba." },
+  { city: "Canale", href: "/manicure-semipermanente-canale", desc: "Scopri la pagina dedicata a Canale." },
   { city: "Tutte le località", href: "/localita", desc: "Mappe e indicazioni per raggiungerci." },
 ];
 
@@ -198,9 +198,9 @@ const m = getPageMedia("/manicure-semipermanente-bra");
     image={m.hero}
     kicker="Rebel Nails — da Bra a Carmagnola"
     title="Manicure semipermanente per chi viene da Bra: _finitura curata_ e colore a scelta."
-    lead="Da Bra a Rebel sono circa venti-ventidue minuti via SP7. Prepariamo la lamina, applichiamo il gel professionale e curiamo la finitura; la durata indicativa è fino a 3-4 settimane e varia da persona a persona."
+    lead="Prepariamo la lamina, applichiamo il gel professionale e curiamo la finitura. La durata indicativa è fino a 3-4 settimane e varia in base all'unghia e alle abitudini."
     bullets={["Durata indicativa fino a 3-4 settimane", "Gel professionale e preparazione accurata", "Colore e finitura a scelta"]}
-    meta={["~20 km da Bra", "~22 min via SP7", "Da 35 € a seduta"]}
+    meta={["Studio a Carmagnola", "Indicazioni su Google Maps", "Da 35 € a seduta"]}
     ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
     ctaSecondary={{ label: "Apri il percorso da Bra", href: "https://www.google.com/maps/dir/?api=1&origin=Bra&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
   />
@@ -227,7 +227,7 @@ const m = getPageMedia("/manicure-semipermanente-bra");
     <div class="container">
       <SectionHead
         kicker="Il metodo Rebel"
-        title="La manicure REBEL, a _circa venti minuti da Bra_."
+        title="La manicure REBEL: _preparazione, colore e finitura_."
         lead="Preparazione accurata, gel professionale e una finitura scelta insieme in base ai tuoi gusti."
       />
       <div class="card-grid card-grid--2">
@@ -242,7 +242,7 @@ const m = getPageMedia("/manicure-semipermanente-bra");
         ))}
       </div>
       <div class="cluster" style="margin-top:2rem;">
-        <a class="btn btn--primary" href="/contatti">Prenota su WhatsApp</a>
+        <a class="btn btn--primary" href="/contatti">Chiedi un appuntamento</a>
         <a class="btn btn--secondary" href="/servizi/manicure-semipermanente-carmagnola">Scopri il trattamento</a>
         <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
       </div>
@@ -254,18 +254,17 @@ const m = getPageMedia("/manicure-semipermanente-bra");
     <div class="container">
       <SectionHead
         kicker="Come arrivare"
-        title="Da Bra a Rebel: venti minuti _senza autostrada_."
+        title="Da Bra a Rebel: _controlla il percorso su Maps_."
       />
       <div class="directions-grid">
         <div>
           <p class="body-p">
-            Da Bra a Carmagnola sono circa 20 chilometri via <strong>SP7</strong>:
-            si esce da Bra in direzione nord e si segue la provinciale fino in centro
-            a Carmagnola. In condizioni normali si arriva in 20-22 minuti, senza pedaggio.
+            REBEL è in <strong>Viale Barbaroux 20</strong>, nel centro di Carmagnola.
+            Apri Google Maps per controllare il percorso da Bra, il traffico e i tempi
+            aggiornati prima di partire.
           </p>
           <p class="body-p">
-            Lo studio è in <strong>Viale Barbaroux 20</strong>, nel centro di Carmagnola.
-            possibilità di parcheggio nelle vicinanze.
+            Per informazioni aggiornate sui parcheggi disponibili in zona, consulta Maps.
           </p>
           <div class="cluster" style="margin-top:1.4rem;">
             <a
@@ -314,7 +313,7 @@ const m = getPageMedia("/manicure-semipermanente-bra");
       height="md"
       align="left"
       kicker="Da Bra a Carmagnola"
-      quote="Le mani sono la prima cosa che gli altri vedono."
+      quote="Colore e finitura vengono scelti insieme in base ai tuoi gusti."
       cta={{ label: "Prenota la valutazione", href: "/contatti" }}
     />
   ) : null}
@@ -324,7 +323,7 @@ const m = getPageMedia("/manicure-semipermanente-bra");
     <div class="container container--narrow">
       <SectionHead
         kicker="Domande frequenti"
-        title="Da Bra: le risposte _dirette_."
+        title="Informazioni sulla manicure per chi viene da _Bra_."
       />
       <FaqAccordion items={faqs} kicker="FAQ Manicure Semipermanente Bra" />
     </div>
@@ -334,11 +333,11 @@ const m = getPageMedia("/manicure-semipermanente-bra");
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Vuoi un piano più ampio?"
-        title="Scopri cosa puoi prenotare da _Bra_."
-        lead="Trovi laser, pulizia viso, laminazione e trattamenti corpo disponibili per chi arriva da Bra."
+        kicker="Altri servizi"
+        title="Scopri gli altri trattamenti disponibili da _Rebel_."
+        lead="Nella pagina dedicata a Bra trovi anche laser, pulizia viso, laminazione e trattamenti corpo."
         primaryHref="/localita/bra"
-        primaryLabel="Scopri tutti i servizi da Bra"
+        primaryLabel="Vedi i servizi per Bra"
         secondaryHref="/epilazione-laser-bra"
         secondaryLabel="Laser da Bra"
       />
@@ -348,7 +347,7 @@ const m = getPageMedia("/manicure-semipermanente-bra");
   <!-- SEZIONE 6 — Comuni vicini -->
   <section class="section section--scene-ivory">
     <div class="container">
-      <SectionHead kicker="Vicino a Bra" title="Comuni vicini: _pagine dedicate_." />
+      <SectionHead kicker="Altre località" title="Cerchi informazioni per _un'altra zona_?" />
       <div class="card-grid card-grid--3">
         {nearbyAreas.map((a, i) => (
           <FeatureCard kicker="Zona vicina" title={a.city} body={a.desc} href={a.href} variant="quiet" index={i + 1} />
@@ -372,7 +371,7 @@ const m = getPageMedia("/manicure-semipermanente-bra");
     </div>
   </section>
 
-  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
+  <StickyBookingBar primary={{ label: "Chiedi un appuntamento", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

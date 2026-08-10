@@ -22,9 +22,9 @@ import { getPageMedia } from "@/lib/page-media";
 const m = getPageMedia("/massaggio-linfodrenante-alba");
 
 const meta = createPageMeta({
-  title: "Massaggio linfodrenante per chi viene da Alba — Rebel (Carmagnola, ~30 min)",
+  title: "Massaggio linfodrenante da Alba | REBEL",
   description:
-    "Vivi ad Alba o nelle Langhe? Da Rebel a Carmagnola sono circa trenta minuti via A33 e SP661. Massaggio linfodrenante con manualità delicate, dedicato alla sensazione di pesantezza e al benessere delle gambe. Da 69 €.",
+    "Massaggio linfodrenante a Carmagnola per chi arriva da Alba: manualità delicate, seduta adattata alle tue sensazioni e prezzo da 69 €.",
   path: "/massaggio-linfodrenante-alba",
   image: "https://www.rebelepigenetica.it/img/brand/rimodellamento-donna-beige.png",
   openGraphType: "article",
@@ -49,13 +49,13 @@ const breadcrumb = buildBreadcrumbSchema([
 ]);
 
 const webPage = buildWebPageSchema({
-  name: "Massaggio linfodrenante per chi viene da Alba",
+  name: "Massaggio linfodrenante per chi arriva da Alba",
   description: meta.description,
   path: "/massaggio-linfodrenante-alba",
 });
 
 const articleSchema = buildArticleSchema({
-  headline: "Massaggio linfodrenante per chi viene da Alba — Rebel (Carmagnola, ~30 min)",
+  headline: "Massaggio linfodrenante per chi arriva da Alba — REBEL Carmagnola",
   description: meta.description,
   path: "/massaggio-linfodrenante-alba",
   keywords: ["massaggio linfodrenante Alba", "massaggio drenante Alba", "ritenzione idrica Alba CN"],
@@ -64,8 +64,8 @@ const articleSchema = buildArticleSchema({
 });
 
 const serviceSchema = buildServiceSchema(
-  "Massaggio linfodrenante per chi viene da Alba",
-  "Massaggio linfodrenante a Carmagnola per clienti di Alba e delle Langhe, con manualità delicate e ritmo adattato alle sensazioni della persona.",
+  "Massaggio linfodrenante per chi arriva da Alba",
+  "Massaggio linfodrenante a Carmagnola con manualità delicate, adattate alle zone indicate e alle sensazioni comunicate durante la seduta.",
   "/massaggio-linfodrenante-alba",
   {
     priceFrom: 69,
@@ -77,8 +77,8 @@ const geoServiceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "@id": `${siteConfig.siteUrl}/massaggio-linfodrenante-alba#service-geo`,
-  name: "Massaggio linfodrenante per chi viene da Alba",
-  serviceType: "Lymphatic drainage massage",
+  name: "Massaggio linfodrenante per chi arriva da Alba",
+  serviceType: "Massaggio linfodrenante",
   provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
   areaServed: [
     {
@@ -103,16 +103,16 @@ const geoServiceSchema = {
 
 const faqs = [
   {
-    q: "Quanto ci vuole da Alba a Rebel per il linfodrenante?",
-    a: "Circa trenta minuti: si prende l'A33 in direzione Torino con uscita Marene, poi la SP661 fino a Carmagnola, trentatré chilometri in totale. Viale Barbaroux 20, possibilità di parcheggio nelle vicinanze.",
+    q: "Dove si trova REBEL rispetto ad Alba?",
+    a: "Lo studio è in Viale Barbaroux 20, a Carmagnola. Apri Google Maps per verificare percorso, traffico e tempi aggiornati.",
   },
   {
-    q: "A cosa serve il massaggio linfodrenante?",
-    a: "È un massaggio con manualità delicate e progressive, dedicato alla sensazione di pesantezza e al benessere delle gambe. Pressione e ritmo vengono adattati alle tue sensazioni.",
+    q: "Come si svolge il massaggio linfodrenante?",
+    a: "La seduta utilizza manualità delicate. Adattiamo pressione e zone alle sensazioni che ci comunichi durante il trattamento.",
   },
   {
-    q: "Bastano una o due sedute o serve un ciclo?",
-    a: "La frequenza dipende da ciò che cerchi e da come percepisci la seduta. Puoi prenotare un singolo appuntamento oppure valutare con noi una cadenza, senza pacchetti imposti.",
+    q: "Posso prenotare una sola seduta?",
+    a: "Sì. Puoi prenotare un singolo appuntamento; se desideri tornare, concordiamo insieme la frequenza.",
   },
   {
     q: "È adatto in caso di ritenzione e gambe stanche a fine giornata?",
@@ -120,7 +120,7 @@ const faqs = [
   },
   {
     q: "Posso abbinarlo ad altri trattamenti?",
-    a: "Alcuni servizi possono essere organizzati nella stessa visita. Dicci cosa vuoi abbinare e ti confermiamo tempi e compatibilità.",
+    a: "Alcuni servizi possono essere organizzati nella stessa visita. Indica che cosa vuoi abbinare: verifichiamo disponibilità e compatibilità prima di confermare.",
   },
   {
     q: "Come prenoto da Alba?",
@@ -142,7 +142,7 @@ const speakableSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "@id": `${siteConfig.siteUrl}/massaggio-linfodrenante-alba#speakable`,
-  name: "Massaggio linfodrenante per chi viene da Alba",
+  name: "Massaggio linfodrenante per chi arriva da Alba",
   speakable: {
     "@type": "SpeakableSpecification",
     cssSelector: [".page-hero__title", ".page-hero__lead"],
@@ -152,24 +152,24 @@ const speakableSchema = {
 
 const points = [
   {
-    kicker: "01 · Manualità progressive",
-    title: "Un ritmo delicato, adattato a te.",
-    body: "Pressione e ritmo vengono modulati durante la seduta in base alle tue sensazioni, senza manovre aggressive.",
+    kicker: "01 · Manualità delicate",
+    title: "Pressione adattata durante la seduta.",
+    body: "Adattiamo la pressione alle sensazioni che ci comunichi durante il trattamento.",
   },
   {
     kicker: "02 · Benessere delle gambe",
     title: "La seduta si concentra sulle zone che indichi.",
-    body: "Puoi segnalarci dove avverti maggiore pesantezza; adattiamo la seduta alla tua sensibilità e al tempo disponibile.",
+    body: "Prima di iniziare puoi indicarci le aree su cui preferisci concentrare la seduta.",
   },
   {
-    kicker: "03 · Frequenza personalizzata",
+    kicker: "03 · Frequenza",
     title: "Un appuntamento singolo o una cadenza concordata.",
-    body: "La frequenza viene decisa insieme in base alle tue preferenze e a come percepisci il trattamento, senza pacchetti imposti.",
+    body: "Puoi prenotare una sola seduta oppure concordare gli appuntamenti successivi.",
   },
   {
-    kicker: "04 · Parte di un percorso",
+    kicker: "04 · Servizi abbinabili",
     title: "Può affiancare altri servizi.",
-    body: "Se vuoi abbinare un altro trattamento, verifichiamo prima tempi e compatibilità e organizziamo l'appuntamento di conseguenza.",
+    body: "Se vuoi abbinare un altro trattamento, verifichiamo prima disponibilità e compatibilità.",
   },
 ];
 
@@ -177,24 +177,24 @@ const combos = [
   {
     href: "/massaggio-rilassante-alba",
     title: "Drenante + rilassante",
-    body: "Due momenti di benessere nello stesso appuntamento, se tempi e compatibilità lo consentono.",
+    body: "Se vuoi abbinare i due massaggi, verifichiamo disponibilità e compatibilità prima di confermare.",
   },
   {
     href: "/epilazione-laser-alba",
     title: "Drenante + laser gambe",
-    body: "Due servizi dedicati alle gambe, organizzati insieme solo quando compatibili.",
+    body: "Se vuoi abbinare il laser gambe, verifichiamo zone e compatibilità prima di confermare.",
   },
   {
     href: "/servizi/scrub-corpo-carmagnola",
     title: "Drenante + scrub corpo",
-    body: "Cura della pelle e massaggio nello stesso appuntamento, quando indicato.",
+    body: "Se vuoi aggiungere uno scrub corpo, verifichiamo disponibilità e compatibilità prima di confermare.",
   },
 ];
 
 const nearbyAreas = [
-  { city: "Canale", href: "/massaggio-linfodrenante-canale", desc: "Roero, ~30-35 min via SP29." },
-  { city: "Racconigi", href: "/massaggio-linfodrenante-racconigi", desc: "A pochi minuti, ~14 min via SS20." },
-  { city: "Tutte le località", href: "/localita", desc: "Mappe e indicazioni per raggiungerci." },
+  { city: "Canale", href: "/massaggio-linfodrenante-canale", desc: "Massaggio linfodrenante per chi arriva da Canale." },
+  { city: "Racconigi", href: "/massaggio-linfodrenante-racconigi", desc: "Massaggio linfodrenante per chi arriva da Racconigi." },
+  { city: "Tutte le località", href: "/localita", desc: "Consulta indirizzo, mappa e contatti." },
 ];
 ---
 
@@ -209,13 +209,13 @@ const nearbyAreas = [
 
   <PageHero
     image={m.hero}
-    kicker="Rebel Body — da Alba a Carmagnola"
-    title="Massaggio linfodrenante per chi viene da Alba: _circa trenta minuti_ da Carmagnola."
-    lead="Da Alba a Rebel sono circa trenta minuti via A33 e SP661. La seduta utilizza manualità delicate e progressive, con pressione e ritmo adattati alle tue sensazioni."
-    bullets={["Manualità delicate e progressive", "Seduta dedicata al benessere delle gambe", "Valutazione REBEL · 30–40 min"]}
-    meta={["~33 km da Alba", "~30 min via A33 + SP661", "Da 69 €"]}
-    ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
-    ctaSecondary={{ label: "Apri il percorso da Alba", href: "https://www.google.com/maps/dir/?api=1&origin=Alba&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
+    kicker="Massaggio linfodrenante · REBEL Carmagnola"
+    title="Massaggio linfodrenante per chi arriva da _Alba_."
+    lead="Una seduta con manualità delicate, adattata alle zone che indichi e alle sensazioni che comunichi durante il trattamento."
+    bullets={["Manualità delicate", "Zone concordate prima della seduta", "Prezzo da 69 €"]}
+    meta={["Studio in Viale Barbaroux 20, Carmagnola", "Trattamento corpo estetico"]}
+    ctaPrimary={{ label: "Chiedi un appuntamento", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Apri Google Maps", href: "https://www.google.com/maps/dir/?api=1&origin=Alba&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
   />
 
   {m.splitA ? (
@@ -224,10 +224,10 @@ const nearbyAreas = [
         <SplitFeature
           image={m.splitA}
           side="right"
-          kicker="Drenaggio mirato"
+          kicker="Il trattamento"
           title="Una seduta dedicata al _benessere delle gambe_."
-          body="Il trattamento segue un ritmo graduale e viene adattato alle zone che indichi e alle tue sensazioni durante la seduta."
-          bullets={["Manualità delicate e progressive", "Pressione adattata alla sensibilità", "Frequenza concordata insieme"]}
+          body="Prima di iniziare concordiamo le zone; durante la seduta adattiamo la pressione alle sensazioni che comunichi."
+          bullets={["Manualità delicate", "Zone concordate prima di iniziare", "Pressione adattata durante la seduta"]}
           cta={{ label: "Scopri il trattamento", href: "/servizi/massaggio-linfodrenante-carmagnola" }}
         />
       </div>
@@ -237,9 +237,9 @@ const nearbyAreas = [
   <section class="section">
     <div class="container">
       <SectionHead
-        kicker="Il metodo Rebel"
-        title="Il linfodrenante REBEL, a _circa trenta minuti da Alba_."
-        lead="Una seduta con manualità progressive, personalizzata in base alle zone che vuoi trattare e alle tue sensazioni."
+        kicker="Il trattamento REBEL"
+        title="Come si svolge il _massaggio linfodrenante_."
+        lead="Concordiamo le zone prima di iniziare e adattiamo le manualità durante la seduta."
       />
       <div class="card-grid card-grid--2">
         {points.map((p, i) => (
@@ -247,7 +247,7 @@ const nearbyAreas = [
         ))}
       </div>
       <div class="cluster" style="margin-top:2rem;">
-        <a class="btn btn--primary" href="/contatti">Prenota su WhatsApp</a>
+        <a class="btn btn--primary" href="/contatti">Chiedi un appuntamento</a>
         <a class="btn btn--secondary" href="/servizi/massaggio-linfodrenante-carmagnola">Scopri il trattamento</a>
         <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
       </div>
@@ -256,18 +256,18 @@ const nearbyAreas = [
 
   <section class="section section--scene-ivory">
     <div class="container">
-      <SectionHead kicker="Come arrivare" title="Da Alba a Rebel: trenta minuti _tra Langhe e pianura_." />
+      <SectionHead kicker="Come arrivare" title="Come raggiungere REBEL da _Alba_." />
       <div class="directions-grid">
         <div>
-          <p class="body-p">Da Alba a Carmagnola sono circa 33 km. Il percorso più rapido è l'<strong>A33 in direzione Torino</strong>, uscita Marene, poi <strong>SP661 fino a Carmagnola</strong>: in condizioni normali si arriva in una trentina di minuti.</p>
-          <p class="body-p">Lo studio è in <strong>Viale Barbaroux 20</strong>. possibilità di parcheggio nelle vicinanze.</p>
+          <p class="body-p">REBEL si trova in <strong>Viale Barbaroux 20, a Carmagnola</strong>.</p>
+          <p class="body-p">Apri Google Maps per verificare percorso, traffico e tempi aggiornati.</p>
           <div class="cluster" style="margin-top:1.4rem;">
-            <a class="btn btn--secondary btn--sm" href="https://www.google.com/maps/dir/?api=1&origin=Alba&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" target="_blank" rel="noreferrer">Apri il percorso da Alba in Maps</a>
+            <a class="btn btn--secondary btn--sm" href="https://www.google.com/maps/dir/?api=1&origin=Alba&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" target="_blank" rel="noreferrer">Apri Google Maps</a>
             <a class="btn btn--secondary btn--sm" href="/contatti">Contatti e mappa</a>
           </div>
         </div>
         <div class="map-frame">
-          <iframe src="https://www.google.com/maps?f=d&source=s_d&saddr=Alba&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Percorso da Alba a Rebel Carmagnola"></iframe>
+          <iframe src="https://www.google.com/maps?f=d&source=s_d&saddr=Alba&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Indicazioni da Alba a REBEL Carmagnola"></iframe>
         </div>
       </div>
     </div>
@@ -275,7 +275,7 @@ const nearbyAreas = [
 
   <section class="section">
     <div class="container">
-      <SectionHead kicker="Una sola sosta" title="Vuoi abbinare un altro _trattamento_?" lead="Dicci quali servizi ti interessano: ti confermiamo tempi e compatibilità prima dell'appuntamento." />
+      <SectionHead kicker="Servizi abbinabili" title="Vuoi abbinare un altro _trattamento_?" lead="Indica i servizi che ti interessano: verifichiamo disponibilità e compatibilità prima dell’appuntamento." />
       <div class="card-grid card-grid--3" style="margin-top:2rem;">
         {combos.map((c) => (<FeatureCard title={c.title} body={c.body} href={c.href} variant="quiet" />))}
       </div>
@@ -287,15 +287,15 @@ const nearbyAreas = [
       image={m.mood}
       height="md"
       align="left"
-      kicker="Da Alba a Carmagnola"
-      quote="Un momento dedicato al benessere delle gambe."
-      cta={{ label: "Prenota la valutazione", href: "/contatti" }}
+      kicker="Massaggio linfodrenante a Carmagnola"
+      quote="Manualità e pressione vengono adattate durante la seduta."
+      cta={{ label: "Chiedi un appuntamento", href: "/contatti" }}
     />
   ) : null}
 
   <section class="section section--scene-ivory">
     <div class="container container--narrow">
-      <SectionHead kicker="Domande frequenti" title="Da Alba: le risposte _dirette_." />
+      <SectionHead kicker="Domande frequenti" title="Domande sul _massaggio linfodrenante_." />
       <FaqAccordion items={faqs} kicker="FAQ Linfodrenante Alba" />
     </div>
   </section>
@@ -303,9 +303,9 @@ const nearbyAreas = [
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Vuoi un piano più ampio?"
-        title="Il drenante non è l'unico motivo per venire da _Alba_."
-        lead="Scopri laser, massaggi, pulizia viso e trattamenti corpo disponibili per chi arriva da Alba."
+        kicker="Altri servizi REBEL"
+        title="Trattamenti viso e corpo per chi arriva da _Alba_."
+        lead="Consulta i servizi disponibili nello studio REBEL di Carmagnola."
         primaryHref="/localita/alba"
         primaryLabel="Scopri tutti i servizi da Alba"
         secondaryHref="/massaggio-rilassante-alba"
@@ -316,9 +316,9 @@ const nearbyAreas = [
 
   <section class="section section--scene-ivory">
     <div class="container">
-      <SectionHead kicker="Vicino ad Alba" title="Comuni vicini: _pagine dedicate_." />
+      <SectionHead kicker="Altre località" title="Servizi REBEL dalle _zone vicine_." />
       <div class="card-grid card-grid--3">
-        {nearbyAreas.map((a, i) => (<FeatureCard kicker="Zona vicina" title={a.city} body={a.desc} href={a.href} variant="quiet" index={i + 1} />))}
+        {nearbyAreas.map((a, i) => (<FeatureCard kicker="Località" title={a.city} body={a.desc} href={a.href} variant="quiet" index={i + 1} />))}
       </div>
     </div>
   </section>
@@ -326,10 +326,10 @@ const nearbyAreas = [
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Prenota"
+        kicker="Prenotazione"
         title="Prenota il tuo _massaggio linfodrenante_."
-        lead="Scrivici su WhatsApp per conoscere le disponibilità."
-        primaryLabel="Prenota su WhatsApp"
+        lead="Scrivici su WhatsApp per conoscere le disponibilità oppure usa il modulo contatti."
+        primaryLabel="Scrivici su WhatsApp"
         primaryHref={siteConfig.social.whatsapp}
         secondaryLabel="Scopri il trattamento"
         secondaryHref="/servizi/massaggio-linfodrenante-carmagnola"
@@ -337,7 +337,7 @@ const nearbyAreas = [
     </div>
   </section>
 
-  <StickyBookingBar priceHint="Linfodrenante da 69 €" primary={{ label: "Prenota gratis", href: "/contatti" }} />
+  <StickyBookingBar priceHint="Massaggio linfodrenante da 69 €" primary={{ label: "Prenota", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

@@ -20,9 +20,9 @@ import { siteConfig } from "@/lib/site-config";
 import { getPageMedia } from "@/lib/page-media";
 
 const meta = createPageMeta({
-  title: "Manicure semipermanente per chi viene da Alba — Rebel (Carmagnola, ~30 min)",
+  title: "Manicure semipermanente da Alba | REBEL",
   description:
-    "Vivi ad Alba o nelle Langhe? Da Rebel a Carmagnola trovi manicure semipermanente con preparazione accurata e gel professionale. Durata indicativa fino a 3-4 settimane.",
+    "Per chi arriva da Alba: manicure semipermanente a Carmagnola con preparazione accurata, gel professionale e durata indicativa fino a 3-4 settimane.",
   path: "/manicure-semipermanente-alba",
   image: "https://www.rebelepigenetica.it/img/generated/manicure-semipermanente-rebel-editorial.png",
   openGraphType: "article",
@@ -53,7 +53,7 @@ const webPage = buildWebPageSchema({
 });
 
 const articleSchema = buildArticleSchema({
-  headline: "Manicure semipermanente per chi viene da Alba — Rebel (Carmagnola, ~30 min)",
+  headline: "Manicure semipermanente per chi viene da Alba — Rebel Carmagnola",
   description: meta.description,
   path: "/manicure-semipermanente-alba",
   keywords: ["manicure semipermanente Alba", "smalto semipermanente Alba", "nail Alba CN"],
@@ -101,7 +101,7 @@ const geoServiceSchema = {
 
 const faqs = [
   {
-    q: "Quanto dura una manicure semipermanente fatta bene?",
+    q: "Quanto dura la manicure semipermanente?",
     a: "La durata indicativa è fino a 3-4 settimane e varia in base a ricrescita, caratteristiche dell'unghia e abitudini. Alla fine ti spieghiamo come prendertene cura a casa.",
   },
   {
@@ -117,8 +117,8 @@ const faqs = [
     a: "Alcuni servizi possono essere organizzati nella stessa visita. Dicci cosa vuoi abbinare e ti confermiamo tempi e compatibilità.",
   },
   {
-    q: "Quanto ci vuole da Alba a Rebel?",
-    a: "Circa trenta minuti via A33 uscita Marene, poi SP661 fino a Carmagnola. Viale Barbaroux 20, possibilità di parcheggio nelle vicinanze.",
+    q: "Come arrivo da Alba a Rebel?",
+    a: "Lo studio è in Viale Barbaroux 20 a Carmagnola. Apri Google Maps per controllare il percorso da Alba, il traffico e i tempi aggiornati prima di partire.",
   },
   {
     q: "Come prenoto da Alba?",
@@ -144,8 +144,8 @@ const points = [
   },
   {
     kicker: "02 · Prodotti professionali",
-    title: "Gel professionale, non da scaffale.",
-    body: "Usiamo prodotti selezionati per adesione e finitura. La differenza rispetto ai kit consumer si vede sul lungo periodo: il colore resta compatto, senza screpolature nei bordi liberi.",
+    title: "Prodotti professionali scelti per applicazione e finitura.",
+    body: "Applichiamo il gel con attenzione a bordi e superficie. La durata varia anche in base alle caratteristiche dell'unghia e all'uso delle mani.",
   },
   {
     kicker: "03 · Scelta del colore",
@@ -168,18 +168,18 @@ const combos = [
   {
     href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola",
     title: "Manicure + laminazione ciglia",
-    body: "Mani ordinate e sguardo definito. Due cose che cambiano la percezione di sé — in una visita.",
+    body: "Se vuoi abbinare manicure e laminazione, verifichiamo la disponibilità necessaria per organizzarle nella stessa visita.",
   },
   {
     href: "/servizi/pulizia-viso-carmagnola",
     title: "Manicure + pulizia viso",
-    body: "Per chi vuole lavorare su mani e viso nello stesso giorno. Si pianifica in modo semplice.",
+    body: "Se vuoi curare mani e viso nello stesso appuntamento, verifichiamo disponibilità e tempi prima di confermare.",
   },
 ];
 
 const nearbyAreas = [
-  { city: "Bra", href: "/manicure-semipermanente-bra", desc: "~22 min da Carmagnola." },
-  { city: "Canale", href: "/manicure-semipermanente-canale", desc: "Roero, ~35 min via A33." },
+  { city: "Bra", href: "/manicure-semipermanente-bra", desc: "Scopri la pagina dedicata a Bra." },
+  { city: "Canale", href: "/manicure-semipermanente-canale", desc: "Scopri la pagina dedicata a Canale." },
   { city: "Tutte le località", href: "/localita", desc: "Mappe e indicazioni per raggiungerci." },
 ];
 
@@ -198,9 +198,9 @@ const m = getPageMedia("/manicure-semipermanente-alba");
     image={m.hero}
     kicker="Rebel Nails — da Alba a Carmagnola"
     title="Manicure semipermanente per chi viene da Alba: _finitura curata_ e colore a scelta."
-    lead="Da Alba a Rebel sono circa trenta minuti via A33. Prepariamo la lamina, applichiamo il gel professionale e curiamo la finitura; la durata indicativa è fino a 3-4 settimane e varia da persona a persona."
+    lead="Prepariamo la lamina, applichiamo il gel professionale e curiamo la finitura. La durata indicativa è fino a 3-4 settimane e varia in base all'unghia e alle abitudini."
     bullets={["Durata indicativa fino a 3-4 settimane", "Gel professionale e preparazione accurata", "Colore e finitura a scelta"]}
-    meta={["~33 km da Alba", "~30 min via A33", "Da 35 € a seduta"]}
+    meta={["Studio a Carmagnola", "Indicazioni su Google Maps", "Da 35 € a seduta"]}
     ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
     ctaSecondary={{ label: "Apri il percorso da Alba", href: "https://www.google.com/maps/dir/?api=1&origin=Alba&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
   />
@@ -227,7 +227,7 @@ const m = getPageMedia("/manicure-semipermanente-alba");
     <div class="container">
       <SectionHead
         kicker="Il metodo Rebel"
-        title="La manicure REBEL, a _circa trenta minuti da Alba_."
+        title="La manicure REBEL: _preparazione, colore e finitura_."
         lead="Preparazione accurata, gel professionale e una finitura scelta insieme in base ai tuoi gusti."
       />
       <div class="card-grid card-grid--2">
@@ -242,7 +242,7 @@ const m = getPageMedia("/manicure-semipermanente-alba");
         ))}
       </div>
       <div class="cluster" style="margin-top:2rem;">
-        <a class="btn btn--primary" href="/contatti">Prenota su WhatsApp</a>
+        <a class="btn btn--primary" href="/contatti">Chiedi un appuntamento</a>
         <a class="btn btn--secondary" href="/servizi/manicure-semipermanente-carmagnola">Scopri il trattamento</a>
         <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
       </div>
@@ -254,19 +254,17 @@ const m = getPageMedia("/manicure-semipermanente-alba");
     <div class="container">
       <SectionHead
         kicker="Come arrivare"
-        title="Da Alba a Rebel: trenta minuti _tra Langhe e pianura_."
+        title="Da Alba a Rebel: _controlla il percorso su Maps_."
       />
       <div class="directions-grid">
         <div>
           <p class="body-p">
-            Da Alba sono circa 33 chilometri via <strong>A33 direzione Torino</strong>,
-            uscita Marene, poi <strong>SP661 fino a Carmagnola</strong>. In condizioni normali
-            si è in studio in trenta minuti. Chi preferisce evitare l'autostrada può prendere
-            SP7 e SP661 — qualche minuto in più, nessun costo di pedaggio.
+            REBEL è in <strong>Viale Barbaroux 20</strong>, nel centro di Carmagnola.
+            Apri Google Maps per controllare il percorso da Alba, il traffico e i tempi
+            aggiornati prima di partire.
           </p>
           <p class="body-p">
-            Lo studio è in <strong>Viale Barbaroux 20</strong>, nel centro di Carmagnola.
-            possibilità di parcheggio nelle vicinanze.
+            Per informazioni aggiornate sui parcheggi disponibili in zona, consulta Maps.
           </p>
           <div class="cluster" style="margin-top:1.4rem;">
             <a
@@ -320,7 +318,7 @@ const m = getPageMedia("/manicure-semipermanente-alba");
       height="md"
       align="left"
       kicker="Da Alba a Carmagnola"
-      quote="Le mani sono la prima cosa che gli altri vedono."
+      quote="Colore e finitura vengono scelti insieme in base ai tuoi gusti."
       cta={{ label: "Prenota la valutazione", href: "/contatti" }}
     />
   ) : null}
@@ -330,7 +328,7 @@ const m = getPageMedia("/manicure-semipermanente-alba");
     <div class="container container--narrow">
       <SectionHead
         kicker="Domande frequenti"
-        title="Da Alba e dalle _Langhe_: le risposte dirette."
+        title="Informazioni sulla manicure per chi viene da _Alba_."
       />
       <FaqAccordion items={faqs} kicker="FAQ Manicure Semipermanente Alba" />
     </div>
@@ -340,11 +338,11 @@ const m = getPageMedia("/manicure-semipermanente-alba");
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Vuoi un piano più ampio?"
-        title="Scopri cosa puoi prenotare da _Alba_."
-        lead="Trovi laser, pulizia viso, laminazione e trattamenti corpo disponibili per chi arriva da Alba."
+        kicker="Altri servizi"
+        title="Scopri gli altri trattamenti disponibili da _Rebel_."
+        lead="Nella pagina dedicata ad Alba trovi anche laser, pulizia viso, laminazione e trattamenti corpo."
         primaryHref="/localita/alba"
-        primaryLabel="Scopri tutti i servizi da Alba"
+        primaryLabel="Vedi i servizi per Alba"
         secondaryHref="/epilazione-laser-alba"
         secondaryLabel="Laser da Alba"
       />
@@ -355,8 +353,8 @@ const m = getPageMedia("/manicure-semipermanente-alba");
   <section class="section section--scene-ivory">
     <div class="container">
       <SectionHead
-        kicker="Vicino ad Alba"
-        title="Comuni vicini: _pagine dedicate_ per la manicure."
+        kicker="Altre località"
+        title="Cerchi informazioni per _un'altra zona_?"
       />
       <div class="card-grid card-grid--3">
         {nearbyAreas.map((a, i) => (
@@ -388,7 +386,7 @@ const m = getPageMedia("/manicure-semipermanente-alba");
     </div>
   </section>
 
-  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
+  <StickyBookingBar primary={{ label: "Chiedi un appuntamento", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

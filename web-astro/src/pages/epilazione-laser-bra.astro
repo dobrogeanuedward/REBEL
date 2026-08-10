@@ -22,9 +22,9 @@ import { getPageMedia } from "@/lib/page-media";
 const m = getPageMedia("/epilazione-laser-bra");
 
 const meta = createPageMeta({
-  title: "Epilazione laser per chi viene da Bra — Rebel (Carmagnola, ~22 min)",
+  title: "Epilazione laser per chi arriva da Bra | REBEL Carmagnola",
   description:
-    "Da Bra a Rebel sono circa venti-ventidue minuti. Epilazione con Lumina X1 Pro di THORY, comfort ICE Polar, valutazione iniziale e calendario concordato.",
+    "Epilazione laser per chi arriva da Bra: valutazione iniziale, Lumina X1 Pro di THORY, ICE Polar e prezzi da 25,90 € a zona.",
   path: "/epilazione-laser-bra",
   image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/8d07afc2-b036-4eff-d34e-523a6c656d00/public",
   openGraphType: "article",
@@ -40,7 +40,7 @@ const meta = createPageMeta({
     "laser ascelle Bra",
     "laser inguine Bra",
     "laser gambe Bra",
-    "Rebel epilazione laser Bra",
+    "REBEL epilazione laser Bra",
     "epilazione laser Bra CN",
   ],
 });
@@ -52,13 +52,13 @@ const breadcrumb = buildBreadcrumbSchema([
 ]);
 
 const webPage = buildWebPageSchema({
-  name: "Epilazione laser per chi viene da Bra",
+  name: "Epilazione laser per chi arriva da Bra",
   description: meta.description,
   path: "/epilazione-laser-bra",
 });
 
 const articleSchema = buildArticleSchema({
-  headline: "Epilazione laser per chi viene da Bra — Rebel (Carmagnola, ~22 min)",
+  headline: "Epilazione laser per chi arriva da Bra — REBEL Carmagnola",
   description: meta.description,
   path: "/epilazione-laser-bra",
   keywords: [
@@ -72,8 +72,8 @@ const articleSchema = buildArticleSchema({
 });
 
 const laserServiceSchema = buildServiceSchema(
-  "Epilazione laser per chi viene da Bra",
-  "Percorso di epilazione laser per clienti provenienti da Bra: Lumina X1 Pro di THORY con comfort Ice Polar, valutazione iniziale e piano personalizzato.",
+  "Epilazione laser per chi arriva da Bra",
+  "Epilazione laser viso e corpo presso REBEL a Carmagnola, con valutazione iniziale, Lumina X1 Pro di THORY e raffreddamento ICE Polar.",
   "/epilazione-laser-bra",
   {
     priceFrom: 25.9,
@@ -82,7 +82,7 @@ const laserServiceSchema = buildServiceSchema(
       "epilazione laser Roero",
       "laser Bra CN",
       "laser diodo Bra",
-      "Ice Polar Bra",
+      "ICE Polar Bra",
     ],
   },
 );
@@ -91,8 +91,8 @@ const geoServiceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "@id": `${siteConfig.siteUrl}/epilazione-laser-bra#service-geo`,
-  name: "Epilazione laser per chi viene da Bra",
-  serviceType: "Laser hair removal",
+  name: "Epilazione laser per chi arriva da Bra",
+  serviceType: "Epilazione laser",
   provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
   areaServed: [
     {
@@ -124,12 +124,12 @@ const geoServiceSchema = {
 
 const faqs = [
   {
-    q: "Da Bra, quanto tempo serve per arrivare a Rebel?",
-    a: "Circa ventidue minuti via SP661, venti chilometri in totale. Lo studio è in Viale Barbaroux 20, in centro a Carmagnola, con possibilità di parcheggio nelle vicinanze.",
+    q: "Dove si trova REBEL rispetto a Bra?",
+    a: "Lo studio è in Viale Barbaroux 20, a Carmagnola. Usa il collegamento a Google Maps presente nella pagina per verificare il percorso e il traffico al momento della partenza.",
   },
   {
-    q: "Posso fare il laser anche in primavera o devo aspettare l'autunno?",
-    a: "Dipende da esposizione, abbronzatura, zona e condizioni della pelle. Prima di ogni seduta controlliamo la zona e decidiamo se procedere o riprogrammare l'appuntamento.",
+    q: "Posso fare il laser anche in primavera o devo aspettare l’autunno?",
+    a: "Dipende da esposizione, abbronzatura, zona e condizioni della pelle. Prima della seduta valutiamo l’area e decidiamo se procedere o riprogrammare l’appuntamento.",
   },
   {
     q: "Ho già fatto la luce pulsata in casa per anni: serve a qualcosa il laser professionale adesso?",
@@ -140,12 +140,12 @@ const faqs = [
     a: "Il numero e gli intervalli variano in base a zona, pelle e caratteristiche del pelo. Dopo la valutazione ti diamo una stima e la aggiorniamo durante il percorso.",
   },
   {
-    q: "Come vengono definite pagamento e frequenza?",
-    a: "Le modalità di pagamento e la frequenza vengono spiegate durante la valutazione, in base alle zone da trattare.",
+    q: "Quanto costa la valutazione?",
+    a: "Se scegli di iniziare il Percorso REBEL, la valutazione è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi.",
   },
   {
-    q: "Posso fare laser + un altro trattamento nello stesso giorno?",
-    a: "Sì, con criterio. Manicure semipermanente, scrub corpo, laminazione e massaggi si combinano bene. Pulizia viso e protocolli epigenetici sul viso vanno invece pianificati con un po' di distanza rispetto al laser viso. Lo decidiamo insieme.",
+    q: "Posso prenotare il laser e un altro servizio nello stesso giorno?",
+    a: "Alcuni servizi possono essere organizzati nella stessa visita. Indica che cosa vuoi abbinare: verifichiamo disponibilità, zone e compatibilità prima di confermare.",
   },
   {
     q: "Come prenoto da Bra?",
@@ -165,24 +165,24 @@ const faqSchema = {
 
 const principles = [
   {
-    kicker: "01 · Da Bra a Carmagnola",
-    title: "Circa venti-ventidue minuti via SP661.",
-    body: "Da Bra raggiungi lo studio in circa venti-ventidue minuti. Gli intervalli vengono definiti in base alla zona e alla ricrescita osservata."
+    kicker: "01 · Valutazione iniziale",
+    title: "Pelle, pelo e zone da trattare.",
+    body: "Valutiamo fototipo, caratteristiche del pelo, zone ed esposizione solare. Queste informazioni servono a definire parametri e calendario iniziali.",
   },
   {
-    kicker: "02 · Lumina X1 Pro · comfort ICE Polar",
-    title: "La tecnologia usata durante la seduta.",
-    body: "Lumina X1 Pro di THORY integra 755, 808, 940 e 1064 nm e il raffreddamento a contatto in zaffiro Ice Point Cooling. Durante la valutazione ti spieghiamo impostazioni e comfort ICE Polar.",
+    kicker: "02 · Lumina X1 Pro · ICE Polar",
+    title: "Tecnologia e raffreddamento a contatto.",
+    body: "Lumina X1 Pro di THORY integra 755, 808, 940 e 1064 nm. ICE Polar utilizza il raffreddamento a contatto in zaffiro Ice Point Cooling durante la seduta.",
   },
   {
-    kicker: "03 · Piano scritto, non a voce",
-    title: "Zone, calendario e prezzo spiegati prima di iniziare.",
-    body: "Durante la valutazione definiamo le zone, una prima stima degli intervalli e il prezzo. Il calendario può cambiare in base alla ricrescita osservata.",
+    kicker: "03 · Calendario",
+    title: "Intervalli definiti dopo la valutazione.",
+    body: "Proponiamo una prima stima degli intervalli e la aggiorniamo in base alla zona e alla ricrescita osservata.",
   },
   {
-    kicker: "04 · Comunicazione vera",
-    title: "Dubbi tra le sedute? Scrivici su WhatsApp.",
-    body: "Dubbi su sole, sport, prodotti? Scrivici tra una seduta e l'altra. Rispondere in modo concreto è parte del metodo, non un servizio extra.",
+    kicker: "04 · Contatti",
+    title: "Assistenza tra gli appuntamenti.",
+    body: "Per dubbi su preparazione, sole o prodotti puoi contattarci su WhatsApp prima dell’appuntamento successivo.",
   },
 ];
 
@@ -190,7 +190,7 @@ const guides = [
   {
     href: "/competenze/epilazione-laser-ascelle-carmagnola",
     title: "Laser ascelle",
-    body: "Piccola zona, grande ritorno quotidiano: spesso si parte da qui.",
+    body: "Informazioni su valutazione iniziale, preparazione e indicazioni tra le sedute per la zona ascelle.",
   },
   {
     href: "/competenze/epilazione-laser-inguine-carmagnola",
@@ -215,7 +215,7 @@ const guides = [
   {
     href: "/competenze/peli-incarniti-laser-carmagnola",
     title: "Peli incarniti e laser",
-    body: "Guida alla preparazione della zona e alla valutazione iniziale in caso di peli incarniti.",
+    body: "Informazioni cosmetiche sui peli incarniti e criteri per valutare il laser. I sintomi persistenti richiedono un parere medico.",
   },
 ];
 
@@ -223,12 +223,12 @@ const seasonCards = [
   {
     href: "/competenze/epilazione-laser-inverno-carmagnola",
     title: "Laser in inverno: cosa valutare",
-    body: "L'inverno può essere più semplice per alcune zone esposte, ma la scelta dipende da pelle, abitudini e calendario personale.",
+    body: "Come organizzare il calendario in inverno e aggiornarlo quando aumenta l’esposizione solare.",
   },
   {
     href: "/competenze/epilazione-laser-estate-sole-carmagnola",
-    title: "Laser e sole: cosa puoi fare davvero",
-    body: "Come gestire esposizione solare, appuntamenti e indicazioni prima e dopo la seduta.",
+    title: "Laser ed esposizione solare",
+    body: "Come comunicare esposizione e abbronzatura e quando può essere necessario riprogrammare la seduta.",
   },
 ];
 
@@ -241,7 +241,7 @@ const combos = [
   {
     href: "/servizi/massaggio-rilassante-carmagnola",
     title: "Laser + massaggio rilassante",
-    body: "Se vuoi aggiungere un massaggio di 50 minuti, verifichiamo disponibilità e compatibilità prima dell'appuntamento.",
+    body: "Se vuoi aggiungere un massaggio rilassante, verifichiamo disponibilità, zone e compatibilità prima di fissare gli appuntamenti.",
   },
   {
     href: "/protocolli/eye-genesis",
@@ -251,9 +251,9 @@ const combos = [
 ];
 
 const nearbyAreas = [
-  { city: "Alba", href: "/epilazione-laser-alba", desc: "Capoluogo Langhe, ~30 min." },
-  { city: "Canale", href: "/epilazione-laser-canale", desc: "Cuore del Roero, ~35 min." },
-  { city: "Sommariva del Bosco", href: "/localita/sommariva-del-bosco", desc: "Tra Bra e Carmagnola." },
+  { city: "Alba", href: "/epilazione-laser-alba", desc: "Epilazione laser per chi arriva da Alba." },
+  { city: "Canale", href: "/epilazione-laser-canale", desc: "Epilazione laser per chi arriva da Canale." },
+  { city: "Sommariva del Bosco", href: "/localita/sommariva-del-bosco", desc: "Servizi e contatti per chi arriva da Sommariva del Bosco." },
 ];
 ---
 
@@ -267,22 +267,22 @@ const nearbyAreas = [
 
   <PageHero
     image={m.hero}
-    kicker="Rebel Laser — da Bra a Carmagnola"
-    title="Epilazione laser per chi viene da Bra: ventidue minuti di strada, un percorso _impostato con calma_."
-    lead="Da Bra a Rebel sono circa venti-ventidue minuti via SP661. Dopo la valutazione definiamo zone, impostazioni e una prima stima degli intervalli con Lumina X1 Pro di THORY e comfort ICE Polar."
-    bullets={["~22 min da Bra via SP661", "Lumina X1 Pro · comfort ICE Polar", "Valutazione 30–40 min"]}
-    meta={["~20 km da Bra", "Da 25,90 € a zona"]}
+    kicker="Epilazione laser · REBEL Carmagnola"
+    title="Epilazione laser per chi arriva da _Bra_."
+    lead="Valutiamo pelle, pelo e zone prima di definire parametri, intervalli e prezzo. Utilizziamo Lumina X1 Pro di THORY con raffreddamento ICE Polar."
+    bullets={["Studio in Viale Barbaroux 20, Carmagnola", "Lumina X1 Pro · ICE Polar", "Valutazione prima del percorso"]}
+    meta={["Epilazione laser viso e corpo", "Da 25,90 € a zona"]}
     ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp }}
   />
 
-  <!-- SEZIONE 1 — La vicinanza che cambia il percorso -->
+  <!-- SEZIONE 1 — Il percorso -->
   <section class="section">
     <div class="container">
       <SectionHead
-        kicker="Vicino abbastanza"
-        title="Vicino abbastanza da farne _una routine_, non un evento."
-        lead="Da Bra raggiungi lo studio in circa venti-ventidue minuti. Dopo la valutazione definiamo gli intervalli in base alla zona e alla ricrescita osservata."
+        kicker="Il Percorso REBEL"
+        title="Come impostiamo il _percorso laser_."
+        lead="Valutazione iniziale, parametri, calendario e prezzo vengono spiegati prima di iniziare."
       />
       <div class="card-grid card-grid--2">
         {principles.map((p, i) => (
@@ -303,18 +303,18 @@ const nearbyAreas = [
     </div>
   </section>
 
-  <!-- SPLIT — Tecnologia Ice Polar -->
+  <!-- SPLIT — Tecnologia ICE Polar -->
   {m.splitA ? (
     <section class="section section--tight">
       <div class="container">
         <SplitFeature
           image={m.splitA}
           side="right"
-          kicker="Comfort reale"
-          title="Il comfort _ICE Polar_ accompagna la seduta."
-          body="La percezione cambia da persona a persona e da zona a zona. Durante la valutazione verifichiamo se il trattamento è adatto e definiamo le impostazioni; ti spieghiamo anche il comfort ICE Polar."
-          bullets={["Lumina X1 Pro di THORY · quattro lunghezze d’onda", "Ice Point Cooling a contatto in zaffiro", "Idoneità verificata in valutazione"]}
-          cta={{ label: "Come funziona il comfort Ice Polar", href: "/epilazione-laser-ice-polar-carmagnola" }}
+          kicker="Raffreddamento a contatto"
+          title="Lumina X1 Pro con _ICE Polar_."
+          body="La sensibilità varia tra persone e zone. ICE Polar utilizza Ice Point Cooling a contatto in zaffiro durante la seduta; parametri e modalità vengono definiti dopo la valutazione."
+          bullets={["Lumina X1 Pro di THORY", "755, 808, 940 e 1064 nm", "Ice Point Cooling a contatto in zaffiro"]}
+          cta={{ label: "Scopri ICE Polar", href: "/epilazione-laser-ice-polar-carmagnola" }}
         />
       </div>
     </section>
@@ -325,21 +325,16 @@ const nearbyAreas = [
     <div class="container">
       <SectionHead
         kicker="Come arrivare"
-        title="Da Bra a Rebel: il tragitto _più rapido_."
+        title="Come raggiungere REBEL da _Bra_."
       />
       <div class="directions-grid">
         <div>
           <p class="body-p">
-            Da Bra a Carmagnola sono circa venti chilometri: la via più veloce è la
-            <strong>SP661 (Strada di Cuneo)</strong> in direzione Sommariva del Bosco
-            e Carmagnola, con tempo di percorrenza tra i ventidue e i venticinque
-            minuti in condizioni di traffico normali. Se vieni dalla zona di Pollenzo
-            o dal versante della Madonna dei Fiori, conviene la deviazione iniziale
-            per la SP7.
+            REBEL si trova in <strong>Viale Barbaroux 20, a Carmagnola</strong>.
           </p>
           <p class="body-p">
-            Lo studio è in <strong>Viale Barbaroux 20</strong>, in pieno centro
-            Carmagnola. possibilità di parcheggio nelle vicinanze.
+            Apri Google Maps per verificare il percorso da Bra, il traffico e i tempi
+            aggiornati prima di partire.
           </p>
           <div class="cluster" style="margin-top:1.4rem;">
             <a
@@ -358,25 +353,25 @@ const nearbyAreas = [
             src="https://www.google.com/maps?f=d&source=s_d&saddr=Bra&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            title="Percorso da Bra a Rebel Carmagnola"
+            title="Indicazioni da Bra a REBEL Carmagnola"
           ></iframe>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SEZIONE 3 — Ritmo del laser da Bra -->
+  <!-- SEZIONE 3 — Intervalli e servizi abbinabili -->
   <section class="section">
     <div class="container">
       <SectionHead
-        kicker="Frequenza"
+        kicker="Intervalli e servizi"
         title="Come definiamo _gli intervalli tra le sedute_."
-        lead="La frequenza non è uguale per tutte: dipende dalla zona e dalla ricrescita osservata durante il percorso."
+        lead="La frequenza dipende dalla zona e dalla ricrescita osservata durante il percorso. Se vuoi aggiungere un altro servizio, verifichiamo prima disponibilità e compatibilità."
       />
       <p class="body-p" style="max-width:70ch;">
         Dopo la valutazione proponiamo una prima stima del calendario. Gli intervalli vengono
-        aggiornati in base alla zona e alla ricrescita osservata; prima di ogni appuntamento
-        confermiamo anche le indicazioni su esposizione e preparazione.
+        aggiornati in base alla zona e alla ricrescita osservata; prima dell’appuntamento
+        condividiamo anche le indicazioni su esposizione e preparazione.
       </p>
       <div class="card-grid card-grid--3" style="margin-top:2rem;">
         {combos.map((c) => (
@@ -396,8 +391,8 @@ const nearbyAreas = [
     <div class="container">
       <SectionHead
         kicker="Zone e guide"
-        title="Da Bra: le zone che ci vengono _chieste più spesso_."
-        lead="Apri le guide per conoscere prezzi di partenza e informazioni sulle diverse zone prima della valutazione."
+        title="Guide per scegliere le _zone da trattare_."
+        lead="Consulta le informazioni su valutazione, preparazione e indicazioni tra le sedute per ciascuna zona."
       />
       <div class="card-grid card-grid--3">
         {guides.map((g) => (
@@ -412,14 +407,14 @@ const nearbyAreas = [
     </div>
   </section>
 
-  <!-- FULL-BLEED — mood Bra/Roero -->
+  <!-- FULL-BLEED -->
   {m.mood ? (
     <FullBleedBand
       image={m.mood}
       height="md"
       align="left"
-      kicker="Da Bra a Carmagnola"
-      quote="Vicino abbastanza da farne una routine, non un evento."
+      kicker="Epilazione laser a Carmagnola"
+      quote="Zone, calendario e prezzo vengono definiti prima di iniziare."
       cta={{ label: "Prenota la valutazione", href: "/contatti" }}
     />
   ) : null}
@@ -428,9 +423,9 @@ const nearbyAreas = [
   <section class="section">
     <div class="container">
       <SectionHead
-        kicker="Quando partire"
+        kicker="Stagionalità"
         title="Quando iniziare: contano _esposizione, abbronzatura e zona_."
-        lead="Prima di iniziare valutiamo la pelle, le zone interessate e l'esposizione prevista. Se le condizioni cambiano, possiamo riprogrammare la seduta."
+        lead="Prima di iniziare valutiamo la pelle, le zone interessate e l’esposizione prevista. Se le condizioni cambiano, valutiamo se riprogrammare la seduta."
       />
       <div class="card-grid card-grid--2">
         {seasonCards.map((c) => (
@@ -449,18 +444,17 @@ const nearbyAreas = [
     <div class="container container--narrow">
       <SectionHead
         kicker="Prezzi"
-        title="Quanto costa il laser da Rebel, _per chi viene da Bra_."
+        title="Prezzi dell’epilazione _laser_."
       />
       <p class="body-p">
-        Partiamo da <strong>25,90 € a zona</strong>. Il prezzo della singola seduta dipende
-        dall'estensione dell'area: per le aree più piccole (baffetti, mento, ascelle) si resta
-        vicini al riferimento di base; per gambe complete e aree ampie si sale, ma in modo
-        trasparente. Durante la valutazione ricevi una proposta con trattamento, frequenza e prezzo.
+        Il prezzo parte da <strong>25,90 € a zona</strong> e varia in base all’estensione e
+        alle aree scelte. Durante la valutazione ricevi una proposta con trattamento,
+        frequenza e prezzo. Consulta il listino completo per tutte le voci.
       </p>
       <div class="cluster" style="margin-top:1.6rem;">
         <a class="btn btn--primary" href="/listino-estetica-laser">Listino completo</a>
         <a class="btn btn--secondary" href="/epilazione-laser-carmagnola">Scopri il percorso laser</a>
-        <a class="btn btn--secondary" href="/epilazione-laser-ice-polar-carmagnola">Comfort Ice Polar</a>
+        <a class="btn btn--secondary" href="/epilazione-laser-ice-polar-carmagnola">ICE Polar</a>
       </div>
     </div>
   </section>
@@ -472,10 +466,10 @@ const nearbyAreas = [
         <SplitFeature
           image={m.splitB}
           side="left"
-          kicker="La prima volta"
-          title="Prima un piano _scritto_, poi la prima seduta."
-          body="La valutazione iniziale dura 30–40 minuti ed è gratuita se inizi il percorso. Osserviamo pelle, fototipo e zone e ti spieghiamo calendario e prezzi prima di decidere."
-          bullets={["Gratuita se inizi il percorso", "Prezzi e tempi spiegati prima di iniziare", "Si paga seduta per seduta"]}
+          kicker="Valutazione iniziale"
+          title="Zone, calendario e _prezzo_."
+          body="Se scegli di iniziare il Percorso REBEL, la valutazione è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi. Durante la valutazione esaminiamo pelle, pelo e zone e ti spieghiamo parametri, calendario e prezzo."
+          bullets={["Pelle, pelo e zone valutati prima di iniziare", "Calendario e prezzo spiegati durante la valutazione", "Eventuali prodotti per casa non inclusi"]}
           cta={{ label: "Prenota la valutazione", href: "/contatti" }}
           ctaSecondary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp }}
         />
@@ -488,7 +482,7 @@ const nearbyAreas = [
     <div class="container container--narrow">
       <SectionHead
         kicker="Domande frequenti"
-        title="Da Bra e dal _Roero_: le risposte oneste."
+        title="Domande sull’_epilazione laser_."
       />
       <FaqAccordion items={faqs} kicker="FAQ Laser Bra" />
     </div>
@@ -498,9 +492,9 @@ const nearbyAreas = [
   <section class="section section--scene-ivory">
     <div class="container">
       <InlineCta
-        kicker="Vuoi un piano più ampio?"
-        title="Il laser non è l'unico motivo per venire a Carmagnola _da Bra_."
-        lead="Trovi trattamenti viso e corpo, pulizia viso e massaggi disponibili per chi arriva da Bra."
+        kicker="Altri servizi REBEL"
+        title="Trattamenti viso e corpo per chi arriva da _Bra_."
+        lead="Consulta i trattamenti viso e corpo disponibili nello studio REBEL di Carmagnola."
         primaryHref="/localita/bra"
         primaryLabel="Scopri tutti i servizi da Bra"
         secondaryHref="/protocolli-epigenetici"
@@ -513,14 +507,14 @@ const nearbyAreas = [
   <section class="section">
     <div class="container">
       <SectionHead
-        kicker="Vicino a Bra"
-        title="Comuni vicini: _pagine dedicate_."
-        lead="Chi vive a Bra si muove spesso tra Alba, Canale e Sommariva del Bosco."
+        kicker="Altre località"
+        title="Epilazione laser e servizi nelle _zone vicine_."
+        lead="Consulta le informazioni per chi arriva da Alba, Canale e Sommariva del Bosco."
       />
       <div class="card-grid card-grid--3">
         {nearbyAreas.map((a, i) => (
           <FeatureCard
-            kicker="Zona vicina"
+            kicker="Località"
             title={a.city}
             body={a.desc}
             href={a.href}
@@ -536,18 +530,18 @@ const nearbyAreas = [
   <section class="section section--scene-ivory">
     <div class="container">
       <InlineCta
-        kicker="Valutazione e analisi"
-        title="Prenota la _valutazione laser_: 30–40 minuti."
-        lead="Valutiamo zona e caratteristiche della pelle, poi ti spieghiamo trattamento, frequenza e prezzo. La valutazione dura 30–40 minuti."
+        kicker="Valutazione iniziale"
+        title="Prenota la _valutazione laser_."
+        lead="Se scegli di iniziare il Percorso REBEL, la valutazione è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi."
         primaryLabel="Prenota la valutazione"
         primaryHref="/contatti"
-        secondaryLabel="Scrivi su WhatsApp"
+        secondaryLabel="Scrivici su WhatsApp"
         secondaryHref={siteConfig.social.whatsapp}
       />
     </div>
   </section>
 
-  <StickyBookingBar priceHint="Laser da 25,90 €/zona" primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
+  <StickyBookingBar priceHint="Epilazione laser da 25,90 € a zona" primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

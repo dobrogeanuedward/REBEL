@@ -20,9 +20,9 @@ import { siteConfig } from "@/lib/site-config";
 import { getPageMedia } from "@/lib/page-media";
 
 const meta = createPageMeta({
-  title: "Laminazione ciglia e sopracciglia per chi viene da Racconigi — Rebel (Carmagnola, ~14 min)",
+  title: "Laminazione ciglia e sopracciglia da Racconigi | REBEL",
   description:
-    "Da Racconigi a Rebel sono circa 10-14 minuti via SS20, senza autostrada. Lash Lift vegano e laminazione sopracciglia, con durata indicativa di 6-8 settimane.",
+    "Per chi arriva da Racconigi: Lash Lift vegano e laminazione sopracciglia a Carmagnola, con durata indicativa di 6-8 settimane. Prenota su WhatsApp.",
   path: "/laminazione-racconigi",
   image: "https://www.rebelepigenetica.it/img/brand/laminazione-occhio-purple.png",
   openGraphType: "article",
@@ -53,7 +53,7 @@ const webPage = buildWebPageSchema({
 });
 
 const articleSchema = buildArticleSchema({
-  headline: "Laminazione ciglia e sopracciglia per chi viene da Racconigi — Rebel (Carmagnola, ~14 min)",
+  headline: "Laminazione ciglia e sopracciglia per chi viene da Racconigi — Rebel Carmagnola",
   description: meta.description,
   path: "/laminazione-racconigi",
   keywords: ["laminazione ciglia Racconigi", "lash lift Racconigi", "brow lamination Racconigi CN"],
@@ -63,7 +63,7 @@ const articleSchema = buildArticleSchema({
 
 const serviceSchema = buildServiceSchema(
   "Laminazione ciglia e sopracciglia per chi viene da Racconigi",
-  "Lash Lift vegano e brow lamination a Carmagnola per clienti di Racconigi, con durata indicativa di 6-8 settimane. A circa 10-14 minuti via SS20.",
+  "Lash Lift vegano e brow lamination a Carmagnola per clienti di Racconigi, con durata indicativa di 6-8 settimane.",
   "/laminazione-racconigi",
   {
     priceFrom: 55,
@@ -101,8 +101,8 @@ const geoServiceSchema = {
 
 const faqs = [
   {
-    q: "Da Racconigi, quanto tempo serve per arrivare a Rebel?",
-    a: "Da Racconigi a REBEL puoi seguire la SS20 fino a Carmagnola. Apri Google Maps per verificare percorso, traffico e tempi aggiornati; lo studio è in Viale Barbaroux 20.",
+    q: "Come arrivo da Racconigi a Rebel?",
+    a: "Lo studio è in Viale Barbaroux 20 a Carmagnola. Apri Google Maps per controllare il percorso da Racconigi, il traffico e i tempi aggiornati prima di partire.",
   },
   {
     q: "Quanto dura la laminazione?",
@@ -156,13 +156,13 @@ const points = [
   },
   {
     kicker: "02 · Brow lamination",
-    title: "Sopracciglia strutturate, forma fissata per settimane.",
+    title: "Sopracciglia pettinate nella forma concordata.",
     body: "La laminazione pettina e fissa i peli nella direzione concordata, per un effetto visivo più ordinato e definito. Forma e intensità vengono scelte insieme prima di iniziare.",
   },
   {
-    kicker: "03 · Da Racconigi a Carmagnola",
-    title: "Lo studio è a circa 10-14 minuti.",
-    body: "Da Racconigi raggiungi lo studio percorrendo circa dieci chilometri via SS20, senza autostrada e senza pedaggio.",
+    kicker: "03 · Effetto concordato",
+    title: "Forma e intensità vengono scelte insieme.",
+    body: "Prima di iniziare osserviamo ciglia e sopracciglia e parliamo dell'effetto che desideri. Il risultato visivo varia in base alle caratteristiche di partenza.",
   },
   {
     kicker: "04 · Cura post semplice",
@@ -190,9 +190,9 @@ const combos = [
 ];
 
 const nearbyAreas = [
-  { city: "Caramagna Piemonte", href: "/localita/caramagna-piemonte", desc: "A pochi km, sull'asse per Carmagnola." },
-  { city: "Carignano", href: "/localita/carignano", desc: "Subito a nord, lungo la SS20." },
-  { city: "Savigliano", href: "/localita/savigliano", desc: "Poco più a sud, nella pianura cuneese." },
+  { city: "Caramagna Piemonte", href: "/localita/caramagna-piemonte", desc: "Informazioni per chi arriva da Caramagna Piemonte." },
+  { city: "Carignano", href: "/localita/carignano", desc: "Informazioni per chi arriva da Carignano." },
+  { city: "Savigliano", href: "/localita/savigliano", desc: "Informazioni per chi arriva da Savigliano." },
 ];
 
 const m = getPageMedia("/laminazione-racconigi");
@@ -210,10 +210,10 @@ const m = getPageMedia("/laminazione-racconigi");
   <PageHero
     image={m.hero}
     kicker="Rebel Eye — da Racconigi a Carmagnola"
-    title="Laminazione ciglia e sopracciglia per chi viene da Racconigi: _a circa 10-14 minuti_."
-    lead="Da Racconigi a Rebel arrivi via SS20, senza autostrada e senza pedaggio. In studio puoi scegliere Lash Lift vegano, laminazione sopracciglia o entrambi; prima della seduta concordiamo forma e intensità."
-    bullets={["Durata indicativa 6-8 settimane", "Lash lift vegano + brow lamination", "Valutazione REBEL · 30–40 min"]}
-    meta={["~10 km da Racconigi", "~14 min via SS20", "Da 55 € a seduta"]}
+    title="Laminazione ciglia e sopracciglia per chi viene da Racconigi: _forma e intensità concordate_."
+    lead="Puoi scegliere Lash Lift vegano, laminazione sopracciglia o entrambi. Prima della seduta osserviamo ciglia e sopracciglia e concordiamo forma e intensità."
+    bullets={["Durata indicativa 6-8 settimane", "Lash lift vegano + brow lamination", "Confronto iniziale"]}
+    meta={["Studio a Carmagnola", "Indicazioni su Google Maps", "Da 55 € a seduta"]}
     ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
     ctaSecondary={{ label: "Apri il percorso da Racconigi", href: "https://www.google.com/maps/dir/?api=1&origin=Racconigi&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
   />
@@ -238,8 +238,8 @@ const m = getPageMedia("/laminazione-racconigi");
     <div class="container">
       <SectionHead
         kicker="Da Racconigi"
-        title="Laminazione ciglia e sopracciglia _a pochi chilometri da casa_."
-        lead="Lo studio è a circa dieci chilometri da Racconigi. La durata indicativa è di 6-8 settimane e varia in base al ciclo naturale di ciglia e sopracciglia."
+        title="Lash Lift e laminazione _con forma concordata_."
+        lead="La durata indicativa è di 6-8 settimane e varia in base al ciclo naturale di ciglia e sopracciglia e alle abitudini successive."
       />
       <div class="card-grid card-grid--2">
         {points.map((p, i) => (
@@ -247,7 +247,7 @@ const m = getPageMedia("/laminazione-racconigi");
         ))}
       </div>
       <div class="cluster" style="margin-top:2rem;">
-        <a class="btn btn--primary" href="/contatti">Prenota su WhatsApp</a>
+        <a class="btn btn--primary" href="/contatti">Chiedi un appuntamento</a>
         <a class="btn btn--secondary" href="/servizi/laminazione-ciglia-sopracciglia-carmagnola">Scopri la laminazione</a>
         <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
       </div>
@@ -258,7 +258,7 @@ const m = getPageMedia("/laminazione-racconigi");
     <div class="container">
       <div class="split-visual">
         <div class="split-visual__text">
-          <SectionHead kicker="Prima e dopo" title="La differenza che _parla da sola_." lead="Stesse ciglia, stesso viso — prima e dopo la laminazione." />
+          <SectionHead kicker="Prima e dopo" title="L'effetto _al termine della seduta_." lead="Le immagini mostrano un confronto prima e dopo; l'effetto varia in base alle caratteristiche di ciglia e sopracciglia." />
           <p class="body-p">Il Lash Lift vegano solleva le ciglia dalla radice senza aggiungere extension. Le sopracciglia vengono pettinate e fissate nella forma concordata prima della seduta.</p>
         </div>
         <div class="split-visual__image">
@@ -270,11 +270,11 @@ const m = getPageMedia("/laminazione-racconigi");
 
   <section class="section section--scene-ivory">
     <div class="container">
-      <SectionHead kicker="Come arrivare" title="Da Racconigi a Rebel: _dieci minuti_ di strada dritta." />
+      <SectionHead kicker="Come arrivare" title="Da Racconigi a Rebel: _controlla il percorso su Maps_." />
       <div class="directions-grid">
         <div>
-          <p class="body-p">Da Racconigi a Carmagnola puoi seguire la <strong>SS20 (Via Racconigi)</strong>. Per percorso, traffico e tempi aggiornati, consulta Google Maps prima di partire.</p>
-          <p class="body-p">Lo studio è in <strong>Viale Barbaroux 20</strong>, nel centro di Carmagnola. Possibilità di parcheggio nelle vicinanze.</p>
+          <p class="body-p">REBEL è in <strong>Viale Barbaroux 20</strong>, nel centro di Carmagnola. Apri Google Maps per controllare il percorso da Racconigi, il traffico e i tempi aggiornati prima di partire.</p>
+          <p class="body-p">Per informazioni aggiornate sui parcheggi disponibili in zona, consulta Maps.</p>
           <div class="cluster" style="margin-top:1.4rem;">
             <a class="btn btn--secondary btn--sm" href="https://www.google.com/maps/dir/?api=1&origin=Racconigi&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" target="_blank" rel="noreferrer">Apri il percorso da Racconigi in Maps</a>
             <a class="btn btn--secondary btn--sm" href="/contatti">Contatti e mappa</a>
@@ -289,7 +289,7 @@ const m = getPageMedia("/laminazione-racconigi");
 
   <section class="section">
     <div class="container">
-      <SectionHead kicker="Una sola sosta" title="Vuoi abbinare _un altro servizio_?" lead="Dicci quali trattamenti ti interessano: verifichiamo disponibilità, durata e compatibilità prima di fissare l'appuntamento." />
+      <SectionHead kicker="Servizi abbinabili" title="Vuoi abbinare _un altro servizio_?" lead="Dicci quali trattamenti ti interessano: verifichiamo disponibilità, durata e compatibilità prima di fissare l'appuntamento." />
       <div class="card-grid card-grid--3" style="margin-top:2rem;">
         {combos.map((c) => (<FeatureCard title={c.title} body={c.body} href={c.href} variant="quiet" />))}
       </div>
@@ -302,14 +302,14 @@ const m = getPageMedia("/laminazione-racconigi");
       height="md"
       align="left"
       kicker="Da Racconigi a Carmagnola"
-      quote="Da Racconigi a Carmagnola: circa 10-14 minuti via SS20."
+      quote="Lash lift vegano e brow lamination, con forma e intensità concordate."
       cta={{ label: "Prenota la valutazione", href: "/contatti" }}
     />
   ) : null}
 
   <section class="section section--scene-ivory">
     <div class="container container--narrow">
-      <SectionHead kicker="Domande frequenti" title="Da Racconigi: le risposte _oneste_." />
+      <SectionHead kicker="Domande frequenti" title="Le domande più comuni per chi arriva da _Racconigi_." />
       <FaqAccordion items={faqs} kicker="FAQ Laminazione Racconigi" />
     </div>
   </section>
@@ -317,11 +317,11 @@ const m = getPageMedia("/laminazione-racconigi");
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Vuoi un piano più ampio?"
-        title="La laminazione non è l'unico motivo per venire a Carmagnola _da Racconigi_."
-        lead="Laser, manicure, pulizia viso e protocolli: la guida ai servizi per chi arriva da Racconigi li raccoglie in un’unica pagina."
+        kicker="Altri servizi"
+        title="Scopri gli altri trattamenti disponibili da _Rebel_."
+        lead="Nella pagina dedicata a Racconigi trovi anche laser, manicure, pulizia viso e protocolli."
         primaryHref="/localita/racconigi"
-        primaryLabel="Scopri i servizi REBEL da Racconigi"
+        primaryLabel="Vedi i servizi per Racconigi"
         secondaryHref="/epilazione-laser-racconigi"
         secondaryLabel="Laser da Racconigi"
       />
@@ -330,7 +330,7 @@ const m = getPageMedia("/laminazione-racconigi");
 
   <section class="section section--scene-ivory">
     <div class="container">
-      <SectionHead kicker="Vicino a Racconigi" title="Comuni vicini: _pagine dedicate_." />
+      <SectionHead kicker="Altre località" title="Cerchi informazioni per _un'altra zona_?" />
       <div class="card-grid card-grid--3">
         {nearbyAreas.map((a, i) => (<FeatureCard kicker="Zona vicina" title={a.city} body={a.desc} href={a.href} variant="quiet" index={i + 1} />))}
       </div>
@@ -351,7 +351,7 @@ const m = getPageMedia("/laminazione-racconigi");
     </div>
   </section>
 
-  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
+  <StickyBookingBar primary={{ label: "Chiedi un appuntamento", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

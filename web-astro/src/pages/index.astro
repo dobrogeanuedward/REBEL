@@ -44,9 +44,7 @@ const siteAsset = (slot: string) => `/api/site-asset?slot=${encodeURIComponent(s
 const heroImage = siteAsset("home.hero.method.desktop");
 const heroMobileImage = siteAsset("home.hero.method.mobile");
 const faceImage = siteAsset("journeys.glow.hero.desktop");
-const longevityImage = siteAsset("journeys.longevity.hero.desktop");
 const bodyImage = siteAsset("journeys.forma.hero.desktop");
-const freedomImage = siteAsset("journeys.liberta.hero.desktop");
 const studioImage = siteAsset("studio.real.overview.desktop");
 const consultationImage = siteAsset("services.method.consultation.mobile");
 const activesImage = siteAsset("services.face.activesTopshot.mobile");
@@ -62,7 +60,12 @@ const priorities = [
   ["Segni del tempo", "Rughe, contorno occhi e qualità generale della pelle."],
 ];
 
-const journeyImages = { glow: faceImage, longevity: longevityImage, forma: bodyImage, liberta: freedomImage };
+const journeyImages = {
+  glow: siteAsset("journeys.glow.moment"),
+  longevity: siteAsset("journeys.longevity.moment"),
+  forma: siteAsset("services.technologies.detail.desktop"),
+  liberta: siteAsset("services.laser.handpiece.desktop"),
+};
 const journeys = rebelWorlds.map((world) => ({
   name: world.name,
   kicker: world.eyebrow,
@@ -76,7 +79,7 @@ const worlds = [
   {
     number: "01",
     name: "Viso",
-    copy: "Pulizia viso, Glow, Longevity, attivi epigenetici, contorno occhi e laminazione coreana.",
+    copy: "Pulizia viso, Glow, Longevity, trattamenti con attivi epigenetici, contorno occhi e laminazione coreana.",
     image: faceImage,
     href: "/percorsi",
     cta: "Esplora il viso",
@@ -128,7 +131,7 @@ const worlds = [
         <div class="rebel-spectrum-rule"></div>
         <p class="rebel-lead" data-reveal style="--reveal-delay:120ms">
           Parliamo del risultato che desideri, osserviamo la pelle o l’area da trattare e definiamo insieme trattamenti, frequenza e controlli.
-          Tutto viene raccolto nella tua Mappa REBEL.
+          Prima di iniziare, avrai chiari obiettivo, trattamento, frequenza e prezzo.
         </p>
         <div class="rebel-hero__actions" data-reveal style="--reveal-delay:180ms">
           <a class="btn btn--primary" href="/metodo-rebel">Scopri il Metodo Rebel</a>
@@ -149,7 +152,7 @@ const worlds = [
         </div>
         <div>
           <p class="rebel-lead">Durante la valutazione osserviamo le condizioni della pelle o del corpo, ascoltiamo il risultato che desideri e definiamo un piano chiaro.</p>
-          <p class="rebel-lead"><strong>Estetica epigenetica</strong> significa scegliere attivi, manualità e tecnologie in base a ciò che osserviamo e verificare nel tempo come cambia la pelle o il corpo.</p>
+          <p class="rebel-lead"><strong>Estetica epigenetica</strong> significa scegliere attivi, tecniche manuali e tecnologie in base a ciò che osserviamo e verificare nel tempo come cambia la pelle o il corpo.</p>
         </div>
       </div>
     </section>
@@ -207,7 +210,10 @@ const worlds = [
         <p class="rebel-lead">Luminosità ed equilibrio, tono nel tempo, forma del corpo ed epilazione progressiva: scegli l’area su cui vuoi lavorare e confronta i percorsi disponibili.</p>
         <div class="rebel-journeys">
           {journeys.map((journey)=>(
-            <a class="rebel-journey" href={journey.href} style={`--journey-image:url('${journey.image}')`}>
+            <a class="rebel-journey" href={journey.href}>
+              <figure class="rebel-journey__media" aria-hidden="true">
+                <img src={journey.image} alt="" width="1536" height="1024" loading="lazy" decoding="async" />
+              </figure>
               <div class="rebel-journey__copy"><p class="rebel-kicker">{journey.kicker}</p><h3>{journey.name}</h3><p>{journey.copy}</p><div class="rebel-journey__tags">{journey.tags.map(tag=><span>{tag}</span>)}</div></div>
             </a>
           ))}
