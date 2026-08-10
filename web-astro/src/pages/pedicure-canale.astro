@@ -33,7 +33,7 @@ const meta = createPageMeta({
     "pedicure estetico Canale",
     "pedicure semipermanente Canale",
     "pedicure VIP Canale",
-    "pedicure curativo Canale",
+    "pedicure estetico Canale",
     "estetista piedi Canale",
     "pedicure con scrub Canale",
     "talloni screpolati Canale",
@@ -104,7 +104,7 @@ const geoServiceSchema = {
 const faqs = [
   {
     q: "Quanto ci vuole da Canale a Rebel per il pedicure?",
-    a: "Tra trenta e trentacinque minuti via SP29 in direzione Bra, poi SP661 fino a Carmagnola: circa trentadue chilometri. Da Castagnito o Santo Stefano Roero i tempi sono simili. Viale Barbaroux 20, parcheggio gratuito a un minuto a piedi.",
+    a: "Tra trenta e trentacinque minuti via SP29 in direzione Bra, poi SP661 fino a Carmagnola: circa trentadue chilometri. Da Castagnito o Santo Stefano Roero i tempi sono simili. Viale Barbaroux 20, possibilità di parcheggio nelle vicinanze.",
   },
   {
     q: "Che differenza c'è tra pedicure estetico e pedicure VIP con scrub?",
@@ -116,15 +116,15 @@ const faqs = [
   },
   {
     q: "Ho i talloni secchi e screpolati: si può migliorare?",
-    a: "Sì, ma con metodo. Lavoriamo con delicatezza e in modo progressivo: l'obiettivo è migliorare seduta dopo seduta, senza aggredire la pelle in un colpo solo. Ti diamo anche due indicazioni semplici per il mantenimento a casa.",
+    a: "Lavoriamo con delicatezza e adattiamo i passaggi alle condizioni osservate. Se sono presenti dolore, lesioni o problemi persistenti, consigliamo di rivolgersi a un podologo o al medico.",
   },
   {
     q: "Posso abbinare pedicure e manicure nella stessa visita?",
-    a: "Certo, ed è la combinazione più richiesta da chi arriva dal Roero: mani e piedi in ordine in un'unica sosta, così la mezz'ora di viaggio da Canale rende davvero. Si abbina bene anche a laser gambe e massaggio.",
+    a: "Alcuni servizi possono essere organizzati nella stessa visita. Dicci cosa vuoi abbinare e ti confermiamo tempi e compatibilità.",
   },
   {
     q: "Come prenoto da Canale?",
-    a: "Scrivici su WhatsApp con il giorno preferito e ti proponiamo gli slot disponibili. Il mercoledì siamo aperti fino alle 19, comodo per chi rientra tardi nel Roero.",
+    a: "Scrivici su WhatsApp indicando il giorno preferito: verifichiamo insieme le disponibilità.",
   },
 ];
 
@@ -159,7 +159,7 @@ const points = [
   {
     kicker: "02 · Talloni morbidi",
     title: "Pelle ispessita gestita con delicatezza.",
-    body: "Se hai talloni secchi, lavoriamo in modo progressivo: migliorare nel tempo, senza stressare in una sola seduta. È così che il risultato dura.",
+    body: "Se hai talloni secchi, adattiamo scrub e rifinitura alle condizioni osservate, senza insistere sulle zone sensibili.",
   },
   {
     kicker: "03 · Semipermanente piedi",
@@ -168,8 +168,8 @@ const points = [
   },
   {
     kicker: "04 · Pulito e preciso",
-    title: "Igiene e ordine, sempre.",
-    body: "Strumenti puliti, lavoro preciso, ambiente curato. Esci con la sensazione concreta di un piede sano e ordinato, anche da vicino.",
+    title: "Strumenti puliti e lavoro preciso.",
+    body: "Lavoriamo con attenzione su unghie e pelle per una rifinitura curata e piedi ordinati.",
   },
 ];
 
@@ -177,24 +177,24 @@ const combos = [
   {
     href: "/manicure-semipermanente-canale",
     title: "Pedicure + manicure",
-    body: "Mani e piedi in ordine nella stessa visita: la combinazione più richiesta da chi arriva dal Roero.",
+    body: "Manicure e pedicure nello stesso appuntamento, se tempi e disponibilità lo consentono.",
   },
   {
     href: "/epilazione-laser-canale",
     title: "Pedicure + laser gambe",
-    body: "Gambe lisce e piedi curati: due esigenze, una sola sosta a Carmagnola.",
+    body: "Due servizi dedicati alle gambe e ai piedi, organizzati insieme solo quando compatibili.",
   },
   {
     href: "/massaggio-rilassante-canale",
     title: "Pedicure + massaggio",
-    body: "Cura dei piedi e cinquanta minuti per staccare: la pausa che ti meriti dopo il viaggio da Canale.",
+    body: "Pedicure e massaggio nello stesso appuntamento, se tempi e compatibilità lo consentono.",
   },
 ];
 
 const nearbyAreas = [
   { city: "Bra", href: "/pedicure-bra", desc: "Porta del Roero, ~22 min via SP661." },
   { city: "Alba", href: "/pedicure-alba", desc: "Langhe, ~30 min via A33." },
-  { city: "Tutte le località", href: "/localita", desc: "Panoramica Rebel per zona." },
+  { city: "Tutte le località", href: "/localita", desc: "Mappe e indicazioni per raggiungerci." },
 ];
 ---
 
@@ -210,8 +210,8 @@ const nearbyAreas = [
   <PageHero
     image={m.hero}
     kicker="Rebel Feet — da Canale a Carmagnola"
-    title="Pedicure per chi viene da Canale: _mezz'ora dal Roero_, piedi in ordine per settimane."
-    lead="Da Canale a Rebel sono trenta-trentacinque minuti via SP29 e SP661. Pedicure estetico per il mantenimento, pedicure VIP con scrub per un lavoro completo su talloni e pelle: esci con piedi davvero a posto, anche da vicino. E se vuoi che duri, c'è il semipermanente."
+    title="Pedicure per chi viene da Canale: _circa trenta-trentacinque minuti_ da Carmagnola."
+    lead="Da Canale a Rebel sono circa trenta-trentacinque minuti via SP29 e SP661. Puoi scegliere il pedicure estetico da 33 €, il pedicure VIP con scrub da 44 € oppure aggiungere il semipermanente."
     bullets={["Pedicure estetico + VIP con scrub", "Anche semipermanente piedi", "Valutazione REBEL · 30–40 min"]}
     meta={["~32 km da Canale", "~30-35 min via SP29 + SP661", "Da 33 € (VIP scrub 44 €)"]}
     ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
@@ -226,9 +226,9 @@ const nearbyAreas = [
           side="right"
           kicker="Cura concreta"
           title="Piedi ordinati e _pelle liscia_, fatti bene."
-          body="Il pedicure, quando è fatto come si deve, non è solo estetica: è ordine e comfort quotidiano. Lavoriamo in modo pulito e preciso su unghie e pelle, con una rifinitura che resta bella anche da vicino."
+          body="Il pedicure comprende cura di unghie e pelle, con passaggi adattati alle condizioni osservate."
           bullets={["Pedicure estetico per il mantenimento", "Pedicure VIP con scrub per talloni e pelle ispessita", "Semipermanente per una tenuta più lunga"]}
-          cta={{ label: "Scheda pedicure completa", href: "/servizi/pedicure-carmagnola" }}
+          cta={{ label: "Scopri il trattamento", href: "/servizi/pedicure-carmagnola" }}
         />
       </div>
     </section>
@@ -238,8 +238,8 @@ const nearbyAreas = [
     <div class="container">
       <SectionHead
         kicker="Il metodo Rebel"
-        title="Perché da Canale vale la pena _venire a Carmagnola_ per il pedicure."
-        lead="Nel Roero la cura dei piedi fatta come si deve non è scontata. Da noi unghie e pelle tornano in ordine con metodo e senza eccessi, e ci restano a lungo: vale la mezz'ora di strada."
+        title="Il pedicure REBEL, a _circa trenta-trentacinque minuti da Canale_."
+        lead="Scegli il servizio in base a ciò che cerchi: pedicure estetico, VIP con scrub oppure semipermanente."
       />
       <div class="card-grid card-grid--2">
         {points.map((p, i) => (
@@ -248,7 +248,7 @@ const nearbyAreas = [
       </div>
       <div class="cluster" style="margin-top:2rem;">
         <a class="btn btn--primary" href="/contatti">Prenota su WhatsApp</a>
-        <a class="btn btn--secondary" href="/servizi/pedicure-carmagnola">Scheda completa pedicure</a>
+        <a class="btn btn--secondary" href="/servizi/pedicure-carmagnola">Scopri il trattamento</a>
         <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
       </div>
     </div>
@@ -260,7 +260,7 @@ const nearbyAreas = [
       <div class="directions-grid">
         <div>
           <p class="body-p">Da Canale a Carmagnola sono circa 32 km. Il tragitto più rapido segue la <strong>SP29</strong> in direzione Bra, poi la <strong>SP661</strong> verso Sommariva del Bosco e Carmagnola: in condizioni normali si arriva in trenta-trentacinque minuti, senza pedaggio.</p>
-          <p class="body-p">Lo studio è in <strong>Viale Barbaroux 20</strong>. Parcheggio gratuito a meno di un minuto a piedi.</p>
+          <p class="body-p">Lo studio è in <strong>Viale Barbaroux 20</strong>. possibilità di parcheggio nelle vicinanze.</p>
           <div class="cluster" style="margin-top:1.4rem;">
             <a class="btn btn--secondary btn--sm" href="https://www.google.com/maps/dir/?api=1&origin=Canale+CN&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" target="_blank" rel="noreferrer">Apri il percorso da Canale in Maps</a>
             <a class="btn btn--secondary btn--sm" href="/contatti">Contatti e mappa</a>
@@ -275,7 +275,7 @@ const nearbyAreas = [
 
   <section class="section">
     <div class="container">
-      <SectionHead kicker="Una sola sosta" title="Abbina il pedicure: _ottimizza il viaggio_." lead="Si combina con manicure, laser gambe e massaggio senza conflitti." />
+      <SectionHead kicker="Una sola sosta" title="Vuoi abbinare un altro _trattamento_?" lead="Dicci quali servizi ti interessano: ti confermiamo tempi e compatibilità prima dell'appuntamento." />
       <div class="card-grid card-grid--3" style="margin-top:2rem;">
         {combos.map((c) => (<FeatureCard title={c.title} body={c.body} href={c.href} variant="quiet" />))}
       </div>
@@ -289,7 +289,7 @@ const nearbyAreas = [
       align="left"
       kicker="Da Canale a Carmagnola"
       quote="Piedi in ordine non sono un lusso: sono comfort quotidiano."
-      cta={{ label: "Prenota la prima visita", href: "/contatti" }}
+      cta={{ label: "Prenota la valutazione", href: "/contatti" }}
     />
   ) : null}
 
@@ -304,10 +304,10 @@ const nearbyAreas = [
     <div class="container">
       <InlineCta
         kicker="Vuoi un piano più ampio?"
-        title="Il pedicure non è l'unico motivo per venire da _Canale_."
-        lead="Manicure, laser, laminazione, pulizia viso e protocolli: la pagina panoramica per Canale li raccoglie tutti."
+        title="Scopri cosa puoi prenotare da _Canale_."
+        lead="Trovi manicure, laser, laminazione e trattamenti viso e corpo disponibili per chi arriva da Canale."
         primaryHref="/localita/canale"
-        primaryLabel="Pagina panoramica Rebel per Canale"
+        primaryLabel="Scopri tutti i servizi da Canale"
         secondaryHref="/manicure-semipermanente-canale"
         secondaryLabel="Manicure da Canale"
       />
@@ -328,10 +328,10 @@ const nearbyAreas = [
       <InlineCta
         kicker="Prenota"
         title="Piedi curati, in una _sola visita_."
-        lead="Scrivici su WhatsApp con il giorno preferito. Ti rispondiamo in poco tempo."
+        lead="Scrivici su WhatsApp per conoscere le disponibilità."
         primaryLabel="Prenota su WhatsApp"
         primaryHref={siteConfig.social.whatsapp}
-        secondaryLabel="Scheda pedicure completa"
+        secondaryLabel="Scopri il trattamento"
         secondaryHref="/servizi/pedicure-carmagnola"
       />
     </div>

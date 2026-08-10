@@ -3,6 +3,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHero from "@/components/PageHero.astro";
 import SectionHead from "@/components/SectionHead.astro";
 import FeatureCard from "@/components/FeatureCard.astro";
+import MediaFigure from "@/components/MediaFigure.astro";
 import InlineCta from "@/components/InlineCta.astro";
 import FullBleedBand from "@/components/FullBleedBand.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
@@ -20,7 +21,7 @@ import {
 const meta = createPageMeta({
   title: "Servizi viso, corpo, laser e beauty | Rebel Carmagnola",
   description:
-    "Tutti i servizi Rebel a Carmagnola: pulizia viso, manicure, pedicure, laminazione, ceretta, massaggi, trattamenti corpo, Laser Ice Polar e protocolli viso.",
+    "Scopri i trattamenti REBEL a Carmagnola per viso e corpo, epilazione laser, manicure, pedicure, laminazione e massaggi, con prezzi e durata.",
   path: "/servizi",
   image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e3635dd7-e046-46af-56a5-cf36d8239c00/public",
   keywords: [
@@ -43,7 +44,7 @@ const breadcrumb = buildBreadcrumbSchema([
 const webPageSchema = buildWebPageSchema({
   name: "Servizi Rebel a Carmagnola",
   description:
-    "Elenco dei servizi Rebel con schede dedicate a prezzi, durata, modalità e prenotazione.",
+    "Trattamenti viso, corpo, laser e beauty con prezzi, durata indicativa e modalità di prenotazione.",
   path: "/servizi",
 });
 const serviceListSchema = buildItemListSchema({
@@ -104,10 +105,10 @@ const switchItems = [
     image={media.studio.cabin}
     kicker="Servizi Rebel · Carmagnola"
     title="Trattamenti per _viso, corpo, laser e beauty_."
-    lead="Apri la scheda del servizio che ti interessa per leggere obiettivo, modalità, prezzo, durata indicativa e informazioni prima dell’appuntamento."
-    bullets={["Prezzi pubblicati online", "Scheda dedicata a ogni servizio", "Valutazione REBEL · 30–40 min"]}
-    meta={["Pulizia viso, beauty e massaggi", "Laser Ice Polar", "Protocolli professionali"]}
-    ctaPrimary={{ label: "Prenota la prima visita", href: "/contatti", halo: true }}
+    lead="Scegli il trattamento che ti interessa per conoscere obiettivo, modalità, prezzo e durata indicativa prima dell’appuntamento."
+    bullets={["Prezzi pubblicati online", "Durata indicativa", "Valutazione REBEL · 30–40 min"]}
+    meta={["Pulizia viso, beauty e massaggi", "Epilazione laser con ICE Polar", "Protocolli professionali"]}
+    ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Scrivici su WhatsApp", href: "https://wa.me/393516919416" }}
   />
 
@@ -129,16 +130,17 @@ const switchItems = [
       <SectionHead
         kicker="Viso, corpo e beauty"
         title="Pulizia viso, manicure, pedicure, laminazione, ceretta e massaggi."
-        lead="Servizi prenotabili singolarmente. Ogni scheda riporta prezzo, durata indicativa, obiettivo del trattamento e indicazioni utili."
+        lead="Puoi prenotarli singolarmente e vedere online prezzo, durata indicativa e informazioni utili."
       />
-      <div class="card-grid card-grid--2">
+      <MediaFigure src={media.studio.professional.src} alt={media.studio.professional.alt} caption="Prepariamo prodotti e strumenti in base al servizio prenotato." ratio="16/7" width={1536} height={1024} />
+      <div class="card-grid card-grid--2" style="margin-top:2rem;">
         {esteticaSorted.map((s, i) => (
           <FeatureCard
             kicker={s.priceHint}
             title={s.name}
             body={s.shortDescription}
             href={`/servizi/${s.slug}`}
-            ariaLabel={`Apri la scheda di ${s.name}`}
+            ariaLabel={`Scopri ${s.name}`}
             index={i + 1}
           />
         ))}
@@ -151,16 +153,17 @@ const switchItems = [
       <SectionHead
         kicker="Epilazione laser"
         title="Lumina X1 Pro con comfort ICE Polar per viso e corpo."
-        lead="Laser a diodo THORY con quattro lunghezze d’onda; il comfort ICE Polar accompagna la seduta. Le schede riportano prezzi e informazioni per le diverse zone."
+        lead="Lumina X1 Pro di THORY combina quattro lunghezze d’onda. Il raffreddamento a contatto, che in REBEL chiamiamo ICE Polar, aiuta a rendere più confortevole la seduta. Trovi online prezzi e indicazioni per ogni area."
       />
-      <div class="card-grid card-grid--2">
+      <MediaFigure src={media.laser.handpiece.src} alt={media.laser.handpiece.alt} caption="Il manipolo lavora a contatto con la pelle; zona e parametri vengono definiti prima della seduta." ratio="16/7" width={1536} height={1024} />
+      <div class="card-grid card-grid--2" style="margin-top:2rem;">
         {laser.map((s, i) => (
           <FeatureCard
             kicker={s.priceHint}
             title={s.name}
             body={s.shortDescription}
             href={`/servizi/${s.slug}`}
-            ariaLabel={`Apri la scheda laser ${s.name}`}
+            ariaLabel={`Scopri ${s.name}`}
             variant="feature"
             index={i + 1}
           />
@@ -178,9 +181,10 @@ const switchItems = [
       <SectionHead
         kicker="Protocolli professionali"
         title="Trattamenti viso e corpo per esigenze specifiche."
-        lead="Protocolli dedicati a luminosità, idratazione, tono, pelle matura, contorno occhi, texture e compattezza. Ogni scheda riporta prezzo e indicazioni."
+        lead="Confronta i protocolli dedicati a luminosità, idratazione, tono, pelle matura, contorno occhi, texture e compattezza, con il relativo prezzo."
       />
-      <div class="card-grid card-grid--3">
+      <MediaFigure src={media.viso.products.src} alt={media.viso.products.alt} caption="Prodotti, attivi e manualità vengono scelti dopo la valutazione della zona." ratio="16/7" width={1122} height={1402} />
+      <div class="card-grid card-grid--3" style="margin-top:2rem;">
         {featuredProtocols.map((p, i) => (
           <FeatureCard
             kicker={p.price}
@@ -194,7 +198,7 @@ const switchItems = [
       </div>
       <div class="cluster cluster--stack-mobile" style="margin-top:2rem; justify-content:center;">
         <a class="btn btn--primary btn--halo" href="/protocolli-epigenetici">Confronta tutti i protocolli</a>
-        <a class="btn btn--secondary" href="/contatti">Prenota la prima visita</a>
+        <a class="btn btn--secondary" href="/contatti">Prenota la valutazione</a>
       </div>
     </div>
   </section>
@@ -207,7 +211,8 @@ const switchItems = [
           title="Durata, preparazione, frequenza e indicazioni dopo il trattamento."
           lead="Approfondimenti dedicati alle domande più comuni su laser, pulizia viso, manicure e laminazione."
         />
-        <div class="card-grid card-grid--2">
+        <MediaFigure src={media.laser.consult.src} alt={media.laser.consult.alt} caption="Le guide raccolgono preparazione, frequenza e indicazioni pratiche prima e dopo la seduta." ratio="16/7" width={1122} height={1402} />
+        <div class="card-grid card-grid--2" style="margin-top:2rem;">
           {featuredEditorials.map((e, i) => (
             <FeatureCard
               kicker="Guida"
@@ -228,7 +233,7 @@ const switchItems = [
     height="sm"
     align="left"
     kicker="Valutazione REBEL · 30–40 minuti"
-    quote="Valutiamo la zona e ti comunichiamo trattamento, frequenza e prezzo."
+    quote="Valutiamo la zona e ti spieghiamo trattamento, frequenza e prezzo."
     cite="Studio Rebel · Viale Barbaroux 20"
   />
 
@@ -237,7 +242,7 @@ const switchItems = [
       <InlineCta
         kicker="Valutazione REBEL · 30–40 minuti"
         title="Non sai quale servizio prenotare? _Valutiamolo insieme_."
-        lead="In 30–40 minuti osserviamo la zona e definiamo priorità, trattamento, frequenza e prezzo. La valutazione è gratuita quando finalizzata al Percorso REBEL; home care separata."
+        lead="In 30–40 minuti osserviamo la zona e definiamo trattamento, frequenza e prezzo. Se scegli di iniziare il percorso proposto, la valutazione è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi."
         primaryHref="/contatti"
         primaryLabel="Prenota la valutazione"
         secondaryHref="/listino-estetica-laser"

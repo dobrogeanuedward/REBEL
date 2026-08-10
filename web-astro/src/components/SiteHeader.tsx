@@ -166,7 +166,7 @@ export default function SiteHeader({ pathname }: Props) {
             <button ref={closeRef} type="button" className="burger" data-open={true} onClick={closeMenu} aria-label="Chiudi menu"><span /><span /><span /></button>
           </div>
 
-          <p className="rebel-drawer__intro">Trattamenti viso e corpo, Laser ICE Polar, beauty, tecnologie, prezzi e prenotazione della prima visita.</p>
+          <p className="rebel-drawer__intro">Scopri trattamenti viso e corpo, epilazione laser, servizi beauty, tecnologie, prezzi e prenotazioni.</p>
           <nav className="drawer__nav" aria-label="Menu mobile">
             {mainNavigation.map((it) => (
               <a key={it.href} href={it.href} className="drawer__link" data-active={isActive(it.href)} aria-current={isActive(it.href) ? "page" : undefined} onClick={closeMenu}>
@@ -176,7 +176,7 @@ export default function SiteHeader({ pathname }: Props) {
           </nav>
 
           <div className="drawer__foot">
-            <a href="/contatti" className="btn btn--primary" onClick={closeMenu}>Prenota la prima visita</a>
+            <a href="/contatti" className="btn btn--primary" onClick={closeMenu}>Prenota la valutazione</a>
             <a href={siteConfig.social.whatsapp} className="btn btn--secondary" target="_blank" rel="noreferrer">WhatsApp</a>
             <small>Be Beautiful. Be Rebel.</small>
           </div>

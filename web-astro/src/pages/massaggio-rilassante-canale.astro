@@ -15,7 +15,7 @@ import { getPageMedia } from "@/lib/page-media";
 
 const meta = createPageMeta({
   title: "Massaggio rilassante per chi viene da Canale e dal Roero — Rebel (Carmagnola, ~35 min)",
-  description: "Vivi a Canale o nel Roero? L'offerta massaggi professionali in zona è ridotta. Da Rebel a Carmagnola trovi 50 minuti di massaggio rilassante per schiena, spalle e cervicale. Prenota su WhatsApp.",
+  description: "Vivi a Canale o nel Roero? Da Rebel a Carmagnola trovi un massaggio rilassante di 50 minuti dedicato a schiena, spalle e collo. Circa 35 minuti di viaggio.",
   path: "/massaggio-rilassante-canale",
   image: "https://www.rebelepigenetica.it/img/generated/massaggio-rilassante-rebel-editorial.png",
   openGraphType: "article",
@@ -46,31 +46,31 @@ const geoServiceSchema = {
 };
 
 const faqs = [
-  { q: "Quanto ci vuole da Canale a Rebel?", a: "Circa 35 minuti via A33 uscita Marene, poi SP661 fino a Carmagnola. Sono 37 km. Viale Barbaroux 20, parcheggio gratuito." },
-  { q: "A Canale è difficile trovare massaggi professionali di qualità?", a: "Sì, è una situazione comune nel Roero. Per un massaggio con tecnica manuale precisa e 50 minuti interi dedicati alle zone di tensione, Carmagnola è a 35 minuti — abbastanza vicina da diventare una scelta regolare." },
-  { q: "Lavoro fisicamente e ho sempre il corpo stanco. È adatto?", a: "Sì. Anzi, per chi lavora fisicamente il massaggio rilassante è particolarmente utile: il corpo accumula tensione muscolare reale — non solo da stress mentale. Lavoriamo su schiena, spalle e cervicale con tecnica graduata, partendo da dove la tensione è più alta." },
-  { q: "Ogni quanto conviene farlo?", a: "Per chi ha tensione fisica costante, ogni 3-4 settimane è un ritmo ottimale. Per chi vuole un recupero più saltuario, anche una seduta ogni mese o sei settimane ha un effetto percepibile." },
-  { q: "Posso abbinarlo ad altri trattamenti nello stesso giorno?", a: "Sì. Si abbina bene con manicure semipermanente e laminazione. Per il laser, consigliamo di abbinarlo in un momento separato." },
-  { q: "Come prenoto da Canale?", a: "Scrivici su WhatsApp con il giorno preferito. Ti rispondiamo con gli slot disponibili. Il mercoledì siamo aperti fino alle 19." },
+  { q: "Quanto ci vuole da Canale a Rebel?", a: "Circa 35 minuti via A33 uscita Marene, poi SP661 fino a Carmagnola. Sono 37 km. Viale Barbaroux 20, possibilità di parcheggio nelle vicinanze." },
+  { q: "Quanto ci vuole da Canale a Rebel?", a: "Circa 35 minuti, in base al traffico. Lo studio è in Viale Barbaroux 20 a Carmagnola." },
+  { q: "Ho spesso schiena e spalle tese. Può aiutarmi a rilassarmi?", a: "Il massaggio può offrire una sensazione temporanea di distensione e relax. Se avverti dolore acuto o persistente, chiedi prima una valutazione sanitaria o fisioterapica." },
+  { q: "Ogni quanto conviene farlo?", a: "La frequenza dipende dalle tue preferenze e da come percepisci la seduta. Puoi prenotarlo come momento singolo oppure concordare una cadenza che si adatti alla tua agenda." },
+  { q: "Posso abbinarlo ad altri trattamenti nello stesso giorno?", a: "Alcuni servizi possono essere organizzati nella stessa visita. Dicci cosa vuoi abbinare e ti confermiamo tempi e compatibilità." },
+  { q: "Come prenoto da Canale?", a: "Scrivici su WhatsApp indicando il giorno preferito: verifichiamo insieme le disponibilità." },
 ];
 const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) };
 
 const points = [
-  { kicker: "01 · Colmare il gap del Roero", title: "Massaggi professionali a 35 minuti da Canale.", body: "Nel Roero trovare un massaggio fatto con tecnica reale e cinquanta minuti interi è raro. Carmagnola è abbastanza vicina da diventare la scelta ovvia per chi vuole qualità e non solo comodità." },
-  { kicker: "02 · 50 minuti interi", title: "Nessun taglio, nessun ritaglio di tempo.", body: "Cinquanta minuti dedicati a schiena, spalle e cervicale. Si lavora progressivamente — si parte piano sulle zone meno tese e si approfondisce dove la tensione è più alta." },
-  { kicker: "03 · Cervicale e corpo fisico", title: "Per chi lavora con il corpo.", body: "Nel Roero molti lavorano fisicamente — in vigna, all'aperto, con le mani. Il massaggio rilassante è costruito per scaricare la tensione muscolare accumulata nel lavoro quotidiano, non solo lo stress da ufficio." },
-  { kicker: "04 · Un ritmo mensile che fa la differenza", title: "Regolarità, non intensità.", body: "Non è necessario venire ogni settimana. Una seduta ogni 3-4 settimane — inserita come un appuntamento fisso — mantiene la tensione sotto controllo in modo percepibile." },
+  { kicker: "01 · Da Canale a Carmagnola", title: "Circa 35 minuti di viaggio.", body: "Puoi organizzare il massaggio in base ai tuoi impegni e agli orari disponibili dello studio." },
+  { kicker: "02 · Durata della seduta", title: "Cinquanta minuti di massaggio.", body: "La seduta è dedicata a schiena, spalle e collo. Si comincia gradualmente e si adattano ritmo e pressione alle tue indicazioni." },
+  { kicker: "03 · Schiena, spalle e collo", title: "Le zone vengono concordate prima di iniziare.", body: "Ci racconti dove preferisci concentrare il massaggio e adattiamo pressione e ritmo alle tue sensazioni durante la seduta." },
+  { kicker: "04 · Frequenza personalizzata", title: "Un appuntamento singolo o una cadenza concordata.", body: "Scegliamo la frequenza insieme, in base alle tue preferenze e al tempo che vuoi dedicare al relax." },
 ];
 
 const combos = [
   { href: "/servizi/manicure-semipermanente-carmagnola", title: "Massaggio + manicure", body: "Relax corporeo e mani curate nella stessa visita da Canale." },
-  { href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola", title: "Massaggio + laminazione", body: "Corpo disteso e sguardo definito. Un upgrade in una sosta." },
-  { href: "/servizi/massaggio-linfodrenante-carmagnola", title: "Massaggio rilassante + linfodrenante", body: "Per chi vuole lavorare su tensione muscolare e drenaggio." },
+  { href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola", title: "Massaggio + laminazione", body: "Due servizi nello stesso appuntamento, se tempi e compatibilità lo consentono." },
+  { href: "/servizi/massaggio-linfodrenante-carmagnola", title: "Massaggio rilassante + linfodrenante", body: "Due tipologie di massaggio da organizzare insieme solo dopo aver verificato tempi e compatibilità." },
 ];
 const nearbyAreas = [
   { city: "Alba", href: "/massaggio-rilassante-alba", desc: "Langhe, ~30 min via A33." },
   { city: "Bra", href: "/massaggio-rilassante-bra", desc: "~22 min da Carmagnola." },
-  { city: "Tutte le località", href: "/localita", desc: "Panoramica Rebel per zona." },
+  { city: "Tutte le località", href: "/localita", desc: "Mappe e indicazioni per raggiungerci." },
 ];
 
 const m = getPageMedia("/massaggio-rilassante-canale");
@@ -87,9 +87,9 @@ const m = getPageMedia("/massaggio-rilassante-canale");
   <PageHero
     image={m.hero}
     kicker="Rebel Massaggi — da Canale a Carmagnola"
-    title="Massaggio rilassante per chi viene da Canale e dal Roero: _50 minuti_ per scaricare davvero."
-    lead="Vivi a Canale o nel Roero? L'offerta di massaggi professionali in zona è ridotta. Da Rebel a Carmagnola sono 35 minuti: trovi cinquanta minuti interamente dedicati a schiena, spalle e cervicale, con una tecnica manuale graduata che lavora sulla tensione muscolare reale."
-    bullets={["50 minuti di vero stacco", "Schiena, spalle, cervicale", "Valutazione REBEL · 30–40 min"]}
+    title="Massaggio rilassante per chi viene da Canale: _50 minuti dedicati a te_."
+    lead="Da Canale a Rebel sono circa 35 minuti. La seduta dura 50 minuti e si concentra su schiena, spalle e collo, con pressione concordata e ritmo graduale."
+    bullets={["Massaggio rilassante di 50 minuti", "Schiena, spalle e collo", "Valutazione REBEL · 30–40 min"]}
     meta={["~37 km da Canale", "~35 min via A33", "Da 55 € a seduta"]}
     ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
     ctaSecondary={{ label: "Apri il percorso da Canale", href: "https://www.google.com/maps/dir/?api=1&origin=Canale+CN&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
@@ -102,10 +102,10 @@ const m = getPageMedia("/massaggio-rilassante-canale");
           image={m.splitA}
           side="right"
           kicker="Stacco vero"
-          title="Cinquanta minuti per _sciogliere_ schiena e cervicale."
-          body="Un massaggio rilassante con ritmo graduale: si parte in ascolto e si lavora dove serve davvero — schiena, spalle, cervicale. Esci con la tensione abbassata, non solo coccolata."
-          bullets={["50 minuti, ritmo graduale", "Focus su schiena, spalle, cervicale", "Ambiente caldo e silenzioso"]}
-          cta={{ label: "Scheda massaggio", href: "/servizi/massaggio-rilassante-carmagnola" }}
+          title="Cinquanta minuti per _rilassare_ schiena, spalle e collo."
+          body="Il massaggio segue un ritmo graduale. Prima di iniziare concordiamo le zone e la pressione, poi le adattiamo alle tue sensazioni."
+          bullets={["50 minuti, ritmo graduale", "Focus su schiena, spalle e collo", "Ambiente caldo e silenzioso"]}
+          cta={{ label: "Scopri il trattamento", href: "/servizi/massaggio-rilassante-carmagnola" }}
         />
       </div>
     </section>
@@ -113,13 +113,13 @@ const m = getPageMedia("/massaggio-rilassante-canale");
 
   <section class="section">
     <div class="container">
-      <SectionHead kicker="Il metodo Rebel" title="Perché da Canale vale la pena _venire a Carmagnola_ per il massaggio." lead="Nel Roero massaggi con tecnica reale e durata piena sono rari. 35 minuti di viaggio per 50 minuti di lavoro manuale fatto bene è una scelta razionale, non un lusso." />
+      <SectionHead kicker="Il massaggio REBEL" title="Una seduta personalizzata, a _circa 35 minuti da Canale_." lead="Concordiamo zone, pressione e ritmo prima di iniziare e li adattiamo alle tue sensazioni durante i 50 minuti di trattamento." />
       <div class="card-grid card-grid--2">
         {points.map((p, i) => (<FeatureCard kicker={p.kicker} title={p.title} body={p.body} variant={i === 0 ? "feature" : "default"} index={i + 1} />))}
       </div>
       <div class="cluster" style="margin-top:2rem;">
         <a class="btn btn--primary" href="/contatti">Prenota su WhatsApp</a>
-        <a class="btn btn--secondary" href="/servizi/massaggio-rilassante-carmagnola">Scheda completa massaggio</a>
+        <a class="btn btn--secondary" href="/servizi/massaggio-rilassante-carmagnola">Scopri il trattamento</a>
         <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
       </div>
     </div>
@@ -129,12 +129,12 @@ const m = getPageMedia("/massaggio-rilassante-canale");
     <div class="container">
       <div class="split-visual">
         <div class="split-visual__image">
-          <img src="/img/brand/corpo-rilassamento-schiena.png" alt="Corpo disteso dopo massaggio — sensazione di benessere e recupero nel Roero" width="900" height="1100" loading="lazy" />
+          <img src="/img/brand/corpo-rilassamento-schiena.png" alt="Persona distesa durante un massaggio rilassante" width="900" height="1100" loading="lazy" />
         </div>
         <div class="split-visual__text">
-          <SectionHead kicker="La sensazione dopo" title="Il corpo _risponde_ in modo percepibile." lead="50 minuti di lavoro su cervicale e spalle lascia un effetto fisico reale — non solo una sensazione momentanea." />
-          <p class="body-p">Cervicale più mobile, spalle abbassate, respirazione più profonda: sono i segnali che il corpo inizia a scaricare davvero la tensione accumulata.</p>
-          <p class="body-p">Il giorno dopo potrebbe esserci una lieve dolenzia muscolare — normale dopo un lavoro in profondità. Sparisce in 24-48 ore e lascia una leggerezza che dura giorni.</p>
+          <SectionHead kicker="Durante la seduta" title="Un ritmo _graduale e concordato_." lead="Ti chiediamo come percepisci pressione e manualità e le adattiamo durante i 50 minuti di trattamento." />
+          <p class="body-p">La percezione del massaggio cambia da persona a persona. Puoi indicarci in qualsiasi momento se preferisci una pressione più leggera o più intensa.</p>
+          <p class="body-p">Dopo la seduta le sensazioni possono variare. Se avverti un fastidio inatteso o persistente, contattaci e chiedi consiglio a una professionista sanitaria.</p>
         </div>
       </div>
     </div>
@@ -146,7 +146,7 @@ const m = getPageMedia("/massaggio-rilassante-canale");
       <div class="directions-grid">
         <div>
           <p class="body-p">Da Canale il percorso più rapido è via <strong>A33 direzione Torino</strong>, uscita Marene, poi <strong>SP661 fino a Carmagnola</strong>: 35-37 minuti in condizioni normali.</p>
-          <p class="body-p">Lo studio è in <strong>Viale Barbaroux 20</strong>. Parcheggio gratuito a meno di un minuto.</p>
+          <p class="body-p">Lo studio è in <strong>Viale Barbaroux 20</strong>. possibilità di parcheggio nelle vicinanze.</p>
           <div class="cluster" style="margin-top:1.4rem;">
             <a class="btn btn--secondary btn--sm" href="https://www.google.com/maps/dir/?api=1&origin=Canale+CN&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" target="_blank" rel="noreferrer">Apri il percorso da Canale in Maps</a>
             <a class="btn btn--secondary btn--sm" href="/contatti">Contatti e mappa</a>
@@ -161,7 +161,7 @@ const m = getPageMedia("/massaggio-rilassante-canale");
 
   <section class="section section--scene-ivory">
     <div class="container">
-      <SectionHead kicker="Una sola sosta" title="Abbina il massaggio: _si organizza_." lead="Si combina bene con manicure e laminazione. Per il laser, consigliamo un momento separato." />
+      <SectionHead kicker="Una sola sosta" title="Vuoi abbinare un altro _trattamento_?" lead="Dicci quali servizi ti interessano: ti confermiamo tempi e compatibilità prima dell'appuntamento." />
       <div class="card-grid card-grid--3" style="margin-top:2rem;">
         {combos.map((c) => (<FeatureCard title={c.title} body={c.body} href={c.href} variant="quiet" />))}
       </div>
@@ -174,8 +174,8 @@ const m = getPageMedia("/massaggio-rilassante-canale");
       height="md"
       align="left"
       kicker="Dal Roero a Carmagnola"
-      quote="Mezz'ora di viaggio per un'ora di vero stacco."
-      cta={{ label: "Prenota la prima visita", href: "/contatti" }}
+      quote="Da Canale a Carmagnola per un massaggio rilassante di 50 minuti."
+      cta={{ label: "Prenota la valutazione", href: "/contatti" }}
     />
   ) : null}
 
@@ -188,7 +188,7 @@ const m = getPageMedia("/massaggio-rilassante-canale");
 
   <section class="section section--scene-ivory">
     <div class="container">
-      <InlineCta kicker="Vuoi un piano più ampio?" title="Il massaggio non è l'unico motivo per venire _dal Roero_." lead="Laser, manicure, laminazione e protocolli: la pagina panoramica per Canale li raccoglie tutti." primaryHref="/localita/canale" primaryLabel="Pagina panoramica Rebel per Canale" secondaryHref="/epilazione-laser-canale" secondaryLabel="Laser da Canale" />
+      <InlineCta kicker="Altri servizi" title="Scopri cosa puoi prenotare da _Canale_." lead="Trovi laser, manicure, laminazione e trattamenti viso e corpo disponibili per chi arriva da Canale." primaryHref="/localita/canale" primaryLabel="Scopri tutti i servizi da Canale" secondaryHref="/epilazione-laser-canale" secondaryLabel="Scopri il laser" />
     </div>
   </section>
 
@@ -203,7 +203,7 @@ const m = getPageMedia("/massaggio-rilassante-canale");
 
   <section class="section section--scene-ivory">
     <div class="container">
-      <InlineCta kicker="Prenota" title="_50 minuti_ per smettere davvero di pensare." lead="Scrivici su WhatsApp con il giorno preferito." primaryLabel="Prenota su WhatsApp" primaryHref={siteConfig.social.whatsapp} secondaryLabel="Scheda massaggio" secondaryHref="/servizi/massaggio-rilassante-carmagnola" />
+      <InlineCta kicker="Prenota" title="_50 minuti_ dedicati al relax." lead="Scrivici su WhatsApp con il giorno preferito." primaryLabel="Prenota su WhatsApp" primaryHref={siteConfig.social.whatsapp} secondaryLabel="Scopri il trattamento" secondaryHref="/servizi/massaggio-rilassante-carmagnola" />
     </div>
   </section>
 

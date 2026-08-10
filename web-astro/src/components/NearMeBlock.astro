@@ -15,7 +15,7 @@ interface Props {
 const {
   serviceLabel,
   kicker = "Come raggiungerci dai comuni vicini",
-  anchorPattern = (s: string, c: string) => `${s} per chi arriva da ${c}`,
+  anchorPattern = (s: string, c: string) => `${s}: indicazioni da ${c}`,
   limit = 8,
   clusters,
   hrefOverrides = {},
@@ -37,12 +37,12 @@ const cities = [...filtered]
   .slice(0, limit);
 ---
 
-<section class="section near-me-section" aria-label={`${clearServiceLabel}: indicazioni dai comuni vicini`}>
+<section class="section near-me-section" aria-label={`Come raggiungere REBEL dai comuni vicini per ${clearServiceLabel}`}>
   <div class="container">
     <SectionHead
       kicker={clearKicker}
-      title={`${clearServiceLabel}: mappe e informazioni per chi arriva da altri comuni.`}
-      lead="Apri la tua località per trovare indicazioni verso Viale Barbaroux 20 a Carmagnola e collegamenti a servizi, prezzi e prenotazione."
+      title="Come raggiungere REBEL dai comuni vicini."
+      lead="Scegli la località per vedere il percorso verso Viale Barbaroux 20, gli orari e i contatti."
     />
     <ul class="near-me-list" role="list">
       {cities.map((city) => {
@@ -50,9 +50,9 @@ const cities = [...filtered]
         const isDedicated = Boolean(hrefOverrides[city.slug]);
         return (
           <li class="near-me-item">
-            <a class="near-me-link" href={href}>
-              <span class="near-me-link__service">{clarifyCopy(anchorPattern(clearServiceLabel, city.city))}</span>
-              <span class="near-me-link__hint">{isDedicated ? `Servizio e prezzi · ${city.city}` : `Mappa e indicazioni · ${city.city}`}</span>
+            <a class="near-me-link" href={href} aria-label={clarifyCopy(anchorPattern(clearServiceLabel, city.city))}>
+              <span class="near-me-link__service">{city.city}</span>
+              <span class="near-me-link__hint">{isDedicated ? `${clearServiceLabel} · prezzi e prenotazione` : "Mappa, orari e contatti"}</span>
             </a>
           </li>
         );

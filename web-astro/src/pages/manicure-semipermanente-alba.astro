@@ -22,7 +22,7 @@ import { getPageMedia } from "@/lib/page-media";
 const meta = createPageMeta({
   title: "Manicure semipermanente per chi viene da Alba — Rebel (Carmagnola, ~30 min)",
   description:
-    "Vivi ad Alba o nelle Langhe? Da Rebel a Carmagnola la manicure semipermanente dura tre-quattro settimane, finisce pulita e regge cene, fiere e vendemmia. Prenota su WhatsApp.",
+    "Vivi ad Alba o nelle Langhe? Da Rebel a Carmagnola trovi manicure semipermanente con preparazione accurata e gel professionale. Durata indicativa fino a 3-4 settimane.",
   path: "/manicure-semipermanente-alba",
   image: "https://www.rebelepigenetica.it/img/generated/manicure-semipermanente-rebel-editorial.png",
   openGraphType: "article",
@@ -63,7 +63,7 @@ const articleSchema = buildArticleSchema({
 
 const serviceSchema = buildServiceSchema(
   "Manicure semipermanente per chi viene da Alba",
-  "Manicure semipermanente a Carmagnola per clienti di Alba e delle Langhe: preparazione della lamina, applicazione gel professionale, finitura curata. Durata 3-4 settimane.",
+  "Manicure semipermanente a Carmagnola per clienti di Alba e delle Langhe: preparazione della lamina, applicazione gel professionale e durata indicativa fino a 3-4 settimane.",
   "/manicure-semipermanente-alba",
   {
     priceFrom: 35,
@@ -102,27 +102,27 @@ const geoServiceSchema = {
 const faqs = [
   {
     q: "Quanto dura una manicure semipermanente fatta bene?",
-    a: "Di solito 3-4 settimane. La durata dipende da preparazione della lamina, qualità del prodotto e routine a casa. Da Rebel usiamo prodotti professionali e curiamo ogni passaggio: il risultato tiene senza che la mano ti tradisca nel mezzo di una cena nelle Langhe.",
+    a: "La durata indicativa è fino a 3-4 settimane e varia in base a ricrescita, caratteristiche dell'unghia e abitudini. Alla fine ti spieghiamo come prendertene cura a casa.",
   },
   {
     q: "Posso scegliere colori neutri o sono solo colori vivaci?",
-    a: "Puoi scegliere quello che vuoi. Lavoriamo tantissimo su nuance nude, beige caldo, rosa cipria e toni naturali — quelli che stanno bene sempre, dalla vigna al ristorante stellato.",
+    a: "Puoi scegliere nuance nude, beige, rosa cipria, toni naturali oppure colori più decisi. Ti aiutiamo a trovare quello che preferisci.",
   },
   {
     q: "La rimozione danneggia la lamina?",
-    a: "No, se è fatta nel modo giusto. Non si strappa, non si lima in modo aggressivo. La procedura corretta — ammorbidire, staccare con delicatezza, nutrire la lamina — mantiene l'unghia sana nel tempo.",
+    a: "La rimozione viene eseguita senza strappare il prodotto e limitando la limatura. Se le unghie sono fragili, irritate o danneggiate, segnalacelo prima dell'appuntamento.",
   },
   {
     q: "Posso abbinarla al laser nello stesso giorno?",
-    a: "Sì, e per chi viene da Alba è una delle combinazioni più richieste. La manicure è un trattamento 'morto' — non entra in conflitto con nulla, nemmeno con il laser corpo. Si può fare prima o dopo senza problemi.",
+    a: "Alcuni servizi possono essere organizzati nella stessa visita. Dicci cosa vuoi abbinare e ti confermiamo tempi e compatibilità.",
   },
   {
     q: "Quanto ci vuole da Alba a Rebel?",
-    a: "Circa trenta minuti via A33 uscita Marene, poi SP661 fino a Carmagnola. Viale Barbaroux 20, parcheggio gratuito a meno di un minuto.",
+    a: "Circa trenta minuti via A33 uscita Marene, poi SP661 fino a Carmagnola. Viale Barbaroux 20, possibilità di parcheggio nelle vicinanze.",
   },
   {
     q: "Come prenoto da Alba?",
-    a: "Scrivici su WhatsApp con il giorno preferito. Ti proponiamo gli slot disponibili e organizziamo insieme. Lavoriamo martedì–sabato; il mercoledì siamo aperti fino alle 19.",
+    a: "Scrivici su WhatsApp indicando il giorno preferito: verifichiamo insieme le disponibilità.",
   },
 ];
 
@@ -140,7 +140,7 @@ const points = [
   {
     kicker: "01 · Preparazione della lamina",
     title: "Il risultato si costruisce prima del colore.",
-    body: "Cuticole, bordi, superficie della lamina: un'unghia preparata bene regge settimane in più. È il passaggio che fa la differenza tra una manicure che dura e una che si spacca alla prima fiera del tartufo.",
+    body: "Prepariamo cuticole, bordi e superficie prima di applicare il colore. La durata resta variabile in base all'unghia e alle abitudini.",
   },
   {
     kicker: "02 · Prodotti professionali",
@@ -148,14 +148,14 @@ const points = [
     body: "Usiamo prodotti selezionati per adesione e finitura. La differenza rispetto ai kit consumer si vede sul lungo periodo: il colore resta compatto, senza screpolature nei bordi liberi.",
   },
   {
-    kicker: "03 · Colori per la vita delle Langhe",
-    title: "Nuance che tengono la scena — ovunque.",
-    body: "Cene, eventi, vendemmia, weekend in vigna: nelle Langhe si cambia registro spesso. Un colore scelto bene funziona sempre — né troppo formale né troppo casual.",
+    kicker: "03 · Scelta del colore",
+    title: "Toni naturali o più decisi.",
+    body: "Ti mostriamo le nuance disponibili e ti aiutiamo a scegliere in base ai tuoi gusti e allo stile che cerchi.",
   },
   {
-    kicker: "04 · Rimozione corretta",
-    title: "Unghia sana anche a lungo andare.",
-    body: "La rimozione non si strappa e non si lima. Si ammorbidisce, si stacca con cura, si nutre. La lamina rimane sana e il ciclo successivo parte da una base solida.",
+    kicker: "04 · Rimozione delicata",
+    title: "Il prodotto non viene strappato.",
+    body: "Ammorbidiamo e rimuoviamo il gel con cura, limitando la limatura. Prima di procedere osserviamo sempre le condizioni dell'unghia.",
   },
 ];
 
@@ -163,7 +163,7 @@ const combos = [
   {
     href: "/epilazione-laser-alba",
     title: "Manicure + epilazione laser",
-    body: "La combinazione più gettonata: il laser non interferisce con la manicure. Si fa tutto nello stesso giorno senza problemi.",
+    body: "Due servizi nello stesso appuntamento, se tempi e compatibilità lo consentono.",
   },
   {
     href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola",
@@ -180,7 +180,7 @@ const combos = [
 const nearbyAreas = [
   { city: "Bra", href: "/manicure-semipermanente-bra", desc: "~22 min da Carmagnola." },
   { city: "Canale", href: "/manicure-semipermanente-canale", desc: "Roero, ~35 min via A33." },
-  { city: "Tutte le località", href: "/localita", desc: "Panoramica Rebel per zona." },
+  { city: "Tutte le località", href: "/localita", desc: "Mappe e indicazioni per raggiungerci." },
 ];
 
 const m = getPageMedia("/manicure-semipermanente-alba");
@@ -197,9 +197,9 @@ const m = getPageMedia("/manicure-semipermanente-alba");
   <PageHero
     image={m.hero}
     kicker="Rebel Nails — da Alba a Carmagnola"
-    title="Manicure semipermanente per chi viene da Alba: _mani in ordine_ per tre-quattro settimane."
-    lead="Vivi ad Alba o nelle Langhe? Da Carmagnola sono trenta minuti via A33. Da Rebel la manicure semipermanente si fa bene: preparazione della lamina, prodotti professionali e finitura curata che regge cene, fiere e vendemmia senza farti ripensare al colore nel mezzo della serata."
-    bullets={["Tenuta reale 3-4 settimane", "Gel professionale, lamina preparata bene", "Valutazione REBEL · 30–40 min"]}
+    title="Manicure semipermanente per chi viene da Alba: _finitura curata_ e colore a scelta."
+    lead="Da Alba a Rebel sono circa trenta minuti via A33. Prepariamo la lamina, applichiamo il gel professionale e curiamo la finitura; la durata indicativa è fino a 3-4 settimane e varia da persona a persona."
+    bullets={["Durata indicativa fino a 3-4 settimane", "Gel professionale e preparazione accurata", "Colore e finitura a scelta"]}
     meta={["~33 km da Alba", "~30 min via A33", "Da 35 € a seduta"]}
     ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
     ctaSecondary={{ label: "Apri il percorso da Alba", href: "https://www.google.com/maps/dir/?api=1&origin=Alba&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
@@ -213,10 +213,10 @@ const m = getPageMedia("/manicure-semipermanente-alba");
           image={m.splitA}
           side="right"
           kicker="Mani in ordine"
-          title="Semipermanente che _dura davvero_ 3-4 settimane."
-          body="La tenuta non è fortuna: è preparazione della lamina, prodotto professionale e applicazione precisa. Mani curate che restano impeccabili anche con le mani sempre in attività."
-          bullets={["Preparazione accurata della lamina", "Gel professionale, finish naturale o deciso", "Tenuta reale di 3-4 settimane"]}
-          cta={{ label: "Scheda manicure", href: "/servizi/manicure-semipermanente-carmagnola" }}
+          title="Semipermanente con _durata indicativa fino a 3-4 settimane_."
+          body="Preparazione, prodotto e applicazione contribuiscono alla tenuta, che varia in base a ricrescita, caratteristiche dell'unghia e abitudini."
+          bullets={["Preparazione accurata della lamina", "Gel professionale, finitura naturale o decisa", "Indicazioni per la cura a casa"]}
+          cta={{ label: "Scopri il trattamento", href: "/servizi/manicure-semipermanente-carmagnola" }}
         />
       </div>
     </section>
@@ -227,8 +227,8 @@ const m = getPageMedia("/manicure-semipermanente-alba");
     <div class="container">
       <SectionHead
         kicker="Il metodo Rebel"
-        title="Perché chi vive ad Alba _viene a Carmagnola_ per le unghie."
-        lead="Nelle Langhe si vive bene — e si vede. Cene, fiere, weekend in vigna, eventi: le mani sono sempre in scena. Una manicure che tiene per settimane senza appesantire la routine quotidiana è un investimento concreto, non un lusso."
+        title="La manicure REBEL, a _circa trenta minuti da Alba_."
+        lead="Preparazione accurata, gel professionale e una finitura scelta insieme in base ai tuoi gusti."
       />
       <div class="card-grid card-grid--2">
         {points.map((p, i) => (
@@ -243,7 +243,7 @@ const m = getPageMedia("/manicure-semipermanente-alba");
       </div>
       <div class="cluster" style="margin-top:2rem;">
         <a class="btn btn--primary" href="/contatti">Prenota su WhatsApp</a>
-        <a class="btn btn--secondary" href="/servizi/manicure-semipermanente-carmagnola">Scheda completa manicure</a>
+        <a class="btn btn--secondary" href="/servizi/manicure-semipermanente-carmagnola">Scopri il trattamento</a>
         <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
       </div>
     </div>
@@ -266,7 +266,7 @@ const m = getPageMedia("/manicure-semipermanente-alba");
           </p>
           <p class="body-p">
             Lo studio è in <strong>Viale Barbaroux 20</strong>, nel centro di Carmagnola.
-            Parcheggio gratuito a meno di un minuto a piedi.
+            possibilità di parcheggio nelle vicinanze.
           </p>
           <div class="cluster" style="margin-top:1.4rem;">
             <a
@@ -296,9 +296,9 @@ const m = getPageMedia("/manicure-semipermanente-alba");
   <section class="section">
     <div class="container">
       <SectionHead
-        kicker="Una sola sosta"
-        title="La manicure non interferisce con nulla: _abbinala_ senza pensarci."
-        lead="È il trattamento più facile da combinare: non crea conflitti con laser, laminazione o pulizia viso. Si fa prima, dopo o nel mezzo — il risultato non cambia."
+        kicker="Servizi abbinabili"
+        title="Vuoi abbinare un altro _trattamento_?"
+        lead="Dicci quali servizi ti interessano: ti confermiamo tempi e compatibilità prima dell'appuntamento."
       />
       <div class="card-grid card-grid--3" style="margin-top:2rem;">
         {combos.map((c) => (
@@ -321,7 +321,7 @@ const m = getPageMedia("/manicure-semipermanente-alba");
       align="left"
       kicker="Da Alba a Carmagnola"
       quote="Le mani sono la prima cosa che gli altri vedono."
-      cta={{ label: "Prenota la prima visita", href: "/contatti" }}
+      cta={{ label: "Prenota la valutazione", href: "/contatti" }}
     />
   ) : null}
 
@@ -341,10 +341,10 @@ const m = getPageMedia("/manicure-semipermanente-alba");
     <div class="container">
       <InlineCta
         kicker="Vuoi un piano più ampio?"
-        title="La manicure non è l'unico motivo per venire a Carmagnola _dalle Langhe_."
-        lead="Se ti interessa anche il laser, la pulizia viso, i protocolli o la laminazione ciglia, la pagina panoramica per chi viene da Alba li raccoglie tutti in modo ordinato."
+        title="Scopri cosa puoi prenotare da _Alba_."
+        lead="Trovi laser, pulizia viso, laminazione e trattamenti corpo disponibili per chi arriva da Alba."
         primaryHref="/localita/alba"
-        primaryLabel="Pagina panoramica Rebel per Alba"
+        primaryLabel="Scopri tutti i servizi da Alba"
         secondaryHref="/epilazione-laser-alba"
         secondaryLabel="Laser da Alba"
       />
@@ -378,11 +378,11 @@ const m = getPageMedia("/manicure-semipermanente-alba");
     <div class="container">
       <InlineCta
         kicker="Prenota"
-        title="Mani in ordine per _tre-quattro settimane_. Prenota in 2 minuti."
-        lead="Scrivici su WhatsApp con il giorno preferito. Ti rispondiamo con gli slot disponibili e chiudiamo in pochi messaggi."
+        title="Prenota la tua _manicure semipermanente_."
+        lead="Scrivici su WhatsApp per conoscere le disponibilità."
         primaryLabel="Prenota su WhatsApp"
         primaryHref={siteConfig.social.whatsapp}
-        secondaryLabel="Scheda manicure completa"
+        secondaryLabel="Scopri il trattamento"
         secondaryHref="/servizi/manicure-semipermanente-carmagnola"
       />
     </div>

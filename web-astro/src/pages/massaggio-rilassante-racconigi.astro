@@ -15,7 +15,7 @@ import { getPageMedia } from "@/lib/page-media";
 
 const meta = createPageMeta({
   title: "Massaggio rilassante per chi viene da Racconigi — Rebel (Carmagnola, ~14 min)",
-  description: "Da Racconigi a Rebel sono dieci minuti via SS20, senza autostrada. È il comune più vicino: massaggio rilassante 50 minuti su schiena, spalle e cervicale con ritmo graduale e tecnica manuale. Prenota su WhatsApp.",
+  description: "Da Racconigi a Rebel sono circa 10-14 minuti via SS20, senza autostrada. Massaggio rilassante di 50 minuti su schiena, spalle e collo, con ritmo e pressione concordati.",
   path: "/massaggio-rilassante-racconigi",
   image: "https://www.rebelepigenetica.it/img/generated/massaggio-rilassante-rebel-editorial.png",
   openGraphType: "article",
@@ -32,7 +32,7 @@ const breadcrumb = buildBreadcrumbSchema([
 ]);
 const webPage = buildWebPageSchema({ name: "Massaggio rilassante per chi viene da Racconigi", description: meta.description, path: "/massaggio-rilassante-racconigi" });
 const articleSchema = buildArticleSchema({ headline: "Massaggio rilassante per chi viene da Racconigi — Rebel (Carmagnola, ~14 min)", description: meta.description, path: "/massaggio-rilassante-racconigi", keywords: ["massaggio rilassante Racconigi", "massaggio cervicale Racconigi CN"], section: "Massaggi", image: "https://www.rebelepigenetica.it/img/generated/massaggio-rilassante-rebel-editorial.png" });
-const serviceSchema = buildServiceSchema("Massaggio rilassante per chi viene da Racconigi", "Massaggio rilassante 50 minuti a Carmagnola per clienti di Racconigi: schiena, spalle e cervicale con ritmo graduale. A dieci minuti via SS20.", "/massaggio-rilassante-racconigi", { priceFrom: 55, keywords: ["massaggio rilassante Racconigi", "massaggio cervicale Racconigi CN"] });
+const serviceSchema = buildServiceSchema("Massaggio rilassante per chi viene da Racconigi", "Massaggio rilassante di 50 minuti a Carmagnola per clienti di Racconigi: schiena, spalle e collo, con ritmo e pressione concordati. A circa 10-14 minuti via SS20.", "/massaggio-rilassante-racconigi", { priceFrom: 55, keywords: ["massaggio rilassante Racconigi", "massaggio cervicale Racconigi CN"] });
 const geoServiceSchema = {
   "@context": "https://schema.org", "@type": "Service",
   "@id": `${siteConfig.siteUrl}/massaggio-rilassante-racconigi#service-geo`,
@@ -46,12 +46,12 @@ const geoServiceSchema = {
 };
 
 const faqs = [
-  { q: "Da Racconigi, quanto tempo serve per arrivare a Rebel?", a: "Una decina di minuti via SS20 (Via Racconigi) verso Carmagnola: circa dieci chilometri, senza autostrada e senza pedaggio. Viale Barbaroux 20, parcheggio gratuito a un minuto. È il comune più vicino tra quelli che seguiamo." },
-  { q: "Quanto dura la seduta?", a: "50 minuti. Si lavora su schiena, spalle e cervicale con ritmo progressivo — si parte piano e si approfondisce dove la tensione è maggiore." },
-  { q: "Ho sempre la schiena e le spalle contratte. Aiuta davvero?", a: "Sì. La tensione cronica su queste zone spesso non si risolve con lo stretching. Il massaggio rilassante lavora in profondità, progressivamente, sciogliendo le contrazioni in modo percepibile già dalla prima seduta." },
-  { q: "Ogni quanto conviene farlo?", a: "Per chi ha tensione cronica, ogni 3-4 settimane è un ritmo sensato. E da Racconigi, a dieci minuti, tenerlo come appuntamento fisso è facile: diventa una routine, non un evento da incastrare." },
-  { q: "Posso abbinarlo ad altri trattamenti nello stesso giorno?", a: "Sì, si abbina bene con manicure semipermanente e laminazione. Per il laser ti consigliamo di fare il massaggio in un momento separato per comfort. Vista la vicinanza, organizzare due soste è semplice." },
-  { q: "Come prenoto da Racconigi?", a: "Scrivici su WhatsApp con il giorno preferito. Ti rispondiamo con gli slot disponibili." },
+  { q: "Da Racconigi, come arrivo a Rebel?", a: "Puoi seguire la SS20 fino a Carmagnola. Apri Google Maps per verificare percorso, traffico e tempi aggiornati; lo studio è in Viale Barbaroux 20." },
+  { q: "Quanto dura la seduta?", a: "50 minuti. Le manualità si concentrano su schiena, spalle e collo, con pressione concordata e ritmo graduale." },
+  { q: "Ho spesso schiena e spalle tese. Può aiutarmi a rilassarmi?", a: "Il massaggio può offrire una sensazione temporanea di distensione e relax. Se avverti dolore acuto o persistente, chiedi prima una valutazione sanitaria o fisioterapica." },
+  { q: "Ogni quanto conviene farlo?", a: "La frequenza dipende dalle tue preferenze e da come percepisci la seduta. Puoi prenotarlo come momento singolo oppure concordare una cadenza che si adatti alla tua agenda." },
+  { q: "Posso abbinarlo ad altri trattamenti nello stesso giorno?", a: "Alcuni servizi possono essere organizzati nella stessa visita. Dicci cosa vuoi abbinare e ti confermiamo tempi e compatibilità." },
+  { q: "Come prenoto da Racconigi?", a: "Scrivici su WhatsApp indicando il giorno preferito: verifichiamo insieme le disponibilità." },
 ];
 const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) };
 
@@ -65,16 +65,16 @@ const speakableSchema = {
 };
 
 const points = [
-  { kicker: "01 · Il comune più vicino", title: "Dieci minuti per cinquanta di vero recupero.", body: "Racconigi è il centro più vicino tra quelli che seguiamo. Dieci minuti di viaggio per cinquanta di massaggio che scaricano una settimana di tensione: il rapporto sforzo-beneficio più alto che esista." },
-  { kicker: "02 · 50 minuti reali", title: "Niente ritagli, niente tagli di tempo.", body: "Cinquanta minuti interamente lavorati su schiena, spalle e cervicale. Si comincia gradualmente, si approfondisce dove serve, si chiude senza fretta." },
-  { kicker: "03 · Cervicale e trapezi", title: "Le zone più tese, lavorate con tecnica.", body: "Cervicale e trapezi concentrano la maggior parte dello stress accumulato. Lavoriamo su queste zone con una tecnica manuale precisa — non un generico sfioramento." },
-  { kicker: "04 · Un ritmo che si può tenere", title: "Una seduta al mese cambia la qualità del recupero.", body: "Non serve venire ogni settimana. Una seduta ogni 3-4 settimane — e a dieci minuti da Racconigi è facile tenerla come appuntamento fisso — basta per gestire la tensione." },
+  { kicker: "01 · Da Racconigi a Carmagnola", title: "Circa dieci-quattordici minuti di viaggio.", body: "La vicinanza rende semplice organizzare il massaggio in base ai tuoi impegni e agli orari disponibili." },
+  { kicker: "02 · Durata della seduta", title: "Cinquanta minuti di massaggio.", body: "La seduta è dedicata a schiena, spalle e collo. Si comincia gradualmente e si adattano ritmo e pressione alle tue indicazioni." },
+  { kicker: "03 · Schiena, spalle e collo", title: "Le zone vengono concordate prima di iniziare.", body: "Ci racconti dove preferisci concentrare il massaggio e adattiamo pressione e ritmo alle tue sensazioni durante la seduta." },
+  { kicker: "04 · Frequenza personalizzata", title: "Un appuntamento singolo o una cadenza concordata.", body: "Scegliamo la frequenza insieme, in base alle tue preferenze e al tempo che vuoi dedicare al relax." },
 ];
 
 const combos = [
   { href: "/manicure-semipermanente-racconigi", title: "Massaggio + manicure", body: "Relax per il corpo e mani curate in una sola visita da Racconigi." },
-  { href: "/laminazione-racconigi", title: "Massaggio + laminazione", body: "Corpo disteso e sguardo definito. Un upgrade completo in una sosta." },
-  { href: "/servizi/massaggio-linfodrenante-carmagnola", title: "Massaggio rilassante + linfodrenante", body: "Per chi vuole lavorare su tensione muscolare e leggerezza delle gambe." },
+  { href: "/laminazione-racconigi", title: "Massaggio + laminazione", body: "Due servizi nello stesso appuntamento, se tempi e compatibilità lo consentono." },
+  { href: "/servizi/massaggio-linfodrenante-carmagnola", title: "Massaggio rilassante + linfodrenante", body: "Due tipologie di massaggio da organizzare insieme solo dopo aver verificato tempi e compatibilità." },
 ];
 const nearbyAreas = [
   { city: "Caramagna Piemonte", href: "/localita/caramagna-piemonte", desc: "A pochi km, sull'asse per Carmagnola." },
@@ -97,9 +97,9 @@ const m = getPageMedia("/massaggio-rilassante-racconigi");
   <PageHero
     image={m.hero}
     kicker="Rebel Massaggi — da Racconigi a Carmagnola"
-    title="Massaggio rilassante per chi viene da Racconigi: _dieci minuti_ di viaggio, 50 di recupero."
-    lead="Da Racconigi a Rebel sono dieci minuti via SS20, senza autostrada e senza pedaggio. È il comune più vicino: il massaggio rilassante è cinquanta minuti dedicati a schiena, spalle e cervicale — le zone dove si accumula tutto. Ritmo graduale, tecnica manuale precisa, effetto percepibile dalla prima seduta."
-    bullets={["50 minuti di vero stacco", "Schiena, spalle, cervicale", "Valutazione REBEL · 30–40 min"]}
+    title="Massaggio rilassante per chi viene da Racconigi: _50 minuti dedicati a te_."
+    lead="Da Racconigi a Rebel sono circa dieci-quattordici minuti via SS20. La seduta dura 50 minuti e si concentra su schiena, spalle e collo, con pressione concordata e ritmo graduale."
+    bullets={["Massaggio rilassante di 50 minuti", "Schiena, spalle e collo", "Valutazione REBEL · 30–40 min"]}
     meta={["~10 km da Racconigi", "~14 min via SS20", "Da 55 € a seduta"]}
     ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
     ctaSecondary={{ label: "Apri il percorso da Racconigi", href: "https://www.google.com/maps/dir/?api=1&origin=Racconigi&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
@@ -112,10 +112,10 @@ const m = getPageMedia("/massaggio-rilassante-racconigi");
           image={m.splitA}
           side="right"
           kicker="Stacco vero"
-          title="Cinquanta minuti per _sciogliere_ schiena e cervicale."
-          body="Un massaggio rilassante con ritmo graduale: si parte in ascolto e si lavora dove serve davvero — schiena, spalle, cervicale. Esci con la tensione abbassata, non solo coccolata."
-          bullets={["50 minuti, ritmo graduale", "Focus su schiena, spalle, cervicale", "Ambiente caldo e silenzioso"]}
-          cta={{ label: "Scheda massaggio", href: "/servizi/massaggio-rilassante-carmagnola" }}
+          title="Cinquanta minuti per _rilassare_ schiena, spalle e collo."
+          body="Il massaggio segue un ritmo graduale. Prima di iniziare concordiamo le zone e la pressione, poi le adattiamo alle tue sensazioni."
+          bullets={["50 minuti, ritmo graduale", "Focus su schiena, spalle e collo", "Ambiente caldo e silenzioso"]}
+          cta={{ label: "Scopri il trattamento", href: "/servizi/massaggio-rilassante-carmagnola" }}
         />
       </div>
     </section>
@@ -123,13 +123,13 @@ const m = getPageMedia("/massaggio-rilassante-racconigi");
 
   <section class="section">
     <div class="container">
-      <SectionHead kicker="Vicinissimi" title="Da Racconigi il massaggio diventa _una routine_, non un evento." lead="A dieci minuti porta-a-porta, cinquanta minuti di stacco ogni 3-4 settimane non pesano. La vicinanza è ciò che trasforma il massaggio da lusso occasionale a manutenzione regolare." />
+      <SectionHead kicker="Il massaggio REBEL" title="Una seduta personalizzata, a _circa dieci-quattordici minuti da Racconigi_." lead="Concordiamo zone, pressione e ritmo prima di iniziare e li adattiamo alle tue sensazioni durante i 50 minuti di trattamento." />
       <div class="card-grid card-grid--2">
         {points.map((p, i) => (<FeatureCard kicker={p.kicker} title={p.title} body={p.body} variant={i === 0 ? "feature" : "default"} index={i + 1} />))}
       </div>
       <div class="cluster" style="margin-top:2rem;">
         <a class="btn btn--primary" href="/contatti">Prenota su WhatsApp</a>
-        <a class="btn btn--secondary" href="/servizi/massaggio-rilassante-carmagnola">Scheda completa massaggio</a>
+        <a class="btn btn--secondary" href="/servizi/massaggio-rilassante-carmagnola">Scopri il trattamento</a>
         <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
       </div>
     </div>
@@ -140,8 +140,8 @@ const m = getPageMedia("/massaggio-rilassante-racconigi");
       <SectionHead kicker="Come arrivare" title="Da Racconigi a Rebel: _dieci minuti_ di strada dritta." />
       <div class="directions-grid">
         <div>
-          <p class="body-p">Da Racconigi a Carmagnola sono circa dieci chilometri via <strong>SS20 (Via Racconigi)</strong> direzione nord. Si arriva quasi sempre in dieci-quattordici minuti, senza autostrada e senza pedaggio.</p>
-          <p class="body-p">Lo studio è in <strong>Viale Barbaroux 20</strong>, in pieno centro Carmagnola. Parcheggio gratuito a 30 secondi a piedi.</p>
+          <p class="body-p">Da Racconigi a Carmagnola puoi seguire la <strong>SS20 (Via Racconigi)</strong>. Per percorso, traffico e tempi aggiornati, consulta Google Maps prima di partire.</p>
+          <p class="body-p">Lo studio è in <strong>Viale Barbaroux 20</strong>, in pieno centro Carmagnola. possibilità di parcheggio nelle vicinanze.</p>
           <div class="cluster" style="margin-top:1.4rem;">
             <a class="btn btn--secondary btn--sm" href="https://www.google.com/maps/dir/?api=1&origin=Racconigi&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" target="_blank" rel="noreferrer">Apri il percorso da Racconigi in Maps</a>
             <a class="btn btn--secondary btn--sm" href="/contatti">Contatti e mappa</a>
@@ -156,7 +156,7 @@ const m = getPageMedia("/massaggio-rilassante-racconigi");
 
   <section class="section">
     <div class="container">
-      <SectionHead kicker="Una sola sosta" title="Abbina il massaggio: _si organizza_ facilmente." lead="Si combina bene con manicure e laminazione. E a dieci minuti da Racconigi, un'unica uscita basta per più cose fatte bene." />
+      <SectionHead kicker="Una sola sosta" title="Vuoi abbinare un altro _trattamento_?" lead="Dicci quali servizi ti interessano: ti confermiamo tempi e compatibilità prima dell'appuntamento." />
       <div class="card-grid card-grid--3" style="margin-top:2rem;">
         {combos.map((c) => (<FeatureCard title={c.title} body={c.body} href={c.href} variant="quiet" />))}
       </div>
@@ -169,8 +169,8 @@ const m = getPageMedia("/massaggio-rilassante-racconigi");
       height="md"
       align="left"
       kicker="Da Racconigi a Carmagnola"
-      quote="Dieci minuti di viaggio per un'ora di vero stacco."
-      cta={{ label: "Prenota la prima visita", href: "/contatti" }}
+      quote="Da Racconigi a Carmagnola per un massaggio rilassante di 50 minuti."
+      cta={{ label: "Prenota la valutazione", href: "/contatti" }}
     />
   ) : null}
 
@@ -183,7 +183,7 @@ const m = getPageMedia("/massaggio-rilassante-racconigi");
 
   <section class="section">
     <div class="container">
-      <InlineCta kicker="Vuoi un piano più ampio?" title="Il massaggio non è l'unico motivo per venire a Carmagnola _da Racconigi_." lead="Laser, manicure, laminazione e protocolli: la pagina panoramica per chi viene da Racconigi li raccoglie tutti." primaryHref="/localita/racconigi" primaryLabel="Pagina panoramica Rebel per Racconigi" secondaryHref="/epilazione-laser-racconigi" secondaryLabel="Laser da Racconigi" />
+      <InlineCta kicker="Altri servizi" title="Scopri cosa puoi prenotare da _Racconigi_." lead="Trovi laser, manicure, laminazione e trattamenti viso e corpo disponibili per chi arriva da Racconigi." primaryHref="/localita/racconigi" primaryLabel="Scopri tutti i servizi da Racconigi" secondaryHref="/epilazione-laser-racconigi" secondaryLabel="Scopri il laser" />
     </div>
   </section>
 
@@ -198,7 +198,7 @@ const m = getPageMedia("/massaggio-rilassante-racconigi");
 
   <section class="section">
     <div class="container">
-      <InlineCta kicker="Prenota" title="_50 minuti_ per smettere di pensare." lead="Scrivici su WhatsApp con il giorno preferito — e da Racconigi sei qui in dieci minuti." primaryLabel="Prenota su WhatsApp" primaryHref={siteConfig.social.whatsapp} secondaryLabel="Scheda massaggio" secondaryHref="/servizi/massaggio-rilassante-carmagnola" />
+      <InlineCta kicker="Prenota" title="_50 minuti_ dedicati al relax." lead="Scrivici su WhatsApp con il giorno preferito." primaryLabel="Prenota su WhatsApp" primaryHref={siteConfig.social.whatsapp} secondaryLabel="Scopri il trattamento" secondaryHref="/servizi/massaggio-rilassante-carmagnola" />
     </div>
   </section>
 

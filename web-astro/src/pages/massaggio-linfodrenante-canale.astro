@@ -24,7 +24,7 @@ const m = getPageMedia("/massaggio-linfodrenante-canale");
 const meta = createPageMeta({
   title: "Massaggio linfodrenante per chi viene da Canale e dal Roero — Rebel (Carmagnola, ~35 min)",
   description:
-    "Vivi a Canale o nel Roero? Da Rebel a Carmagnola sono trenta-trentacinque minuti via SP29 e SP661. Massaggio linfodrenante drenante e progressivo per gonfiore, pesantezza e gambe stanche: leggerezza che cresce su un ciclo coerente. Da 69 €.",
+    "Vivi a Canale o nel Roero? Da Rebel a Carmagnola sono trenta-trentacinque minuti via SP29 e SP661. Massaggio linfodrenante con manualità delicate, dedicato alla sensazione di pesantezza e al benessere delle gambe. Da 69 €.",
   path: "/massaggio-linfodrenante-canale",
   image: "https://www.rebelepigenetica.it/img/brand/rimodellamento-donna-beige.png",
   openGraphType: "article",
@@ -65,7 +65,7 @@ const articleSchema = buildArticleSchema({
 
 const serviceSchema = buildServiceSchema(
   "Massaggio linfodrenante per chi viene da Canale",
-  "Massaggio linfodrenante drenante e progressivo a Carmagnola per clienti di Canale e del Roero: aiuta a ridurre gonfiore e pesantezza, con una progressione coerente su ciclo di sedute.",
+  "Massaggio linfodrenante a Carmagnola per clienti di Canale e del Roero, con manualità delicate e ritmo adattato alle sensazioni della persona.",
   "/massaggio-linfodrenante-canale",
   {
     priceFrom: 69,
@@ -104,27 +104,27 @@ const geoServiceSchema = {
 const faqs = [
   {
     q: "Quanto ci vuole da Canale a Rebel per il linfodrenante?",
-    a: "Tra trenta e trentacinque minuti via SP29 in direzione Bra, poi SP661 fino a Carmagnola: trentadue chilometri in totale. Viale Barbaroux 20, parcheggio gratuito a un minuto a piedi.",
+    a: "Tra trenta e trentacinque minuti via SP29 in direzione Bra, poi SP661 fino a Carmagnola: trentadue chilometri in totale. Viale Barbaroux 20, possibilità di parcheggio nelle vicinanze.",
   },
   {
     q: "A cosa serve il massaggio linfodrenante?",
-    a: "È un massaggio drenante delicato e progressivo che aiuta a ridurre la sensazione di gonfiore e pesantezza, soprattutto alle gambe. L'obiettivo è ritrovare un corpo più leggero, definito e piacevole da abitare — con manualità graduali e ascolto, non con manovre aggressive.",
+    a: "È un massaggio con manualità delicate e progressive, dedicato alla sensazione di pesantezza e al benessere delle gambe. Pressione e ritmo vengono adattati alle tue sensazioni.",
   },
   {
     q: "Bastano una o due sedute o serve un ciclo?",
-    a: "Una singola seduta dà sollievo immediato, ma la leggerezza diventa più stabile quando il drenante entra in un ritmo coerente. In consulenza impostiamo un piccolo ciclo realistico in base ai tuoi obiettivi, senza pacchetti imposti.",
+    a: "La frequenza dipende da ciò che cerchi e da come percepisci la seduta. Puoi prenotare un singolo appuntamento oppure valutare con noi una cadenza, senza pacchetti imposti.",
   },
   {
     q: "È adatto in caso di ritenzione e gambe stanche a fine giornata?",
-    a: "Sì, è una delle richieste più frequenti. Lavoriamo in modo mirato sulle zone interessate da gonfiore e pesantezza, adattando pressione e ritmo alla tua sensibilità.",
+    a: "Possiamo dedicare la seduta alle gambe e alle zone in cui avverti maggiore pesantezza. In caso di gonfiore improvviso, persistente o doloroso, chiedi prima consiglio al medico.",
   },
   {
     q: "Posso abbinarlo ad altri trattamenti?",
-    a: "Sì. Si combina bene con un percorso corpo, con il laser gambe e con un massaggio rilassante in fase di mantenimento. Vista la distanza dal Roero, molte clienti di Canale uniscono più cose nella stessa sosta per ottimizzare il viaggio.",
+    a: "Alcuni servizi possono essere organizzati nella stessa visita. Dicci cosa vuoi abbinare e ti confermiamo tempi e compatibilità.",
   },
   {
     q: "Come prenoto da Canale?",
-    a: "Scrivici su WhatsApp con il giorno preferito e ti proponiamo gli slot disponibili. Il mercoledì siamo aperti fino alle 19, comodo per chi rientra tardi nel Roero.",
+    a: "Scrivici su WhatsApp indicando il giorno preferito: verifichiamo insieme le disponibilità.",
   },
 ];
 
@@ -152,24 +152,24 @@ const speakableSchema = {
 
 const points = [
   {
-    kicker: "01 · Drenante e progressivo",
-    title: "Leggerezza, senza manovre aggressive.",
-    body: "Manualità graduali e ascolto: il linfodrenante riduce la sensazione di gonfiore e pesantezza accompagnando il corpo, non forzandolo. Esci più leggera e con le gambe meno stanche.",
+    kicker: "01 · Manualità progressive",
+    title: "Un ritmo delicato, adattato a te.",
+    body: "Pressione e ritmo vengono modulati durante la seduta in base alle tue sensazioni, senza manovre aggressive.",
   },
   {
-    kicker: "02 · Gambe e ritenzione",
-    title: "Mirato dove serve davvero.",
-    body: "Lavoriamo sulle zone interessate da gonfiore e pesantezza, tipicamente le gambe. Pressione e ritmo si adattano alla tua sensibilità, seduta dopo seduta.",
+    kicker: "02 · Benessere delle gambe",
+    title: "La seduta si concentra sulle zone che indichi.",
+    body: "Puoi segnalarci dove avverti maggiore pesantezza; adattiamo la seduta alla tua sensibilità e al tempo disponibile.",
   },
   {
-    kicker: "03 · Funziona sul ritmo",
-    title: "La leggerezza diventa stabile col ciclo.",
-    body: "Una seduta dà sollievo subito; la differenza vera arriva con una progressione coerente. Impostiamo un piccolo ciclo realistico, mai un pacchetto imposto.",
+    kicker: "03 · Frequenza personalizzata",
+    title: "Un appuntamento singolo o una cadenza concordata.",
+    body: "La frequenza viene decisa insieme in base alle tue preferenze e a come percepisci il trattamento, senza pacchetti imposti.",
   },
   {
     kicker: "04 · Parte di un percorso",
-    title: "Si integra con corpo e laser.",
-    body: "Il drenante sostiene i percorsi corpo e si abbina bene a laser gambe e a un massaggio rilassante di mantenimento. Un disegno, non trattamenti scollegati.",
+    title: "Può affiancare altri servizi.",
+    body: "Se vuoi abbinare un altro trattamento, verifichiamo prima tempi e compatibilità e organizziamo l'appuntamento di conseguenza.",
   },
 ];
 
@@ -177,24 +177,24 @@ const combos = [
   {
     href: "/massaggio-rilassante-canale",
     title: "Drenante + rilassante",
-    body: "Leggerezza e stacco: il drenante per le gambe, il rilassante per la testa.",
+    body: "Due momenti di benessere nello stesso appuntamento, se tempi e compatibilità lo consentono.",
   },
   {
     href: "/epilazione-laser-canale",
     title: "Drenante + laser gambe",
-    body: "Gambe più leggere e più lisce: due esigenze, una sola sosta a Carmagnola.",
+    body: "Due servizi dedicati alle gambe, organizzati insieme solo quando compatibili.",
   },
   {
     href: "/servizi/scrub-corpo-carmagnola",
     title: "Drenante + scrub corpo",
-    body: "Pelle uniforme e sensazione di leggerezza: un upgrade corpo completo.",
+    body: "Cura della pelle e massaggio nello stesso appuntamento, quando indicato.",
   },
 ];
 
 const nearbyAreas = [
   { city: "Alba", href: "/massaggio-linfodrenante-alba", desc: "Langhe, ~30 min via A33." },
   { city: "Racconigi", href: "/massaggio-linfodrenante-racconigi", desc: "A pochi minuti, ~14 min via SS20." },
-  { city: "Tutte le località", href: "/localita", desc: "Panoramica Rebel per zona." },
+  { city: "Tutte le località", href: "/localita", desc: "Mappe e indicazioni per raggiungerci." },
 ];
 ---
 
@@ -210,9 +210,9 @@ const nearbyAreas = [
   <PageHero
     image={m.hero}
     kicker="Rebel Body — da Canale (Roero) a Carmagnola"
-    title="Massaggio linfodrenante per chi viene da Canale: _mezz'ora_, gambe più leggere."
-    lead="Da Canale a Rebel sono trenta-trentacinque minuti via SP29 e SP661. Il linfodrenante è un massaggio drenante delicato e progressivo: aiuta a ridurre gonfiore e pesantezza e a ritrovare un corpo più leggero. La leggerezza diventa stabile quando entra in un ritmo coerente."
-    bullets={["Drenante delicato e progressivo", "Mirato su gonfiore e gambe pesanti", "Valutazione REBEL · 30–40 min"]}
+    title="Massaggio linfodrenante per chi viene da Canale: _trenta-trentacinque minuti_ da Carmagnola."
+    lead="Da Canale a Rebel sono trenta-trentacinque minuti via SP29 e SP661. La seduta utilizza manualità delicate e progressive, con pressione e ritmo adattati alle tue sensazioni."
+    bullets={["Manualità delicate e progressive", "Seduta dedicata al benessere delle gambe", "Valutazione REBEL · 30–40 min"]}
     meta={["~32 km da Canale", "~30-35 min via SP29 + SP661", "Da 69 €"]}
     ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
     ctaSecondary={{ label: "Apri il percorso da Canale", href: "https://www.google.com/maps/dir/?api=1&origin=Canale+CN&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
@@ -225,10 +225,10 @@ const nearbyAreas = [
           image={m.splitA}
           side="right"
           kicker="Drenaggio mirato"
-          title="Gonfiore e pesantezza: _alleggeriti_ con metodo."
-          body="Il linfodrenante non è un massaggio qualsiasi: è un lavoro graduale che accompagna i liquidi e riduce la sensazione di gambe stanche. Costruito sul tuo bisogno del momento, con una progressione che fa crescere il benessere."
-          bullets={["Manualità delicate e progressive", "Focus su gambe, caviglie e zone gonfie", "Risultato più stabile su un ciclo coerente"]}
-          cta={{ label: "Scheda linfodrenante completa", href: "/servizi/massaggio-linfodrenante-carmagnola" }}
+          title="Una seduta dedicata al _benessere delle gambe_."
+          body="Il trattamento segue un ritmo graduale e viene adattato alle zone che indichi e alle tue sensazioni durante la seduta."
+          bullets={["Manualità delicate e progressive", "Pressione adattata alla sensibilità", "Frequenza concordata insieme"]}
+          cta={{ label: "Scopri il trattamento", href: "/servizi/massaggio-linfodrenante-carmagnola" }}
         />
       </div>
     </section>
@@ -238,8 +238,8 @@ const nearbyAreas = [
     <div class="container">
       <SectionHead
         kicker="Il metodo Rebel"
-        title="Perché dal Roero vale la pena _venire a Carmagnola_ per il drenante."
-        lead="Nel paese l'offerta corpo di livello è ridotta. Un trattamento che ti fa sentire le gambe più leggere e costruisce benessere nel tempo, senza promesse esagerate, è il motivo per spostarsi."
+        title="Il linfodrenante REBEL, a _trenta-trentacinque minuti da Canale_."
+        lead="Una seduta con manualità progressive, personalizzata in base alle zone che vuoi trattare e alle tue sensazioni."
       />
       <div class="card-grid card-grid--2">
         {points.map((p, i) => (
@@ -248,7 +248,7 @@ const nearbyAreas = [
       </div>
       <div class="cluster" style="margin-top:2rem;">
         <a class="btn btn--primary" href="/contatti">Prenota su WhatsApp</a>
-        <a class="btn btn--secondary" href="/servizi/massaggio-linfodrenante-carmagnola">Scheda completa linfodrenante</a>
+        <a class="btn btn--secondary" href="/servizi/massaggio-linfodrenante-carmagnola">Scopri il trattamento</a>
         <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
       </div>
     </div>
@@ -260,7 +260,7 @@ const nearbyAreas = [
       <div class="directions-grid">
         <div>
           <p class="body-p">Da Canale a Carmagnola sono circa 32 km. Il tragitto più rapido segue la <strong>SP29 in direzione Bra</strong>, poi la <strong>SP661 verso Sommariva del Bosco e Carmagnola</strong>: in condizioni normali si arriva in trenta-trentacinque minuti, senza pedaggio.</p>
-          <p class="body-p">Lo studio è in <strong>Viale Barbaroux 20</strong>. Parcheggio gratuito a meno di un minuto a piedi.</p>
+          <p class="body-p">Lo studio è in <strong>Viale Barbaroux 20</strong>. possibilità di parcheggio nelle vicinanze.</p>
           <div class="cluster" style="margin-top:1.4rem;">
             <a class="btn btn--secondary btn--sm" href="https://www.google.com/maps/dir/?api=1&origin=Canale+CN&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" target="_blank" rel="noreferrer">Apri il percorso da Canale in Maps</a>
             <a class="btn btn--secondary btn--sm" href="/contatti">Contatti e mappa</a>
@@ -275,7 +275,7 @@ const nearbyAreas = [
 
   <section class="section">
     <div class="container">
-      <SectionHead kicker="Una sola sosta" title="Abbina il drenante: _ottimizza il viaggio_." lead="Si combina con massaggio rilassante, laser gambe e scrub corpo senza conflitti." />
+      <SectionHead kicker="Una sola sosta" title="Vuoi abbinare un altro _trattamento_?" lead="Dicci quali servizi ti interessano: ti confermiamo tempi e compatibilità prima dell'appuntamento." />
       <div class="card-grid card-grid--3" style="margin-top:2rem;">
         {combos.map((c) => (<FeatureCard title={c.title} body={c.body} href={c.href} variant="quiet" />))}
       </div>
@@ -288,8 +288,8 @@ const nearbyAreas = [
       height="md"
       align="left"
       kicker="Dal Roero a Carmagnola"
-      quote="Gambe leggere non sono un miraggio: sono una questione di ritmo."
-      cta={{ label: "Prenota la prima visita", href: "/contatti" }}
+      quote="Un momento dedicato al benessere delle gambe."
+      cta={{ label: "Prenota la valutazione", href: "/contatti" }}
     />
   ) : null}
 
@@ -305,9 +305,9 @@ const nearbyAreas = [
       <InlineCta
         kicker="Vuoi un piano più ampio?"
         title="Il drenante non è l'unico motivo per venire da _Canale_."
-        lead="Laser, massaggi, pulizia viso e protocolli corpo: la pagina panoramica per Canale li raccoglie tutti."
+        lead="Scopri laser, massaggi, pulizia viso e trattamenti corpo disponibili per chi arriva da Canale."
         primaryHref="/localita/canale"
-        primaryLabel="Pagina panoramica Rebel per Canale"
+        primaryLabel="Scopri tutti i servizi da Canale"
         secondaryHref="/massaggio-rilassante-canale"
         secondaryLabel="Massaggio rilassante da Canale"
       />
@@ -327,11 +327,11 @@ const nearbyAreas = [
     <div class="container">
       <InlineCta
         kicker="Prenota"
-        title="Gambe più leggere, _seduta dopo seduta_."
-        lead="Scrivici su WhatsApp con il giorno preferito. Ti rispondiamo in poco tempo."
+        title="Prenota il tuo _massaggio linfodrenante_."
+        lead="Scrivici su WhatsApp per conoscere le disponibilità."
         primaryLabel="Prenota su WhatsApp"
         primaryHref={siteConfig.social.whatsapp}
-        secondaryLabel="Scheda linfodrenante completa"
+        secondaryLabel="Scopri il trattamento"
         secondaryHref="/servizi/massaggio-linfodrenante-carmagnola"
       />
     </div>

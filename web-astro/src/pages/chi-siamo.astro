@@ -68,12 +68,12 @@ const ways = [
   {
     kicker: "Trattamento",
     title: "Utilizziamo prodotti e tecnologie professionali",
-    body: "Lumina X1 Pro di THORY, il comfort ICE Polar, LPG e la cosmetica professionale entrano nel percorso dopo aver definito zona, priorità e obiettivo.",
+    body: "Utilizziamo Lumina X1 Pro di THORY, ICE Polar, LPG e cosmetica professionale solo dopo aver definito zona, priorità e obiettivo.",
   },
   {
     kicker: "Controlli",
     title: "Verifichiamo i risultati durante il percorso",
-    body: "Agli appuntamenti controlliamo la risposta e aggiorniamo frequenza, intensità o combinazioni quando necessario.",
+    body: "Agli appuntamenti osserviamo i cambiamenti e aggiorniamo frequenza, intensità o combinazioni quando necessario.",
   },
 ];
 
@@ -91,9 +91,9 @@ const paths = [
     href: "/epilazione-laser-carmagnola",
   },
   {
-    kicker: "Consulenza",
+    kicker: "Valutazione",
     title: "Prenota la valutazione REBEL",
-    body: "Valutazione e analisi REBEL durano 30–40 minuti e sono gratuite quando finalizzate alla costruzione del Percorso. L’home care, quando consigliata, resta separata.",
+    body: "La valutazione REBEL dura 30–40 minuti. Se scegli di iniziare il Percorso REBEL, la valutazione è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi.",
     href: "/contatti",
   },
 ];
@@ -107,11 +107,11 @@ const paths = [
   <PageHero
     image={media.studio.professional}
     kicker="Studio Rebel · Carmagnola"
-    title="Qui il Metodo Rebel diventa _spazio, gesto e tecnologia_."
-    lead="In Viale Barbaroux 20 trovi quattro cabine, una postazione mani, tecnologie professionali e trattamenti personalizzati. Riceviamo da martedì a sabato su appuntamento."
-    bullets={["4 cabine e postazione nails", "Viso, corpo, laser e beauty", "Valutazione REBEL · 30–40 min"]}
+    title="Scopri lo studio e _come lavoriamo_."
+    lead="In Viale Barbaroux 20 trovi quattro cabine, una postazione manicure, tecnologie professionali e trattamenti personalizzati. Riceviamo da martedì a sabato su appuntamento."
+    bullets={["4 cabine e postazione manicure", "Viso, corpo, laser e servizi beauty", "Valutazione REBEL · 30–40 min"]}
     meta={["Viale Barbaroux 20", "Mar–Sab su appuntamento", "Carmagnola"]}
-    ctaPrimary={{ label: "Prenota la prima visita", href: "/contatti", halo: true }}
+    ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Consulta il listino", href: "/listino-estetica-laser" }}
   />
 
@@ -141,7 +141,7 @@ const paths = [
       <SectionHead
         kicker="Prodotti, tecnologie e formazione"
         title="I marchi utilizzati _nei trattamenti Rebel_."
-        lead="Qui trovi le tecnologie, le linee cosmetiche e i partner di formazione presenti nello studio."
+        lead="Qui trovi le tecnologie, le linee cosmetiche e i percorsi di formazione che sostengono il nostro lavoro."
       />
       <BrandStrip />
     </div>
@@ -172,7 +172,7 @@ const paths = [
     height="sm"
     align="left"
     kicker="Rebel · Carmagnola"
-    quote="Una soglia reale. Un metodo preciso. La luce REBEL dentro uno spazio vero."
+    quote="Il tuo percorso REBEL comincia qui, in Viale Barbaroux 20."
     cite="Viale Barbaroux 20"
   />
 
@@ -180,11 +180,11 @@ const paths = [
     <div class="container">
       <InlineCta
         kicker="Valutazione REBEL · 30–40 minuti"
-        title="Valutiamo la zona e ti presentiamo una _proposta chiara_."
-        lead="Valutazione e analisi durano 30–40 minuti e sono gratuite quando finalizzate alla costruzione del Percorso; comprendono indicazioni, frequenza iniziale e prezzo. L’home care resta separata."
+        title="Valutiamo la zona e ti spieghiamo _come possiamo lavorare_."
+        lead="Valutiamo insieme la zona e il risultato che desideri. Poi ti spieghiamo il trattamento consigliato, la frequenza, il prezzo e le possibili alternative. Se scegli di iniziare il Percorso REBEL, la valutazione è gratuita."
       />
     </div>
   </section>
 
-  <StickyBookingBar primary={{ label: "Prenota la prima visita", href: "/contatti" }} />
+  <StickyBookingBar primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
 </BaseLayout>

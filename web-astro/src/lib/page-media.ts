@@ -35,7 +35,7 @@ export const media = {
   method: {
     hero: {
       src: siteAsset("home.hero.method.desktop"),
-      alt: "Valutazione iniziale e Mappa Rebel con la professionista",
+      alt: "Professionista e cliente durante la valutazione iniziale REBEL",
       ratio: "16/9",
       prompt: "Approved professional and client reviewing the real Mappa Rebel; visible hands, document and attentive eye contact.",
     } as ImageAsset,
@@ -43,53 +43,53 @@ export const media = {
   journeys: {
     hero: {
       src: siteAsset("home.hero.epigenetics.desktop"),
-      alt: "Professionista REBEL durante un trattamento personalizzato",
+      alt: "Professionista e cliente durante un trattamento estetico",
       ratio: "16/9",
       prompt: "Approved professional and client during a credible treatment gesture; human campaign image, never a decorative stripe.",
     } as ImageAsset,
     glow: {
       src: siteAsset("journeys.glow.hero.desktop"),
-      alt: "Percorso Glow per luminosità e uniformità",
+      alt: "Viso di una cliente illuminato lateralmente",
       ratio: "16/9",
     } as ImageAsset,
     longevity: {
       src: siteAsset("journeys.longevity.hero.desktop"),
-      alt: "Percorso Longevity per tono ed elasticità",
+      alt: "Cliente durante un trattamento viso",
       ratio: "16/9",
     } as ImageAsset,
     forma: {
       src: siteAsset("journeys.forma.hero.desktop"),
-      alt: "Percorso Forma per drenaggio e compattezza",
+      alt: "Professionista durante un trattamento corpo",
       ratio: "16/9",
     } as ImageAsset,
     liberta: {
       src: siteAsset("journeys.liberta.hero.desktop"),
-      alt: "Percorso Libertà per epilazione Laser Ice Polar",
+      alt: "Professionista durante una seduta di epilazione laser",
       ratio: "16/9",
     } as ImageAsset,
   },
   laser: {
     hero: {
       src: siteAsset("home.hero.laser.desktop"),
-      alt: "Epilazione laser Ice Polar con protezioni e gesto professionale",
+      alt: "Seduta di epilazione laser con protezioni e raffreddamento ICE Polar",
       ratio: "16/9",
       prompt: "Real professional laser treatment in progress, protective eyewear, one coherent leg segment and device contact; tight crop, no room.",
     } as ImageAsset,
     handpiece: {
       src: siteAsset("services.laser.handpiece.desktop"),
-      alt: "Applicatore laser professionale in appoggio corretto sulla pelle",
+      alt: "Manipolo laser professionale a contatto con la pelle",
       ratio: "4/5",
       prompt: "Tangent macro of the handpiece in real contact with natural skin; coherent hand, cable and pressure.",
     } as ImageAsset,
     consult: {
       src: siteAsset("services.method.consultation.mobile"),
-      alt: "Valutazione professionale del percorso laser",
+      alt: "Cliente e professionista consultano una scheda",
       ratio: "4/5",
       prompt: "Over-shoulder consultation with an active treatment map and natural hands; no reception or room overview.",
     } as ImageAsset,
     mood: {
       src: siteAsset("brand.prism.desktop"),
-      alt: "Rifrazione materica REBEL Prism",
+      alt: "Riflessi prismatici nei colori REBEL",
       ratio: "21/9",
       prompt: "Translucent prismatic film and warm porcelain as a quiet panoramic material band.",
     } as ImageAsset,
@@ -97,25 +97,25 @@ export const media = {
   viso: {
     hero: {
       src: siteAsset("journeys.glow.hero.desktop"),
-      alt: "Pelle viva e luminosa nel percorso Glow REBEL",
+      alt: "Pelle luminosa nel percorso Glow REBEL",
       ratio: "16/9",
       prompt: "Approved young blonde turning into living light; authentic freckles, pores and moving hair.",
     } as ImageAsset,
     texture: {
       src: siteAsset("services.face.skinTexture.mobile"),
-      alt: "Macro di pelle reale con texture e micro-variazioni",
+      alt: "Dettaglio della grana naturale della pelle",
       ratio: "4/5",
       prompt: "Side-light facial macro with pores, peach fuzz, freckles and natural micro-redness.",
     } as ImageAsset,
     products: {
       src: siteAsset("services.face.activesTopshot.mobile"),
-      alt: "Attivi e materiali professionali su porcellana",
+      alt: "Prodotti e strumenti professionali per trattamenti viso",
       ratio: "4/5",
       prompt: "True top-shot of active work with porcelain, cotton, vial and controlled plum film.",
     } as ImageAsset,
     mood: {
       src: siteAsset("brand.prism.desktop"),
-      alt: "Luce REBEL Prism su porcellana",
+      alt: "Riflessi prismatici su fondo chiaro",
       ratio: "21/9",
       prompt: "Panoramic translucent prismatic ribbon on warm porcelain, no props or fake spa scene.",
     } as ImageAsset,
@@ -123,19 +123,19 @@ export const media = {
   manicure: {
     hero: {
       src: siteAsset("services.manicure.hero.desktop"),
-      alt: "Manicure REBEL durante una lavorazione reale",
+      alt: "Manicure REBEL durante il trattamento",
       ratio: "16/9",
       prompt: "Candid manicure action from an oblique camera, credible hands and tools, tight material crop.",
     } as ImageAsset,
     detail: {
       src: siteAsset("services.manicure.detail.mobile"),
-      alt: "Dettaglio della precisione nella manicure",
+      alt: "Lavorazione di un’unghia durante la manicure",
       ratio: "4/5",
       prompt: "Close working gesture on one nail with natural fingers and believable tool contact.",
     } as ImageAsset,
     mood: {
       src: siteAsset("brand.cut.desktop"),
-      alt: "Lama materica REBEL Cut in plum",
+      alt: "Tessuti nei toni prugna REBEL",
       ratio: "21/9",
       prompt: "Panoramic layered plum organza and resin on porcelain.",
     } as ImageAsset,
@@ -143,13 +143,13 @@ export const media = {
   lamina: {
     hero: {
       src: siteAsset("home.hero.lamination.desktop"),
-      alt: "Laminazione coreana eseguita con naturale precisione",
+      alt: "Laminazione delle sopracciglia durante il trattamento",
       ratio: "16/9",
       prompt: "Approved client and professional during brow lamination, eye alive and spoolie direction credible.",
     } as ImageAsset,
     detail: {
       src: siteAsset("services.lamination.detail.mobile"),
-      alt: "Spoolie in contatto reale con il sopracciglio",
+      alt: "Scovolino utilizzato sulle sopracciglia durante la laminazione",
       ratio: "4/5",
       prompt: "Over-shoulder brow detail with natural fingers, individual hairs and true skin texture.",
     } as ImageAsset,
@@ -162,7 +162,7 @@ export const media = {
     },
     mood: {
       src: siteAsset("brand.prism.desktop"),
-      alt: "Riflesso REBEL dedicato allo sguardo",
+      alt: "Riflessi lilla e prugna nei colori REBEL",
       ratio: "21/9",
       prompt: "Minimal prismatic band with lilac and plum optical depth.",
     } as ImageAsset,
@@ -182,7 +182,7 @@ export const media = {
     } as ImageAsset,
     mood: {
       src: siteAsset("brand.cut.desktop"),
-      alt: "Materia plum avvolgente REBEL Cut",
+      alt: "Tessuto nei toni prugna REBEL",
       ratio: "21/9",
       prompt: "Soft layered plum textile band on warm porcelain.",
     } as ImageAsset,
@@ -190,7 +190,7 @@ export const media = {
   pedicure: {
     hero: {
       src: siteAsset("services.pedicure.hero.desktop"),
-      alt: "Pedicure professionale con anatomia e strumento credibili",
+      alt: "Pedicure professionale durante il trattamento",
       ratio: "16/9",
       prompt: "High-diagonal pedicure action with five natural toes, correct nail tool and warm porcelain surface.",
     } as ImageAsset,
@@ -202,7 +202,7 @@ export const media = {
     } as ImageAsset,
     mood: {
       src: siteAsset("brand.prism.desktop"),
-      alt: "Rifrazione chiara REBEL Prism",
+      alt: "Riflessi prismatici su fondo chiaro",
       ratio: "21/9",
       prompt: "Clean panoramic prism on porcelain, no invented pedicure station.",
     } as ImageAsset,
@@ -210,19 +210,19 @@ export const media = {
   drenante: {
     hero: {
       src: siteAsset("services.draining.hero.desktop"),
-      alt: "Manualità drenante reale sulla gamba",
+      alt: "Manualità del massaggio linfodrenante sulla gamba",
       ratio: "16/9",
       prompt: "Low lateral view of a gentle upward draining stroke on one continuous leg segment.",
     } as ImageAsset,
     detail: {
       src: siteAsset("services.draining.detail.mobile"),
-      alt: "Dettaglio della manualità drenante",
+      alt: "Mani dell’operatrice sul polpaccio",
       ratio: "4/5",
       prompt: "Top-diagonal calf detail with coherent alternating hands and normal skin variation.",
     } as ImageAsset,
     mood: {
       src: siteAsset("brand.cut.desktop"),
-      alt: "Movimento materico REBEL Cut",
+      alt: "Tessuto nei toni prugna con effetto fluido",
       ratio: "21/9",
       prompt: "Panoramic plum material gesture suggesting flow without medical graphics.",
     } as ImageAsset,
@@ -266,14 +266,14 @@ export const media = {
     cabin: {
       src: siteAsset("technologies.studio.thory.desktop"),
       srcMobile: siteAsset("technologies.studio.thory.mobile"),
-      alt: "Cabina reale REBEL con lettino e attrezzatura THORY",
+      alt: "Cabina REBEL con lettino e attrezzatura THORY",
       ratio: "16/9",
       existing: true,
     } as ImageAsset,
     reception: {
       src: siteAsset("studio.real.overview.desktop"),
       srcMobile: siteAsset("studio.real.overview.mobile"),
-      alt: "Interno reale dello studio REBEL in Viale Barbaroux 20",
+      alt: "Interno dello studio REBEL in Viale Barbaroux 20",
       ratio: "16/9",
       existing: true,
     } as ImageAsset,

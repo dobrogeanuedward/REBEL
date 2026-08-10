@@ -129,7 +129,7 @@ export function buildWebsiteSchema() {
     potentialAction: {
       "@type": "ContactAction",
       target: [`${siteConfig.siteUrl}/contatti`, siteConfig.social.whatsapp],
-      name: "Prenota consulenza estetica",
+      name: "Prenota una valutazione estetica",
     },
   };
 }
@@ -161,7 +161,7 @@ export function buildLocalBusinessSchema() {
     "Centro estetico",
     "Estetica epigenetica",
     "Epilazione laser diodo",
-    "Epilazione laser Ice Polar",
+    "Epilazione laser ICE Polar",
     "Pulizia viso",
     "Trattamenti viso epigenetici",
     "Massaggio rilassante",

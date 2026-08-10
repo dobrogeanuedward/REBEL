@@ -5,7 +5,7 @@ export const GET: APIRoute = () => {
     name: "Rebel Estetica Epigenetica",
     short_name: "Rebel",
     description:
-      "Centro estetico avanzato a Carmagnola specializzato in estetica epigenetica ed epilazione laser a Carmagnola.",
+      "Centro estetico a Carmagnola per trattamenti viso, corpo, beauty ed epilazione laser.",
     id: "/",
     start_url: "/",
     scope: "/",
@@ -17,7 +17,7 @@ export const GET: APIRoute = () => {
     categories: ["beauty", "lifestyle", "health"],
     shortcuts: [
       {
-        name: "Prenota consulenza",
+        name: "Prenota la valutazione",
         short_name: "Prenota",
         url: "/contatti",
       },

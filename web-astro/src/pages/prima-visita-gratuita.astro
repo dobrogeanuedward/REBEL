@@ -14,12 +14,11 @@ import { siteConfig } from "@/lib/site-config";
 const meta = createPageMeta({
   title: "Valutazione e analisi REBEL a Carmagnola | 30–40 minuti",
   description:
-    "Prenota la valutazione REBEL a Carmagnola: 30–40 minuti per leggere pelle, zona e priorità e costruire una proposta chiara. Gratuita quando finalizzata al Percorso REBEL; home care separata.",
+    "Prenota la valutazione REBEL a Carmagnola: 30–40 minuti per parlare del risultato desiderato e conoscere trattamenti, frequenza e prezzi.",
   path: "/prima-visita-gratuita",
   keywords: [
     "valutazione estetica Carmagnola",
     "analisi pelle Carmagnola",
-    "prima visita Rebel Carmagnola",
     "Percorso Rebel Carmagnola",
   ],
 });
@@ -34,7 +33,7 @@ const evaluationSchema = {
   "@type": "Service",
   name: "Valutazione e analisi REBEL",
   description:
-    "Valutazione di 30–40 minuti per leggere pelle, zona e priorità e costruire il Percorso REBEL. Gratuita quando finalizzata alla costruzione del Percorso; home care separata.",
+    "Valutazione di 30–40 minuti per parlare del risultato desiderato, osservare la pelle o l’area da trattare e definire il Percorso REBEL.",
   url: `${siteConfig.siteUrl}/prima-visita-gratuita`,
   provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
   areaServed: siteConfig.areasServed,
@@ -43,23 +42,23 @@ const evaluationSchema = {
 const faqs = [
   {
     q: "Quando la valutazione REBEL è gratuita?",
-    a: "Valutazione e analisi sono gratuite quando vengono finalizzate alla costruzione del Percorso REBEL. Prima di iniziare chiarifichiamo sempre che cosa comprende la proposta.",
+    a: "Se al termine scegli di iniziare il percorso proposto, la valutazione è gratuita. Prima di iniziare ti spieghiamo sempre che cosa comprende il trattamento.",
   },
   {
     q: "Cosa succede nei 30–40 minuti?",
-    a: "Ascoltiamo il tuo obiettivo, leggiamo pelle o zona e definiamo priorità, tecnologie, frequenza e prezzo del possibile Percorso REBEL.",
+    a: "Parliamo del risultato che desideri, osserviamo la pelle o l’area da trattare e definiamo trattamenti, eventuali tecnologie, frequenza e prezzo.",
   },
   {
-    q: "L’home care è inclusa?",
-    a: "No. L’home care eventualmente consigliata è separata dalla valutazione e dal prezzo del Percorso, e viene sempre indicata con chiarezza.",
+    q: "I prodotti da usare a casa sono inclusi?",
+    a: "No. Gli eventuali prodotti consigliati per casa non sono inclusi nella valutazione né nel prezzo del Percorso e vengono sempre indicati con chiarezza.",
   },
   {
     q: "Quando posso venire?",
-    a: "Dal martedì al sabato su appuntamento. Lunedì e domenica chiusi. Mercoledì apriamo solo dalle 14. Ti scriviamo entro poche ore con un orario disponibile.",
+    a: "Riceviamo dal martedì al sabato su appuntamento; il mercoledì dalle 14. Ti contattiamo via WhatsApp o telefono per concordare un orario disponibile.",
   },
   {
     q: "Dove vi trovo a Carmagnola?",
-    a: "In Viale Barbaroux 20, a Carmagnola (TO). Zona facile da raggiungere e parcheggio nelle vicinanze.",
+    a: "In Viale Barbaroux 20, a Carmagnola (TO). Nella pagina Contatti trovi la mappa e le indicazioni per raggiungerci.",
   },
 ];
 
@@ -84,15 +83,16 @@ const faqSchema = {
   <JsonLd data={faqSchema} />
 
   <LandingHero
+    media={media.method.hero}
     badge="Valutazione · 30–40 minuti"
     kicker="Centro estetico · Carmagnola"
-    title="Una valutazione per costruire il _Percorso REBEL_."
-    lead="In 30–40 minuti leggiamo pelle, zona e priorità e definiamo una proposta con tecnologie, frequenza e prezzo. La valutazione è gratuita quando viene finalizzata alla costruzione del Percorso REBEL."
+    title="Una valutazione per scegliere il _Percorso REBEL_."
+    lead="In 30–40 minuti parliamo del risultato che desideri, osserviamo la pelle o l’area da trattare e ti spieghiamo trattamenti, frequenza e prezzo. Se scegli di iniziare il percorso proposto, la valutazione è gratuita."
     bullets={[
       { text: "Valutazione e analisi di 30–40 minuti." },
-      { text: "Priorità, percorso, frequenza e prezzo messi in chiaro." },
-      { text: "Gratuita quando finalizzata alla costruzione del Percorso." },
-      { text: "Home care eventualmente consigliata, sempre separata." },
+      { text: "Trattamenti, frequenza e prezzo spiegati prima di iniziare." },
+      { text: "Gratuita se scegli di iniziare il percorso proposto." },
+      { text: "Eventuali prodotti per casa non inclusi." },
     ]}
     primaryCta={{ label: "Prenota la valutazione", href: "#form" }}
     secondaryCta={{
@@ -100,50 +100,50 @@ const faqSchema = {
       href: siteConfig.social.whatsapp,
       external: true,
     }}
-    footnote="Ti rispondiamo entro poche ore negli orari di apertura (Mar–Sab)."
+    footnote="Ti contattiamo personalmente negli orari di apertura (mar–sab)."
   />
 
   <LandingProof
     kicker="Perché Rebel"
     items={[
       {
-        title: "Studio nuovo",
-        body: "Aperti a ottobre, in Viale Barbaroux 20. Quattro cabine, attrezzatura nuova, ordine vero.",
+        title: "Uno studio a Carmagnola",
+        body: "Quattro cabine, una postazione manicure e tecnologie professionali in Viale Barbaroux 20.",
       },
       {
         title: "Tecnologia Thory",
-        body: "Lumina X1 Pro di THORY integra quattro lunghezze d’onda. Il comfort ICE Polar accompagna la seduta; la valutazione definisce se e come usarlo.",
+        body: "Lumina X1 Pro di THORY integra quattro lunghezze d’onda. Durante l’epilazione, ICE Polar raffredda la pelle a contatto; parametri e zone vengono definiti dopo la valutazione.",
       },
       {
         title: "Linee professionali",
-        body: "Marbellas (epigenetica), Eberlin (biocosmetica), RBL Nails. Niente improvvisazione.",
+        body: "Utilizziamo Marbellas, Eberlin e RBL Nails nei trattamenti viso, corpo e manicure.",
       },
       {
         title: "Listino sempre online",
-        body: "Prezzi pubblicati per ogni servizio. Niente preventivi opachi né telefonate \"per sapere quanto costa\".",
+        body: "Puoi consultare online il prezzo di ogni servizio prima di contattarci.",
       },
     ]}
   />
 
   <LandingSteps
     kicker="Come funziona"
-    title="Quattro passaggi, niente di complicato."
+    title="La valutazione in quattro passaggi."
     steps={[
       {
-        title: "Compila il form qui sotto",
+        title: "Lascia i tuoi recapiti",
         body: "Bastano nome e numero. Se vuoi, dicci già cosa ti interesserebbe fare.",
       },
       {
-        title: "Ti ricontattiamo entro poche ore",
-        body: "Via WhatsApp o telefono, con un orario disponibile. Mai email automatiche fredde.",
+        title: "Concordiamo l’appuntamento",
+        body: "Ti contattiamo personalmente via WhatsApp o telefono con un orario disponibile.",
       },
       {
         title: "Vieni in studio per 30–40 minuti",
-        body: "Leggiamo pelle o zona, ascoltiamo la priorità e costruiamo una proposta chiara con tempi e prezzi.",
+        body: "Parliamo del risultato che desideri, osserviamo la pelle o l’area da trattare e ti spieghiamo trattamenti, tempi e prezzi.",
       },
       {
-        title: "Costruiamo il Percorso",
-        body: "Se la valutazione viene finalizzata al Percorso REBEL è gratuita. L’home care eventualmente consigliata resta separata.",
+        title: "Decidi se iniziare",
+        body: "Se scegli di iniziare il percorso proposto, la valutazione è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi.",
       },
     ]}
   />
@@ -152,13 +152,13 @@ const faqSchema = {
     image={media.studio.reception}
     height="sm"
     align="center"
-    kicker="Da Rebel, a Carmagnola"
-    quote="Trenta–quaranta minuti per dare a ogni scelta una _direzione_."
+    kicker="Da REBEL · Carmagnola"
+    quote="Trenta–quaranta minuti per capire insieme _come iniziare_."
     cite="Studio Rebel · Viale Barbaroux 20"
   />
 
   <LandingFormCard
-    kicker="Form valutazione"
+    kicker="Richiedi un appuntamento"
     title="Prenota la valutazione."
     lead="Solo nome e telefono. Email e dettagli sono opzionali — possiamo sentirci anche su WhatsApp."
     source="landing-prima-visita"

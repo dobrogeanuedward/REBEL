@@ -48,12 +48,15 @@ const longevityImage = siteAsset("journeys.longevity.hero.desktop");
 const bodyImage = siteAsset("journeys.forma.hero.desktop");
 const freedomImage = siteAsset("journeys.liberta.hero.desktop");
 const studioImage = siteAsset("studio.real.overview.desktop");
+const consultationImage = siteAsset("services.method.consultation.mobile");
+const activesImage = siteAsset("services.face.activesTopshot.mobile");
+const skinTextureImage = siteAsset("services.face.skinTexture.mobile");
 
 const priorities = [
   ["Sensibilità e comfort", "Rossori, reattività e sensazioni di pelle che tira."],
-  ["Impurità e imperfezioni", "Comedoni, lucidità, grana irregolare e zone congestionate."],
+  ["Impurità e imperfezioni", "Comedoni, lucidità, grana irregolare e zone con impurità."],
   ["Pelle spenta", "Colorito poco uniforme e luminosità ridotta."],
-  ["Disidratazione", "Comfort ridotto, linee superficiali e bisogno di acqua."],
+  ["Disidratazione", "Pelle che tira, comfort ridotto e linee superficiali."],
   ["Perdita di tono", "Elasticità e compattezza da sostenere nel tempo."],
   ["Macchie e colorito irregolare", "Discromie e differenze visibili fra le zone del viso."],
   ["Segni del tempo", "Rughe, contorno occhi e qualità generale della pelle."],
@@ -89,7 +92,7 @@ const worlds = [
   {
     number: "03",
     name: "Tecnologie",
-    copy: "Lumina X1 Pro, portfolio THORY, ICE Polar e LPG: strumenti selezionati solo dopo aver definito zona, priorità e obiettivo.",
+    copy: "Tecnologie professionali per viso, corpo ed epilazione, scelte in base alla zona e all’obiettivo.",
     image: siteAsset("technologies.studio.thory.desktop"),
     href: "/tecnologie-rebel",
     cta: "Conosci le tecnologie",
@@ -124,14 +127,14 @@ const worlds = [
         <h1 class="rebel-display" data-reveal style="--reveal-delay:50ms">Il Metodo Rebel parte dalla tua pelle.</h1>
         <div class="rebel-spectrum-rule"></div>
         <p class="rebel-lead" data-reveal style="--reveal-delay:120ms">
-          Nella valutazione REBEL di 30–40 minuti definiamo priorità, risultato, trattamenti, frequenza e controlli.
-          Tutto viene raccolto nella tua Mappa Rebel.
+          Parliamo del risultato che desideri, osserviamo la pelle o l’area da trattare e definiamo insieme trattamenti, frequenza e controlli.
+          Tutto viene raccolto nella tua Mappa REBEL.
         </p>
         <div class="rebel-hero__actions" data-reveal style="--reveal-delay:180ms">
           <a class="btn btn--primary" href="/metodo-rebel">Scopri il Metodo Rebel</a>
           <a class="btn btn--secondary" href="/contatti">Prenota la valutazione</a>
         </div>
-        <div class="rebel-hero__signature"><strong>Be Beautiful. Be Rebel.</strong><span>Valutazione 30–40 min · Mappa Rebel · controlli</span></div>
+        <div class="rebel-hero__signature"><strong>Be Beautiful. Be Rebel.</strong><span>30–40 minuti per definire il tuo percorso</span></div>
       </div>
     </section>
 
@@ -140,19 +143,22 @@ const worlds = [
         <div>
           <p class="rebel-kicker">Estetica epigenetica</p>
           <h2 class="rebel-manifesto__quote">Valutiamo la pelle.<br/><em>Costruiamo il trattamento.</em></h2>
+          <figure class="rebel-manifesto__media">
+            <img src={consultationImage} alt="Cliente e professionista consultano una scheda durante la valutazione REBEL" width="1122" height="1402" loading="lazy" decoding="async" />
+          </figure>
         </div>
         <div>
-          <p class="rebel-lead">Durante la valutazione osserviamo le condizioni della pelle o del corpo, ascoltiamo il risultato che desideri e definiamo un programma comprensibile.</p>
-          <p class="rebel-lead"><strong>Estetica epigenetica</strong> significa scegliere attivi, manualità e tecnologie in base alle caratteristiche della persona e controllare nel tempo come risponde.</p>
+          <p class="rebel-lead">Durante la valutazione osserviamo le condizioni della pelle o del corpo, ascoltiamo il risultato che desideri e definiamo un piano chiaro.</p>
+          <p class="rebel-lead"><strong>Estetica epigenetica</strong> significa scegliere attivi, manualità e tecnologie in base a ciò che osserviamo e verificare nel tempo come cambia la pelle o il corpo.</p>
         </div>
       </div>
     </section>
 
     <section class="rebel-section" id="mappa-rebel-live">
       <div class="rebel-container">
-        <p class="rebel-kicker">Mappa REBEL Live</p>
-        <h2 class="rebel-title">Nove percorsi. Apri quello che ti somiglia di più.</h2>
-        <p class="rebel-lead">Confronta prezzo di partenza, materia e tecnologie in modo chiaro. Non sostituisce la valutazione: ti permette di arrivarci sapendo già che cosa vuoi esplorare.</p>
+        <p class="rebel-kicker">Mappa REBEL</p>
+        <h2 class="rebel-title">Confronta i nove percorsi.</h2>
+        <p class="rebel-lead">Per ogni percorso trovi esigenze, prezzo di partenza, ingredienti e tecnologie che può includere. Puoi così capire quali vuoi approfondire durante la valutazione.</p>
         <RebelMap client:visible />
       </div>
     </section>
@@ -163,9 +169,12 @@ const worlds = [
       <div class="rebel-container rebel-method">
         <div class="rebel-method__intro">
           <p class="rebel-kicker">Il Metodo Rebel</p>
-          <h2 class="rebel-title">Sei passaggi. Un percorso leggibile.</h2>
+          <h2 class="rebel-title">Sei passaggi, dalla valutazione al mantenimento.</h2>
           <p class="rebel-lead">Sai che cosa trattiamo, quali strumenti utilizziamo, quante volte ci vediamo e quando controlliamo i risultati.</p>
           <a class="rebel-text-link" href="/metodo-rebel">Leggi tutte le fasi del Metodo →</a>
+          <figure class="rebel-method__media">
+            <img src={activesImage} alt="Prodotti e strumenti preparati per un trattamento viso" width="1122" height="1402" loading="lazy" decoding="async" />
+          </figure>
         </div>
         <div class="rebel-method__steps">
           {methodSteps.map(({ step, title, text }) => (
@@ -181,6 +190,10 @@ const worlds = [
       <div class="rebel-container">
         <p class="rebel-kicker">Cosa valutiamo sul viso</p>
         <h2 class="rebel-title">Sette segnali che orientano la scelta del trattamento.</h2>
+        <figure class="rebel-priorities__media">
+          <img src={skinTextureImage} alt="Dettaglio ravvicinato della grana naturale della pelle" width="1122" height="1402" loading="lazy" decoding="async" />
+          <figcaption>Osserviamo la pelle dal vivo: grana, comfort, uniformità e cambiamenti nel tempo.</figcaption>
+        </figure>
         <div class="rebel-priorities">
           {priorities.map(([priority, detail],index)=><article class="rebel-priority"><small>0{index+1}</small><h3>{priority}</h3><p>{detail}</p></article>)}
         </div>
@@ -190,8 +203,8 @@ const worlds = [
     <section class="rebel-section rebel-section--plum">
       <div class="rebel-container">
         <p class="rebel-kicker">I Percorsi Rebel</p>
-        <h2 class="rebel-title">Quattro mondi aprono nove percorsi.</h2>
-        <p class="rebel-lead">Glow raccoglie cinque priorità viso; Longevity due percorsi dedicati a struttura e continuità; Forma e Libertà hanno una pagina completa ciascuno.</p>
+        <h2 class="rebel-title">Nove percorsi per esigenze diverse.</h2>
+        <p class="rebel-lead">Luminosità ed equilibrio, tono nel tempo, forma del corpo ed epilazione progressiva: scegli l’area su cui vuoi lavorare e confronta i percorsi disponibili.</p>
         <div class="rebel-journeys">
           {journeys.map((journey)=>(
             <a class="rebel-journey" href={journey.href} style={`--journey-image:url('${journey.image}')`}>
@@ -222,18 +235,18 @@ const worlds = [
         <div class="rebel-studio-proof">
           <div>
             <p class="rebel-kicker">Dentro Rebel</p>
-            <h2 class="rebel-title">Il metodo prende forma qui.</h2>
-            <p class="rebel-lead">Quattro cabine, una postazione mani e tecnologie professionali: Viale Barbaroux 20 è il luogo reale in cui valutazione, trattamento e controllo diventano il tuo percorso.</p>
+            <h2 class="rebel-title">Scopri lo studio REBEL.</h2>
+            <p class="rebel-lead">Quattro cabine, una postazione manicure e tecnologie professionali. Qui facciamo la valutazione, eseguiamo i trattamenti e controlliamo insieme i risultati.</p>
             <a class="rebel-text-link" href="/chi-siamo">Scopri lo studio e il team →</a>
           </div>
           <picture class="rebel-studio-proof__media">
             <source media="(max-width: 760px)" srcset={siteAsset("studio.real.overview.mobile")} />
-            <img src={studioImage} alt="Interno reale dello studio REBEL a Carmagnola" width="1672" height="941" loading="lazy" decoding="async" />
+            <img src={studioImage} alt="Interno dello studio REBEL a Carmagnola" width="1672" height="941" loading="lazy" decoding="async" />
           </picture>
         </div>
         <div class="rebel-studio-real">
-          <p class="rebel-kicker">Gli spazi reali di Viale Barbaroux 20</p>
-          <p>Quattro cabine, postazione mani, area accoglienza e tecnologie professionali fotografate nel centro REBEL di Carmagnola.</p>
+          <p class="rebel-kicker">Gli spazi di Viale Barbaroux 20</p>
+          <p>Scopri le quattro cabine, la postazione manicure e l’area accoglienza del centro REBEL di Carmagnola.</p>
         </div>
         <StoreGallery client:visible images={storeGalleryImages} />
       </div>
@@ -242,7 +255,7 @@ const worlds = [
     <section class="rebel-section">
       <div class="rebel-container">
         <p class="rebel-kicker">Rebel, ogni settimana</p>
-        <h2 class="rebel-title">Trattamenti reali, novità e vita in studio.</h2>
+        <h2 class="rebel-title">Trattamenti, novità e momenti di vita in studio.</h2>
         <InstagramFeed showReels={true} showPosts={false} maxReels={3} maxPosts={0} hidePostsOnMobile={true} />
       </div>
     </section>
@@ -250,7 +263,7 @@ const worlds = [
     <section class="rebel-campaign">
       <div class="rebel-container">
         <strong>Be <span>Beautiful.</span><br/>Be Rebel.</strong>
-        <p>Prenota la valutazione: in 30–40 minuti definiamo area, obiettivo, frequenza e prezzo. È gratuita quando finalizzata al Percorso REBEL; home care separata.</p>
+        <p>Prenota la valutazione: in 30–40 minuti definiamo area, obiettivo, frequenza e prezzo. Se scegli di iniziare il Percorso REBEL, la valutazione è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi.</p>
         <div class="rebel-hero__actions" style="justify-content:center"><a class="btn btn--primary" href="/contatti">Prenota la valutazione</a><a class="btn btn--secondary" href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer">Scrivici su WhatsApp</a></div>
       </div>
     </section>

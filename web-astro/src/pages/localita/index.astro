@@ -3,6 +3,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHero from "@/components/PageHero.astro";
 import SectionHead from "@/components/SectionHead.astro";
 import FeatureCard from "@/components/FeatureCard.astro";
+import MediaFigure from "@/components/MediaFigure.astro";
 import InlineCta from "@/components/InlineCta.astro";
 import FullBleedBand from "@/components/FullBleedBand.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
@@ -19,7 +20,7 @@ import {
 const meta = createPageMeta({
   title: "Come raggiungere Rebel da Carmagnola, Torino Sud e Cuneese",
   description:
-    "Rebel si trova in Viale Barbaroux 20 a Carmagnola. Consulta le pagine locali con indicazioni, mappa, servizi, listino e prenotazione per Torino Sud e provincia di Cuneo.",
+    "REBEL si trova in Viale Barbaroux 20 a Carmagnola. Trova mappa, indicazioni, servizi, prezzi e contatti per organizzare la visita.",
   path: "/localita",
   keywords: [
     "centro estetico Carmagnola e dintorni",
@@ -35,19 +36,25 @@ const areaGroups = [
     key: "asse-carmagnola" as const,
     kicker: "Comuni vicini a Carmagnola",
     title: "Carignano, Racconigi, Poirino, Villastellone e dintorni.",
-    lead: "Apri il tuo comune per leggere indicazioni stradali, servizi disponibili e collegamenti a listino e prenotazione.",
+    lead: "Scegli il comune per vedere il percorso verso lo studio, i servizi disponibili e i contatti.",
+    image: media.locale.racconigi,
+    caption: "Il territorio tra Carmagnola e Racconigi; per tempi e percorso aggiornati apri sempre la mappa.",
   },
   {
     key: "torino-sud" as const,
     kicker: "Torino Sud",
     title: "Moncalieri, Nichelino, Vinovo, La Loggia e comuni limitrofi.",
-    lead: "Pagine con mappa, percorso verso Carmagnola e informazioni sui trattamenti più richiesti.",
+    lead: "Mappa, indicazioni verso Carmagnola e informazioni utili prima dell’appuntamento.",
+    image: media.studio.realExterior,
+    caption: "L’ingresso REBEL in Viale Barbaroux 20, punto di arrivo delle indicazioni.",
   },
   {
     key: "cuneo" as const,
     kicker: "Provincia di Cuneo",
     title: "Alba, Bra, Canale, Savigliano, Fossano, Saluzzo e altre località.",
-    lead: "Indicazioni per raggiungere lo studio e collegamenti a viso, corpo, Laser Ice Polar e valutazione REBEL.",
+    lead: "Indicazioni per raggiungere lo studio e informazioni su trattamenti viso, corpo, epilazione laser e valutazione REBEL.",
+    image: media.locale.langhe,
+    caption: "Filari e colline delle Langhe, una delle aree da cui raggiungere lo studio di Carmagnola.",
   },
 ];
 
@@ -58,11 +65,11 @@ const breadcrumb = buildBreadcrumbSchema([
 const webPageSchema = buildWebPageSchema({
   name: "Località e indicazioni per raggiungere Rebel",
   description:
-    "Pagine dedicate ai comuni da cui raggiungere lo studio Rebel di Carmagnola, con mappe, servizi e prenotazione.",
+    "Mappe, indicazioni e contatti per raggiungere lo studio REBEL di Carmagnola dai comuni vicini.",
   path: "/localita",
 });
 const localAreaListSchema = buildItemListSchema({
-  name: "Località servite da Rebel",
+  name: "Località con indicazioni per raggiungere REBEL",
   path: "/localita",
   items: localAreaPages.map((a) => ({ name: a.city, path: `/localita/${a.slug}` })),
 });
@@ -81,11 +88,11 @@ const groupedAreas = areaGroups.map((group) => ({
     image={media.locale.langhe}
     kicker="Come raggiungere Rebel · Carmagnola"
     title="Indicazioni da Torino Sud e _provincia di Cuneo_."
-    lead="Lo studio è in Viale Barbaroux 20 a Carmagnola. Seleziona il tuo comune per trovare mappa, informazioni di viaggio, servizi, listino e prenotazione."
+    lead="Lo studio è in Viale Barbaroux 20 a Carmagnola. Scegli il tuo comune per aprire la mappa e trovare servizi, prezzi e contatti."
     bullets={[`${localAreaPages.length} località`, "Mappe e indicazioni", "Valutazione REBEL · 30–40 min"]}
     meta={["Viale Barbaroux 20 · Carmagnola", "Da martedì a sabato", "Su appuntamento"]}
-    ctaPrimary={{ label: "Prenota la prima visita", href: "/contatti", halo: true }}
-    ctaSecondary={{ label: "Apri la pagina Carmagnola", href: "/localita/carmagnola" }}
+    ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Indicazioni da Carmagnola", href: "/localita/carmagnola" }}
   />
 
   {groupedAreas.map((group) =>
@@ -93,12 +100,13 @@ const groupedAreas = areaGroups.map((group) => ({
       <section class="section">
         <div class="container">
           <SectionHead kicker={group.kicker} title={group.title} lead={group.lead} />
-          <div class="card-grid card-grid--3">
+          <MediaFigure src={group.image.src} alt={group.image.alt} caption={group.caption} ratio="21/9" width={1915} height={821} />
+          <div class="card-grid card-grid--3" style="margin-top:2rem;">
             {group.areas.map((area, i) => (
               <FeatureCard
                 kicker="Indicazioni e servizi"
                 title={area.city}
-                body={area.description}
+                body={`Mappa, contatti e informazioni per organizzare la visita da ${area.city}.`}
                 href={`/localita/${area.slug}`}
                 ariaLabel={`Apri indicazioni e servizi per ${area.city}`}
                 index={i + 1}
@@ -114,20 +122,20 @@ const groupedAreas = areaGroups.map((group) => ({
     <div class="container">
       <SectionHead
         kicker="Informazioni prima di venire"
-        title="Laser Ice Polar, protocolli viso e corpo e listino completo."
-        lead="Consulta le pagine principali per capire che cosa trattiamo, come funziona la prima visita e quanto costano i servizi."
+        title="Epilazione laser, percorsi viso e corpo e listino completo."
+        lead="Scopri i trattamenti disponibili, come funziona la valutazione e quali sono i prezzi."
       />
       <div class="card-grid card-grid--3">
         <FeatureCard
           kicker="Epilazione laser"
-          title="Laser Ice Polar: zone, prezzi e sedute"
+          title="Epilazione laser con ICE Polar: zone, prezzi e sedute"
           body="Tecnologia, raffreddamento, valutazione iniziale, frequenza e prezzi per viso e corpo."
           href="/epilazione-laser-carmagnola"
         />
         <FeatureCard
           kicker="Trattamenti personalizzati"
-          title="Percorsi viso e corpo"
-          body="Glow per luminosità, Longevity per tono e pelle matura, Forma per drenaggio e compattezza."
+          title="Protocolli professionali per viso e corpo"
+          body="Confronta esigenze trattate, modalità, prezzi e indicazioni prima di prenotare."
           href="/protocolli-epigenetici"
         />
         <FeatureCard
@@ -153,15 +161,15 @@ const groupedAreas = areaGroups.map((group) => ({
     <div class="container">
       <InlineCta
         kicker="Vieni da un altro comune?"
-        title="Indicaci località e servizio: ti inviamo _orario e informazioni utili_."
-        lead="Scrivi quale trattamento ti interessa e quando sei disponibile. Ti rispondiamo con appuntamento, indicazioni stradali e prezzo."
+        title="Indicaci località e servizio: ti aiutiamo a _organizzare la visita_."
+        lead="Scrivi quale trattamento ti interessa e quando sei disponibile. Ti contattiamo per concordare l’appuntamento e darti le informazioni utili."
         primaryHref="/contatti"
-        primaryLabel="Prenota la prima visita"
+        primaryLabel="Prenota la valutazione"
         secondaryHref="/servizi"
         secondaryLabel="Vedi tutti i servizi"
       />
     </div>
   </section>
 
-  <StickyBookingBar primary={{ label: "Prenota la prima visita", href: "/contatti" }} />
+  <StickyBookingBar primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
 </BaseLayout>

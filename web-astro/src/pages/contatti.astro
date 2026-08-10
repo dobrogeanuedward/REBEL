@@ -14,7 +14,7 @@ import { siteConfig } from "@/lib/site-config";
 const meta = createPageMeta({
   title: "Contatti e valutazione REBEL — Carmagnola | WhatsApp e orari",
   description:
-    "Prenota la valutazione REBEL di 30–40 minuti a Carmagnola. Gratuita quando finalizzata al Percorso; home care separata. WhatsApp +39 351 691 9416.",
+    "Prenota la valutazione REBEL di 30–40 minuti a Carmagnola. Se scegli di iniziare il percorso proposto, l’incontro è gratuito. WhatsApp +39 351 691 9416.",
   path: "/contatti",
   keywords: [
     "contatti centro estetico Carmagnola",
@@ -106,9 +106,9 @@ const hours = [
     image={media.studio.reception}
     kicker="Valutazione REBEL · Carmagnola"
     title="Prenota una valutazione di _viso, corpo o laser_."
-    lead="La valutazione dura 30–40 minuti. Ci indichi la zona o il servizio che ti interessa, raccogliamo le informazioni utili e ti spieghiamo percorso, frequenza e prezzo. È gratuita quando viene finalizzata alla costruzione del Percorso REBEL."
+    lead="La valutazione dura 30–40 minuti. Parliamo del risultato che desideri, osserviamo la pelle o l’area da trattare e ti spieghiamo percorso, frequenza e prezzo. Se scegli di iniziare il percorso proposto, l’incontro è gratuito."
     bullets={["30–40 minuti", "Viale Barbaroux 20", "Da martedì a sabato"]}
-    meta={["Viso, corpo, laser e beauty", "Su appuntamento", "Home care separata"]}
+    meta={["Viso, corpo, laser e servizi beauty", "Su appuntamento", "Prodotti per casa non inclusi"]}
     ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
     ctaSecondary={{ label: "Chiamaci", href: `tel:${siteConfig.phoneRaw}` }}
   />
@@ -175,7 +175,7 @@ const hours = [
           ))}
         </div>
         <p class="card__body" style="margin-top:1.2rem;">
-          Gli appuntamenti permettono di riservare il tempo necessario a consulenze e trattamenti.
+          Riceviamo su appuntamento, così possiamo dedicarti il tempo necessario.
         </p>
       </aside>
     </div>
@@ -200,22 +200,22 @@ const hours = [
         <p class="card__kicker">Modulo di richiesta</p>
         <h2 class="card__title">Indica il servizio e la tua disponibilità.</h2>
         <p class="card__body" style="margin-bottom:1.6rem;">
-          Compila il modulo con i tuoi contatti, il trattamento che ti interessa e un messaggio breve. Ti ricontatteremo via email o WhatsApp.
+          Compila il modulo con i tuoi contatti, il trattamento che ti interessa e un messaggio breve. Ti ricontatteremo via WhatsApp o telefono.
         </p>
         <ContactForm client:load />
       </article>
 
       <aside class="card">
-        <p class="card__kicker">Come funziona la prima visita</p>
-        <h2 class="card__title">Dalla richiesta alla proposta di trattamento.</h2>
+        <p class="card__kicker">Come funziona la valutazione</p>
+        <h2 class="card__title">Dalla richiesta al trattamento consigliato.</h2>
         <ol class="flow" style="margin-top:1.2rem; counter-reset: step;">
           <li>Ti proponiamo un giorno e un orario disponibili.</li>
           <li>Ci incontriamo in studio per una valutazione di 30–40 minuti.</li>
-          <li>Valutiamo la zona, il risultato desiderato e le informazioni utili al trattamento.</li>
-          <li>Ti spieghiamo trattamento consigliato, frequenza, prezzo e possibili alternative.</li>
+          <li>Valutiamo insieme la zona e il risultato che desideri.</li>
+          <li>Ti spieghiamo il trattamento consigliato, la frequenza, il prezzo e le possibili alternative.</li>
         </ol>
         <p class="card__body" style="margin-top:1.4rem;">
-          La valutazione è gratuita quando viene finalizzata alla costruzione del Percorso REBEL; l’home care eventualmente consigliata resta separata.
+          Se scegli di iniziare il percorso proposto, la valutazione è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi.
         </p>
       </aside>
     </div>

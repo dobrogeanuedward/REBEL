@@ -2,13 +2,14 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
-import { rebelJourneys, rebelWorlds, getJourneysByWorld } from "@/lib/rebel-journeys";
+import { rebelJourneys } from "@/lib/rebel-journeys";
+import { getJourneyVisual } from "@/lib/journey-visuals";
 import { buildBreadcrumbSchema, buildItemListSchema, buildWebPageSchema, createPageMeta } from "@/lib/seo";
 import "@/styles/journey-pages.css";
 
 const meta = createPageMeta({
   title: "I 9 Percorsi REBEL — Viso, corpo ed epilazione a Carmagnola",
-  description: "Scopri Skin Reset, Barrier, Balance, Glow, White, Structure, Longevity, Forma e Libertà: prezzi di partenza, attivi, botaniche e tecnologie.",
+  description: "Scopri Skin Reset, Barrier, Balance, Glow, White, Structure, Longevity, Forma e Libertà: esigenze, durata, prezzi e trattamenti possibili.",
   path: "/percorsi",
   openGraphType: "article",
   keywords: ["percorsi viso Carmagnola", "trattamenti corpo Carmagnola", "Metodo Rebel", "prezzi trattamenti viso"],
@@ -20,8 +21,37 @@ const webPage = buildWebPageSchema({ name: "I nove percorsi REBEL", description:
 const itemList = buildItemListSchema({
   name: "Percorsi REBEL",
   path: "/percorsi",
-  items: rebelJourneys.map((journey) => ({ name: journey.name, path: `/percorsi/${journey.slug}` })),
+  items: rebelJourneys.map((journey) => ({ name: journey.slug === "white" ? "Uniformare · White" : journey.name, path: `/percorsi/${journey.slug}` })),
 });
+const journeyAreas = [
+  {
+    id: "viso",
+    name: "Viso",
+    eyebrow: "Pelle del viso",
+    summary: "Percorsi per pulizia, idratazione, impurità, luminosità, macchie, tono ed elasticità.",
+    href: "#tutti-i-percorsi",
+    heroSlot: "home.hero.face.desktop",
+    paths: rebelJourneys.filter((journey) => journey.area === "Viso"),
+  },
+  {
+    id: "corpo",
+    name: "Corpo",
+    eyebrow: "Trattamenti corpo",
+    summary: "Percorsi per leggerezza, tono e compattezza, definiti in base alle tue esigenze.",
+    href: "#tutti-i-percorsi",
+    heroSlot: "home.hero.body.desktop",
+    paths: rebelJourneys.filter((journey) => journey.area === "Corpo"),
+  },
+  {
+    id: "laser",
+    name: "Laser",
+    eyebrow: "Epilazione progressiva",
+    summary: "Epilazione con Lumina X1 Pro e raffreddamento a contatto ICE Polar.",
+    href: "/percorsi/liberta",
+    heroSlot: "home.hero.laser.desktop",
+    paths: rebelJourneys.filter((journey) => journey.area === "Epilazione"),
+  },
+] as const;
 ---
 <BaseLayout meta={meta} bodyClass="rebel-rebrand journey-hub">
   <JsonLd data={breadcrumb} />
@@ -31,11 +61,11 @@ const itemList = buildItemListSchema({
   <main>
     <section class="journey-hub__hero">
       <div class="rebel-container journey-hub__intro">
-        <p class="rebel-kicker">La Mappa REBEL · nove percorsi</p>
-        <h1 class="rebel-display">Quattro mondi.<br/>Nove priorità.</h1>
-        <p class="rebel-lead">Glow, Longevity, Forma e Libertà sono le porte d’ingresso. Dentro trovi nove percorsi con narrazione, materia, botaniche, tecnologie selezionabili, durata e prezzo di partenza.</p>
+        <p class="rebel-kicker">Viso · corpo · laser</p>
+        <h1 class="rebel-display">Tre aree.<br/>Nove percorsi.</h1>
+        <p class="rebel-lead">Scegli l’area e il risultato su cui vuoi lavorare. Per ogni percorso trovi a chi è rivolto, cosa può includere, durata e prezzo di partenza.</p>
         <div class="rebel-hero__actions">
-          <a class="btn btn--primary" href="/#mappa-rebel-live">Trova il primo orientamento</a>
+          <a class="btn btn--primary" href="/#mappa-rebel-live">Scopri da dove partire</a>
           <a class="btn btn--secondary" href="/contatti">Prenota la valutazione</a>
         </div>
       </div>
@@ -43,18 +73,17 @@ const itemList = buildItemListSchema({
 
     <section class="rebel-section">
       <div class="rebel-container">
-        <p class="rebel-kicker">I quattro mondi</p>
-        <h2 class="rebel-title">Entra dalla priorità che senti più vicina.</h2>
+        <p class="rebel-kicker">Le tre aree</p>
+        <h2 class="rebel-title">Scegli l’esigenza su cui vuoi lavorare.</h2>
         <div class="journey-worlds">
-          {rebelWorlds.map((world) => {
-            const paths = getJourneysByWorld(world.id);
+          {journeyAreas.map((area) => {
             return (
-              <a id={world.id} class="journey-world" href={world.href} style={`--world-image:url('${siteAsset(world.heroSlot)}')`}>
+              <a id={area.id} class="journey-world" href={area.href} style={`--world-image:url('${siteAsset(area.heroSlot)}')`}>
                 <div class="journey-world__copy">
-                  <p class="rebel-kicker">{world.eyebrow}</p>
-                  <h2>{world.name}</h2>
-                  <p>{world.summary}</p>
-                  <div class="journey-world__paths">{paths.map((path) => <span>{path.priority} · {path.name}</span>)}</div>
+                  <p class="rebel-kicker">{area.eyebrow}</p>
+                  <h2>{area.name}</h2>
+                  <p>{area.summary}</p>
+                  <div class="journey-world__paths">{area.paths.map((path) => <span>{path.priority} · {path.name}</span>)}</div>
                 </div>
               </a>
             );
@@ -66,27 +95,33 @@ const itemList = buildItemListSchema({
     <section class="rebel-section rebel-section--paper" id="tutti-i-percorsi">
       <div class="rebel-container">
         <p class="rebel-kicker">Tutti i percorsi</p>
-        <h2 class="rebel-title">Ogni pagina porta con sé metodo, materia e strumenti.</h2>
-        <p class="rebel-lead">Il prezzo finale viene definito dopo la valutazione, in base a durata, prodotti, tecnologie e aree.</p>
+        <h2 class="rebel-title">Confronta i nove percorsi REBEL.</h2>
+        <p class="rebel-lead">I prezzi indicati sono di partenza. Prima di iniziare ti confermiamo trattamento, durata ed eventuali tecnologie.</p>
         <div class="journey-index">
-          {rebelJourneys.map((journey) => (
-            <a class="journey-index__card" href={`/percorsi/${journey.slug}`}>
-              <div>
-                <div class="journey-index__top"><span>{journey.number}</span><span>{journey.area}</span></div>
-                <h3>{journey.slug === "white" ? journey.priority : journey.name}</h3>
-                <p>{journey.slug === "white" ? `White · ${journey.summary}` : journey.summary}</p>
-              </div>
-              <div class="journey-index__price"><span>{journey.price}</span><small>{journey.duration}</small></div>
-            </a>
-          ))}
+          {rebelJourneys.map((journey) => {
+            const visual = getJourneyVisual(journey.slug);
+            return (
+              <a class="journey-index__card" href={`/percorsi/${journey.slug}`}>
+                <figure class="journey-index__matter" aria-hidden="true">
+                  <img src={visual.botanicalCardSrc} alt="" width="560" height="560" loading="lazy" decoding="async" />
+                </figure>
+                <div class="journey-index__content">
+                  <div class="journey-index__top"><span>{journey.number}</span><span>{journey.area}</span></div>
+                  <h3>{journey.slug === "white" ? "Uniformare · White" : journey.name}</h3>
+                  <p>{journey.summary}</p>
+                </div>
+                <div class="journey-index__price"><span>{journey.price}</span><small>{journey.duration}</small></div>
+              </a>
+            );
+          })}
         </div>
       </div>
     </section>
 
     <section class="rebel-campaign">
       <div class="rebel-container">
-        <strong>La pagina spiega.<br/><span>La valutazione decide.</span></strong>
-        <p>La combinazione finale di attivi, prodotti, manualità e tecnologie viene definita dalla professionista per ogni seduta.</p>
+        <strong>Non sai da quale percorso partire?<br/><span>Ne parliamo durante la valutazione.</span></strong>
+        <p>In studio partiamo dalla tua esigenza e ti spieghiamo cosa consigliamo, con tempi e prezzo.</p>
         <div class="rebel-hero__actions" style="justify-content:center"><a class="btn btn--primary" href="/contatti">Prenota la valutazione REBEL</a></div>
       </div>
     </section>

@@ -32,7 +32,7 @@ type FormState = {
 
 const ritualOptions: ReadonlyArray<{ value: string; label: string }> = [
   { value: "", label: "Nessuna preferenza, decidiamo insieme" },
-  { value: "mani", label: "Mini-rituale mani (lima + smalto rapido)" },
+  { value: "mani", label: "Manicure veloce (lima e smalto)" },
   { value: "viso-marbellas", label: "Massaggio viso epigenetico Marbellas" },
   { value: "sopracciglia", label: "Disegno e rifinitura sopracciglia" },
 ];
@@ -89,7 +89,7 @@ export default function LandingForm({
       setStatus("ok");
       setFeedback(
         successMessage ||
-          "Richiesta ricevuta. Ti scriviamo entro poche ore con un orario disponibile.",
+          "Richiesta ricevuta. Ti contattiamo per concordare un orario disponibile.",
       );
       setForm({
         name: "",
@@ -145,7 +145,7 @@ export default function LandingForm({
 
       {showRitual ? (
         <label>
-          Regalo prima visita
+          Omaggio scelto
           <select
             value={form.ritual}
             onChange={(e) => setForm((v) => ({ ...v, ritual: e.target.value }))}
@@ -190,8 +190,7 @@ export default function LandingForm({
       </button>
 
       <p className="form__small">
-        Ti rispondiamo entro poche ore negli orari di apertura. Nessun obbligo
-        di acquisto, nessuno spam.
+        Ti contattiamo negli orari di apertura, solo per rispondere alla tua richiesta.
       </p>
 
       {feedback ? (

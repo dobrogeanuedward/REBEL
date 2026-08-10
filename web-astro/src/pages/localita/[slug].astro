@@ -5,6 +5,7 @@ import SectionHead from "@/components/SectionHead.astro";
 import FaqAccordion from "@/components/FaqAccordion.astro";
 import FeatureCard from "@/components/FeatureCard.astro";
 import KeyPointsGrid from "@/components/KeyPointsGrid.astro";
+import EditorialSection from "@/components/EditorialSection.astro";
 import TableOfContents from "@/components/TableOfContents.astro";
 import InlineCta from "@/components/InlineCta.astro";
 import FullBleedBand from "@/components/FullBleedBand.astro";
@@ -13,9 +14,7 @@ import JsonLd from "@/components/JsonLd.astro";
 import type { LocalAreaPage } from "@/lib/local-pages";
 import { localAreaPages } from "@/lib/local-pages";
 import { media } from "@/lib/page-media";
-import { clarifyCopy } from "@/lib/copy-clarity";
 import {
-  buildArticleSchema,
   buildBreadcrumbSchema,
   buildWebPageSchema,
   createPageMeta,
@@ -40,57 +39,78 @@ const localeMood =
         ? media.locale.bra
         : media.studio.cabin;
 
-const clearTitle = clarifyCopy(area.title);
-const clearDescription = clarifyCopy(area.description);
-const clearIntro = clarifyCopy(area.intro);
-const clearWhyRebel = area.whyRebel.map(clarifyCopy);
-const clearFaqs = (area.faqs ?? []).map((faq) => ({ q: clarifyCopy(faq.q), a: clarifyCopy(faq.a) }));
+const isCarmagnola = area.slug === "carmagnola";
+const visitMedia = isCarmagnola ? media.studio.realExterior : media.studio.realOverview;
+const originLabel = isCarmagnola ? "REBEL Carmagnola" : `Da ${area.city} a REBEL Carmagnola`;
+const clearTitle = isCarmagnola
+  ? "REBEL Carmagnola | Indirizzo, servizi e contatti"
+  : `Da ${area.city} a REBEL Carmagnola | Indicazioni e contatti`;
+const clearDescription = isCarmagnola
+  ? "REBEL si trova in Viale Barbaroux 20 a Carmagnola. Consulta mappa, servizi, prezzi e modalità di prenotazione."
+  : `REBEL si trova in Viale Barbaroux 20 a Carmagnola. Da ${area.city}, consulta mappa, servizi, prezzi e modalità di prenotazione.`;
+const clearIntro = `Lo studio è in Viale Barbaroux 20 a Carmagnola. Qui trovi il percorso sulla mappa, i servizi disponibili, il listino e i contatti per prenotare.`;
+const clearWhyRebel = [
+  "Viale Barbaroux 20 · Carmagnola",
+  "Trattamenti viso, corpo, laser e beauty",
+  "Listino online e valutazione REBEL di 30–40 minuti",
+];
+const clearFaqs = [
+  {
+    q: "Dove si trova REBEL?",
+    a: "Lo studio è in Viale Barbaroux 20 a Carmagnola. Puoi aprire la mappa qui per ottenere il percorso aggiornato.",
+  },
+  {
+    q: isCarmagnola ? "Come posso prenotare?" : `Come posso prenotare se arrivo da ${area.city}?`,
+    a: "Puoi scriverci su WhatsApp oppure usare il modulo contatti. Indicaci il trattamento che ti interessa e le tue disponibilità.",
+  },
+  {
+    q: "Dove posso vedere i prezzi?",
+    a: "Il listino online riporta i prezzi dei servizi, dei percorsi REBEL e delle aree laser.",
+  },
+  {
+    q: "Come funziona la valutazione REBEL?",
+    a: "Dura 30–40 minuti: osserviamo la zona e ti spieghiamo trattamento, frequenza e prezzo. Se scegli di iniziare il percorso proposto, la valutazione è gratuita.",
+  },
+];
 const clearDirections = area.directions
   ? {
-      ...area.directions,
-      heading: clarifyCopy(area.directions.heading),
-      paragraphs: area.directions.paragraphs.map(clarifyCopy),
+      mapsUrl: area.directions.mapsUrl,
+      embedUrl: area.directions.embedUrl,
     }
   : undefined;
-const clearFocus = area.focus
-  ? {
-      ...area.focus,
-      heading: clarifyCopy(area.focus.heading),
-      paragraphs: area.focus.paragraphs.map(clarifyCopy),
-      links: (area.focus.links ?? []).map((link) => ({
-        ...link,
-        label: clarifyCopy(link.label),
-        description: link.description ? clarifyCopy(link.description) : undefined,
-      })),
-    }
-  : undefined;
+const focusLinks = [
+  {
+    kicker: "Servizi",
+    label: "Scopri tutti i servizi",
+    body: "Consulta i trattamenti disponibili e le informazioni utili prima di prenotare.",
+    href: "/servizi",
+  },
+  {
+    kicker: "Prezzi",
+    label: "Consulta il listino",
+    body: "Trova prezzi e durata indicativa di trattamenti, laser e percorsi REBEL.",
+    href: "/listino-estetica-laser",
+  },
+  {
+    kicker: "Valutazione",
+    label: "Prenota la valutazione REBEL",
+    body: "Scrivici per verificare la disponibilità e organizzare il primo appuntamento.",
+    href: "/contatti",
+  },
+  {
+    kicker: "Percorsi REBEL",
+    label: "Esplora i nove percorsi",
+    body: "Confronta obiettivi, durata e prezzo di ogni percorso REBEL.",
+    href: "/percorsi",
+  },
+];
 
 const meta = createPageMeta({
   title: clearTitle,
   description: clearDescription,
   path: `/localita/${area.slug}`,
-  keywords: area.keywords,
   openGraphType: "article",
 });
-
-const toWords = (v: string) => v.trim().split(/\s+/).filter(Boolean);
-const readingMinutes = Math.max(
-  2,
-  Math.round(
-    toWords(
-      [
-        clearIntro,
-        clearDescription,
-        clearWhyRebel.join(" "),
-        clearDirections?.heading ?? "",
-        (clearDirections?.paragraphs ?? []).join(" "),
-        clearFocus?.heading ?? "",
-        (clearFocus?.paragraphs ?? []).join(" "),
-        clearFaqs.map((f) => `${f.q} ${f.a}`).join(" "),
-      ].join(" "),
-    ).length / 190,
-  ),
-);
 
 const breadcrumb = buildBreadcrumbSchema([
   { name: "Home", path: "/" },
@@ -101,13 +121,6 @@ const webPage = buildWebPageSchema({
   name: clearTitle,
   description: clearDescription,
   path: `/localita/${area.slug}`,
-});
-const articleSchema = buildArticleSchema({
-  headline: clearTitle,
-  description: clearDescription,
-  path: `/localita/${area.slug}`,
-  keywords: area.keywords,
-  section: "Come raggiungere Rebel",
 });
 
 const faqSchema =
@@ -123,35 +136,33 @@ const faqSchema =
       }
     : null;
 
-const focusLinks = clearFocus?.links ?? [];
 const relatedAreas = localAreaPages
   .filter((item) => item.slug !== area.slug && item.cluster === area.cluster)
   .slice(0, 6);
 
 const tocItems = [
-  { id: "servizi", label: "Servizi e vantaggi" },
+  { id: "servizi", label: "Servizi e informazioni" },
   { id: "prenotare", label: "Prezzi e prenotazione" },
   ...(clearDirections ? [{ id: "come-arrivare", label: "Percorso e mappa" }] : []),
-  ...(clearFocus ? [{ id: "focus", label: "Informazioni per la zona" }] : []),
-  ...(clearFaqs.length > 0 ? [{ id: "faq", label: "Domande frequenti" }] : []),
+  { id: "focus", label: "Prima di venire" },
+  { id: "faq", label: "Domande frequenti" },
   ...(relatedAreas.length > 0 ? [{ id: "vicini", label: "Altri comuni" }] : []),
 ];
 ---
 <BaseLayout meta={meta} bodyClass="page-localita-detail">
   <JsonLd data={breadcrumb} />
   <JsonLd data={webPage} />
-  <JsonLd data={articleSchema} />
   {faqSchema ? <JsonLd data={faqSchema} /> : null}
 
   <PageHero
     image={localeMood}
-    kicker={`Centro estetico per chi arriva da ${area.city}`}
-    title={clearTitle.replace(area.city, `_${area.city}_`)}
+    kicker={originLabel}
+    title={`Indicazioni per raggiungere _REBEL_.`}
     lead={clearIntro}
-    bullets={[`Indicazioni da ${area.city}`, "Listino online", "Valutazione REBEL · 30–40 min"]}
+    bullets={["Indirizzo e mappa", "Servizi e prezzi online", "Valutazione REBEL · 30–40 min"]}
     meta={[
-      `${readingMinutes} min di lettura`,
-      `Studio in Viale Barbaroux 20 · Carmagnola`,
+      "Viale Barbaroux 20 · Carmagnola",
+      "Da martedì a sabato · su appuntamento",
     ]}
     ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Apri il percorso su Maps", href: siteConfig.social.maps }}
@@ -162,9 +173,9 @@ const tocItems = [
       <article class="detail-main">
         <div id="servizi">
           <SectionHead
-            kicker={`Rebel per chi arriva da ${area.city}`}
-            title="Servizi, prezzi e informazioni prima dell’appuntamento."
-            lead={`Lo studio offre trattamenti viso, corpo, laser e beauty. Le schede online riportano prezzo, durata indicativa e modalità di ogni servizio.`}
+            kicker="Prima di prenotare"
+            title="Tutto ciò che ti serve per organizzare la visita."
+            lead="REBEL offre trattamenti viso, corpo, laser e beauty. Puoi consultare prezzi e durata online oppure scriverci per scegliere il trattamento."
           />
           <KeyPointsGrid points={clearWhyRebel} title="Informazioni utili" />
         </div>
@@ -172,61 +183,36 @@ const tocItems = [
         <div id="prenotare" class="detail-section">
           <SectionHead
             kicker="Prezzi e prenotazione"
-            title={`Come scegliere e prenotare un trattamento da ${area.city}.`}
-            lead="Puoi consultare il listino, aprire la scheda del servizio oppure prenotare una valutazione REBEL di 30–40 minuti per definire trattamento, frequenza e prezzo. È gratuita quando finalizzata al Percorso; home care separata."
+            title={isCarmagnola ? "Organizza la tua visita." : `Organizza la tua visita da ${area.city}.`}
+            lead="Consulta il listino oppure prenota una valutazione REBEL di 30–40 minuti per definire trattamento, frequenza e prezzo. Se scegli di iniziare il percorso proposto, la valutazione è gratuita."
           />
-          {focusLinks.length > 0 ? (
-            <div class="card-grid card-grid--2">
-              {focusLinks.slice(0, 4).map((link, i) => (
-                link.external || link.href.startsWith("http") ? (
-                  <a class="card card--quiet" href={link.href} target="_blank" rel="noreferrer" data-link="true" data-reveal>
-                    <span class="card__index">{String(i + 1).padStart(2, "0")}</span>
-                    <p class="card__kicker">Informazione utile</p>
-                    <h3 class="card__title">{link.label}</h3>
-                    {link.description ? <p class="card__body">{link.description}</p> : null}
-                  </a>
-                ) : (
-                  <FeatureCard
-                    kicker="Informazione utile"
-                    title={link.label}
-                    body={link.description ?? "Apri la pagina per leggere informazioni, prezzo o modalità di prenotazione."}
-                    href={link.href}
-                    variant="quiet"
-                    index={i + 1}
-                  />
-                )
-              ))}
-            </div>
-          ) : (
-            <div class="card-grid card-grid--2">
-              <FeatureCard
-                kicker="Prezzi"
-                title="Consulta il listino Rebel"
-                body="Prezzi di viso, corpo, laser, manicure, pedicure, massaggi e protocolli professionali."
-                href="/listino-estetica-laser"
-                variant="quiet"
-                index={1}
-              />
-              <FeatureCard
-                kicker="Prima visita"
-                title="Prenota la valutazione REBEL"
-                body="In 30–40 minuti valutiamo la zona e definiamo trattamento, frequenza e prezzo. Gratuita quando finalizzata al Percorso; home care separata."
-                href="/contatti"
-                variant="quiet"
-                index={2}
-              />
-            </div>
-          )}
+          <div class="card-grid card-grid--2">
+            <FeatureCard
+              kicker="Prezzi"
+              title="Consulta il listino Rebel"
+              body="Prezzi per trattamenti viso, corpo, laser, beauty, massaggi e protocolli professionali."
+              href="/listino-estetica-laser"
+              variant="quiet"
+              index={1}
+            />
+            <FeatureCard
+              kicker="Valutazione"
+              title="Prenota la valutazione REBEL"
+              body="In 30–40 minuti valutiamo la zona e definiamo trattamento, frequenza e prezzo. Se inizi il percorso proposto, la valutazione è gratuita."
+              href="/contatti"
+              variant="quiet"
+              index={2}
+            />
+          </div>
         </div>
 
         {clearDirections ? (
           <div id="come-arrivare" class="detail-section">
-            <SectionHead kicker="Percorso e mappa" title={clearDirections.heading} />
+            <SectionHead kicker="Percorso e mappa" title={isCarmagnola ? "Viale Barbaroux 20, Carmagnola." : `Da ${area.city} a Viale Barbaroux 20.`} />
             <div class="directions-grid">
               <div>
-                {clearDirections.paragraphs.map((paragraph) => (
-                  <p class="directions-p">{paragraph}</p>
-                ))}
+                <p class="directions-p">REBEL si trova a Carmagnola. Apri la mappa per ottenere il percorso aggiornato da {area.city} in base al mezzo con cui viaggi.</p>
+                <p class="directions-p">Per orari e disponibilità puoi contattarci prima di partire.</p>
                 <div class="cluster" style="margin-top:1.4rem;">
                   <a class="btn btn--secondary btn--sm" href={clearDirections.mapsUrl} target="_blank" rel="noreferrer">Apri Google Maps</a>
                   <a class="btn btn--secondary btn--sm" href="/contatti">Telefono, WhatsApp e orari</a>
@@ -244,40 +230,57 @@ const tocItems = [
           </div>
         ) : null}
 
-        {clearFocus ? (
-          <div id="focus" class="detail-section">
-            <SectionHead kicker={`Informazioni per chi arriva da ${area.city}`} title={clearFocus.heading} />
-            <div class="editorial-flow">
-              {clearFocus.paragraphs.map((paragraph) => (
-                <p class="focus-p">{paragraph}</p>
+        <div id="focus" class="detail-section">
+          <SectionHead kicker="Prima di venire" title={isCarmagnola ? "Servizi e prezzi a Carmagnola." : `Servizi e prezzi per chi arriva da ${area.city}.`} />
+          <div class="editorial-flow">
+            <EditorialSection
+              heading="Lo studio e il primo appuntamento."
+              paragraphs={[
+                "Lo studio è a Carmagnola, in Viale Barbaroux 20. Trovi trattamenti viso, corpo, laser e beauty, con prezzi consultabili online.",
+                "Se non sai quale trattamento scegliere, durante la valutazione ti spieghiamo opzioni, frequenza e prezzo prima di iniziare.",
+              ]}
+              media={visitMedia}
+              mediaSide="end"
+              level={3}
+            />
+          </div>
+          {focusLinks.length > 0 ? (
+            <div class="card-grid card-grid--2" style="margin-top:1.5rem;">
+              {focusLinks.map((link, i) => (
+                <FeatureCard
+                  kicker={link.kicker}
+                  title={link.label}
+                  body={link.body}
+                  href={link.href}
+                  variant="quiet"
+                  index={i + 1}
+                />
               ))}
             </div>
-          </div>
-        ) : null}
+          ) : null}
+        </div>
 
-        {clearFaqs.length > 0 ? (
-          <div id="faq" class="detail-section">
-            <SectionHead
-              kicker="Domande frequenti"
-              title={`Distanza, appuntamenti, prezzi e servizi per chi arriva da ${area.city}.`}
-            />
-            <FaqAccordion items={clearFaqs} kicker={`Da ${area.city}`} />
-          </div>
-        ) : null}
+        <div id="faq" class="detail-section">
+          <SectionHead
+            kicker="Domande frequenti"
+            title="Le informazioni pratiche prima dell’appuntamento."
+          />
+          <FaqAccordion items={clearFaqs} kicker={`Da ${area.city}`} />
+        </div>
 
         {relatedAreas.length > 0 ? (
           <div id="vicini" class="detail-section">
             <SectionHead
               kicker="Altri comuni della zona"
               title="Indicazioni per raggiungere Rebel dai comuni vicini."
-              lead="Ogni pagina riporta informazioni locali e collegamenti a servizi, listino e prenotazione."
+              lead="Scegli il comune per aprire la mappa e trovare contatti, servizi e prezzi."
             />
             <div class="card-grid card-grid--3">
               {relatedAreas.map((relatedArea, i) => (
                 <FeatureCard
                   kicker="Località"
                   title={relatedArea.city}
-                  body={relatedArea.description}
+                  body={`Indicazioni e contatti per organizzare la visita da ${relatedArea.city}.`}
                   href={`/localita/${relatedArea.slug}`}
                   variant="quiet"
                   index={i + 1}
@@ -292,8 +295,8 @@ const tocItems = [
         <TableOfContents items={tocItems} />
         <InlineCta
           kicker="Valutazione REBEL · 30–40 minuti"
-          title={`Vieni da ${area.city}? Prenota una valutazione in studio.`}
-          lead="Indicaci il servizio o la zona che ti interessa. Ti comunichiamo appuntamento, trattamento, frequenza e prezzo."
+          title={isCarmagnola ? "Prenota una valutazione in studio." : `Vieni da ${area.city}? Prenota una valutazione in studio.`}
+          lead="Indicaci il servizio o la zona che ti interessa. Ti spieghiamo trattamento, frequenza e prezzo prima di iniziare."
           primaryHref="/contatti"
           primaryLabel="Prenota la valutazione"
           secondaryHref="/servizi"
@@ -307,9 +310,9 @@ const tocItems = [
     image={media.studio.reception}
     height="sm"
     align="center"
-    kicker={`Da ${area.city} a Rebel Carmagnola`}
+    kicker={originLabel}
     title="Valutazione REBEL di _30–40 minuti_."
-    lead="Valutiamo la zona e definiamo trattamento, frequenza e prezzo. È gratuita quando finalizzata alla costruzione del Percorso; home care separata."
+    lead="Valutiamo la zona e definiamo trattamento, frequenza e prezzo. Se scegli di iniziare il percorso proposto, la valutazione è gratuita."
     cta={{ label: "Prenota la valutazione", href: "/contatti" }}
   />
 
@@ -338,7 +341,7 @@ const tocItems = [
   @media (max-width: 760px) {
     .directions-grid { grid-template-columns: 1fr; }
   }
-  .directions-p, .focus-p {
+  .directions-p {
     font-size: var(--t-body);
     line-height: var(--leading-body);
     color: var(--text);
@@ -360,6 +363,6 @@ const tocItems = [
     height: 100%;
     border: 0;
   }
-  .editorial-flow { display: grid; gap: 1rem; max-width: 70ch; margin-top: 1.6rem; }
+  .editorial-flow { display: grid; gap: 1rem; margin-top: 1.6rem; }
   .detail-aside { display: grid; gap: 1.4rem; }
 </style>

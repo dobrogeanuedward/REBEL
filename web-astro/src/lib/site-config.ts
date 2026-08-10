@@ -4,9 +4,9 @@ export const siteConfig = {
   tagline: "Centro estetico a Carmagnola.",
   locale: "it-IT",
   regionCode: "IT-TO",
-  lastUpdated: "2026-08-09",
+  lastUpdated: "2026-08-10",
   description:
-    "Centro estetico a Carmagnola, in Viale Barbaroux 20: epilazione laser Ice Polar, pulizia viso, manicure, ceretta, massaggi e percorsi viso/corpo. Valutazione REBEL di 30–40 minuti.",
+    "Centro estetico a Carmagnola, in Viale Barbaroux 20: epilazione laser, pulizia viso, manicure, ceretta, massaggi e percorsi viso/corpo. Valutazione REBEL di 30–40 minuti.",
   siteUrl: "https://www.rebelepigenetica.it",
   assets: {
     logoLight:
@@ -60,35 +60,35 @@ export const siteConfig = {
       kind: "Tecnologia laser",
       url: "https://www.thory-tech.com/",
       blurb:
-        "THORY Lumina X1 Pro integra quattro lunghezze d’onda e raffreddamento a contatto in zaffiro Ice Point Cooling. Nei percorsi REBEL il comfort ICE Polar accompagna la seduta come elemento distinto.",
+        "Per l’epilazione utilizziamo Lumina X1 Pro di THORY con raffreddamento a contatto ICE Polar.",
     },
     {
       name: "Marbellas",
-      kind: "Linea epigenetica viso",
+      kind: "Linea cosmetica professionale",
       url: undefined,
       blurb:
-        "Linea cosmetica di nuova generazione con attivi epigenetici: la usiamo nei protocolli viso più avanzati per qualità di pelle, tono e luminosità.",
+        "Linea professionale utilizzata nei percorsi viso dedicati a luminosità, tono e comfort della pelle.",
     },
     {
       name: "Eberlin",
       kind: "Biocosmetica professionale",
       url: undefined,
       blurb:
-        "Brand spagnolo di riferimento nella biocosmetica: linee Firmezza, Calming, Gold e attivi biotecnologici come fattori di crescita e RetiLAB.",
+        "Linea di biocosmetica professionale utilizzata nei trattamenti dedicati a idratazione, comfort, luminosità e tono della pelle.",
     },
     {
       name: "RBL Nails",
-      kind: "Smalti e gel cabina",
+      kind: "Smalti e gel professionali",
       url: undefined,
       blurb:
-        "Gamma colori e tonalità sviluppata per cabina: tenuta, finiture e shade dalla classica alla stagionale.",
+        "Smalti e gel professionali con colori e finiture classiche o stagionali.",
     },
     {
       name: "Thory Academy",
       kind: "Formazione professionale",
       url: "https://academy.thory-tech.com/",
       blurb:
-        "Il team segue un percorso di formazione continua Thory Academy, dedicato all'uso consapevole delle tecnologie e all'aggiornamento professionale.",
+        "Il team segue un percorso di formazione continua Thory Academy, dedicato all’uso consapevole delle tecnologie e all’aggiornamento professionale.",
     },
   ],
   // Sister sites in the Thory / DOGO network. Used in the footer.
@@ -113,7 +113,6 @@ export const localSeoKeywords = [
   "estetista vicino a me",
   "estetista Carmagnola centro",
   "centro estetico aperto Carmagnola",
-  "miglior centro estetico Carmagnola",
 
   // Money keyword #2 — "epilazione laser vicino a me"
   "epilazione laser Carmagnola",
@@ -122,8 +121,7 @@ export const localSeoKeywords = [
   "laser Carmagnola",
   "laser vicino a me",
   "laser diodo Carmagnola",
-  "Ice Polar Carmagnola",
-  "epilazione definitiva Carmagnola",
+  "ICE Polar Carmagnola",
   "epilazione progressiva Carmagnola",
   "depilazione laser Carmagnola",
 

@@ -22,7 +22,7 @@ import { getPageMedia } from "@/lib/page-media";
 const meta = createPageMeta({
   title: "Massaggio rilassante per chi viene da Alba — Rebel (Carmagnola, ~30 min)",
   description:
-    "Vivi ad Alba o nelle Langhe? Il massaggio rilassante da Rebel è 50 minuti dedicati a schiena, spalle e cervicale con ritmo graduale e attenzione reale. ~30 min via A33.",
+    "Vivi ad Alba o nelle Langhe? Da Rebel il massaggio rilassante dura 50 minuti ed è dedicato a schiena, spalle e collo, con ritmo e pressione concordati. Circa 30 minuti via A33.",
   path: "/massaggio-rilassante-alba",
   image: "https://www.rebelepigenetica.it/img/generated/massaggio-rilassante-rebel-editorial.png",
   openGraphType: "article",
@@ -63,7 +63,7 @@ const articleSchema = buildArticleSchema({
 
 const serviceSchema = buildServiceSchema(
   "Massaggio rilassante per chi viene da Alba",
-  "Massaggio rilassante a Carmagnola per clienti di Alba e delle Langhe: 50 minuti dedicati a schiena, spalle e cervicale con ritmo graduale e tecnica manuale.",
+  "Massaggio rilassante a Carmagnola per clienti di Alba e delle Langhe: 50 minuti dedicati a schiena, spalle e collo, con ritmo e pressione concordati.",
   "/massaggio-rilassante-alba",
   {
     priceFrom: 55,
@@ -102,27 +102,27 @@ const geoServiceSchema = {
 const faqs = [
   {
     q: "Quanto ci vuole da Alba a Rebel?",
-    a: "Circa trenta minuti via A33 uscita Marene, poi SP661 fino a Carmagnola. Viale Barbaroux 20, parcheggio gratuito a meno di un minuto.",
+    a: "Circa trenta minuti via A33 uscita Marene, poi SP661 fino a Carmagnola. Viale Barbaroux 20, possibilità di parcheggio nelle vicinanze.",
   },
   {
     q: "Quanto dura la seduta?",
-    a: "50 minuti. Si lavora su schiena, spalle e cervicale con un ritmo graduale — si parte dai punti meno tesi e si approfondisce con attenzione, senza forzare.",
+    a: "50 minuti. Le manualità si concentrano su schiena, spalle e collo, con pressione concordata e ritmo graduale.",
   },
   {
-    q: "Ho la cervicale sempre tesa per via del lavoro. È il trattamento giusto?",
-    a: "Sì. La cervicale contratta è spesso legata allo stress accumulato e alle posture prolungate. Il massaggio rilassante lavora in modo mirato sulla zona cervicale e sulle spalle, liberando la tensione progressivamente senza aggredire.",
+    q: "Ho spesso schiena e spalle tese. Può aiutarmi a rilassarmi?",
+    a: "Il massaggio può offrire una sensazione temporanea di distensione e relax su schiena, spalle e collo. Se avverti dolore acuto o persistente, chiedi prima una valutazione sanitaria o fisioterapica.",
   },
   {
     q: "Ogni quanto conviene farlo?",
-    a: "Dipende dal tuo livello di tensione e dallo stile di vita. Per chi ha stress cronico, una seduta ogni 3-4 settimane è un ritmo sensato. Per chi vuole staccare davvero, anche una seduta ogni mese o due ha un effetto percepibile.",
+    a: "La frequenza dipende dalle tue preferenze e da come percepisci la seduta. Puoi prenotarla come momento singolo oppure concordare una cadenza che si adatti alla tua agenda.",
   },
   {
     q: "Posso abbinare il massaggio ad altri trattamenti nello stesso giorno?",
-    a: "Sì. Si abbina bene con la manicure semipermanente, la laminazione e la pulizia viso. Per il laser, ti suggeriamo di fare il massaggio prima o in un giorno separato: non è un conflitto tecnico, ma per una questione di comfort.",
+    a: "Alcuni servizi possono essere organizzati nella stessa visita. Dicci cosa vuoi abbinare e ti confermiamo tempi e compatibilità.",
   },
   {
     q: "Come prenoto da Alba?",
-    a: "Scrivici su WhatsApp con il giorno preferito. Ti proponiamo gli slot disponibili. Il mercoledì siamo aperti fino alle 19.",
+    a: "Scrivici su WhatsApp indicando il giorno preferito: verifichiamo insieme le disponibilità.",
   },
 ];
 
@@ -140,22 +140,22 @@ const points = [
   {
     kicker: "01 · 50 minuti reali",
     title: "Niente tagli, niente spiccioli.",
-    body: "Cinquanta minuti interamente dedicati a schiena, spalle e cervicale. Si comincia gradualmente, si approfondisce dove serve e si chiude con calma. Non è un massaggio da 30 minuti venduto come 50.",
+    body: "Cinquanta minuti dedicati a schiena, spalle e collo. Concordiamo pressione e zone prima di iniziare e manteniamo un ritmo graduale.",
   },
   {
     kicker: "02 · Ritmo graduale",
     title: "Si parte piano e si approfondisce.",
-    body: "Nelle Langhe lo stress è di casa: vendemmia, lavoro, vita sociale. Il massaggio non aggredisce — lavora per strati, costruendo fiducia con il corpo prima di liberare le tensioni più profonde.",
+    body: "La pressione aumenta solo se la percepisci come confortevole. Durante la seduta puoi chiedere di alleggerirla o concentrarla su una zona diversa.",
   },
   {
-    kicker: "03 · Cervicale e spalle prima di tutto",
-    title: "Le zone più richieste, lavorate davvero.",
-    body: "Cervicale, trapezi e spalle concentrano la maggior parte delle tensioni. Lavoriamo su queste zone con tecnica manuale specifica — non un generico sfioramento, ma una decontrazione progressiva e percepibile.",
+    kicker: "03 · Schiena, spalle e collo",
+    title: "Le zone vengono concordate prima di iniziare.",
+    body: "Ci racconti dove preferisci concentrare il massaggio e adattiamo pressione e ritmo alle tue sensazioni durante la seduta.",
   },
   {
-    kicker: "04 · Un ritmo che si può tenere",
-    title: "Una seduta al mese cambia la qualità del recupero.",
-    body: "Non è necessario venire ogni settimana. Una seduta ogni 3-4 settimane — inserita nella tua agenda come un appuntamento fisso — è sufficiente per mantenere la tensione sotto controllo.",
+    kicker: "04 · Frequenza personalizzata",
+    title: "Un appuntamento singolo o una cadenza concordata.",
+    body: "Scegliamo la frequenza insieme, in base alle tue preferenze e al tempo che vuoi dedicare al relax.",
   },
 ];
 
@@ -168,19 +168,19 @@ const combos = [
   {
     href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola",
     title: "Massaggio + laminazione ciglia",
-    body: "Corpo disteso e sguardo definito. Un upgrade completo in un'unica sosta.",
+    body: "Due servizi nello stesso appuntamento, se tempi e compatibilità lo consentono.",
   },
   {
     href: "/servizi/massaggio-linfodrenante-carmagnola",
     title: "Massaggio rilassante + linfodrenante",
-    body: "Per chi vuole lavorare sia sulla tensione muscolare che sulla leggerezza delle gambe.",
+    body: "Due tipologie di massaggio da organizzare insieme solo dopo aver verificato tempi e compatibilità.",
   },
 ];
 
 const nearbyAreas = [
   { city: "Bra", href: "/massaggio-rilassante-bra", desc: "~22 min da Carmagnola via SP7." },
   { city: "Canale", href: "/massaggio-rilassante-canale", desc: "Roero, ~35 min via A33." },
-  { city: "Tutte le località", href: "/localita", desc: "Panoramica Rebel per zona." },
+  { city: "Tutte le località", href: "/localita", desc: "Mappe e indicazioni per raggiungerci." },
 ];
 
 const m = getPageMedia("/massaggio-rilassante-alba");
@@ -197,9 +197,9 @@ const m = getPageMedia("/massaggio-rilassante-alba");
   <PageHero
     image={m.hero}
     kicker="Rebel Massaggi — da Alba a Carmagnola"
-    title="Massaggio rilassante per chi viene da Alba: _50 minuti_ per schiena, spalle e cervicale."
-    lead="Vivi ad Alba o nelle Langhe? Da Carmagnola sono trenta minuti via A33. Da Rebel il massaggio rilassante è cinquanta minuti interamente dedicati alle zone più tese — cervicale, trapezi, spalle — con un ritmo graduale che lascia il corpo davvero diverso dalla prima seduta."
-    bullets={["50 minuti di vero stacco", "Schiena, spalle, cervicale", "Valutazione REBEL · 30–40 min"]}
+    title="Massaggio rilassante per chi viene da Alba: _50 minuti dedicati a te_."
+    lead="Da Alba a Rebel sono circa trenta minuti via A33. La seduta dura 50 minuti e si concentra su schiena, spalle e collo, con pressione concordata e ritmo graduale."
+    bullets={["50 minuti di relax", "Schiena, spalle e collo", "Pressione concordata"]}
     meta={["~33 km da Alba", "~30 min via A33", "Da 55 € a seduta"]}
     ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
     ctaSecondary={{ label: "Apri il percorso da Alba", href: "https://www.google.com/maps/dir/?api=1&origin=Alba&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
@@ -212,10 +212,10 @@ const m = getPageMedia("/massaggio-rilassante-alba");
           image={m.splitA}
           side="right"
           kicker="Stacco vero"
-          title="Cinquanta minuti per _sciogliere_ schiena e cervicale."
-          body="Un massaggio rilassante con ritmo graduale: si parte in ascolto e si lavora dove serve davvero — schiena, spalle, cervicale. Esci con la tensione abbassata, non solo coccolata."
-          bullets={["50 minuti, ritmo graduale", "Focus su schiena, spalle, cervicale", "Ambiente caldo e silenzioso"]}
-          cta={{ label: "Scheda massaggio", href: "/servizi/massaggio-rilassante-carmagnola" }}
+          title="Cinquanta minuti per _rilassare_ schiena, spalle e collo."
+          body="Il massaggio segue un ritmo graduale. Prima di iniziare concordiamo le zone e la pressione, poi le adattiamo alle tue sensazioni."
+          bullets={["50 minuti, ritmo graduale", "Focus su schiena, spalle e collo", "Ambiente caldo e silenzioso"]}
+          cta={{ label: "Scopri il trattamento", href: "/servizi/massaggio-rilassante-carmagnola" }}
         />
       </div>
     </section>
@@ -225,8 +225,8 @@ const m = getPageMedia("/massaggio-rilassante-alba");
     <div class="container">
       <SectionHead
         kicker="Il metodo Rebel"
-        title="Perché chi vive ad Alba _viene a Carmagnola_ per il massaggio."
-        lead="Nelle Langhe si vive bene ma ci si stanca sul serio: lavoro, vino, fiere, vendemmia, cene. La cervicale tesa e le spalle contratte non si risolvono con lo stretching — si risolvono con cinquanta minuti di lavoro manuale fatto bene."
+        title="Una seduta personalizzata, a _circa trenta minuti da Alba_."
+        lead="Concordiamo zone, pressione e ritmo prima di iniziare e li adattiamo alle tue sensazioni durante i 50 minuti di trattamento."
       />
       <div class="card-grid card-grid--2">
         {points.map((p, i) => (
@@ -235,7 +235,7 @@ const m = getPageMedia("/massaggio-rilassante-alba");
       </div>
       <div class="cluster" style="margin-top:2rem;">
         <a class="btn btn--primary" href="/contatti">Prenota su WhatsApp</a>
-        <a class="btn btn--secondary" href="/servizi/massaggio-rilassante-carmagnola">Scheda completa massaggio</a>
+        <a class="btn btn--secondary" href="/servizi/massaggio-rilassante-carmagnola">Scopri il trattamento</a>
         <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
       </div>
     </div>
@@ -245,15 +245,15 @@ const m = getPageMedia("/massaggio-rilassante-alba");
     <div class="container">
       <div class="split-visual">
         <div class="split-visual__image">
-          <img src="/img/brand/corpo-rilassamento-schiena.png" alt="Corpo in rilassamento dopo massaggio — sensazione di leggerezza e benessere" width="900" height="1100" loading="lazy" />
+          <img src="/img/brand/corpo-rilassamento-schiena.png" alt="Persona distesa durante un massaggio rilassante" width="900" height="1100" loading="lazy" />
         </div>
         <div class="split-visual__text">
-          <SectionHead kicker="La sensazione dopo" title="Il corpo si _sgrava_. E lo senti subito." lead="Dopo cinquanta minuti di lavoro mirato sulle zone di tensione, il corpo risponde in modo percepibile." />
+          <SectionHead kicker="Durante la seduta" title="Un ritmo _graduale e concordato_." lead="Ti chiediamo come percepisci pressione e manualità e le adattiamo durante i 50 minuti di trattamento." />
           <p class="body-p">
-            Cervicale più mobile, spalle abbassate, respiro più profondo: non è una metafora. Sono gli effetti fisici di un massaggio fatto con ritmo corretto e pressione adeguata.
+            La percezione del massaggio cambia da persona a persona. Puoi indicarci in qualsiasi momento se preferisci una pressione più leggera o più intensa.
           </p>
           <p class="body-p">
-            Il giorno dopo potresti sentire una leggera dolenzia muscolare — è normale dopo un lavoro in profondità. Sparisce in 24-48 ore e lascia una sensazione di leggerezza che dura giorni.
+            Al termine ti chiediamo come ti senti e, se vuoi tornare, concordiamo una frequenza compatibile con le tue preferenze e la tua agenda.
           </p>
         </div>
       </div>
@@ -266,7 +266,7 @@ const m = getPageMedia("/massaggio-rilassante-alba");
       <div class="directions-grid">
         <div>
           <p class="body-p">Da Alba sono circa 33 km via <strong>A33 direzione Torino</strong>, uscita Marene, poi <strong>SP661 fino a Carmagnola</strong>. In trenta minuti sei in studio.</p>
-          <p class="body-p">Lo studio è in <strong>Viale Barbaroux 20</strong>. Parcheggio gratuito a meno di un minuto.</p>
+          <p class="body-p">Lo studio è in <strong>Viale Barbaroux 20</strong>. possibilità di parcheggio nelle vicinanze.</p>
           <div class="cluster" style="margin-top:1.4rem;">
             <a class="btn btn--secondary btn--sm" href="https://www.google.com/maps/dir/?api=1&origin=Alba&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" target="_blank" rel="noreferrer">Apri il percorso da Alba in Maps</a>
             <a class="btn btn--secondary btn--sm" href="/contatti">Contatti e mappa</a>
@@ -281,7 +281,7 @@ const m = getPageMedia("/massaggio-rilassante-alba");
 
   <section class="section">
     <div class="container">
-      <SectionHead kicker="Una sola sosta" title="Abbina il massaggio: _si organizza_ facilmente." lead="Il massaggio si combina bene con manicure e laminazione. Per il laser, consigliamo di abbinarli in momenti diversi." />
+      <SectionHead kicker="Una sola sosta" title="Vuoi abbinare un altro _trattamento_?" lead="Dicci quali servizi ti interessano: ti confermiamo tempi e compatibilità prima dell'appuntamento." />
       <div class="card-grid card-grid--3" style="margin-top:2rem;">
         {combos.map((c) => (<FeatureCard title={c.title} body={c.body} href={c.href} variant="quiet" />))}
       </div>
@@ -294,8 +294,8 @@ const m = getPageMedia("/massaggio-rilassante-alba");
       height="md"
       align="left"
       kicker="Da Alba a Carmagnola"
-      quote="Mezz'ora di viaggio per un'ora di vero stacco."
-      cta={{ label: "Prenota la prima visita", href: "/contatti" }}
+      quote="Da Alba a Carmagnola per un massaggio rilassante di 50 minuti."
+      cta={{ label: "Prenota la valutazione", href: "/contatti" }}
     />
   ) : null}
 
@@ -310,10 +310,10 @@ const m = getPageMedia("/massaggio-rilassante-alba");
     <div class="container">
       <InlineCta
         kicker="Vuoi un piano più ampio?"
-        title="Il massaggio non è l'unico motivo per venire a Carmagnola _dalle Langhe_."
-        lead="Laser, manicure, laminazione, pulizia viso e protocolli: la pagina panoramica per chi viene da Alba li raccoglie tutti."
+        title="Scopri cosa puoi prenotare da _Alba_."
+        lead="Trovi laser, manicure, laminazione e trattamenti viso e corpo disponibili per chi arriva da Alba."
         primaryHref="/localita/alba"
-        primaryLabel="Pagina panoramica Rebel per Alba"
+        primaryLabel="Scopri tutti i servizi da Alba"
         secondaryHref="/servizi/massaggio-linfodrenante-carmagnola"
         secondaryLabel="Massaggio linfodrenante"
       />
@@ -333,11 +333,11 @@ const m = getPageMedia("/massaggio-rilassante-alba");
     <div class="container">
       <InlineCta
         kicker="Prenota"
-        title="_50 minuti_ per smettere davvero di pensare."
-        lead="Scrivici su WhatsApp con il giorno preferito. Ti rispondiamo con gli slot disponibili."
+        title="_50 minuti_ dedicati al relax."
+        lead="Scrivici su WhatsApp per conoscere le disponibilità."
         primaryLabel="Prenota su WhatsApp"
         primaryHref={siteConfig.social.whatsapp}
-        secondaryLabel="Scheda massaggio completa"
+        secondaryLabel="Scopri il trattamento"
         secondaryHref="/servizi/massaggio-rilassante-carmagnola"
       />
     </div>

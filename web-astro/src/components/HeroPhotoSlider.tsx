@@ -119,11 +119,11 @@ export default function HeroPhotoSlider({ images, intervalMs = 6200, className }
       </div>
 
       {safeImages.length > 1 ? (
-        <div className="hero-photo-slider__ui" aria-label="Controlli slider">
+        <div className="hero-photo-slider__ui" aria-label="Controlli della galleria">
           <button type="button" className="hero-photo-slider__arrow" onClick={prev} aria-label="Precedente">
             ‹
           </button>
-          <div className="hero-photo-slider__dots" role="tablist" aria-label="Seleziona elemento">
+          <div className="hero-photo-slider__dots" role="tablist" aria-label="Scegli una foto">
             {safeImages.map((img, index) => {
               const isActive = index === active;
               return (
@@ -132,7 +132,7 @@ export default function HeroPhotoSlider({ images, intervalMs = 6200, className }
                   type="button"
                   className={`hero-photo-slider__dot${isActive ? " is-active" : ""}`}
                   onClick={() => goTo(index)}
-                  aria-label={`Vai a ${index + 1}`}
+                  aria-label={`Vai alla foto ${index + 1}`}
                   aria-current={isActive ? "true" : "false"}
                 />
               );

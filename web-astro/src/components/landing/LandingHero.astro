@@ -1,10 +1,12 @@
 ---
 /**
- * LandingHero — bold, single-column hero designed for ad/landing pages.
+ * LandingHero — bold, conversion-focused hero designed for ad/landing pages.
  *
- * Mobile-first, no slider, no decorative images: focus is on the offer + CTA.
+ * Mobile-first, no slider. An optional real editorial image can support the
+ * offer without competing with the CTA.
  * Use ONE per page (it claims the visual hierarchy of the fold).
  */
+import type { ImageAsset } from "@/lib/page-media";
 interface Bullet {
   text: string;
 }
@@ -18,6 +20,8 @@ interface Props {
   primaryCta: { label: string; href: string };
   secondaryCta?: { label: string; href: string; external?: boolean };
   footnote?: string;
+  media?: ImageAsset;
+  mediaCaption?: string;
 }
 
 const {
@@ -29,6 +33,8 @@ const {
   primaryCta,
   secondaryCta,
   footnote,
+  media,
+  mediaCaption,
 } = Astro.props;
 
 const renderTitle = (raw: string) =>
@@ -39,39 +45,59 @@ const renderTitle = (raw: string) =>
   ).join("");
 ---
 <section class="landing-hero">
-  <div class="container landing-hero__inner">
-    {badge ? <span class="landing-hero__badge" data-reveal>{badge}</span> : null}
-    <p class="landing-hero__kicker" data-reveal style="--reveal-delay: 40ms;">{kicker}</p>
-    <h1 class="landing-hero__title" data-reveal style="--reveal-delay: 80ms;" set:html={renderTitle(title)} />
-    <p class="landing-hero__lead" data-reveal style="--reveal-delay: 140ms;">{lead}</p>
+  <div class={`container landing-hero__inner ${media ? "landing-hero__inner--with-media" : ""}`}>
+    <div class="landing-hero__copy">
+      {badge ? <span class="landing-hero__badge" data-reveal>{badge}</span> : null}
+      <p class="landing-hero__kicker" data-reveal style="--reveal-delay: 40ms;">{kicker}</p>
+      <h1 class="landing-hero__title" data-reveal style="--reveal-delay: 80ms;" set:html={renderTitle(title)} />
+      <p class="landing-hero__lead" data-reveal style="--reveal-delay: 140ms;">{lead}</p>
 
-    {bullets.length > 0 ? (
-      <ul class="landing-hero__bullets" data-reveal style="--reveal-delay: 200ms;">
-        {bullets.map((b) => (
-          <li>
-            <span class="landing-hero__bullet-tick" aria-hidden="true">✓</span>
-            <span>{b.text}</span>
-          </li>
-        ))}
-      </ul>
-    ) : null}
-
-    <div class="landing-hero__cta" data-reveal style="--reveal-delay: 260ms;">
-      <a class="btn btn--primary btn--halo btn--lg" href={primaryCta.href}>
-        {primaryCta.label}
-      </a>
-      {secondaryCta ? (
-        <a
-          class="btn btn--secondary btn--lg"
-          href={secondaryCta.href}
-          target={secondaryCta.external ? "_blank" : undefined}
-          rel={secondaryCta.external ? "noreferrer" : undefined}
-        >
-          {secondaryCta.label}
-        </a>
+      {bullets.length > 0 ? (
+        <ul class="landing-hero__bullets" data-reveal style="--reveal-delay: 200ms;">
+          {bullets.map((b) => (
+            <li>
+              <span class="landing-hero__bullet-tick" aria-hidden="true">✓</span>
+              <span>{b.text}</span>
+            </li>
+          ))}
+        </ul>
       ) : null}
+
+      <div class="landing-hero__cta" data-reveal style="--reveal-delay: 260ms;">
+        <a class="btn btn--primary btn--halo btn--lg" href={primaryCta.href}>
+          {primaryCta.label}
+        </a>
+        {secondaryCta ? (
+          <a
+            class="btn btn--secondary btn--lg"
+            href={secondaryCta.href}
+            target={secondaryCta.external ? "_blank" : undefined}
+            rel={secondaryCta.external ? "noreferrer" : undefined}
+          >
+            {secondaryCta.label}
+          </a>
+        ) : null}
+      </div>
+
+      {footnote ? <p class="landing-hero__footnote" data-reveal style="--reveal-delay: 320ms;">{footnote}</p> : null}
     </div>
 
-    {footnote ? <p class="landing-hero__footnote" data-reveal style="--reveal-delay: 320ms;">{footnote}</p> : null}
+    {media ? (
+      <figure class="landing-hero__media" data-reveal style="--reveal-delay: 180ms;">
+        <picture>
+          {media.srcMobile ? <source media="(max-width: 860px) and (orientation: portrait)" srcset={media.srcMobile} /> : null}
+          <img
+            src={media.src}
+            alt={media.alt}
+            width={media.width ?? 1400}
+            height={media.height ?? 1050}
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
+        </picture>
+        {mediaCaption ? <figcaption>{mediaCaption}</figcaption> : null}
+      </figure>
+    ) : null}
   </div>
 </section>

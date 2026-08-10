@@ -1,22 +1,56 @@
 ---
 import { clarifyCopy } from "@/lib/copy-clarity";
+import type { ImageAsset } from "@/lib/page-media";
 
 interface Props {
   id?: string;
   heading: string;
   paragraphs: string[];
   level?: 2 | 3;
+  media?: ImageAsset;
+  mediaSide?: "start" | "end";
+  mediaCaption?: string;
 }
-const { id, heading, paragraphs, level = 3 } = Astro.props;
+const {
+  id,
+  heading,
+  paragraphs,
+  level = 3,
+  media,
+  mediaSide = "end",
+  mediaCaption,
+} = Astro.props;
 const HeadingTag = level === 2 ? "h2" : "h3";
 const clearHeading = clarifyCopy(heading);
 const clearParagraphs = paragraphs.map(clarifyCopy);
+const clearMediaCaption = mediaCaption ? clarifyCopy(mediaCaption) : undefined;
 ---
-<div class="editorial-block" id={id}>
-  <HeadingTag class="editorial-block__heading">{clearHeading}</HeadingTag>
-  {clearParagraphs.map((p) => (
-    <p class="editorial-block__p">{p}</p>
-  ))}
+<div
+  class={`editorial-block ${media ? "editorial-block--with-media" : ""} ${media ? `editorial-block--media-${mediaSide}` : ""}`}
+  id={id}
+>
+  <div class="editorial-block__copy">
+    <HeadingTag class="editorial-block__heading">{clearHeading}</HeadingTag>
+    {clearParagraphs.map((p) => (
+      <p class="editorial-block__p">{p}</p>
+    ))}
+  </div>
+  {media ? (
+    <figure class="editorial-block__media" style={`--editorial-media-ratio:${media.ratio ?? "4/5"};`} data-reveal>
+      <picture>
+        {media.srcMobile ? <source media="(max-width: 720px)" srcset={media.srcMobile} /> : null}
+        <img
+          src={media.src}
+          alt={media.alt}
+          width={media.width ?? 1200}
+          height={media.height ?? 900}
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+      {clearMediaCaption ? <figcaption>{clearMediaCaption}</figcaption> : null}
+    </figure>
+  ) : null}
 </div>
 
 <style>
@@ -38,6 +72,62 @@ const clearParagraphs = paragraphs.map(clarifyCopy);
     max-width: 70ch;
   }
   .editorial-block__p:last-child { margin-bottom: 0; }
+  .editorial-block--with-media {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(220px, 0.92fr);
+    gap: clamp(1.25rem, 3vw, 2.6rem);
+    align-items: center;
+    max-width: none;
+  }
+  .editorial-block--media-start {
+    grid-template-columns: minmax(220px, 0.92fr) minmax(0, 1.08fr);
+  }
+  .editorial-block--media-start .editorial-block__copy { order: 2; }
+  .editorial-block__media {
+    margin: 0;
+    display: grid;
+    gap: 0.55rem;
+    min-width: 0;
+  }
+  .editorial-block__media picture {
+    display: block;
+    position: relative;
+    aspect-ratio: var(--editorial-media-ratio, 4 / 5);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 32px 8px 32px 8px;
+    background: rgba(20, 16, 42, 0.12);
+    box-shadow: var(--shadow-md);
+  }
+  .editorial-block--media-start .editorial-block__media picture {
+    border-radius: 8px 32px 8px 32px;
+  }
+  .editorial-block__media img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .editorial-block__media figcaption {
+    color: var(--text-faint);
+    font-size: var(--t-small);
+    line-height: 1.45;
+  }
   .scene-ivory .editorial-block__heading { color: var(--on-light); }
   .scene-ivory .editorial-block__p { color: rgba(20, 16, 42, 0.78); }
+  .scene-ivory .editorial-block__media figcaption { color: var(--on-light-faint); }
+  @media (max-width: 760px) {
+    .editorial-block--with-media,
+    .editorial-block--media-start {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    .editorial-block--media-start .editorial-block__copy { order: initial; }
+    .editorial-block__media picture {
+      aspect-ratio: 4 / 3;
+      border-radius: 24px 8px 24px 8px;
+    }
+  }
 </style>

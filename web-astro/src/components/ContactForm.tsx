@@ -42,8 +42,8 @@ const journeyLabels: Record<string, string> = {
 const allowedSources = new Set(["contatti", "mappa-rebel", "percorso"]);
 const modeLabels: Record<string, string> = {
   esplorare: "Capire un trattamento",
-  percorso: "Costruire un percorso con controlli",
-  valutare: "Valutarlo insieme",
+  percorso: "Scegliere un percorso e monitorarlo",
+  valutare: "Valutare insieme",
 };
 
 export default function ContactForm() {
@@ -66,14 +66,14 @@ export default function ContactForm() {
     if (source === "mappa-rebel") {
       const lines = ["Ho compilato la Mappa REBEL online."];
       if (areaLabels[area]) lines.push(`Area: ${areaLabels[area]}.`);
-      if (journeyLabels[path]) lines.push(`Primo orientamento: ${journeyLabels[path]}.`);
-      else if (["glow", "longevity", "forma", "liberta"].includes(path)) lines.push(`Mondo: ${path === "liberta" ? "Libertà" : path[0].toUpperCase() + path.slice(1)}.`);
+      if (journeyLabels[path]) lines.push(`Percorso che mi interessa: ${journeyLabels[path]}.`);
+      else if (["glow", "longevity", "forma", "liberta"].includes(path)) lines.push(`Area che mi interessa: ${path === "liberta" ? "Libertà" : path[0].toUpperCase() + path.slice(1)}.`);
       if (/^[a-z0-9-]{2,32}$/.test(priority)) lines.push(`Priorità selezionata: ${priority.replaceAll("-", " ")}.`);
-      if (modeLabels[mode]) lines.push(`Preferenza di partenza: ${modeLabels[mode]}.`);
-      lines.push("Vorrei valutarlo insieme in studio.");
+      if (modeLabels[mode]) lines.push(`Vorrei: ${modeLabels[mode]}.`);
+      lines.push("Vorrei parlarne durante la valutazione in studio.");
       setForm((value) => ({ ...value, source, message: lines.join("\n") }));
     } else if (source === "percorso" && journeyLabels[path]) {
-      setForm((value) => ({ ...value, source, message: `Vorrei valutare il percorso ${journeyLabels[path]} e capire la combinazione più adatta alla mia priorità.` }));
+      setForm((value) => ({ ...value, source, message: `Mi interessa il percorso ${journeyLabels[path]}. Vorrei capire se può essere adatto alle mie esigenze e come si svolge.` }));
     }
   }, []);
 
@@ -96,7 +96,7 @@ export default function ContactForm() {
       }
       setStatus("ok");
       setFeedback(
-        "Richiesta ricevuta. Ti scriviamo entro poche ore con un orario disponibile.",
+        "Richiesta ricevuta. Ti contattiamo per concordare un orario disponibile.",
       );
       setForm(initial);
     } catch (err) {
@@ -110,8 +110,8 @@ export default function ContactForm() {
       <div className="form__intro">
         <p className="form__kicker">Valutazione REBEL · 30–40 minuti</p>
         <p className="form__note">
-          Una valutazione di 30–40 minuti per capire da dove partire. È gratuita
-          quando viene finalizzata alla costruzione del Percorso REBEL.
+          Parliamo di ciò che vuoi migliorare e capiamo quale trattamento può essere adatto.
+          Se scegli di iniziare il percorso proposto, la valutazione è gratuita.
         </p>
       </div>
 
@@ -193,12 +193,12 @@ export default function ContactForm() {
         className="btn btn--primary btn--halo"
         disabled={status === "loading"}
       >
-        {status === "loading" ? "Invio in corso…" : "Prenota la prima visita"}
+        {status === "loading" ? "Invio in corso…" : "Prenota la valutazione"}
       </button>
 
       <p className="form__small">
-        Inviando il modulo accetti la nostra Privacy Policy. Ti rispondiamo entro
-        poche ore negli orari di apertura.
+        Useremo i tuoi dati solo per rispondere alla richiesta. Ti contattiamo negli
+        orari di apertura.
       </p>
 
       {feedback ? (

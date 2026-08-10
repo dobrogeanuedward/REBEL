@@ -16,12 +16,12 @@ import {
 } from "@/lib/seo";
 import { protocolCards } from "@/lib/content";
 import { rebelJourneys } from "@/lib/rebel-journeys";
-import { servicePages } from "@/lib/seo-content";
+import { servicePages } from "@/lib/seo-content-refined";
 
 const meta = createPageMeta({
   title: "Listino centro estetico, laser e protocolli | Rebel Carmagnola",
   description:
-    "Prezzi Rebel a Carmagnola per i nove percorsi viso, corpo ed epilazione, più beauty, laser e protocolli mirati.",
+    "Consulta i prezzi REBEL a Carmagnola per trattamenti viso e corpo, manicure, pedicure, epilazione laser, nove percorsi personalizzati e protocolli epigenetici.",
   path: "/listino-estetica-laser",
   keywords: [
     "listino centro estetico Carmagnola",
@@ -37,6 +37,21 @@ const meta = createPageMeta({
 const classica = servicePages.filter((s) => s.category === "estetica-classica");
 const laser = servicePages.filter((s) => s.category === "laser");
 
+const formatPrice = (value: string) =>
+  value
+    .replace(/\bEUR\s*(\d+(?:[.,]\d+)?)/gi, "€$1")
+    .replace(/€\s+(\d+(?:[.,]\d+)?)/g, "€$1")
+    .replace(/(\d+)\.(\d{2})\b/g, "$1,$2")
+    .replace(/(€\d+(?:,\d+)?)\s+a\s+(\d+(?:,\d+)?)(?!\s*€)/g, "$1 a €$2")
+    .replace(/\s*\/\s*/g, " / ")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+
+const journeyDescription = (summary: string, duration: string) => {
+  const sentence = summary.replace(/[.\s]+$/, "");
+  return `${sentence}. Durata indicativa: ${duration}.`;
+};
+
 const breadcrumb = buildBreadcrumbSchema([
   { name: "Home", path: "/" },
   { name: "Listino estetica e laser", path: "/listino-estetica-laser" },
@@ -44,7 +59,7 @@ const breadcrumb = buildBreadcrumbSchema([
 const webPage = buildWebPageSchema({
   name: "Listino e prezzi — Rebel Carmagnola",
   description:
-    "Prezzi per estetica e benessere, epilazione Laser Ice Polar e protocolli professionali viso e corpo.",
+    "Prezzi per trattamenti estetici e benessere, epilazione laser con Lumina X1 Pro, percorsi REBEL e protocolli professionali viso e corpo.",
   path: "/listino-estetica-laser",
 });
 const listinoSchema = buildItemListSchema({
@@ -59,13 +74,13 @@ const journeySchema = buildItemListSchema({
   name: "I nove percorsi Rebel",
   path: "/listino-estetica-laser",
   items: rebelJourneys.map((journey) => ({
-    name: journey.name,
+    name: journey.slug === "white" ? "Uniformare · White" : journey.name,
     path: `/percorsi/${journey.slug}`,
   })),
 });
 
 const switchItems = [
-  { href: "#estetica", label: "Viso, corpo e beauty", glyph: "✦" },
+  { href: "#estetica", label: "Trattamenti e benessere", glyph: "✦" },
   { href: "#laser", label: "Epilazione laser", glyph: "◉" },
   { href: "#percorsi", label: "I 9 Percorsi REBEL", glyph: "⬡" },
 ];
@@ -79,11 +94,11 @@ const switchItems = [
   <PageHero
     image={media.studio.cabin}
     kicker="Listino Rebel · Carmagnola"
-    title="Prezzi di _viso, corpo, beauty e laser_."
-    lead="Consulta i prezzi dei singoli servizi e apri la relativa scheda per leggere descrizione, durata indicativa e informazioni utili. La valutazione REBEL è gratuita quando finalizzata alla costruzione del Percorso."
-    bullets={["Prezzi pubblicati online", "Scheda per ogni servizio", "Valutazione REBEL · 30–40 min"]}
-    meta={["Nove percorsi con prezzo", "Viso, corpo e laser", "Valutazione professionale"]}
-    ctaPrimary={{ label: "Prenota la prima visita", href: "/contatti", halo: true }}
+    title="Prezzi chiari per _trattamenti, percorsi e laser_."
+    lead="Consulta prezzi, durata indicativa e informazioni utili prima di prenotare. Se scegli di iniziare il percorso proposto, la valutazione REBEL è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi."
+    bullets={["Prezzi pubblicati online", "Dettagli per ogni servizio", "Valutazione REBEL · 30–40 min"]}
+    meta={["Trattamenti singoli", "Nove percorsi REBEL", "Epilazione laser"]}
+    ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Scrivici su WhatsApp", href: "https://wa.me/393516919416" }}
   />
 
@@ -103,16 +118,16 @@ const switchItems = [
   <section class="section" id="estetica">
     <div class="container">
       <SectionHead
-        kicker="Viso, corpo e beauty"
+        kicker="Trattamenti e benessere"
         title="Pulizia viso, manicure, pedicure, ceretta e massaggi."
-        lead="Servizi estetici prenotabili singolarmente, con prezzo e durata indicativa riportati nella scheda dedicata."
+        lead="Puoi prenotare ogni servizio singolarmente. Nella scheda trovi prezzo, durata indicativa e tutto ciò che è utile sapere."
       />
       <div class="price-grid">
         {classica.map((item) => (
           <PriceRow
             name={item.name}
             description={item.shortDescription}
-            price={item.priceHint}
+            price={formatPrice(item.priceHint)}
             href={`/servizi/${item.slug}`}
           />
         ))}
@@ -124,15 +139,15 @@ const switchItems = [
     <div class="container">
       <SectionHead
         kicker="Epilazione laser"
-        title="Prezzi Laser Ice Polar per viso e corpo."
-        lead="Lumina X1 Pro di THORY integra quattro lunghezze d’onda documentate; il comfort ICE Polar accompagna la seduta come elemento distinto. Apri la zona interessata per leggere prezzo e informazioni specifiche."
+        title="Prezzi dell’epilazione laser per viso e corpo."
+        lead="Per l’epilazione utilizziamo Lumina X1 Pro di THORY con raffreddamento a contatto ICE Polar. Scegli la zona per vedere prezzo e informazioni specifiche."
       />
       <div class="price-grid">
         {laser.map((item) => (
           <PriceRow
             name={item.name}
             description={item.shortDescription}
-            price={item.priceHint}
+            price={formatPrice(item.priceHint)}
             href={`/servizi/${item.slug}`}
           />
         ))}
@@ -148,15 +163,15 @@ const switchItems = [
     <div class="container">
       <SectionHead
         kicker="I nove Percorsi REBEL"
-        title="Una priorità, una pagina, un prezzo di partenza."
-        lead="Skin Reset, Barrier, Balance, Glow, White, Structure, Longevity, Forma e Libertà. Ogni scheda riporta durata, materia, botaniche e tecnologie selezionabili."
+        title="Scegli in base a ciò che vuoi migliorare."
+        lead="Skin Reset, Barrier, Balance, Glow, Uniformare · White, Structure, Longevity, Forma e Libertà. Per ogni percorso trovi obiettivo, durata, ingredienti e tecnologie che possono essere utilizzate."
       />
       <div class="price-grid">
         {rebelJourneys.map((item) => (
           <PriceRow
             name={item.slug === "white" ? "Uniformare · White" : item.name}
-            description={`${item.priority} · ${item.summary} · ${item.duration}`}
-            price={item.price}
+            description={journeyDescription(item.summary, item.duration)}
+            price={formatPrice(item.price)}
             href={`/percorsi/${item.slug}`}
           />
         ))}
@@ -167,12 +182,12 @@ const switchItems = [
   <section class="section section--tight" id="protocolli-mirati">
     <div class="container">
       <SectionHead
-        kicker="Protocolli mirati"
-        title="Trattamenti professionali già prenotabili."
-        lead="Lift, Rebirth 60+, Eye Genesis, Catalysis, Collagen e Cell Regen restano disponibili con la propria scheda e il proprio prezzo."
+        kicker="Protocolli epigenetici"
+        title="Trattamenti professionali per viso e corpo."
+        lead="Consulta Lift, Rebirth 60+, Eye Genesis, Catalysis, Collagen e Cell Regen. Per ogni trattamento trovi a chi è rivolto, come si svolge e il prezzo."
       />
       <div class="price-grid">
-        {protocolCards.map((item) => <PriceRow name={item.name} description={item.desc} price={item.price} href={`/protocolli/${item.slug}`} />)}
+        {protocolCards.map((item) => <PriceRow name={item.name} description={item.desc} price={formatPrice(item.price)} href={`/protocolli/${item.slug}`} />)}
       </div>
     </div>
   </section>
@@ -190,13 +205,13 @@ const switchItems = [
     <div class="container">
       <InlineCta
         kicker="Valutazione REBEL · 30–40 minuti"
-        title="Ricevi una proposta con trattamento, _frequenza e prezzo_."
-        lead="In 30–40 minuti valutiamo la zona interessata e ti spieghiamo il programma consigliato prima di prenotare. La valutazione è gratuita quando viene finalizzata alla costruzione del Percorso REBEL."
+        title="Hai un dubbio? Ti aiutiamo a scegliere _come iniziare_."
+        lead="Durante la valutazione parliamo del risultato che desideri, osserviamo la pelle o l’area da trattare e ti spieghiamo trattamento, frequenza e prezzo. Se scegli di iniziare il percorso proposto, la valutazione è gratuita."
       />
     </div>
   </section>
 
-  <StickyBookingBar primary={{ label: "Prenota la prima visita", href: "/contatti" }} />
+  <StickyBookingBar primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
 </BaseLayout>
 
 <style>
