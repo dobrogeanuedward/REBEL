@@ -26,6 +26,8 @@ const ritualLabels: Record<string, string> = {
 const sourceLabels: Record<string, string> = {
   "landing-prima-visita": "Landing · Valutazione REBEL",
   "landing-laser": "Landing · Epilazione laser (prova)",
+  "landing-laser-offer": "Landing · Promo epilazione laser",
+  "promo-laser": "Promo epilazione laser",
   "landing-viso": "Landing · Protocollo viso",
   "landing-prenota": "Landing · Prenota (ads)",
   "homepage-promo": "Homepage · Promo banner",

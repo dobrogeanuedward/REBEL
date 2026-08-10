@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build && node scripts/audit-human-copy.mjs && node scripts/upload-rebel-r2.mjs --confirm-if-configured",
+    "build": "node --import tsx scripts/test-laser-offer.ts && astro check && astro build && node scripts/audit-human-copy.mjs && node scripts/upload-rebel-r2.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "test:r2-mcp": "node --import tsx --test scripts/rebel-r2-mcp.test.mjs",
@@ -14,6 +14,7 @@
     "sync:r2-assets": "node scripts/upload-rebel-r2.mjs --confirm",
     "sync:r2-assets:deploy": "node scripts/upload-rebel-r2.mjs --confirm-if-configured",
     "audit:copy": "node scripts/audit-human-copy.mjs",
+    "test:laser-offer": "node --import tsx scripts/test-laser-offer.ts",
     "typecheck": "astro check"
   },
   "dependencies": {

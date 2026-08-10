@@ -14,15 +14,17 @@ interface Props {
   priceHint?: string;
   primary?: Cta;
   whatsappHref?: string;
+  promo?: boolean;
 }
 
 const {
   priceHint,
   primary = { label: "Prenota la valutazione", href: "/contatti" },
   whatsappHref = siteConfig.social.whatsapp,
+  promo = false,
 } = Astro.props;
 ---
-<div class="sticky-book" data-sticky-book data-visible="false" aria-hidden="true" inert>
+<div class:list={["sticky-book", { "sticky-book--promo": promo }]} data-sticky-book data-visible="false" aria-hidden="true" inert>
   {priceHint ? <span class="sticky-book__price">{priceHint}</span> : null}
   <div class="sticky-book__actions">
     <a class="sticky-book__wa" href={whatsappHref} target="_blank" rel="noreferrer" aria-label="Scrivici su WhatsApp">
@@ -93,6 +95,34 @@ const {
   .sticky-book__primary { flex: 1; text-align: center; white-space: nowrap; }
   @media (max-width: 860px) {
     .sticky-book { display: flex; }
+  }
+  @media (max-width: 640px) {
+    .sticky-book {
+      display: grid;
+      gap: 0.45rem;
+      padding-inline: 0.75rem;
+    }
+    .sticky-book__price {
+      text-align: center;
+      white-space: normal;
+    }
+    .sticky-book__actions {
+      width: 100%;
+      min-width: 0;
+      margin-left: 0;
+    }
+    .sticky-book__wa { flex: 0 0 auto; }
+    .sticky-book__primary {
+      min-width: 0;
+      padding-inline: 0.75rem;
+      line-height: 1.15;
+      white-space: normal;
+    }
+    .sticky-book--promo {
+      display: flex;
+      gap: 0;
+    }
+    .sticky-book--promo .sticky-book__price { display: none; }
   }
 </style>
 

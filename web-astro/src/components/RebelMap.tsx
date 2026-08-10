@@ -46,7 +46,7 @@ export default function RebelMap() {
         <div>
           <p className="rebel-kicker">Mappa REBEL · scegli il percorso</p>
           <h3 id="rb-map-title"><span>Scegli ciò che vuoi migliorare.</span><em>Scopri da dove iniziare.</em></h3>
-          <p>Filtra i percorsi per viso, corpo o laser. Selezionane uno per vedere prezzo di partenza, ingredienti e tecnologie.</p>
+          <p>Filtra i percorsi per viso, corpo o laser. Apri una scheda per vedere il prezzo di partenza, gli ingredienti e le tecnologie previsti per quel percorso.</p>
         </div>
       </header>
 
@@ -100,7 +100,7 @@ export default function RebelMap() {
                   <strong>{displayName}</strong>
                 </span>
                 <span className="rb-map__price">
-                  <small>A partire da</small>
+                  <small>{journey.slug === "liberta" ? "Listino ordinario da" : "A partire da"}</small>
                   <strong>{startingPrice(journey)}</strong>
                 </span>
                 <span className="rb-map__chevron" aria-hidden="true">
@@ -114,7 +114,7 @@ export default function RebelMap() {
                 <div className="rb-map__description">
                   <p>{journey.summary}</p>
                   <dl>
-                    <div><dt>Può fare per te se</dt><dd>{journey.recognize}</dd></div>
+                    <div><dt>Quando valutarlo</dt><dd>{journey.recognize}</dd></div>
                     <div><dt>Durata indicativa</dt><dd>{journey.duration}</dd></div>
                   </dl>
                 </div>
@@ -145,7 +145,7 @@ export default function RebelMap() {
                 <div className="rb-map__technology">
                   {journey.technologies.length > 0 ? (
                     <section>
-                      <h4>Tecnologie che possiamo utilizzare</h4>
+                      <h4>{journey.slug === "liberta" ? "Tecnologia del percorso" : "Tecnologie che possiamo valutare"}</h4>
                       <ul>{journey.technologies.map((technology) => <li key={technology}>{technology}</li>)}</ul>
                     </section>
                   ) : (

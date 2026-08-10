@@ -363,6 +363,7 @@
 .journey-price small { display:block; }
 .journey-price span { color:#ff8fc6; font-size:clamp(1.6rem,3vw,2.6rem); font-weight:850; }
 .journey-price small { margin-top:.25rem; color:rgba(255,255,255,.72); }
+.journey-price .journey-price__label { margin:0 0 .35rem; font-size:.68rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
 
 .journey-recognition {
   display: grid;
@@ -616,7 +617,7 @@
 
 @media (max-width: 480px) {
   .journey-matter__group--botanical { grid-template-columns:minmax(0,1fr) minmax(7rem,32vw); gap:.5rem; }
-  .journey-matter__cutout { width:auto; margin:0 -.9rem 0 0; }
+  .journey-matter__cutout { width:auto; margin:0 -.7rem 0 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {

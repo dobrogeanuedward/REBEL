@@ -1,0 +1,95 @@
+---
+import { laserOffer } from "@/lib/laser-offer";
+
+interface Props {
+  id?: string;
+  compact?: boolean;
+  primaryHref?: string;
+  primaryLabel?: string;
+  showDetailsLink?: boolean;
+}
+
+const {
+  id = laserOffer.id,
+  compact = false,
+  primaryHref = laserOffer.contactPath,
+  primaryLabel = "Richiedi la promo",
+  showDetailsLink = true,
+} = Astro.props;
+
+const siteAsset = (slot: string) => `/api/site-asset?slot=${encodeURIComponent(slot)}`;
+const titleId = `${id}-title`;
+---
+<aside
+  id={id}
+  class:list={["laser-offer", { "laser-offer--compact": compact }]}
+  aria-labelledby={titleId}
+  data-laser-offer
+  data-reveal
+>
+  <div class="laser-offer__copy">
+    <div class="laser-offer__eyebrow">
+      <span>{laserOffer.campaignLabel}</span>
+      <span>{laserOffer.locationLabel}</span>
+    </div>
+
+    <h2 id={titleId} class="laser-offer__title">{laserOffer.headline}</h2>
+    <p class="laser-offer__lead">{laserOffer.summary}</p>
+
+    <dl class="laser-offer__prices" aria-label="Prezzi della promozione laser">
+      <div class="laser-offer__price laser-offer__price--hero">
+        <dt>{laserOffer.zone.label}</dt>
+        <dd><span>{laserOffer.zone.price}</span><small>{laserOffer.zone.sessionLabel}</small></dd>
+      </div>
+      <div class="laser-offer__price">
+        <dt>{laserOffer.totalBody.label}</dt>
+        <dd><span>{laserOffer.totalBody.price}</span><small>{laserOffer.totalBody.detail} · {laserOffer.totalBody.sessionLabel}</small></dd>
+      </div>
+    </dl>
+
+    <p class="laser-offer__zone-note">
+      <strong>{laserOffer.zoneCounting.label}.</strong> {laserOffer.zoneCounting.note}
+    </p>
+
+    {laserOffer.financing.enabled ? (
+      <div class="laser-offer__finance">
+        <span aria-hidden="true">◌</span>
+        <p>
+          <strong>{laserOffer.financing.title}</strong>
+          <small>{laserOffer.financing.provider} · {laserOffer.financing.detail}</small>
+          <small>{laserOffer.financing.scope}</small>
+        </p>
+      </div>
+    ) : null}
+
+    <div class="laser-offer__actions">
+      <a class="btn btn--primary btn--halo" href={primaryHref}>{primaryLabel}</a>
+      {showDetailsLink ? <a class="laser-offer__link" href={laserOffer.landingPath}>Scopri condizioni e percorso <span aria-hidden="true">→</span></a> : null}
+    </div>
+
+    <p class="laser-offer__note">
+      {laserOffer.disclaimer} {laserOffer.validity.label} {laserOffer.financing.enabled ? laserOffer.financing.note : ""}
+    </p>
+  </div>
+
+  <figure class="laser-offer__media">
+    <picture>
+      <source media="(max-width: 760px)" srcset={siteAsset(laserOffer.imageMobileSlot)} />
+      <img
+        src={siteAsset(laserOffer.imageSlot)}
+        alt="Manipolo utilizzato durante una seduta di epilazione laser REBEL"
+        width="1536"
+        height="1024"
+        loading="lazy"
+        decoding="async"
+      />
+    </picture>
+    <figcaption>{laserOffer.technology}</figcaption>
+    {laserOffer.discount.enabled ? (
+      <div class="laser-offer__discount" aria-label={`${laserOffer.discount.value} ${laserOffer.discount.label}`}>
+        <strong>{laserOffer.discount.value}</strong>
+        <span>{laserOffer.discount.label}</span>
+      </div>
+    ) : null}
+  </figure>
+</aside>

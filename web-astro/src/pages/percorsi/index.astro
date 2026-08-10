@@ -9,7 +9,7 @@ import "@/styles/journey-pages.css";
 
 const meta = createPageMeta({
   title: "I 9 Percorsi REBEL — Viso, corpo ed epilazione a Carmagnola",
-  description: "Scopri Skin Reset, Barrier, Balance, Glow, White, Structure, Longevity, Forma e Libertà: esigenze, durata, prezzi e trattamenti possibili.",
+  description: "Scopri Skin Reset, Barrier, Balance, Glow, White, Structure, Longevity, Forma e Libertà: esigenze, durata, prezzi e cosa può includere ogni percorso.",
   path: "/percorsi",
   openGraphType: "article",
   keywords: ["percorsi viso Carmagnola", "trattamenti corpo Carmagnola", "Metodo Rebel", "prezzi trattamenti viso"],
@@ -63,7 +63,7 @@ const journeyAreas = [
       <div class="rebel-container journey-hub__intro">
         <p class="rebel-kicker">Viso · corpo · laser</p>
         <h1 class="rebel-display">Tre aree.<br/>Nove percorsi.</h1>
-        <p class="rebel-lead">Scegli l’area e il risultato su cui vuoi lavorare. Per ogni percorso trovi a chi è rivolto, cosa può includere, durata e prezzo di partenza.</p>
+        <p class="rebel-lead">Scegli l’area e l’esigenza da cui vuoi partire. Per ogni percorso trovi a chi è rivolto, cosa può includere, durata e prezzo di partenza.</p>
         <div class="rebel-hero__actions">
           <a class="btn btn--primary" href="/#mappa-rebel-live">Scopri da dove partire</a>
           <a class="btn btn--secondary" href="/contatti">Prenota la valutazione</a>
@@ -96,7 +96,7 @@ const journeyAreas = [
       <div class="rebel-container">
         <p class="rebel-kicker">Tutti i percorsi</p>
         <h2 class="rebel-title">Confronta i nove percorsi REBEL.</h2>
-        <p class="rebel-lead">I prezzi indicati sono di partenza. Prima di iniziare ti confermiamo trattamento, durata ed eventuali tecnologie.</p>
+        <p class="rebel-lead">I prezzi indicati sono di partenza. Prima di iniziare ti confermiamo trattamento, durata, prezzo ed eventuali tecnologie.</p>
         <div class="journey-index">
           {rebelJourneys.map((journey) => {
             const visual = getJourneyVisual(journey.slug);

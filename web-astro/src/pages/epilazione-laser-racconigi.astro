@@ -9,6 +9,7 @@ import SplitFeature from "@/components/SplitFeature.astro";
 import FullBleedBand from "@/components/FullBleedBand.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
+import LaserOffer from "@/components/LaserOffer.astro";
 import {
   buildBreadcrumbSchema,
   buildServiceSchema,
@@ -18,13 +19,14 @@ import {
 } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 import { getPageMedia } from "@/lib/page-media";
+import { laserOffer } from "@/lib/laser-offer";
 
 const m = getPageMedia("/epilazione-laser-racconigi");
 
 const meta = createPageMeta({
   title: "Epilazione laser da Racconigi | REBEL Carmagnola",
   description:
-    "Epilazione laser per chi arriva da Racconigi: valutazione iniziale, Lumina X1 Pro di THORY, ICE Polar e prezzi da 25,90 € a zona.",
+    "Epilazione laser per chi arriva da Racconigi: valutazione iniziale, Lumina X1 Pro di THORY, ICE Polar e listino ordinario da 25,90 € a zona.",
   path: "/epilazione-laser-racconigi",
   image: "https://www.rebelepigenetica.it/img/generated/laser-hero-icepolar.webp",
   openGraphType: "article",
@@ -75,7 +77,6 @@ const laserServiceSchema = buildServiceSchema(
   "Epilazione laser viso e corpo presso REBEL a Carmagnola, con valutazione iniziale, Lumina X1 Pro di THORY e raffreddamento ICE Polar.",
   "/epilazione-laser-racconigi",
   {
-    priceFrom: 25.9,
     keywords: [
       "epilazione laser Racconigi",
       "laser Racconigi CN",
@@ -111,13 +112,6 @@ const geoServiceSchema = {
       geoRadius: "7000",
     },
   ],
-  offers: {
-    "@type": "Offer",
-    priceCurrency: "EUR",
-    price: "25.90",
-    url: `${siteConfig.siteUrl}/contatti`,
-    availability: "https://schema.org/InStock",
-  },
 };
 
 const faqs = [
@@ -139,7 +133,7 @@ const faqs = [
   },
   {
     q: "Quanto costa la valutazione?",
-    a: "Se scegli di iniziare il Percorso REBEL, la valutazione è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi.",
+    a: "Se scegli di iniziare il Percorso REBEL, la valutazione iniziale è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi.",
   },
   {
     q: "Posso prenotare il laser e un altro servizio nello stesso giorno?",
@@ -282,10 +276,14 @@ const nearbyAreas = [
     title="Epilazione laser per chi arriva da _Racconigi_."
     lead="Valutiamo pelle, pelo e zone prima di definire parametri, intervalli e prezzo. Utilizziamo Lumina X1 Pro di THORY con raffreddamento ICE Polar."
     bullets={["Studio in Viale Barbaroux 20, Carmagnola", "Lumina X1 Pro · ICE Polar", "Valutazione prima del percorso"]}
-    meta={["Epilazione laser viso e corpo", "Da 25,90 € a zona"]}
+    meta={["Epilazione laser viso e corpo", "Listino ordinario da 25,90 € a zona"]}
     ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp }}
   />
+
+  <section class="section section--tight">
+    <div class="container"><LaserOffer compact /></div>
+  </section>
 
   <section class="section">
     <div class="container">
@@ -450,7 +448,7 @@ const nearbyAreas = [
         title="Prezzi dell’epilazione _laser_."
       />
       <p class="body-p">
-        Il prezzo parte da <strong>25,90 € a zona</strong> e varia in base all’estensione e
+        Fuori dalla promozione, il prezzo ordinario parte da <strong>25,90 € a zona</strong> e varia in base all’estensione e
         alle aree scelte. Durante la valutazione ricevi una proposta con trattamento,
         frequenza e prezzo. Consulta il listino completo per tutte le voci.
       </p>
@@ -470,7 +468,7 @@ const nearbyAreas = [
           side="left"
           kicker="Valutazione iniziale"
           title="Zone, calendario e _prezzo_."
-          body="Se scegli di iniziare il Percorso REBEL, la valutazione è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi. Durante la valutazione esaminiamo pelle, pelo e zone e ti spieghiamo parametri, calendario e prezzo."
+          body="Se scegli di iniziare il Percorso REBEL, la valutazione iniziale è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi. Durante la valutazione esaminiamo pelle, pelo e zone e ti spieghiamo parametri, calendario e prezzo."
           bullets={["Pelle, pelo e zone valutati prima di iniziare", "Calendario e prezzo spiegati durante la valutazione", "Eventuali prodotti per casa non inclusi"]}
           cta={{ label: "Prenota la valutazione", href: "/contatti" }}
           ctaSecondary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp }}
@@ -530,7 +528,7 @@ const nearbyAreas = [
       <InlineCta
         kicker="Valutazione iniziale"
         title="Prenota la _valutazione laser_."
-        lead="Se scegli di iniziare il Percorso REBEL, la valutazione è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi."
+        lead="Se scegli di iniziare il Percorso REBEL, la valutazione iniziale è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi."
         primaryLabel="Prenota la valutazione"
         primaryHref="/contatti"
         secondaryLabel="Scrivici su WhatsApp"
@@ -539,7 +537,7 @@ const nearbyAreas = [
     </div>
   </section>
 
-  <StickyBookingBar priceHint="Epilazione laser da 25,90 € a zona" primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
+  <StickyBookingBar promo priceHint={laserOffer.stickyLabel} primary={{ label: "Richiedi la promo", href: laserOffer.contactPath }} />
 </BaseLayout>
 
 <style>

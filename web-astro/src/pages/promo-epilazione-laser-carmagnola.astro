@@ -1,0 +1,185 @@
+---
+import LandingLayout from "@/layouts/LandingLayout.astro";
+import LandingHero from "@/components/landing/LandingHero.astro";
+import LandingProof from "@/components/landing/LandingProof.astro";
+import LandingSteps from "@/components/landing/LandingSteps.astro";
+import LandingFaq from "@/components/landing/LandingFaq.astro";
+import LandingFormCard from "@/components/landing/LandingFormCard.astro";
+import FullBleedBand from "@/components/FullBleedBand.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import { createPageMeta, buildBreadcrumbSchema } from "@/lib/seo";
+import { media } from "@/lib/page-media";
+import { laserOffer, laserOfferContactMessage } from "@/lib/laser-offer";
+import { siteConfig } from "@/lib/site-config";
+
+const meta = createPageMeta({
+  title: `Promo epilazione laser Carmagnola — ${laserOffer.zone.price} a zona | REBEL`,
+  description:
+    `Promo epilazione laser REBEL a Carmagnola: ${laserOffer.zone.price} per zona, per seduta, e Total Body ${laserOffer.totalBody.price} per ${laserOffer.totalBody.detail}, per seduta. Lumina X1 Pro con ICE Polar.`,
+  path: laserOffer.landingPath,
+  keywords: [
+    "promo epilazione laser Carmagnola",
+    "offerta laser Carmagnola",
+    "promo laser zona Carmagnola",
+    "total body laser Carmagnola",
+    "ICE Polar Carmagnola",
+  ],
+  indexable: false,
+});
+
+const breadcrumb = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Promo epilazione laser", path: laserOffer.landingPath },
+]);
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Epilazione laser con Lumina X1 Pro e ICE Polar",
+  serviceType: "Epilazione laser",
+  provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
+  areaServed: siteConfig.areasServed,
+  description:
+    "Percorso di epilazione laser definito dopo la valutazione iniziale in base a pelle, caratteristiche del pelo, zone e calendario delle sedute.",
+};
+
+const faqs = [
+  {
+    q: "Quali sono i prezzi della promo laser?",
+    a: `La promo prevede ${laserOffer.zone.price} per zona, per seduta, oppure Total Body a ${laserOffer.totalBody.price} per ${laserOffer.totalBody.detail}, per seduta. ${laserOffer.validity.label}`,
+  },
+  {
+    q: "Quali zone comprende il Total Body?",
+    a: `Il Total Body comprende ${laserOffer.totalBody.detail} per seduta. Le zone da trattare vengono concordate e confermate prima di iniziare, in base alle tue esigenze e a quanto emerge dalla valutazione iniziale.`,
+  },
+  {
+    q: "Come vengono conteggiate le zone?",
+    a: laserOffer.zoneCounting.note,
+  },
+  {
+    q: "La promo sostituisce il listino ordinario?",
+    a: "No. È un’offerta separata dal listino ordinario del Percorso Libertà. Prima di iniziare ti confermiamo zone, calendario, condizioni della promo e prezzo.",
+  },
+  {
+    q: "Quando posso usare PagoDIL?",
+    a: laserOffer.financing.faq,
+  },
+  {
+    q: "Come capisco se l’epilazione laser è adatta a me?",
+    a: "Durante la valutazione iniziale osserviamo pelle, fototipo, caratteristiche del pelo e zone. Ti spieghiamo come impostare parametri e calendario prima della prima seduta.",
+  },
+  {
+    q: "Quante sedute servono?",
+    a: "Il numero varia in base alla zona, alla pelle, alle caratteristiche del pelo e all’andamento osservato durante il percorso. Dopo la valutazione ti diamo una prima indicazione e la aggiorniamo durante i controlli.",
+  },
+  {
+    q: "A cosa serve ICE Polar?",
+    a: "ICE Polar raffredda la pelle a contatto durante la seduta con Lumina X1 Pro. La sensazione può cambiare da persona a persona: durante il trattamento ti chiediamo come stai e adattiamo i parametri se necessario.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: { "@type": "Answer", text: faq.a },
+  })),
+};
+---
+<LandingLayout
+  meta={meta}
+  bodyClass="page-landing--laser page-landing--laser-offer"
+  ctaHref="#form"
+  ctaLabel="Richiedi la promo"
+>
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={serviceSchema} />
+  <JsonLd data={faqSchema} />
+
+  <LandingHero
+    media={media.laser.hero}
+    badge={`${laserOffer.campaignLabel} · ${laserOffer.discount.value}`}
+    kicker="REBEL · Carmagnola"
+    title={`${laserOffer.zone.price} a zona. Total Body _${laserOffer.totalBody.price}._`}
+    lead="Lumina X1 Pro di THORY con raffreddamento a contatto ICE Polar. Prima di iniziare valutiamo pelle, pelo e zone e definiamo insieme il percorso."
+    bullets={[
+      { text: `${laserOffer.zone.price} per zona, per seduta.` },
+      { text: `${laserOffer.totalBody.label} ${laserOffer.totalBody.price} · ${laserOffer.totalBody.detail} a seduta.` },
+      { text: laserOffer.zoneCounting.shortNote },
+      { text: "Valutazione iniziale di 30–40 minuti, gratuita se inizi il Percorso Libertà." },
+      { text: `Percorso completo personalizzato dilazionabile con ${laserOffer.financing.provider} fino a ${laserOffer.financing.maxInstallments} rate.` },
+    ]}
+    primaryCta={{ label: "Richiedi la promo", href: "#form" }}
+    secondaryCta={{ label: "Come funziona il percorso", href: "/epilazione-laser-carmagnola" }}
+    footnote={`${laserOffer.validity.label} ${laserOffer.financing.provider}: servizio soggetto all’approvazione di ${laserOffer.financing.lender}. Zone e condizioni vengono confermate prima di iniziare.`}
+  />
+
+  <LandingProof
+    kicker="Cosa comprende l’offerta"
+    items={[
+      {
+        title: `${laserOffer.zone.price} per zona`,
+        body: `Il prezzo promozionale riguarda una singola zona per seduta. ${laserOffer.zoneCounting.note}`,
+      },
+      {
+        title: `Total Body ${laserOffer.totalBody.price}`,
+        body: `La formula Total Body comprende ${laserOffer.totalBody.detail} per seduta, definite e confermate prima di iniziare.`,
+      },
+      {
+        title: "Comfort ICE Polar",
+        body: "Il raffreddamento a contatto accompagna la seduta. Ti chiediamo come lo percepisci e adattiamo i parametri quando serve.",
+      },
+      {
+        title: "Percorso personalizzato",
+        body: "Numero di sedute, intervalli e parametri vengono definiti in base a pelle, pelo, zone e andamento osservato.",
+      },
+    ]}
+  />
+
+  <LandingSteps
+    kicker="Come iniziare"
+    title="Dalla richiesta al tuo percorso laser."
+    steps={[
+      {
+        title: "Richiedi la promo",
+        body: "Lascia nome e numero e, se vuoi, indica già le zone che ti interessano.",
+      },
+      {
+        title: "Concordiamo la valutazione",
+        body: "Ti contattiamo su WhatsApp o al telefono per scegliere un orario disponibile.",
+      },
+      {
+        title: "Valutiamo pelle, pelo e zone",
+        body: "In 30–40 minuti verifichiamo se il trattamento può essere indicato e definiamo parametri iniziali, calendario e prezzo.",
+      },
+      {
+        title: "Scegli come iniziare",
+        body: `Ti confermiamo la promo. Se attivi il percorso completo personalizzato, puoi richiedere ${laserOffer.financing.provider} e scegliere il numero di rate disponibile per l’importo.`,
+      },
+    ]}
+  />
+
+  <FullBleedBand
+    image={media.laser.mood}
+    height="sm"
+    align="center"
+    kicker="Lumina X1 Pro · ICE Polar"
+    quote="Prima definiamo zone, parametri e calendario. Poi inizia il percorso."
+    cite="Studio REBEL · Viale Barbaroux 20"
+  />
+
+  <LandingFormCard
+    kicker="Promo epilazione laser"
+    title="Richiedi la promo."
+    lead="Bastano nome e numero. Se vuoi, indica già le zone che vorresti trattare: ti ricontattiamo per fissare la valutazione iniziale."
+    source="landing-laser-offer"
+    defaultMessage={laserOfferContactMessage}
+    submitLabel="Richiedi la promo"
+    showRitual={false}
+    showMessage={true}
+  />
+
+  <LandingFaq items={faqs} />
+</LandingLayout>

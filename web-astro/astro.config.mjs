@@ -21,6 +21,7 @@ export default defineConfig({
   },
   // 301 redirects: cleaned-up competence slugs (removed "guida pratica/realistica").
   redirects: {
+    "/epilazione-laser-prova": "/promo-epilazione-laser-carmagnola",
     "/competenze/epilazione-laser-viso-carmagnola-guida-realistica":
       "/competenze/epilazione-laser-viso-carmagnola-cosa-sapere",
     "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica":
@@ -54,7 +55,9 @@ export default defineConfig({
         // /prenota is a noindex ads landing — keep it out of the sitemap so
         // it never competes with the canonical pages on SEO.
         !page.endsWith("/prenota") &&
-        !page.endsWith("/prenota/"),
+        !page.endsWith("/prenota/") &&
+        !page.endsWith("/promo-epilazione-laser-carmagnola") &&
+        !page.endsWith("/promo-epilazione-laser-carmagnola/"),
       changefreq: "weekly",
       priority: 0.7,
     }),

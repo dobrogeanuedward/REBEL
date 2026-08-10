@@ -25,7 +25,7 @@ export const protocolPages: ProtocolPage[] = [
     price: "€148",
     shortDescription: "Trattamento viso dedicato alla perdita di tono, a un ovale meno definito e a una pelle spenta.",
     longDescription:
-      "Rebel Lift Protocol è un trattamento viso pensato per lavorare su un aspetto più tonico, sulla definizione dell’ovale e sulla luminosità. Durante la valutazione controlliamo elasticità, idratazione, sensibilità e routine, poi definiamo sedute, frequenza e mantenimento.",
+      "Rebel Lift Protocol è un trattamento viso dedicato a chi desidera lavorare su tono, definizione dell’ovale e luminosità. Durante la valutazione osserviamo elasticità, idratazione, sensibilità e routine, poi definiamo sedute, frequenza e mantenimento.",
     keywords: [
       "Rebel Lift Protocol",
       "protocollo viso Carmagnola",
@@ -87,7 +87,7 @@ export const protocolPages: ProtocolPage[] = [
     price: "€148",
     shortDescription: "Protocollo per pelle matura, secca o sottile, dedicato a nutrimento e comfort.",
     longDescription:
-      "Rebirth 60+ è un protocollo viso dedicato alla pelle matura oppure particolarmente secca, sottile e bisognosa di comfort. Valutiamo idratazione, sensibilità, elasticità e routine per definire prodotti, intensità, frequenza e mantenimento.",
+      "Rebirth 60+ è un protocollo viso dedicato alla pelle matura oppure particolarmente secca, sottile o che tende a tirare. Valutiamo idratazione, sensibilità, elasticità e routine per definire prodotti, intensità, frequenza e mantenimento.",
     keywords: [
       "Rebirth 60+",
       "pelle matura Carmagnola",
@@ -95,27 +95,27 @@ export const protocolPages: ProtocolPage[] = [
       "estetica avanzata Carmagnola",
     ],
     benefits: [
-      "Dedicato a secchezza, minore elasticità e sensazione di pelle sottile o poco confortevole",
+      "Dedicato a secchezza, minore elasticità e pelle che tende a tirare",
       "Prodotti e intensità scelti in base alla sensibilità della pelle matura",
       "Una routine semplice da seguire a casa, pensata per idratare e proteggere la pelle",
     ],
     faqs: [
       { q: "È riservato alle persone sopra i 60 anni?", a: "No. Il nome indica il tipo di esigenza, non un limite anagrafico. Può essere adatto anche prima quando la pelle è molto secca, sottile o poco elastica." },
       { q: "È adatto a una pelle sensibile?", a: "La sensibilità viene valutata prima del trattamento. Prodotti, intensità e frequenza vengono adattati alle condizioni osservate." },
-      { q: "Che cosa posso aspettarmi dopo la prima seduta?", a: "Il primo obiettivo della seduta è migliorare il comfort e l’idratazione percepita. Per lavorare su tono ed elasticità viene in genere proposto un programma su più appuntamenti." },
+      { q: "Che cosa posso aspettarmi dopo la prima seduta?", a: "La prima seduta è dedicata soprattutto a comfort e idratazione. Se l’obiettivo riguarda anche tono ed elasticità, valutiamo un programma con più appuntamenti." },
     ],
     editorialSections: [
       {
-        heading: "Per quali caratteristiche della pelle",
+        heading: "Quando può essere indicato",
         paragraphs: [
-          "Rebirth 60+ è pensato per una pelle matura, secca, sottile o meno elastica, soprattutto quando compaiono sensazione di tensione e bisogno di maggiore nutrimento.",
+          "Rebirth 60+ è pensato per una pelle matura, secca, sottile o meno elastica, soprattutto quando tende a tirare e ha bisogno di maggiore nutrimento.",
           "La valutazione controlla anche eventuale reattività, così possiamo scegliere prodotti e intensità compatibili.",
         ],
       },
       {
         heading: "Sedute e frequenza",
         paragraphs: [
-          "Costruiamo il programma partendo dalla pelle e dal tempo che puoi dedicargli.",
+          "Definiamo numero e frequenza delle sedute in base a come si presenta la pelle e al tempo che puoi dedicare al percorso.",
           "Durante gli appuntamenti controlliamo comfort, idratazione e aspetto della pelle e aggiorniamo la frequenza quando necessario.",
         ],
       },
@@ -206,7 +206,7 @@ export const protocolPages: ProtocolPage[] = [
       "Pochi prodotti ben scelti, per evitare di sovrapporre troppi attivi",
     ],
     faqs: [
-      { q: "Il trattamento è aggressivo?", a: "L’intensità viene scelta dopo aver valutato sensibilità e barriera cutanea. L’obiettivo è migliorare grana e luminosità mantenendo un buon comfort." },
+      { q: "Il trattamento è aggressivo?", a: "L’intensità viene scelta dopo aver valutato sensibilità e barriera cutanea e viene ridotta quando la pelle richiede maggiore delicatezza." },
       { q: "Quale routine devo seguire a casa?", a: "In genere riduciamo la routine a detersione, idratazione e protezione. Gli attivi vengono indicati solo quando utili e compatibili." },
       { q: "Quando viene consigliato?", a: "Può essere indicato quando la pelle appare spenta, ispessita, con impurità, piccole irregolarità o tono poco uniforme." },
     ],
@@ -214,14 +214,14 @@ export const protocolPages: ProtocolPage[] = [
       {
         heading: "Quando la pelle appare opaca o irregolare",
         paragraphs: [
-          "Catalysis Ritual viene valutato quando la superficie cutanea appare poco luminosa, irregolare, con impurità o accumulo di prodotti.",
+          "Catalysis Ritual viene valutato quando la superficie cutanea appare poco luminosa, irregolare o presenta impurità.",
           "Prima del trattamento verifichiamo anche idratazione e sensibilità per scegliere un’intensità adeguata.",
         ],
       },
       {
         heading: "Come viene impostato il trattamento",
         paragraphs: [
-          "La seduta e gli attivi vengono scelti in base a grana, impurità, comfort e routine utilizzata a casa.",
+          "La seduta e gli attivi vengono scelti in base a grana, impurità, comfort e prodotti che usi a casa.",
           "Il controllo successivo serve a osservare luminosità e uniformità, capire come ha reagito la pelle e decidere se ripetere o modificare il programma.",
         ],
       },
@@ -259,7 +259,7 @@ export const protocolPages: ProtocolPage[] = [
       "Indicazioni su sedute, controlli e cura della pelle a casa",
     ],
     faqs: [
-      { q: "È una seduta singola o un percorso?", a: "Può essere provato come singola seduta, ma per lavorare su compattezza e idratazione viene spesso proposto un programma con più appuntamenti e controlli." },
+      { q: "È una seduta singola o un percorso?", a: "Può essere eseguito come seduta singola; se vuoi lavorare nel tempo su compattezza e idratazione, possiamo valutare un programma con più appuntamenti e controlli." },
       { q: "Può essere abbinato ad altri trattamenti?", a: "Sì, quando le condizioni della pelle lo permettono. Gli abbinamenti e le distanze tra le sedute vengono stabiliti durante la valutazione." },
       { q: "Quanto spesso si esegue?", a: "Dopo la valutazione ti proponiamo una frequenza e un calendario indicativo." },
     ],
@@ -309,12 +309,12 @@ export const protocolPages: ProtocolPage[] = [
     benefits: [
       "Utilizzabile su viso o corpo dopo una valutazione specifica della zona",
       "Dedicato a pelle dall’aspetto irregolare o spento",
-      "Programma con sedute, controlli e mantenimento definiti prima di iniziare",
+      "Prima di iniziare ti spieghiamo sedute, controlli e mantenimento",
     ],
     faqs: [
       { q: "È adatto a una pelle sensibile?", a: "La sensibilità viene valutata prima di proporre il protocollo. Intensità, prodotti e frequenza vengono adattati oppure può essere consigliata una fase preparatoria più delicata." },
       { q: "Si utilizza sul viso o sul corpo?", a: "Può essere inserito in programmi viso o corpo. La zona e l’obiettivo vengono definiti durante la valutazione." },
-      { q: "È possibile programmare pochi appuntamenti?", a: "Sì. Il piano viene costruito in base all’obiettivo e al tempo disponibile, chiarendo quali aspetti possiamo affrontare con la frequenza scelta." },
+      { q: "Posso fare solo poche sedute?", a: "Sì. Definiamo il numero di sedute in base all’obiettivo e al tempo disponibile e ti spieghiamo che cosa possiamo affrontare con la frequenza scelta." },
     ],
     editorialSections: [
       {
@@ -328,14 +328,14 @@ export const protocolPages: ProtocolPage[] = [
         heading: "Viso o corpo: la valutazione cambia il programma",
         paragraphs: [
           "Sul viso osserviamo texture, luminosità, idratazione e sensibilità; sul corpo valutiamo la zona e l’obiettivo estetico.",
-          "Da qui scegliamo come svolgere il trattamento e ti diamo una stima degli appuntamenti.",
+          "In base a ciò che osserviamo scegliamo come svolgere il trattamento e ti diamo una stima degli appuntamenti.",
         ],
       },
       {
         heading: "Controlli e mantenimento",
         paragraphs: [
           "Durante il programma osserviamo i cambiamenti della zona e aggiorniamo il trattamento quando necessario.",
-          "Al termine definiamo eventuali richiami e una routine da seguire a casa.",
+          "Al termine ti indichiamo quando tornare e come prenderti cura della pelle a casa.",
         ],
       },
     ],
