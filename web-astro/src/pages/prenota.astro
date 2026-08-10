@@ -14,7 +14,7 @@ import { siteConfig } from "@/lib/site-config";
 const meta = createPageMeta({
   title: "Prenota — Rebel Carmagnola",
   description:
-    "Prenota la valutazione REBEL di 30–40 minuti a Carmagnola. È gratuita quando finalizzata alla costruzione del Percorso; home care separata.",
+    "Prenota la valutazione REBEL di 30–40 minuti a Carmagnola. Se scegli di iniziare il percorso proposto, la valutazione è gratuita.",
   path: "/prenota",
   indexable: false,
 });
@@ -37,25 +37,25 @@ const breadcrumb = buildBreadcrumbSchema([
       <span class="landing-hero__badge">Valutazione · 30–40 minuti</span>
       <h1 class="landing-ads-hero__title">
         Prenota la valutazione.<br />
-        <em>Costruiamo il Percorso.</em>
+        <em>Troviamo insieme il percorso più adatto.</em>
       </h1>
       <p class="landing-ads-hero__lead">
-        Centro estetico a Carmagnola, in Viale Barbaroux 20. In 30–40 minuti
-        leggiamo pelle, zona e priorità e definiamo una proposta con frequenza
-        e prezzo. La valutazione è gratuita quando finalizzata al Percorso REBEL.
+        Parliamo di ciò che vuoi migliorare, osserviamo la pelle o l’area da trattare
+        e ti proponiamo un percorso con frequenza e prezzo chiari. Se scegli di
+        iniziare il percorso proposto, la valutazione è gratuita.
       </p>
       <ul class="landing-ads-hero__chips">
         <li>30–40 min in studio</li>
         <li>Percorso e prezzo chiari</li>
-        <li>Home care separata</li>
+        <li>Prodotti per casa non inclusi</li>
       </ul>
     </div>
   </section>
 
   <LandingFormCard
-    kicker="Form valutazione"
+    kicker="Richiedi un appuntamento"
     title="Bastano nome e telefono."
-    lead="Ti scriviamo entro poche ore via WhatsApp o telefono, con un orario disponibile. Email e dettagli sono opzionali."
+    lead="Ti contattiamo via WhatsApp o telefono per concordare un orario disponibile. Email e dettagli sono opzionali."
     source="landing-prenota"
     submitLabel="Prenota la valutazione"
     showRitual={false}
@@ -75,7 +75,7 @@ const breadcrumb = buildBreadcrumbSchema([
         <a href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer">Apri WhatsApp</a>
       </p>
       <p class="landing-ads-trust__line landing-ads-trust__line--muted">
-        Mar–Ven 09:00–19:00 · Mer 14:00–19:00 · Sab 09:00–14:00 · Lun e Dom chiusi
+        Mar, Gio e Ven 09:00–19:00 · Mer 14:00–19:00 · Sab 09:00–14:00 · Lun e Dom chiusi
       </p>
     </div>
   </section>

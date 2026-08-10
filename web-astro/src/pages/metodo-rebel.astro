@@ -19,7 +19,7 @@ import { rebelWorlds, getJourneysByWorld } from "@/lib/rebel-journeys";
 const meta = createPageMeta({
   title: "Metodo Rebel — Come scegliamo trattamenti viso e corpo a Carmagnola",
   description:
-    "Scopri come funziona la prima visita Rebel: colloquio, valutazione di pelle o corpo, scelta dei trattamenti, calendario, controllo dei risultati e mantenimento.",
+    "Scopri come funziona la valutazione REBEL: colloquio, osservazione di pelle o corpo, scelta dei trattamenti, calendario, controlli e mantenimento.",
   path: "/metodo-rebel",
   openGraphType: "article",
   keywords: [
@@ -41,7 +41,7 @@ const webPage = buildWebPageSchema({
 });
 const service = buildServiceSchema(
   "Metodo Rebel — valutazione e programma estetico personalizzato",
-  "Colloquio iniziale, valutazione professionale, preparazione della pelle, programma di trattamento, controllo dei risultati e mantenimento.",
+  "Valutazione REBEL, osservazione della pelle o del corpo, programma di trattamento, controlli e mantenimento.",
   "/metodo-rebel",
 );
 const article = buildArticleSchema({
@@ -62,7 +62,14 @@ const priorities = [
   "Ricrescita dei peli su viso e corpo",
 ];
 
-const journeys = rebelWorlds.map((world) => ({ ...world, paths: getJourneysByWorld(world.id) }));
+const siteAsset = (slot: string) => `/api/site-asset?slot=${encodeURIComponent(slot)}`;
+const worldMedia = {
+  glow: { src: siteAsset("journeys.glow.hero.desktop"), alt: "Viso di una cliente in luce naturale" },
+  longevity: { src: siteAsset("journeys.longevity.hero.desktop"), alt: "Cliente durante un trattamento viso" },
+  forma: { src: siteAsset("journeys.forma.hero.desktop"), alt: "Trattamento professionale dedicato al corpo" },
+  liberta: { src: siteAsset("journeys.liberta.hero.desktop"), alt: "Professionista durante una seduta di epilazione laser" },
+} as const;
+const journeys = rebelWorlds.map((world) => ({ ...world, ...worldMedia[world.id], paths: getJourneysByWorld(world.id) }));
 ---
 <BaseLayout meta={meta} bodyClass="page-rebrand page-metodo-rebel">
   <JsonLd data={breadcrumb} />
@@ -79,10 +86,10 @@ const journeys = rebelWorlds.map((world) => ({ ...world, paths: getJourneysByWor
       <p class="rb-kicker">Metodo Rebel · Carmagnola</p>
       <h1>Come scegliamo i trattamenti <em>per viso e corpo.</em></h1>
       <p class="rb-lead">
-        La prima visita raccoglie il tuo obiettivo, le condizioni della pelle o del corpo e le tue abitudini. Con queste informazioni definiamo trattamenti, prodotti, tecnologie, frequenza e controlli.
+        Durante la valutazione parliamo di ciò che vuoi migliorare, osserviamo la pelle o il corpo e definiamo trattamenti, prodotti, tecnologie, frequenza e controlli.
       </p>
       <div class="cluster cluster--stack-mobile">
-        <a class="btn btn--primary" href="/contatti">Prenota la prima visita</a>
+        <a class="btn btn--primary" href="/contatti">Prenota la valutazione</a>
         <a class="btn btn--secondary" href="/percorsi">Vedi i nove percorsi</a>
       </div>
       <p class="rb-signature">Be Beautiful. Be Rebel.</p>
@@ -92,23 +99,27 @@ const journeys = rebelWorlds.map((world) => ({ ...world, paths: getJourneysByWor
   <section class="rb-section rb-section--ivory" id="mappa-rebel-live">
     <div class="container">
       <div class="rb-section-head">
-        <p class="rb-kicker">Mappa REBEL Live</p>
-        <h2>Nove percorsi, da esplorare in chiaro.</h2>
+        <p class="rb-kicker">Mappa REBEL</p>
+        <h2>Confronta i nove percorsi REBEL.</h2>
       </div>
       <RebelMap client:visible />
     </div>
   </section>
 
   <section class="rb-section rb-section--ivory">
-    <div class="container rb-intro-grid">
+    <div class="container rb-intro-grid rb-intro-grid--visual">
       <div>
-        <p class="rb-kicker">La Mappa Rebel</p>
+        <p class="rb-kicker">La Mappa REBEL</p>
         <h2>Un riepilogo chiaro di obiettivo, trattamenti e calendario.</h2>
       </div>
       <div class="rb-copy">
-        <p>La Mappa Rebel registra che cosa vuoi migliorare, che cosa abbiamo osservato e quale risultato abbiamo concordato.</p>
-        <p>Indica i trattamenti consigliati, le tecnologie utilizzabili, la frequenza iniziale, la data del controllo e il mantenimento previsto.</p>
+        <p>Nella Mappa REBEL trovi ciò che vuoi migliorare, ciò che abbiamo osservato e il risultato concordato.</p>
+        <p>Raccoglie i trattamenti consigliati, le tecnologie che possono essere utili, la frequenza iniziale, la data del controllo e il mantenimento previsto.</p>
       </div>
+      <figure class="rb-editorial-media rb-editorial-media--wide">
+        <img src={siteAsset("services.method.consultation.mobile")} alt="Cliente e professionista consultano la scheda della valutazione REBEL" width="1122" height="1402" loading="lazy" decoding="async" />
+        <figcaption>Obiettivo, osservazioni, frequenza e controlli restano raccolti nella stessa mappa.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -128,6 +139,10 @@ const journeys = rebelWorlds.map((world) => ({ ...world, paths: getJourneysByWor
         <p class="rb-kicker">Cosa valutiamo</p>
         <h2>Le principali esigenze che possiamo trattare su viso e corpo.</h2>
       </div>
+      <figure class="rb-editorial-media rb-editorial-media--skin">
+        <img src={siteAsset("services.face.skinTexture.mobile")} alt="Dettaglio ravvicinato della grana naturale della pelle" width="1122" height="1402" loading="lazy" decoding="async" />
+        <figcaption>La valutazione parte da ciò che osserviamo, non da un trattamento scelto in anticipo.</figcaption>
+      </figure>
       <ol class="rb-priority-grid">
         {priorities.map((priority, index) => (
           <li><span>{String(index + 1).padStart(2, "0")}</span><strong>{priority}</strong></li>
@@ -140,12 +155,13 @@ const journeys = rebelWorlds.map((world) => ({ ...world, paths: getJourneysByWor
     <div class="container">
       <div class="rb-section-head">
         <p class="rb-kicker">I percorsi Rebel</p>
-        <h2>Quattro mondi aprono i nove percorsi della brochure REBEL.</h2>
+        <h2>Nove percorsi per il viso, il corpo e l’epilazione progressiva.</h2>
       </div>
       <div class="rb-journey-grid">
         {journeys.map((journey) => (
           <a class="rb-journey-card" href={journey.href}>
-            <p class="rb-kicker">Mondo REBEL</p>
+            <figure><img src={journey.src} alt={journey.alt} width="1536" height="1024" loading="lazy" decoding="async" /></figure>
+            <p class="rb-kicker">{journey.eyebrow}</p>
             <h3>{journey.name}</h3>
             <p>{journey.summary}</p>
             <p>{journey.paths.map((path) => path.slug === "white" ? "Uniformare" : path.name).join(" · ")}</p>
@@ -156,15 +172,19 @@ const journeys = rebelWorlds.map((world) => ({ ...world, paths: getJourneysByWor
   </section>
 
   <section class="rb-section rb-section--ivory">
-    <div class="container rb-intro-grid">
+    <div class="container rb-intro-grid rb-intro-grid--visual">
       <div>
-        <p class="rb-kicker">Manualità, attivi e tecnologie</p>
-        <h2>Scegliamo strumenti e parametri in base alla zona e all’obiettivo.</h2>
+        <p class="rb-kicker">Trattamenti e tecnologie</p>
+        <h2>Scegliamo ciò che serve in base alla zona e al risultato desiderato.</h2>
       </div>
       <div class="rb-copy">
-        <p>Per ogni trattamento specifichiamo quali prodotti e tecnologie utilizziamo, che cosa devono fare e con quale frequenza vanno applicati.</p>
-        <p>Ai controlli confrontiamo la risposta con l’obiettivo iniziale e aggiorniamo il programma quando necessario.</p>
+        <p>Per ogni percorso ti spieghiamo che cosa utilizziamo, perché e con quale frequenza programmare gli appuntamenti.</p>
+        <p>Ai controlli osserviamo i cambiamenti rispetto all’obiettivo iniziale e aggiorniamo il programma quando necessario.</p>
       </div>
+      <figure class="rb-editorial-media rb-editorial-media--wide">
+        <img src={siteAsset("services.face.activesTopshot.mobile")} alt="Prodotti e strumenti preparati per un trattamento viso" width="1122" height="1402" loading="lazy" decoding="async" />
+        <figcaption>Prodotti, manualità e tecnologie vengono scelti e spiegati prima di iniziare.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -173,7 +193,7 @@ const journeys = rebelWorlds.map((world) => ({ ...world, paths: getJourneysByWor
       <InlineCta
         kicker="Valutazione REBEL · 30–40 minuti"
         title="Raccontaci che cosa vuoi _migliorare_."
-        lead="In 30–40 minuti definiamo la priorità e ti spieghiamo quali percorsi, tempi e costi possono essere pertinenti. La valutazione è gratuita quando viene finalizzata alla costruzione del Percorso REBEL."
+        lead="In 30–40 minuti definiamo quale percorso può essere più adatto, quanto tempo richiede e quanto costa. Se scegli di iniziare il Percorso REBEL, la valutazione è gratuita."
         primaryHref="/contatti"
         primaryLabel="Prenota la valutazione"
         secondaryHref="/percorsi"

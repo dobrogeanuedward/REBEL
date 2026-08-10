@@ -129,24 +129,24 @@ const faqs = [
     a: "Tra trenta e trentacinque minuti via SP29 + SP661, trentadue chilometri totali. Da Castagnito, Santo Stefano Roero o Castellinaldo i tempi sono molto simili.",
   },
   {
-    q: "Nel Roero non c'è una vera offerta laser: cosa cambia davvero a venire fino a Carmagnola?",
-    a: "Tre cose concrete. Primo: lavoriamo con Lumina X1 Pro di THORY e il comfort ICE Polar accompagna la seduta. Secondo: il settaggio è personale, ricalibrato seduta dopo seduta — non un preset standard. Terzo: il piano è scritto, condiviso e modificabile in trasparenza. Non è marketing, è metodo.",
+    q: "Come viene impostato il percorso laser da Rebel?",
+    a: "Usiamo Lumina X1 Pro di THORY con raffreddamento a contatto ICE Polar. Dopo la valutazione definiamo parametri, zone e calendario e li aggiorniamo in base alla risposta osservata.",
   },
   {
-    q: "Vivo in vigna o lavoro all'aperto: posso fare il laser comunque?",
-    a: "Sì, sicuramente. Il sole non è un ostacolo, è una variabile. In consulenza valutiamo quanto sole prendi su quali zone, e da lì decidiamo da dove partire (di solito ascelle, inguine o aree coperte) e quali regole pratiche seguire dopo ogni seduta. Niente sospensioni assurde della tua vita.",
+    q: "Posso iniziare il laser se mi espongo spesso al sole?",
+    a: "Dipende da esposizione, abbronzatura, zona e condizioni della pelle. Prima di ogni seduta controlliamo la zona e decidiamo se procedere o riprogrammare l'appuntamento.",
   },
   {
     q: "Posso fare laser uomo barba e collo? Ho spesso irritazioni da rasoio.",
-    a: "Sì, è una delle richieste più frequenti per chi viene dal Roero, soprattutto uomini con lavoro outdoor. Il laser riduce in modo progressivo i peli incarniti e l'irritazione cronica su barba e collo. Il piano è strutturato: trovi la guida dedicata nella sezione guide, vale la pena leggerla prima della consulenza.",
+    a: "Barba e collo possono essere valutati durante la prima visita, osservando pelle, pelo e zona. Se l'irritazione è persistente o sospetti una follicolite, parlane prima con il medico.",
   },
   {
     q: "Si paga a seduta o serve un pacchetto?",
-    a: "Si paga seduta per seduta. Esiste l'opzione ciclo iniziale (4-6 sedute) se vuoi fissare il calendario e il prezzo, ma non è obbligatoria.",
+    a: "Le modalità di pagamento e la frequenza vengono spiegate durante la valutazione, in base alle zone da trattare.",
   },
   {
-    q: "Quante sedute servono per vedere un risultato chiaro?",
-    a: "Dipende da zona e fototipo, ma in media un ciclo si distribuisce su una decina di sedute in 12-18 mesi. I primi cambiamenti visibili arrivano spesso tra la terza e la quinta seduta. In valutazione ti diamo una stima realistica per il tuo caso.",
+    q: "Quante sedute servono?",
+    a: "Il numero e gli intervalli variano in base a zona, pelle e caratteristiche del pelo. Dopo la valutazione ti diamo una stima e la aggiorniamo durante il percorso.",
   },
   {
     q: "Posso prenotare anche se vengo da Castagnito, Santo Stefano Roero o Priocca?",
@@ -154,7 +154,7 @@ const faqs = [
   },
   {
     q: "Come prenoto da Canale?",
-    a: "Scrivici su WhatsApp con due informazioni: zone che ti interessano e giorni/orari in cui sei libera. Ti rispondiamo con gli slot disponibili più vicini. Il mercoledì siamo aperti fino alle 19, comodo per chi rientra tardi.",
+    a: "Scrivici su WhatsApp indicando le zone di interesse e il giorno preferito: verifichiamo insieme le disponibilità.",
   },
 ];
 
@@ -171,7 +171,7 @@ const faqSchema = {
 const principles = [
   {
     kicker: "01 · Scelta tecnica",
-    title: "Il laser che nel Roero non trovi.",
+    title: "Lumina X1 Pro con raffreddamento a contatto.",
     body: "Lumina X1 Pro di THORY integra 755, 808, 940 e 1064 nm e il raffreddamento a contatto in zaffiro Ice Point Cooling. Il comfort ICE Polar accompagna la seduta come elemento distinto.",
   },
   {
@@ -180,9 +180,9 @@ const principles = [
     body: "Nessun protocollo standard copiato per tutti. Valutiamo zona, fototipo, abitudini (quanto sole, che sport, che lavoro). Da lì costruiamo il calendario con tempi reali e regole pratiche tra le sedute.",
   },
   {
-    kicker: "03 · Vita outdoor rispettata",
-    title: "Il tuo ritmo, non quello del laser.",
-    body: "Vigne, lavoro all'aperto, estate in collina: non ti chiediamo di fermare la vita. Ti chiediamo di dircelo — e costruiamo il percorso intorno a quello che fai, non viceversa.",
+    kicker: "03 · Esposizione e calendario",
+    title: "Il calendario tiene conto delle tue abitudini.",
+    body: "Ci racconti periodi di esposizione solare, viaggi e impegni già previsti; organizziamo gli appuntamenti tenendo conto della tua disponibilità e delle condizioni della pelle.",
   },
   {
     kicker: "04 · Comunicazione diretta",
@@ -210,7 +210,7 @@ const guides = [
   {
     href: "/competenze/laser-barba-collo-carmagnola",
     title: "Laser uomo barba e collo",
-    body: "Per peli incarniti e irritazione cronica da rasoio: molto richiesta da chi vive outdoor.",
+    body: "Informazioni su barba e collo, preparazione della zona e valutazione iniziale. In caso di irritazione persistente, chiedi prima consiglio al medico.",
   },
   {
     href: "/competenze/laser-schiena-carmagnola",
@@ -228,12 +228,12 @@ const seasonCards = [
   {
     href: "/competenze/epilazione-laser-inverno-carmagnola",
     title: "Laser in inverno: perché conviene partire ora",
-    body: "Momento ideale per aprire il ciclo: pelle meno in tensione, meno sole, ritmo più regolare. Arrivare alla bella stagione con sei sedute già fatte cambia tutto.",
+    body: "L'inverno può essere più semplice per le zone esposte, ma la scelta dipende da pelle, abitudini e calendario personale.",
   },
   {
     href: "/competenze/epilazione-laser-estate-sole-carmagnola",
-    title: "Laser e sole: regole pratiche per chi vive outdoor",
-    body: "Non devi fermare l'estate. Ti diciamo come gestire esposizione solare, scelta delle zone e post-seduta senza bloccare la tua vita nel Roero.",
+    title: "Laser ed esposizione solare",
+    body: "Prima di ogni seduta controlliamo la pelle e ti spieghiamo quando procedere, quali precauzioni seguire o se è meglio riprogrammare.",
   },
 ];
 
@@ -255,8 +255,8 @@ const nearbyAreas = [
   <PageHero
     image={m.hero}
     kicker="Rebel Laser — da Canale (Roero) a Carmagnola"
-    title="Epilazione laser per chi viene da Canale: il percorso che nel _Roero_ non c'è."
-    lead="Da Canale a Rebel sono trentadue chilometri, mezz'ora di strada. Trovi Lumina X1 Pro di THORY, comfort ICE Polar, settaggio su misura e un percorso scritto in modo onesto."
+    title="Epilazione laser per chi viene da Canale: _valutazione e calendario personalizzati_."
+    lead="Da Canale puoi raggiungere REBEL in auto. Consulta Google Maps per percorso, traffico e tempi aggiornati; durante la valutazione definiamo zona, parametri e frequenza con Lumina X1 Pro di THORY e comfort ICE Polar."
     bullets={["~30-35 min via SP29 + SP661", "Lumina X1 Pro · comfort ICE Polar", "Valutazione 30–40 min"]}
     meta={["~32 km da Canale", "Da 25,90 € a zona"]}
     ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
@@ -268,8 +268,8 @@ const nearbyAreas = [
     <div class="container">
       <SectionHead
         kicker="Perché Rebel"
-        title="Una scelta _tecnica_ che nel Roero, da soli, è difficile fare."
-        lead="Nel paese, per il laser di livello, l'offerta è ridotta. Da Carmagnola, chi arriva dal Roero trova un metodo preciso: valutazione, settaggio su misura e un piano che si racconta in modo chiaro."
+        title="Come impostiamo il _percorso laser_."
+        lead="Valutiamo pelle, pelo e zone, poi definiamo parametri, calendario e prezzo prima di iniziare."
       />
       <div class="card-grid card-grid--2">
         {principles.map((p, i) => (
@@ -284,7 +284,7 @@ const nearbyAreas = [
       </div>
       <div class="actions cluster" style="margin-top:2rem;">
         <a class="btn btn--primary" href="/contatti">Prenota la valutazione</a>
-        <a class="btn btn--secondary" href="/epilazione-laser-carmagnola">Pagina pillar laser</a>
+        <a class="btn btn--secondary" href="/epilazione-laser-carmagnola">Scopri il percorso laser</a>
         <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
       </div>
     </div>
@@ -325,7 +325,7 @@ const nearbyAreas = [
           </p>
           <p class="body-p">
             Lo studio è in <strong>Viale Barbaroux 20</strong>, in pieno centro Carmagnola.
-            Parcheggio gratuito a 30 secondi a piedi, lontano da ZTL.
+            Per indicazioni aggiornate su accesso e parcheggi, consulta Google Maps prima di partire.
           </p>
           <div class="cluster" style="margin-top:1.4rem;">
             <a
@@ -355,24 +355,19 @@ const nearbyAreas = [
   <section class="section">
     <div class="container container--narrow">
       <SectionHead
-        kicker="Roero e laser"
-        title="Sole, vigna, sport in collina: _due cose che si tengono insieme_."
-        lead="Vivere nel Roero non è un ostacolo al laser. È una variabile che, gestita, diventa parte del metodo."
+        kicker="Esposizione e laser"
+        title="Prima di ogni seduta _controlliamo la pelle_."
+        lead="Esposizione, abbronzatura, zona e condizioni della pelle determinano se possiamo procedere o se è meglio riprogrammare."
       />
       <div class="body-flow">
         <p class="body-p">
-          Una delle differenze più nette tra chi vive a Canale e chi vive in città è il rapporto
-          con l'outdoor. Vigne, orti, escursioni, sport in collina, weekend al sole: sono cose
-          che la pelle vede tutto l'anno, non solo in agosto. Per noi non è un problema, è
-          semplicemente una variabile da mettere in conto. In consulenza ti chiediamo che vita
-          fai davvero — quanto sole prendi, in che mesi, su quali zone — e tariamo il piano
-          di conseguenza.
+          Durante la valutazione ti chiediamo quanto ti esponi al sole, in quali periodi e su
+          quali zone. Queste informazioni ci aiutano a scegliere da dove iniziare e a organizzare
+          il calendario.
         </p>
         <p class="body-p">
-          La regola è chiara: il laser va impostato sulla tua vita, non la tua vita riadattata
-          al laser. Di solito si parte da zone coperte dai vestiti (ascelle, inguine) e si
-          gestisce il sole con poche regole pratiche. Niente divieti assoluti — solo buon senso
-          e comunicazione.
+          Prima di ogni appuntamento controlliamo la pelle. Se abbronzatura o esposizione recente
+          rendono la seduta non opportuna, la riprogrammiamo e ti spieghiamo le precauzioni da seguire.
         </p>
       </div>
       <div class="card-grid card-grid--3" style="margin-top:2rem;">
@@ -386,7 +381,7 @@ const nearbyAreas = [
         <FeatureCard
           kicker="Abbinamento"
           title="Laser + Pulizia viso"
-          body="Per chi vive outdoor: viso rimesso in ordine mentre si lavora sul corpo."
+          body="Due servizi da organizzare insieme solo dopo aver verificato zone, tempi e compatibilità."
           href="/servizi/pulizia-viso-carmagnola"
           variant="quiet"
         />
@@ -439,8 +434,8 @@ const nearbyAreas = [
     <div class="container">
       <SectionHead
         kicker="Calendario"
-        title="Quando aprire il ciclo, vivendo nel _Roero_."
-        lead="Il Roero non rende il laser difficile, lo rende interessante. Il momento più comodo resta l'inverno, ma non è una regola assoluta."
+        title="Quando iniziare: contano _esposizione, abbronzatura e zona_."
+        lead="Prima di iniziare valutiamo la pelle, le zone interessate e l'esposizione prevista. Se le condizioni cambiano, possiamo riprogrammare la seduta."
       />
       <div class="card-grid card-grid--2">
         {seasonCards.map((c) => (
@@ -463,15 +458,13 @@ const nearbyAreas = [
       />
       <p class="body-p">
         Riferimento di partenza <strong>25,90 € a zona</strong>. Il totale dipende da
-        estensione dell'area e numero di sedute: in consulenza ti diciamo il prezzo onesto
-        per il tuo caso, non un "da" generico. Si paga seduta per seduta; chi preferisce
-        fissare il ritmo (e bloccare il prezzo) può chiudere un piccolo ciclo iniziale di
-        4-6 sedute, con calendario scritto. Tutte le voci del listino — laser corpo, laser
+        estensione dell'area e numero di sedute. Durante la valutazione ricevi una proposta
+        con trattamento, frequenza e prezzo. Tutte le voci del listino — laser corpo, laser
         viso, laser uomo, protocolli viso da affiancare — sono pubbliche.
       </p>
       <div class="cluster" style="margin-top:1.6rem;">
         <a class="btn btn--primary" href="/listino-estetica-laser">Listino completo</a>
-        <a class="btn btn--secondary" href="/epilazione-laser-carmagnola">Pagina pillar laser</a>
+        <a class="btn btn--secondary" href="/epilazione-laser-carmagnola">Scopri il percorso laser</a>
         <a class="btn btn--secondary" href="/epilazione-laser-ice-polar-carmagnola">Comfort Ice Polar</a>
       </div>
     </div>
@@ -486,8 +479,8 @@ const nearbyAreas = [
           side="left"
           kicker="La prima volta"
           title="Prima un piano _scritto_, poi la prima seduta."
-          body="Valutazione e analisi durano 30–40 minuti e sono gratuite quando finalizzate alla costruzione del Percorso. Leggiamo pelle, fototipo e zone, consideriamo la tua vita outdoor e prepariamo una proposta con calendario e prezzi."
-          bullets={["Gratuita quando costruiamo il Percorso", "Proposta scritta con prezzi e tempi", "Si paga seduta per seduta"]}
+          body="Valutazione e analisi durano 30–40 minuti e sono gratuite quando finalizzate alla costruzione del Percorso. Osserviamo pelle, fototipo e zone e prepariamo una proposta con calendario e prezzi."
+          bullets={["Gratuita se inizi il Percorso", "Prezzi e tempi spiegati prima di iniziare", "Si paga seduta per seduta"]}
           cta={{ label: "Prenota la valutazione", href: "/contatti" }}
           ctaSecondary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp }}
         />
@@ -511,12 +504,12 @@ const nearbyAreas = [
     <div class="container">
       <InlineCta
         kicker="Vuoi anche viso, corpo o protocolli?"
-        title="Il laser non è l'unico motivo per venire a Carmagnola _dal Roero_."
-        lead="Se ti interessa anche viso (Collagen Code, Eye Genesis, pulizia viso), corpo (drenaggio, pressoterapia) o un piano completo, abbiamo una pagina dedicata a chi viene da Canale."
+        title="Scopri gli altri servizi per chi arriva da _Canale_."
+        lead="Trovi trattamenti viso e corpo, pulizia viso e massaggi disponibili per chi arriva da Canale."
         primaryHref="/localita/canale"
-        primaryLabel="Pagina panoramica Rebel per Canale"
+        primaryLabel="Scopri tutti i servizi da Canale"
         secondaryHref="/protocolli-epigenetici"
-        secondaryLabel="Tutti i protocolli epigenetici"
+        secondaryLabel="Scopri i trattamenti viso e corpo"
       />
     </div>
   </section>
@@ -527,7 +520,7 @@ const nearbyAreas = [
       <SectionHead
         kicker="Roero e dintorni"
         title="Comuni vicini a _Canale_: pagine dedicate."
-        lead="Chi vive a Canale si muove spesso tra Alba, Bra e i piccoli centri del Roero. Per ciascuno trovi una pagina con focus diverso."
+        lead="Apri le pagine dedicate per trovare mappe e indicazioni dai comuni vicini."
       />
       <div class="card-grid card-grid--3">
         {nearbyAreas.map((a, i) => (
@@ -550,7 +543,7 @@ const nearbyAreas = [
       <InlineCta
         kicker="Valutazione e analisi"
         title="Prenota la _valutazione laser_: 30–40 minuti."
-        lead="Capiamo zona, ciclo e calendario reale. La valutazione dura 30–40 minuti ed è gratuita quando finalizzata alla costruzione del Percorso REBEL; home care separata."
+        lead="Valutiamo zona e caratteristiche della pelle, poi ti spieghiamo trattamento, frequenza e prezzo. La valutazione dura 30–40 minuti."
         primaryLabel="Prenota la valutazione"
         primaryHref="/contatti"
         secondaryLabel="Scrivi su WhatsApp"

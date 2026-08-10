@@ -14,7 +14,7 @@ import { siteConfig } from "@/lib/site-config";
 const meta = createPageMeta({
   title: "Protocollo viso epigenetico Carmagnola — valutazione REBEL | Rebel",
   description:
-    "Protocollo viso con Marbellas ed Eberlin a Carmagnola. Valutazione REBEL di 30–40 minuti, gratuita quando finalizzata al Percorso; home care separata.",
+    "Trattamenti viso con Marbellas ed Eberlin a Carmagnola. Valutazione REBEL di 30–40 minuti, gratuita se inizi il percorso proposto.",
   path: "/protocollo-viso",
   keywords: [
     "protocollo viso Carmagnola",
@@ -38,29 +38,29 @@ const serviceSchema = {
   provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
   areaServed: siteConfig.areasServed,
   description:
-    "Protocollo viso costruito sulla tua pelle: valutazione di 30–40 minuti, scelta della linea e calendario calibrato. Gratuita quando finalizzata al Percorso REBEL; home care separata.",
+    "Trattamento viso scelto dopo aver osservato la pelle: valutazione di 30–40 minuti, linea cosmetica, frequenza e prezzo.",
 };
 
 const faqs = [
   {
-    q: "Cos'è la linea epigenetica Marbellas?",
-    a: "Marbellas è una linea cosmetica professionale costruita su attivi epigenetici di nuova generazione: lavora sulla qualità della pelle, sul tono e sulla luminosità agendo sui meccanismi che \"accendono\" o \"spengono\" certe risposte cellulari. La usiamo nei protocolli viso più avanzati.",
+    q: "Che cos’è la linea Marbellas?",
+    a: "Marbellas è una linea cosmetica professionale utilizzata nei percorsi viso dedicati a luminosità, tono e comfort della pelle.",
   },
   {
     q: "E Eberlin invece?",
-    a: "Eberlin è un brand spagnolo storico nella biocosmetica professionale: linee Firmezza, Calming, Gold e attivi biotecnologici come fattori di crescita e RetiLAB. La scegliamo quando ha senso lavorare su pelli mature, sensibili o con esigenze specifiche.",
+    a: "Eberlin è un marchio spagnolo di cosmetica professionale. Scegliamo tra le sue linee in base alla sensibilità e alle esigenze osservate durante la valutazione.",
   },
   {
     q: "Quante sedute servono per un protocollo?",
-    a: "Dipende molto dalla pelle e dall'obiettivo. In media 4-6 sedute distanziate di 2-3 settimane per il primo ciclo, poi mantenimento più rilassato. Te lo diciamo dopo la prima visita: numeri reali, non promesse.",
+    a: "Dipende dalla pelle, dall’obiettivo e dai cambiamenti osservati. Dopo la valutazione proponiamo una frequenza iniziale e la aggiorniamo durante i controlli.",
   },
   {
-    q: "Cosa succede nella prima visita?",
-    a: "In 30–40 minuti leggiamo la pelle, ascoltiamo la priorità e definiamo un possibile Percorso REBEL con frequenza e prezzo. La valutazione è gratuita quando finalizzata al Percorso; l’home care eventualmente consigliata resta separata.",
+    q: "Cosa succede durante la valutazione?",
+    a: "In 30–40 minuti parliamo di ciò che vuoi migliorare, osserviamo la pelle e ti spieghiamo il percorso proposto, con frequenza e prezzo. Se scegli di iniziarlo, la valutazione è gratuita. Gli eventuali prodotti per casa non sono inclusi.",
   },
   {
     q: "Quanto costa un trattamento viso da Rebel?",
-    a: "Pulizia viso classica 55 €, protocolli avanzati Marbellas/Eberlin a partire da 75 €. Tutto pubblicato nel listino: nessun preventivo da fare al telefono.",
+    a: "La pulizia viso classica costa €55 e i protocolli Marbellas o Eberlin partono da €75. Puoi consultare i prezzi nel listino online.",
   },
 ];
 
@@ -85,65 +85,66 @@ const faqSchema = {
   <JsonLd data={faqSchema} />
 
   <LandingHero
+    media={media.viso.hero}
     badge="Valutazione · 30–40 minuti"
     kicker="Trattamento viso · Carmagnola"
-    title="Protocollo viso costruito sulla _tua_ pelle."
-    lead="Leggiamo la pelle, scegliamo la linea pertinente — Marbellas o Eberlin — e definiamo il calendario del possibile Percorso. La valutazione è gratuita quando finalizzata al Percorso REBEL; home care separata."
+    title="Un protocollo viso scelto in base alla _tua_ pelle."
+    lead="Osserviamo la pelle, scegliamo la linea più adatta tra Marbellas ed Eberlin e definiamo frequenza e prezzo. Se inizi il Percorso REBEL, la valutazione è gratuita."
     bullets={[
-      { text: "Lettura della pelle in studio (idratazione, sebo, sensibilità, segni)." },
-      { text: "Scelta della linea: Marbellas epigenetica o Eberlin biocosmetica." },
-      { text: "Calendario sedute realistico, non pacchetti pre-imposti." },
-      { text: "Prezzi pubblici: pulizia viso 55 €, protocolli avanzati da 75 €." },
+      { text: "Valutazione in studio di idratazione, sebo, sensibilità e segni visibili." },
+      { text: "Scelta della linea professionale: Marbellas o Eberlin." },
+      { text: "Frequenza delle sedute definita dopo la valutazione." },
+      { text: "Prezzi pubblici: pulizia viso €55, protocolli avanzati da €75." },
     ]}
     primaryCta={{ label: "Prenota la valutazione", href: "#form" }}
     secondaryCta={{
       label: "Scopri Marbellas / Eberlin",
       href: "/protocolli-epigenetici",
     }}
-    footnote="Risposta entro poche ore negli orari di apertura."
+    footnote="Ti contattiamo personalmente via WhatsApp o telefono."
   />
 
   <LandingProof
     kicker="Perché Rebel"
     items={[
       {
-        title: "Showroom Thory",
-        body: "Siamo showroom ufficiale Thory: il team si aggiorna su nuove linee e protocolli prima di proporli in cabina.",
+        title: "Formazione THORY",
+        body: "Il team segue la formazione THORY dedicata alle linee e alle tecnologie utilizzate in studio.",
       },
       {
         title: "Linea Marbellas",
-        body: "Linea cosmetica di nuova generazione con attivi epigenetici. Lavora su qualità, tono e luminosità della pelle.",
+        body: "Linea cosmetica professionale utilizzata nei percorsi dedicati a luminosità, tono e comfort della pelle.",
       },
       {
         title: "Linea Eberlin",
-        body: "Brand spagnolo di riferimento: linee Firmezza, Calming, Gold e attivi biotecnologici per pelli mature o sensibili.",
+        body: "Marchio spagnolo di cosmetica professionale con linee scelte in base alle esigenze della pelle.",
       },
       {
-        title: "Onestà nei numeri",
-        body: "Diciamo quante sedute servono davvero. Niente \"ci vediamo tra una settimana\" se non c'è motivo.",
+        title: "Tempi e prezzi chiari",
+        body: "Prima di iniziare ti spieghiamo la frequenza proposta, il prezzo e quando faremo il controllo.",
       },
     ]}
   />
 
   <LandingSteps
     kicker="Come funziona"
-    title="Dalla lettura della pelle al protocollo cucito addosso."
+    title="Dalla valutazione della pelle al trattamento personalizzato."
     steps={[
       {
-        title: "Compili il form",
+        title: "Lascia i tuoi recapiti",
         body: "Nome, telefono e — se vuoi — cosa vorresti migliorare (luminosità, segni, sensibilità…).",
       },
       {
         title: "Valutazione di 30–40 minuti",
-        body: "Lettura della pelle, valutazione delle priorità e scelta della linea pertinente.",
+        body: "Osserviamo la pelle, parliamo di ciò che vuoi migliorare e scegliamo la linea più adatta.",
       },
       {
-        title: "Proposta scritta",
-        body: "Quante sedute, ogni quanto, con quale linea e a che costo totale. Decidi a casa o sul momento.",
+        title: "Ti spieghiamo il percorso",
+        body: "Conosci linea, frequenza e prezzo e puoi decidere con calma se iniziare.",
       },
       {
-        title: "Inizio del protocollo",
-        body: "Una volta partiti, ti scriviamo noi per i richiami. Tu pensi solo a presentarti in cabina.",
+        title: "Iniziamo e controlliamo i cambiamenti",
+        body: "Durante i controlli osserviamo la pelle e aggiorniamo il programma quando serve.",
       },
     ]}
   />
@@ -153,13 +154,13 @@ const faqSchema = {
     height="sm"
     align="center"
     kicker="Estetica viso · Carmagnola"
-    quote="Niente trattamento standard uguale per tutte: si parte dalla _tua_ pelle."
+    quote="Il trattamento parte dalla _tua_ pelle."
     cite="Studio Rebel · Viale Barbaroux 20"
   />
 
   <LandingFormCard
     kicker="Valutazione viso"
-    title="Prenota la lettura della pelle."
+    title="Prenota la valutazione della pelle."
     lead="Bastano nome e numero. Se vuoi, scrivici già cosa vorresti migliorare (luminosità, idratazione, segni, sensibilità…)."
     source="landing-viso"
     submitLabel="Prenota la valutazione"

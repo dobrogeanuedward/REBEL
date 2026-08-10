@@ -24,27 +24,27 @@ export const methodSteps = [
   {
     step: "02",
     title: "Priorità",
-    text: "Definiamo una priorità leggibile — preparare, proteggere, equilibrare, illuminare, uniformare, rigenerare, preservare, rimodellare o semplificare.",
+    text: "Stabiliamo quale esigenza affrontare per prima: preparazione, idratazione, impurità, luminosità, macchie, tono, corpo o epilazione.",
   },
   {
     step: "03",
     title: "Skin Reset",
-    text: "Quando necessario prepariamo la pelle prima di chiedere un risultato più specifico, così materia e sedute successive partono da una base più ricettiva.",
+    text: "Quando serve, prepariamo la pelle prima di passare a un trattamento più specifico, così le sedute successive partono da una base più ricettiva.",
   },
   {
     step: "04",
     title: "Percorso",
-    text: "Costruiamo la combinazione di attivi, botaniche, manualità e tecnologie, con durata, frequenza e prezzo dichiarati prima di iniziare.",
+    text: "Costruiamo la combinazione di attivi, estratti vegetali, manualità e tecnologie, con durata, frequenza e prezzo dichiarati prima di iniziare.",
   },
   {
     step: "05",
     title: "Rivalutazione",
-    text: "Durante il programma confrontiamo la risposta con la Mappa e modifichiamo intensità, frequenza o combinazioni quando serve.",
+    text: "Durante il percorso controlliamo come risponde la pelle o il corpo e aggiorniamo intensità, frequenza o combinazioni quando necessario.",
   },
   {
     step: "06",
-    title: "Preservare",
-    text: "Dopo la fase iniziale definiamo richiami e una routine sostenibile per accompagnare la qualità raggiunta nel tempo.",
+    title: "Mantenimento",
+    text: "Dopo la fase iniziale pianifichiamo richiami e una routine semplice per mantenere nel tempo i risultati raggiunti.",
   },
 ];
 
@@ -77,13 +77,13 @@ export const storeGalleryImages = [
   },
   {
     src: siteAsset("technologies.studio.thory.desktop"),
-    alt: "REBEL Carmagnola — cabina reale con lettino e attrezzatura THORY",
+    alt: "REBEL Carmagnola — cabina con lettino e attrezzatura THORY",
     width: 1672,
     height: 941,
   },
   {
     src: siteAsset("studio.real.exterior.desktop"),
-    alt: "REBEL Carmagnola — facciata e vetrina reali in Viale Barbaroux 20",
+    alt: "REBEL Carmagnola — facciata e vetrina in Viale Barbaroux 20",
     width: 1672,
     height: 941,
   },

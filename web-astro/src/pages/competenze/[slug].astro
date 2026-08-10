@@ -15,7 +15,7 @@ import { media, type ImageAsset } from "@/lib/page-media";
 import {
   competencePages,
   servicePages,
-} from "@/lib/seo-content";
+} from "@/lib/seo-content-refined";
 import { protocolPages } from "@/lib/protocol-pages";
 import { localAreaPages } from "@/lib/local-pages";
 import {
@@ -36,16 +36,43 @@ export async function getStaticPaths() {
 
 const { competence } = Astro.props;
 const compactTitle = competence.title.replace(/\s+a Carmagnola$/i, "").trim();
+const formatPrice = (value: string) =>
+  value
+    .replace(/\bEUR\s*(\d+(?:[.,]\d+)?)/gi, "€$1")
+    .replace(/€\s+(\d+(?:[.,]\d+)?)/g, "€$1")
+    .replace(/(\d+)\.(\d{2})\b/g, "$1,$2")
+    .replace(/(€\d+(?:,\d+)?)\s+a\s+(\d+(?:,\d+)?)(?!\s*€)/g, "$1 a €$2")
+    .replace(/\s*\/\s*/g, " / ")
+    .replace(/\s{2,}/g, " ")
+    .trim();
 
-const resolveTheme = (slug: string): { hero: ImageAsset; mood: ImageAsset } => {
-  if (/laser|peli-incarniti/.test(slug)) return { hero: media.laser.hero, mood: media.laser.mood };
-  if (/laminazione|ciglia|sopracciglia/.test(slug)) return { hero: media.lamina.hero, mood: media.lamina.mood };
-  if (/semipermanente|manicure|unghie/.test(slug)) return { hero: media.manicure.hero, mood: media.manicure.mood };
-  if (/pedicure|piedi|talloni/.test(slug)) return { hero: media.pedicure.hero, mood: media.pedicure.mood };
-  if (/massaggio|cervicale/.test(slug)) return { hero: media.massaggio.hero, mood: media.massaggio.mood };
-  if (/linfodrenante|drenaggio|drenante|pressoterapia/.test(slug)) return { hero: media.drenante.hero, mood: media.drenante.mood };
-  if (/viso|pelle|contorno-occhi|tono|ovale|opaca|matura|pulizia|scrub/.test(slug)) return { hero: media.viso.hero, mood: media.viso.mood };
-  return { hero: media.studio.cabin, mood: media.studio.reception };
+const resolveTheme = (slug: string): { hero: ImageAsset; mood: ImageAsset; editorial: readonly ImageAsset[] } => {
+  if (/laser|peli-incarniti/.test(slug)) {
+    return { hero: media.laser.hero, mood: media.laser.mood, editorial: [media.laser.handpiece, media.laser.consult] };
+  }
+  if (/laminazione|ciglia|sopracciglia/.test(slug)) {
+    return { hero: media.lamina.hero, mood: media.lamina.mood, editorial: [media.lamina.detail, media.lamina.hero] };
+  }
+  if (/pedicure|piedi|talloni/.test(slug)) {
+    return { hero: media.pedicure.hero, mood: media.pedicure.mood, editorial: [media.pedicure.detail, media.pedicure.hero] };
+  }
+  if (/semipermanente|manicure|unghie/.test(slug)) {
+    return { hero: media.manicure.hero, mood: media.manicure.mood, editorial: [media.manicure.detail, media.manicure.hero] };
+  }
+  if (/linfodrenante|drenaggio|drenante|pressoterapia/.test(slug)) {
+    return { hero: media.drenante.hero, mood: media.drenante.mood, editorial: [media.drenante.detail, media.drenante.hero] };
+  }
+  if (/massaggio|cervicale/.test(slug)) {
+    return { hero: media.massaggio.hero, mood: media.massaggio.mood, editorial: [media.massaggio.detail, media.massaggio.hero] };
+  }
+  if (/viso|pelle|contorno-occhi|tono|ovale|opaca|matura|pulizia|scrub/.test(slug)) {
+    return { hero: media.viso.hero, mood: media.viso.mood, editorial: [media.viso.texture, media.viso.products] };
+  }
+  return {
+    hero: media.studio.cabin,
+    mood: media.studio.reception,
+    editorial: [media.studio.professional, media.studio.reception],
+  };
 };
 const theme = resolveTheme(competence.slug);
 
@@ -74,6 +101,11 @@ const readingMinutes = Math.max(
     ).length / 190,
   ),
 );
+const updatedLabel = new Intl.DateTimeFormat("it-IT", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+}).format(new Date(`${siteConfig.lastUpdated}T12:00:00Z`));
 
 const slugifyId = (value: string) =>
   value
@@ -179,12 +211,12 @@ const sourceLinks = competence.sourceLinks ?? [];
 
 const tocItems = [
   { id: "punti-chiave", label: "Informazioni principali" },
-  ...(editorialSections.length > 0 ? [{ id: "guida", label: "Come funziona" }] : []),
+  ...(editorialSections.length > 0 ? [{ id: "guida", label: "Come si svolge" }] : []),
   { id: "faq", label: "Domande frequenti" },
   ...(relatedServices.length > 0 ? [{ id: "servizi", label: "Servizi collegati" }] : []),
   ...(sourceLinks.length > 0 ? [{ id: "fonti", label: "Fonti" }] : []),
-  ...(relatedProtocols.length > 0 ? [{ id: "protocolli", label: "Protocolli collegati" }] : []),
-  ...(relatedCompetences.length > 0 ? [{ id: "correlate", label: "Altre guide" }] : []),
+  ...(relatedProtocols.length > 0 ? [{ id: "protocolli", label: "Percorsi REBEL" }] : []),
+  ...(relatedCompetences.length > 0 ? [{ id: "correlate", label: "Altri approfondimenti" }] : []),
   ...(featuredAreas.length > 0 ? [{ id: "localita", label: "Come raggiungerci" }] : []),
 ];
 ---
@@ -206,9 +238,9 @@ const tocItems = [
     meta={[
       competence.localAngle,
       `${readingMinutes} min di lettura`,
-      `Aggiornato ${siteConfig.lastUpdated}`,
+      `Aggiornato il ${updatedLabel}`,
     ]}
-    ctaPrimary={{ label: "Prenota la prima visita", href: "/contatti", halo: true }}
+    ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp }}
   />
 
@@ -233,20 +265,33 @@ const tocItems = [
             </div>
           ) : null}
           <p class="detail-lead">{competence.shortDescription}</p>
-          <KeyPointsGrid title="Informazioni essenziali" points={competence.benefits} />
+          <KeyPointsGrid title="In breve" points={competence.benefits} />
         </div>
 
         {editorialSections.length > 0 ? (
           <div id="guida" class="detail-section">
             <SectionHead
-              kicker="Come funziona nello studio Rebel"
+              kicker="Come si svolge"
               title={`Preparazione, trattamento e indicazioni su _${compactTitle}_.`}
-              lead="Le sezioni seguenti spiegano modalità, tempi, precauzioni e gestione dopo l’appuntamento."
+              lead="Trovi modalità, tempi, precauzioni e indicazioni utili per dopo l’appuntamento."
             />
             <div class="editorial-flow">
-              {editorialSections.map((s) => (
-                <EditorialSection id={slugifyId(s.heading)} heading={s.heading} paragraphs={s.paragraphs} level={3} />
-              ))}
+              {editorialSections.map((s, i) => {
+                const mediaIndex = Math.floor(i / 2);
+                const sectionMedia = i % 2 === 0
+                  ? theme.editorial[mediaIndex % theme.editorial.length]
+                  : undefined;
+                return (
+                  <EditorialSection
+                    id={slugifyId(s.heading)}
+                    heading={s.heading}
+                    paragraphs={s.paragraphs}
+                    level={3}
+                    media={sectionMedia}
+                    mediaSide={mediaIndex % 2 === 0 ? "end" : "start"}
+                  />
+                );
+              })}
             </div>
           </div>
         ) : null}
@@ -254,16 +299,16 @@ const tocItems = [
         <div id="faq" class="detail-section">
           <SectionHead
             kicker="Domande frequenti"
-            title={`Risposte su tempi, modalità e indicazioni per _${compactTitle}_.`}
+            title={`Le domande più comuni su _${compactTitle}_.`}
           />
-          <FaqAccordion items={competence.faqs} kicker={`FAQ ${compactTitle}`} />
+          <FaqAccordion items={competence.faqs} kicker={`Domande su ${compactTitle}`} />
         </div>
 
         {sourceLinks.length > 0 ? (
           <div id="fonti" class="detail-section">
             <SectionHead
               kicker="Fonti e riferimenti"
-              title="Documenti utilizzati per le informazioni tecniche della guida."
+              title="Le fonti consultate per le informazioni tecniche."
             />
             <ul class="source-list">
               {sourceLinks.map((s) => (
@@ -280,12 +325,12 @@ const tocItems = [
             <SectionHead
               kicker="Servizi collegati"
               title={`Trattamenti Rebel collegati a _${compactTitle}_.`}
-              lead="Apri le schede per leggere descrizione, prezzo, durata e indicazioni di prenotazione."
+              lead="In ogni scheda trovi descrizione, prezzo, durata e indicazioni utili prima di prenotare."
             />
             <div class="card-grid card-grid--2">
               {relatedServices.map((s, i) => (
                 <FeatureCard
-                  kicker={s.priceHint}
+                  kicker={formatPrice(s.priceHint)}
                   title={s.name}
                   body={s.shortDescription}
                   href={`/servizi/${s.slug}`}
@@ -299,14 +344,14 @@ const tocItems = [
         {relatedProtocols.length > 0 ? (
           <div id="protocolli" class="detail-section">
             <SectionHead
-              kicker="Protocolli collegati"
+              kicker="Percorsi REBEL"
               title="Trattamenti professionali per esigenze specifiche di viso o corpo."
-              lead="Ogni scheda riporta obiettivo, prezzo, modalità e indicazioni prima della prenotazione."
+              lead="In ogni scheda trovi obiettivo, prezzo, modalità e indicazioni utili prima di prenotare."
             />
             <div class="card-grid card-grid--2">
               {relatedProtocols.map((p, i) => (
                 <FeatureCard
-                  kicker={p.price}
+                  kicker={formatPrice(p.price)}
                   title={p.name}
                   body={p.shortDescription}
                   href={`/protocolli/${p.slug}`}
@@ -321,8 +366,8 @@ const tocItems = [
         {relatedCompetences.length > 0 ? (
           <div id="correlate" class="detail-section">
             <SectionHead
-              kicker="Altre guide"
-              title="Approfondimenti su servizi ed esigenze collegate."
+              kicker="Altri approfondimenti utili"
+              title="Guide su servizi ed esigenze collegate."
             />
             <div class="card-grid card-grid--2">
               {relatedCompetences.map((c, i) => (
@@ -344,14 +389,14 @@ const tocItems = [
             <SectionHead
               kicker="Come raggiungerci"
               title="Indicazioni per chi arriva dai comuni vicini."
-              lead="Apri la pagina del tuo comune per leggere distanza e percorso verso Viale Barbaroux 20 a Carmagnola."
+              lead="Apri la pagina del tuo comune per vedere la mappa e il percorso verso Viale Barbaroux 20 a Carmagnola."
             />
             <div class="card-grid card-grid--2">
               {featuredAreas.map((a, i) => (
                 <FeatureCard
                   kicker="Località"
                   title={a.city}
-                  body={a.description}
+                  body={`Indicazioni e contatti per organizzare la visita da ${a.city}.`}
                   href={`/localita/${a.slug}`}
                   variant="quiet"
                   index={i + 1}
@@ -366,8 +411,8 @@ const tocItems = [
         <TableOfContents items={tocItems} />
         <InlineCta
           kicker="Valutazione REBEL · 30–40 minuti"
-          title={`Hai bisogno di sapere quale servizio prenotare per _${compactTitle}_?`}
-          lead="In 30–40 minuti valutiamo la zona e definiamo trattamento, frequenza e prezzo. La valutazione è gratuita quando finalizzata al Percorso REBEL; home care separata."
+          title="Vuoi capire quale trattamento può essere adatto a te?"
+          lead="Durante la valutazione parliamo del risultato che desideri, osserviamo la pelle o l’area da trattare e ti spieghiamo opzioni, frequenza e prezzo. Se scegli di iniziare il percorso proposto, la valutazione è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi."
           primaryHref="/contatti"
           primaryLabel="Prenota la valutazione"
           secondaryHref="/listino-estetica-laser"
@@ -382,12 +427,12 @@ const tocItems = [
     height="sm"
     align="left"
     kicker={`${compactTitle} · Rebel Carmagnola`}
-    quote={`Informazioni, servizi e prenotazione per ${compactTitle}.`}
+    quote="Hai ancora un dubbio? Parliamone durante la valutazione REBEL."
     cite="Studio Rebel · Viale Barbaroux 20"
-    cta={{ label: "Prenota la prima visita", href: "/contatti" }}
+    cta={{ label: "Prenota la valutazione", href: "/contatti" }}
   />
 
-  <StickyBookingBar primary={{ label: "Prenota la prima visita", href: "/contatti" }} />
+  <StickyBookingBar primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
 </BaseLayout>
 
 <style>
@@ -417,7 +462,7 @@ const tocItems = [
     max-width: 64ch;
     margin: 1rem 0 0;
   }
-  .editorial-flow { display: grid; gap: 2rem; max-width: 70ch; margin-top: 1.6rem; }
+  .editorial-flow { display: grid; gap: clamp(2.6rem, 6vw, 5rem); margin-top: 1.6rem; }
   .source-list {
     list-style: none;
     margin: 1.2rem 0 0;

@@ -7,31 +7,31 @@ const scenes = [
   {
     number: "01",
     label: "Spazio",
-    title: "Luce, materia, profondità.",
-    body: "Avorio, legno chiaro, vetro e prospettive aperte. La luce resta credibile; il linguaggio REBEL accompagna lo spazio senza cancellarne geometrie e identità.",
+    title: "Uno spazio luminoso e ordinato.",
+    body: "Avorio, legno chiaro e vetro accompagnano il percorso dall’area accoglienza alle quattro cabine.",
     desktop: siteAsset("studio.real.overview.desktop"),
     mobile: siteAsset("studio.real.overview.mobile"),
-    alt: "Interno reale dello studio REBEL con postazione nails e teca prodotti",
+    alt: "Interno dello studio REBEL con postazione manicure e teca prodotti",
     className: "overview",
   },
   {
     number: "02",
     label: "Tecnologia",
-    title: "La cabina è il punto di precisione.",
-    body: "È il luogo in cui strumenti, prodotti e parametri entrano nel trattamento. Qui trovi le dotazioni THORY realmente presenti nello studio.",
+    title: "La cabina, dove personalizziamo ogni seduta.",
+    body: "Qui scegliamo prodotti, manualità e tecnologie in base alla zona e al risultato desiderato.",
     desktop: siteAsset("technologies.studio.thory.desktop"),
     mobile: siteAsset("technologies.studio.thory.mobile"),
-    alt: "Cabina reale REBEL con lettino e attrezzatura THORY",
+    alt: "Cabina REBEL con lettino e attrezzatura THORY",
     className: "cabin",
   },
   {
     number: "03",
     label: "Carmagnola",
-    title: "Una destinazione riconoscibile.",
-    body: "La facciata, l’insegna e la vetrina di Viale Barbaroux 20. REBEL è qui: un centro reale, con un’identità che comincia già dalla strada.",
+    title: "Ci trovi in Viale Barbaroux 20.",
+    body: "L’insegna REBEL ti accoglie nel centro di Carmagnola, da martedì a sabato su appuntamento.",
     desktop: siteAsset("studio.real.exterior.desktop"),
     mobile: siteAsset("studio.real.exterior.mobile"),
-    alt: "Facciata e vetrina reali di REBEL in Viale Barbaroux 20 a Carmagnola",
+    alt: "Facciata e vetrina di REBEL in Viale Barbaroux 20 a Carmagnola",
     className: "facade",
   },
 ];
@@ -44,14 +44,14 @@ const scenes = [
       <div>
         <p class="studio-atlas__kicker">Viale Barbaroux 20 · Dentro REBEL</p>
         <h2 id="studio-atlas-title" class="studio-atlas__title">
-          Uno spazio vero.<br /><em>Portato alla luce.</em>
+          Entra nello<br /><em>studio REBEL.</em>
         </h2>
       </div>
       <div class="studio-atlas__lead">
-        <p>REBEL si racconta attraverso fotografie dello spazio, rilette con luce, prospettiva e materia.</p>
-        <p>Proporzioni, dotazioni e segni di Carmagnola restano riconoscibili; il loro carattere viene semplicemente portato in primo piano.</p>
+        <p>Quattro cabine, una postazione manicure e un’area accoglienza nel centro di Carmagnola.</p>
+        <p>Ci trovi in Viale Barbaroux 20, da martedì a sabato su appuntamento.</p>
         <ul class="studio-atlas__facts" aria-label="Lo studio in sintesi">
-          <li>4 cabine</li><li>Postazione nails</li><li>Tecnologie professionali</li>
+          <li>4 cabine</li><li>Postazione manicure</li><li>Tecnologie professionali</li>
         </ul>
       </div>
     </header>
@@ -86,7 +86,7 @@ const scenes = [
         </div>
       </div>
 
-      <ol class="studio-atlas__chapters" aria-label="Atlante dello studio">
+      <ol class="studio-atlas__chapters" aria-label="Gli spazi dello studio">
         {scenes.map((scene, index) => (
           <li data-atlas-chapter={index} data-active={index === 0 ? "true" : undefined}>
             <span>{scene.number} / {scene.label}</span>
@@ -101,7 +101,7 @@ const scenes = [
       </ol>
     </div>
 
-    <ol class="studio-atlas__mobile-flow" aria-label="Atlante dello studio">
+    <ol class="studio-atlas__mobile-flow" aria-label="Gli spazi dello studio">
       {scenes.map((scene) => (
         <li>
           <figure class={`studio-atlas__mobile-frame studio-atlas__mobile-frame--${scene.className}`}>

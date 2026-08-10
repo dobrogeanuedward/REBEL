@@ -14,14 +14,14 @@ import {
   buildWebPageSchema,
   createPageMeta,
 } from "@/lib/seo";
-import { editorialImageAssets, servicePages } from "@/lib/seo-content";
+import { editorialImageAssets, servicePages } from "@/lib/seo-content-refined";
 import { localAreaPages } from "@/lib/local-pages";
 import { media } from "@/lib/page-media";
 
 const meta = createPageMeta({
   title: "Centro Estetico a Carmagnola — Rebel | Viale Barbaroux 20",
   description:
-    "Centro estetico a Carmagnola per viso, corpo, beauty ed epilazione Laser Ice Polar. Valutazione REBEL di 30–40 minuti e listino online.",
+    "Centro estetico a Carmagnola per trattamenti viso e corpo, servizi beauty ed epilazione laser. Valutazione REBEL di 30–40 minuti e listino online.",
   path: "/centro-estetico-carmagnola",
   keywords: [
     "centro estetico Carmagnola",
@@ -29,7 +29,6 @@ const meta = createPageMeta({
     "centro estetico vicino a me Carmagnola",
     "estetista Carmagnola",
     "estetista vicino a me",
-    "miglior centro estetico Carmagnola",
     "centro estetico Carmagnola Viale Barbaroux",
     "centro estetico Carmagnola prezzi",
     "pulizia viso Carmagnola",
@@ -62,19 +61,19 @@ const queryTargets: QueryTarget[] = [
   {
     label: "Pulizia viso",
     href: "/servizi/pulizia-viso-carmagnola",
-    description: "Detersione, estrazione quando indicata e maschera finale. Apri la scheda per prezzo e durata.",
+    description: "Detersione, eventuale estrazione e maschera finale. Trovi online prezzo e durata indicativa.",
     image: { src: editorialImageAssets.puliziaViso, alt: "Pulizia viso professionale Rebel" },
   },
   {
     label: "Manicure semipermanente",
     href: "/servizi/manicure-semipermanente-carmagnola",
-    description: "Preparazione dell’unghia, applicazione colore RBL Nails e finitura. Prezzo e durata nella scheda.",
+    description: "Preparazione dell’unghia, applicazione del colore RBL Nails e finitura. Trovi online prezzo e durata.",
     image: { src: editorialImageAssets.manicureSemipermanente, alt: "Manicure semipermanente naturale" },
   },
   {
     label: "Epilazione laser",
     href: "/epilazione-laser-carmagnola",
-    description: "Lumina X1 Pro di THORY a quattro lunghezze d’onda, con comfort ICE Polar nel percorso viso e corpo.",
+    description: "Lumina X1 Pro di THORY a quattro lunghezze d’onda, con raffreddamento a contatto ICE Polar per le zone di viso e corpo.",
     image: { src: editorialImageAssets.laserCorpo, alt: "Epilazione laser corpo a Carmagnola" },
   },
   {
@@ -98,13 +97,13 @@ const queryTargets: QueryTarget[] = [
   {
     label: "Massaggio rilassante",
     href: "/servizi/massaggio-rilassante-carmagnola",
-    description: "Massaggio dedicato a rilassamento e benessere generale. Apri la scheda per durata e prezzo.",
+    description: "Massaggio dedicato al relax e al benessere generale, con durata e prezzo consultabili online.",
     image: { src: editorialImageAssets.massaggioRilassante, alt: "Massaggio rilassante a Carmagnola" },
   },
   {
     label: "Massaggio linfodrenante",
     href: "/servizi/massaggio-linfodrenante-carmagnola",
-    description: "Manualità dedicate a drenaggio, gonfiore e sensazione di pesantezza, anche in cicli di sedute.",
+    description: "Manualità delicate dedicate alla sensazione di gonfiore e pesantezza. La sensazione dopo la seduta varia da persona a persona.",
     image: { src: editorialImageAssets.linfodrenante, alt: "Massaggio linfodrenante in studio" },
   },
 ];
@@ -136,7 +135,7 @@ const faqSchema = {
       name: "Quali trattamenti offre Rebel?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Rebel offre pulizia viso, manicure, pedicure, ceretta, massaggi, laminazione, trattamenti viso e corpo, protocolli epigenetici ed epilazione Laser Ice Polar.",
+        text: "Rebel offre pulizia viso, manicure, pedicure, ceretta, massaggi, laminazione, trattamenti viso e corpo, protocolli epigenetici ed epilazione laser con ICE Polar.",
       },
     },
     {
@@ -144,7 +143,7 @@ const faqSchema = {
       name: "Dove posso vedere i prezzi?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Il listino online riporta i prezzi dei servizi e delle zone laser. Valutazione e analisi REBEL durano 30–40 minuti e sono gratuite quando finalizzate alla costruzione del Percorso; l’home care resta separata.",
+        text: "Il listino online riporta i prezzi dei servizi e delle zone laser. Se scegli di iniziare il Percorso REBEL, la valutazione di 30–40 minuti è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi.",
       },
     },
     {
@@ -177,11 +176,11 @@ const keyServices = keySlugs
   <PageHero
     image={media.studio.reception}
     kicker="Centro estetico · Carmagnola"
-    title="Viso, corpo, laser e beauty in _Viale Barbaroux 20_."
-    lead="Da Rebel puoi prenotare pulizia viso, manicure, pedicure, ceretta, massaggi, laminazione, trattamenti corpo, protocolli viso ed epilazione Laser Ice Polar."
+    title="Trattamenti viso, corpo e beauty in _Viale Barbaroux 20_."
+    lead="Da REBEL puoi prenotare pulizia viso, manicure, pedicure, ceretta, massaggi, laminazione, trattamenti corpo, percorsi viso ed epilazione laser."
     bullets={["Listino online", "Valutazione REBEL · 30–40 min", "Da martedì a sabato"]}
     meta={["Viale Barbaroux 20 · Carmagnola", "Viso, corpo, laser e beauty"]}
-    ctaPrimary={{ label: "Prenota la prima visita", href: "/contatti", halo: true }}
+    ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Consulta il listino", href: "/listino-estetica-laser" }}
   />
 
@@ -190,7 +189,7 @@ const keyServices = keySlugs
       <SectionHead
         kicker="Servizi più richiesti"
         title="Prezzi e informazioni sui principali trattamenti."
-        lead="Apri la scheda del servizio che ti interessa per leggere prezzo, durata indicativa, modalità e informazioni prima dell’appuntamento."
+        lead="Scegli il trattamento che ti interessa per conoscere prezzo, durata indicativa e informazioni utili prima dell’appuntamento."
       />
       <div class="image-grid">
         {queryTargets.map((it) => (
@@ -201,7 +200,7 @@ const keyServices = keySlugs
             <div class="image-card__body">
               <h3 class="image-card__title">{it.label}</h3>
               <p class="image-card__lead">{it.description}</p>
-              <span class="image-card__cta" aria-hidden="true">Apri la scheda →</span>
+              <span class="image-card__cta" aria-hidden="true">Scopri il trattamento →</span>
             </div>
           </a>
         ))}
@@ -213,8 +212,8 @@ const keyServices = keySlugs
     <div class="container">
       <SectionHead
         kicker="Quattro servizi da conoscere"
-        title="Pedicure, scrub corpo e percorso Laser con comfort ICE Polar."
-        lead="Queste schede raccolgono prezzo, durata e informazioni pratiche su quattro servizi frequentemente prenotati."
+        title="Pedicure, scrub ed epilazione laser per viso e corpo."
+        lead="Quattro servizi richiesti di frequente, con prezzo, durata e informazioni pratiche."
       />
       <div class="card-grid card-grid--2">
         {keyServices.map((s) => (
@@ -240,9 +239,9 @@ const keyServices = keySlugs
       <div class="card-grid card-grid--3">
         {featuredAreas.map((area) => (
           <FeatureCard
-            kicker={area.cluster.replace(/-/g, " ")}
+            kicker="Indicazioni"
             title={area.city}
-            body={area.description}
+            body={`Indicazioni per raggiungere REBEL da ${area.city}, servizi e modalità di prenotazione.`}
             href={`/localita/${area.slug}`}
             variant="quiet"
           />
@@ -250,7 +249,7 @@ const keyServices = keySlugs
       </div>
       <div class="cluster cluster--stack-mobile" style="margin-top: 2rem;">
         <a class="btn btn--secondary" href="/localita">Vedi tutte le località</a>
-        <a class="btn btn--primary btn--halo" href="/contatti">Mappa e contatti</a>
+        <a class="btn btn--primary btn--halo" href="/contatti">Contatti e indicazioni</a>
       </div>
     </div>
   </section>
@@ -258,7 +257,7 @@ const keyServices = keySlugs
   <NearMeBlock
     serviceLabel="Centro estetico"
     kicker="Centro estetico vicino a te"
-    anchorPattern={(s, c) => `${s} per chi cerca da ${c}`}
+    anchorPattern={(s, c) => `${s}: indicazioni da ${c}`}
     clusters={["asse-carmagnola", "torino-sud", "cuneo"]}
     limit={14}
     hrefOverrides={{
@@ -274,7 +273,7 @@ const keyServices = keySlugs
     align="center"
     kicker="Studio Rebel · Carmagnola"
     quote="Quattro cabine per trattamenti viso, corpo, laser e beauty."
-    cta={{ label: "Prenota la prima visita", href: "/contatti" }}
+    cta={{ label: "Prenota la valutazione", href: "/contatti" }}
   />
 
   <section class="section">
@@ -282,7 +281,7 @@ const keyServices = keySlugs
       <InlineCta
         kicker="Valutazione REBEL · 30–40 minuti"
         title="Ricevi indicazioni su trattamento, _frequenza e prezzo_."
-        lead="Valutiamo la zona e definiamo una proposta in 30–40 minuti. La valutazione è gratuita quando finalizzata al Percorso REBEL; home care separata."
+        lead="In 30–40 minuti valutiamo la zona e ti spieghiamo trattamento, frequenza e prezzo. Se scegli di iniziare il Percorso REBEL, la valutazione è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi."
       />
     </div>
   </section>

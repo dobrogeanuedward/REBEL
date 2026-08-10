@@ -15,9 +15,9 @@ import {
 } from "@/lib/seo";
 
 const meta = createPageMeta({
-  title: "Percorsi viso, corpo e laser a Carmagnola | Rebel",
+  title: "Protocolli viso e corpo REBEL a Carmagnola",
   description:
-    "Glow per luminosità e uniformità, Longevity per tono e pelle matura, Forma per drenaggio e compattezza, Libertà per epilazione Laser Ice Polar.",
+    "Confronta i protocolli professionali REBEL per viso e corpo: esigenze trattate, prezzi, valutazione iniziale e modalità di prenotazione.",
   path: "/protocolli-epigenetici",
   openGraphType: "article",
   keywords: [
@@ -31,20 +31,20 @@ const meta = createPageMeta({
 
 const breadcrumb = buildBreadcrumbSchema([
   { name: "Home", path: "/" },
-  { name: "Percorsi Rebel", path: "/protocolli-epigenetici" },
+  { name: "Protocolli REBEL", path: "/protocolli-epigenetici" },
 ]);
 const webPageSchema = buildWebPageSchema({
-  name: "Percorsi viso, corpo e laser Rebel a Carmagnola",
+  name: "Protocolli viso e corpo REBEL a Carmagnola",
   description: meta.description,
   path: "/protocolli-epigenetici",
 });
 const serviceSchema = buildServiceSchema(
-  "Percorsi Rebel viso, corpo e laser",
-  "Trattamenti personalizzati per luminosità, tono, pelle matura, contorno occhi, drenaggio, compattezza ed epilazione laser.",
+  "Protocolli professionali REBEL per viso e corpo",
+  "Trattamenti cosmetici per luminosità, tono, pelle matura, contorno occhi, idratazione e compattezza.",
   "/protocolli-epigenetici",
 );
 const articleSchema = buildArticleSchema({
-  headline: "Glow, Longevity, Forma e Libertà: i percorsi Rebel",
+  headline: "Protocolli professionali REBEL per viso e corpo",
   description: meta.description,
   path: "/protocolli-epigenetici",
   keywords: ["percorsi Rebel", "estetica epigenetica", "Carmagnola"],
@@ -56,40 +56,6 @@ const protocolsSchema = buildItemListSchema({
   items: protocolCards.map((p) => ({ name: p.name, path: `/protocolli/${p.slug}` })),
 });
 
-const journeys = [
-  {
-    name: "Glow",
-    image: media.journeys.glow,
-    focus: "Viso · luminosità, idratazione e uniformità",
-    body: "Indicato quando la pelle appare spenta, disidratata, opaca o irregolare. Può includere Skin Reset, Catalysis, Cell Regen e attivi epigenetici.",
-    tools: ["Skin Reset", "Catalysis", "Cell Regen", "Attivi epigenetici"],
-    href: "/contatti?percorso=glow",
-  },
-  {
-    name: "Longevity",
-    image: media.journeys.longevity,
-    focus: "Viso · tono, elasticità e segni del tempo",
-    body: "Indicato per perdita di tono, pelle matura, secchezza, minore elasticità o contorno occhi affaticato. Può includere Lift, Collagen, Rebirth 60+ ed Eye Genesis.",
-    tools: ["Lift", "Collagen", "Rebirth 60+", "Eye Genesis"],
-    href: "/contatti?percorso=longevity",
-  },
-  {
-    name: "Forma",
-    image: media.journeys.forma,
-    focus: "Corpo · drenaggio, tono e compattezza",
-    body: "Indicato per pesantezza, ritenzione, perdita di tono e rimodellamento. Può combinare manualità, LPG e trattamenti corpo scelti dopo la valutazione.",
-    tools: ["Manualità", "LPG", "Valutazione", "Controlli"],
-    href: "/contatti?percorso=forma",
-  },
-  {
-    name: "Libertà",
-    image: media.journeys.liberta,
-    focus: "Epilazione laser · viso e corpo",
-    body: "Percorso Laser Ice Polar per ridurre progressivamente la ricrescita. La valutazione definisce fototipo, pelo, zone, parametri, frequenza e prezzo.",
-    tools: ["Laser a diodo", "Ice Polar", "Viso", "Corpo"],
-    href: "/epilazione-laser-carmagnola",
-  },
-];
 ---
 <BaseLayout meta={meta} bodyClass="page-rebrand page-percorsi-rebel">
   <JsonLd data={breadcrumb} />
@@ -104,13 +70,13 @@ const journeys = [
     </div>
     <div class="rb-hero__veil"></div>
     <div class="container rb-hero__content">
-      <p class="rb-kicker">Trattamenti personalizzati · Carmagnola</p>
-      <h1>Percorsi per viso, corpo <em>ed epilazione laser.</em></h1>
+      <p class="rb-kicker">Trattamenti professionali · Carmagnola</p>
+      <h1>Protocolli per viso <em>e corpo.</em></h1>
       <p class="rb-lead">
-        Glow è dedicato a luminosità e uniformità del viso; Longevity a tono, pelle matura e contorno occhi; Forma a drenaggio e compattezza del corpo; Libertà al Laser Ice Polar.
+        Scopri a quali esigenze è dedicato ogni protocollo, come viene programmato e quanto costa. La scelta parte sempre dalla valutazione della pelle o della zona.
       </p>
       <div class="cluster cluster--stack-mobile">
-        <a class="btn btn--primary" href="/contatti">Prenota la prima visita</a>
+        <a class="btn btn--primary" href="/contatti">Prenota la valutazione</a>
         <a class="btn btn--secondary" href="/metodo-rebel">Come scegliamo i trattamenti</a>
       </div>
     </div>
@@ -120,35 +86,11 @@ const journeys = [
     <div class="container rb-intro-grid">
       <div>
         <p class="rb-kicker">Scelta del trattamento</p>
-        <h2>Colleghiamo il risultato che desideri alle condizioni di pelle o corpo.</h2>
+        <h2>Partiamo da ciò che vuoi migliorare e dalle condizioni osservate.</h2>
       </div>
       <div class="rb-copy">
         <p>Durante la valutazione ci racconti che cosa vuoi migliorare. Osserviamo la zona interessata e ti spieghiamo quali trattamenti possono essere adatti.</p>
         <p>Il programma indica prodotti, manualità, tecnologie, numero indicativo di sedute, frequenza iniziale e data del controllo.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="rb-section rb-section--plum">
-    <div class="container">
-      <div class="rb-section-head">
-        <p class="rb-kicker">Quattro aree di trattamento</p>
-        <h2>Che cosa tratta ogni percorso Rebel.</h2>
-      </div>
-      <div class="rebel-journeys">
-        {journeys.map((journey) => (
-          <article class="rebel-journey" style={`--journey-image:url(${journey.image.src})`}>
-            <div class="rebel-journey__copy">
-              <p class="rb-kicker">{journey.focus}</p>
-              <h3>{journey.name}</h3>
-              <p>{journey.body}</p>
-              <div class="rebel-journey__tags">
-                {journey.tools.map((tool) => <span>{tool}</span>)}
-              </div>
-              <div style="margin-top:1.5rem"><a class="btn btn--secondary" href={journey.href}>{journey.name === "Libertà" ? "Prezzi e zone laser" : `Richiedi informazioni su ${journey.name}`}</a></div>
-            </div>
-          </article>
-        ))}
       </div>
     </div>
   </section>
@@ -180,7 +122,9 @@ const journeys = [
       </div>
       <div class="rb-copy">
         <p>Non è necessario conoscere già il nome del protocollo. Puoi dirci, per esempio, che desideri più luminosità, meno pesantezza alle gambe, maggiore tono o meno ricrescita.</p>
-        <p>Valutiamo la zona e ti presentiamo una proposta con trattamento, frequenza e prezzo.</p>
+        <p>Valutiamo la zona e ti spieghiamo trattamento, frequenza e prezzo.</p>
+        <p>Per confrontare anche i nove percorsi viso, corpo e laser, consulta la sezione Percorsi REBEL.</p>
+        <p><a class="btn btn--secondary" href="/percorsi">Vedi i nove percorsi</a></p>
       </div>
     </div>
   </section>
@@ -190,7 +134,7 @@ const journeys = [
       <InlineCta
         kicker="Valutazione REBEL · 30–40 minuti"
         title="Raccontaci che cosa vuoi _migliorare_."
-        lead="In 30–40 minuti valutiamo la zona e definiamo priorità, trattamenti, frequenza e prezzo. La valutazione è gratuita quando finalizzata alla costruzione del Percorso REBEL; home care separata."
+        lead="In 30–40 minuti valutiamo la zona e ti spieghiamo trattamenti, frequenza e prezzo. Se scegli di iniziare il Percorso REBEL, la valutazione è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi."
         primaryHref="/contatti"
         primaryLabel="Prenota la valutazione"
         secondaryHref="/metodo-rebel"

@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro";
 import { siteConfig } from "@/lib/site-config";
-import { competencePages } from "@/lib/seo-content";
+import { competencePages } from "@/lib/seo-content-refined";
 import { protocolPages } from "@/lib/protocol-pages";
 
 const safeIso = (value: string) => {

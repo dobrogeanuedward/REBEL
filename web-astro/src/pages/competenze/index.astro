@@ -3,6 +3,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHero from "@/components/PageHero.astro";
 import SectionHead from "@/components/SectionHead.astro";
 import FeatureCard from "@/components/FeatureCard.astro";
+import MediaFigure from "@/components/MediaFigure.astro";
 import InlineCta from "@/components/InlineCta.astro";
 import FullBleedBand from "@/components/FullBleedBand.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
@@ -73,10 +74,10 @@ const webPageSchema = buildWebPageSchema({
     image={media.studio.cabin}
     kicker="Guide pratiche · Rebel Carmagnola"
     title="Durata, frequenza e indicazioni _prima del trattamento_."
-    lead="Le guide spiegano come funziona ogni servizio, come prepararsi, che cosa aspettarsi durante la seduta e quali attenzioni seguire dopo."
-    bullets={["Laser, viso, corpo e beauty", "Indicazioni pratiche", "Collegamenti a prezzi e prenotazione"]}
+    lead="Trovi indicazioni su preparazione, durata, seduta e attenzioni da seguire dopo i trattamenti."
+    bullets={["Laser, viso, corpo e beauty", "Indicazioni pratiche", "Prezzi e prenotazione"]}
     meta={["Guide aggiornate", "Servizi disponibili a Carmagnola", "Viale Barbaroux 20"]}
-    ctaPrimary={{ label: "Prenota la prima visita", href: "/contatti", halo: true }}
+    ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Consulta il listino", href: "/listino-estetica-laser" }}
   />
 
@@ -84,11 +85,19 @@ const webPageSchema = buildWebPageSchema({
     <section class="section">
       <div class="container">
         <SectionHead
-          kicker="Domande frequenti in studio"
+          kicker="Le domande che ci fate più spesso"
           title="Laser, pulizia viso, manicure, pedicure e trattamenti corpo."
           lead="Una selezione delle guide più consultate, con risposte su tempi, modalità, preparazione e mantenimento."
         />
-        <div class="card-grid card-grid--2">
+        <MediaFigure
+          src={media.laser.consult.src}
+          alt={media.laser.consult.alt}
+          caption="Le guide aiutano a preparare domande concrete prima della valutazione."
+          ratio="16/7"
+          width={1122}
+          height={1402}
+        />
+        <div class="card-grid card-grid--2" style="margin-top:2rem;">
           {featuredGuides.map((g, i) => (
             <FeatureCard
               kicker="Guida pratica"
@@ -109,9 +118,17 @@ const webPageSchema = buildWebPageSchema({
       <SectionHead
         kicker="Tutte le guide"
         title="Informazioni su servizi, tecnologie e cura dopo la seduta."
-        lead="Apri una guida per leggere indicazioni specifiche e trovare i collegamenti alla scheda del servizio, al prezzo e alla prenotazione."
+        lead="Scegli l’argomento che ti interessa per conoscere modalità, preparazione, durata, prezzi e prenotazione."
       />
-      <div class="card-grid card-grid--2">
+      <MediaFigure
+        src={media.viso.products.src}
+        alt={media.viso.products.alt}
+        caption="Preparazione, frequenza e indicazioni cambiano in base al trattamento: ogni guida le raccoglie in una pagina."
+        ratio="16/7"
+        width={1122}
+        height={1402}
+      />
+      <div class="card-grid card-grid--2" style="margin-top:2rem;">
         {competencePages.map((c, i) => (
           <FeatureCard
             kicker={c.intent === "commercial" ? "Servizio e prenotazione" : "Guida pratica"}
@@ -131,7 +148,7 @@ const webPageSchema = buildWebPageSchema({
     height="sm"
     align="left"
     kicker="Valutazione REBEL · 30–40 minuti"
-    quote="Valutiamo la zona e ti comunichiamo trattamento, frequenza e prezzo."
+    quote="Valutiamo la zona e ti spieghiamo trattamento, frequenza e prezzo."
     cite="Studio Rebel · Viale Barbaroux 20"
   />
 
@@ -140,7 +157,7 @@ const webPageSchema = buildWebPageSchema({
       <InlineCta
         kicker="Hai ancora un dubbio?"
         title="Spiegaci quale zona o risultato ti _interessa_."
-        lead="In 30–40 minuti valutiamo le informazioni utili e definiamo servizio, frequenza e prezzo. La valutazione è gratuita quando finalizzata al Percorso REBEL; home care separata."
+        lead="In 30–40 minuti valutiamo la zona e definiamo trattamento, frequenza e prezzo. Se scegli di iniziare il percorso proposto, la valutazione è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi."
         primaryHref="/contatti"
         primaryLabel="Prenota la valutazione"
         secondaryHref="/listino-estetica-laser"

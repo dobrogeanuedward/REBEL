@@ -223,6 +223,42 @@
   border-top: 1px solid var(--map-line);
 }
 
+.rb-map__botanical {
+  position: relative;
+  min-height: 17rem;
+  margin: clamp(1.2rem, 3vw, 2rem) 0 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--journey-accent) 22%, transparent);
+  border-radius: .25rem 1.35rem 1.35rem 1.35rem;
+  background:
+    radial-gradient(circle at 74% 24%, color-mix(in srgb, var(--journey-accent) 18%, transparent), transparent 10rem),
+    #fffaf6;
+}
+
+.rb-map__botanical img {
+  position: absolute;
+  inset: .5rem 0 2.5rem auto;
+  width: 88%;
+  height: calc(100% - 3rem);
+  object-fit: contain;
+  object-position: right center;
+  filter: drop-shadow(0 .8rem 1rem rgba(39,20,47,.12));
+}
+
+.rb-map__botanical figcaption {
+  position: absolute;
+  right: .85rem;
+  bottom: .7rem;
+  left: .85rem;
+  overflow: hidden;
+  color: #5c4b62;
+  font-size: .68rem;
+  font-weight: 750;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .rb-map__description {
   display: grid;
   grid-template-columns: 1.05fr .95fr;
@@ -309,6 +345,7 @@
   .rb-map__chevron { grid-column: 3; grid-row: 1 / span 2; width: 2.7rem; }
   .rb-map__description { grid-template-columns: 1fr; gap: 1.4rem; }
   .rb-map__matter-grid { grid-template-columns: 1fr; }
+  .rb-map__botanical { min-height: 14rem; }
   .rb-map__actions { align-items: stretch; }
   .rb-map__actions .btn, .rb-map__text-link { width: 100%; text-align: center; }
   .rb-map__text-link { min-height: 3rem; display: grid; place-items: center; }

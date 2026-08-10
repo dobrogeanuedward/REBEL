@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { rebelJourneys, type RebelJourney } from "@/lib/rebel-journeys";
+import { getJourneyVisual } from "@/lib/journey-visuals";
 import "@/styles/rebel-map-live.css";
 
 type JourneyFilter = "all" | RebelJourney["area"];
@@ -10,13 +11,6 @@ const filters: Array<{ id: JourneyFilter; label: string }> = [
   { id: "Corpo", label: "Corpo" },
   { id: "Epilazione", label: "Laser" },
 ];
-
-const worldNames = {
-  glow: "Glow",
-  longevity: "Longevity",
-  forma: "Forma",
-  liberta: "Libertà",
-} as const;
 
 const journeyName = (journey: RebelJourney) =>
   journey.slug === "white" ? "Uniformare" : journey.name;
@@ -42,14 +36,14 @@ export default function RebelMap() {
       </noscript>
 
       <header className="rb-map__intro">
-        <div className="rb-map__edition" aria-label="Nove percorsi in quattro mondi">
+        <div className="rb-map__edition" aria-label="Nove percorsi per viso, corpo e laser">
           <strong>09</strong>
-          <span>percorsi<br />4 mondi</span>
+          <span>percorsi<br />viso · corpo · laser</span>
         </div>
         <div>
-          <p className="rebel-kicker">Mappa REBEL · orientamento</p>
-          <h3 id="rb-map-title"><span>Scegli il percorso.</span><em>Apri la materia.</em></h3>
-          <p>Confronta priorità, prezzo di partenza, attivi, botaniche e tecnologie. La valutazione trasforma poi la scelta in un programma personale.</p>
+          <p className="rebel-kicker">Mappa REBEL · scegli il percorso</p>
+          <h3 id="rb-map-title"><span>Scegli ciò che vuoi migliorare.</span><em>Scopri da dove iniziare.</em></h3>
+          <p>Filtra i percorsi per viso, corpo o laser. Selezionane uno per vedere prezzo di partenza, ingredienti e tecnologie.</p>
         </div>
       </header>
 
@@ -78,6 +72,7 @@ export default function RebelMap() {
         {rebelJourneys.map((journey) => {
           const isVisible = filter === "all" || journey.area === filter;
           const displayName = journeyName(journey);
+          const visual = getJourneyVisual(journey.slug);
           return (
             <details
               key={journey.slug}
@@ -88,7 +83,7 @@ export default function RebelMap() {
               <summary>
                 <span className="rb-map__number">{journey.number}</span>
                 <span className="rb-map__identity">
-                  <small>{worldNames[journey.world]} · {journeySignature(journey)}</small>
+                  <small>{journey.area} · {journeySignature(journey)}</small>
                   <strong>{displayName}</strong>
                 </span>
                 <span className="rb-map__price">
@@ -103,26 +98,30 @@ export default function RebelMap() {
               </summary>
 
               <div className="rb-map__panel">
+                <figure className="rb-map__botanical">
+                  <img src={visual.botanicalCardSrc} alt={visual.botanicalAlt} width="560" height="560" loading="lazy" decoding="async" />
+                  <figcaption>{journey.botanicals.map((item) => item.name).join(" · ")}</figcaption>
+                </figure>
                 <div className="rb-map__description">
                   <p>{journey.summary}</p>
                   <dl>
-                    <div><dt>Può essere il tuo punto di partenza quando</dt><dd>{journey.recognize}</dd></div>
+                    <div><dt>Può fare per te se</dt><dd>{journey.recognize}</dd></div>
                     <div><dt>Durata indicativa</dt><dd>{journey.duration}</dd></div>
                   </dl>
                 </div>
 
                 <div className="rb-map__matter-grid">
                   <section className="rb-map__matter">
-                    <h4>Attivi e complessi</h4>
+                      <h4>Ingredienti e complessi cosmetici</h4>
                     <ul>{journey.actives.map((item) => <li key={item.name}>{item.name}</li>)}</ul>
                   </section>
                   <section className="rb-map__matter">
-                    <h4>Botaniche</h4>
+                      <h4>Estratti vegetali e altri ingredienti</h4>
                     <ul>{journey.botanicals.map((item) => <li key={item.name}>{item.name}</li>)}</ul>
                   </section>
                   {journey.technologies.length > 0 ? (
                     <section className="rb-map__matter">
-                      <h4>Tecnologie possibili</h4>
+                      <h4>Tecnologie che il percorso può includere</h4>
                       <ul>{journey.technologies.map((technology) => <li key={technology}>{technology}</li>)}</ul>
                     </section>
                   ) : (
@@ -135,7 +134,7 @@ export default function RebelMap() {
 
                 <footer className="rb-map__actions">
                   <a className="btn btn--primary" href={`/percorsi/${journey.slug}`}>Scopri {displayName}</a>
-                  <a className="rb-map__text-link" href={`/contatti?source=mappa-rebel&percorso=${encodeURIComponent(journey.slug)}`}>Portalo in valutazione <span>→</span></a>
+                  <a className="rb-map__text-link" href={`/contatti?source=mappa-rebel&percorso=${encodeURIComponent(journey.slug)}`}>Chiedi una valutazione <span>→</span></a>
                 </footer>
               </div>
             </details>
@@ -144,8 +143,8 @@ export default function RebelMap() {
       </div>
 
       <footer className="rb-map__closing">
-        <p><strong>Non sai quale aprire?</strong> Non devi arrivare con una risposta già pronta.</p>
-        <a href="/contatti?source=mappa-rebel&percorso=valutazione">Partiamo dalla valutazione <span>→</span></a>
+        <p><strong>Non sai quale percorso scegliere?</strong> Ti aiutiamo durante la valutazione.</p>
+        <a href="/contatti?source=mappa-rebel&percorso=valutazione">Prenota la valutazione <span>→</span></a>
       </footer>
     </section>
   );

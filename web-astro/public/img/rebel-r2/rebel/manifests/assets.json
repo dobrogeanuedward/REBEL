@@ -1,6 +1,6 @@
 {
-  "version": "rebel-site-assets-v3",
-  "generatedAt": "2026-08-09",
+  "version": "rebel-site-assets-v4",
+  "generatedAt": "2026-08-10",
   "direction": {
     "palette": [
       "warm porcelain",
@@ -60,33 +60,61 @@
     }
   },
   "journeys": {
+    "skinReset": {
+      "matter": "rebel/library/v1/journeys/skin-reset/matter-cutout-v1.webp",
+      "matterCard": "rebel/library/v1/journeys/skin-reset/matter-card-v1.webp"
+    },
+    "barrier": {
+      "matter": "rebel/library/v1/journeys/barrier/matter-cutout-v1.webp",
+      "matterCard": "rebel/library/v1/journeys/barrier/matter-card-v1.webp"
+    },
+    "balance": {
+      "matter": "rebel/library/v1/journeys/balance/matter-cutout-v1.webp",
+      "matterCard": "rebel/library/v1/journeys/balance/matter-card-v1.webp"
+    },
     "glow": {
       "hero": {
         "src": "rebel/journeys/glow/hero-desktop.webp",
         "desktop": "rebel/journeys/glow/hero-desktop.webp",
         "mobile": "rebel/journeys/glow/hero-mobile.webp"
-      }
+      },
+      "matter": "rebel/library/v1/journeys/glow/matter-cutout-v1.webp",
+      "matterCard": "rebel/library/v1/journeys/glow/matter-card-v1.webp"
+    },
+    "white": {
+      "matter": "rebel/library/v1/journeys/white/matter-cutout-v1.webp",
+      "matterCard": "rebel/library/v1/journeys/white/matter-card-v1.webp"
+    },
+    "structure": {
+      "matter": "rebel/library/v1/journeys/structure/matter-cutout-v1.webp",
+      "matterCard": "rebel/library/v1/journeys/structure/matter-card-v1.webp"
     },
     "forma": {
       "hero": {
         "src": "rebel/journeys/forma/hero-desktop.webp",
         "desktop": "rebel/journeys/forma/hero-desktop.webp",
         "mobile": "rebel/journeys/forma/hero-mobile.webp"
-      }
+      },
+      "matter": "rebel/library/v1/journeys/forma/matter-cutout-v1.webp",
+      "matterCard": "rebel/library/v1/journeys/forma/matter-card-v1.webp"
     },
     "liberta": {
       "hero": {
         "src": "rebel/journeys/liberta/hero-desktop.webp",
         "desktop": "rebel/journeys/liberta/hero-desktop.webp",
         "mobile": "rebel/journeys/liberta/hero-mobile.webp"
-      }
+      },
+      "matter": "rebel/library/v1/journeys/liberta/matter-cutout-v1.webp",
+      "matterCard": "rebel/library/v1/journeys/liberta/matter-card-v1.webp"
     },
     "longevity": {
       "hero": {
         "src": "rebel/journeys/longevity/hero-desktop.webp",
         "desktop": "rebel/journeys/longevity/hero-desktop.webp",
         "mobile": "rebel/journeys/longevity/hero-mobile.webp"
-      }
+      },
+      "matter": "rebel/library/v1/journeys/longevity/matter-cutout-v1.webp",
+      "matterCard": "rebel/library/v1/journeys/longevity/matter-card-v1.webp"
     }
   },
   "services": {
@@ -752,6 +780,150 @@
       "height": 1024,
       "bytes": 32898,
       "sha256": "6dcccb97ab605f8fe4691c8674b058dafbcaed4616e70ed860229e6176a97ccd"
+    },
+    {
+      "key": "rebel/library/v1/journeys/balance/matter-card-v1.webp",
+      "mime": "image/webp",
+      "width": 560,
+      "height": 560,
+      "bytes": 28700,
+      "sha256": "325f42ab8f6e66aa5313938767075a61e0ca549d60a843a2270b51a88df18e9b"
+    },
+    {
+      "key": "rebel/library/v1/journeys/balance/matter-cutout-v1.webp",
+      "mime": "image/webp",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 76108,
+      "sha256": "a3eb62b8dd6905709cdba834e03a7cd6bd5d3921ec95bcd3afe99f788213decd"
+    },
+    {
+      "key": "rebel/library/v1/journeys/barrier/matter-card-v1.webp",
+      "mime": "image/webp",
+      "width": 560,
+      "height": 560,
+      "bytes": 52028,
+      "sha256": "b1a3d697244d03abf12c8b6bba5c4cb3bee5d4371e8f96d03225f9c5f1a840e8"
+    },
+    {
+      "key": "rebel/library/v1/journeys/barrier/matter-cutout-v1.webp",
+      "mime": "image/webp",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 125748,
+      "sha256": "94eb4bb6226795515f1975e654d9d6bceeebf378d3ccab9b596cd89888d9df04"
+    },
+    {
+      "key": "rebel/library/v1/journeys/forma/matter-card-v1.webp",
+      "mime": "image/webp",
+      "width": 560,
+      "height": 560,
+      "bytes": 62744,
+      "sha256": "3810ce219243a0081eca03a97075639104904afa0f036eaef862be1590c0d7af"
+    },
+    {
+      "key": "rebel/library/v1/journeys/forma/matter-cutout-v1.webp",
+      "mime": "image/webp",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 152844,
+      "sha256": "cf6ca1eaa38437ca6ce09e7f45f0050f4c36e8edff95e9f585f4f3017d7ac3c1"
+    },
+    {
+      "key": "rebel/library/v1/journeys/glow/matter-card-v1.webp",
+      "mime": "image/webp",
+      "width": 560,
+      "height": 560,
+      "bytes": 45366,
+      "sha256": "87e89bbd2f4346c640219afaaadf0026f493e2e82b80fa16c9aec7cfe0a1275f"
+    },
+    {
+      "key": "rebel/library/v1/journeys/glow/matter-cutout-v1.webp",
+      "mime": "image/webp",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 113200,
+      "sha256": "aecf333be7b1f1ff1721fd43568d5dced315c3d45f5ee26f44ce91e74b287e4c"
+    },
+    {
+      "key": "rebel/library/v1/journeys/liberta/matter-card-v1.webp",
+      "mime": "image/webp",
+      "width": 560,
+      "height": 560,
+      "bytes": 44072,
+      "sha256": "445a03ae1de155d4dc2e829778c0d95a549bf5a888ae892e1b9669e5c85798cf"
+    },
+    {
+      "key": "rebel/library/v1/journeys/liberta/matter-cutout-v1.webp",
+      "mime": "image/webp",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 105948,
+      "sha256": "a1470178ea94f1712928930b180d0343a74acdd12aa34043672092f0c928d06a"
+    },
+    {
+      "key": "rebel/library/v1/journeys/longevity/matter-card-v1.webp",
+      "mime": "image/webp",
+      "width": 560,
+      "height": 560,
+      "bytes": 50758,
+      "sha256": "b390a48797668c33312ccf83689881ac2ba4c8dcf96bc99cdd382b4982ec5fb6"
+    },
+    {
+      "key": "rebel/library/v1/journeys/longevity/matter-cutout-v1.webp",
+      "mime": "image/webp",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 123600,
+      "sha256": "46d2ee518e8ca0245772ceec757269610fadb35eca4b5ed57aadcaa4eb541f37"
+    },
+    {
+      "key": "rebel/library/v1/journeys/skin-reset/matter-card-v1.webp",
+      "mime": "image/webp",
+      "width": 560,
+      "height": 560,
+      "bytes": 37268,
+      "sha256": "a2853719a5a8565ba7711e5cf372eacf5804f345260b04fd4c28f5365192448f"
+    },
+    {
+      "key": "rebel/library/v1/journeys/skin-reset/matter-cutout-v1.webp",
+      "mime": "image/webp",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 85860,
+      "sha256": "7e4d3f0a152c35cdb7b30831dddd006e517aee3b22cf05ad9e0b06ccd2e66bb1"
+    },
+    {
+      "key": "rebel/library/v1/journeys/structure/matter-card-v1.webp",
+      "mime": "image/webp",
+      "width": 560,
+      "height": 560,
+      "bytes": 61184,
+      "sha256": "c1e11d86140a739621570d4a751942b0d768e35fc83903f901b2ad24d32cc95d"
+    },
+    {
+      "key": "rebel/library/v1/journeys/structure/matter-cutout-v1.webp",
+      "mime": "image/webp",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 150320,
+      "sha256": "bd29ede468ad8c6edd5ac8adee268442ff725d835ebd1eb04df992b8e4bcf240"
+    },
+    {
+      "key": "rebel/library/v1/journeys/white/matter-card-v1.webp",
+      "mime": "image/webp",
+      "width": 560,
+      "height": 560,
+      "bytes": 46268,
+      "sha256": "5098116fb5d0557e554d25340b199e0e8c583b542012c4d3ccc8a2b6b6ba3d9d"
+    },
+    {
+      "key": "rebel/library/v1/journeys/white/matter-cutout-v1.webp",
+      "mime": "image/webp",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 109860,
+      "sha256": "f225b5a5313bff1d3e3c3585f6b257eba2ca52b58a7f37fd85d6453746150d83"
     }
   ]
 }

@@ -9,7 +9,7 @@ import InlineCta from "@/components/InlineCta.astro";
 import FullBleedBand from "@/components/FullBleedBand.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
-import { media } from "@/lib/page-media";
+import { media, type ImageAsset } from "@/lib/page-media";
 import { protocolPages } from "@/lib/protocol-pages";
 import {
   buildArticleSchema,
@@ -27,6 +27,26 @@ export async function getStaticPaths() {
 }
 
 const { protocol } = Astro.props;
+
+const resolveProtocolVisuals = (slug: string): { hero: ImageAsset; editorial: readonly ImageAsset[] } => {
+  if (/rebirth|cell-regeneration|lift|collagen/.test(slug)) {
+    return {
+      hero: media.journeys.longevity,
+      editorial: [media.viso.texture, media.viso.products, media.studio.professional],
+    };
+  }
+  if (/eye-genesis/.test(slug)) {
+    return {
+      hero: media.viso.hero,
+      editorial: [media.viso.texture, media.studio.professional],
+    };
+  }
+  return {
+    hero: media.journeys.glow,
+    editorial: [media.viso.products, media.viso.texture, media.studio.professional],
+  };
+};
+const protocolVisuals = resolveProtocolVisuals(protocol.slug);
 
 const meta = createPageMeta({
   title: `${protocol.name} a Carmagnola`,
@@ -68,7 +88,7 @@ const faqSchema =
 const relatedLinksSchema =
   protocol.relatedLinks.length > 0
     ? buildItemListSchema({
-        name: `Approfondimenti su ${protocol.name}`,
+        name: `Informazioni utili su ${protocol.name}`,
         path: `/protocolli/${protocol.slug}`,
         items: protocol.relatedLinks
           .filter((l) => l.href.startsWith("/"))
@@ -84,12 +104,12 @@ const relatedLinksSchema =
   {relatedLinksSchema ? <JsonLd data={relatedLinksSchema} /> : null}
 
   <PageHero
-    image={media.viso.mood}
+    image={protocolVisuals.hero}
     kicker="Protocollo professionale · Carmagnola"
-    title={`${protocol.name}: _obiettivi, benefici e prezzo_.`}
+    title={`${protocol.name}: _a chi è dedicato e come funziona_.`}
     lead={protocol.longDescription}
     bullets={[protocol.price, "Valutazione REBEL · 30–40 minuti", "Programma personalizzato"]}
-    meta={[protocol.price, "Gratuita se finalizzata al Percorso", "Viale Barbaroux 20"]}
+    meta={["Gratuita se inizi il percorso proposto", "Viale Barbaroux 20"]}
     ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Vedi tutti i protocolli", href: "/protocolli-epigenetici" }}
   />
@@ -99,7 +119,7 @@ const relatedLinksSchema =
       <SectionHead
         kicker="A che cosa serve"
         title={`Gli obiettivi principali di _${protocol.name}_.`}
-        lead="Qui trovi le esigenze a cui è dedicato il protocollo e gli aspetti che valutiamo prima di proporlo."
+        lead="Prima di consigliarlo valutiamo le condizioni della pelle, il risultato che desideri e le eventuali sensibilità."
       />
       <KeyPointsGrid points={protocol.benefits} title="Obiettivi del trattamento" />
     </div>
@@ -111,12 +131,24 @@ const relatedLinksSchema =
         <SectionHead
           kicker="Come si svolge"
           title="Valutazione, sedute e mantenimento."
-          lead="Il numero di appuntamenti e la frequenza vengono definiti in base alle condizioni della pelle, all’obiettivo e alla risposta osservata durante il trattamento."
+          lead="Il numero di appuntamenti e la frequenza vengono definiti in base alle condizioni della pelle, all’obiettivo e ai cambiamenti osservati durante il trattamento."
         />
         <div class="editorial-flow">
-          {protocol.editorialSections.map((s) => (
-            <EditorialSection heading={s.heading} paragraphs={s.paragraphs} level={3} />
-          ))}
+          {protocol.editorialSections.map((s, i) => {
+            const mediaIndex = Math.floor(i / 2);
+            const sectionMedia = i % 2 === 0
+              ? protocolVisuals.editorial[mediaIndex % protocolVisuals.editorial.length]
+              : undefined;
+            return (
+              <EditorialSection
+                heading={s.heading}
+                paragraphs={s.paragraphs}
+                level={3}
+                media={sectionMedia}
+                mediaSide={mediaIndex % 2 === 0 ? "end" : "start"}
+              />
+            );
+          })}
         </div>
       </div>
     </section>
@@ -129,7 +161,7 @@ const relatedLinksSchema =
           kicker="Domande frequenti"
           title="Indicazioni utili prima di prenotare."
         />
-        <FaqAccordion items={protocol.faqs} kicker={`FAQ ${protocol.name}`} />
+        <FaqAccordion items={protocol.faqs} kicker={`Domande su ${protocol.name}`} />
       </div>
     </section>
   ) : null}
@@ -138,7 +170,7 @@ const relatedLinksSchema =
     <section class="section">
       <div class="container">
         <SectionHead
-          kicker="Servizi collegati"
+          kicker="Potrebbe interessarti anche"
           title="Altri trattamenti e informazioni utili."
         />
         <div class="link-grid">
@@ -174,8 +206,8 @@ const relatedLinksSchema =
     <div class="container">
       <InlineCta
         kicker="Valutazione REBEL · 30–40 minuti"
-        title={`Scopri se _${protocol.name}_ è adatto alla tua pelle.`}
-        lead="In 30–40 minuti valutiamo la zona, ascoltiamo l’obiettivo e definiamo trattamento, frequenza e prezzo. La valutazione è gratuita quando finalizzata al Percorso REBEL; home care separata."
+        title={`Scopri se _${protocol.name}_ è adatto a te.`}
+        lead="In 30–40 minuti valutiamo la zona e definiamo trattamento, frequenza e prezzo. Se scegli di iniziare il percorso proposto, la valutazione è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi."
         primaryHref="/contatti"
         primaryLabel="Prenota la valutazione"
         secondaryHref="/protocolli-epigenetici"
@@ -190,9 +222,8 @@ const relatedLinksSchema =
 <style>
   .editorial-flow {
     display: grid;
-    gap: 2.4rem;
-    max-width: 78ch;
-    margin-inline: auto;
+    gap: clamp(2.8rem, 6vw, 5.2rem);
+    margin-top: 1.8rem;
   }
   .link-grid {
     display: grid;

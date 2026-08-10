@@ -12,11 +12,11 @@ import FullBleedBand from "@/components/FullBleedBand.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import NearMeBlock from "@/components/NearMeBlock.astro";
-import { media } from "@/lib/page-media";
+import { media, type ImageAsset } from "@/lib/page-media";
 import {
   servicePages,
   competencePages,
-} from "@/lib/seo-content";
+} from "@/lib/seo-content-refined";
 import { protocolPages } from "@/lib/protocol-pages";
 import { localAreaPages } from "@/lib/local-pages";
 import {
@@ -40,6 +40,21 @@ const { service } = Astro.props;
 
 const moodImage = service.category === "laser" ? media.laser.mood : media.studio.cabin;
 
+const resolveEditorialMedia = (slug: string): readonly ImageAsset[] => {
+  if (/laser/.test(slug)) return [media.laser.handpiece, media.laser.consult];
+  if (/laminazione/.test(slug)) return [media.lamina.detail, media.lamina.hero];
+  if (/manicure|semipermanente/.test(slug) && !/pedicure/.test(slug)) {
+    return [media.manicure.detail, media.manicure.hero];
+  }
+  if (/pedicure|unghie-piedi/.test(slug)) return [media.pedicure.detail, media.pedicure.hero];
+  if (/linfodrenante/.test(slug)) return [media.drenante.detail, media.drenante.hero];
+  if (/massaggio/.test(slug)) return [media.massaggio.detail, media.massaggio.hero];
+  if (/pulizia-viso/.test(slug)) return [media.viso.texture, media.viso.products];
+  if (/scrub-corpo/.test(slug)) return [media.drenante.detail, media.viso.products];
+  return [media.studio.professional, media.studio.reception];
+};
+const editorialMedia = resolveEditorialMedia(service.slug);
+
 const fallbackImage =
   service.category === "laser"
     ? "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/e3635dd7-e046-46af-56a5-cf36d8239c00/public"
@@ -48,6 +63,16 @@ const fallbackImage =
 const baseServiceName = service.name.replace(/\s+a Carmagnola$/i, "").trim();
 const priceFromMatch = service.priceHint.match(/(\d+(?:[.,]\d+)?)/);
 const priceFrom = priceFromMatch ? Number(priceFromMatch[1].replace(",", ".")) : undefined;
+const formatPrice = (value: string) =>
+  value
+    .replace(/\bEUR\s*(\d+(?:[.,]\d+)?)/gi, "€$1")
+    .replace(/€\s+(\d+(?:[.,]\d+)?)/g, "€$1")
+    .replace(/(\d+)\.(\d{2})\b/g, "$1,$2")
+    .replace(/(€\d+(?:,\d+)?)\s+a\s+(\d+(?:,\d+)?)(?!\s*€)/g, "$1 a €$2")
+    .replace(/\s*\/\s*/g, " / ")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+const displayPrice = formatPrice(service.priceHint);
 const priceIntentKeywords = [
   `${baseServiceName} prezzi Carmagnola`,
   `prezzi ${baseServiceName} Carmagnola`,
@@ -64,22 +89,6 @@ const meta = createPageMeta({
   openGraphType: "article",
   image: service.heroImage?.src ?? fallbackImage,
 });
-
-const toWords = (v: string) => v.trim().split(/\s+/).filter(Boolean);
-const readingMinutes = Math.max(
-  2,
-  Math.round(
-    toWords(
-      [
-        service.longDescription,
-        service.shortDescription,
-        service.benefits.join(" "),
-        service.faqs.map((f) => `${f.q} ${f.a}`).join(" "),
-        (service.editorialSections ?? []).flatMap((s) => s.paragraphs).join(" "),
-      ].join(" "),
-    ).length / 190,
-  ),
-);
 
 const slugifyId = (value: string) =>
   value
@@ -166,7 +175,7 @@ const relatedProtocolsSchema =
 const siblingServicesSchema =
   siblingServices.length > 0
     ? buildItemListSchema({
-        name: `Altri servizi della stessa categoria di ${service.name}`,
+        name: `Altri servizi collegati a ${service.name}`,
         path: `/servizi/${service.slug}`,
         items: siblingServices.map((s) => ({ name: s.name, path: `/servizi/${s.slug}` })),
       })
@@ -254,10 +263,10 @@ const tocItems = [
   { id: "prezzi", label: "Prezzo" },
   ...(editorialSections.length > 0 ? [{ id: "dettagli", label: "Come si svolge" }] : []),
   { id: "faq", label: "Domande frequenti" },
-  { id: "guide", label: "Guide collegate" },
+  { id: "guide", label: "Approfondimenti" },
   ...(sourceLinks.length > 0 ? [{ id: "fonti", label: "Fonti" }] : []),
-  ...(relatedProtocols.length > 0 ? [{ id: "protocolli", label: "Protocolli collegati" }] : []),
-  { id: "anche", label: "Servizi simili" },
+  ...(relatedProtocols.length > 0 ? [{ id: "protocolli", label: "Percorsi REBEL" }] : []),
+  { id: "anche", label: "Altri trattamenti" },
   ...(featuredAreas.length > 0 ? [{ id: "localita", label: "Come raggiungerci" }] : []),
 ];
 ---
@@ -277,12 +286,12 @@ const tocItems = [
     kicker={service.category === "laser" ? "Epilazione laser · Carmagnola" : "Trattamento estetico · Carmagnola"}
     title={service.name.replace(/Carmagnola/i, "_Carmagnola_")}
     lead={service.longDescription}
-    bullets={[service.priceHint, "Scheda con modalità e indicazioni", "Su appuntamento · Carmagnola"]}
+    bullets={[displayPrice, "Come si svolge e che cosa sapere", "Su appuntamento · Carmagnola"]}
     meta={[
-      `${readingMinutes} min di lettura`,
-      `Aggiornato ${siteConfig.lastUpdated}`,
+      "Viale Barbaroux 20",
+      "Da martedì a sabato",
     ]}
-    ctaPrimary={{ label: "Prenota la prima visita", href: "/contatti", halo: true }}
+    ctaPrimary={{ label: "Chiedi un appuntamento", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp }}
   />
 
@@ -293,7 +302,7 @@ const tocItems = [
           <SectionHead
             kicker="Obiettivi del trattamento"
             title={`A che cosa serve _${baseServiceName}_.`}
-            lead="Questa sezione riassume le esigenze a cui è dedicato il servizio e i risultati estetici che può sostenere."
+            lead="Scopri a quale esigenza è dedicato e come si svolge."
           />
           <p class="detail-lead">{service.shortDescription}</p>
           <KeyPointsGrid points={service.benefits} />
@@ -303,18 +312,18 @@ const tocItems = [
           <SectionHead
             kicker="Prezzo"
             title={`Quanto costa _${baseServiceName}_ a Carmagnola.`}
-            lead={`Il prezzo indicato per ${baseServiceName} è ${service.priceHint}. Apri il listino completo per confrontare eventuali varianti di zona, durata o modalità.`}
+            lead={`Il prezzo indicato è ${displayPrice}. Se varia per zona o durata, te lo confermiamo prima.`}
           />
           <div class="card-grid card-grid--2">
             <FeatureCard
               kicker="Prezzo indicato"
-              title={service.priceHint}
-              body="La scheda riporta il prezzo di riferimento del servizio. Quando esistono varianti per zona, durata o tipologia, sono indicate nel listino o comunicate prima della prenotazione."
+              title={displayPrice}
+              body="Se il servizio prevede varianti per zona, durata o tipologia, ti confermiamo il prezzo prima dell’appuntamento."
             />
             <FeatureCard
               kicker="Tutti i prezzi"
               title="Listino completo Rebel"
-              body="Prezzi di trattamenti viso, corpo, beauty, epilazione laser e protocolli professionali."
+              body="Prezzi di trattamenti viso e corpo, manicure, pedicure, laminazione, epilazione laser e percorsi REBEL."
               href="/listino-estetica-laser"
             />
           </div>
@@ -325,12 +334,25 @@ const tocItems = [
             <SectionHead
               kicker="Come si svolge"
               title={`Preparazione, seduta e indicazioni per _${baseServiceName}_.`}
-              lead="Le sezioni seguenti spiegano che cosa succede prima, durante e dopo l’appuntamento."
+              lead="Qui trovi che cosa succede prima, durante e dopo l’appuntamento."
             />
             <div class="editorial-flow">
-              {editorialSections.map((s) => (
-                <EditorialSection id={slugifyId(s.heading)} heading={s.heading} paragraphs={s.paragraphs} level={3} />
-              ))}
+              {editorialSections.map((s, i) => {
+                const mediaIndex = Math.floor(i / 2);
+                const sectionMedia = i % 2 === 0
+                  ? editorialMedia[mediaIndex % editorialMedia.length]
+                  : undefined;
+                return (
+                  <EditorialSection
+                    id={slugifyId(s.heading)}
+                    heading={s.heading}
+                    paragraphs={s.paragraphs}
+                    level={3}
+                    media={sectionMedia}
+                    mediaSide={mediaIndex % 2 === 0 ? "end" : "start"}
+                  />
+                );
+              })}
             </div>
           </div>
         ) : null}
@@ -338,16 +360,16 @@ const tocItems = [
         <div id="faq" class="detail-section">
           <SectionHead
             kicker="Domande frequenti"
-            title={`Durata, frequenza, preparazione e indicazioni su _${baseServiceName}_.`}
+            title={`Le domande più comuni su _${baseServiceName}_.`}
           />
-          <FaqAccordion items={service.faqs} kicker={`FAQ ${baseServiceName}`} />
+          <FaqAccordion items={service.faqs} kicker={`Domande su ${baseServiceName}`} />
         </div>
 
         {sourceLinks.length > 0 ? (
           <div id="fonti" class="detail-section">
             <SectionHead
               kicker="Fonti e riferimenti"
-              title="Documenti utilizzati per le informazioni tecniche della pagina."
+              title="Le fonti consultate per le informazioni tecniche."
             />
             <ul class="source-list">
               {sourceLinks.map((s) => (
@@ -362,9 +384,9 @@ const tocItems = [
         {relatedCompetences.length > 0 ? (
           <div id="guide" class="detail-section">
             <SectionHead
-              kicker="Guide collegate"
+              kicker="Per approfondire"
               title={`Approfondimenti pratici su _${baseServiceName}_.`}
-              lead="Informazioni aggiuntive su preparazione, frequenza, risultati e situazioni specifiche."
+              lead="Preparazione, frequenza e indicazioni dopo il trattamento."
             />
             <div class="card-grid card-grid--2">
               {relatedCompetences.map((c, i) => (
@@ -384,14 +406,14 @@ const tocItems = [
         {relatedProtocols.length > 0 ? (
           <div id="protocolli" class="detail-section">
             <SectionHead
-              kicker="Protocolli collegati"
-              title="Trattamenti professionali che possono integrare questo servizio."
-              lead="Le schede riportano obiettivo, prezzo e indicazioni dei protocolli viso o corpo collegati."
+              kicker="Percorsi REBEL"
+              title="Percorsi che possono includere questo trattamento."
+              lead="In ogni scheda trovi obiettivo, prezzo e indicazioni utili prima di prenotare."
             />
             <div class="card-grid card-grid--2">
               {relatedProtocols.map((p, i) => (
                 <FeatureCard
-                  kicker={p.price}
+                  kicker={formatPrice(p.price)}
                   title={p.name}
                   body={p.shortDescription}
                   href={`/protocolli/${p.slug}`}
@@ -405,13 +427,13 @@ const tocItems = [
 
         <div id="anche" class="detail-section">
           <SectionHead
-            kicker="Servizi simili"
-            title={`Altri trattamenti della stessa categoria di _${baseServiceName}_.`}
+            kicker="Altri trattamenti"
+            title="Altri servizi per esigenze vicine."
           />
           <div class="card-grid card-grid--2">
             {siblingServices.map((s, i) => (
               <FeatureCard
-                kicker={s.priceHint}
+                kicker={formatPrice(s.priceHint)}
                 title={s.name}
                 body={s.shortDescription}
                 href={`/servizi/${s.slug}`}
@@ -426,14 +448,14 @@ const tocItems = [
             <SectionHead
               kicker="Come raggiungerci"
               title="Indicazioni per chi arriva dai comuni vicini."
-              lead="Apri la pagina del tuo comune per leggere distanza e percorso verso Viale Barbaroux 20 a Carmagnola."
+              lead="Apri la pagina del tuo comune per vedere la mappa e il percorso verso Viale Barbaroux 20 a Carmagnola."
             />
             <div class="card-grid card-grid--2">
               {featuredAreas.map((a, i) => (
                 <FeatureCard
                   kicker="Località"
                   title={a.city}
-                  body={a.description}
+                  body={`Indicazioni e contatti per organizzare la visita da ${a.city}.`}
                   href={`/localita/${a.slug}`}
                   variant="quiet"
                   index={i + 1}
@@ -447,11 +469,11 @@ const tocItems = [
       <aside class="detail-aside">
         <TableOfContents items={tocItems} />
         <InlineCta
-          kicker="Valutazione REBEL · 30–40 minuti"
-          title={`Scopri se _${baseServiceName}_ è adatto alla tua esigenza.`}
-          lead="In 30–40 minuti valutiamo la zona e definiamo trattamento, frequenza e prezzo. La valutazione è gratuita quando finalizzata al Percorso REBEL; home care separata."
+          kicker="Appuntamenti REBEL · Carmagnola"
+          title={`Vuoi prenotare _${baseServiceName}_?`}
+          lead="Scrivici: ti confermiamo disponibilità, durata e prezzo. Se prima è utile una valutazione REBEL, dura 30–40 minuti; se scegli di iniziare il percorso proposto, la valutazione è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi."
           primaryHref="/contatti"
-          primaryLabel="Prenota la valutazione"
+          primaryLabel="Chiedi un appuntamento"
           secondaryHref="/listino-estetica-laser"
           secondaryLabel="Consulta il listino"
         />
@@ -464,9 +486,9 @@ const tocItems = [
     height="sm"
     align="left"
     kicker={`${baseServiceName} · Rebel Carmagnola`}
-    title={`Prenota _${baseServiceName}_ a Carmagnola.`}
-    lead="La valutazione REBEL di 30–40 minuti chiarisce modalità, frequenza indicativa, prezzo e possibili alternative. È gratuita quando finalizzata al Percorso; home care separata."
-    cta={{ label: "Prenota la valutazione", href: "/contatti" }}
+    title={`Chiedi un appuntamento per _${baseServiceName}_.`}
+    lead="Ti confermiamo disponibilità, durata e prezzo prima dell’appuntamento. Se serve una valutazione REBEL, ti spieghiamo subito come funziona."
+    cta={{ label: "Contattaci", href: "/contatti" }}
   />
 
   {showNearMe ? (
@@ -480,7 +502,7 @@ const tocItems = [
     />
   ) : null}
 
-  <StickyBookingBar priceHint={service.priceHint} primary={{ label: "Prenota la prima visita", href: "/contatti" }} />
+  <StickyBookingBar priceHint={displayPrice} primary={{ label: "Chiedi un appuntamento", href: "/contatti" }} />
 </BaseLayout>
 
 <style>
@@ -510,7 +532,7 @@ const tocItems = [
     max-width: 64ch;
     margin: 1rem 0 0;
   }
-  .editorial-flow { display: grid; gap: 2rem; max-width: 70ch; margin-top: 1.6rem; }
+  .editorial-flow { display: grid; gap: clamp(2.6rem, 6vw, 5rem); margin-top: 1.6rem; }
   .source-list {
     list-style: none;
     margin: 1.2rem 0 0;

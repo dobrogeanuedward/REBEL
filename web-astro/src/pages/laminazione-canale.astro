@@ -22,7 +22,7 @@ import { getPageMedia } from "@/lib/page-media";
 const meta = createPageMeta({
   title: "Laminazione ciglia e sopracciglia per chi viene da Canale e dal Roero — Rebel (~35 min)",
   description:
-    "Vivi a Canale o nel Roero? L'offerta laminazione in zona è limitata. Da Rebel a Carmagnola trovi Lash Lift vegano e brow lamination: sguardo definito per 6-8 settimane. Prenota su WhatsApp.",
+    "Vivi a Canale o nel Roero? Da Rebel a Carmagnola trovi Lash Lift vegano e laminazione sopracciglia, con durata indicativa di 6-8 settimane. Circa 35 minuti via A33.",
   path: "/laminazione-canale",
   image: "https://www.rebelepigenetica.it/img/brand/laminazione-occhio-purple.png",
   openGraphType: "article",
@@ -63,7 +63,7 @@ const articleSchema = buildArticleSchema({
 
 const serviceSchema = buildServiceSchema(
   "Laminazione ciglia e sopracciglia per chi viene da Canale e dal Roero",
-  "Lash Lift vegano e brow lamination a Carmagnola per clienti di Canale d'Alba e del Roero: sguardo definito e naturale per 6-8 settimane.",
+  "Lash Lift vegano e brow lamination a Carmagnola per clienti di Canale d'Alba e del Roero, con durata indicativa di 6-8 settimane.",
   "/laminazione-canale",
   {
     priceFrom: 55,
@@ -102,27 +102,27 @@ const geoServiceSchema = {
 const faqs = [
   {
     q: "Quanto ci vuole da Canale a Rebel?",
-    a: "Circa 35 minuti via A33 uscita Marene, poi SP661 fino a Carmagnola. Sono 37 km. Viale Barbaroux 20, parcheggio gratuito.",
+    a: "Circa 35 minuti via A33 uscita Marene, poi SP661 fino a Carmagnola. Sono 37 km. Viale Barbaroux 20, possibilità di parcheggio nelle vicinanze.",
   },
   {
-    q: "A Canale non trovo chi fa laminazione professionale. Perché?",
-    a: "È una situazione comune nel Roero: i trattamenti eye care professionali si trovano soprattutto nei centri più grandi. Da Rebel lavoriamo con una formula Lash Lift vegana e una procedura precisa. Carmagnola è a 35 minuti — abbastanza vicina da diventare una scelta normale.",
+    q: "Quali trattamenti di laminazione proponete?",
+    a: "Puoi scegliere Lash Lift vegano, laminazione sopracciglia o entrambi. Prima della seduta osserviamo ciglia e sopracciglia e concordiamo forma e intensità.",
   },
   {
     q: "Quanto dura la laminazione?",
-    a: "Di solito 6-8 settimane. Con le giuste accortezze post-trattamento il risultato si mantiene al massimo per tutto il ciclo.",
+    a: "In genere l'effetto dura 6-8 settimane, ma può variare in base al ciclo naturale di ciglia e sopracciglia e alle abitudini successive. Al termine della seduta ti spieghiamo le accortezze da seguire.",
   },
   {
-    q: "La laminazione si adatta anche a chi vive all'aperto?",
-    a: "Sì. Le ciglia laminate sono impermeabili dopo le prime 24 ore: sport, aria aperta, sudore — non è un problema. Il risultato regge anche con una vita attiva.",
+    q: "Posso fare sport dopo la laminazione?",
+    a: "Nelle prime 24 ore evita acqua, vapore e attività che fanno sudare molto. In seguito puoi riprendere le tue abitudini seguendo le indicazioni ricevute in studio.",
   },
   {
     q: "Posso abbinarla ad altri trattamenti nello stesso giorno?",
-    a: "Sì. Si combina benissimo con manicure semipermanente, laser corpo e pulizia viso. Per il laser viso, ne parliamo in consulenza.",
+    a: "Dicci quali servizi vorresti abbinare: verifichiamo tempi e compatibilità prima di fissare l'appuntamento. Se hai il laser viso programmato, valutiamo insieme se sia meglio distanziare le sedute.",
   },
   {
     q: "Come prenoto da Canale?",
-    a: "Scrivici su WhatsApp con il giorno preferito. Ti rispondiamo con gli slot disponibili. Il mercoledì siamo aperti fino alle 19.",
+    a: "Scrivici su WhatsApp indicando il giorno preferito: verifichiamo insieme le disponibilità.",
   },
 ];
 
@@ -138,24 +138,24 @@ const faqSchema = {
 
 const points = [
   {
-    kicker: "01 · Colmare il gap del Roero",
-    title: "Eye care professionale a 35 minuti da Canale.",
-    body: "Laminazione ciglia e sopracciglia con formula vegana e tecnica precisa non si trovano ovunque nel Roero. Carmagnola è vicina abbastanza da diventare la scelta ovvia per chi vuole qualità, non solo comodità.",
+    kicker: "01 · Da Canale a Carmagnola",
+    title: "Laminazione a circa 35 minuti da Canale.",
+    body: "Da Canale raggiungi lo studio a Carmagnola percorrendo circa 37 chilometri via A33 e SP661. Quando prenoti, ti indichiamo durata e disponibilità della seduta.",
   },
   {
     kicker: "02 · Lash Lift vegano",
-    title: "Ciglia piegate dalla radice, sguardo aperto.",
-    body: "Nessuna extension, nessuna colla. La formula vegana piega le ciglia naturali verso l'alto dalla radice: lo sguardo si apre in modo naturale. Risultato: 6-8 settimane senza mascara né ritocchi.",
+    title: "Lash lift sulle ciglia naturali, senza extension.",
+    body: "Usiamo una formula vegana per sollevare le ciglia dalla radice. L'intensità dell'effetto dipende dalla loro lunghezza e struttura; la durata indicativa è di 6-8 settimane.",
   },
   {
     kicker: "03 · Brow lamination",
-    title: "Sopracciglia strutturate, disciplinate per settimane.",
-    body: "I peli vengono pettinati nella direzione voluta e fissati. Il risultato è una sopracciglia più piena e ordinata, senza disegnarla ogni mattina — pratico soprattutto per chi ha una vita all'aperto.",
+    title: "Forma e intensità concordate per le sopracciglia.",
+    body: "La laminazione pettina e fissa i peli nella direzione concordata, per un effetto visivo più ordinato e definito. Forma e intensità vengono scelte insieme prima di iniziare.",
   },
   {
-    kicker: "04 · Regge la vita attiva",
-    title: "Sport, aria aperta e natura non rovinano il risultato.",
-    body: "Dopo le prime 24 ore le ciglia laminate reggono acqua, sudore e aria fresca. Per chi vive nel Roero con una vita attiva, è un trattamento particolarmente adatto.",
+    kicker: "04 · Indicazioni successive",
+    title: "Le accortezze per le prime 24 ore.",
+    body: "Nelle prime 24 ore evita acqua, vapore, prodotti oleosi intorno agli occhi e attività che fanno sudare molto. Ti spieghiamo tutto al momento della seduta.",
   },
 ];
 
@@ -163,24 +163,24 @@ const combos = [
   {
     href: "/epilazione-laser-canale",
     title: "Laminazione + laser",
-    body: "Sguardo laminato e laser corpo nella stessa visita. Nessun conflitto.",
+    body: "Se hai in programma il laser, indicaci zona e data: valutiamo se i due appuntamenti possano coincidere o vadano distanziati.",
   },
   {
     href: "/servizi/manicure-semipermanente-carmagnola",
     title: "Laminazione + manicure",
-    body: "Occhi e mani curati. Due trattamenti, una sosta sola.",
+    body: "Se vuoi abbinare laminazione e manicure, verifichiamo la disponibilità necessaria per organizzarle nella stessa visita.",
   },
   {
     href: "/pulizia-viso-canale",
     title: "Laminazione + pulizia viso",
-    body: "Upgrade viso completo: sguardo e pelle lavorano insieme.",
+    body: "Puoi chiederci di organizzare laminazione e pulizia viso nella stessa visita: prima confermiamo tempi e compatibilità.",
   },
 ];
 
 const nearbyAreas = [
   { city: "Alba", href: "/laminazione-alba", desc: "Langhe, ~30 min via A33." },
   { city: "Bra", href: "/laminazione-bra", desc: "~22 min da Carmagnola." },
-  { city: "Tutte le località", href: "/localita", desc: "Panoramica Rebel per zona." },
+  { city: "Tutte le località", href: "/localita", desc: "Scopri servizi e indicazioni per ogni zona." },
 ];
 
 const m = getPageMedia("/laminazione-canale");
@@ -197,9 +197,9 @@ const m = getPageMedia("/laminazione-canale");
   <PageHero
     image={m.hero}
     kicker="Rebel Eye — da Canale a Carmagnola"
-    title="Laminazione ciglia e sopracciglia per chi viene da Canale: _sguardo definito_ a 35 minuti."
-    lead="Vivi a Canale o nel Roero? L'offerta eye care professionale in zona è limitata. Da Rebel a Carmagnola trovi Lash Lift vegano e brow lamination fatti con metodo: sguardo aperto e naturale per sei-otto settimane, senza manutenzione quotidiana."
-    bullets={["Sguardo definito per 6-8 settimane", "Lash lift vegano + brow lamination", "Valutazione REBEL · 30–40 min"]}
+    title="Laminazione ciglia e sopracciglia per chi viene da Canale: _a circa 35 minuti_."
+    lead="Da Rebel a Carmagnola puoi scegliere Lash Lift vegano, laminazione sopracciglia o entrambi. Prima della seduta concordiamo forma e intensità."
+    bullets={["Durata indicativa 6-8 settimane", "Lash lift vegano + brow lamination", "Valutazione REBEL · 30–40 min"]}
     meta={["~37 km da Canale", "~35 min via A33", "Da 55 € a seduta"]}
     ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
     ctaSecondary={{ label: "Apri il percorso da Canale", href: "https://www.google.com/maps/dir/?api=1&origin=Canale+CN&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
@@ -212,10 +212,10 @@ const m = getPageMedia("/laminazione-canale");
           image={m.splitA}
           side="right"
           kicker="Sguardo definito"
-          title="Ciglia e sopracciglia: _sguardo aperto_ per 6-8 settimane."
-          body="Lash lift e brow lamination ridisegnano lo sguardo senza extension e senza trucco quotidiano. Effetto naturale, niente manutenzione complicata."
-          bullets={["Lash lift vegano, ciglia visibilmente sollevate", "Brow lamination per sopracciglia ordinate", "Risultato che dura 6-8 settimane"]}
-          cta={{ label: "Scheda laminazione", href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola" }}
+          title="Lash lift e brow lamination _su misura per il tuo sguardo_."
+          body="Il lash lift lavora sulle ciglia naturali senza extension; la brow lamination pettina e fissa i peli nella forma concordata. L'effetto e la durata variano da persona a persona."
+          bullets={["Lash lift vegano sulle ciglia naturali", "Brow lamination per sopracciglia ordinate", "Durata indicativa 6-8 settimane"]}
+          cta={{ label: "Scopri la laminazione", href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola" }}
         />
       </div>
     </section>
@@ -223,13 +223,13 @@ const m = getPageMedia("/laminazione-canale");
 
   <section class="section">
     <div class="container">
-      <SectionHead kicker="Il metodo Rebel" title="Perché da Canale vale la pena _venire a Carmagnola_ per la laminazione." lead="Nel Roero eye care professionale con formula vegana e tecnica strutturata si trova raramente. Carmagnola è a 35 minuti — abbastanza vicina da sceglierla ogni volta." />
+      <SectionHead kicker="Il metodo Rebel" title="Cosa trovi da Rebel _venendo da Canale_." lead="A circa 35 minuti via A33 e SP661 trovi Lash Lift vegano e laminazione sopracciglia. Prima di iniziare definiamo insieme l'effetto desiderato e le indicazioni per le ore successive." />
       <div class="card-grid card-grid--2">
         {points.map((p, i) => (<FeatureCard kicker={p.kicker} title={p.title} body={p.body} variant={i === 0 ? "feature" : "default"} index={i + 1} />))}
       </div>
       <div class="cluster" style="margin-top:2rem;">
         <a class="btn btn--primary" href="/contatti">Prenota su WhatsApp</a>
-        <a class="btn btn--secondary" href="/servizi/laminazione-ciglia-sopracciglia-carmagnola">Scheda completa laminazione</a>
+        <a class="btn btn--secondary" href="/servizi/laminazione-ciglia-sopracciglia-carmagnola">Scopri la laminazione</a>
         <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
       </div>
     </div>
@@ -240,8 +240,8 @@ const m = getPageMedia("/laminazione-canale");
       <div class="split-visual">
         <div class="split-visual__text">
           <SectionHead kicker="Prima e dopo" title="Il risultato che _parla da solo_." lead="Prima e dopo la laminazione ciglia e sopracciglia da Rebel." />
-          <p class="body-p">Il Lash Lift vegano esalta le ciglia che hai già — senza aggiungere nulla di artificioso. Le sopracciglia vengono disciplinate nella forma che funziona meglio per il tuo viso e fissate per settimane.</p>
-          <p class="body-p">Dopo le prime 24 ore di cura, si torna alla vita normale — anche all'aperto nel Roero.</p>
+          <p class="body-p">Il Lash Lift vegano solleva le ciglia dalla radice senza aggiungere extension. Le sopracciglia vengono pettinate e fissate nella forma concordata prima della seduta.</p>
+          <p class="body-p">Nelle prime 24 ore evita acqua, vapore e prodotti oleosi intorno agli occhi. Al termine ricevi tutte le indicazioni per i giorni successivi.</p>
         </div>
         <div class="split-visual__image">
           <img src="/img/brand/laminazione-prima-dopo.png" alt="Prima e dopo laminazione ciglia Rebel — confronto sguardo naturale definito" width="1200" height="800" loading="lazy" />
@@ -256,7 +256,7 @@ const m = getPageMedia("/laminazione-canale");
       <div class="directions-grid">
         <div>
           <p class="body-p">Da Canale il percorso più rapido è via <strong>A33 direzione Torino</strong>, uscita Marene, poi <strong>SP661 fino a Carmagnola</strong>: 35-37 minuti in condizioni normali.</p>
-          <p class="body-p">Lo studio è in <strong>Viale Barbaroux 20</strong>. Parcheggio gratuito a meno di un minuto a piedi.</p>
+          <p class="body-p">Lo studio è in <strong>Viale Barbaroux 20</strong>. Possibilità di parcheggio nelle vicinanze.</p>
           <div class="cluster" style="margin-top:1.4rem;">
             <a class="btn btn--secondary btn--sm" href="https://www.google.com/maps/dir/?api=1&origin=Canale+CN&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" target="_blank" rel="noreferrer">Apri il percorso da Canale in Maps</a>
             <a class="btn btn--secondary btn--sm" href="/contatti">Contatti e mappa</a>
@@ -271,7 +271,7 @@ const m = getPageMedia("/laminazione-canale");
 
   <section class="section section--scene-ivory">
     <div class="container">
-      <SectionHead kicker="Una sola sosta" title="Abbina la laminazione: _non blocca nulla_." lead="Si combina con manicure, laser corpo e pulizia viso senza nessun conflitto." />
+      <SectionHead kicker="Una sola sosta" title="Vuoi abbinare _un altro servizio_?" lead="Dicci quali trattamenti ti interessano: verifichiamo disponibilità, durata e compatibilità prima di fissare l'appuntamento." />
       <div class="card-grid card-grid--3" style="margin-top:2rem;">
         {combos.map((c) => (<FeatureCard title={c.title} body={c.body} href={c.href} variant="quiet" />))}
       </div>
@@ -284,8 +284,8 @@ const m = getPageMedia("/laminazione-canale");
       height="md"
       align="left"
       kicker="Dal Roero a Carmagnola"
-      quote="Uno sguardo definito non chiede trucco ogni mattina."
-      cta={{ label: "Prenota la prima visita", href: "/contatti" }}
+      quote="Lash lift vegano e brow lamination, con forma e intensità concordate."
+      cta={{ label: "Prenota la valutazione", href: "/contatti" }}
     />
   ) : null}
 
@@ -301,9 +301,9 @@ const m = getPageMedia("/laminazione-canale");
       <InlineCta
         kicker="Vuoi un piano più ampio?"
         title="La laminazione non è l'unico motivo per venire _dal Roero_."
-        lead="Laser, manicure, pulizia viso e protocolli: la pagina panoramica per Canale li raccoglie tutti."
+        lead="Laser, manicure, pulizia viso e protocolli: la guida ai servizi per chi arriva da Canale li raccoglie in un’unica pagina."
         primaryHref="/localita/canale"
-        primaryLabel="Pagina panoramica Rebel per Canale"
+        primaryLabel="Scopri i servizi REBEL da Canale"
         secondaryHref="/epilazione-laser-canale"
         secondaryLabel="Laser da Canale"
       />
@@ -323,11 +323,11 @@ const m = getPageMedia("/laminazione-canale");
     <div class="container">
       <InlineCta
         kicker="Prenota"
-        title="Sguardo definito per _sei-otto settimane_."
-        lead="Scrivici su WhatsApp. Ti rispondiamo con gli slot disponibili."
+        title="Laminazione con durata indicativa di _sei-otto settimane_."
+        lead="Scrivici su WhatsApp per conoscere le disponibilità."
         primaryLabel="Prenota su WhatsApp"
         primaryHref={siteConfig.social.whatsapp}
-        secondaryLabel="Scheda laminazione completa"
+        secondaryLabel="Scopri la laminazione"
         secondaryHref="/servizi/laminazione-ciglia-sopracciglia-carmagnola"
       />
     </div>

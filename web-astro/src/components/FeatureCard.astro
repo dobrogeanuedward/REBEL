@@ -1,5 +1,6 @@
 ---
 import { clarifyCopy } from "@/lib/copy-clarity";
+import type { ImageAsset } from "@/lib/page-media";
 
 interface Props {
   kicker?: string;
@@ -9,6 +10,8 @@ interface Props {
   ariaLabel?: string;
   variant?: "default" | "feature" | "quiet";
   index?: number;
+  media?: ImageAsset;
+  mediaCaption?: string;
 }
 
 const {
@@ -19,13 +22,16 @@ const {
   ariaLabel,
   variant = "default",
   index,
+  media,
+  mediaCaption,
 } = Astro.props;
 
 const clearKicker = kicker ? clarifyCopy(kicker) : undefined;
 const clearTitle = clarifyCopy(title);
 const clearBody = clarifyCopy(body);
 const clearAriaLabel = ariaLabel ? clarifyCopy(ariaLabel) : undefined;
-const cls = `card ${variant === "feature" ? "card--feature" : ""} ${variant === "quiet" ? "card--quiet" : ""}`;
+const clearMediaCaption = mediaCaption ? clarifyCopy(mediaCaption) : undefined;
+const cls = `card ${variant === "feature" ? "card--feature" : ""} ${variant === "quiet" ? "card--quiet" : ""} ${media ? "card--with-media" : ""}`;
 const Tag = href ? "a" : "article";
 ---
 <Tag
@@ -35,10 +41,28 @@ const Tag = href ? "a" : "article";
   data-link={href ? "true" : undefined}
   data-reveal
 >
-  {typeof index === "number" ? (
-    <span class="card__index">{String(index).padStart(2, "0")}</span>
+  {media ? (
+    <figure class="card__media" style={`--card-media-ratio:${media.ratio ?? "4/3"};`}>
+      <picture>
+        {media.srcMobile ? <source media="(max-width: 720px)" srcset={media.srcMobile} /> : null}
+        <img
+          src={media.src}
+          alt={media.alt}
+          width={media.width ?? 1200}
+          height={media.height ?? 900}
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+      {clearMediaCaption ? <figcaption>{clearMediaCaption}</figcaption> : null}
+    </figure>
   ) : null}
-  {clearKicker ? <p class="card__kicker">{clearKicker}</p> : null}
-  <h3 class="card__title">{clearTitle}</h3>
-  <p class="card__body">{clearBody}</p>
+  <div class="card__content">
+    {typeof index === "number" ? (
+      <span class="card__index">{String(index).padStart(2, "0")}</span>
+    ) : null}
+    {clearKicker ? <p class="card__kicker">{clearKicker}</p> : null}
+    <h3 class="card__title">{clearTitle}</h3>
+    <p class="card__body">{clearBody}</p>
+  </div>
 </Tag>

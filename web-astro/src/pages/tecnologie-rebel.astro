@@ -9,7 +9,7 @@ import "@/styles/technology-showcase.css";
 
 const meta = createPageMeta({
   title: "Tecnologie estetiche REBEL a Carmagnola — viso, corpo e laser",
-  description: "Scopri le tecnologie che possono entrare nei percorsi REBEL per viso, corpo ed epilazione: Lumina, Aura, CryoShape, InfraPress, Tecar, ICE Polar e LPG.",
+  description: "Scopri come REBEL utilizza Lumina, Aura, CryoShape, InfraPress, Tecar, ICE Polar e LPG nei percorsi viso, corpo ed epilazione.",
   path: "/tecnologie-rebel",
   openGraphType: "article",
   keywords: ["tecnologie estetiche Carmagnola", "THORY Carmagnola", "Lumina X1 Pro", "LPG Carmagnola", "ICE Polar"],
@@ -19,32 +19,32 @@ const siteAsset = (slot: string) => `/api/site-asset?slot=${encodeURIComponent(s
 const portfolio = thoryTechnologies.slice(1);
 const clientFrames: Record<string, { focus: string; title: string; tone: string }> = {
   "lumina-x3": {
-    focus: "Epilazione e qualità della pelle",
-    title: "Tre funzioni coordinate nello stesso incontro.",
+    focus: "Epilazione e analisi della pelle",
+    title: "Tre funzioni, utilizzate solo quando servono.",
     tone: "violet",
   },
   "lumina-k3": {
     focus: "Epilazione e fotobiostimolazione",
-    title: "Tre funzioni, scelte a partire dalla tua pelle.",
+    title: "Tre funzioni, scelte dopo aver osservato la pelle.",
     tone: "prism",
   },
   "aura-q2": {
     focus: "Percorsi viso Structure",
-    title: "Due modalità al plasma, scelte sulla priorità della pelle.",
+    title: "Due modalità al plasma, scelte in base alla pelle.",
     tone: "rose",
   },
   "cryoshape-x2": {
     focus: "Percorsi corpo Forma",
-    title: "Applicatori diversi per aree e priorità diverse.",
+    title: "Applicatori diversi per zone diverse.",
     tone: "ice",
   },
   "infrapress-x2": {
     focus: "Leggerezza e programmi corpo",
-    title: "Pressione e calore accompagnano il tuo programma corpo.",
+    title: "Pressione e infrarosso nel programma corpo.",
     tone: "air",
   },
   "tecar-448-revolution": {
-    focus: "Tono, tessuti e qualità nel tempo",
+    focus: "Tono e compattezza",
     title: "Due modalità scelte in base ai tessuti e alla zona.",
     tone: "warm",
   },
@@ -84,10 +84,10 @@ const list = buildItemListSchema({
       <div class="tech-showcase-hero__veil" aria-hidden="true"></div>
       <div class="rebel-container tech-showcase-hero__content">
         <p class="rebel-kicker">Tecnologie nel Metodo REBEL</p>
-        <h1 id="tech-showcase-title"><span>Più possibilità.</span><em>Una direzione: la tua.</em></h1>
-        <p>Pelle, corpo ed epilazione richiedono strumenti diversi. La valutazione ci permette di scegliere il gesto, la materia e la tecnologia che danno senso al tuo percorso.</p>
+        <h1 id="tech-showcase-title"><span>Tecnologie scelte.</span><em>Per il tuo percorso.</em></h1>
+        <p>Partiamo da ciò che vuoi migliorare. Dopo la valutazione scegliamo il trattamento e, se utile, la tecnologia più adatta.</p>
         <div class="rebel-hero__actions">
-          <a class="btn btn--primary" href="#laser-liberta">Entra nella seduta laser</a>
+          <a class="btn btn--primary" href="#laser-liberta">Scopri come si svolge la seduta laser</a>
           <a class="btn btn--secondary" href="#showcase-tecnologie">Esplora tutte le tecnologie</a>
         </div>
         <nav class="tech-showcase-hero__paths" aria-label="Percorsi collegati alle tecnologie">
@@ -104,10 +104,10 @@ const list = buildItemListSchema({
       <div class="rebel-container">
         <header class="tech-showroom__head">
           <div>
-            <p class="rebel-kicker">Lo showcase REBEL</p>
-            <h2 class="rebel-title" id="showroom-title">Ogni tecnologia racconta una possibilità diversa.</h2>
+            <p class="rebel-kicker">Le tecnologie REBEL</p>
+            <h2 class="rebel-title" id="showroom-title">Scopri a cosa serve ogni tecnologia.</h2>
           </div>
-          <p>Apri i dati essenziali, scopri in quale percorso può entrare e porta la tua curiosità in valutazione. La scelta finale nasce sempre dalla tua priorità.</p>
+          <p>Apri ogni scheda per capire come funziona e in quali percorsi utilizziamo la tecnologia.</p>
         </header>
 
         <nav class="tech-showroom__index" aria-label="Indice delle tecnologie">
@@ -134,14 +134,14 @@ const list = buildItemListSchema({
                   <em>{frame?.title ?? tech.headline}</em>
                   <p>{tech.summary}</p>
                   <details>
-                    <summary>Cosa c’è dietro</summary>
+                    <summary>Come funziona</summary>
                     <ul>{tech.highlights.map((item) => <li><b>{item.value}</b><span>{item.label}</span></li>)}</ul>
                   </details>
                   <div class="tech-showroom__journeys">
-                    <small>Può entrare in</small>
+                    <small>La utilizziamo nei percorsi</small>
                     {tech.journeyLinks.map((journey) => <a href={journey.href}>{journey.label} <span>→</span></a>)}
                   </div>
-                  <a class="tech-showroom__contact" href={`/contatti?source=tecnologie&tecnologia=${encodeURIComponent(tech.slug)}`}>Parliamone nella valutazione <span>→</span></a>
+                  <a class="tech-showroom__contact" href={`/contatti?source=tecnologie&tecnologia=${encodeURIComponent(tech.slug)}`}>Chiedi una valutazione <span>→</span></a>
                 </div>
               </article>
             );
@@ -153,16 +153,16 @@ const list = buildItemListSchema({
     <section class="rebel-section rebel-section--paper tech-in-cabin" aria-labelledby="in-cabin-title">
       <div class="rebel-container">
         <header class="tech-in-cabin__head">
-          <p class="rebel-kicker">La tecnologia diventa esperienza</p>
-          <h2 class="rebel-title" id="in-cabin-title">Quello che accade in cabina conta più del nome sulla macchina.</h2>
+          <p class="rebel-kicker">Durante la seduta</p>
+          <h2 class="rebel-title" id="in-cabin-title">Come utilizziamo le tecnologie durante il trattamento.</h2>
         </header>
         <div class="tech-in-cabin__grid">
           <article id="ice-polar" style={`--experience-image:url('${siteAsset("services.laser.handpiece.desktop")}')`}>
             <div>
               <p class="rebel-kicker">Nel percorso Libertà</p>
               <h3>ICE Polar</h3>
-              <em>Il freddo accompagna il laser.</em>
-              <p>Il raffreddamento a contatto segue il gesto del manipolo e aiuta a gestire la componente termica durante la seduta. Ti ascoltiamo zona per zona, senza dare per scontata la stessa percezione per tutte.</p>
+              <em>Raffreddamento a contatto durante il trattamento.</em>
+              <p>Il contatto fresco del manipolo aiuta a rendere più confortevole la seduta. Ti chiediamo come stai e adattiamo i parametri zona per zona.</p>
               <a href="/percorsi/liberta">Scopri Libertà <span>→</span></a>
             </div>
           </article>
@@ -170,8 +170,8 @@ const list = buildItemListSchema({
             <div>
               <p class="rebel-kicker">Nel percorso Forma</p>
               <h3>LPG endomassaggio</h3>
-              <em>Un gesto meccanico inserito nel programma corpo.</em>
-              <p>LPG può affiancare manualità, attivi e altre tecnologie nei programmi Forma. Zone, ritmo e frequenza vengono costruiti a partire da tessuti, sensazioni e priorità osservate.</p>
+              <em>Un massaggio meccanico con intensità personalizzata.</em>
+              <p>LPG può affiancare manualità, prodotti e altre tecnologie nei programmi Forma. Scegliamo zone, intensità e frequenza in base a ciò che vuoi migliorare, alle tue sensazioni e ai cambiamenti osservati.</p>
               <a href="/percorsi/forma">Scopri Forma <span>→</span></a>
             </div>
           </article>
@@ -182,22 +182,22 @@ const list = buildItemListSchema({
     <section class="rebel-section tech-method" aria-labelledby="tech-method-title">
       <div class="rebel-container">
         <header class="tech-method__head">
-          <p class="rebel-kicker">Dal desiderio alla seduta</p>
-          <h2 class="rebel-title" id="tech-method-title">Ogni tecnologia deve avere un perché, anche per te.</h2>
+          <p class="rebel-kicker">Come scegliamo</p>
+          <h2 class="rebel-title" id="tech-method-title">Dalla valutazione al trattamento.</h2>
         </header>
         <div class="tech-method__strip">
-          <div><span>01</span><strong>Ti ascoltiamo</strong><p>Partiamo da ciò che vuoi migliorare e da come lo percepisci.</p></div>
-          <div><span>02</span><strong>Valutiamo</strong><p>Leggiamo pelle, tessuti, zona e condizioni iniziali.</p></div>
-          <div><span>03</span><strong>Costruiamo</strong><p>Mettiamo insieme materia, manualità, tecnologia e frequenza.</p></div>
-          <div><span>04</span><strong>Controlliamo</strong><p>La risposta osservata può confermare o cambiare il programma.</p></div>
+          <div><span>01</span><strong>Ti ascoltiamo</strong><p>Ci racconti cosa vuoi migliorare e quali sono le tue esigenze.</p></div>
+          <div><span>02</span><strong>Valutiamo</strong><p>Osserviamo la zona e le condizioni iniziali.</p></div>
+          <div><span>03</span><strong>Definiamo</strong><p>Ti spieghiamo trattamento, tecnologia e frequenza.</p></div>
+          <div><span>04</span><strong>Controlliamo</strong><p>Osserviamo i cambiamenti e aggiorniamo il programma quando serve.</p></div>
         </div>
       </div>
     </section>
 
     <section class="rebel-campaign">
       <div class="rebel-container">
-        <strong>Il tuo percorso.<br /><span>Con più possibilità.</span></strong>
-        <p>Durante la valutazione trasformiamo la tua priorità in una proposta chiara: cosa facciamo, con quali strumenti, con quale frequenza e a quale prezzo.</p>
+        <strong>Vuoi capire quale tecnologia<br /><span>può essere adatta a te?</span></strong>
+        <p>Durante la valutazione ti spieghiamo cosa consigliamo, come si svolge il trattamento, con quale frequenza e a quale prezzo.</p>
         <div class="rebel-hero__actions" style="justify-content:center">
           <a class="btn btn--primary" href="/contatti">Prenota la valutazione REBEL</a>
           <a class="btn btn--secondary" href="/percorsi">Esplora i nove percorsi</a>

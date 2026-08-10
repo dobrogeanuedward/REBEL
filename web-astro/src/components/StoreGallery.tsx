@@ -19,7 +19,7 @@ export default function StoreGallery({ images }: Props) {
   };
 
   return (
-    <section className="store-gallery" aria-label="Gli spazi reali dello studio REBEL">
+    <section className="store-gallery" aria-label="Gli spazi dello studio REBEL">
       <div className="store-gallery__layout">
         <div className="store-gallery__main">
           <img

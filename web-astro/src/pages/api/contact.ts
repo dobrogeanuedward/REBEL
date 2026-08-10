@@ -117,7 +117,7 @@ Telefono / WhatsApp: ${payload.phone?.trim()}${city}${ritualLine}${messageLine}`
 
     if (!upstream.ok) {
       return isJson
-        ? json({ ok: false, message: "Invio non riuscito. Scrivici su WhatsApp, ti rispondiamo subito." }, 502)
+        ? json({ ok: false, message: "Invio non riuscito. Puoi scriverci direttamente su WhatsApp." }, 502)
         : html("Invio non riuscito", "Scrivici su WhatsApp: ti rispondiamo durante gli orari di apertura.", 502);
     }
 

@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro";
 import { siteConfig } from "@/lib/site-config";
-import { competencePages } from "@/lib/seo-content";
+import { competencePages } from "@/lib/seo-content-refined";
 import { protocolPages } from "@/lib/protocol-pages";
 
 const escapeXml = (value: string) =>
@@ -28,7 +28,7 @@ export const GET: APIRoute = () => {
       url: `${baseUrl}/competenze/${c.slug}`,
       description: c.shortDescription,
       category:
-        c.intent === "commercial" ? "Guida commerciale" : "Guida informativa",
+        c.intent === "commercial" ? "Trattamenti e servizi" : "Guida informativa",
     })),
     ...protocolPages.map((p) => ({
       title: `${p.name} a Carmagnola`,

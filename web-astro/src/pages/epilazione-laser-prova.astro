@@ -14,14 +14,13 @@ import { siteConfig } from "@/lib/site-config";
 const meta = createPageMeta({
   title: "Epilazione laser Carmagnola — valutazione 30–40 minuti | Rebel",
   description:
-    "Valutazione laser di 30–40 minuti a Carmagnola con Lumina X1 Pro di THORY e comfort ICE Polar. Gratuita quando finalizzata al Percorso REBEL; home care separata.",
+    "Valutazione laser di 30–40 minuti a Carmagnola con Lumina X1 Pro e raffreddamento ICE Polar. Gratuita se inizi il Percorso REBEL.",
   path: "/epilazione-laser-prova",
   keywords: [
     "epilazione laser Carmagnola",
     "laser diodo Carmagnola",
     "valutazione laser Carmagnola",
-    "Ice Polar Carmagnola",
-    "epilazione definitiva Carmagnola",
+    "ICE Polar Carmagnola",
   ],
 });
 
@@ -38,33 +37,33 @@ const serviceSchema = {
   provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
   areaServed: siteConfig.areasServed,
   description:
-    "Trattamento con Lumina X1 Pro di THORY e comfort ICE Polar. Valutazione di 30–40 minuti, gratuita quando finalizzata al Percorso REBEL; home care separata.",
+    "Trattamento con Lumina X1 Pro di THORY e raffreddamento ICE Polar. Valutazione di 30–40 minuti, gratuita se inizi il Percorso REBEL.",
 };
 
 const faqs = [
   {
     q: "Quanto costa una seduta laser da Rebel?",
-    a: "Dipende dalla zona. Per esempio, ascelle 25 €, inguine completo 45 €, gambe complete 110 €. Tutti i prezzi sono pubblici nel listino e non cambiano in base a chi entra. Pacchetti solo se ha senso, mai imposti.",
+    a: "Il prezzo parte da 25,90 € per una singola area e varia in base alla zona. Puoi consultare tutti i prezzi nel listino online prima di prenotare.",
   },
   {
     q: "Cosa include la valutazione laser?",
-    a: "Trenta–quaranta minuti in studio: lettura del fototipo, valutazione di pelle e zona, spiegazione di Lumina X1 Pro e del comfort ICE Polar, più una proposta scritta con intervalli e costi indicativi. La valutazione è gratuita quando è finalizzata alla costruzione del Percorso.",
+    a: "Trenta–quaranta minuti in studio per valutare fototipo, pelle, pelo e zona. Ti spieghiamo Lumina X1 Pro, raffreddamento ICE Polar, intervalli e costi indicativi. Se scegli di iniziare il Percorso REBEL, la valutazione è gratuita.",
   },
   {
     q: "Quante sedute servono?",
-    a: "In media 6-8 sedute distanziate di 4-8 settimane a seconda della zona. Te lo confermiamo dopo aver visto la pelle: meglio dirlo onestamente in visita che promettere \"in 3 sedute via tutto\".",
+    a: "Il numero di sedute varia in base a zona, pelle e caratteristiche del pelo. Dopo la valutazione ti diamo una prima stima e la aggiorniamo durante il percorso.",
   },
   {
     q: "Fa male?",
-    a: "La percezione cambia in base alla persona e alla zona. Il comfort ICE Polar accompagna la seduta; su aree più sensibili, come inguine e viso, adattiamo i parametri alla risposta della pelle.",
+    a: "La sensazione varia in base alla persona e alla zona. ICE Polar raffredda la pelle a contatto durante la seduta; ti chiediamo come lo percepisci e adattiamo i parametri quando serve.",
   },
   {
     q: "Posso fare il laser d'estate?",
-    a: "Sì, sulle zone non esposte al sole (ascelle, inguine, addome). Per gambe e viso valutiamo insieme: se ti esponi al sole spesso, conviene partire da settembre.",
+    a: "Dipende da esposizione, abbronzatura, zona e condizioni della pelle. Prima della seduta verifichiamo se procedere o riprogrammare.",
   },
   {
     q: "Come capisco se il laser è adatto a me?",
-    a: "Lo verifichiamo nella valutazione iniziale osservando pelle, zona e caratteristiche del pelo. Non diamo per scontata l'idoneità sulla base del solo fototipo e calibrare i parametri viene sempre prima della seduta.",
+    a: "Lo verifichiamo durante la valutazione iniziale, osservando pelle, zona e caratteristiche del pelo. Prima di procedere ti spieghiamo se il trattamento è indicato e come impostiamo i parametri.",
   },
 ];
 
@@ -89,19 +88,20 @@ const faqSchema = {
   <JsonLd data={faqSchema} />
 
   <LandingHero
+    media={media.laser.hero}
     badge="Valutazione 30–40 min"
     kicker="Epilazione laser · Carmagnola"
-    title="Valuta prima. _Costruisci il Percorso._"
-    lead="Valutazione laser di 30–40 minuti: leggiamo pelle e fototipo, ti spieghiamo Lumina X1 Pro di THORY e il comfort ICE Polar, poi prepariamo una proposta con calendario e costi reali. È gratuita quando costruiamo insieme il Percorso."
+    title="Prima la valutazione. _Poi il percorso laser._"
+    lead="In 30–40 minuti osserviamo pelle, pelo e zona, ti spieghiamo Lumina X1 Pro e il raffreddamento ICE Polar, poi definiamo calendario e costi. Se scegli di iniziare il Percorso REBEL, la valutazione è gratuita."
     bullets={[
       { text: "Lumina X1 Pro di THORY, 755 / 808 / 940 / 1064 nm." },
-      { text: "Comfort ICE Polar e parametri definiti dopo la valutazione." },
-      { text: "Listino pubblico: ascelle 25 €, inguine completo 45 €." },
-      { text: "Niente pacchetti pre-confezionati. Paghi seduta per seduta o a pacchetto, decidi tu." },
+      { text: "Raffreddamento ICE Polar e parametri definiti dopo la valutazione." },
+      { text: "Prezzi pubblici, da 25,90 € per area." },
+      { text: "Numero e frequenza delle sedute definiti in base a zona, pelle e caratteristiche del pelo." },
     ]}
     primaryCta={{ label: "Prenota la valutazione", href: "#form" }}
     secondaryCta={{ label: "Vedi listino completo", href: "/listino-estetica-laser" }}
-    footnote="Risposta entro poche ore via WhatsApp o telefono."
+    footnote="Ti contattiamo personalmente via WhatsApp o telefono."
   />
 
   <LandingProof
@@ -109,7 +109,7 @@ const faqSchema = {
     items={[
       {
         title: "Comfort ICE Polar",
-        body: "Il freddo accompagna la seduta; percezione e parametri vengono gestiti zona per zona, senza promettere assenza di sensazioni.",
+        body: "Il raffreddamento accompagna la seduta; percezione e parametri vengono gestiti zona per zona.",
       },
       {
         title: "Operatori formati",
@@ -117,34 +117,34 @@ const faqSchema = {
       },
       {
         title: "Prezzi trasparenti",
-        body: "Listino sempre online. Nessuna sorpresa al banco, nessun preventivo \"da telefonarci\".",
+        body: "Il listino è online: puoi conoscere il prezzo della zona prima di prenotare.",
       },
       {
-        title: "Promemoria gestiti",
-        body: "Ti scriviamo noi quando è il momento della seduta successiva, così rispetti i giusti intervalli.",
+        title: "Controlli durante il percorso",
+        body: "A ogni appuntamento verifichiamo pelle e ricrescita e confermiamo quando programmare la seduta successiva.",
       },
     ]}
   />
 
   <LandingSteps
-    kicker="Come funziona la prima visita"
-    title="Trenta–quaranta minuti per costruire il Percorso con criterio."
+    kicker="Come funziona la valutazione"
+    title="Trenta–quaranta minuti per capire come iniziare."
     steps={[
       {
-        title: "Compili il form",
+        title: "Lascia i tuoi recapiti",
         body: "Nome, telefono e — se vuoi — la zona che ti interesserebbe trattare.",
       },
       {
-        title: "Ti scriviamo entro poche ore",
-        body: "Su WhatsApp, con un orario disponibile compatibile con la tua agenda.",
+        title: "Concordiamo l’appuntamento",
+        body: "Ti contattiamo su WhatsApp o al telefono per scegliere un orario disponibile.",
       },
       {
-        title: "Visita in studio",
-        body: "Lettura del fototipo, valutazione della zona, spiegazione del trattamento e patch test se serve.",
+        title: "Valutazione in studio",
+        body: "Valutiamo fototipo e zona, spieghiamo il trattamento e, se serve, facciamo un test su una piccola area.",
       },
       {
-        title: "Proposta scritta",
-        body: "Numero di sedute stimato, intervalli, prezzo totale. Decidi se iniziare oggi o pensarci a casa.",
+        title: "Definiamo il percorso",
+        body: "Ti diamo una stima delle sedute, degli intervalli e del prezzo, poi decidi con calma se iniziare.",
       },
     ]}
   />
@@ -154,7 +154,7 @@ const faqSchema = {
     height="sm"
     align="center"
     kicker="Epilazione laser · Carmagnola"
-    quote="Valutazione, parametri e calendario: il Percorso nasce da qui."
+    quote="Durante la valutazione definiamo parametri, calendario e prezzo."
     cite="Studio Rebel · Viale Barbaroux 20"
   />
 
