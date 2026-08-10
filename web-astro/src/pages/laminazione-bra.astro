@@ -20,9 +20,9 @@ import { siteConfig } from "@/lib/site-config";
 import { getPageMedia } from "@/lib/page-media";
 
 const meta = createPageMeta({
-  title: "Laminazione ciglia e sopracciglia per chi viene da Bra — Rebel (Carmagnola, ~22 min)",
+  title: "Laminazione ciglia e sopracciglia da Bra | REBEL",
   description:
-    "Vivi a Bra? Da Rebel a Carmagnola sono circa venti minuti via SP7. Lash Lift vegano e laminazione sopracciglia, con durata indicativa di 6-8 settimane.",
+    "Per chi arriva da Bra: Lash Lift vegano e laminazione sopracciglia a Carmagnola, con durata indicativa di 6-8 settimane. Prenota su WhatsApp.",
   path: "/laminazione-bra",
   image: "https://www.rebelepigenetica.it/img/brand/laminazione-occhio-purple.png",
   openGraphType: "article",
@@ -53,7 +53,7 @@ const webPage = buildWebPageSchema({
 });
 
 const articleSchema = buildArticleSchema({
-  headline: "Laminazione ciglia e sopracciglia per chi viene da Bra — Rebel (Carmagnola, ~22 min)",
+  headline: "Laminazione ciglia e sopracciglia per chi viene da Bra — Rebel Carmagnola",
   description: meta.description,
   path: "/laminazione-bra",
   keywords: ["laminazione ciglia Bra", "lash lift Bra", "brow lamination Bra CN"],
@@ -101,8 +101,8 @@ const geoServiceSchema = {
 
 const faqs = [
   {
-    q: "Quanto ci vuole da Bra a Rebel?",
-    a: "Venti minuti scarsi via SP7. Sono 20 km. Viale Barbaroux 20, possibilità di parcheggio nelle vicinanze.",
+    q: "Come arrivo da Bra a Rebel?",
+    a: "Lo studio è in Viale Barbaroux 20 a Carmagnola. Apri Google Maps per controllare il percorso da Bra, il traffico e i tempi aggiornati prima di partire.",
   },
   {
     q: "Quanto dura la laminazione?",
@@ -144,7 +144,7 @@ const points = [
   },
   {
     kicker: "02 · Brow lamination",
-    title: "Sopracciglia strutturate, forma fissata per settimane.",
+    title: "Sopracciglia pettinate nella forma concordata.",
     body: "La laminazione pettina e fissa i peli nella direzione concordata, per un effetto visivo più ordinato e definito. Forma e intensità vengono scelte insieme prima di iniziare.",
   },
   {
@@ -178,8 +178,8 @@ const combos = [
 ];
 
 const nearbyAreas = [
-  { city: "Alba", href: "/laminazione-alba", desc: "Langhe, ~30 min via A33." },
-  { city: "Canale", href: "/laminazione-canale", desc: "Roero, ~35 min." },
+  { city: "Alba", href: "/laminazione-alba", desc: "Scopri la pagina dedicata ad Alba." },
+  { city: "Canale", href: "/laminazione-canale", desc: "Scopri la pagina dedicata a Canale." },
   { city: "Tutte le località", href: "/localita", desc: "Scopri servizi e indicazioni per ogni zona." },
 ];
 
@@ -197,10 +197,10 @@ const m = getPageMedia("/laminazione-bra");
   <PageHero
     image={m.hero}
     kicker="Rebel Eye — da Bra a Carmagnola"
-    title="Laminazione ciglia e sopracciglia per chi viene da Bra: _a circa venti minuti_."
-    lead="Da Bra a Rebel arrivi via SP7. In studio puoi scegliere Lash Lift vegano, laminazione sopracciglia o entrambi; prima della seduta concordiamo forma e intensità."
-    bullets={["Durata indicativa 6-8 settimane", "Lash lift vegano + brow lamination", "Valutazione REBEL · 30–40 min"]}
-    meta={["~20 km da Bra", "~22 min via SP7", "Da 55 € a seduta"]}
+    title="Laminazione ciglia e sopracciglia per chi viene da Bra: _forma e intensità concordate_."
+    lead="Puoi scegliere Lash Lift vegano, laminazione sopracciglia o entrambi. Prima della seduta osserviamo ciglia e sopracciglia e concordiamo forma e intensità."
+    bullets={["Durata indicativa 6-8 settimane", "Lash lift vegano + brow lamination", "Confronto iniziale"]}
+    meta={["Studio a Carmagnola", "Indicazioni su Google Maps", "Da 55 € a seduta"]}
     ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
     ctaSecondary={{ label: "Apri il percorso da Bra", href: "https://www.google.com/maps/dir/?api=1&origin=Bra&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
   />
@@ -226,7 +226,7 @@ const m = getPageMedia("/laminazione-bra");
       <SectionHead
         kicker="Il metodo Rebel"
         title="Cosa trovi da Rebel _venendo da Bra_."
-        lead="A circa venti minuti via SP7 trovi Lash Lift vegano e laminazione sopracciglia. Prima di iniziare definiamo insieme l'effetto desiderato e le indicazioni per le ore successive."
+        lead="Puoi scegliere Lash Lift vegano, laminazione sopracciglia o entrambi. Prima di iniziare definiamo insieme l'effetto desiderato e ti spieghiamo le indicazioni per le ore successive."
       />
       <div class="card-grid card-grid--2">
         {points.map((p, i) => (
@@ -234,7 +234,7 @@ const m = getPageMedia("/laminazione-bra");
         ))}
       </div>
       <div class="cluster" style="margin-top:2rem;">
-        <a class="btn btn--primary" href="/contatti">Prenota su WhatsApp</a>
+        <a class="btn btn--primary" href="/contatti">Chiedi un appuntamento</a>
         <a class="btn btn--secondary" href="/servizi/laminazione-ciglia-sopracciglia-carmagnola">Scopri la laminazione</a>
         <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
       </div>
@@ -245,7 +245,7 @@ const m = getPageMedia("/laminazione-bra");
     <div class="container">
       <div class="split-visual">
         <div class="split-visual__text">
-          <SectionHead kicker="Prima e dopo" title="La differenza che _parla da sola_." lead="Stesse ciglia, stesso viso — prima e dopo la laminazione." />
+          <SectionHead kicker="Prima e dopo" title="L'effetto _al termine della seduta_." lead="Le immagini mostrano un confronto prima e dopo; l'effetto varia in base alle caratteristiche di ciglia e sopracciglia." />
           <p class="body-p">Il Lash Lift vegano solleva le ciglia dalla radice senza aggiungere extension. Le sopracciglia vengono pettinate e fissate nella forma concordata prima della seduta.</p>
         </div>
         <div class="split-visual__image">
@@ -257,11 +257,11 @@ const m = getPageMedia("/laminazione-bra");
 
   <section class="section section--scene-ivory">
     <div class="container">
-      <SectionHead kicker="Come arrivare" title="Da Bra a Rebel: venti minuti _senza autostrada_." />
+      <SectionHead kicker="Come arrivare" title="Da Bra a Rebel: _controlla il percorso su Maps_." />
       <div class="directions-grid">
         <div>
-          <p class="body-p">Da Bra a Carmagnola sono circa 20 km via <strong>SP7</strong>: direzione nord fino a Carmagnola. In condizioni normali si arriva in 20-22 minuti, senza pedaggio.</p>
-          <p class="body-p">Lo studio è in <strong>Viale Barbaroux 20</strong>. Possibilità di parcheggio nelle vicinanze.</p>
+          <p class="body-p">REBEL è in <strong>Viale Barbaroux 20</strong>, nel centro di Carmagnola. Apri Google Maps per controllare il percorso da Bra, il traffico e i tempi aggiornati prima di partire.</p>
+          <p class="body-p">Per informazioni aggiornate sui parcheggi disponibili in zona, consulta Maps.</p>
           <div class="cluster" style="margin-top:1.4rem;">
             <a class="btn btn--secondary btn--sm" href="https://www.google.com/maps/dir/?api=1&origin=Bra&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" target="_blank" rel="noreferrer">Apri il percorso da Bra in Maps</a>
             <a class="btn btn--secondary btn--sm" href="/contatti">Contatti e mappa</a>
@@ -276,7 +276,7 @@ const m = getPageMedia("/laminazione-bra");
 
   <section class="section">
     <div class="container">
-      <SectionHead kicker="Una sola sosta" title="Vuoi abbinare _un altro servizio_?" lead="Dicci quali trattamenti ti interessano: verifichiamo disponibilità, durata e compatibilità prima di fissare l'appuntamento." />
+      <SectionHead kicker="Servizi abbinabili" title="Vuoi abbinare _un altro servizio_?" lead="Dicci quali trattamenti ti interessano: verifichiamo disponibilità, durata e compatibilità prima di fissare l'appuntamento." />
       <div class="card-grid card-grid--3" style="margin-top:2rem;">
         {combos.map((c) => (<FeatureCard title={c.title} body={c.body} href={c.href} variant="quiet" />))}
       </div>
@@ -296,7 +296,7 @@ const m = getPageMedia("/laminazione-bra");
 
   <section class="section section--scene-ivory">
     <div class="container container--narrow">
-      <SectionHead kicker="Domande frequenti" title="Da Bra: le risposte _dirette_." />
+      <SectionHead kicker="Domande frequenti" title="Informazioni sulla laminazione per chi viene da _Bra_." />
       <FaqAccordion items={faqs} kicker="FAQ Laminazione Bra" />
     </div>
   </section>
@@ -304,11 +304,11 @@ const m = getPageMedia("/laminazione-bra");
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Vuoi un piano più ampio?"
-        title="La laminazione non è l'unico motivo per venire da _Bra_."
-        lead="Laser, manicure, pulizia viso e protocolli: la guida ai servizi per chi arriva da Bra li raccoglie in un’unica pagina."
+        kicker="Altri servizi"
+        title="Scopri gli altri trattamenti disponibili da _Rebel_."
+        lead="Nella pagina dedicata a Bra trovi anche laser, manicure, pulizia viso e protocolli."
         primaryHref="/localita/bra"
-        primaryLabel="Scopri i servizi REBEL da Bra"
+        primaryLabel="Vedi i servizi per Bra"
         secondaryHref="/epilazione-laser-bra"
         secondaryLabel="Laser da Bra"
       />
@@ -317,7 +317,7 @@ const m = getPageMedia("/laminazione-bra");
 
   <section class="section section--scene-ivory">
     <div class="container">
-      <SectionHead kicker="Vicino a Bra" title="Comuni vicini: _pagine dedicate_." />
+      <SectionHead kicker="Altre località" title="Cerchi informazioni per _un'altra zona_?" />
       <div class="card-grid card-grid--3">
         {nearbyAreas.map((a, i) => (<FeatureCard kicker="Zona vicina" title={a.city} body={a.desc} href={a.href} variant="quiet" index={i + 1} />))}
       </div>
@@ -338,7 +338,7 @@ const m = getPageMedia("/laminazione-bra");
     </div>
   </section>
 
-  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
+  <StickyBookingBar primary={{ label: "Chiedi un appuntamento", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

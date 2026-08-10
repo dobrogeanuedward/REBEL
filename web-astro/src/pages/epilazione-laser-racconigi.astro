@@ -22,9 +22,9 @@ import { getPageMedia } from "@/lib/page-media";
 const m = getPageMedia("/epilazione-laser-racconigi");
 
 const meta = createPageMeta({
-  title: "Epilazione laser per chi viene da Racconigi — Rebel (Carmagnola, ~14 min)",
+  title: "Epilazione laser da Racconigi | REBEL Carmagnola",
   description:
-    "Da Racconigi a Rebel sono dieci minuti di strada, senza autostrada. Lumina X1 Pro di THORY, comfort ICE Polar e prima valutazione per costruire un percorso semplice.",
+    "Epilazione laser per chi arriva da Racconigi: valutazione iniziale, Lumina X1 Pro di THORY, ICE Polar e prezzi da 25,90 € a zona.",
   path: "/epilazione-laser-racconigi",
   image: "https://www.rebelepigenetica.it/img/generated/laser-hero-icepolar.webp",
   openGraphType: "article",
@@ -39,7 +39,7 @@ const meta = createPageMeta({
     "laser ascelle Racconigi",
     "laser inguine Racconigi",
     "laser gambe Racconigi",
-    "Rebel epilazione laser Racconigi",
+    "REBEL epilazione laser Racconigi",
     "epilazione laser Racconigi CN",
   ],
 });
@@ -51,28 +51,28 @@ const breadcrumb = buildBreadcrumbSchema([
 ]);
 
 const webPage = buildWebPageSchema({
-  name: "Epilazione laser per chi viene da Racconigi",
+  name: "Epilazione laser per chi arriva da Racconigi",
   description: meta.description,
   path: "/epilazione-laser-racconigi",
 });
 
 const articleSchema = buildArticleSchema({
-  headline: "Epilazione laser per chi viene da Racconigi — Rebel (Carmagnola, ~14 min)",
+  headline: "Epilazione laser per chi arriva da Racconigi — REBEL Carmagnola",
   description: meta.description,
   path: "/epilazione-laser-racconigi",
   keywords: [
     "epilazione laser Racconigi",
     "laser Racconigi",
     "laser diodo Racconigi",
-    "Ice Polar Racconigi",
+    "ICE Polar Racconigi",
   ],
   section: "Laser",
   image: "https://www.rebelepigenetica.it/img/generated/laser-hero-icepolar.webp",
 });
 
 const laserServiceSchema = buildServiceSchema(
-  "Epilazione laser per chi viene da Racconigi",
-  "Percorso di epilazione laser per clienti provenienti da Racconigi: Lumina X1 Pro di THORY con comfort Ice Polar, valutazione iniziale e piano personalizzato. A circa dieci minuti via SS20.",
+  "Epilazione laser per chi arriva da Racconigi",
+  "Epilazione laser viso e corpo presso REBEL a Carmagnola, con valutazione iniziale, Lumina X1 Pro di THORY e raffreddamento ICE Polar.",
   "/epilazione-laser-racconigi",
   {
     priceFrom: 25.9,
@@ -80,7 +80,7 @@ const laserServiceSchema = buildServiceSchema(
       "epilazione laser Racconigi",
       "laser Racconigi CN",
       "laser diodo Racconigi",
-      "Ice Polar Racconigi",
+      "ICE Polar Racconigi",
     ],
   },
 );
@@ -89,8 +89,8 @@ const geoServiceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "@id": `${siteConfig.siteUrl}/epilazione-laser-racconigi#service-geo`,
-  name: "Epilazione laser per chi viene da Racconigi",
-  serviceType: "Laser hair removal",
+  name: "Epilazione laser per chi arriva da Racconigi",
+  serviceType: "Epilazione laser",
   provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
   areaServed: [
     {
@@ -122,28 +122,28 @@ const geoServiceSchema = {
 
 const faqs = [
   {
-    q: "Da Racconigi, quanto tempo serve per arrivare a Rebel?",
-    a: "Da Racconigi a REBEL puoi seguire la SS20 fino a Carmagnola. Apri Google Maps per verificare percorso, traffico e tempi aggiornati; lo studio è in Viale Barbaroux 20.",
+    q: "Dove si trova REBEL rispetto a Racconigi?",
+    a: "Lo studio è in Viale Barbaroux 20, a Carmagnola. Usa il collegamento a Google Maps presente nella pagina per verificare il percorso e il traffico al momento della partenza.",
   },
   {
     q: "Con quale frequenza vengono fissate le sedute?",
-    a: "Gli intervalli vengono definiti in base alla zona e alla ricrescita osservata, quindi il calendario può cambiare durante il percorso. Da Racconigi raggiungi lo studio in circa dieci-quattordici minuti.",
+    a: "Gli intervalli vengono definiti in base alla zona e alla ricrescita osservata, quindi il calendario può cambiare durante il percorso.",
   },
   {
-    q: "Posso fare il laser anche in primavera o devo aspettare l'autunno?",
-    a: "Dipende da esposizione, abbronzatura, zona e condizioni della pelle. Prima di ogni seduta controlliamo la zona e decidiamo se procedere o riprogrammare l'appuntamento.",
+    q: "Posso fare il laser anche in primavera o devo aspettare l’autunno?",
+    a: "Dipende da esposizione, abbronzatura, zona e condizioni della pelle. Prima della seduta valutiamo l’area e decidiamo se procedere o riprogrammare l’appuntamento.",
   },
   {
     q: "Quante sedute servono in media?",
     a: "Il numero e gli intervalli variano in base a zona, pelle e caratteristiche del pelo. Dopo la valutazione ti diamo una stima e la aggiorniamo durante il percorso.",
   },
   {
-    q: "Come vengono definite pagamento e frequenza?",
-    a: "Le modalità di pagamento e la frequenza vengono spiegate durante la valutazione, in base alle zone da trattare.",
+    q: "Quanto costa la valutazione?",
+    a: "Se scegli di iniziare il Percorso REBEL, la valutazione è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi.",
   },
   {
-    q: "Posso fare laser + un altro trattamento nello stesso giorno?",
-    a: "Alcuni servizi possono essere organizzati nella stessa visita. Dicci cosa vuoi abbinare e ti confermiamo tempi e compatibilità, soprattutto se il laser interessa il viso.",
+    q: "Posso prenotare il laser e un altro servizio nello stesso giorno?",
+    a: "Alcuni servizi possono essere organizzati nella stessa visita. Indica che cosa vuoi abbinare: verifichiamo disponibilità, zone e compatibilità prima di confermare.",
   },
   {
     q: "Come prenoto da Racconigi?",
@@ -165,7 +165,7 @@ const speakableSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "@id": `${siteConfig.siteUrl}/epilazione-laser-racconigi#speakable`,
-  name: "Epilazione laser per chi viene da Racconigi",
+  name: "Epilazione laser per chi arriva da Racconigi",
   speakable: {
     "@type": "SpeakableSpecification",
     cssSelector: [".page-hero__title", ".page-hero__lead"],
@@ -175,24 +175,24 @@ const speakableSchema = {
 
 const principles = [
   {
-    kicker: "01 · Da Racconigi a Carmagnola",
-    title: "Circa dieci-quattordici minuti via SS20.",
-    body: "Organizziamo gli appuntamenti in base alla tua disponibilità e agli intervalli indicati per la zona.",
+    kicker: "01 · Valutazione iniziale",
+    title: "Pelle, pelo e zone da trattare.",
+    body: "Valutiamo fototipo, caratteristiche del pelo, zone ed esposizione solare. Queste informazioni servono a definire parametri e calendario iniziali.",
   },
   {
-    kicker: "02 · Lumina X1 Pro · comfort ICE Polar",
-    title: "Tecnologia, non nome in vetrina.",
-    body: "Lumina X1 Pro di THORY integra 755, 808, 940 e 1064 nm e il raffreddamento a contatto in zaffiro Ice Point Cooling. Il comfort ICE Polar accompagna la seduta come elemento distinto.",
+    kicker: "02 · Lumina X1 Pro · ICE Polar",
+    title: "Tecnologia e raffreddamento a contatto.",
+    body: "Lumina X1 Pro di THORY integra 755, 808, 940 e 1064 nm. ICE Polar utilizza il raffreddamento a contatto in zaffiro Ice Point Cooling durante la seduta.",
   },
   {
-    kicker: "03 · Piano scritto, non a voce",
-    title: "Zona, calendario, prezzo: tutto nero su bianco.",
-    body: "In consulenza scriviamo il piano: zone, cadenza, regole tra le sedute. Niente 'vedrai che vedrai' — un calendario realistico che puoi seguire senza ansia.",
+    kicker: "03 · Calendario",
+    title: "Intervalli definiti dopo la valutazione.",
+    body: "Proponiamo una prima stima degli intervalli e la aggiorniamo in base alla zona e alla ricrescita osservata.",
   },
   {
-    kicker: "04 · Contatto diretto",
-    title: "Scrivici su WhatsApp per dubbi e appuntamenti.",
-    body: "Dubbi su sole, sport, prodotti? Scrivici tra una seduta e l'altra. Rispondere in modo concreto è parte del metodo, non un servizio extra.",
+    kicker: "04 · Contatti",
+    title: "Assistenza tra gli appuntamenti.",
+    body: "Per dubbi su preparazione, sole o prodotti puoi contattarci su WhatsApp prima dell’appuntamento successivo.",
   },
 ];
 
@@ -200,27 +200,27 @@ const guides = [
   {
     href: "/competenze/epilazione-laser-ascelle-carmagnola",
     title: "Laser ascelle",
-    body: "Piccola zona, grande ritorno quotidiano: spesso si parte da qui.",
+    body: "Informazioni su valutazione iniziale, preparazione e indicazioni tra le sedute per la zona ascelle.",
   },
   {
     href: "/competenze/epilazione-laser-inguine-carmagnola",
     title: "Laser inguine",
-    body: "Settaggio gentile, calendario realistico, regole pratiche post-seduta.",
+    body: "Informazioni su valutazione iniziale, preparazione e indicazioni tra le sedute per la zona inguine.",
   },
   {
     href: "/competenze/laser-gambe-carmagnola",
     title: "Laser gambe",
-    body: "Per chi ha già provato di tutto: l'alternativa con un piano vero e continuità.",
+    body: "Informazioni su valutazione iniziale, intervalli e indicazioni tra le sedute per la zona gambe.",
   },
   {
     href: "/servizi/epilazione-laser-viso-carmagnola",
     title: "Laser viso baffetti e mento",
-    body: "Zona piccola e delicata: parametri e pertinenza vengono valutati prima di iniziare.",
+    body: "Per baffetti e mento valutiamo pelle, pelo e impostazioni prima di iniziare.",
   },
   {
     href: "/competenze/laser-barba-collo-carmagnola",
     title: "Laser uomo barba e collo",
-    body: "Per peli incarniti e pelle irritata dal rasoio quotidiano.",
+    body: "Informazioni per chi vuole valutare barba e collo durante la prima visita.",
   },
   {
     href: "/competenze/peli-incarniti-laser-carmagnola",
@@ -232,13 +232,13 @@ const guides = [
 const seasonCards = [
   {
     href: "/competenze/epilazione-laser-inverno-carmagnola",
-    title: "Laser in inverno: perché conviene",
-    body: "Il momento più semplice per costruire continuità. Si arriva ai mesi luminosi con il percorso già rodato.",
+    title: "Laser in inverno: cosa valutare",
+    body: "Come organizzare il calendario in inverno e aggiornarlo quando aumenta l’esposizione solare.",
   },
   {
     href: "/competenze/epilazione-laser-estate-sole-carmagnola",
-    title: "Laser e sole: cosa puoi fare davvero",
-    body: "Cosa fare davvero e cosa evitare, senza bloccare la tua vita. Weekend e gite: ci si organizza.",
+    title: "Laser ed esposizione solare",
+    body: "Come comunicare esposizione e abbronzatura e quando può essere necessario riprogrammare la seduta.",
   },
 ];
 
@@ -246,24 +246,24 @@ const combos = [
   {
     href: "/laminazione-racconigi",
     title: "Laser + laminazione",
-    body: "Corpo e sguardo nella stessa sosta: a dieci minuti, ottimizzi davvero il viaggio.",
+    body: "Se vuoi abbinare laser e laminazione, verifichiamo disponibilità, zone e compatibilità prima di fissare gli appuntamenti.",
   },
   {
     href: "/manicure-semipermanente-racconigi",
     title: "Laser + manicure",
-    body: "Se vuoi abbinare laser e manicure, verifichiamo disponibilità, tempi e zone prima di fissare l'appuntamento.",
+    body: "Se vuoi abbinare laser e manicure, verifichiamo disponibilità, tempi e zone prima di fissare l’appuntamento.",
   },
   {
     href: "/massaggio-rilassante-racconigi",
     title: "Laser + massaggio",
-    body: "Cinquanta minuti per staccare davvero, comodi da incastrare visto che sei vicina.",
+    body: "Se vuoi abbinare laser e massaggio, verifichiamo disponibilità, zone e compatibilità prima di fissare gli appuntamenti.",
   },
 ];
 
 const nearbyAreas = [
-  { city: "Caramagna Piemonte", href: "/localita/caramagna-piemonte", desc: "A pochi km, sull'asse per Carmagnola." },
-  { city: "Carignano", href: "/localita/carignano", desc: "Subito a nord, lungo la SS20." },
-  { city: "Savigliano", href: "/localita/savigliano", desc: "Poco più a sud, nella pianura cuneese." },
+  { city: "Caramagna Piemonte", href: "/localita/caramagna-piemonte", desc: "Servizi e contatti per chi arriva da Caramagna Piemonte." },
+  { city: "Carignano", href: "/localita/carignano", desc: "Servizi e contatti per chi arriva da Carignano." },
+  { city: "Savigliano", href: "/localita/savigliano", desc: "Servizi e contatti per chi arriva da Savigliano." },
 ];
 ---
 
@@ -278,11 +278,11 @@ const nearbyAreas = [
 
   <PageHero
     image={m.hero}
-    kicker="Rebel Laser — da Racconigi a Carmagnola"
-    title="Epilazione laser per chi viene da Racconigi: _indicazioni e valutazione_."
-    lead="Da Racconigi puoi raggiungere REBEL via SS20. Durante la valutazione definiamo zone, intervalli e modalità del percorso con Lumina X1 Pro di THORY e comfort ICE Polar."
-    bullets={["~14 min da Racconigi via SS20", "Lumina X1 Pro · comfort ICE Polar", "Valutazione 30–40 min"]}
-    meta={["~10 km da Racconigi", "Da 25,90 € a zona"]}
+    kicker="Epilazione laser · REBEL Carmagnola"
+    title="Epilazione laser per chi arriva da _Racconigi_."
+    lead="Valutiamo pelle, pelo e zone prima di definire parametri, intervalli e prezzo. Utilizziamo Lumina X1 Pro di THORY con raffreddamento ICE Polar."
+    bullets={["Studio in Viale Barbaroux 20, Carmagnola", "Lumina X1 Pro · ICE Polar", "Valutazione prima del percorso"]}
+    meta={["Epilazione laser viso e corpo", "Da 25,90 € a zona"]}
     ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp }}
   />
@@ -290,9 +290,9 @@ const nearbyAreas = [
   <section class="section">
     <div class="container">
       <SectionHead
-        kicker="Vicinissimi"
-        title="Da Racconigi: _indicazioni e valutazione_."
-        lead="Da Racconigi raggiungi lo studio in circa dieci-quattordici minuti. Dopo la valutazione definiamo gli intervalli in base alla zona e alla ricrescita osservata."
+        kicker="Il Percorso REBEL"
+        title="Come impostiamo il _percorso laser_."
+        lead="Valutazione iniziale, parametri, calendario e prezzo vengono spiegati prima di iniziare."
       />
       <div class="card-grid card-grid--2">
         {principles.map((p, i) => (
@@ -319,11 +319,11 @@ const nearbyAreas = [
         <SplitFeature
           image={m.splitA}
           side="right"
-          kicker="Comfort reale"
-          title="Il comfort _ICE Polar_ accompagna la seduta."
-          body="La percezione cambia da persona a persona e da zona a zona. Il comfort ICE Polar accompagna il percorso, mentre la valutazione definisce parametri e pertinenza del trattamento."
-          bullets={["Lumina X1 Pro di THORY · quattro lunghezze d’onda", "Ice Point Cooling a contatto in zaffiro", "Idoneità verificata in valutazione"]}
-          cta={{ label: "Come funziona il comfort Ice Polar", href: "/epilazione-laser-ice-polar-carmagnola" }}
+          kicker="Raffreddamento a contatto"
+          title="Lumina X1 Pro con _ICE Polar_."
+          body="La sensibilità varia tra persone e zone. ICE Polar utilizza Ice Point Cooling a contatto in zaffiro durante la seduta; parametri e modalità vengono definiti dopo la valutazione."
+          bullets={["Lumina X1 Pro di THORY", "755, 808, 940 e 1064 nm", "Ice Point Cooling a contatto in zaffiro"]}
+          cta={{ label: "Scopri ICE Polar", href: "/epilazione-laser-ice-polar-carmagnola" }}
         />
       </div>
     </section>
@@ -333,19 +333,16 @@ const nearbyAreas = [
     <div class="container">
       <SectionHead
         kicker="Come arrivare"
-        title="Da Racconigi a Rebel: _dieci minuti_ di strada dritta."
+        title="Come raggiungere REBEL da _Racconigi_."
       />
       <div class="directions-grid">
         <div>
           <p class="body-p">
-            Da Racconigi a Carmagnola sono circa dieci chilometri lungo la
-            <strong>SS20 (Via Racconigi)</strong>: si esce dal centro in direzione nord e si
-            i tempi di percorrenza variano in base al traffico: consulta Google Maps prima di partire.
-            È il tragitto più semplice tra tutti i comuni che seguiamo.
+            REBEL si trova in <strong>Viale Barbaroux 20, a Carmagnola</strong>.
           </p>
           <p class="body-p">
-            Lo studio è in <strong>Viale Barbaroux 20</strong>, in pieno centro Carmagnola.
-            possibilità di parcheggio nelle vicinanze.
+            Apri Google Maps per verificare il percorso da Racconigi, il traffico e i tempi
+            aggiornati prima di partire.
           </p>
           <div class="cluster" style="margin-top:1.4rem;">
             <a
@@ -364,7 +361,7 @@ const nearbyAreas = [
             src="https://www.google.com/maps?f=d&source=s_d&saddr=Racconigi&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            title="Percorso da Racconigi a Rebel Carmagnola"
+            title="Indicazioni da Racconigi a REBEL Carmagnola"
           ></iframe>
         </div>
       </div>
@@ -374,15 +371,14 @@ const nearbyAreas = [
   <section class="section">
     <div class="container">
       <SectionHead
-        kicker="Frequenza"
-        title="Il ritmo del laser da Racconigi: _una settimana alla volta_."
-        lead="Quando una seduta richiede ore di viaggio si tende a posticipare. Quando basta un quarto d'ora, il ciclo si tiene da solo."
+        kicker="Intervalli e servizi"
+        title="Come definiamo _gli intervalli tra le sedute_."
+        lead="La frequenza dipende dalla zona e dalla ricrescita osservata durante il percorso. Se vuoi aggiungere un altro servizio, verifichiamo prima disponibilità e compatibilità."
       />
       <p class="body-p" style="max-width:70ch;">
-        Per chi parte da Racconigi suggeriamo spesso di fissare un giorno e una fascia oraria
-        ricorrenti per le prime sei sedute: vista la vicinanza è quasi un automatismo, e una
-        volta che il ritmo è entrato si può rilassare. È il modo più semplice per non perdere
-        i momenti utili del ciclo di crescita del pelo.
+        Dopo la valutazione proponiamo una prima stima del calendario. Gli intervalli vengono
+        aggiornati in base alla zona e alla ricrescita osservata; prima dell’appuntamento
+        condividiamo anche le indicazioni su esposizione e preparazione.
       </p>
       <div class="card-grid card-grid--3" style="margin-top:2rem;">
         {combos.map((c) => (
@@ -401,8 +397,8 @@ const nearbyAreas = [
     <div class="container">
       <SectionHead
         kicker="Zone e guide"
-        title="Da Racconigi: le zone che ci vengono _chieste più spesso_."
-        lead="Ascelle e inguine per la praticità quotidiana, gambe per chi è stanco di rasoio e ceretta, viso per le richieste più delicate. Ogni zona ha la sua guida pratica."
+        title="Guide per scegliere le _zone da trattare_."
+        lead="Consulta le informazioni su valutazione, preparazione e indicazioni tra le sedute per ciascuna zona."
       />
       <div class="card-grid card-grid--3">
         {guides.map((g) => (
@@ -422,8 +418,8 @@ const nearbyAreas = [
       image={m.mood}
       height="md"
       align="left"
-      kicker="Da Racconigi a Carmagnola"
-      quote="Da Racconigi a Carmagnola in circa dieci-quattordici minuti."
+      kicker="Epilazione laser a Carmagnola"
+      quote="Zone, calendario e prezzo vengono definiti prima di iniziare."
       cta={{ label: "Prenota la valutazione", href: "/contatti" }}
     />
   ) : null}
@@ -431,9 +427,9 @@ const nearbyAreas = [
   <section class="section">
     <div class="container">
       <SectionHead
-        kicker="Quando partire"
+        kicker="Stagionalità"
         title="Quando iniziare: contano _esposizione, abbronzatura e zona_."
-        lead="Prima di iniziare valutiamo la pelle, le zone interessate e l'esposizione prevista. Se le condizioni cambiano, possiamo riprogrammare la seduta."
+        lead="Prima di iniziare valutiamo la pelle, le zone interessate e l’esposizione prevista. Se le condizioni cambiano, valutiamo se riprogrammare la seduta."
       />
       <div class="card-grid card-grid--2">
         {seasonCards.map((c) => (
@@ -451,18 +447,17 @@ const nearbyAreas = [
     <div class="container container--narrow">
       <SectionHead
         kicker="Prezzi"
-        title="Quanto costa il laser da Rebel, _per chi viene da Racconigi_."
+        title="Prezzi dell’epilazione _laser_."
       />
       <p class="body-p">
-        Partiamo da <strong>25,90 € a zona</strong>. Il prezzo della singola seduta dipende
-        dall'estensione dell'area: per le aree più piccole (baffetti, mento, ascelle) si resta
-        vicini al riferimento di base; per gambe complete e aree ampie si sale, ma in modo
-        trasparente. Durante la valutazione ricevi una proposta con trattamento, frequenza e prezzo.
+        Il prezzo parte da <strong>25,90 € a zona</strong> e varia in base all’estensione e
+        alle aree scelte. Durante la valutazione ricevi una proposta con trattamento,
+        frequenza e prezzo. Consulta il listino completo per tutte le voci.
       </p>
       <div class="cluster" style="margin-top:1.6rem;">
         <a class="btn btn--primary" href="/listino-estetica-laser">Listino completo</a>
         <a class="btn btn--secondary" href="/epilazione-laser-carmagnola">Scopri il percorso laser</a>
-        <a class="btn btn--secondary" href="/epilazione-laser-ice-polar-carmagnola">Comfort Ice Polar</a>
+        <a class="btn btn--secondary" href="/epilazione-laser-ice-polar-carmagnola">ICE Polar</a>
       </div>
     </div>
   </section>
@@ -473,10 +468,10 @@ const nearbyAreas = [
         <SplitFeature
           image={m.splitB}
           side="left"
-          kicker="La prima volta"
-          title="Prima un piano _scritto_, poi la prima seduta."
-          body="Valutazione e analisi durano 30–40 minuti e sono gratuite quando finalizzate alla costruzione del Percorso. Leggiamo pelle, fototipo e zone, consideriamo le tue settimane e prepariamo una proposta con calendario e prezzi."
-          bullets={["Gratuita se inizi il Percorso", "Prezzi e tempi spiegati prima di iniziare", "Si paga seduta per seduta"]}
+          kicker="Valutazione iniziale"
+          title="Zone, calendario e _prezzo_."
+          body="Se scegli di iniziare il Percorso REBEL, la valutazione è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi. Durante la valutazione esaminiamo pelle, pelo e zone e ti spieghiamo parametri, calendario e prezzo."
+          bullets={["Pelle, pelo e zone valutati prima di iniziare", "Calendario e prezzo spiegati durante la valutazione", "Eventuali prodotti per casa non inclusi"]}
           cta={{ label: "Prenota la valutazione", href: "/contatti" }}
           ctaSecondary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp }}
         />
@@ -488,7 +483,7 @@ const nearbyAreas = [
     <div class="container container--narrow">
       <SectionHead
         kicker="Domande frequenti"
-        title="Da Racconigi: le risposte _oneste_."
+        title="Domande sull’_epilazione laser_."
       />
       <FaqAccordion items={faqs} kicker="FAQ Laser Racconigi" />
     </div>
@@ -497,9 +492,9 @@ const nearbyAreas = [
   <section class="section section--scene-ivory">
     <div class="container">
       <InlineCta
-        kicker="Vuoi un piano più ampio?"
-        title="Scopri gli altri servizi per chi arriva da _Racconigi_."
-        lead="Trovi trattamenti viso e corpo, pulizia viso e massaggi disponibili per chi arriva da Racconigi."
+        kicker="Altri servizi REBEL"
+        title="Trattamenti viso e corpo per chi arriva da _Racconigi_."
+        lead="Consulta i trattamenti viso e corpo disponibili nello studio REBEL di Carmagnola."
         primaryHref="/localita/racconigi"
         primaryLabel="Scopri tutti i servizi da Racconigi"
         secondaryHref="/protocolli-epigenetici"
@@ -511,14 +506,14 @@ const nearbyAreas = [
   <section class="section">
     <div class="container">
       <SectionHead
-        kicker="Vicino a Racconigi"
-        title="Comuni vicini: _pagine dedicate_."
-        lead="Sull'asse per Carmagnola si trovano diversi comuni a pochi minuti l'uno dall'altro."
+        kicker="Altre località"
+        title="Epilazione laser e servizi nelle _zone vicine_."
+        lead="Consulta le informazioni per chi arriva da Caramagna Piemonte, Carignano e Savigliano."
       />
       <div class="card-grid card-grid--3">
         {nearbyAreas.map((a, i) => (
           <FeatureCard
-            kicker="Zona vicina"
+            kicker="Località"
             title={a.city}
             body={a.desc}
             href={a.href}
@@ -533,18 +528,18 @@ const nearbyAreas = [
   <section class="section section--scene-ivory">
     <div class="container">
       <InlineCta
-        kicker="Valutazione e analisi"
-        title="Prenota la _valutazione laser_: 30–40 minuti."
-        lead="Valutiamo zona e caratteristiche della pelle, poi ti spieghiamo trattamento, frequenza e prezzo. La valutazione dura 30–40 minuti."
+        kicker="Valutazione iniziale"
+        title="Prenota la _valutazione laser_."
+        lead="Se scegli di iniziare il Percorso REBEL, la valutazione è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi."
         primaryLabel="Prenota la valutazione"
         primaryHref="/contatti"
-        secondaryLabel="Scrivi su WhatsApp"
+        secondaryLabel="Scrivici su WhatsApp"
         secondaryHref={siteConfig.social.whatsapp}
       />
     </div>
   </section>
 
-  <StickyBookingBar priceHint="Laser da 25,90 €/zona" primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
+  <StickyBookingBar priceHint="Epilazione laser da 25,90 € a zona" primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

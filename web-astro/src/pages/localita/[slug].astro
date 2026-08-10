@@ -31,13 +31,15 @@ export async function getStaticPaths() {
 const { area } = Astro.props as { area: LocalAreaPage };
 
 const localeMood =
-  area.slug === "alba"
+  area.slug === "racconigi"
+    ? media.locale.racconigi
+    : area.slug === "alba"
     ? media.locale.langhe
     : area.slug === "canale"
       ? media.locale.roero
       : area.slug === "bra"
         ? media.locale.bra
-        : media.studio.cabin;
+        : media.studio.realExterior;
 
 const isCarmagnola = area.slug === "carmagnola";
 const visitMedia = isCarmagnola ? media.studio.realExterior : media.studio.realOverview;

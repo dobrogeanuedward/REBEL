@@ -44,7 +44,7 @@ export const protocolPages: ProtocolPage[] = [
       },
       {
         q: "Quante sedute sono previste?",
-        a: "Il numero dipende dalle condizioni iniziali e dal risultato desiderato. Dopo la valutazione ricevi un’indicazione su frequenza iniziale e data del controllo.",
+        a: "Dipende da come si presenta la pelle e dal risultato che desideri. Dopo la valutazione ti diciamo quante sedute prevediamo, con quale frequenza e quando fare il primo controllo.",
       },
       {
         q: "Quale routine è consigliata a casa?",
@@ -62,8 +62,8 @@ export const protocolPages: ProtocolPage[] = [
       {
         heading: "Come viene programmato",
         paragraphs: [
-          "La valutazione definisce obiettivo, prodotti, manualità ed eventuali tecnologie da utilizzare.",
-          "Il programma riporta numero indicativo di sedute, intervallo tra gli appuntamenti e momento in cui controllare i cambiamenti.",
+          "Durante la valutazione definiamo l’obiettivo e scegliamo prodotti, tecniche manuali ed eventuali tecnologie.",
+          "Prima di iniziare ti diamo una stima delle sedute e degli intervalli e ti diciamo quando fare il primo controllo.",
         ],
       },
       {
@@ -85,7 +85,7 @@ export const protocolPages: ProtocolPage[] = [
     slug: "rebirth-60-plus",
     name: "Rebirth 60+",
     price: "€148",
-    shortDescription: "Protocollo per pelle matura, secca o sottile, dedicato a nutrimento, comfort e un aspetto più pieno.",
+    shortDescription: "Protocollo per pelle matura, secca o sottile, dedicato a nutrimento e comfort.",
     longDescription:
       "Rebirth 60+ è un protocollo viso dedicato alla pelle matura oppure particolarmente secca, sottile e bisognosa di comfort. Valutiamo idratazione, sensibilità, elasticità e routine per definire prodotti, intensità, frequenza e mantenimento.",
     keywords: [
@@ -97,7 +97,7 @@ export const protocolPages: ProtocolPage[] = [
     benefits: [
       "Dedicato a secchezza, minore elasticità e sensazione di pelle sottile o poco confortevole",
       "Prodotti e intensità scelti in base alla sensibilità della pelle matura",
-      "Routine domiciliare semplice per idratazione, comfort e protezione",
+      "Una routine semplice da seguire a casa, pensata per idratare e proteggere la pelle",
     ],
     faqs: [
       { q: "È riservato alle persone sopra i 60 anni?", a: "No. Il nome indica il tipo di esigenza, non un limite anagrafico. Può essere adatto anche prima quando la pelle è molto secca, sottile o poco elastica." },
@@ -115,7 +115,7 @@ export const protocolPages: ProtocolPage[] = [
       {
         heading: "Sedute e frequenza",
         paragraphs: [
-          "Il programma viene costruito in base alle condizioni iniziali e alla disponibilità della cliente.",
+          "Costruiamo il programma partendo dalla pelle e dal tempo che puoi dedicargli.",
           "Durante gli appuntamenti controlliamo comfort, idratazione e aspetto della pelle e aggiorniamo la frequenza quando necessario.",
         ],
       },
@@ -155,7 +155,7 @@ export const protocolPages: ProtocolPage[] = [
     faqs: [
       { q: "È adatto agli occhi sensibili?", a: "La sensibilità viene controllata prima della seduta. Prodotti e intensità vengono scelti in base alla zona e alle eventuali reazioni riferite." },
       { q: "Posso truccarmi dopo il trattamento?", a: "Dipende dalla seduta eseguita e dalle condizioni della pelle dopo il trattamento. Al termine ricevi indicazioni precise sulle ore successive." },
-      { q: "Quanto spesso viene eseguito?", a: "La frequenza dipende da gonfiore, secchezza, segni e risposta individuale. Viene indicata dopo la valutazione iniziale." },
+      { q: "Quanto spesso viene eseguito?", a: "Dopo aver osservato il contorno occhi, ti diciamo se può bastare una seduta o se ha senso programmare altri appuntamenti." },
     ],
     editorialSections: [
       {
@@ -203,7 +203,7 @@ export const protocolPages: ProtocolPage[] = [
     benefits: [
       "Dedicato a opacità, grana irregolare, impurità e sensazione di pelle ispessita",
       "Intensità adattata a sensibilità, idratazione e prodotti già utilizzati",
-      "Routine domiciliare semplificata per evitare sovrapposizioni di attivi",
+      "Pochi prodotti ben scelti, per evitare di sovrapporre troppi attivi",
     ],
     faqs: [
       { q: "Il trattamento è aggressivo?", a: "L’intensità viene scelta dopo aver valutato sensibilità e barriera cutanea. L’obiettivo è migliorare grana e luminosità mantenendo un buon comfort." },
@@ -244,37 +244,37 @@ export const protocolPages: ProtocolPage[] = [
     slug: "collagen-code",
     name: "Collagen Code",
     price: "€135",
-    shortDescription: "Protocollo viso dedicato a idratazione, compattezza e un aspetto più pieno della pelle.",
+    shortDescription: "Protocollo viso dedicato a idratazione e compattezza della pelle.",
     longDescription:
-      "Collagen Code è un protocollo viso per chi desidera lavorare su compattezza, idratazione e pienezza. La valutazione controlla elasticità, secchezza, sensibilità e tono, poi definisce prodotti, sedute e frequenza.",
+      "Collagen Code è un protocollo viso per chi desidera lavorare su compattezza e idratazione. Prima di iniziare osserviamo elasticità, secchezza, sensibilità e tono, poi scegliamo prodotti, numero di sedute e frequenza.",
     keywords: [
       "Collagen Code",
-      "rimpolpamento viso Carmagnola",
+      "trattamento idratazione viso Carmagnola",
       "compattezza pelle Carmagnola",
       "protocollo viso Carmagnola",
     ],
     benefits: [
-      "Dedicato a pelle meno compatta, disidratata o dall’aspetto meno pieno",
+      "Dedicato a pelle meno compatta o disidratata",
       "Programma adattato a elasticità, secchezza, sensibilità e tono del viso",
       "Indicazioni su sedute, controlli e cura della pelle a casa",
     ],
     faqs: [
       { q: "È una seduta singola o un percorso?", a: "Può essere provato come singola seduta, ma per lavorare su compattezza e idratazione viene spesso proposto un programma con più appuntamenti e controlli." },
       { q: "Può essere abbinato ad altri trattamenti?", a: "Sì, quando le condizioni della pelle lo permettono. Gli abbinamenti e le distanze tra le sedute vengono stabiliti durante la valutazione." },
-      { q: "Quanto spesso si esegue?", a: "La frequenza dipende dalle condizioni iniziali e dal programma scelto. Ricevi un calendario indicativo prima di iniziare." },
+      { q: "Quanto spesso si esegue?", a: "Dopo la valutazione ti proponiamo una frequenza e un calendario indicativo." },
     ],
     editorialSections: [
       {
         heading: "Perdita di compattezza e disidratazione",
         paragraphs: [
-          "Collagen Code viene valutato quando la pelle appare meno compatta, disidratata o con un aspetto meno pieno.",
-          "Controlliamo anche sensibilità e routine, perché la qualità dell’idratazione influenza il modo in cui la pelle appare e risponde.",
+          "Collagen Code viene valutato quando la pelle appare meno compatta o disidratata.",
+          "Controlliamo anche sensibilità e routine per scegliere prodotti e frequenza.",
         ],
       },
       {
         heading: "Sedute e controlli",
         paragraphs: [
-          "Il programma indica numero orientativo di sedute e intervalli, in base all’obiettivo e alla disponibilità della cliente.",
+          "Prima di iniziare ti diamo una stima delle sedute e degli intervalli, tenendo conto dell’obiettivo e del tempo che puoi dedicare al percorso.",
           "Ai controlli valutiamo comfort, idratazione e compattezza e aggiorniamo il trattamento se necessario.",
         ],
       },
@@ -302,7 +302,7 @@ export const protocolPages: ProtocolPage[] = [
       "Rebel Cell Regeneration è un protocollo cosmetico per viso o corpo dedicato alla pelle dall’aspetto irregolare o spento. La valutazione definisce zona, sensibilità, prodotti, intensità, sedute e mantenimento.",
     keywords: [
       "Rebel Cell Regeneration",
-      "rigenerazione pelle Carmagnola",
+      "trattamento pelle spenta Carmagnola",
       "protocollo viso corpo Carmagnola",
       "estetica epigenetica Carmagnola",
     ],
@@ -320,15 +320,15 @@ export const protocolPages: ProtocolPage[] = [
       {
         heading: "Come viene definito il programma",
         paragraphs: [
-          "Il programma prevede obiettivo, sedute e controlli definiti dopo la valutazione.",
+          "Dopo la valutazione definiamo insieme l’obiettivo, quante sedute prevedere e quando controllare i cambiamenti.",
           "La sensibilità della zona viene sempre considerata nella scelta di prodotti, intensità e frequenza.",
         ],
       },
       {
         heading: "Viso o corpo: la valutazione cambia il programma",
         paragraphs: [
-          "Sul viso osserviamo texture, luminosità, idratazione e sensibilità; sul corpo valutiamo area, qualità dei tessuti e obiettivo estetico.",
-          "Queste informazioni determinano come si svolgerà il trattamento e il numero indicativo di appuntamenti.",
+          "Sul viso osserviamo texture, luminosità, idratazione e sensibilità; sul corpo valutiamo la zona e l’obiettivo estetico.",
+          "Da qui scegliamo come svolgere il trattamento e ti diamo una stima degli appuntamenti.",
         ],
       },
       {

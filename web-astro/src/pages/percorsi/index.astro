@@ -102,13 +102,20 @@ const journeyAreas = [
             const visual = getJourneyVisual(journey.slug);
             return (
               <a class="journey-index__card" href={`/percorsi/${journey.slug}`}>
-                <figure class="journey-index__matter" aria-hidden="true">
-                  <img src={visual.botanicalCardSrc} alt="" width="560" height="560" loading="lazy" decoding="async" />
+                <figure class="journey-index__moment">
+                  <img src={siteAsset(visual.momentSlot)} alt={visual.momentAlt} width="1200" height="800" loading="lazy" decoding="async" />
                 </figure>
                 <div class="journey-index__content">
                   <div class="journey-index__top"><span>{journey.number}</span><span>{journey.area}</span></div>
                   <h3>{journey.slug === "white" ? "Uniformare · White" : journey.name}</h3>
                   <p>{journey.summary}</p>
+                </div>
+                <div class="journey-index__ingredients">
+                  <img src={visual.botanicalSrc} alt="" width="1000" height="1000" loading="lazy" decoding="async" aria-hidden="true" />
+                  <p>
+                    <small>Ingredienti del percorso</small>
+                    <span>{[...journey.actives.slice(0, 2), ...journey.botanicals.slice(0, 2)].map((item) => item.name).join(" · ")}</span>
+                  </p>
                 </div>
                 <div class="journey-index__price"><span>{journey.price}</span><small>{journey.duration}</small></div>
               </a>

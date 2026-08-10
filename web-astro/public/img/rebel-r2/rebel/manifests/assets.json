@@ -62,15 +62,18 @@
   "journeys": {
     "skinReset": {
       "matter": "rebel/library/v1/journeys/skin-reset/matter-cutout-v1.webp",
-      "matterCard": "rebel/library/v1/journeys/skin-reset/matter-card-v1.webp"
+      "matterCard": "rebel/library/v1/journeys/skin-reset/matter-card-v1.webp",
+      "moment": "rebel/library/v1/journeys/skin-reset/moment-cover-v1.webp"
     },
     "barrier": {
       "matter": "rebel/library/v1/journeys/barrier/matter-cutout-v1.webp",
-      "matterCard": "rebel/library/v1/journeys/barrier/matter-card-v1.webp"
+      "matterCard": "rebel/library/v1/journeys/barrier/matter-card-v1.webp",
+      "moment": "rebel/library/v1/journeys/barrier/moment-cover-v1.webp"
     },
     "balance": {
       "matter": "rebel/library/v1/journeys/balance/matter-cutout-v1.webp",
-      "matterCard": "rebel/library/v1/journeys/balance/matter-card-v1.webp"
+      "matterCard": "rebel/library/v1/journeys/balance/matter-card-v1.webp",
+      "moment": "rebel/library/v1/journeys/balance/moment-cover-v1.webp"
     },
     "glow": {
       "hero": {
@@ -79,15 +82,18 @@
         "mobile": "rebel/journeys/glow/hero-mobile.webp"
       },
       "matter": "rebel/library/v1/journeys/glow/matter-cutout-v1.webp",
-      "matterCard": "rebel/library/v1/journeys/glow/matter-card-v1.webp"
+      "matterCard": "rebel/library/v1/journeys/glow/matter-card-v1.webp",
+      "moment": "rebel/library/v1/journeys/glow/moment-cover-v1.webp"
     },
     "white": {
       "matter": "rebel/library/v1/journeys/white/matter-cutout-v1.webp",
-      "matterCard": "rebel/library/v1/journeys/white/matter-card-v1.webp"
+      "matterCard": "rebel/library/v1/journeys/white/matter-card-v1.webp",
+      "moment": "rebel/library/v1/journeys/white/moment-cover-v1.webp"
     },
     "structure": {
       "matter": "rebel/library/v1/journeys/structure/matter-cutout-v1.webp",
-      "matterCard": "rebel/library/v1/journeys/structure/matter-card-v1.webp"
+      "matterCard": "rebel/library/v1/journeys/structure/matter-card-v1.webp",
+      "moment": "rebel/library/v1/journeys/structure/moment-cover-v1.webp"
     },
     "forma": {
       "hero": {
@@ -114,7 +120,8 @@
         "mobile": "rebel/journeys/longevity/hero-mobile.webp"
       },
       "matter": "rebel/library/v1/journeys/longevity/matter-cutout-v1.webp",
-      "matterCard": "rebel/library/v1/journeys/longevity/matter-card-v1.webp"
+      "matterCard": "rebel/library/v1/journeys/longevity/matter-card-v1.webp",
+      "moment": "rebel/library/v1/journeys/longevity/moment-cover-v1.webp"
     }
   },
   "services": {
@@ -924,6 +931,62 @@
       "height": 1000,
       "bytes": 109860,
       "sha256": "f225b5a5313bff1d3e3c3585f6b257eba2ca52b58a7f37fd85d6453746150d83"
+    },
+    {
+      "key": "rebel/library/v1/journeys/balance/moment-cover-v1.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 38602,
+      "sha256": "4004f7191c0fcd2c55245dbac10de8626b2236cacd7bbe0e79560809c2b82198"
+    },
+    {
+      "key": "rebel/library/v1/journeys/barrier/moment-cover-v1.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 45136,
+      "sha256": "13d6de7968cc28e65f530c6e1606563c9fbe9bba3ba871996fbd654833aca0e3"
+    },
+    {
+      "key": "rebel/library/v1/journeys/glow/moment-cover-v1.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 42506,
+      "sha256": "52db3e6ceea1e9360cc82dc5e6b5202446edfd80005d6cebe528b400e54d5a97"
+    },
+    {
+      "key": "rebel/library/v1/journeys/longevity/moment-cover-v1.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 46148,
+      "sha256": "e43e8f711d25c15e8b1b4f5b4d10af4f042fae201f9620bed56b7fe734ede96a"
+    },
+    {
+      "key": "rebel/library/v1/journeys/skin-reset/moment-cover-v1.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 50674,
+      "sha256": "4de97ab485f9c6f6c2a34e0d63318b8ea4bca7c3217a83b7bfe4e70924a789da"
+    },
+    {
+      "key": "rebel/library/v1/journeys/structure/moment-cover-v1.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 38420,
+      "sha256": "d8f89da19ca62e7134580712b7bc788f7cca0db027129e77ca3032cd208bd85f"
+    },
+    {
+      "key": "rebel/library/v1/journeys/white/moment-cover-v1.webp",
+      "mime": "image/webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 46600,
+      "sha256": "95e2dbc448604819657057266e721810e9b85451d6d7014548b9f929b1cf0ee5"
     }
   ]
 }

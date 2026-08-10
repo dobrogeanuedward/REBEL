@@ -187,6 +187,25 @@ export const media = {
       prompt: "Soft layered plum textile band on warm porcelain.",
     } as ImageAsset,
   },
+  corpo: {
+    hero: {
+      src: siteAsset("home.hero.body.desktop"),
+      srcMobile: siteAsset("home.hero.body.mobile"),
+      alt: "Professionista durante un trattamento corpo REBEL",
+      ratio: "16/9",
+    } as ImageAsset,
+    detail: {
+      src: siteAsset("journeys.forma.hero.desktop"),
+      srcMobile: siteAsset("journeys.forma.hero.mobile"),
+      alt: "Dettaglio di un trattamento corpo in corso",
+      ratio: "4/5",
+    } as ImageAsset,
+    mood: {
+      src: siteAsset("brand.cut.desktop"),
+      alt: "Tessuto nei toni prugna REBEL",
+      ratio: "21/9",
+    } as ImageAsset,
+  },
   pedicure: {
     hero: {
       src: siteAsset("services.pedicure.hero.desktop"),

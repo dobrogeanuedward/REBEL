@@ -22,15 +22,15 @@ import { getPageMedia } from "@/lib/page-media";
 const m = getPageMedia("/epilazione-laser-canale");
 
 const meta = createPageMeta({
-  title: "Epilazione laser per chi viene da Canale e dal Roero — Rebel (Carmagnola, ~35 min)",
+  title: "Epilazione laser da Canale e Roero | REBEL Carmagnola",
   description:
-    "Vivi a Canale o nel Roero? Da Rebel a Carmagnola trovi Lumina X1 Pro di THORY, comfort ICE Polar e un percorso impostato con calma. Prenotazione su WhatsApp.",
+    "Epilazione laser per chi arriva da Canale e dal Roero: valutazione iniziale, Lumina X1 Pro di THORY, ICE Polar e prezzi da 25,90 € a zona.",
   path: "/epilazione-laser-canale",
   image: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/02c98ad7-1a83-4d09-0d43-9b3b2184ac00/public",
   openGraphType: "article",
   keywords: [
     "epilazione laser Canale",
-    "epilazione laser Canale d'Alba",
+    "epilazione laser Canale d’Alba",
     "laser Canale",
     "epilazione laser Roero",
     "laser Roero",
@@ -40,7 +40,7 @@ const meta = createPageMeta({
     "laser viso Canale",
     "laser corpo Canale",
     "laser uomo Canale",
-    "Rebel epilazione laser Canale",
+    "REBEL epilazione laser Canale",
     "epilazione laser Canale CN",
   ],
 });
@@ -52,19 +52,19 @@ const breadcrumb = buildBreadcrumbSchema([
 ]);
 
 const webPage = buildWebPageSchema({
-  name: "Epilazione laser per chi viene da Canale e dal Roero",
+  name: "Epilazione laser per chi arriva da Canale e dal Roero",
   description: meta.description,
   path: "/epilazione-laser-canale",
 });
 
 const articleSchema = buildArticleSchema({
-  headline: "Epilazione laser per chi viene da Canale e dal Roero — Rebel (Carmagnola)",
+  headline: "Epilazione laser per chi arriva da Canale e dal Roero — REBEL Carmagnola",
   description: meta.description,
   path: "/epilazione-laser-canale",
   keywords: [
     "epilazione laser Canale",
     "laser Roero",
-    "epilazione laser Canale d'Alba",
+    "epilazione laser Canale d’Alba",
     "laser diodo Canale",
   ],
   section: "Laser",
@@ -72,28 +72,28 @@ const articleSchema = buildArticleSchema({
 });
 
 const laserServiceSchema = buildServiceSchema(
-  "Epilazione laser per chi viene da Canale e dal Roero",
-  "Percorso di epilazione laser per clienti provenienti da Canale d'Alba e dal Roero: Lumina X1 Pro di THORY con comfort Ice Polar, valutazione iniziale e piano personalizzato.",
+  "Epilazione laser per chi arriva da Canale e dal Roero",
+  "Epilazione laser viso e corpo presso REBEL a Carmagnola, con valutazione iniziale, Lumina X1 Pro di THORY e raffreddamento ICE Polar.",
   "/epilazione-laser-canale",
   {
     priceFrom: 25.9,
     keywords: [
       "epilazione laser Canale",
       "epilazione laser Roero",
-      "laser Canale d'Alba",
+      "laser Canale d’Alba",
       "laser diodo Canale",
-      "Ice Polar Canale",
+      "ICE Polar Canale",
     ],
   },
 );
 
-// Extra GeoCircle schema centred on Canale d'Alba
+// Extra GeoCircle schema centred on Canale d’Alba
 const geoServiceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "@id": `${siteConfig.siteUrl}/epilazione-laser-canale#service-geo`,
-  name: "Epilazione laser per chi viene da Canale",
-  serviceType: "Laser hair removal",
+  name: "Epilazione laser per chi arriva da Canale",
+  serviceType: "Epilazione laser",
   provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
   areaServed: [
     {
@@ -125,24 +125,24 @@ const geoServiceSchema = {
 
 const faqs = [
   {
-    q: "Da Canale a Rebel, quanti minuti realmente?",
-    a: "Tra trenta e trentacinque minuti via SP29 + SP661, trentadue chilometri totali. Da Castagnito, Santo Stefano Roero o Castellinaldo i tempi sono molto simili.",
+    q: "Dove si trova REBEL rispetto a Canale?",
+    a: "Lo studio è in Viale Barbaroux 20, a Carmagnola. Usa il collegamento a Google Maps presente nella pagina per verificare il percorso e il traffico al momento della partenza.",
   },
   {
-    q: "Come viene impostato il percorso laser da Rebel?",
-    a: "Usiamo Lumina X1 Pro di THORY con raffreddamento a contatto ICE Polar. Dopo la valutazione definiamo parametri, zone e calendario e li aggiorniamo in base alla risposta osservata.",
+    q: "Come viene impostato il percorso laser da REBEL?",
+    a: "Usiamo Lumina X1 Pro di THORY con raffreddamento a contatto ICE Polar. Dopo la valutazione definiamo parametri, zone e calendario e li aggiorniamo in base alla ricrescita osservata.",
   },
   {
     q: "Posso iniziare il laser se mi espongo spesso al sole?",
-    a: "Dipende da esposizione, abbronzatura, zona e condizioni della pelle. Prima di ogni seduta controlliamo la zona e decidiamo se procedere o riprogrammare l'appuntamento.",
+    a: "Dipende da esposizione, abbronzatura, zona e condizioni della pelle. Prima della seduta valutiamo l’area e decidiamo se procedere o riprogrammare l’appuntamento.",
   },
   {
     q: "Posso fare laser uomo barba e collo? Ho spesso irritazioni da rasoio.",
-    a: "Barba e collo possono essere valutati durante la prima visita, osservando pelle, pelo e zona. Se l'irritazione è persistente o sospetti una follicolite, parlane prima con il medico.",
+    a: "Barba e collo possono essere valutati durante la prima visita, osservando pelle, pelo e zona. Se l’irritazione è persistente o sospetti una follicolite, parlane prima con il medico.",
   },
   {
-    q: "Si paga a seduta o serve un pacchetto?",
-    a: "Le modalità di pagamento e la frequenza vengono spiegate durante la valutazione, in base alle zone da trattare.",
+    q: "Quanto costa la valutazione?",
+    a: "Se scegli di iniziare il Percorso REBEL, la valutazione è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi.",
   },
   {
     q: "Quante sedute servono?",
@@ -150,7 +150,7 @@ const faqs = [
   },
   {
     q: "Posso prenotare anche se vengo da Castagnito, Santo Stefano Roero o Priocca?",
-    a: "Certo: per noi è la stessa area di gravitazione. Se vieni da uno di questi comuni, i tempi di percorrenza e il percorso (SP29 + SP661) sono praticamente identici a quelli di Canale.",
+    a: "Sì. Puoi prenotare tramite il modulo contatti o WhatsApp e usare Google Maps per verificare il percorso dal tuo comune al momento della partenza.",
   },
   {
     q: "Come prenoto da Canale?",
@@ -170,24 +170,24 @@ const faqSchema = {
 
 const principles = [
   {
-    kicker: "01 · Scelta tecnica",
-    title: "Lumina X1 Pro con raffreddamento a contatto.",
-    body: "Lumina X1 Pro di THORY integra 755, 808, 940 e 1064 nm e il raffreddamento a contatto in zaffiro Ice Point Cooling. Il comfort ICE Polar accompagna la seduta come elemento distinto.",
+    kicker: "01 · Valutazione iniziale",
+    title: "Pelle, pelo e zone da trattare.",
+    body: "Valutiamo fototipo, caratteristiche del pelo, zone ed esposizione solare. Queste informazioni servono a definire parametri e calendario iniziali.",
   },
   {
-    kicker: "02 · Metodo, non preset",
-    title: "Parametri su misura, piano scritto.",
-    body: "Nessun protocollo standard copiato per tutti. Valutiamo zona, fototipo, abitudini (quanto sole, che sport, che lavoro). Da lì costruiamo il calendario con tempi reali e regole pratiche tra le sedute.",
+    kicker: "02 · Lumina X1 Pro · ICE Polar",
+    title: "Tecnologia e raffreddamento a contatto.",
+    body: "Lumina X1 Pro di THORY integra 755, 808, 940 e 1064 nm. ICE Polar utilizza il raffreddamento a contatto in zaffiro Ice Point Cooling durante la seduta.",
   },
   {
-    kicker: "03 · Esposizione e calendario",
-    title: "Il calendario tiene conto delle tue abitudini.",
-    body: "Ci racconti periodi di esposizione solare, viaggi e impegni già previsti; organizziamo gli appuntamenti tenendo conto della tua disponibilità e delle condizioni della pelle.",
+    kicker: "03 · Calendario",
+    title: "Intervalli definiti dopo la valutazione.",
+    body: "Proponiamo una prima stima degli intervalli e la aggiorniamo in base alla zona e alla ricrescita osservata.",
   },
   {
-    kicker: "04 · Comunicazione diretta",
-    title: "WhatsApp, risposte vere.",
-    body: "Dubbi tra una seduta e l'altra? Scrivici. Rispondere in modo concreto è parte del lavoro, non un servizio extra.",
+    kicker: "04 · Contatti",
+    title: "Assistenza tra gli appuntamenti.",
+    body: "Per dubbi su preparazione, sole o prodotti puoi contattarci su WhatsApp prima dell’appuntamento successivo.",
   },
 ];
 
@@ -195,17 +195,17 @@ const guides = [
   {
     href: "/competenze/epilazione-laser-ascelle-carmagnola",
     title: "Laser ascelle",
-    body: "Piccola zona, grande ritorno quotidiano: spesso il punto di partenza più sensato.",
+    body: "Informazioni su valutazione iniziale, preparazione e indicazioni tra le sedute per la zona ascelle.",
   },
   {
     href: "/competenze/epilazione-laser-inguine-carmagnola",
     title: "Laser inguine",
-    body: "Zona delicata ma molto richiesta: regole semplici, settaggio gentile, calendario disteso.",
+    body: "Informazioni su valutazione iniziale, preparazione e indicazioni tra le sedute per la zona inguine.",
   },
   {
     href: "/competenze/laser-gambe-carmagnola",
     title: "Laser gambe",
-    body: "Superficie ampia: il piano va costruito, non improvvisato. Guida completa su sedute e mantenimento.",
+    body: "Informazioni su valutazione iniziale, intervalli e indicazioni tra le sedute per la zona gambe.",
   },
   {
     href: "/competenze/laser-barba-collo-carmagnola",
@@ -215,32 +215,32 @@ const guides = [
   {
     href: "/competenze/laser-schiena-carmagnola",
     title: "Laser uomo schiena e torace",
-    body: "Aree ampie maschili: strategia, calendario, mantenimento per zone difficili da gestire.",
+    body: "Informazioni su valutazione iniziale, intervalli e indicazioni per schiena e torace.",
   },
   {
     href: "/competenze/laser-e-palestra-sport-carmagnola",
     title: "Laser e vita attiva",
-    body: "Sport, doccia, calore, sfregamenti: come comportarsi dopo la seduta senza paranoia.",
+    body: "Indicazioni su sport, doccia, calore e sfregamenti prima e dopo la seduta.",
   },
 ];
 
 const seasonCards = [
   {
     href: "/competenze/epilazione-laser-inverno-carmagnola",
-    title: "Laser in inverno: perché conviene partire ora",
-    body: "L'inverno può essere più semplice per le zone esposte, ma la scelta dipende da pelle, abitudini e calendario personale.",
+    title: "Laser in inverno: cosa valutare",
+    body: "Come organizzare il calendario in inverno e aggiornarlo quando aumenta l’esposizione solare.",
   },
   {
     href: "/competenze/epilazione-laser-estate-sole-carmagnola",
     title: "Laser ed esposizione solare",
-    body: "Prima di ogni seduta controlliamo la pelle e ti spieghiamo quando procedere, quali precauzioni seguire o se è meglio riprogrammare.",
+    body: "Come comunicare esposizione e abbronzatura e quando può essere necessario riprogrammare la seduta.",
   },
 ];
 
 const nearbyAreas = [
-  { city: "Alba", href: "/epilazione-laser-alba", desc: "Capoluogo Langhe, ~30 min." },
-  { city: "Bra", href: "/epilazione-laser-bra", desc: "Porta del Roero, ~22 min da Carmagnola." },
-  { city: "Ceresole d'Alba", href: "/localita/ceresole-d-alba", desc: "Pochi km da Canale." },
+  { city: "Alba", href: "/epilazione-laser-alba", desc: "Epilazione laser per chi arriva da Alba." },
+  { city: "Bra", href: "/epilazione-laser-bra", desc: "Epilazione laser per chi arriva da Bra." },
+  { city: "Ceresole d’Alba", href: "/localita/ceresole-d-alba", desc: "Servizi e contatti per chi arriva da Ceresole d’Alba." },
 ];
 ---
 
@@ -254,22 +254,22 @@ const nearbyAreas = [
 
   <PageHero
     image={m.hero}
-    kicker="Rebel Laser — da Canale (Roero) a Carmagnola"
-    title="Epilazione laser per chi viene da Canale: _valutazione e calendario personalizzati_."
-    lead="Da Canale puoi raggiungere REBEL in auto. Consulta Google Maps per percorso, traffico e tempi aggiornati; durante la valutazione definiamo zona, parametri e frequenza con Lumina X1 Pro di THORY e comfort ICE Polar."
-    bullets={["~30-35 min via SP29 + SP661", "Lumina X1 Pro · comfort ICE Polar", "Valutazione 30–40 min"]}
-    meta={["~32 km da Canale", "Da 25,90 € a zona"]}
+    kicker="Epilazione laser · REBEL Carmagnola"
+    title="Epilazione laser per chi arriva da _Canale_."
+    lead="Valutiamo pelle, pelo e zone prima di definire parametri, intervalli e prezzo. Utilizziamo Lumina X1 Pro di THORY con raffreddamento ICE Polar."
+    bullets={["Studio in Viale Barbaroux 20, Carmagnola", "Lumina X1 Pro · ICE Polar", "Valutazione prima del percorso"]}
+    meta={["Epilazione laser viso e corpo", "Da 25,90 € a zona"]}
     ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp }}
   />
 
-  <!-- SEZIONE 1 — Perché venire a Carmagnola dal Roero -->
+  <!-- SEZIONE 1 — Il percorso -->
   <section class="section">
     <div class="container">
       <SectionHead
-        kicker="Perché Rebel"
+        kicker="Il Percorso REBEL"
         title="Come impostiamo il _percorso laser_."
-        lead="Valutiamo pelle, pelo e zone, poi definiamo parametri, calendario e prezzo prima di iniziare."
+        lead="Valutazione iniziale, parametri, calendario e prezzo vengono spiegati prima di iniziare."
       />
       <div class="card-grid card-grid--2">
         {principles.map((p, i) => (
@@ -290,18 +290,18 @@ const nearbyAreas = [
     </div>
   </section>
 
-  <!-- SPLIT — Tecnologia Ice Polar -->
+  <!-- SPLIT — Tecnologia ICE Polar -->
   {m.splitA ? (
     <section class="section section--tight">
       <div class="container">
         <SplitFeature
           image={m.splitA}
           side="right"
-          kicker="Comfort reale"
-          title="Il comfort _ICE Polar_ accompagna la seduta."
-          body="La percezione cambia da persona a persona e da zona a zona. Il comfort ICE Polar accompagna il percorso, mentre la valutazione definisce parametri e pertinenza del trattamento."
-          bullets={["Lumina X1 Pro di THORY · quattro lunghezze d’onda", "Ice Point Cooling a contatto in zaffiro", "Idoneità verificata in valutazione"]}
-          cta={{ label: "Come funziona il comfort Ice Polar", href: "/epilazione-laser-ice-polar-carmagnola" }}
+          kicker="Raffreddamento a contatto"
+          title="Lumina X1 Pro con _ICE Polar_."
+          body="La sensibilità varia tra persone e zone. ICE Polar utilizza Ice Point Cooling a contatto in zaffiro durante la seduta; parametri e modalità vengono definiti dopo la valutazione."
+          bullets={["Lumina X1 Pro di THORY", "755, 808, 940 e 1064 nm", "Ice Point Cooling a contatto in zaffiro"]}
+          cta={{ label: "Scopri ICE Polar", href: "/epilazione-laser-ice-polar-carmagnola" }}
         />
       </div>
     </section>
@@ -312,20 +312,16 @@ const nearbyAreas = [
     <div class="container">
       <SectionHead
         kicker="Come arrivare"
-        title="Da Canale a Rebel: trentacinque minuti _tra colline e pianura_."
+        title="Come raggiungere REBEL da _Canale_."
       />
       <div class="directions-grid">
         <div>
           <p class="body-p">
-            Da Canale a Carmagnola sono circa trentadue chilometri. Il tragitto più rapido
-            segue la <strong>SP29 in direzione Bra</strong>, poi la <strong>SP661 verso
-            Sommariva del Bosco e Carmagnola</strong>: trentacinque minuti scarsi in condizioni
-            normali. Se vieni da Castagnito, Santo Stefano Roero o Castellinaldo, il punto
-            di innesto sulla SP29 cambia ma il tempo totale resta simile.
+            REBEL si trova in <strong>Viale Barbaroux 20, a Carmagnola</strong>.
           </p>
           <p class="body-p">
-            Lo studio è in <strong>Viale Barbaroux 20</strong>, in pieno centro Carmagnola.
-            Per indicazioni aggiornate su accesso e parcheggi, consulta Google Maps prima di partire.
+            Apri Google Maps per verificare il percorso da Canale, il traffico e i tempi
+            aggiornati prima di partire.
           </p>
           <div class="cluster" style="margin-top:1.4rem;">
             <a
@@ -344,20 +340,20 @@ const nearbyAreas = [
             src="https://www.google.com/maps?f=d&source=s_d&saddr=Canale+CN&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            title="Percorso da Canale d'Alba a Rebel Carmagnola"
+            title="Indicazioni da Canale a REBEL Carmagnola"
           ></iframe>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SEZIONE 3 — Vita outdoor e laser: non un conflitto -->
+  <!-- SEZIONE 3 — Esposizione e servizi abbinabili -->
   <section class="section">
     <div class="container container--narrow">
       <SectionHead
         kicker="Esposizione e laser"
-        title="Prima di ogni seduta _controlliamo la pelle_."
-        lead="Esposizione, abbronzatura, zona e condizioni della pelle determinano se possiamo procedere o se è meglio riprogrammare."
+        title="Prima della seduta _valutiamo la pelle_."
+        lead="Esposizione, abbronzatura, zona e condizioni della pelle aiutano a decidere se procedere o riprogrammare."
       />
       <div class="body-flow">
         <p class="body-p">
@@ -366,15 +362,15 @@ const nearbyAreas = [
           il calendario.
         </p>
         <p class="body-p">
-          Prima di ogni appuntamento controlliamo la pelle. Se abbronzatura o esposizione recente
-          rendono la seduta non opportuna, la riprogrammiamo e ti spieghiamo le precauzioni da seguire.
+          Prima dell’appuntamento valutiamo la pelle. In base ad abbronzatura ed esposizione
+          recente, decidiamo se procedere o riprogrammare e condividiamo le indicazioni da seguire.
         </p>
       </div>
       <div class="card-grid card-grid--3" style="margin-top:2rem;">
         <FeatureCard
           kicker="Abbinamento"
           title="Laser + Linfodrenante"
-          body="Quando vuoi anche alleggerire la sensazione di pesantezza alle gambe tra una seduta e l'altra."
+          body="Se vuoi aggiungere il massaggio linfodrenante, verifichiamo zone, tempi e compatibilità prima degli appuntamenti."
           href="/servizi/massaggio-linfodrenante-carmagnola"
           variant="quiet"
         />
@@ -388,7 +384,7 @@ const nearbyAreas = [
         <FeatureCard
           kicker="Abbinamento"
           title="Laser + Collagen Code"
-          body="Quando vuoi alzare il livello e lavorare anche sul tono cutaneo, oltre all'epilazione."
+          body="Se ti interessa anche Collagen Code, verifichiamo zone, tempi e compatibilità prima degli appuntamenti."
           href="/protocolli/collagen-code"
           variant="quiet"
         />
@@ -401,8 +397,8 @@ const nearbyAreas = [
     <div class="container">
       <SectionHead
         kicker="Zone e guide"
-        title="Da Canale: le zone su cui _lavoriamo più spesso_."
-        lead="Aprire tutto insieme non è mai la strategia giusta. Qui trovi le zone più richieste con le guide pratiche — leggile prima della consulenza, ti fanno arrivare già preparata."
+        title="Guide per scegliere le _zone da trattare_."
+        lead="Consulta le informazioni su valutazione, preparazione e indicazioni tra le sedute per ciascuna zona."
       />
       <div class="card-grid card-grid--3">
         {guides.map((g) => (
@@ -417,14 +413,14 @@ const nearbyAreas = [
     </div>
   </section>
 
-  <!-- FULL-BLEED — mood Roero -->
+  <!-- FULL-BLEED -->
   {m.mood ? (
     <FullBleedBand
       image={m.mood}
       height="md"
       align="left"
-      kicker="Dal Roero a Carmagnola"
-      quote="Il laser va impostato sulla tua vita, non la tua vita sul laser."
+      kicker="Epilazione laser a Carmagnola"
+      quote="Zone, calendario e prezzo vengono definiti prima di iniziare."
       cta={{ label: "Prenota la valutazione", href: "/contatti" }}
     />
   ) : null}
@@ -433,9 +429,9 @@ const nearbyAreas = [
   <section class="section">
     <div class="container">
       <SectionHead
-        kicker="Calendario"
+        kicker="Stagionalità"
         title="Quando iniziare: contano _esposizione, abbronzatura e zona_."
-        lead="Prima di iniziare valutiamo la pelle, le zone interessate e l'esposizione prevista. Se le condizioni cambiano, possiamo riprogrammare la seduta."
+        lead="Prima di iniziare valutiamo la pelle, le zone interessate e l’esposizione prevista. Se le condizioni cambiano, valutiamo se riprogrammare la seduta."
       />
       <div class="card-grid card-grid--2">
         {seasonCards.map((c) => (
@@ -454,18 +450,17 @@ const nearbyAreas = [
     <div class="container container--narrow">
       <SectionHead
         kicker="Prezzi"
-        title="Costo del laser da Rebel, per chi viene _dal Roero_."
+        title="Prezzi dell’epilazione _laser_."
       />
       <p class="body-p">
-        Riferimento di partenza <strong>25,90 € a zona</strong>. Il totale dipende da
-        estensione dell'area e numero di sedute. Durante la valutazione ricevi una proposta
-        con trattamento, frequenza e prezzo. Tutte le voci del listino — laser corpo, laser
-        viso, laser uomo, protocolli viso da affiancare — sono pubbliche.
+        Il prezzo parte da <strong>25,90 € a zona</strong> e varia in base all’estensione e
+        alle aree scelte. Durante la valutazione ricevi una proposta con trattamento,
+        frequenza e prezzo. Consulta il listino completo per tutte le voci.
       </p>
       <div class="cluster" style="margin-top:1.6rem;">
         <a class="btn btn--primary" href="/listino-estetica-laser">Listino completo</a>
         <a class="btn btn--secondary" href="/epilazione-laser-carmagnola">Scopri il percorso laser</a>
-        <a class="btn btn--secondary" href="/epilazione-laser-ice-polar-carmagnola">Comfort Ice Polar</a>
+        <a class="btn btn--secondary" href="/epilazione-laser-ice-polar-carmagnola">ICE Polar</a>
       </div>
     </div>
   </section>
@@ -477,10 +472,10 @@ const nearbyAreas = [
         <SplitFeature
           image={m.splitB}
           side="left"
-          kicker="La prima volta"
-          title="Prima un piano _scritto_, poi la prima seduta."
-          body="Valutazione e analisi durano 30–40 minuti e sono gratuite quando finalizzate alla costruzione del Percorso. Osserviamo pelle, fototipo e zone e prepariamo una proposta con calendario e prezzi."
-          bullets={["Gratuita se inizi il Percorso", "Prezzi e tempi spiegati prima di iniziare", "Si paga seduta per seduta"]}
+          kicker="Valutazione iniziale"
+          title="Zone, calendario e _prezzo_."
+          body="Se scegli di iniziare il Percorso REBEL, la valutazione è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi. Durante la valutazione esaminiamo pelle, pelo e zone e ti spieghiamo parametri, calendario e prezzo."
+          bullets={["Pelle, pelo e zone valutati prima di iniziare", "Calendario e prezzo spiegati durante la valutazione", "Eventuali prodotti per casa non inclusi"]}
           cta={{ label: "Prenota la valutazione", href: "/contatti" }}
           ctaSecondary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp }}
         />
@@ -493,7 +488,7 @@ const nearbyAreas = [
     <div class="container container--narrow">
       <SectionHead
         kicker="Domande frequenti"
-        title="Da Canale, Castagnito, Santo Stefano Roero e dintorni: _le risposte_.">
+        title="Domande sull’_epilazione laser_.">
       </SectionHead>
       <FaqAccordion items={faqs} kicker="FAQ Laser Canale" />
     </div>
@@ -503,9 +498,9 @@ const nearbyAreas = [
   <section class="section section--scene-ivory">
     <div class="container">
       <InlineCta
-        kicker="Vuoi anche viso, corpo o protocolli?"
-        title="Scopri gli altri servizi per chi arriva da _Canale_."
-        lead="Trovi trattamenti viso e corpo, pulizia viso e massaggi disponibili per chi arriva da Canale."
+        kicker="Altri servizi REBEL"
+        title="Trattamenti viso e corpo per chi arriva da _Canale_."
+        lead="Consulta i trattamenti viso e corpo disponibili nello studio REBEL di Carmagnola."
         primaryHref="/localita/canale"
         primaryLabel="Scopri tutti i servizi da Canale"
         secondaryHref="/protocolli-epigenetici"
@@ -518,14 +513,14 @@ const nearbyAreas = [
   <section class="section">
     <div class="container">
       <SectionHead
-        kicker="Roero e dintorni"
-        title="Comuni vicini a _Canale_: pagine dedicate."
-        lead="Apri le pagine dedicate per trovare mappe e indicazioni dai comuni vicini."
+        kicker="Altre località"
+        title="Epilazione laser e servizi nelle _zone vicine_."
+        lead="Consulta le informazioni per chi arriva da Alba, Bra e Ceresole d’Alba."
       />
       <div class="card-grid card-grid--3">
         {nearbyAreas.map((a, i) => (
           <FeatureCard
-            kicker="Zona vicina"
+            kicker="Località"
             title={a.city}
             body={a.desc}
             href={a.href}
@@ -541,18 +536,18 @@ const nearbyAreas = [
   <section class="section section--scene-ivory">
     <div class="container">
       <InlineCta
-        kicker="Valutazione e analisi"
-        title="Prenota la _valutazione laser_: 30–40 minuti."
-        lead="Valutiamo zona e caratteristiche della pelle, poi ti spieghiamo trattamento, frequenza e prezzo. La valutazione dura 30–40 minuti."
+        kicker="Valutazione iniziale"
+        title="Prenota la _valutazione laser_."
+        lead="Se scegli di iniziare il Percorso REBEL, la valutazione è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi."
         primaryLabel="Prenota la valutazione"
         primaryHref="/contatti"
-        secondaryLabel="Scrivi su WhatsApp"
+        secondaryLabel="Scrivici su WhatsApp"
         secondaryHref={siteConfig.social.whatsapp}
       />
     </div>
   </section>
 
-  <StickyBookingBar priceHint="Laser da 25,90 €/zona" primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
+  <StickyBookingBar priceHint="Epilazione laser da 25,90 € a zona" primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

@@ -3673,7 +3673,7 @@ export const competencePages: CompetencePage[] = [
     faqs: [
       {
         q: "Quanto dura in genere il semipermanente?",
-        a: "In genere circa due–tre settimane, ma ricrescita, lunghezza, detergenti e lavori manuali possono modificare la durata.",
+        a: "In genere circa due–tre settimane; in alcuni casi può arrivare a tre–quattro. Ricrescita, lunghezza, detergenti e lavori manuali possono modificare la durata.",
       },
       {
         q: "È normale che si sollevi prima su alcune unghie?",
@@ -3733,7 +3733,7 @@ export const competencePages: CompetencePage[] = [
       {
         heading: "Rimozione del semipermanente",
         paragraphs: [
-          "Strappi e limature eccessive possono danneggiare la superficie dell’unghia. Il metodo di rimozione deve essere compatibile con il prodotto applicato.",
+          "Strappare il prodotto o limare troppo può danneggiare l’unghia. Per questo lo rimuoviamo con il metodo previsto per il prodotto applicato.",
           "Dopo la rimozione valutiamo l’unghia prima di procedere con una nuova applicazione.",
         ],
       },
@@ -3758,7 +3758,7 @@ export const competencePages: CompetencePage[] = [
   },
   {
     slug: "laminazione-ciglia-sopracciglia-carmagnola-durata-cura",
-    title: "Laminazione a Carmagnola: durata e cura nelle prime ore (ciglia e sopracciglia)",
+    title: "Laminazione ciglia e sopracciglia a Carmagnola: durata e cura",
     shortDescription:
       "Durata indicativa, indicazioni successive e scelta dell’effetto per ciglia e sopracciglia.",
     longDescription:
@@ -3774,7 +3774,7 @@ export const competencePages: CompetencePage[] = [
     faqs: [
       {
         q: "Quanto dura la laminazione?",
-        a: "In genere circa quattro–sei settimane, ma la durata varia con il ciclo naturale del pelo, i prodotti usati e le abitudini di detersione.",
+        a: "In genere circa sei–otto settimane, ma la durata varia con il ciclo naturale del pelo, i prodotti usati e le abitudini di detersione.",
       },
       {
         q: "Cosa conviene evitare subito dopo?",
@@ -3821,7 +3821,7 @@ export const competencePages: CompetencePage[] = [
         heading: "Detersione e nuovo appuntamento",
         paragraphs: [
           "Detergi la zona secondo le indicazioni ricevute ed evita di aggiungere prodotti potenzialmente irritanti.",
-          "La data del nuovo appuntamento viene valutata in base alla ricrescita e alle condizioni di ciglia o sopracciglia.",
+          "Ti consigliamo quando tornare dopo aver visto la ricrescita e lo stato di ciglia o sopracciglia.",
         ],
       },
     ],
@@ -3838,7 +3838,7 @@ export const competencePages: CompetencePage[] = [
   },
   {
     slug: "scrub-corpo-carmagnola-quando-farlo",
-    title: "Scrub corpo a Carmagnola: ogni quanto farlo e come non irritare la pelle",
+    title: "Scrub corpo a Carmagnola: frequenza e indicazioni",
     shortDescription:
       "Come scegliere frequenza e intensità dello scrub in base alla zona, alla stagione e alla sensibilità.",
     longDescription:
@@ -3858,7 +3858,7 @@ export const competencePages: CompetencePage[] = [
       },
       {
         q: "È meglio farlo prima o dopo la doccia?",
-        a: "Dipende dal prodotto e dalle sue istruzioni. In studio prepariamo la pelle e completiamo il trattamento con la fase finale prevista.",
+        a: "Dipende dal prodotto. In studio seguiamo i tempi previsti e concludiamo la seduta in base a come reagisce la pelle.",
       },
       {
         q: "Se ho pelle secca posso farlo?",
@@ -4123,7 +4123,7 @@ export const competencePages: CompetencePage[] = [
       },
       {
         q: "Quante sedute servono?",
-        a: "Puoi prenotare una seduta singola oppure valutare più appuntamenti. Frequenza e numero dipendono dall’obiettivo estetico e dalla risposta individuale e non consentono di garantire lo stesso effetto per tutti.",
+        a: "Puoi partire da una sola seduta. Se vuoi continuare, dopo il primo appuntamento ti proponiamo una frequenza. Il numero di sedute e la risposta cambiano da persona a persona.",
       },
       {
         q: "Quanto dura la sensazione dopo una seduta?",
@@ -4131,7 +4131,7 @@ export const competencePages: CompetencePage[] = [
       },
       {
         q: "Cosa conviene fare dopo il linfodrenante?",
-        a: "Al termine ricevi indicazioni coerenti con il massaggio eseguito e con le informazioni comunicate. In presenza di sintomi inattesi o persistenti, contatta un professionista sanitario.",
+        a: "Prima di andare via ti diciamo che cosa fare nelle ore successive. Se compare qualcosa di insolito o il fastidio non passa, chiedi un parere medico.",
       },
       {
         q: "Ci sono momenti in cui è meglio rimandare o chiedere un parere medico?",
@@ -4192,7 +4192,7 @@ export const competencePages: CompetencePage[] = [
         heading: "Dopo la seduta",
         paragraphs: [
           "Al termine spieghiamo come gestire le ore successive in base alla seduta e alle informazioni che ci hai comunicato.",
-          "Sintomi inattesi o persistenti non vanno attribuiti automaticamente al massaggio e richiedono un parere sanitario.",
+          "Se compare qualcosa di insolito o il fastidio non passa, non aspettare: chiedi un parere medico.",
         ],
       },
     ],
@@ -4229,7 +4229,7 @@ export const competencePages: CompetencePage[] = [
       },
       {
         q: "Quante sedute servono?",
-        a: "Puoi valutare una seduta singola o più appuntamenti per finalità estetiche e di benessere. Numero e frequenza vengono proposti dopo la valutazione e non garantiscono lo stesso effetto per tutti.",
+        a: "Puoi partire da una sola seduta oppure programmare altri appuntamenti. Dopo la valutazione ti proponiamo una frequenza adatta all’obiettivo estetico. La risposta cambia da persona a persona.",
       },
       {
         q: "Che sensazione devo aspettarmi durante e dopo?",
@@ -4241,7 +4241,7 @@ export const competencePages: CompetencePage[] = [
       },
       {
         q: "Si può abbinare ad altri trattamenti corpo?",
-        a: "Può essere possibile, ma va valutata la compatibilità tra servizi e condizioni della persona. Prima di proporre un abbinamento spieghiamo finalità, frequenza e precauzioni.",
+        a: "Possiamo abbinarla ad altri trattamenti corpo, ma prima verifichiamo che l’abbinamento sia adatto a te. Ti spieghiamo anche come distanziare gli appuntamenti e quali precauzioni seguire.",
       },
     ],
     keywords: [
@@ -4266,15 +4266,15 @@ export const competencePages: CompetencePage[] = [
       {
         heading: "Come si svolge la seduta",
         paragraphs: [
-          "I gambali si gonfiano in sequenza ed esercitano una pressione impostata dall’operatrice. La sensazione deve restare tollerabile per tutta la seduta.",
+          "I gambali si gonfiano in sequenza e la pressione viene regolata dall’operatrice. Durante la seduta segnala subito dolore, intorpidimento o qualsiasi fastidio anomalo.",
           "Prima di iniziare raccogliamo le informazioni necessarie e spieghiamo come segnalare eventuale fastidio.",
         ],
       },
       {
         heading: "Seduta singola o calendario",
         paragraphs: [
-          "Puoi prenotare una seduta singola o valutare più appuntamenti per finalità estetiche e di benessere.",
-          "Se viene proposto un calendario, indichiamo frequenza, costo e momento del controllo senza attribuire finalità terapeutiche.",
+          "Puoi prenotare una seduta singola oppure scegliere più appuntamenti.",
+          "Prima di iniziare ti diciamo ogni quanto vederci, quanto costa e quando fare il punto. La pressoterapia resta un trattamento estetico, non una terapia.",
         ],
       },
       {

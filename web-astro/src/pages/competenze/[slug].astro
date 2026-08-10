@@ -65,7 +65,10 @@ const resolveTheme = (slug: string): { hero: ImageAsset; mood: ImageAsset; edito
   if (/massaggio|cervicale/.test(slug)) {
     return { hero: media.massaggio.hero, mood: media.massaggio.mood, editorial: [media.massaggio.detail, media.massaggio.hero] };
   }
-  if (/viso|pelle|contorno-occhi|tono|ovale|opaca|matura|pulizia|scrub/.test(slug)) {
+  if (/scrub-corpo/.test(slug)) {
+    return { hero: media.corpo.hero, mood: media.corpo.mood, editorial: [media.corpo.detail, media.corpo.hero] };
+  }
+  if (/viso|pelle|contorno-occhi|tono|ovale|opaca|matura|pulizia/.test(slug)) {
     return { hero: media.viso.hero, mood: media.viso.mood, editorial: [media.viso.texture, media.viso.products] };
   }
   return {
@@ -75,10 +78,13 @@ const resolveTheme = (slug: string): { hero: ImageAsset; mood: ImageAsset; edito
   };
 };
 const theme = resolveTheme(competence.slug);
+const competenceMetaDescription = competence.shortDescription.length >= 105
+  ? competence.shortDescription
+  : `${competence.shortDescription} Indicazioni utili prima della valutazione a Carmagnola.`;
 
 const meta = createPageMeta({
   title: competence.title,
-  description: competence.shortDescription,
+  description: competenceMetaDescription,
   path: `/competenze/${competence.slug}`,
   keywords: competence.keywords,
   openGraphType: "article",
@@ -123,7 +129,7 @@ const breadcrumb = buildBreadcrumbSchema([
 ]);
 const webPage = buildWebPageSchema({
   name: competence.title,
-  description: competence.shortDescription,
+  description: competenceMetaDescription,
   path: `/competenze/${competence.slug}`,
 });
 const articleSchema = buildArticleSchema({

@@ -6,7 +6,6 @@ export type JourneyTechnologyVisual = {
 
 export type JourneyVisual = {
   botanicalSrc: string;
-  botanicalCardSrc: string;
   botanicalAlt: string;
   momentSlot: string;
   momentAlt: string;
@@ -17,50 +16,49 @@ const libraryRoot = "/img/rebel-r2/rebel/library/v1/journeys";
 
 const matter = (slug: string) => ({
   botanicalSrc: `${libraryRoot}/${slug}/matter-cutout-v1.webp`,
-  botanicalCardSrc: `${libraryRoot}/${slug}/matter-card-v1.webp`,
 });
 
 export const journeyVisuals: Record<string, JourneyVisual> = {
   "skin-reset": {
     ...matter("skin-reset"),
     botanicalAlt: "Avena, ananas e papaya del percorso Skin Reset",
-    momentSlot: "services.face.activesTopshot.mobile",
-    momentAlt: "Prodotti e strumenti preparati per un trattamento viso REBEL",
+    momentSlot: "journeys.skinReset.moment",
+    momentAlt: "Una professionista applica un prodotto cosmetico sul viso con un pennello",
     technologyVisuals: [],
   },
   barrier: {
     ...matter("barrier"),
     botanicalAlt: "Calendula e manna del percorso Barrier",
-    momentSlot: "services.face.skinTexture.mobile",
-    momentAlt: "Dettaglio ravvicinato della grana naturale della pelle",
+    momentSlot: "journeys.barrier.moment",
+    momentAlt: "Una professionista massaggia un gel sulla guancia di una cliente",
     technologyVisuals: [],
   },
   balance: {
     ...matter("balance"),
     botanicalAlt: "Bixa orellana e ingredienti fermentati del percorso Balance",
-    momentSlot: "home.hero.face.desktop",
-    momentAlt: "Viso di una cliente in luce naturale",
+    momentSlot: "journeys.balance.moment",
+    momentAlt: "Una professionista applica un prodotto con un pennello sulla zona T del viso",
     technologyVisuals: [],
   },
   glow: {
     ...matter("glow"),
     botanicalAlt: "Melograno e vinaccioli del percorso Glow",
-    momentSlot: "journeys.glow.hero.desktop",
-    momentAlt: "Viso di una cliente illuminato dalla luce laterale",
+    momentSlot: "journeys.glow.moment",
+    momentAlt: "Gocce di prodotto cosmetico sul viso durante un massaggio",
     technologyVisuals: [],
   },
   white: {
     ...matter("white"),
     botanicalAlt: "Satsuma e Boerhavia diffusa del percorso White",
-    momentSlot: "home.hero.face.desktop",
-    momentAlt: "Viso di una cliente in luce naturale",
+    momentSlot: "journeys.white.moment",
+    momentAlt: "Una professionista applica un prodotto cosmetico sulla guancia con un pennello",
     technologyVisuals: [],
   },
   structure: {
     ...matter("structure"),
     botanicalAlt: "Centella e olivello spinoso del percorso Structure",
-    momentSlot: "journeys.longevity.hero.desktop",
-    momentAlt: "Cliente durante un trattamento viso",
+    momentSlot: "journeys.structure.moment",
+    momentAlt: "Una professionista esegue un massaggio manuale sotto il mento di una cliente",
     technologyVisuals: [
       { name: "Aura Q2", slot: "technologies.thory.auraQ2", alt: "Tecnologia THORY Aura Q2" },
       { name: "Tecar 448Revolution", slot: "technologies.thory.tecar448", alt: "Tecnologia THORY Tecar 448Revolution" },
@@ -69,15 +67,15 @@ export const journeyVisuals: Record<string, JourneyVisual> = {
   longevity: {
     ...matter("longevity"),
     botanicalAlt: "Avena, calendula, aloe e curcuma del percorso Longevity",
-    momentSlot: "journeys.longevity.hero.desktop",
-    momentAlt: "Cliente durante un trattamento viso",
+    momentSlot: "journeys.longevity.moment",
+    momentAlt: "Una professionista massaggia una crema sul viso di una cliente adulta",
     technologyVisuals: [],
   },
   forma: {
     ...matter("forma"),
-    botanicalAlt: "Cardo mariano, guaranà, fucus, kigelia e Lythrum del percorso Forma",
-    momentSlot: "journeys.forma.hero.desktop",
-    momentAlt: "Professionista durante un trattamento corpo",
+    botanicalAlt: "Cardo mariano, guaranà, fucus, kigelia, fumaria e Lythrum del percorso Forma",
+    momentSlot: "home.hero.technologies.desktop",
+    momentAlt: "Professionista utilizza un manipolo sulla coscia di una cliente",
     technologyVisuals: [
       { name: "CryoShape X2", slot: "technologies.thory.cryoShapeX2", alt: "Tecnologia THORY CryoShape X2" },
       { name: "InfraPress X2", slot: "technologies.thory.infraPressX2", alt: "Tecnologia THORY InfraPress X2" },
@@ -87,7 +85,7 @@ export const journeyVisuals: Record<string, JourneyVisual> = {
     ...matter("liberta"),
     botanicalAlt: "Aloe vera, calendula e Boswellia serrata del percorso Libertà",
     momentSlot: "services.laser.handpiece.desktop",
-    momentAlt: "Manipolo a contatto con la pelle durante una seduta laser REBEL",
+    momentAlt: "Manipolo laser a contatto con la gamba di una cliente",
     technologyVisuals: [
       { name: "Lumina X1 Pro + ICE Polar", slot: "services.laser.handpiece.desktop", alt: "Seduta con Lumina X1 Pro e sistema ICE Polar" },
     ],

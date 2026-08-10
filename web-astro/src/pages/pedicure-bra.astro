@@ -22,9 +22,9 @@ import { getPageMedia } from "@/lib/page-media";
 const m = getPageMedia("/pedicure-bra");
 
 const meta = createPageMeta({
-  title: "Pedicure per chi viene da Bra — Rebel (Carmagnola, ~22 min)",
+  title: "Pedicure da Bra | REBEL Carmagnola",
   description:
-    "Vivi a Bra? Da Rebel a Carmagnola sono venti minuti via SP661. Pedicure estetico e pedicure VIP con scrub: piedi più ordinati, talloni morbidi, rifinitura pulita. Anche semipermanente. Da 33 €.",
+    "Pedicure estetico da 33 € e VIP con scrub da 44 € a Carmagnola per chi arriva da Bra. Disponibile anche con semipermanente.",
   path: "/pedicure-bra",
   image: "https://www.rebelepigenetica.it/img/generated/pedicure-hero.webp",
   openGraphType: "article",
@@ -49,13 +49,13 @@ const breadcrumb = buildBreadcrumbSchema([
 ]);
 
 const webPage = buildWebPageSchema({
-  name: "Pedicure per chi viene da Bra",
+  name: "Pedicure per chi arriva da Bra",
   description: meta.description,
   path: "/pedicure-bra",
 });
 
 const articleSchema = buildArticleSchema({
-  headline: "Pedicure per chi viene da Bra — Rebel (Carmagnola, ~22 min)",
+  headline: "Pedicure per chi arriva da Bra — REBEL Carmagnola",
   description: meta.description,
   path: "/pedicure-bra",
   keywords: ["pedicure Bra", "pedicure estetico Bra", "pedicure semipermanente Bra CN"],
@@ -64,8 +64,8 @@ const articleSchema = buildArticleSchema({
 });
 
 const serviceSchema = buildServiceSchema(
-  "Pedicure per chi viene da Bra",
-  "Pedicure estetico e pedicure VIP con scrub a Carmagnola per clienti di Bra: piedi ordinati, talloni morbidi, rifinitura pulita. Anche semipermanente.",
+  "Pedicure per chi arriva da Bra",
+  "Pedicure estetico e VIP con scrub a Carmagnola: rifinitura di unghie, cuticole e pelle, con semipermanente disponibile.",
   "/pedicure-bra",
   {
     priceFrom: 33,
@@ -77,7 +77,7 @@ const geoServiceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "@id": `${siteConfig.siteUrl}/pedicure-bra#service-geo`,
-  name: "Pedicure per chi viene da Bra",
+  name: "Pedicure per chi arriva da Bra",
   serviceType: "Pedicure",
   provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
   areaServed: [
@@ -103,16 +103,16 @@ const geoServiceSchema = {
 
 const faqs = [
   {
-    q: "Quanto ci vuole da Bra a Rebel per il pedicure?",
-    a: "Circa ventidue minuti via SP661, venti chilometri in totale. Viale Barbaroux 20, possibilità di parcheggio nelle vicinanze.",
+    q: "Dove si trova REBEL rispetto a Bra?",
+    a: "Lo studio è in Viale Barbaroux 20, a Carmagnola. Apri Google Maps per verificare percorso, traffico e tempi aggiornati.",
   },
   {
-    q: "Che differenza c'è tra pedicure estetico e pedicure VIP con scrub?",
-    a: "Il pedicure estetico (da 33 €) rimette in ordine unghie e pelle con una rifinitura pulita: è perfetto come mantenimento. Il pedicure VIP con scrub (44 €) aggiunge l'esfoliazione e un lavoro più completo su talloni e pelle ispessita, con una sensazione di comfort che dura di più.",
+    q: "Che differenza c’è tra pedicure estetico e pedicure VIP con scrub?",
+    a: "Il pedicure estetico, da 33 €, comprende la rifinitura di unghie, cuticole e pelle. Il pedicure VIP, da 44 €, aggiunge lo scrub.",
   },
   {
     q: "Posso fare il semipermanente anche sui piedi?",
-    a: "Sì. Il pedicure semipermanente unisce la cura del piede a uno smalto a lunga tenuta: comodo soprattutto in estate o prima di un viaggio, quando vuoi che duri senza pensieri.",
+    a: "Sì. Puoi aggiungerlo quando desideri una finitura più duratura. La durata varia in base all’unghia, alla ricrescita e alle abitudini personali.",
   },
   {
     q: "Ho i talloni secchi e screpolati: si può migliorare?",
@@ -120,7 +120,7 @@ const faqs = [
   },
   {
     q: "Posso abbinare pedicure e manicure nella stessa visita?",
-    a: "Alcuni servizi possono essere organizzati nella stessa visita. Dicci cosa vuoi abbinare e ti confermiamo tempi e compatibilità.",
+    a: "Alcuni servizi possono essere organizzati nella stessa visita. Indica che cosa vuoi abbinare: verifichiamo disponibilità e compatibilità prima di confermare.",
   },
   {
     q: "Come prenoto da Bra?",
@@ -142,7 +142,7 @@ const speakableSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "@id": `${siteConfig.siteUrl}/pedicure-bra#speakable`,
-  name: "Pedicure per chi viene da Bra",
+  name: "Pedicure per chi arriva da Bra",
   speakable: {
     "@type": "SpeakableSpecification",
     cssSelector: [".page-hero__title", ".page-hero__lead"],
@@ -152,24 +152,24 @@ const speakableSchema = {
 
 const points = [
   {
-    kicker: "01 · Pedicure VIP con scrub",
-    title: "Piedi davvero a posto, non solo a vista.",
-    body: "Valutiamo pelle e unghie, scegliamo intensità e passaggi sensati e chiudiamo con una rifinitura pulita. Lo scrub leviga e dona una sensazione di comfort che resta nei giorni successivi.",
+    kicker: "01 · Pedicure estetico",
+    title: "Rifinitura di unghie, cuticole e pelle.",
+    body: "Il pedicure estetico parte da 33 € e comprende i passaggi di rifinitura del piede.",
   },
   {
-    kicker: "02 · Talloni morbidi",
-    title: "Pelle ispessita gestita con delicatezza.",
-    body: "Se hai talloni secchi, adattiamo scrub e rifinitura alle condizioni osservate, senza insistere sulle zone sensibili.",
+    kicker: "02 · Pedicure VIP con scrub",
+    title: "Il VIP aggiunge lo scrub.",
+    body: "Il pedicure VIP parte da 44 € e aggiunge lo scrub ai passaggi di rifinitura.",
   },
   {
     kicker: "03 · Semipermanente piedi",
-    title: "Colore che tiene, comodo in estate.",
-    body: "Il pedicure semipermanente unisce cura e smalto a lunga tenuta: ideale prima di un viaggio o nei mesi caldi, quando vuoi piedi in ordine senza ritocchi.",
+    title: "Per una finitura più duratura.",
+    body: "Il semipermanente può essere aggiunto al pedicure; la durata varia in base all’unghia, alla ricrescita e alle abitudini personali.",
   },
   {
-    kicker: "04 · Pulito e preciso",
-    title: "Strumenti puliti e lavoro preciso.",
-    body: "Lavoriamo con attenzione su unghie e pelle per una rifinitura curata e piedi ordinati.",
+    kicker: "04 · Scelta del servizio",
+    title: "Passaggi e prezzo spiegati prima di iniziare.",
+    body: "Ti spieghiamo le differenze tra estetico, VIP con scrub e semipermanente prima del trattamento.",
   },
 ];
 
@@ -177,24 +177,24 @@ const combos = [
   {
     href: "/manicure-semipermanente-bra",
     title: "Pedicure + manicure",
-    body: "Manicure e pedicure nello stesso appuntamento, se tempi e disponibilità lo consentono.",
+    body: "Se vuoi aggiungere la manicure, verifichiamo disponibilità e compatibilità prima di confermare.",
   },
   {
     href: "/epilazione-laser-bra",
     title: "Pedicure + laser gambe",
-    body: "Due servizi dedicati alle gambe e ai piedi, organizzati insieme solo quando compatibili.",
+    body: "Se vuoi abbinare il laser gambe, verifichiamo zone e compatibilità prima di confermare.",
   },
   {
     href: "/massaggio-rilassante-bra",
     title: "Pedicure + massaggio",
-    body: "Pedicure e massaggio nello stesso appuntamento, se tempi e compatibilità lo consentono.",
+    body: "Se vuoi aggiungere un massaggio, verifichiamo disponibilità e compatibilità prima di confermare.",
   },
 ];
 
 const nearbyAreas = [
-  { city: "Alba", href: "/pedicure-alba", desc: "Langhe, ~30 min via A33." },
-  { city: "Canale", href: "/pedicure-canale", desc: "Roero, ~35 min." },
-  { city: "Tutte le località", href: "/localita", desc: "Mappe e indicazioni per raggiungerci." },
+  { city: "Alba", href: "/pedicure-alba", desc: "Pedicure per chi arriva da Alba." },
+  { city: "Canale", href: "/pedicure-canale", desc: "Pedicure per chi arriva da Canale." },
+  { city: "Tutte le località", href: "/localita", desc: "Consulta indirizzo, mappa e contatti." },
 ];
 ---
 
@@ -209,13 +209,13 @@ const nearbyAreas = [
 
   <PageHero
     image={m.hero}
-    kicker="Rebel Feet — da Bra a Carmagnola"
-    title="Pedicure per chi viene da Bra: _circa venti-ventidue minuti_ da Carmagnola."
-    lead="Da Bra a Rebel sono circa venti-ventidue minuti via SP661. Puoi scegliere il pedicure estetico da 33 €, il pedicure VIP con scrub da 44 € oppure aggiungere il semipermanente."
-    bullets={["Pedicure estetico + VIP con scrub", "Anche semipermanente piedi", "Valutazione REBEL · 30–40 min"]}
-    meta={["~20 km da Bra", "~22 min via SP661", "Da 33 € (VIP scrub 44 €)"]}
-    ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
-    ctaSecondary={{ label: "Apri il percorso da Bra", href: "https://www.google.com/maps/dir/?api=1&origin=Bra&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
+    kicker="Pedicure · REBEL Carmagnola"
+    title="Pedicure per chi arriva da _Bra_."
+    lead="Puoi scegliere il pedicure estetico da 33 €, il pedicure VIP con scrub da 44 € oppure aggiungere il semipermanente."
+    bullets={["Pedicure estetico da 33 €", "VIP con scrub da 44 €", "Semipermanente disponibile"]}
+    meta={["Studio in Viale Barbaroux 20, Carmagnola", "Unghie, cuticole e pelle"]}
+    ctaPrimary={{ label: "Chiedi un appuntamento", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Apri Google Maps", href: "https://www.google.com/maps/dir/?api=1&origin=Bra&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
   />
 
   {m.splitA ? (
@@ -224,10 +224,10 @@ const nearbyAreas = [
         <SplitFeature
           image={m.splitA}
           side="right"
-          kicker="Cura concreta"
-          title="Piedi ordinati e _pelle liscia_, fatti bene."
-          body="Il pedicure comprende cura di unghie e pelle, con passaggi adattati alle condizioni osservate."
-          bullets={["Pedicure estetico per il mantenimento", "Pedicure VIP con scrub per talloni e pelle ispessita", "Semipermanente per una tenuta più lunga"]}
+          kicker="Pedicure estetico e VIP"
+          title="Rifinitura di _unghie, cuticole e pelle_."
+          body="Il pedicure estetico comprende la rifinitura; il VIP aggiunge lo scrub. Il semipermanente è disponibile su richiesta."
+          bullets={["Pedicure estetico da 33 €", "VIP con scrub da 44 €", "Semipermanente disponibile"]}
           cta={{ label: "Scopri il trattamento", href: "/servizi/pedicure-carmagnola" }}
         />
       </div>
@@ -237,9 +237,9 @@ const nearbyAreas = [
   <section class="section">
     <div class="container">
       <SectionHead
-        kicker="Il metodo Rebel"
-        title="Il pedicure REBEL, a _circa venti minuti da Bra_."
-        lead="Scegli il servizio in base a ciò che cerchi: pedicure estetico, VIP con scrub oppure semipermanente."
+        kicker="Il servizio REBEL"
+        title="Quale pedicure _scegliere_."
+        lead="Prima di iniziare ti spieghiamo passaggi e prezzi di pedicure estetico, VIP con scrub e semipermanente."
       />
       <div class="card-grid card-grid--2">
         {points.map((p, i) => (
@@ -247,7 +247,7 @@ const nearbyAreas = [
         ))}
       </div>
       <div class="cluster" style="margin-top:2rem;">
-        <a class="btn btn--primary" href="/contatti">Prenota su WhatsApp</a>
+        <a class="btn btn--primary" href="/contatti">Chiedi un appuntamento</a>
         <a class="btn btn--secondary" href="/servizi/pedicure-carmagnola">Scopri il trattamento</a>
         <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
       </div>
@@ -256,18 +256,18 @@ const nearbyAreas = [
 
   <section class="section section--scene-ivory">
     <div class="container">
-      <SectionHead kicker="Come arrivare" title="Da Bra a Rebel: venti minuti _senza autostrada_." />
+      <SectionHead kicker="Come arrivare" title="Come raggiungere REBEL da _Bra_." />
       <div class="directions-grid">
         <div>
-          <p class="body-p">Da Bra a Carmagnola sono circa 20 km via <strong>SP661</strong> in direzione Sommariva del Bosco e Carmagnola. In condizioni normali si arriva in 22-25 minuti, senza pedaggio.</p>
-          <p class="body-p">Lo studio è in <strong>Viale Barbaroux 20</strong>. possibilità di parcheggio nelle vicinanze.</p>
+          <p class="body-p">REBEL si trova in <strong>Viale Barbaroux 20, a Carmagnola</strong>.</p>
+          <p class="body-p">Apri Google Maps per verificare percorso, traffico e tempi aggiornati.</p>
           <div class="cluster" style="margin-top:1.4rem;">
-            <a class="btn btn--secondary btn--sm" href="https://www.google.com/maps/dir/?api=1&origin=Bra&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" target="_blank" rel="noreferrer">Apri il percorso da Bra in Maps</a>
+            <a class="btn btn--secondary btn--sm" href="https://www.google.com/maps/dir/?api=1&origin=Bra&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" target="_blank" rel="noreferrer">Apri Google Maps</a>
             <a class="btn btn--secondary btn--sm" href="/contatti">Contatti e mappa</a>
           </div>
         </div>
         <div class="map-frame">
-          <iframe src="https://www.google.com/maps?f=d&source=s_d&saddr=Bra&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Percorso da Bra a Rebel Carmagnola"></iframe>
+          <iframe src="https://www.google.com/maps?f=d&source=s_d&saddr=Bra&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Indicazioni da Bra a REBEL Carmagnola"></iframe>
         </div>
       </div>
     </div>
@@ -275,7 +275,7 @@ const nearbyAreas = [
 
   <section class="section">
     <div class="container">
-      <SectionHead kicker="Una sola sosta" title="Vuoi abbinare un altro _trattamento_?" lead="Dicci quali servizi ti interessano: ti confermiamo tempi e compatibilità prima dell'appuntamento." />
+      <SectionHead kicker="Servizi abbinabili" title="Vuoi abbinare un altro _trattamento_?" lead="Indica i servizi che ti interessano: verifichiamo disponibilità e compatibilità prima dell’appuntamento." />
       <div class="card-grid card-grid--3" style="margin-top:2rem;">
         {combos.map((c) => (<FeatureCard title={c.title} body={c.body} href={c.href} variant="quiet" />))}
       </div>
@@ -287,15 +287,15 @@ const nearbyAreas = [
       image={m.mood}
       height="md"
       align="left"
-      kicker="Da Bra a Carmagnola"
-      quote="Piedi in ordine non sono un lusso: sono comfort quotidiano."
-      cta={{ label: "Prenota la valutazione", href: "/contatti" }}
+      kicker="Pedicure a Carmagnola"
+      quote="Il pedicure estetico cura la rifinitura; il VIP aggiunge lo scrub."
+      cta={{ label: "Chiedi un appuntamento", href: "/contatti" }}
     />
   ) : null}
 
   <section class="section section--scene-ivory">
     <div class="container container--narrow">
-      <SectionHead kicker="Domande frequenti" title="Da Bra: le risposte _dirette_." />
+      <SectionHead kicker="Domande frequenti" title="Informazioni utili sul _pedicure_." />
       <FaqAccordion items={faqs} kicker="FAQ Pedicure Bra" />
     </div>
   </section>
@@ -303,9 +303,9 @@ const nearbyAreas = [
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Vuoi un piano più ampio?"
-        title="Scopri cosa puoi prenotare da _Bra_."
-        lead="Trovi manicure, laser, laminazione e trattamenti viso e corpo disponibili per chi arriva da Bra."
+        kicker="Altri servizi REBEL"
+        title="Trattamenti viso e corpo per chi arriva da _Bra_."
+        lead="Consulta i servizi disponibili nello studio REBEL di Carmagnola."
         primaryHref="/localita/bra"
         primaryLabel="Scopri tutti i servizi da Bra"
         secondaryHref="/manicure-semipermanente-bra"
@@ -316,9 +316,9 @@ const nearbyAreas = [
 
   <section class="section section--scene-ivory">
     <div class="container">
-      <SectionHead kicker="Vicino a Bra" title="Comuni vicini: _pagine dedicate_." />
+      <SectionHead kicker="Altre località" title="Servizi REBEL dalle _zone vicine_." />
       <div class="card-grid card-grid--3">
-        {nearbyAreas.map((a, i) => (<FeatureCard kicker="Zona vicina" title={a.city} body={a.desc} href={a.href} variant="quiet" index={i + 1} />))}
+        {nearbyAreas.map((a, i) => (<FeatureCard kicker="Località" title={a.city} body={a.desc} href={a.href} variant="quiet" index={i + 1} />))}
       </div>
     </div>
   </section>
@@ -326,10 +326,10 @@ const nearbyAreas = [
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Prenota"
-        title="Piedi curati, in una _sola visita_."
+        kicker="Prenotazione"
+        title="Prenota il _pedicure_."
         lead="Scrivici su WhatsApp per conoscere le disponibilità."
-        primaryLabel="Prenota su WhatsApp"
+        primaryLabel="Scrivici su WhatsApp"
         primaryHref={siteConfig.social.whatsapp}
         secondaryLabel="Scopri il trattamento"
         secondaryHref="/servizi/pedicure-carmagnola"
@@ -337,7 +337,7 @@ const nearbyAreas = [
     </div>
   </section>
 
-  <StickyBookingBar priceHint="Pedicure da 33 €" primary={{ label: "Prenota gratis", href: "/contatti" }} />
+  <StickyBookingBar priceHint="Pedicure da 33 €" primary={{ label: "Chiedi un appuntamento", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

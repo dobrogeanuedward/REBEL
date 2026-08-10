@@ -20,9 +20,9 @@ import { siteConfig } from "@/lib/site-config";
 import { getPageMedia } from "@/lib/page-media";
 
 const meta = createPageMeta({
-  title: "Manicure semipermanente per chi viene da Canale e dal Roero — Rebel (Carmagnola, ~35 min)",
+  title: "Manicure semipermanente da Canale e Roero | REBEL",
   description:
-    "Vivi a Canale o nel Roero? Da Rebel a Carmagnola trovi manicure semipermanente con preparazione accurata e gel professionale. Durata indicativa fino a 3-4 settimane.",
+    "Per chi arriva da Canale e dal Roero: manicure semipermanente a Carmagnola con preparazione, gel professionale e durata indicativa fino a 3-4 settimane.",
   path: "/manicure-semipermanente-canale",
   image: "https://www.rebelepigenetica.it/img/generated/manicure-semipermanente-rebel-editorial.png",
   openGraphType: "article",
@@ -53,7 +53,7 @@ const webPage = buildWebPageSchema({
 });
 
 const articleSchema = buildArticleSchema({
-  headline: "Manicure semipermanente per chi viene da Canale e dal Roero — Rebel (Carmagnola, ~35 min)",
+  headline: "Manicure semipermanente per chi viene da Canale e dal Roero — Rebel Carmagnola",
   description: meta.description,
   path: "/manicure-semipermanente-canale",
   keywords: ["manicure semipermanente Canale", "smalto gel Roero", "nail Canale d'Alba CN"],
@@ -101,12 +101,12 @@ const geoServiceSchema = {
 
 const faqs = [
   {
-    q: "Quanto ci vuole da Canale a Rebel?",
-    a: "Circa 35 minuti via A33 uscita Marene, poi SP661 fino a Carmagnola. Sono 37 km. Viale Barbaroux 20, possibilità di parcheggio nelle vicinanze.",
+    q: "Come arrivo da Canale a Rebel?",
+    a: "Lo studio è in Viale Barbaroux 20 a Carmagnola. Apri Google Maps per controllare il percorso da Canale, il traffico e i tempi aggiornati prima di partire.",
   },
   {
-    q: "Quanto ci vuole da Canale a Rebel?",
-    a: "Circa 35-37 minuti via A33 e SP661, in base al traffico. Lo studio è in Viale Barbaroux 20 a Carmagnola.",
+    q: "Posso scegliere colori neutri o più decisi?",
+    a: "Sì. Ti mostriamo le nuance disponibili e ti aiutiamo a scegliere in base ai tuoi gusti e alla finitura che preferisci.",
   },
   {
     q: "Quanto dura la semipermanente?",
@@ -138,9 +138,9 @@ const faqSchema = {
 
 const points = [
   {
-    kicker: "01 · Da Canale a Carmagnola",
-    title: "Circa 35-37 minuti di viaggio.",
-    body: "Puoi organizzare l'appuntamento in base ai tuoi impegni e agli orari disponibili dello studio.",
+    kicker: "01 · Preparazione della lamina",
+    title: "Il colore viene applicato su una base preparata con cura.",
+    body: "Prepariamo cuticole, bordi e superficie prima di applicare il gel.",
   },
   {
     kicker: "02 · Lamina prima del colore",
@@ -173,13 +173,13 @@ const combos = [
   {
     href: "/pulizia-viso-canale",
     title: "Manicure + pulizia viso",
-    body: "Per chi vuole ottimizzare i 35 minuti di viaggio: mani e viso curati nella stessa visita.",
+    body: "Se vuoi curare mani e viso nello stesso appuntamento, verifichiamo disponibilità e tempi prima di confermare.",
   },
 ];
 
 const nearbyAreas = [
-  { city: "Alba", href: "/manicure-semipermanente-alba", desc: "Langhe, ~30 min via A33." },
-  { city: "Bra", href: "/manicure-semipermanente-bra", desc: "~22 min da Carmagnola." },
+  { city: "Alba", href: "/manicure-semipermanente-alba", desc: "Scopri la pagina dedicata ad Alba." },
+  { city: "Bra", href: "/manicure-semipermanente-bra", desc: "Scopri la pagina dedicata a Bra." },
   { city: "Tutte le località", href: "/localita", desc: "Mappe e indicazioni per raggiungerci." },
 ];
 
@@ -198,9 +198,9 @@ const m = getPageMedia("/manicure-semipermanente-canale");
     image={m.hero}
     kicker="Rebel Nails — da Canale a Carmagnola"
     title="Manicure semipermanente per chi viene da Canale: _finitura curata_ e colore a scelta."
-    lead="Da Canale a Rebel sono circa 35-37 minuti. Prepariamo la lamina, applichiamo il gel professionale e curiamo la finitura; la durata indicativa è fino a 3-4 settimane e varia da persona a persona."
+    lead="Prepariamo la lamina, applichiamo il gel professionale e curiamo la finitura. La durata indicativa è fino a 3-4 settimane e varia in base all'unghia e alle abitudini."
     bullets={["Durata indicativa fino a 3-4 settimane", "Gel professionale e preparazione accurata", "Colore e finitura a scelta"]}
-    meta={["~37 km da Canale", "~35 min via A33", "Da 35 € a seduta"]}
+    meta={["Studio a Carmagnola", "Indicazioni su Google Maps", "Da 35 € a seduta"]}
     ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
     ctaSecondary={{ label: "Apri il percorso da Canale", href: "https://www.google.com/maps/dir/?api=1&origin=Canale+CN&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
   />
@@ -225,7 +225,7 @@ const m = getPageMedia("/manicure-semipermanente-canale");
     <div class="container">
       <SectionHead
         kicker="Il metodo Rebel"
-        title="La manicure REBEL, a _circa 35 minuti da Canale_."
+        title="La manicure REBEL: _preparazione, colore e finitura_."
         lead="Preparazione accurata, gel professionale e una finitura scelta insieme in base ai tuoi gusti."
       />
       <div class="card-grid card-grid--2">
@@ -234,7 +234,7 @@ const m = getPageMedia("/manicure-semipermanente-canale");
         ))}
       </div>
       <div class="cluster" style="margin-top:2rem;">
-        <a class="btn btn--primary" href="/contatti">Prenota su WhatsApp</a>
+        <a class="btn btn--primary" href="/contatti">Chiedi un appuntamento</a>
         <a class="btn btn--secondary" href="/servizi/manicure-semipermanente-carmagnola">Scopri il trattamento</a>
         <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
       </div>
@@ -243,17 +243,16 @@ const m = getPageMedia("/manicure-semipermanente-canale");
 
   <section class="section section--scene-ivory">
     <div class="container">
-      <SectionHead kicker="Come arrivare" title="Da Canale a Rebel: _35 minuti_ via A33." />
+      <SectionHead kicker="Come arrivare" title="Da Canale a Rebel: _controlla il percorso su Maps_." />
       <div class="directions-grid">
         <div>
           <p class="body-p">
-            Da Canale a Carmagnola il percorso più rapido è via
-            <strong>A33 direzione Torino</strong>, uscita Marene, poi
-            <strong>SP661 fino a Carmagnola</strong>: 35-37 minuti in condizioni normali.
+            REBEL è in <strong>Viale Barbaroux 20</strong>, nel centro di Carmagnola.
+            Apri Google Maps per controllare il percorso da Canale, il traffico e i tempi
+            aggiornati prima di partire.
           </p>
           <p class="body-p">
-            Lo studio è in <strong>Viale Barbaroux 20</strong>, nel centro di Carmagnola.
-            possibilità di parcheggio nelle vicinanze.
+            Per informazioni aggiornate sui parcheggi disponibili in zona, consulta Maps.
           </p>
           <div class="cluster" style="margin-top:1.4rem;">
             <a class="btn btn--secondary btn--sm" href="https://www.google.com/maps/dir/?api=1&origin=Canale+CN&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" target="_blank" rel="noreferrer">
@@ -289,14 +288,14 @@ const m = getPageMedia("/manicure-semipermanente-canale");
       height="md"
       align="left"
       kicker="Dal Roero a Carmagnola"
-      quote="Le mani sono la prima cosa che gli altri vedono."
+      quote="Colore e finitura vengono scelti insieme in base ai tuoi gusti."
       cta={{ label: "Prenota la valutazione", href: "/contatti" }}
     />
   ) : null}
 
   <section class="section section--scene-ivory">
     <div class="container container--narrow">
-      <SectionHead kicker="Domande frequenti" title="Da Canale e dal _Roero_: le risposte." />
+      <SectionHead kicker="Domande frequenti" title="Informazioni sulla manicure per chi viene da _Canale_." />
       <FaqAccordion items={faqs} kicker="FAQ Manicure Semipermanente Canale" />
     </div>
   </section>
@@ -304,11 +303,11 @@ const m = getPageMedia("/manicure-semipermanente-canale");
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Vuoi un piano più ampio?"
-        title="Scopri cosa puoi prenotare da _Canale_."
-        lead="Trovi laser, pulizia viso, laminazione e trattamenti corpo disponibili per chi arriva da Canale."
+        kicker="Altri servizi"
+        title="Scopri gli altri trattamenti disponibili da _Rebel_."
+        lead="Nella pagina dedicata a Canale trovi anche laser, pulizia viso, laminazione e trattamenti corpo."
         primaryHref="/localita/canale"
-        primaryLabel="Scopri tutti i servizi da Canale"
+        primaryLabel="Vedi i servizi per Canale"
         secondaryHref="/epilazione-laser-canale"
         secondaryLabel="Laser da Canale"
       />
@@ -317,7 +316,7 @@ const m = getPageMedia("/manicure-semipermanente-canale");
 
   <section class="section section--scene-ivory">
     <div class="container">
-      <SectionHead kicker="Vicino a Canale" title="Comuni vicini: _pagine dedicate_." />
+      <SectionHead kicker="Altre località" title="Cerchi informazioni per _un'altra zona_?" />
       <div class="card-grid card-grid--3">
         {nearbyAreas.map((a, i) => (<FeatureCard kicker="Zona vicina" title={a.city} body={a.desc} href={a.href} variant="quiet" index={i + 1} />))}
       </div>
@@ -338,7 +337,7 @@ const m = getPageMedia("/manicure-semipermanente-canale");
     </div>
   </section>
 
-  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
+  <StickyBookingBar primary={{ label: "Chiedi un appuntamento", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

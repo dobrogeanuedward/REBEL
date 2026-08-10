@@ -47,10 +47,13 @@ const resolveProtocolVisuals = (slug: string): { hero: ImageAsset; editorial: re
   };
 };
 const protocolVisuals = resolveProtocolVisuals(protocol.slug);
+const protocolMetaDescription = protocol.shortDescription.length >= 105
+  ? protocol.shortDescription
+  : `${protocol.shortDescription} Indicazioni utili prima della valutazione a Carmagnola.`;
 
 const meta = createPageMeta({
   title: `${protocol.name} a Carmagnola`,
-  description: protocol.shortDescription,
+  description: protocolMetaDescription,
   path: `/protocolli/${protocol.slug}`,
   keywords: protocol.keywords,
   openGraphType: "article",
@@ -63,7 +66,7 @@ const breadcrumb = buildBreadcrumbSchema([
 ]);
 const webPage = buildWebPageSchema({
   name: `${protocol.name} a Carmagnola`,
-  description: protocol.shortDescription,
+  description: protocolMetaDescription,
   path: `/protocolli/${protocol.slug}`,
 });
 const articleSchema = buildArticleSchema({
@@ -108,8 +111,8 @@ const relatedLinksSchema =
     kicker="Protocollo professionale · Carmagnola"
     title={`${protocol.name}: _a chi è dedicato e come funziona_.`}
     lead={protocol.longDescription}
-    bullets={[protocol.price, "Valutazione REBEL · 30–40 minuti", "Programma personalizzato"]}
-    meta={["Gratuita se inizi il percorso proposto", "Viale Barbaroux 20"]}
+    bullets={[protocol.price, "Valutazione REBEL · 30–40 minuti", "Trattamento definito dopo la valutazione"]}
+    meta={["Valutazione gratuita se inizi il percorso", "Viale Barbaroux 20"]}
     ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
     ctaSecondary={{ label: "Vedi tutti i protocolli", href: "/protocolli-epigenetici" }}
   />

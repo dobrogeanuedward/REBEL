@@ -50,7 +50,7 @@ const resolveEditorialMedia = (slug: string): readonly ImageAsset[] => {
   if (/linfodrenante/.test(slug)) return [media.drenante.detail, media.drenante.hero];
   if (/massaggio/.test(slug)) return [media.massaggio.detail, media.massaggio.hero];
   if (/pulizia-viso/.test(slug)) return [media.viso.texture, media.viso.products];
-  if (/scrub-corpo/.test(slug)) return [media.drenante.detail, media.viso.products];
+  if (/scrub-corpo/.test(slug)) return [media.corpo.detail, media.corpo.hero];
   return [media.studio.professional, media.studio.reception];
 };
 const editorialMedia = resolveEditorialMedia(service.slug);
@@ -73,6 +73,9 @@ const formatPrice = (value: string) =>
     .replace(/\s{2,}/g, " ")
     .trim();
 const displayPrice = formatPrice(service.priceHint);
+const serviceMetaDescription = service.shortDescription.length >= 105
+  ? service.shortDescription
+  : `${service.shortDescription} Durata, prezzo e prenotazioni nel centro REBEL di Carmagnola.`;
 const priceIntentKeywords = [
   `${baseServiceName} prezzi Carmagnola`,
   `prezzi ${baseServiceName} Carmagnola`,
@@ -83,7 +86,7 @@ const priceIntentKeywords = [
 
 const meta = createPageMeta({
   title: service.name,
-  description: service.shortDescription,
+  description: serviceMetaDescription,
   path: `/servizi/${service.slug}`,
   keywords: [...service.keywords, ...priceIntentKeywords],
   openGraphType: "article",
@@ -106,7 +109,7 @@ const breadcrumb = buildBreadcrumbSchema([
 ]);
 const webPage = buildWebPageSchema({
   name: service.name,
-  description: service.shortDescription,
+  description: serviceMetaDescription,
   path: `/servizi/${service.slug}`,
 });
 const serviceSchema = buildServiceSchema(

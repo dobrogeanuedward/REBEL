@@ -20,9 +20,9 @@ import { siteConfig } from "@/lib/site-config";
 import { getPageMedia } from "@/lib/page-media";
 
 const meta = createPageMeta({
-  title: "Laminazione ciglia e sopracciglia per chi viene da Canale e dal Roero — Rebel (~35 min)",
+  title: "Laminazione ciglia e sopracciglia da Canale | REBEL",
   description:
-    "Vivi a Canale o nel Roero? Da Rebel a Carmagnola trovi Lash Lift vegano e laminazione sopracciglia, con durata indicativa di 6-8 settimane. Circa 35 minuti via A33.",
+    "Per chi arriva da Canale e dal Roero: Lash Lift vegano e laminazione sopracciglia a Carmagnola, con durata indicativa di 6-8 settimane. Prenota su WhatsApp.",
   path: "/laminazione-canale",
   image: "https://www.rebelepigenetica.it/img/brand/laminazione-occhio-purple.png",
   openGraphType: "article",
@@ -53,7 +53,7 @@ const webPage = buildWebPageSchema({
 });
 
 const articleSchema = buildArticleSchema({
-  headline: "Laminazione ciglia e sopracciglia per chi viene da Canale e dal Roero — Rebel (~35 min)",
+  headline: "Laminazione ciglia e sopracciglia per chi viene da Canale e dal Roero — Rebel Carmagnola",
   description: meta.description,
   path: "/laminazione-canale",
   keywords: ["laminazione ciglia Canale", "lash lift Roero", "brow lamination Canale d'Alba CN"],
@@ -101,8 +101,8 @@ const geoServiceSchema = {
 
 const faqs = [
   {
-    q: "Quanto ci vuole da Canale a Rebel?",
-    a: "Circa 35 minuti via A33 uscita Marene, poi SP661 fino a Carmagnola. Sono 37 km. Viale Barbaroux 20, possibilità di parcheggio nelle vicinanze.",
+    q: "Come arrivo da Canale a Rebel?",
+    a: "Lo studio è in Viale Barbaroux 20 a Carmagnola. Apri Google Maps per controllare il percorso da Canale, il traffico e i tempi aggiornati prima di partire.",
   },
   {
     q: "Quali trattamenti di laminazione proponete?",
@@ -138,9 +138,9 @@ const faqSchema = {
 
 const points = [
   {
-    kicker: "01 · Da Canale a Carmagnola",
-    title: "Laminazione a circa 35 minuti da Canale.",
-    body: "Da Canale raggiungi lo studio a Carmagnola percorrendo circa 37 chilometri via A33 e SP661. Quando prenoti, ti indichiamo durata e disponibilità della seduta.",
+    kicker: "01 · Scelta del trattamento",
+    title: "Lash Lift, laminazione sopracciglia o entrambi.",
+    body: "Prima della seduta osserviamo ciglia e sopracciglia e concordiamo forma e intensità in base all'effetto che desideri.",
   },
   {
     kicker: "02 · Lash Lift vegano",
@@ -178,8 +178,8 @@ const combos = [
 ];
 
 const nearbyAreas = [
-  { city: "Alba", href: "/laminazione-alba", desc: "Langhe, ~30 min via A33." },
-  { city: "Bra", href: "/laminazione-bra", desc: "~22 min da Carmagnola." },
+  { city: "Alba", href: "/laminazione-alba", desc: "Scopri la pagina dedicata ad Alba." },
+  { city: "Bra", href: "/laminazione-bra", desc: "Scopri la pagina dedicata a Bra." },
   { city: "Tutte le località", href: "/localita", desc: "Scopri servizi e indicazioni per ogni zona." },
 ];
 
@@ -197,10 +197,10 @@ const m = getPageMedia("/laminazione-canale");
   <PageHero
     image={m.hero}
     kicker="Rebel Eye — da Canale a Carmagnola"
-    title="Laminazione ciglia e sopracciglia per chi viene da Canale: _a circa 35 minuti_."
+    title="Laminazione ciglia e sopracciglia per chi viene da Canale: _forma e intensità concordate_."
     lead="Da Rebel a Carmagnola puoi scegliere Lash Lift vegano, laminazione sopracciglia o entrambi. Prima della seduta concordiamo forma e intensità."
-    bullets={["Durata indicativa 6-8 settimane", "Lash lift vegano + brow lamination", "Valutazione REBEL · 30–40 min"]}
-    meta={["~37 km da Canale", "~35 min via A33", "Da 55 € a seduta"]}
+    bullets={["Durata indicativa 6-8 settimane", "Lash lift vegano + brow lamination", "Confronto iniziale"]}
+    meta={["Studio a Carmagnola", "Indicazioni su Google Maps", "Da 55 € a seduta"]}
     ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
     ctaSecondary={{ label: "Apri il percorso da Canale", href: "https://www.google.com/maps/dir/?api=1&origin=Canale+CN&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
   />
@@ -223,12 +223,12 @@ const m = getPageMedia("/laminazione-canale");
 
   <section class="section">
     <div class="container">
-      <SectionHead kicker="Il metodo Rebel" title="Cosa trovi da Rebel _venendo da Canale_." lead="A circa 35 minuti via A33 e SP661 trovi Lash Lift vegano e laminazione sopracciglia. Prima di iniziare definiamo insieme l'effetto desiderato e le indicazioni per le ore successive." />
+      <SectionHead kicker="Il metodo Rebel" title="Lash Lift e laminazione _con forma concordata_." lead="Puoi scegliere Lash Lift vegano, laminazione sopracciglia o entrambi. Prima di iniziare definiamo insieme l'effetto desiderato e ti spieghiamo le indicazioni per le ore successive." />
       <div class="card-grid card-grid--2">
         {points.map((p, i) => (<FeatureCard kicker={p.kicker} title={p.title} body={p.body} variant={i === 0 ? "feature" : "default"} index={i + 1} />))}
       </div>
       <div class="cluster" style="margin-top:2rem;">
-        <a class="btn btn--primary" href="/contatti">Prenota su WhatsApp</a>
+        <a class="btn btn--primary" href="/contatti">Chiedi un appuntamento</a>
         <a class="btn btn--secondary" href="/servizi/laminazione-ciglia-sopracciglia-carmagnola">Scopri la laminazione</a>
         <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
       </div>
@@ -239,7 +239,7 @@ const m = getPageMedia("/laminazione-canale");
     <div class="container">
       <div class="split-visual">
         <div class="split-visual__text">
-          <SectionHead kicker="Prima e dopo" title="Il risultato che _parla da solo_." lead="Prima e dopo la laminazione ciglia e sopracciglia da Rebel." />
+          <SectionHead kicker="Prima e dopo" title="L'effetto _al termine della seduta_." lead="Le immagini mostrano un confronto prima e dopo; l'effetto varia in base alle caratteristiche di ciglia e sopracciglia." />
           <p class="body-p">Il Lash Lift vegano solleva le ciglia dalla radice senza aggiungere extension. Le sopracciglia vengono pettinate e fissate nella forma concordata prima della seduta.</p>
           <p class="body-p">Nelle prime 24 ore evita acqua, vapore e prodotti oleosi intorno agli occhi. Al termine ricevi tutte le indicazioni per i giorni successivi.</p>
         </div>
@@ -252,11 +252,11 @@ const m = getPageMedia("/laminazione-canale");
 
   <section class="section">
     <div class="container">
-      <SectionHead kicker="Come arrivare" title="Da Canale a Rebel: _35 minuti_ tra il Roero e Carmagnola." />
+      <SectionHead kicker="Come arrivare" title="Da Canale a Rebel: _controlla il percorso su Maps_." />
       <div class="directions-grid">
         <div>
-          <p class="body-p">Da Canale il percorso più rapido è via <strong>A33 direzione Torino</strong>, uscita Marene, poi <strong>SP661 fino a Carmagnola</strong>: 35-37 minuti in condizioni normali.</p>
-          <p class="body-p">Lo studio è in <strong>Viale Barbaroux 20</strong>. Possibilità di parcheggio nelle vicinanze.</p>
+          <p class="body-p">REBEL è in <strong>Viale Barbaroux 20</strong>, nel centro di Carmagnola. Apri Google Maps per controllare il percorso da Canale, il traffico e i tempi aggiornati prima di partire.</p>
+          <p class="body-p">Per informazioni aggiornate sui parcheggi disponibili in zona, consulta Maps.</p>
           <div class="cluster" style="margin-top:1.4rem;">
             <a class="btn btn--secondary btn--sm" href="https://www.google.com/maps/dir/?api=1&origin=Canale+CN&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" target="_blank" rel="noreferrer">Apri il percorso da Canale in Maps</a>
             <a class="btn btn--secondary btn--sm" href="/contatti">Contatti e mappa</a>
@@ -271,7 +271,7 @@ const m = getPageMedia("/laminazione-canale");
 
   <section class="section section--scene-ivory">
     <div class="container">
-      <SectionHead kicker="Una sola sosta" title="Vuoi abbinare _un altro servizio_?" lead="Dicci quali trattamenti ti interessano: verifichiamo disponibilità, durata e compatibilità prima di fissare l'appuntamento." />
+      <SectionHead kicker="Servizi abbinabili" title="Vuoi abbinare _un altro servizio_?" lead="Dicci quali trattamenti ti interessano: verifichiamo disponibilità, durata e compatibilità prima di fissare l'appuntamento." />
       <div class="card-grid card-grid--3" style="margin-top:2rem;">
         {combos.map((c) => (<FeatureCard title={c.title} body={c.body} href={c.href} variant="quiet" />))}
       </div>
@@ -291,7 +291,7 @@ const m = getPageMedia("/laminazione-canale");
 
   <section class="section">
     <div class="container container--narrow">
-      <SectionHead kicker="Domande frequenti" title="Da Canale e dal _Roero_: le risposte." />
+      <SectionHead kicker="Domande frequenti" title="Informazioni sulla laminazione per chi viene da _Canale_." />
       <FaqAccordion items={faqs} kicker="FAQ Laminazione Canale" />
     </div>
   </section>
@@ -299,11 +299,11 @@ const m = getPageMedia("/laminazione-canale");
   <section class="section section--scene-ivory">
     <div class="container">
       <InlineCta
-        kicker="Vuoi un piano più ampio?"
-        title="La laminazione non è l'unico motivo per venire _dal Roero_."
-        lead="Laser, manicure, pulizia viso e protocolli: la guida ai servizi per chi arriva da Canale li raccoglie in un’unica pagina."
+        kicker="Altri servizi"
+        title="Scopri gli altri trattamenti disponibili da _Rebel_."
+        lead="Nella pagina dedicata a Canale trovi anche laser, manicure, pulizia viso e protocolli."
         primaryHref="/localita/canale"
-        primaryLabel="Scopri i servizi REBEL da Canale"
+        primaryLabel="Vedi i servizi per Canale"
         secondaryHref="/epilazione-laser-canale"
         secondaryLabel="Laser da Canale"
       />
@@ -312,7 +312,7 @@ const m = getPageMedia("/laminazione-canale");
 
   <section class="section">
     <div class="container">
-      <SectionHead kicker="Vicino a Canale" title="Comuni vicini: _pagine dedicate_." />
+      <SectionHead kicker="Altre località" title="Cerchi informazioni per _un'altra zona_?" />
       <div class="card-grid card-grid--3">
         {nearbyAreas.map((a, i) => (<FeatureCard kicker="Zona vicina" title={a.city} body={a.desc} href={a.href} variant="quiet" index={i + 1} />))}
       </div>
@@ -333,7 +333,7 @@ const m = getPageMedia("/laminazione-canale");
     </div>
   </section>
 
-  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
+  <StickyBookingBar primary={{ label: "Chiedi un appuntamento", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

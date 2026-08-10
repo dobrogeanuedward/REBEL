@@ -20,9 +20,9 @@ import { siteConfig } from "@/lib/site-config";
 import { getPageMedia } from "@/lib/page-media";
 
 const meta = createPageMeta({
-  title: "Laminazione ciglia e sopracciglia per chi viene da Alba — Rebel (Carmagnola, ~30 min)",
+  title: "Laminazione ciglia e sopracciglia da Alba | REBEL",
   description:
-    "Vivi ad Alba o nelle Langhe? Da Rebel a Carmagnola trovi Lash Lift vegano e laminazione sopracciglia, con durata indicativa di 6-8 settimane. Circa 30 minuti via A33.",
+    "Per chi arriva da Alba: Lash Lift vegano e laminazione sopracciglia a Carmagnola, con durata indicativa di 6-8 settimane. Prenota su WhatsApp.",
   path: "/laminazione-alba",
   image: "https://www.rebelepigenetica.it/img/brand/laminazione-occhio-purple.png",
   openGraphType: "article",
@@ -53,7 +53,7 @@ const webPage = buildWebPageSchema({
 });
 
 const articleSchema = buildArticleSchema({
-  headline: "Laminazione ciglia e sopracciglia per chi viene da Alba — Rebel (Carmagnola, ~30 min)",
+  headline: "Laminazione ciglia e sopracciglia per chi viene da Alba — Rebel Carmagnola",
   description: meta.description,
   path: "/laminazione-alba",
   keywords: ["laminazione ciglia Alba", "lash lift Alba", "laminazione sopracciglia Alba CN"],
@@ -117,8 +117,8 @@ const faqs = [
     a: "Dicci quali servizi vorresti abbinare: verifichiamo tempi e compatibilità prima di fissare l'appuntamento. Se hai il laser viso programmato, valutiamo insieme se sia meglio distanziare le sedute.",
   },
   {
-    q: "Quanto ci vuole da Alba a Rebel?",
-    a: "Circa trenta minuti via A33 uscita Marene, poi SP661 fino a Carmagnola. Viale Barbaroux 20, possibilità di parcheggio nelle vicinanze.",
+    q: "Come arrivo da Alba a Rebel?",
+    a: "Lo studio è in Viale Barbaroux 20 a Carmagnola. Apri Google Maps per controllare il percorso da Alba, il traffico e i tempi aggiornati prima di partire.",
   },
   {
     q: "Come prenoto da Alba?",
@@ -178,8 +178,8 @@ const combos = [
 ];
 
 const nearbyAreas = [
-  { city: "Bra", href: "/laminazione-bra", desc: "~22 min da Carmagnola via SP7." },
-  { city: "Canale", href: "/laminazione-canale", desc: "Roero, ~35 min via A33." },
+  { city: "Bra", href: "/laminazione-bra", desc: "Scopri la pagina dedicata a Bra." },
+  { city: "Canale", href: "/laminazione-canale", desc: "Scopri la pagina dedicata a Canale." },
   { city: "Tutte le località", href: "/localita", desc: "Scopri servizi e indicazioni per ogni zona." },
 ];
 
@@ -198,9 +198,9 @@ const m = getPageMedia("/laminazione-alba");
     image={m.hero}
     kicker="Rebel Eye — da Alba a Carmagnola"
     title="Laminazione ciglia e sopracciglia per chi viene da Alba: _durata indicativa 6-8 settimane_."
-    lead="Da Alba a Rebel sono circa trenta minuti via A33. In studio puoi scegliere Lash Lift vegano, laminazione sopracciglia o entrambi; prima della seduta concordiamo forma e intensità."
-    bullets={["Durata indicativa 6-8 settimane", "Lash lift vegano + brow lamination", "Valutazione REBEL · 30–40 min"]}
-    meta={["~33 km da Alba", "~30 min via A33", "Da 55 € a seduta"]}
+    lead="Puoi scegliere Lash Lift vegano, laminazione sopracciglia o entrambi. Prima della seduta osserviamo ciglia e sopracciglia e concordiamo forma e intensità."
+    bullets={["Durata indicativa 6-8 settimane", "Lash lift vegano + brow lamination", "Confronto iniziale"]}
+    meta={["Studio a Carmagnola", "Indicazioni su Google Maps", "Da 55 € a seduta"]}
     ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
     ctaSecondary={{ label: "Apri il percorso da Alba", href: "https://www.google.com/maps/dir/?api=1&origin=Alba&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
   />
@@ -228,7 +228,7 @@ const m = getPageMedia("/laminazione-alba");
       <SectionHead
         kicker="Lash Lift vegano"
         title="Cosa trovi da Rebel _venendo da Alba_."
-        lead="A circa trenta minuti via A33 trovi Lash Lift vegano e laminazione sopracciglia. Prima di iniziare definiamo insieme l'effetto desiderato e le indicazioni per le ore successive."
+        lead="Puoi scegliere Lash Lift vegano, laminazione sopracciglia o entrambi. Prima di iniziare definiamo insieme l'effetto desiderato e ti spieghiamo le indicazioni per le ore successive."
       />
       <div class="card-grid card-grid--2">
         {points.map((p, i) => (
@@ -242,7 +242,7 @@ const m = getPageMedia("/laminazione-alba");
         ))}
       </div>
       <div class="cluster" style="margin-top:2rem;">
-        <a class="btn btn--primary" href="/contatti">Prenota su WhatsApp</a>
+        <a class="btn btn--primary" href="/contatti">Chiedi un appuntamento</a>
         <a class="btn btn--secondary" href="/servizi/laminazione-ciglia-sopracciglia-carmagnola">Scopri la laminazione</a>
         <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
       </div>
@@ -287,8 +287,8 @@ const m = getPageMedia("/laminazione-alba");
     <div class="container">
       <SectionHead
         kicker="Prima / Dopo"
-        title="La differenza che _parla da sola_."
-        lead="Lo stesso viso, lo stesso sguardo — prima e dopo la laminazione ciglia e sopracciglia."
+        title="L'effetto _al termine della seduta_."
+        lead="Le immagini mostrano un confronto prima e dopo; l'effetto varia in base alle caratteristiche di ciglia e sopracciglia."
       />
       <div class="editorial-image-frame">
         <img
@@ -305,17 +305,16 @@ const m = getPageMedia("/laminazione-alba");
   <!-- SEZIONE — Come arrivare -->
   <section class="section section--scene-ivory">
     <div class="container">
-      <SectionHead kicker="Come arrivare" title="Da Alba a Rebel: trenta minuti _tra Langhe e pianura_." />
+      <SectionHead kicker="Come arrivare" title="Da Alba a Rebel: _controlla il percorso su Maps_." />
       <div class="directions-grid">
         <div>
           <p class="body-p">
-            Da Alba sono circa 33 chilometri via <strong>A33 direzione Torino</strong>,
-            uscita Marene, poi <strong>SP661 fino a Carmagnola</strong>. In trenta minuti
-            sei in studio.
+            REBEL è in <strong>Viale Barbaroux 20</strong>, nel centro di Carmagnola.
+            Apri Google Maps per controllare il percorso da Alba, il traffico e i tempi
+            aggiornati prima di partire.
           </p>
           <p class="body-p">
-            Lo studio è in <strong>Viale Barbaroux 20</strong>, nel centro di Carmagnola.
-            Possibilità di parcheggio nelle vicinanze.
+            Per informazioni aggiornate sui parcheggi disponibili in zona, consulta Maps.
           </p>
           <div class="cluster" style="margin-top:1.4rem;">
             <a class="btn btn--secondary btn--sm" href="https://www.google.com/maps/dir/?api=1&origin=Alba&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" target="_blank" rel="noreferrer">
@@ -340,7 +339,7 @@ const m = getPageMedia("/laminazione-alba");
   <section class="section">
     <div class="container">
       <SectionHead
-        kicker="Una sola sosta"
+        kicker="Servizi abbinabili"
         title="Vuoi abbinare _un altro servizio_?"
         lead="Dicci quali trattamenti ti interessano: verifichiamo disponibilità, durata e compatibilità prima di fissare l'appuntamento."
       />
@@ -374,11 +373,11 @@ const m = getPageMedia("/laminazione-alba");
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Vuoi un piano più ampio?"
-        title="La laminazione non è l'unico motivo per venire a Carmagnola _dalle Langhe_."
-        lead="Se ti interessa anche il laser, la manicure, la pulizia viso o i protocolli, la guida ai servizi per chi arriva da Alba li raccoglie in un’unica pagina."
+        kicker="Altri servizi"
+        title="Scopri gli altri trattamenti disponibili da _Rebel_."
+        lead="Nella pagina dedicata ad Alba trovi anche laser, manicure, pulizia viso e protocolli."
         primaryHref="/localita/alba"
-        primaryLabel="Scopri i servizi REBEL da Alba"
+        primaryLabel="Vedi i servizi per Alba"
         secondaryHref="/epilazione-laser-alba"
         secondaryLabel="Laser da Alba"
       />
@@ -388,7 +387,7 @@ const m = getPageMedia("/laminazione-alba");
   <!-- Comuni vicini -->
   <section class="section section--scene-ivory">
     <div class="container">
-      <SectionHead kicker="Vicino ad Alba" title="Comuni vicini: _pagine dedicate_." />
+      <SectionHead kicker="Altre località" title="Cerchi informazioni per _un'altra zona_?" />
       <div class="card-grid card-grid--3">
         {nearbyAreas.map((a, i) => (<FeatureCard kicker="Zona vicina" title={a.city} body={a.desc} href={a.href} variant="quiet" index={i + 1} />))}
       </div>
@@ -410,7 +409,7 @@ const m = getPageMedia("/laminazione-alba");
     </div>
   </section>
 
-  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
+  <StickyBookingBar primary={{ label: "Chiedi un appuntamento", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

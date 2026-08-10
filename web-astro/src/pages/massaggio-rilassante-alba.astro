@@ -20,9 +20,9 @@ import { siteConfig } from "@/lib/site-config";
 import { getPageMedia } from "@/lib/page-media";
 
 const meta = createPageMeta({
-  title: "Massaggio rilassante per chi viene da Alba — Rebel (Carmagnola, ~30 min)",
+  title: "Massaggio rilassante da Alba | REBEL Carmagnola",
   description:
-    "Vivi ad Alba o nelle Langhe? Da Rebel il massaggio rilassante dura 50 minuti ed è dedicato a schiena, spalle e collo, con ritmo e pressione concordati. Circa 30 minuti via A33.",
+    "Massaggio rilassante di 50 minuti a Carmagnola per chi arriva da Alba: schiena, spalle e collo, con zone e pressione concordate. Da 55 €.",
   path: "/massaggio-rilassante-alba",
   image: "https://www.rebelepigenetica.it/img/generated/massaggio-rilassante-rebel-editorial.png",
   openGraphType: "article",
@@ -47,13 +47,13 @@ const breadcrumb = buildBreadcrumbSchema([
 ]);
 
 const webPage = buildWebPageSchema({
-  name: "Massaggio rilassante per chi viene da Alba e dalle Langhe",
+  name: "Massaggio rilassante per chi arriva da Alba e dalle Langhe",
   description: meta.description,
   path: "/massaggio-rilassante-alba",
 });
 
 const articleSchema = buildArticleSchema({
-  headline: "Massaggio rilassante per chi viene da Alba — Rebel (Carmagnola, ~30 min)",
+  headline: "Massaggio rilassante per chi arriva da Alba — REBEL Carmagnola",
   description: meta.description,
   path: "/massaggio-rilassante-alba",
   keywords: ["massaggio rilassante Alba", "massaggio cervicale Alba", "massaggio spalle Alba CN"],
@@ -62,8 +62,8 @@ const articleSchema = buildArticleSchema({
 });
 
 const serviceSchema = buildServiceSchema(
-  "Massaggio rilassante per chi viene da Alba",
-  "Massaggio rilassante a Carmagnola per clienti di Alba e delle Langhe: 50 minuti dedicati a schiena, spalle e collo, con ritmo e pressione concordati.",
+  "Massaggio rilassante per chi arriva da Alba",
+  "Massaggio rilassante di 50 minuti a Carmagnola, dedicato a schiena, spalle e collo, con zone e pressione concordate prima di iniziare.",
   "/massaggio-rilassante-alba",
   {
     priceFrom: 55,
@@ -75,8 +75,8 @@ const geoServiceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "@id": `${siteConfig.siteUrl}/massaggio-rilassante-alba#service-geo`,
-  name: "Massaggio rilassante per chi viene da Alba",
-  serviceType: "Relaxation massage",
+  name: "Massaggio rilassante per chi arriva da Alba",
+  serviceType: "Massaggio rilassante",
   provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
   areaServed: [
     {
@@ -101,12 +101,12 @@ const geoServiceSchema = {
 
 const faqs = [
   {
-    q: "Quanto ci vuole da Alba a Rebel?",
-    a: "Circa trenta minuti via A33 uscita Marene, poi SP661 fino a Carmagnola. Viale Barbaroux 20, possibilità di parcheggio nelle vicinanze.",
+    q: "Dove si trova REBEL rispetto ad Alba?",
+    a: "Lo studio è in Viale Barbaroux 20, a Carmagnola. Apri Google Maps per verificare percorso, traffico e tempi aggiornati.",
   },
   {
     q: "Quanto dura la seduta?",
-    a: "50 minuti. Le manualità si concentrano su schiena, spalle e collo, con pressione concordata e ritmo graduale.",
+    a: "La seduta dura 50 minuti. Prima di iniziare concordiamo le zone e la pressione, con attenzione a schiena, spalle e collo.",
   },
   {
     q: "Ho spesso schiena e spalle tese. Può aiutarmi a rilassarmi?",
@@ -114,11 +114,11 @@ const faqs = [
   },
   {
     q: "Ogni quanto conviene farlo?",
-    a: "La frequenza dipende dalle tue preferenze e da come percepisci la seduta. Puoi prenotarla come momento singolo oppure concordare una cadenza che si adatti alla tua agenda.",
+    a: "Puoi prenotare una singola seduta oppure concordare gli appuntamenti successivi in base alle tue preferenze.",
   },
   {
     q: "Posso abbinare il massaggio ad altri trattamenti nello stesso giorno?",
-    a: "Alcuni servizi possono essere organizzati nella stessa visita. Dicci cosa vuoi abbinare e ti confermiamo tempi e compatibilità.",
+    a: "Alcuni servizi possono essere organizzati nella stessa visita. Indica che cosa vuoi abbinare: verifichiamo disponibilità e compatibilità prima di confermare.",
   },
   {
     q: "Come prenoto da Alba?",
@@ -138,24 +138,24 @@ const faqSchema = {
 
 const points = [
   {
-    kicker: "01 · 50 minuti reali",
-    title: "Niente tagli, niente spiccioli.",
-    body: "Cinquanta minuti dedicati a schiena, spalle e collo. Concordiamo pressione e zone prima di iniziare e manteniamo un ritmo graduale.",
+    kicker: "01 · Durata della seduta",
+    title: "50 minuti dedicati al trattamento.",
+    body: "La seduta dura 50 minuti. Concordiamo pressione e zone prima di iniziare, con attenzione a schiena, spalle e collo.",
   },
   {
-    kicker: "02 · Ritmo graduale",
-    title: "Si parte piano e si approfondisce.",
-    body: "La pressione aumenta solo se la percepisci come confortevole. Durante la seduta puoi chiedere di alleggerirla o concentrarla su una zona diversa.",
+    kicker: "02 · Pressione",
+    title: "La pressione si adatta alle tue indicazioni.",
+    body: "Durante la seduta puoi chiedere una pressione più leggera o indicare una zona diversa.",
   },
   {
     kicker: "03 · Schiena, spalle e collo",
     title: "Le zone vengono concordate prima di iniziare.",
-    body: "Ci racconti dove preferisci concentrare il massaggio e adattiamo pressione e ritmo alle tue sensazioni durante la seduta.",
+    body: "Prima di iniziare indichi dove preferisci concentrare il massaggio; durante la seduta puoi aggiornare le tue preferenze.",
   },
   {
-    kicker: "04 · Frequenza personalizzata",
+    kicker: "04 · Frequenza",
     title: "Un appuntamento singolo o una cadenza concordata.",
-    body: "Scegliamo la frequenza insieme, in base alle tue preferenze e al tempo che vuoi dedicare al relax.",
+    body: "Puoi prenotare una sola seduta oppure concordare gli appuntamenti successivi.",
   },
 ];
 
@@ -163,24 +163,24 @@ const combos = [
   {
     href: "/servizi/manicure-semipermanente-carmagnola",
     title: "Massaggio + manicure semipermanente",
-    body: "Relax e mani curate nella stessa visita. Si organizza facilmente in una mattinata.",
+    body: "Se vuoi aggiungere la manicure, verifichiamo disponibilità e compatibilità prima di confermare.",
   },
   {
     href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola",
     title: "Massaggio + laminazione ciglia",
-    body: "Due servizi nello stesso appuntamento, se tempi e compatibilità lo consentono.",
+    body: "Se vuoi aggiungere la laminazione, verifichiamo disponibilità e compatibilità prima di confermare.",
   },
   {
     href: "/servizi/massaggio-linfodrenante-carmagnola",
     title: "Massaggio rilassante + linfodrenante",
-    body: "Due tipologie di massaggio da organizzare insieme solo dopo aver verificato tempi e compatibilità.",
+    body: "Se vuoi abbinare i due massaggi, verifichiamo disponibilità e compatibilità prima di confermare.",
   },
 ];
 
 const nearbyAreas = [
-  { city: "Bra", href: "/massaggio-rilassante-bra", desc: "~22 min da Carmagnola via SP7." },
-  { city: "Canale", href: "/massaggio-rilassante-canale", desc: "Roero, ~35 min via A33." },
-  { city: "Tutte le località", href: "/localita", desc: "Mappe e indicazioni per raggiungerci." },
+  { city: "Bra", href: "/massaggio-rilassante-bra", desc: "Massaggio rilassante per chi arriva da Bra." },
+  { city: "Canale", href: "/massaggio-rilassante-canale", desc: "Massaggio rilassante per chi arriva da Canale." },
+  { city: "Tutte le località", href: "/localita", desc: "Consulta indirizzo, mappa e contatti." },
 ];
 
 const m = getPageMedia("/massaggio-rilassante-alba");
@@ -196,13 +196,13 @@ const m = getPageMedia("/massaggio-rilassante-alba");
 
   <PageHero
     image={m.hero}
-    kicker="Rebel Massaggi — da Alba a Carmagnola"
-    title="Massaggio rilassante per chi viene da Alba: _50 minuti dedicati a te_."
-    lead="Da Alba a Rebel sono circa trenta minuti via A33. La seduta dura 50 minuti e si concentra su schiena, spalle e collo, con pressione concordata e ritmo graduale."
-    bullets={["50 minuti di relax", "Schiena, spalle e collo", "Pressione concordata"]}
-    meta={["~33 km da Alba", "~30 min via A33", "Da 55 € a seduta"]}
-    ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
-    ctaSecondary={{ label: "Apri il percorso da Alba", href: "https://www.google.com/maps/dir/?api=1&origin=Alba&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
+    kicker="Massaggio rilassante · REBEL Carmagnola"
+    title="Massaggio rilassante di _50 minuti_ per chi arriva da Alba."
+    lead="La seduta dura 50 minuti. Prima di iniziare concordiamo le zone e la pressione, con attenzione a schiena, spalle e collo."
+    bullets={["Seduta di 50 minuti", "Schiena, spalle e collo", "Pressione concordata"]}
+    meta={["Studio a Carmagnola", "Indicazioni su Google Maps", "Da 55 € a seduta"]}
+    ctaPrimary={{ label: "Chiedi un appuntamento", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Apri Google Maps", href: "https://www.google.com/maps/dir/?api=1&origin=Alba&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" }}
   />
 
   {m.splitA ? (
@@ -211,10 +211,10 @@ const m = getPageMedia("/massaggio-rilassante-alba");
         <SplitFeature
           image={m.splitA}
           side="right"
-          kicker="Stacco vero"
-          title="Cinquanta minuti per _rilassare_ schiena, spalle e collo."
-          body="Il massaggio segue un ritmo graduale. Prima di iniziare concordiamo le zone e la pressione, poi le adattiamo alle tue sensazioni."
-          bullets={["50 minuti, ritmo graduale", "Focus su schiena, spalle e collo", "Ambiente caldo e silenzioso"]}
+          kicker="Durante il massaggio"
+          title="Una seduta di _50 minuti_ per schiena, spalle e collo."
+          body="Prima di iniziare concordiamo le zone e la pressione. Durante la seduta puoi indicarci come preferisci proseguire."
+          bullets={["Seduta di 50 minuti", "Schiena, spalle e collo", "Pressione adattabile durante il massaggio"]}
           cta={{ label: "Scopri il trattamento", href: "/servizi/massaggio-rilassante-carmagnola" }}
         />
       </div>
@@ -224,9 +224,9 @@ const m = getPageMedia("/massaggio-rilassante-alba");
   <section class="section">
     <div class="container">
       <SectionHead
-        kicker="Il metodo Rebel"
-        title="Una seduta personalizzata, a _circa trenta minuti da Alba_."
-        lead="Concordiamo zone, pressione e ritmo prima di iniziare e li adattiamo alle tue sensazioni durante i 50 minuti di trattamento."
+        kicker="Il massaggio REBEL"
+        title="Zone e pressione _concordate prima di iniziare_."
+        lead="La seduta dura 50 minuti e può concentrarsi su schiena, spalle e collo in base alle tue preferenze."
       />
       <div class="card-grid card-grid--2">
         {points.map((p, i) => (
@@ -234,7 +234,7 @@ const m = getPageMedia("/massaggio-rilassante-alba");
         ))}
       </div>
       <div class="cluster" style="margin-top:2rem;">
-        <a class="btn btn--primary" href="/contatti">Prenota su WhatsApp</a>
+        <a class="btn btn--primary" href="/contatti">Chiedi un appuntamento</a>
         <a class="btn btn--secondary" href="/servizi/massaggio-rilassante-carmagnola">Scopri il trattamento</a>
         <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
       </div>
@@ -248,12 +248,12 @@ const m = getPageMedia("/massaggio-rilassante-alba");
           <img src="/img/brand/corpo-rilassamento-schiena.png" alt="Persona distesa durante un massaggio rilassante" width="900" height="1100" loading="lazy" />
         </div>
         <div class="split-visual__text">
-          <SectionHead kicker="Durante la seduta" title="Un ritmo _graduale e concordato_." lead="Ti chiediamo come percepisci pressione e manualità e le adattiamo durante i 50 minuti di trattamento." />
+          <SectionHead kicker="Durante la seduta" title="Pressione e zone _possono cambiare_." lead="Puoi indicarci in qualsiasi momento se preferisci una pressione diversa o vuoi concentrarti su un’altra zona." />
           <p class="body-p">
             La percezione del massaggio cambia da persona a persona. Puoi indicarci in qualsiasi momento se preferisci una pressione più leggera o più intensa.
           </p>
           <p class="body-p">
-            Al termine ti chiediamo come ti senti e, se vuoi tornare, concordiamo una frequenza compatibile con le tue preferenze e la tua agenda.
+            Al termine puoi dirci come hai percepito la seduta e, se vuoi tornare, concordiamo insieme un altro appuntamento.
           </p>
         </div>
       </div>
@@ -262,18 +262,18 @@ const m = getPageMedia("/massaggio-rilassante-alba");
 
   <section class="section section--scene-ivory">
     <div class="container">
-      <SectionHead kicker="Come arrivare" title="Da Alba a Rebel: trenta minuti _tra Langhe e pianura_." />
+      <SectionHead kicker="Come arrivare" title="Come raggiungere REBEL da _Alba_." />
       <div class="directions-grid">
         <div>
-          <p class="body-p">Da Alba sono circa 33 km via <strong>A33 direzione Torino</strong>, uscita Marene, poi <strong>SP661 fino a Carmagnola</strong>. In trenta minuti sei in studio.</p>
-          <p class="body-p">Lo studio è in <strong>Viale Barbaroux 20</strong>. possibilità di parcheggio nelle vicinanze.</p>
+          <p class="body-p">REBEL si trova in <strong>Viale Barbaroux 20, a Carmagnola</strong>.</p>
+          <p class="body-p">Apri Google Maps per verificare percorso, traffico e tempi aggiornati.</p>
           <div class="cluster" style="margin-top:1.4rem;">
-            <a class="btn btn--secondary btn--sm" href="https://www.google.com/maps/dir/?api=1&origin=Alba&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" target="_blank" rel="noreferrer">Apri il percorso da Alba in Maps</a>
+            <a class="btn btn--secondary btn--sm" href="https://www.google.com/maps/dir/?api=1&origin=Alba&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving" target="_blank" rel="noreferrer">Apri Google Maps</a>
             <a class="btn btn--secondary btn--sm" href="/contatti">Contatti e mappa</a>
           </div>
         </div>
         <div class="map-frame">
-          <iframe src="https://www.google.com/maps?f=d&source=s_d&saddr=Alba&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Percorso da Alba a Rebel Carmagnola"></iframe>
+          <iframe src="https://www.google.com/maps?f=d&source=s_d&saddr=Alba&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Indicazioni da Alba a REBEL Carmagnola"></iframe>
         </div>
       </div>
     </div>
@@ -281,7 +281,7 @@ const m = getPageMedia("/massaggio-rilassante-alba");
 
   <section class="section">
     <div class="container">
-      <SectionHead kicker="Una sola sosta" title="Vuoi abbinare un altro _trattamento_?" lead="Dicci quali servizi ti interessano: ti confermiamo tempi e compatibilità prima dell'appuntamento." />
+      <SectionHead kicker="Servizi abbinabili" title="Vuoi abbinare un altro _trattamento_?" lead="Indica i servizi che ti interessano: verifichiamo disponibilità e compatibilità prima dell’appuntamento." />
       <div class="card-grid card-grid--3" style="margin-top:2rem;">
         {combos.map((c) => (<FeatureCard title={c.title} body={c.body} href={c.href} variant="quiet" />))}
       </div>
@@ -293,15 +293,15 @@ const m = getPageMedia("/massaggio-rilassante-alba");
       image={m.mood}
       height="md"
       align="left"
-      kicker="Da Alba a Carmagnola"
-      quote="Da Alba a Carmagnola per un massaggio rilassante di 50 minuti."
-      cta={{ label: "Prenota la valutazione", href: "/contatti" }}
+      kicker="Massaggio rilassante a Carmagnola"
+      quote="La seduta dura 50 minuti e le zone vengono concordate prima di iniziare."
+      cta={{ label: "Chiedi un appuntamento", href: "/contatti" }}
     />
   ) : null}
 
   <section class="section section--scene-ivory">
     <div class="container container--narrow">
-      <SectionHead kicker="Domande frequenti" title="Da Alba e dalle _Langhe_: le risposte." />
+      <SectionHead kicker="Domande frequenti" title="Informazioni utili sul _massaggio rilassante_." />
       <FaqAccordion items={faqs} kicker="FAQ Massaggio Rilassante Alba" />
     </div>
   </section>
@@ -309,9 +309,9 @@ const m = getPageMedia("/massaggio-rilassante-alba");
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Vuoi un piano più ampio?"
-        title="Scopri cosa puoi prenotare da _Alba_."
-        lead="Trovi laser, manicure, laminazione e trattamenti viso e corpo disponibili per chi arriva da Alba."
+        kicker="Altri servizi REBEL"
+        title="Trattamenti viso e corpo per chi arriva da _Alba_."
+        lead="Consulta i servizi disponibili nello studio REBEL di Carmagnola."
         primaryHref="/localita/alba"
         primaryLabel="Scopri tutti i servizi da Alba"
         secondaryHref="/servizi/massaggio-linfodrenante-carmagnola"
@@ -322,9 +322,9 @@ const m = getPageMedia("/massaggio-rilassante-alba");
 
   <section class="section section--scene-ivory">
     <div class="container">
-      <SectionHead kicker="Vicino ad Alba" title="Comuni vicini: _pagine dedicate_." />
+      <SectionHead kicker="Altre località" title="Servizi REBEL dalle _zone vicine_." />
       <div class="card-grid card-grid--3">
-        {nearbyAreas.map((a, i) => (<FeatureCard kicker="Zona vicina" title={a.city} body={a.desc} href={a.href} variant="quiet" index={i + 1} />))}
+        {nearbyAreas.map((a, i) => (<FeatureCard kicker="Località" title={a.city} body={a.desc} href={a.href} variant="quiet" index={i + 1} />))}
       </div>
     </div>
   </section>
@@ -332,10 +332,10 @@ const m = getPageMedia("/massaggio-rilassante-alba");
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Prenota"
-        title="_50 minuti_ dedicati al relax."
+        kicker="Prenotazione"
+        title="Prenota il _massaggio rilassante di 50 minuti_."
         lead="Scrivici su WhatsApp per conoscere le disponibilità."
-        primaryLabel="Prenota su WhatsApp"
+        primaryLabel="Scrivici su WhatsApp"
         primaryHref={siteConfig.social.whatsapp}
         secondaryLabel="Scopri il trattamento"
         secondaryHref="/servizi/massaggio-rilassante-carmagnola"
@@ -343,7 +343,7 @@ const m = getPageMedia("/massaggio-rilassante-alba");
     </div>
   </section>
 
-  <StickyBookingBar primary={{ label: "Prenota gratis", href: "/contatti" }} />
+  <StickyBookingBar primary={{ label: "Chiedi un appuntamento", href: "/contatti" }} />
 </BaseLayout>
 
 <style>

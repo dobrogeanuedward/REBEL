@@ -266,6 +266,13 @@ export const SLOT_RULES: SlotRule[] = [
   ...slotPair("journeys.forma.hero", ["rebel/journeys/forma/"], ["forma", "hero"], "Journey Forma"),
   ...slotPair("journeys.liberta.hero", ["rebel/journeys/liberta/"], ["liberta", "hero"], "Journey Libertà"),
   ...slotPair("journeys.longevity.hero", ["rebel/journeys/longevity/"], ["longevity", "hero"], "Journey Longevity"),
+  { slot: "journeys.skinReset.moment", prefixes: ["rebel/library/v1/journeys/skin-reset/"], keywords: ["moment-cover"], variant: "any", label: "Journey Skin Reset · trattamento" },
+  { slot: "journeys.barrier.moment", prefixes: ["rebel/library/v1/journeys/barrier/"], keywords: ["moment-cover"], variant: "any", label: "Journey Barrier · trattamento" },
+  { slot: "journeys.balance.moment", prefixes: ["rebel/library/v1/journeys/balance/"], keywords: ["moment-cover"], variant: "any", label: "Journey Balance · trattamento" },
+  { slot: "journeys.glow.moment", prefixes: ["rebel/library/v1/journeys/glow/"], keywords: ["moment-cover"], variant: "any", label: "Journey Glow · trattamento" },
+  { slot: "journeys.white.moment", prefixes: ["rebel/library/v1/journeys/white/"], keywords: ["moment-cover"], variant: "any", label: "Journey White · trattamento" },
+  { slot: "journeys.structure.moment", prefixes: ["rebel/library/v1/journeys/structure/"], keywords: ["moment-cover"], variant: "any", label: "Journey Structure · trattamento" },
+  { slot: "journeys.longevity.moment", prefixes: ["rebel/library/v1/journeys/longevity/"], keywords: ["moment-cover"], variant: "any", label: "Journey Longevity · trattamento" },
   {
     slot: "services.method.consultation.mobile",
     prefixes: ["rebel/services/method/"],
