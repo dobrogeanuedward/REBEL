@@ -2,7 +2,11 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import StoreGallery from "@/components/StoreGallery.tsx";
-import RebelMap from "@/components/RebelMap.tsx";
+import DeployedJourneyMap from "@/components/DeployedJourneyMap.astro";
+import HomeFilm from "@/components/HomeFilm.astro";
+import LocalBookingGuide from "@/components/LocalBookingGuide.astro";
+import TreatmentGallery from "@/components/TreatmentGallery.astro";
+import "@/styles/live-preserved.css";
 import InstagramFeed from "@/components/InstagramFeed.astro";
 import LaserOffer from "@/components/LaserOffer.astro";
 import { methodSteps, storeGalleryImages } from "@/lib/content";
@@ -109,38 +113,8 @@ const worlds = [
   <JsonLd data={article} />
 
   <div class="rebel-shell">
-    <section
-      class="rebel-hero"
-      style={`--hero-image: url('${heroImage}'); --hero-image-mobile: url('${heroMobileImage}')`}
-    >
-      <picture class="rebel-hero__fallback-media" aria-hidden="true">
-        <source media="(max-width: 860px) and (orientation: portrait)" srcset={heroMobileImage} />
-        <img
-          src={heroImage}
-          alt=""
-          width="1536"
-          height="1024"
-          fetchpriority="high"
-          decoding="async"
-        />
-      </picture>
-      <div class="rebel-container rebel-hero__copy">
-        <div class="rebel-hero__eyebrow" data-reveal>
-          <span>Rebel · Estetica Epigenetica</span><span>Viale Barbaroux 20 · Carmagnola</span>
-        </div>
-        <h1 class="rebel-display" data-reveal style="--reveal-delay:50ms">Il Metodo Rebel parte dalla tua pelle.</h1>
-        <div class="rebel-spectrum-rule"></div>
-        <p class="rebel-lead" data-reveal style="--reveal-delay:120ms">
-          Parliamo del risultato che desideri, osserviamo la pelle o l’area da trattare e definiamo insieme trattamenti, frequenza e controlli.
-          Prima di iniziare, avrai chiari obiettivo, trattamento, frequenza e prezzo.
-        </p>
-        <div class="rebel-hero__actions" data-reveal style="--reveal-delay:180ms">
-          <a class="btn btn--primary" href="/metodo-rebel">Scopri il Metodo Rebel</a>
-          <a class="btn btn--secondary" href="/contatti">Prenota la valutazione</a>
-        </div>
-        <div class="rebel-hero__signature"><strong>Be Beautiful. Be Rebel.</strong><span>30–40 minuti per definire il tuo percorso</span></div>
-      </div>
-    </section>
+    <HomeFilm />
+    <TreatmentGallery />
 
     <section class="rebel-section rebel-section--paper">
       <div class="rebel-container rebel-manifesto">
@@ -169,7 +143,7 @@ const worlds = [
         <p class="rebel-kicker">Mappa REBEL</p>
         <h2 class="rebel-title">Confronta i nove percorsi.</h2>
         <p class="rebel-lead">Per ogni percorso trovi esigenze, prezzo di partenza, ingredienti e tecnologie previsti. Puoi così capire quali vuoi approfondire durante la valutazione.</p>
-        <RebelMap client:visible />
+        <DeployedJourneyMap />
       </div>
     </section>
 
@@ -273,6 +247,8 @@ const worlds = [
       </div>
     </section>
 
+    <LocalBookingGuide />
+    <LocalBookingGuide />
     <section class="rebel-campaign">
       <div class="rebel-container">
         <strong>Be <span>Beautiful.</span><br/>Be Rebel.</strong>
