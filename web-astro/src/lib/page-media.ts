@@ -71,6 +71,7 @@ export const media = {
   laser: {
     hero: {
       src: siteAsset("home.hero.laser.desktop"),
+      srcMobile: siteAsset("home.hero.laser.mobile"),
       alt: "Seduta di epilazione laser con protezioni e raffreddamento ICE Polar",
       ratio: "16/9",
       prompt: "Real professional laser treatment in progress, protective eyewear, one coherent leg segment and device contact; tight crop, no room.",

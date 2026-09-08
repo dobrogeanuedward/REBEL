@@ -1,4 +1,7 @@
 ---
+import LaserOffer from "@/components/LaserOffer.astro";
+import { isLaserCampaignArea } from "@/lib/laser-campaign";
+import { laserOffer } from "@/lib/laser-offer";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHero from "@/components/PageHero.astro";
 import SectionHead from "@/components/SectionHead.astro";
@@ -19,7 +22,6 @@ import {
   buildWebPageSchema,
   createPageMeta,
 } from "@/lib/seo";
-import { siteConfig } from "@/lib/site-config";
 
 export async function getStaticPaths() {
   return localAreaPages.map((a) => ({
@@ -107,6 +109,13 @@ const focusLinks = [
   },
 ];
 
+if (isLaserCampaignArea(area.slug)) {
+  clearFaqs.push({
+    q: `Posso richiedere la promozione laser arrivando da ${area.city}?`,
+    a: `Sì. La Promozione Carmagnola prevede ${laserOffer.zone.price} a zona oppure ${laserOffer.totalBody.price} full body per ${laserOffer.totalBody.detail}, per seduta. Il trattamento si svolge in Viale Barbaroux 20 a Carmagnola. ${laserOffer.zoneCounting.note} ${laserOffer.validity.label}`,
+  });
+}
+
 const meta = createPageMeta({
   title: clearTitle,
   description: clearDescription,
@@ -167,8 +176,14 @@ const tocItems = [
       "Da martedì a sabato · su appuntamento",
     ]}
     ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
-    ctaSecondary={{ label: "Apri il percorso su Maps", href: siteConfig.social.maps }}
+    ctaSecondary={{ label: "Apri il percorso su Maps", href: area.directions.mapsUrl }}
   />
+
+  {isLaserCampaignArea(area.slug) && <section class="section section--tight"><div class="container">
+    <p class="eyebrow">{isCarmagnola ? "Promozione laser Carmagnola" : `Promo laser per chi arriva da ${area.city}`}</p>
+    <LaserOffer compact primaryHref={`${laserOffer.landingPath}#form`} />
+    <p><a href={laserOffer.fullBodyPath}>Full body: dieci zone per seduta</a> · <a href={laserOffer.territoryPath}>Promo laser: località e indicazioni</a></p>
+  </div></section>}
 
   <section class="section">
     <div class="container detail-grid">

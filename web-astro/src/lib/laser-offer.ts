@@ -28,7 +28,7 @@ const firstDebitDays = 60;
  */
 export const laserOffer = {
   id: "promo-laser",
-  campaignLabel: "Promo epilazione laser",
+  campaignLabel: "Promozione Carmagnola",
   locationLabel: "REBEL · Carmagnola",
   discount: {
     enabled: true,
@@ -82,6 +82,8 @@ export const laserOffer = {
   disclaimer:
     "La promozione è separata dal listino ordinario del Percorso Libertà. Prima di iniziare verifichiamo se il trattamento può essere indicato e definiamo zone e calendario.",
   landingPath: "/promo-epilazione-laser-carmagnola",
+  fullBodyPath: "/laser-full-body-carmagnola",
+  territoryPath: "/promo-laser-carmagnola-dintorni",
   contactPath: "/contatti?source=promo-laser&percorso=liberta",
   stickyLabel: `Promo · ${zonePrice} a zona`,
   imageSlot: "services.laser.handpiece.desktop",

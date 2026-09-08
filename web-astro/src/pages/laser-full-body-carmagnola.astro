@@ -1,0 +1,68 @@
+---
+import "@/styles/laser-campaign.css";
+import LaserCampaignFilm from "@/components/LaserCampaignFilm.astro";
+import LandingLayout from "@/layouts/LandingLayout.astro";
+import LandingHero from "@/components/landing/LandingHero.astro";
+import LandingFaq from "@/components/landing/LandingFaq.astro";
+import LandingFormCard from "@/components/landing/LandingFormCard.astro";
+import SplitFeature from "@/components/SplitFeature.astro";
+import LaserCampaignLinks from "@/components/LaserCampaignLinks.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import { createPageMeta, buildBreadcrumbSchema } from "@/lib/seo";
+import { laserOffer } from "@/lib/laser-offer";
+import { media } from "@/lib/page-media";
+import { buildLaserCampaignSchema, campaignWhatsApp } from "@/lib/laser-campaign";
+const meta = createPageMeta({
+  title: `Laser full body Carmagnola: ${laserOffer.totalBody.price}, ${laserOffer.totalBody.detail} | REBEL`,
+  description: `Full body laser a ${laserOffer.totalBody.price} per seduta: ${laserOffer.totalBody.detail} concordate prima di iniziare. Promo REBEL a Carmagnola con THORY e ICE Polar.`,
+  path: laserOffer.fullBodyPath, image: media.laser.hero.src,
+});
+const message = `Mi interessa la promozione Carmagnola full body a ${laserOffer.totalBody.price}, ${laserOffer.totalBody.detail} per seduta. Vorrei concordare le zone e la valutazione.`;
+const faqs = [
+  { q: `Cosa comprende il full body a ${laserOffer.totalBody.price}?`, a: `Comprende ${laserOffer.totalBody.detail} per una singola seduta di epilazione laser. Le aree vengono concordate e confermate prima di iniziare. “Full body” è il nome della formula Total Body REBEL: non significa un numero illimitato di zone.` },
+  { q: "Le dieci zone corrispondono a dieci parti del corpo?", a: `Non necessariamente. ${laserOffer.zoneCounting.note} Il conteggio dipende dalle aree scelte: confermiamo insieme come comporre le dieci zone.` },
+  { q: "Il prezzo comprende l’intero percorso?", a: `No, ${laserOffer.totalBody.price} è il prezzo di una seduta full body da ${laserOffer.totalBody.detail}. Numero di appuntamenti e costo complessivo del percorso vengono definiti dopo la valutazione.` },
+  { q: "Posso scegliere meno zone?", a: `Sì. La promozione prevede anche ${laserOffer.zone.price} per singola zona, per seduta. Ti aiutiamo a scegliere la formula in base alle aree che vuoi trattare.` },
+  { q: "Posso richiedere il full body se arrivo da un altro comune?", a: "Sì. Il trattamento si svolge nello studio REBEL in Viale Barbaroux 20 a Carmagnola. Scrivici indicando la località di partenza e le tue disponibilità per concordare l’appuntamento." },
+  { q: "Quanto dura la promozione?", a: laserOffer.validity.label },
+];
+---
+<LandingLayout meta={meta} bodyClass="page-landing--laser page-landing--laser-offer" ctaLabel="Richiedi il full body">
+  <JsonLd data={buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Promozione laser", path: laserOffer.landingPath }, { name: "Full body", path: laserOffer.fullBodyPath }])} />
+  <JsonLd data={buildLaserCampaignSchema(laserOffer.fullBodyPath, true)} />
+  <JsonLd data={{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }} />
+  <LandingHero media={media.laser.hero} badge="Promozione Carmagnola" kicker="Full body · Lumina X1 Pro · ICE Polar"
+    title={`Laser full body. _${laserOffer.totalBody.price}._`}
+    lead="Dieci zone, una seduta. Scegli le aree che vuoi trattare e costruisci con noi il tuo percorso laser. Ti aspettiamo da REBEL, a Carmagnola."
+    bullets={[{ text: `${laserOffer.totalBody.detail} · ${laserOffer.totalBody.sessionLabel}` }, { text: laserOffer.zoneCounting.shortNote }, { text: "Zone, parametri e calendario definiti durante la valutazione" }]}
+    primaryCta={{ label: "Richiedi il full body", href: "#form" }} secondaryCta={{ label: "Scrivici su WhatsApp", href: campaignWhatsApp(message), external: true }}
+    footnote={`${laserOffer.validity.label} Il prezzo riguarda una seduta, non l’intero percorso.`} />
+  <LaserCampaignFilm />
+  <section class="section"><div class="container fullbody-choice">
+    <div><p class="eyebrow">La tua formula</p><h2>Una zona o full body?</h2><p>Parti dalle aree che ti interessano. Prima di prenotare ti confermiamo quante zone vengono conteggiate e il prezzo della seduta.</p></div>
+    <div class="fullbody-price"><span>Una zona</span><strong>{laserOffer.zone.price}</strong><small>per seduta</small><a href={laserOffer.landingPath}>Scopri la promo a zona</a></div>
+    <div class="fullbody-price fullbody-price--focus"><span>Full body · {laserOffer.totalBody.detail}</span><strong>{laserOffer.totalBody.price}</strong><small>per seduta</small><a href="#form">Richiedi questa formula</a></div>
+  </div></section>
+  <section class="section"><div class="container">
+    <SplitFeature image={media.laser.handpiece} side="left" kicker="Prima scegliamo le zone"
+      title="Il tuo corpo. _Le tue priorità_."
+      body="Gambe, ascelle, inguine o altre aree: durante la valutazione ci racconti cosa vorresti trattare. Verifichiamo pelle e pelo, definiamo le zone secondo il listino REBEL e ti spieghiamo come comporre la formula full body."
+      bullets={["Full body significa dieci zone concordate", "Inguine conteggiato come due zone", "Ogni area viene valutata prima di iniziare"]}
+      cta={{ label: "Parliamo delle tue zone", href: "#form" }} />
+  </div></section>
+  <section class="section"><div class="container">
+    <SplitFeature image={media.laser.consult} side="right" kicker="Un percorso, passo dopo passo"
+      title="Il calendario parte _da te_."
+      body="Il full body descrive le zone della singola seduta. Il numero di appuntamenti e gli intervalli dipendono dalla valutazione e dall’andamento del percorso. Durante il trattamento, ICE Polar raffredda la pelle a contatto."
+      bullets={["Valutazione iniziale di 30–40 minuti", "Gratuita se inizi il Percorso REBEL", "Eventuali prodotti per casa non inclusi"]}
+      cta={{ label: "Come funziona il laser REBEL", href: "/epilazione-laser-carmagnola" }} />
+  </div></section>
+  <LandingFormCard kicker="Promozione Carmagnola" title={`Il tuo full body a ${laserOffer.totalBody.price}.`} lead="Lascia nome e numero e indica le zone che ti interessano. Ti ricontattiamo per concordare la valutazione." source="landing-laser-full-body" defaultMessage={message} submitLabel="Richiedi il full body" showRitual={false} showMessage={true} />
+  <LandingFaq items={faqs} />
+  <div class="container"><LaserCampaignLinks current={laserOffer.fullBodyPath} /></div>
+</LandingLayout>
+<style>
+.fullbody-choice{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:1.5rem;align-items:center}.fullbody-choice h2{font-size:clamp(2rem,4vw,3.5rem);line-height:1.1}.fullbody-choice p{font-size:1.1rem;line-height:1.7;max-width:38ch}
+.fullbody-price{display:flex;flex-direction:column;gap:.8rem;padding:2rem;border:1px solid var(--line);border-radius:2rem .4rem;background:rgba(136,70,221,.08)}.fullbody-price strong{font-size:clamp(2.3rem,4vw,4rem);line-height:1.1;white-space:nowrap}.fullbody-price small{font-size:1rem}.fullbody-price a{color:inherit;text-underline-offset:.3em}.fullbody-price--focus{border-color:#bc91e5;background:linear-gradient(135deg,rgba(181,94,235,.2),rgba(239,154,210,.08))}
+@media(max-width:900px){.fullbody-choice{grid-template-columns:1fr 1fr}.fullbody-choice>div:first-child{grid-column:1/-1}}@media(max-width:480px){.fullbody-choice{grid-template-columns:1fr}}
+</style>

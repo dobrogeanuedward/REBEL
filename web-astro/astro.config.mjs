@@ -55,9 +55,7 @@ export default defineConfig({
         // /prenota is a noindex ads landing — keep it out of the sitemap so
         // it never competes with the canonical pages on SEO.
         !page.endsWith("/prenota") &&
-        !page.endsWith("/prenota/") &&
-        !page.endsWith("/promo-epilazione-laser-carmagnola") &&
-        !page.endsWith("/promo-epilazione-laser-carmagnola/"),
+        !page.endsWith("/prenota/"),
       changefreq: "weekly",
       priority: 0.7,
     }),
