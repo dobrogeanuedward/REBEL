@@ -51,6 +51,9 @@ export const GET: APIRoute = () => {
     make("/", "daily", 1),
     make("/centro-estetico-carmagnola", "daily", 0.99),
     make("/epilazione-laser-carmagnola", "daily", 0.98),
+    make("/promo-epilazione-laser-carmagnola", "weekly", 0.95),
+    make("/laser-full-body-carmagnola", "weekly", 0.9),
+    make("/promo-laser-carmagnola-dintorni", "weekly", 0.85),
     make("/epilazione-laser-ice-polar-carmagnola", "weekly", 0.92),
     make("/epilazione-laser-alba", "weekly", 0.92),
     make("/epilazione-laser-bra", "weekly", 0.92),
@@ -91,7 +94,7 @@ export const GET: APIRoute = () => {
     make("/localita", "weekly", 0.9),
     make("/contatti", "daily", 0.94),
     // Landing pages promoted through both paid and organic channels.
-    // /prenota and the campaign landing are noindex and omitted here.
+    // /prenota remains noindex; the laser campaign is indexable.
     make("/prima-visita-gratuita", "weekly", 0.93),
     make("/protocollo-viso", "weekly", 0.9),
   ];

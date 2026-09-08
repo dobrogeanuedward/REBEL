@@ -1,0 +1,36 @@
+<section class="campaign-film" aria-labelledby="campaign-film-title">
+  <div class="container">
+    <div class="campaign-film__heading"><div><p class="eyebrow">REBEL · Epilazione laser</p><h2 id="campaign-film-title">Il laser, da vicino.</h2></div><p>Un momento del trattamento. Prima di iniziare definiamo insieme le zone e il tuo percorso.</p></div>
+    <video controls muted playsinline loop preload="none" poster="/media/laser-campaign/rebel-laser-poster.webp" width="1280" height="720" aria-label="Sequenza laser dal film REBEL: trattamento sulla gamba e dettaglio delle gambe" data-laser-film>
+      <source src="/media/laser-campaign/rebel-laser.mp4" type="video/mp4" />
+      <a href="/media/laser-campaign/rebel-laser.mp4">Guarda la sequenza laser REBEL</a>
+    </video>
+  </div>
+</section>
+<script>
+  function initLaserFilm() {
+    const video = document.querySelector<HTMLVideoElement>('[data-laser-film]');
+    if (!video || video.dataset.initialized) return;
+    video.dataset.initialized = 'true';
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
+    if (reduced.matches || connection?.saveData) return;
+    // Play once on entering the viewport. Native controls retain user choice.
+    const observer = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) {
+        video.muted = true;
+        video.play().catch(() => {});
+        observer.disconnect();
+      }
+    }, { threshold: 0.35 });
+    observer.observe(video);
+    document.addEventListener('astro:before-swap', () => { observer.disconnect(); video.pause(); }, { once: true });
+  }
+  document.addEventListener('astro:page-load', initLaserFilm);
+  initLaserFilm();
+</script>
+<style>
+.campaign-film{padding:clamp(2rem,6vw,6rem) 0;background:radial-gradient(ellipse at 80% 100%,rgba(139,78,189,.18),transparent 60%)}
+.campaign-film__heading{display:flex;justify-content:space-between;gap:2rem;align-items:end;margin-bottom:2rem}.campaign-film__heading h2{font-size:clamp(2rem,4vw,3.6rem);margin:0}.campaign-film__heading>p{max-width:36ch;font-size:1rem;line-height:1.6}.campaign-film video{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:3rem .5rem;background:#170c24;border:1px solid var(--line)}
+@media(max-width:700px){.campaign-film__heading{display:block}.campaign-film video{border-radius:1.5rem .3rem}}
+</style>

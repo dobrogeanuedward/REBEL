@@ -1,4 +1,9 @@
 ---
+import LaserCampaignLinks from "@/components/LaserCampaignLinks.astro";
+import SplitFeature from "@/components/SplitFeature.astro";
+import { buildLaserCampaignSchema, campaignWhatsApp } from "@/lib/laser-campaign";
+import "@/styles/laser-campaign.css";
+import LaserCampaignFilm from "@/components/LaserCampaignFilm.astro";
 import LandingLayout from "@/layouts/LandingLayout.astro";
 import LandingHero from "@/components/landing/LandingHero.astro";
 import LandingProof from "@/components/landing/LandingProof.astro";
@@ -10,7 +15,6 @@ import JsonLd from "@/components/JsonLd.astro";
 import { createPageMeta, buildBreadcrumbSchema } from "@/lib/seo";
 import { media } from "@/lib/page-media";
 import { laserOffer, laserOfferContactMessage } from "@/lib/laser-offer";
-import { siteConfig } from "@/lib/site-config";
 
 const meta = createPageMeta({
   title: `Promo epilazione laser Carmagnola — ${laserOffer.zone.price} a zona | REBEL`,
@@ -24,7 +28,8 @@ const meta = createPageMeta({
     "total body laser Carmagnola",
     "ICE Polar Carmagnola",
   ],
-  indexable: false,
+  indexable: true,
+  image: media.laser.hero.src,
 });
 
 const breadcrumb = buildBreadcrumbSchema([
@@ -32,16 +37,7 @@ const breadcrumb = buildBreadcrumbSchema([
   { name: "Promo epilazione laser", path: laserOffer.landingPath },
 ]);
 
-const serviceSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Epilazione laser con Lumina X1 Pro e ICE Polar",
-  serviceType: "Epilazione laser",
-  provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
-  areaServed: siteConfig.areasServed,
-  description:
-    "Percorso di epilazione laser definito dopo la valutazione iniziale in base a pelle, caratteristiche del pelo, zone e calendario delle sedute.",
-};
+const serviceSchema = buildLaserCampaignSchema(laserOffer.landingPath);
 
 const faqs = [
   {
@@ -102,7 +98,7 @@ const faqSchema = {
     media={media.laser.hero}
     badge={`${laserOffer.campaignLabel} · ${laserOffer.discount.value}`}
     kicker="REBEL · Carmagnola"
-    title={`${laserOffer.zone.price} a zona. Total Body _${laserOffer.totalBody.price}._`}
+    title={`Laser a ${laserOffer.zone.price} a zona. Full body _${laserOffer.totalBody.price}._`}
     lead="Lumina X1 Pro di THORY con raffreddamento a contatto ICE Polar. Prima di iniziare valutiamo pelle, pelo e zone e definiamo insieme il percorso."
     bullets={[
       { text: `${laserOffer.zone.price} per zona, per seduta.` },
@@ -112,9 +108,11 @@ const faqSchema = {
       { text: `Percorso completo personalizzato dilazionabile con ${laserOffer.financing.provider} fino a ${laserOffer.financing.maxInstallments} rate.` },
     ]}
     primaryCta={{ label: "Richiedi la promo", href: "#form" }}
-    secondaryCta={{ label: "Come funziona il percorso", href: "/epilazione-laser-carmagnola" }}
+    secondaryCta={{ label: "Chiedi su WhatsApp", href: campaignWhatsApp(laserOfferContactMessage), external: true }}
     footnote={`${laserOffer.validity.label} ${laserOffer.financing.provider}: servizio soggetto all’approvazione di ${laserOffer.financing.lender}. Zone e condizioni vengono confermate prima di iniziare.`}
   />
+
+  <LaserCampaignFilm />
 
   <LandingProof
     kicker="Cosa comprende l’offerta"
@@ -137,6 +135,17 @@ const faqSchema = {
       },
     ]}
   />
+
+  <section class="section">
+    <div class="container">
+      <SplitFeature image={media.laser.handpiece} side="right" kicker="Meno ricrescita, più libertà"
+        title="Il laser incontra il _freddo_."
+        body="Lumina X1 Pro di THORY e ICE Polar: il manipolo raffredda la pelle a contatto durante la seduta. Pelle, pelo e zone guidano la scelta dei parametri e il calendario del tuo percorso."
+        bullets={["Viso e corpo: scegli le zone durante la valutazione", "Raffreddamento a contatto per accompagnare il trattamento", "Prezzo e numero di zone confermati prima di iniziare"]}
+        cta={{ label: "Scopri la tecnologia ICE Polar", href: "/epilazione-laser-ice-polar-carmagnola" }} />
+      <LaserCampaignLinks current={laserOffer.landingPath} />
+    </div>
+  </section>
 
   <LandingSteps
     kicker="Come iniziare"
@@ -181,5 +190,11 @@ const faqSchema = {
     showMessage={true}
   />
 
+  <section class="section"><div class="container">
+    <p class="eyebrow">Dove fare il laser in promozione</p>
+    <h2>Ti aspettiamo a Carmagnola.</h2>
+    <p>REBEL è in Viale Barbaroux 20, Carmagnola (TO). Puoi raggiungerci da Carignano, Racconigi, Poirino, Villastellone, Sommariva del Bosco e Torino sud. Concordiamo l’appuntamento prima della partenza.</p>
+    <a class="btn btn--secondary" href={laserOffer.territoryPath}>Località e indicazioni per arrivare</a>
+  </div></section>
   <LandingFaq items={faqs} />
 </LandingLayout>

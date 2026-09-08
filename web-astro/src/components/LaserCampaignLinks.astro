@@ -1,0 +1,19 @@
+---
+import { laserOffer } from "@/lib/laser-offer";
+const { current = "" } = Astro.props;
+const links = [
+  { href: laserOffer.landingPath, title: `Laser a ${laserOffer.zone.price} a zona`, text: "Prezzi, conteggio delle zone e condizioni della promozione." },
+  { href: laserOffer.fullBodyPath, title: `Full body a ${laserOffer.totalBody.price}`, text: `${laserOffer.totalBody.detail} in una seduta: scopri come comporre il tuo trattamento.` },
+  { href: laserOffer.territoryPath, title: "Raggiungi REBEL a Carmagnola", text: "Località, indicazioni e prenotazione prima di partire." },
+].filter(item => item.href !== current);
+---
+<nav class="campaign-links" aria-label="Approfondisci la promozione laser">
+  {links.map(link => <a href={link.href}><strong>{link.title}</strong><span>{link.text}</span></a>)}
+</nav>
+<style>
+.campaign-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:1rem;margin:2rem 0}
+.campaign-links a{display:flex;flex-direction:column;gap:.6rem;padding:1.5rem;border:1px solid var(--line);border-radius:1.5rem .35rem;background:linear-gradient(135deg,rgba(151,82,255,.14),rgba(245,135,213,.04));color:var(--text);text-decoration:none;transition:border-color .2s,transform .2s}
+.campaign-links a:hover{border-color:#c9a0f9;transform:translateY(-3px)}
+.campaign-links strong{font-size:1.2rem}.campaign-links span{font-size:1rem;line-height:1.6}
+@media(prefers-reduced-motion:reduce){.campaign-links a{transition:none}}
+</style>

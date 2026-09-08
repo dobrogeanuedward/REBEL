@@ -1,0 +1,65 @@
+---
+import "@/styles/laser-campaign.css";
+import LaserCampaignFilm from "@/components/LaserCampaignFilm.astro";
+import LandingLayout from "@/layouts/LandingLayout.astro";
+import LandingHero from "@/components/landing/LandingHero.astro";
+import LandingFaq from "@/components/landing/LandingFaq.astro";
+import LandingFormCard from "@/components/landing/LandingFormCard.astro";
+import LaserCampaignLinks from "@/components/LaserCampaignLinks.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import { createPageMeta, buildBreadcrumbSchema } from "@/lib/seo";
+import { laserOffer } from "@/lib/laser-offer";
+import { media } from "@/lib/page-media";
+import { siteConfig } from "@/lib/site-config";
+import { laserCampaignAreas, buildLaserCampaignSchema, campaignWhatsApp } from "@/lib/laser-campaign";
+const meta = createPageMeta({
+  title: `Promo laser Carmagnola e dintorni: come arrivare | REBEL`,
+  description: `Da Carignano, Racconigi, Poirino e Torino sud: laser REBEL a Carmagnola a ${laserOffer.zone.price} a zona e ${laserOffer.totalBody.price} full body. Indicazioni e appuntamenti.`,
+  path: laserOffer.territoryPath, image: media.laser.hero.src,
+});
+const faqs = [
+  { q: "Dove si svolge la promozione laser?", a: "Tutte le sedute si svolgono da REBEL, in Viale Barbaroux 20, 10022 Carmagnola (TO). Le località elencate indicano da dove puoi raggiungerci: non sono sedi del centro." },
+  { q: "Posso prenotare se abito fuori Carmagnola?", a: `Sì. Puoi richiedere la promozione da un altro comune: ${laserOffer.zone.price} a zona oppure ${laserOffer.totalBody.price} full body per ${laserOffer.totalBody.detail}, per seduta. Concordiamo l’appuntamento a Carmagnola prima della tua partenza.` },
+  { q: "Quanto tempo serve per arrivare?", a: "Dipende dall’indirizzo di partenza, dal mezzo e dal traffico. Seleziona il tuo comune per aprire il percorso su Google Maps e verificare distanza e tempi aggiornati." },
+  { q: "Cosa scrivere per richiedere la promo?", a: "Indica il tuo nome, il comune da cui arrivi, le zone che ti interessano e le tue disponibilità. Ti ricontattiamo per concordare la valutazione e confermare le condizioni." },
+];
+const message = `Mi interessa la promozione laser Carmagnola a ${laserOffer.zone.price} a zona o ${laserOffer.totalBody.price} full body. Arrivo da: `;
+---
+<LandingLayout meta={meta} bodyClass="page-landing--laser" ctaLabel="Richiedi la promo">
+  <JsonLd data={buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Promozione laser", path: laserOffer.landingPath }, { name: "Carmagnola e dintorni", path: laserOffer.territoryPath }])} />
+  <JsonLd data={buildLaserCampaignSchema(laserOffer.territoryPath)} />
+  <JsonLd data={{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }} />
+  <LandingHero media={media.laser.hero} badge="Promozione Carmagnola" kicker="Carignano · Racconigi · Poirino · Torino sud"
+    title="La tua prossima seduta laser. _A Carmagnola_."
+    lead={`REBEL ti aspetta in Viale Barbaroux 20: ${laserOffer.zone.price} a zona e ${laserOffer.totalBody.price} full body per ${laserOffer.totalBody.detail}, per seduta. Scegli da dove partire e organizza il tuo appuntamento.`}
+    primaryCta={{ label: "Trova il tuo comune", href: "#localita" }} secondaryCta={{ label: "Richiedi la promo", href: "#form" }}
+    footnote={`${laserOffer.validity.label} ${laserOffer.zoneCounting.shortNote}`} />
+  <LaserCampaignFilm />
+  <section class="section" id="localita"><div class="container">
+    <p class="eyebrow">Da casa tua allo studio</p><h2>Da dove ci raggiungi?</h2>
+    <p class="territory-intro">Seleziona il comune di partenza. La mappa ti mostra il percorso verso Viale Barbaroux 20 e i tempi aggiornati. Per conoscere gli orari disponibili, scrivici prima di partire.</p>
+    <div class="territory-grid">
+      {laserCampaignAreas.map(area => <article>
+        <h3>{area.city}</h3><p>{area.slug === "carmagnola" ? "Lo studio è in Viale Barbaroux 20." : `Da ${area.city} allo studio REBEL di Carmagnola.`}</p>
+        <a href={area.directions.mapsUrl} target="_blank" rel="noreferrer">Apri il percorso su Maps</a>
+        <a href={campaignWhatsApp(`Arrivo da ${area.city}. Vorrei la promo laser a ${laserOffer.zone.price} a zona o full body a ${laserOffer.totalBody.price}. Possiamo concordare la valutazione?`)} target="_blank" rel="noreferrer">Prenota da {area.city}</a>
+        <a class="territory-detail" href={`/localita/${area.slug}`}>Informazioni per chi arriva da {area.city}</a>
+      </article>)}
+    </div>
+  </div></section>
+  <section class="section"><div class="container territory-visit">
+    <img src={media.studio.realExterior.src} alt={media.studio.realExterior.alt} width="1200" height="900" loading="lazy" decoding="async" />
+    <div><p class="eyebrow">Una sola sede, a Carmagnola</p><h2>REBEL. Viale Barbaroux 20.</h2>
+      <p>Al tuo arrivo dedichiamo la valutazione a pelle, pelo e zone. Prima di iniziare conosci il conteggio delle aree, il prezzo e il calendario proposto.</p>
+      <p>La valutazione REBEL dura 30–40 minuti ed è gratuita se inizi il percorso. Gli eventuali prodotti per casa non sono inclusi.</p>
+      <a class="btn btn--primary" href={`tel:${siteConfig.phoneRaw}`}>Chiama {siteConfig.phoneDisplay}</a>
+    </div>
+  </div></section>
+  <LandingFormCard kicker="Organizziamo il tuo appuntamento" title="Parti dalla promo." lead="Scrivi il comune da cui arrivi e le tue disponibilità. Ti ricontattiamo per concordare la valutazione a Carmagnola." source="landing-laser-territory" defaultMessage={message} submitLabel="Richiedi la promo" showRitual={false} showMessage={true} />
+  <LandingFaq items={faqs} />
+  <div class="container"><LaserCampaignLinks current={laserOffer.territoryPath} /></div>
+</LandingLayout>
+<style>
+#localita{scroll-margin-top:6rem}.territory-intro{max-width:70ch;font-size:1.1rem;line-height:1.7}.territory-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:2rem}.territory-grid article{padding:1.6rem;border:1px solid var(--line);border-radius:1.7rem .35rem;background:linear-gradient(140deg,rgba(161,95,242,.1),transparent)}.territory-grid h3{font-size:1.5rem;margin:0 0 .5rem}.territory-grid p{line-height:1.6}.territory-grid a{display:block;width:fit-content;padding:.5rem 0;color:inherit;text-underline-offset:.3em;font-size:1rem}.territory-grid .territory-detail{font-size:.9rem}.territory-visit{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}.territory-visit img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:2.5rem .4rem}.territory-visit p{font-size:1.1rem;line-height:1.7}h2{font-size:clamp(2rem,4vw,3.8rem);line-height:1.12}
+@media(max-width:900px){.territory-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.territory-visit{grid-template-columns:1fr}}@media(max-width:550px){.territory-grid{grid-template-columns:1fr}}
+</style>

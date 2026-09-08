@@ -1,0 +1,21 @@
+/* Campaign surfaces retain REBEL photography, prism and opposing corners. */
+.page-landing--laser .landing-hero{padding-top:clamp(2rem,4vw,4rem);padding-bottom:3rem}
+.page-landing--laser .landing-hero__inner--with-media{max-width:1480px;gap:clamp(2rem,4vw,4.5rem)}
+.page-landing--laser .landing-hero__badge{font-size:.875rem;line-height:1.4;color:#f0c5ff;border-color:rgba(224,170,255,.55)}
+.page-landing--laser .landing-hero__kicker{font-size:.875rem;line-height:1.6}
+.page-landing--laser .landing-hero__title{font-size:clamp(2.6rem,4.6vw,5rem);line-height:1.06;text-wrap:balance}
+.page-landing--laser .landing-hero__title em{background:linear-gradient(105deg,#f9e8ff,#f29fc9 45%,#c2b4ff 85%);background-clip:text;-webkit-background-clip:text;color:transparent}
+.page-landing--laser .landing-hero__lead{font-size:1.125rem;line-height:1.65}
+.page-landing--laser .landing-hero__media picture{border-radius:4rem .6rem;aspect-ratio:4/5;box-shadow:0 30px 90px rgba(83,31,116,.3)}
+.page-landing--laser .landing-hero__media img{object-position:62% center}
+.page-landing--laser .landing-hero__footnote{font-size:.875rem;line-height:1.6}
+.page-landing--laser .landing-hero__bullets{gap:.6rem}
+.page-landing--laser .landing-hero__bullets li{font-size:1rem;line-height:1.5}
+.page-landing--laser .landing-sticky{padding-bottom:max(.7rem,env(safe-area-inset-bottom))}
+@media(max-width:900px){
+.page-landing--laser .landing-hero__inner--with-media{grid-template-columns:1fr;gap:1.8rem}
+.page-landing--laser .landing-hero__media{max-width:none}
+.page-landing--laser .landing-hero__media picture{aspect-ratio:16/11;border-radius:2.5rem .4rem}
+.page-landing--laser .landing-hero__title{font-size:clamp(2.4rem,7vw,3.8rem)}
+}
+@media(forced-colors:active){.page-landing--laser .landing-hero__title em{background:none;color:CanvasText}}
