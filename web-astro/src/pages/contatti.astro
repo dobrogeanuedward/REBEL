@@ -1,9 +1,10 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import PageHero from "@/components/PageHero.astro";
+import StudioEvidence from "@/components/StudioEvidence.astro";
+import "@/styles/booking-experience.css";
+import { menu } from "@/lib/treatment-catalog";
 import JsonLd from "@/components/JsonLd.astro";
 import ContactForm from "@/components/ContactForm.tsx";
-import { media } from "@/lib/page-media";
 import {
   buildBreadcrumbSchema,
   buildWebPageSchema,
@@ -102,16 +103,41 @@ const hours = [
   <JsonLd data={webPage} />
   <JsonLd data={contactSchema} />
 
-  <PageHero
-    image={media.studio.reception}
-    kicker="Valutazione REBEL · Carmagnola"
-    title="Prenota una valutazione di _viso, corpo o laser_."
-    lead="La valutazione dura 30–40 minuti. Parliamo del risultato che desideri, osserviamo la pelle o la zona da trattare e ti spieghiamo percorso, frequenza e prezzo. Se scegli di iniziare il percorso proposto, la valutazione iniziale è gratuita."
-    bullets={["30–40 minuti", "Viale Barbaroux 20", "Da martedì a sabato"]}
-    meta={["Viso, corpo, laser e servizi beauty", "Su appuntamento", "Prodotti per casa non inclusi"]}
-    ctaPrimary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp, halo: true }}
-    ctaSecondary={{ label: "Chiamaci", href: `tel:${siteConfig.phoneRaw}` }}
-  />
+  <header class="booking-intro container">
+    <p class="rebel-kicker">REBEL · Carmagnola</p><h1>Il tuo prossimo<br/><em>momento REBEL.</em></h1>
+    <p>Un trattamento preciso o un consiglio per iniziare? Scegli il modo più comodo per prenotare.</p>
+    <div class="booking-routes">
+      <a href={menu.source} target="_blank" rel="noopener noreferrer"><span>01 · Ho già scelto un servizio</span><h2>Vedi gli appuntamenti.</h2><p>Scegli trattamento, variante e orario disponibili su Treatwell.</p><strong>Apri le disponibilità ↗</strong></a>
+      <a href="#prenota"><span>02 · Promo laser, percorsi e consigli</span><h2>Parliamone con REBEL.</h2><p>Porta la tua scelta, indica quando vorresti venire e attendi la nostra conferma.</p><strong>Prepara la richiesta ↓</strong></a>
+    </div>
+    <p class="booking-intro__help">Vuoi prima confrontare? <a href="/listino-estetica-laser">Esplora trattamenti, durate e prezzi →</a></p>
+  </header>
+  <section class="section booking-request" id="prenota">
+    <div class="container grid-2">
+      <article class="card card--feature">
+        <p class="card__kicker">Modulo di richiesta</p>
+        <h2 class="card__title">La scelta è tua. Organizziamola insieme.</h2>
+        <p class="card__body" style="margin-bottom:1.6rem;">
+          Puoi inviare la richiesta dal sito o continuare su WhatsApp con servizio, variante e preferenze già pronti.
+        </p>
+        <ContactForm client:load />
+      </article>
+
+      <aside class="card">
+        <p class="card__kicker">Come funziona la valutazione</p>
+        <h2 class="card__title">Dalla richiesta al trattamento consigliato.</h2>
+        <ol class="flow" style="margin-top:1.2rem; counter-reset: step;">
+          <li>Ti proponiamo un giorno e un orario disponibili.</li>
+          <li>Ci incontriamo in studio per una valutazione di 30–40 minuti.</li>
+          <li>Valutiamo insieme la zona e il risultato che desideri.</li>
+          <li>Ti spieghiamo il trattamento consigliato, la frequenza, il prezzo e le possibili alternative.</li>
+        </ol>
+        <p class="card__body" style="margin-top:1.4rem;">
+          Se scegli di iniziare il percorso proposto, la valutazione iniziale è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi.
+        </p>
+      </aside>
+    </div>
+  </section>
 
   <section class="section">
     <div class="container grid-2">
@@ -194,30 +220,6 @@ const hours = [
     </div>
   </section>
 
-  <section class="section">
-    <div class="container grid-2">
-      <article class="card card--feature">
-        <p class="card__kicker">Modulo di richiesta</p>
-        <h2 class="card__title">Indica il servizio e la tua disponibilità.</h2>
-        <p class="card__body" style="margin-bottom:1.6rem;">
-          Compila il modulo con i tuoi contatti, il trattamento che ti interessa e un messaggio breve. Ti ricontatteremo via WhatsApp o telefono.
-        </p>
-        <ContactForm client:load />
-      </article>
 
-      <aside class="card">
-        <p class="card__kicker">Come funziona la valutazione</p>
-        <h2 class="card__title">Dalla richiesta al trattamento consigliato.</h2>
-        <ol class="flow" style="margin-top:1.2rem; counter-reset: step;">
-          <li>Ti proponiamo un giorno e un orario disponibili.</li>
-          <li>Ci incontriamo in studio per una valutazione di 30–40 minuti.</li>
-          <li>Valutiamo insieme la zona e il risultato che desideri.</li>
-          <li>Ti spieghiamo il trattamento consigliato, la frequenza, il prezzo e le possibili alternative.</li>
-        </ol>
-        <p class="card__body" style="margin-top:1.4rem;">
-          Se scegli di iniziare il percorso proposto, la valutazione iniziale è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi.
-        </p>
-      </aside>
-    </div>
-  </section>
+  <StudioEvidence />
 </BaseLayout>
