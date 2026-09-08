@@ -1,0 +1,6 @@
+---
+import StoreGallery from "@/components/StoreGallery.tsx";
+import { storeGalleryImages } from "@/lib/content";
+---
+<section class="studio-evidence" aria-labelledby="studio-evidence-title"><div class="container"><p class="rebel-kicker">Prima di arrivare, entra da noi</p><h2 id="studio-evidence-title">Gli spazi in cui ci prendiamo cura di te.</h2><p>Accoglienza, cabine e postazioni dello studio di Viale Barbaroux 20. Fotografie dello studio REBEL, anche dal nostro profilo Treatwell.</p><StoreGallery client:visible images={storeGalleryImages}/><a href="/chi-siamo">Conosci lo studio e il team →</a></div></section>
+<style>.studio-evidence{padding:clamp(3rem,6vw,6rem) 0;background:#fbf8fc;color:#311b40}.studio-evidence h2{font:500 clamp(2rem,4vw,3.8rem)/1.12 var(--font-display);letter-spacing:-.03em;color:#311b40;max-width:24ch}.studio-evidence p{max-width:70ch;color:#74617e;line-height:1.7}.studio-evidence a{display:inline-block;color:#744491;margin-top:1.5rem;font-size:.9rem}</style>

@@ -1,264 +1,62 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import PageHero from "@/components/PageHero.astro";
-import SectionHead from "@/components/SectionHead.astro";
-import PriceRow from "@/components/PriceRow.astro";
-import InlineCta from "@/components/InlineCta.astro";
-import FullBleedBand from "@/components/FullBleedBand.astro";
-import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
-import LaserOffer from "@/components/LaserOffer.astro";
-import { media } from "@/lib/page-media";
-import {
-  buildBreadcrumbSchema,
-  buildItemListSchema,
-  buildWebPageSchema,
-  createPageMeta,
-} from "@/lib/seo";
-import { protocolCards } from "@/lib/content";
+import FaqAccordion from "@/components/FaqAccordion.astro";
+import { createPageMeta, buildBreadcrumbSchema } from "@/lib/seo";
+import { menu, euro, priceRange, durationRange, requestTreatment } from "@/lib/treatment-catalog";
+import { laserOffer } from "@/lib/laser-offer";
 import { rebelJourneys } from "@/lib/rebel-journeys";
-import { servicePages } from "@/lib/seo-content-refined";
-
-const meta = createPageMeta({
-  title: "Listino centro estetico, laser e protocolli | Rebel Carmagnola",
-  description:
-    "Consulta i prezzi REBEL a Carmagnola per trattamenti viso e corpo, manicure, pedicure, epilazione laser, nove percorsi personalizzati e protocolli epigenetici.",
-  path: "/listino-estetica-laser",
-  keywords: [
-    "listino centro estetico Carmagnola",
-    "prezzi centro estetico Carmagnola",
-    "prezzi epilazione laser Carmagnola",
-    "prezzi pulizia viso Carmagnola",
-    "prezzi manicure Carmagnola",
-    "prezzi massaggi Carmagnola",
-    "tariffe estetista Carmagnola",
-  ],
-});
-
-const classica = servicePages.filter((s) => s.category === "estetica-classica");
-const laser = servicePages.filter((s) => s.category === "laser");
-
-const formatPrice = (value: string) =>
-  value
-    .replace(/\bEUR\s*(\d+(?:[.,]\d+)?)/gi, "€$1")
-    .replace(/€\s+(\d+(?:[.,]\d+)?)/g, "€$1")
-    .replace(/(\d+)\.(\d{2})\b/g, "$1,$2")
-    .replace(/(€\d+(?:,\d+)?)\s+a\s+(\d+(?:,\d+)?)(?!\s*€)/g, "$1 a €$2")
-    .replace(/\s*\/\s*/g, " / ")
-    .replace(/\s{2,}/g, " ")
-    .trim();
-
-const journeyDescription = (summary: string, duration: string) => {
-  const sentence = summary.replace(/[.\s]+$/, "");
-  return `${sentence}. Durata indicativa: ${duration}.`;
-};
-
-const breadcrumb = buildBreadcrumbSchema([
-  { name: "Home", path: "/" },
-  { name: "Listino estetica e laser", path: "/listino-estetica-laser" },
-]);
-const webPage = buildWebPageSchema({
-  name: "Listino e prezzi — Rebel Carmagnola",
-  description:
-    "Prezzi per trattamenti estetici e benessere, epilazione laser con Lumina X1 Pro, percorsi REBEL e protocolli professionali viso e corpo.",
-  path: "/listino-estetica-laser",
-});
-const listinoSchema = buildItemListSchema({
-  name: "Listino Rebel Estetica e Laser",
-  path: "/listino-estetica-laser",
-  items: [...classica, ...laser].map((s) => ({
-    name: s.name,
-    path: `/servizi/${s.slug}`,
-  })),
-});
-const journeySchema = buildItemListSchema({
-  name: "I nove percorsi Rebel",
-  path: "/listino-estetica-laser",
-  items: rebelJourneys.map((journey) => ({
-    name: journey.slug === "white" ? "Uniformare · White" : journey.name,
-    path: `/percorsi/${journey.slug}`,
-  })),
-});
-
-const switchItems = [
-  { href: "#estetica", label: "Trattamenti e benessere", glyph: "✦" },
-  { href: "#laser", label: "Epilazione laser", glyph: "◉" },
-  { href: "#percorsi", label: "I 9 Percorsi REBEL", glyph: "⬡" },
+import { protocolPages } from "@/lib/protocol-pages";
+import "@/styles/treatment-catalog.css";
+const meta = createPageMeta({ title: "Trattamenti e prezzi a Carmagnola | Listino completo REBEL", description: `Il menu REBEL: 85 trattamenti beauty, 9 percorsi, protocolli viso e corpo. Durate, varianti e prezzi. Laser ${laserOffer.zone.price} a zona, Full Body ${laserOffer.totalBody.price}.`, path: "/listino-estetica-laser" });
+const faq = [
+ { q: "Posso scegliere un singolo trattamento?", a: "Sì. Puoi prenotare un servizio beauty senza iniziare un percorso. Se hai dubbi, ti aiutiamo a scegliere in base all’esigenza e al tempo a disposizione." },
+ { q: "Il prezzo sul sito e quello su Treatwell sono uguali?", a: "Per i servizi beauty mostriamo il prezzo ordinario e, quando presente, il prezzo minimo rilevato su Treatwell. Le offerte della piattaforma possono dipendere dall’orario e dalla disponibilità: il totale aggiornato è visibile prima di confermare su Treatwell. La promo laser REBEL si richiede direttamente allo studio." },
+ { q: "Che differenza c’è tra servizio, protocollo e percorso?", a: "Il servizio è il trattamento che scegli dal listino. Il protocollo combina passaggi dedicati a un’esigenza. Il percorso REBEL parte dalla valutazione e prevede frequenza e controlli concordati: prima di iniziare ti spieghiamo cosa comprende e quanto costa." },
+ { q: "Come funziona la promo laser?", a: `${laserOffer.zone.price} per zona e seduta oppure ${laserOffer.totalBody.price} per ${laserOffer.totalBody.detail} in una seduta. L’inguine conta come due zone. Confermiamo insieme il conteggio e l’idoneità al trattamento prima di iniziare.` },
 ];
+const categoryImages: Record<string,string> = { viso:"glow", corpo:"forma", massaggi:"longevity", "laser-treatwell":"liberta", sguardo:"skin-reset", pressoterapia:"forma" };
+const catalogSchema = { "@context":"https://schema.org", "@type":"ItemList", name:"Trattamenti e prezzi REBEL a Carmagnola", numberOfItems:menu.categories.reduce((n,c)=>n+c.items.length,0), itemListElement:menu.categories.flatMap(c=>c.items).map((i,n)=>({"@type":"ListItem",position:n+1,name:i.name,url:`https://www.rebelepigenetica.it/listino-estetica-laser#${i.id}`})) };
 ---
-<BaseLayout meta={meta} bodyClass="page-beauty page-listino">
-  <JsonLd data={breadcrumb} />
-  <JsonLd data={webPage} />
-  <JsonLd data={listinoSchema} />
-  <JsonLd data={journeySchema} />
-
-  <PageHero
-    image={media.studio.cabin}
-    kicker="Listino Rebel · Carmagnola"
-    title="Prezzi chiari per _trattamenti, percorsi e laser_."
-    lead="Consulta prezzi, durata indicativa e informazioni utili prima di prenotare. Se scegli di iniziare il percorso proposto, la valutazione iniziale REBEL è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi."
-    bullets={["Prezzi pubblicati online", "Dettagli per ogni servizio", "Valutazione REBEL · 30–40 min"]}
-    meta={["Trattamenti singoli", "Nove percorsi REBEL", "Epilazione laser"]}
-    ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
-    ctaSecondary={{ label: "Scrivici su WhatsApp", href: "https://wa.me/393516919416" }}
-  />
-
-  <section class="section section--tight">
-    <div class="container">
-      <nav class="listino-switch" aria-label="Vai alla categoria">
-        {switchItems.map((it) => (
-          <a class="listino-switch__btn" href={it.href}>
-            <span aria-hidden="true">{it.glyph}</span>
-            {it.label}
-          </a>
-        ))}
-      </nav>
-    </div>
-  </section>
-
-  <section class="section" id="estetica">
-    <div class="container">
-      <SectionHead
-        kicker="Trattamenti e benessere"
-        title="Pulizia viso, manicure, pedicure, ceretta e massaggi."
-        lead="Puoi prenotare ogni servizio singolarmente. Nella scheda trovi prezzo, durata indicativa e tutto ciò che è utile sapere."
-      />
-      <div class="price-grid">
-        {classica.map((item) => (
-          <PriceRow
-            name={item.name}
-            description={item.shortDescription}
-            price={formatPrice(item.priceHint)}
-            href={`/servizi/${item.slug}`}
-          />
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="laser">
-    <div class="container">
-      <SectionHead
-        kicker="Epilazione laser"
-        title="Prezzi dell’epilazione laser per viso e corpo."
-        lead="Per l’epilazione utilizziamo Lumina X1 Pro di THORY con raffreddamento a contatto ICE Polar. Scegli la zona per vedere prezzo e informazioni specifiche."
-      />
-      <LaserOffer compact />
-      <p class="listino-laser-label">Listino ordinario</p>
-      <div class="price-grid">
-        {laser.map((item) => (
-          <PriceRow
-            name={item.name}
-            description={item.shortDescription}
-            price={formatPrice(item.priceHint)}
-            href={`/servizi/${item.slug}`}
-          />
-        ))}
-      </div>
-      <div class="cluster cluster--stack-mobile" style="margin-top:2rem;">
-        <a class="btn btn--primary btn--halo" href="/contatti">Prenota la valutazione laser</a>
-        <a class="btn btn--secondary" href="/epilazione-laser-carmagnola">Come funziona il percorso laser</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="percorsi">
-    <div class="container">
-      <SectionHead
-        kicker="I nove Percorsi REBEL"
-        title="Scegli in base a ciò che vuoi migliorare."
-        lead="Skin Reset, Barrier, Balance, Glow, Uniformare · White, Structure, Longevity, Forma e Libertà. Per ogni percorso trovi obiettivo, durata, ingredienti e tecnologie che possono essere utilizzate."
-      />
-      <div class="price-grid">
-        {rebelJourneys.map((item) => (
-          <PriceRow
-            name={item.slug === "white" ? "Uniformare · White" : item.name}
-            description={journeyDescription(item.summary, item.duration)}
-            price={formatPrice(item.price)}
-            href={`/percorsi/${item.slug}`}
-          />
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--tight" id="protocolli-mirati">
-    <div class="container">
-      <SectionHead
-        kicker="Protocolli epigenetici"
-        title="Trattamenti professionali per viso e corpo."
-        lead="Consulta Lift, Rebirth 60+, Eye Genesis, Catalysis, Collagen e Cell Regen. Per ogni trattamento trovi a chi è rivolto, come si svolge e il prezzo."
-      />
-      <div class="price-grid">
-        {protocolCards.map((item) => <PriceRow name={item.name} description={item.desc} price={formatPrice(item.price)} href={`/protocolli/${item.slug}`} />)}
-      </div>
-    </div>
-  </section>
-
-  <FullBleedBand
-    image={media.studio.cabin}
-    height="sm"
-    align="left"
-    kicker="Listino Rebel · Carmagnola"
-    quote="Prezzi online e valutazione REBEL di 30–40 minuti per i percorsi personalizzati."
-    cite="Studio Rebel · Viale Barbaroux 20"
-  />
-
-  <section class="section">
-    <div class="container">
-      <InlineCta
-        kicker="Valutazione REBEL · 30–40 minuti"
-        title="Hai un dubbio? Ti aiutiamo a scegliere _come iniziare_."
-        lead="Durante la valutazione parliamo del risultato che desideri, osserviamo la pelle o la zona da trattare e ti spieghiamo trattamento, frequenza e prezzo. Se scegli di iniziare il percorso proposto, la valutazione iniziale è gratuita."
-      />
-    </div>
-  </section>
-
-  <StickyBookingBar primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
+<BaseLayout meta={meta} bodyClass="page-listino">
+ <JsonLd data={buildBreadcrumbSchema([{name:"Home",path:"/"},{name:"Trattamenti e prezzi",path:"/listino-estetica-laser"}])} /><JsonLd data={catalogSchema}/><JsonLd data={{"@context":"https://schema.org","@type":"FAQPage",mainEntity:faq.map(f=>({"@type":"Question",name:f.q,acceptedAnswer:{"@type":"Answer",text:f.a}}))}}/>
+ <div class="treatment-menu" data-treatment-menu>
+  <header class="catalog-intro catalog-wrap">
+   <div><p class="catalog-kicker">Il menu REBEL · Carmagnola</p><h1>La cura che cerchi.<br/><em>Il prezzo, in chiaro.</em></h1><p>Scegli un trattamento, confronta i percorsi o parti dalla promo laser. Qui trovi durata, varianti e il prossimo passo per prenotare.</p><a class="catalog-help" href="/contatti#prenota">Non sai da dove partire? Ti aiutiamo a scegliere ↗</a></div>
+   <figure><img src="/img/film-editorial-v1/glow.webp" alt="Un momento del trattamento viso REBEL" width="1664" height="936" fetchpriority="high"/><figcaption>Viso · Corpo · Laser · Beauty</figcaption></figure>
+  </header>
+  <div class="catalog-tools"><div class="catalog-wrap">
+   <label class="catalog-search"><span class="sr-only">Cerca un trattamento, una zona o un percorso</span><span aria-hidden="true">⌕</span><input type="search" placeholder="Cerca: pulizia viso, laser, manicure…" data-catalog-search autocomplete="off"/><button type="button" data-catalog-clear hidden aria-label="Cancella la ricerca">×</button></label>
+   <details class="catalog-navigation"><summary>Categorie <span aria-hidden="true">＋</span></summary><nav aria-label="Categorie del listino"><a href="#laser">Promo laser</a><a href="#percorsi">Percorsi REBEL</a><a href="#protocolli">Protocolli</a>{menu.categories.map(c=><a href={`#${c.id}`}>{c.name}<small>{c.items.length}</small></a>)}</nav></details>
+  </div></div>
+  <div class="catalog-wrap catalog-body">
+   <p class="catalog-result" data-catalog-result role="status" aria-live="polite">85 trattamenti beauty · 9 percorsi REBEL · promo laser</p>
+   <div class="catalog-empty" data-catalog-empty hidden><h2>Troviamolo insieme.</h2><p>Prova con una zona o un’esigenza, oppure chiedici un consiglio.</p><button type="button" class="btn btn--secondary" data-catalog-reset>Mostra tutto</button><a href="/contatti#prenota" class="btn btn--primary">Chiedi a REBEL</a></div>
+   <section id="laser" class="catalog-promo" data-catalog-section data-search="laser epilazione promo full body total corpo zone">
+    <div class="catalog-promo__heading"><p class="catalog-kicker">{laserOffer.campaignLabel}</p><h2>Più libertà.<br/><em>A partire da una zona.</em></h2><a href={laserOffer.landingPath}>Scopri come funziona la promo →</a></div>
+    <a class="catalog-promo__price" href={requestTreatment("promo-zona")}><span>Laser · a zona</span><strong>{laserOffer.zone.price}</strong><small>per zona · una seduta</small><b>Richiedi la promo ↗</b></a>
+    <a class="catalog-promo__price" href={requestTreatment("promo-full-body")}><span>Laser · Full Body</span><strong>{laserOffer.totalBody.price}</strong><small>{laserOffer.totalBody.detail} · una seduta</small><b>Scegli Full Body ↗</b></a>
+    <p class="catalog-promo__note">L’inguine conta come 2 zone. Confermiamo il conteggio prima della prenotazione. Promo diretta REBEL, distinta dal listino su Treatwell.</p>
+   </section>
+   <section id="percorsi" class="catalog-paths" data-catalog-section>
+    <div class="catalog-section-head"><div><p class="catalog-kicker">Un obiettivo, un percorso</p><h2>I nove percorsi REBEL.</h2></div><a href="/percorsi">Come scegliere →</a></div>
+    <div class="catalog-path-grid">{rebelJourneys.map(j=><article class="catalog-path" data-catalog-item data-search={`${j.name} ${j.area} ${j.priority} ${j.summary}`}><img src={`/img/film-editorial-v1/${j.slug}.webp`} alt={j.heroAlt} width="1664" height="936" loading="lazy"/><div><span class="catalog-kicker">{j.area} · {j.priority}</span><h3>{j.name}</h3><p>{j.summary}</p><strong>{j.price}</strong><small>{j.priceNote}</small><a href={`/percorsi/${j.slug}`}>Cosa comprende →</a></div></article>)}</div>
+   </section>
+   <section id="protocolli" class="catalog-protocols" data-catalog-section><div class="catalog-section-head"><div><p class="catalog-kicker">Le combinazioni REBEL</p><h2>I protocolli.</h2></div></div><div class="catalog-service-grid">{protocolPages.map(p=><article class="catalog-protocol" data-catalog-item data-search={`${p.name} ${p.shortDescription}`}><h3>{p.name}</h3><p>{p.shortDescription}</p><strong>{p.price}</strong><a href={`/protocolli/${p.slug}`}>Esplora il protocollo →</a></article>)}</div></section>
+   <section id="estetica" class="catalog-beauty"><div class="catalog-section-head"><div><p class="catalog-kicker">Anche un solo trattamento</p><h2>Il listino beauty completo.</h2></div><a href={menu.source} target="_blank" rel="noopener noreferrer">Disponibilità su Treatwell ↗</a></div><p class="catalog-source">Prezzi ordinari e durate del listino Treatwell, verificati l’8 settembre 2026. Le offerte della piattaforma possono variare: verifica il totale al momento della prenotazione.</p>
+    {menu.categories.map(c=><details id={c.id} class="catalog-category" data-catalog-section data-category>
+     <summary class="catalog-category__heading">{categoryImages[c.id] && <img src={`/img/film-editorial-v1/${categoryImages[c.id]}.webp`} alt="" width="120" height="90" loading="lazy"/>}<h2>{c.name}</h2><span>{c.items.length} {c.items.length===1?"trattamento":"trattamenti"}</span><b aria-hidden="true">＋</b></summary>
+     {c.id==="laser-treatwell" && <p class="catalog-source">Questi sono i prezzi della piattaforma. Per la promozione diretta REBEL <a href="#laser">vai alla promo laser ↑</a>.</p>}
+     <div class="catalog-service-grid">{c.items.map(i=><details id={i.id} class="catalog-service" data-catalog-item data-search={`${c.name} ${i.name} ${i.options.map(o=>o.name).join(" ")}`}>
+      <summary><span><h3>{i.name}</h3><small>{durationRange(i.durationMin,i.durationMax)}{i.options.length>1?` · ${i.options.length} varianti`:""}</small></span><span class="catalog-service__price"><strong>{priceRange(i.price)}</strong><small>Dettagli e prenota ＋</small></span></summary>
+      <div class="catalog-service__details">{i.options.map(o=><div class="catalog-option"><div><h4>{o.name}</h4><span>{o.duration} min · {priceRange(o.price)}</span>{o.price.saleMin < o.price.min && <small>Su Treatwell da {euro(o.price.saleMin)}, secondo disponibilità.</small>}</div><a href={requestTreatment(i.id,o.id)} aria-label={`Richiedi ${i.name}, ${o.name}`}>Richiedi ↗</a></div>)}<a class="catalog-treatwell" href={menu.source} target="_blank" rel="noopener noreferrer">Scegli servizio e orario su Treatwell ↗</a><p>Il link apre il listino REBEL su Treatwell: seleziona lì trattamento, variante e appuntamento.</p></div>
+     </details>)}</div>
+     {['viso','corpo','massaggi','laser-treatwell'].includes(c.id) && <aside class="catalog-bridge">Cerchi continuità nei trattamenti? <a href={c.id==='laser-treatwell'?laserOffer.landingPath:c.id==='viso'?'/percorsi':'/percorsi/forma'}>Confronta {c.id==='laser-treatwell'?'la promo laser':'i percorsi REBEL'} →</a></aside>}
+    </details>)}
+   </section>
+   <section class="catalog-faq"><p class="catalog-kicker">Prima di scegliere</p><h2>Domande sui trattamenti e sulle prenotazioni.</h2><FaqAccordion items={faq}/></section>
+   <aside class="catalog-final"><h2>Hai trovato quello che cercavi?</h2><p>Ci trovi in Viale Barbaroux 20 a Carmagnola. Porta con te il trattamento che hai scelto: al resto pensiamo insieme.</p><a class="btn btn--primary" href="/contatti#prenota">Scegli come prenotare →</a></aside>
+  </div>
+ </div>
 </BaseLayout>
-
-<style>
-  .listino-switch {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    justify-content: center;
-  }
-  .listino-switch__btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.7rem 1.2rem;
-    border-radius: var(--r-pill);
-    border: 1px solid var(--line-strong);
-    color: var(--text);
-    font-size: 0.85rem;
-    letter-spacing: 0.04em;
-    transition: border-color var(--t-fast) var(--ease-soft), background var(--t-fast) var(--ease-soft);
-    background: rgba(7, 5, 14, 0.4);
-  }
-  .listino-switch__btn:hover {
-    border-color: var(--mauve);
-    background: rgba(91, 43, 216, 0.12);
-    color: var(--ivory-1);
-  }
-  .listino-switch__btn span {
-    color: var(--mauve);
-    font-size: 0.95rem;
-  }
-  .price-grid {
-    display: grid;
-    gap: 0.6rem;
-    max-width: 980px;
-    margin-inline: auto;
-  }
-  .listino-laser-label {
-    max-width: 980px;
-    margin: 2.5rem auto .8rem;
-    color: var(--mauve);
-    font-size: .68rem;
-    font-weight: 850;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-  }
-</style>
+<script src="@/scripts/treatment-catalog.ts"></script>

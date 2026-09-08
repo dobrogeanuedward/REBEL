@@ -78,7 +78,6 @@ body.page-beauty :is(#estetica, #epigenetica) :is(.price-row__price, .price-row_
 /* Dark inset surfaces that live inside otherwise light templates. */
 .rebel-map__head > strong { color: #fff; }
 
-body.page-contatti .card--feature,
 body.page-studio .brand-card {
   color-scheme: dark;
   --text: #fffdf9;
@@ -90,27 +89,15 @@ body.page-studio .brand-card {
   color: var(--text);
 }
 
-/* Contact feature cards are deliberately dark inside a light page. */
-body.page-contatti .card--feature .form :is(label, .form__note) {
-  color: rgba(255, 253, 249, .76);
-}
-
-body.page-contatti .card--feature .form :is(input, textarea, select) {
-  color: #fff;
-  border-color: rgba(255, 255, 255, .22);
-  background: rgba(10, 4, 14, .38);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08);
-}
-
-body.page-contatti .card--feature .form :is(input, textarea)::placeholder {
-  color: rgba(255, 255, 255, .6);
-}
-
-body.page-contatti .card--feature .form :is(input, textarea, select):focus {
-  color: #fff;
-  border-color: rgba(224, 170, 255, .78);
-  background: rgba(10, 4, 14, .58);
-  box-shadow: 0 0 0 4px rgba(224, 170, 255, .16);
+/* Booking cards now use the same light surface as the booking controls. */
+body.page-contatti .card--feature {
+  color-scheme: light;
+  --text: #301b3e;
+  --text-strong: #301b3e;
+  --text-muted: #74617f;
+  --text-faint: #806b8b;
+  --line: #e2d8e8;
+  --line-strong: #c9afd7;
 }
 
 /* Electric pink stays on dark scenes; light paper uses the denser rose so

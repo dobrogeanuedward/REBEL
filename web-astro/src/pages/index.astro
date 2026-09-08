@@ -46,12 +46,10 @@ const article = buildArticleSchema({
 });
 
 const siteAsset = (slot: string) => `/api/site-asset?slot=${encodeURIComponent(slot)}`;
-const heroImage = siteAsset("home.hero.method.desktop");
-const heroMobileImage = siteAsset("home.hero.method.mobile");
 const faceImage = siteAsset("journeys.glow.hero.desktop");
 const bodyImage = siteAsset("journeys.forma.hero.desktop");
 const studioImage = siteAsset("studio.real.overview.desktop");
-const consultationImage = siteAsset("services.method.consultation.mobile");
+const consultationImage = "/img/film-editorial-v1/consultation.webp";
 const activesImage = siteAsset("services.face.activesTopshot.mobile");
 const skinTextureImage = siteAsset("services.face.skinTexture.mobile");
 
@@ -114,6 +112,7 @@ const worlds = [
 
   <div class="rebel-shell">
     <HomeFilm />
+    <nav class="home-decision-nav" aria-label="Scegli da dove iniziare"><a href="/listino-estetica-laser"><span>So cosa cerco</span><strong>Trattamenti e prezzi ↗</strong></a><a href="/promo-epilazione-laser-carmagnola"><span>La promozione del momento</span><strong>Scopri la promo laser ↗</strong></a><a href="/contatti#prenota"><span>Vorrei un consiglio</span><strong>Parliamone con REBEL ↗</strong></a></nav>
     <TreatmentGallery />
 
     <section class="rebel-section rebel-section--paper">
@@ -258,3 +257,5 @@ const worlds = [
     </section>
   </div>
 </BaseLayout>
+
+<style>.home-decision-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#e3d8e9;border-bottom:1px solid #e3d8e9}.home-decision-nav a{display:flex;flex-direction:column;gap:.6rem;background:#fcf9fe;color:#42224f;padding:1.6rem clamp(1rem,3vw,3rem);text-decoration:none}.home-decision-nav a:hover{background:#f3eaf8}.home-decision-nav span{font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:#826b8c}.home-decision-nav strong{font-size:clamp(.85rem,1.2vw,1.1rem);font-weight:500}@media(max-width:600px){.home-decision-nav{grid-template-columns:1fr}.home-decision-nav a{padding:1rem 1.4rem;flex-direction:row;align-items:center;justify-content:space-between;gap:1rem}.home-decision-nav span{font-size:.59rem;max-width:38%}.home-decision-nav strong{font-size:.8rem}}</style>

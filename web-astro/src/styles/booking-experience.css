@@ -1,0 +1,206 @@
+.booking-intro {
+  padding-top: clamp(8rem, 13vw, 12rem);
+  padding-bottom: 1.5rem;
+  color: #30193f;
+}
+.booking-intro h1 {
+  font: 500 clamp(2.8rem, 5.5vw, 5.6rem)/1.03 var(--font-display);
+  letter-spacing: -0.04em;
+  color: #30193f;
+  margin: 1rem 0 1.5rem;
+}
+.booking-intro h1 em {
+  font-weight: 400;
+  color: #7c4896;
+}
+.booking-intro > p {
+  max-width: 65ch;
+  color: #73617d;
+  line-height: 1.7;
+}
+.booking-routes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin: 2rem 0 1rem;
+}
+.booking-routes > a {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  text-decoration: none;
+  color: #341c42;
+  background: #fff;
+  border: 1px solid #dfd3e6;
+  border-radius: 12px;
+  padding: clamp(1.4rem, 3vw, 2.5rem);
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+.booking-routes > a:nth-child(2) {
+  background: #f2eaf7;
+}
+.booking-routes > a:hover {
+  border-color: #a879c0;
+  box-shadow: 0 8px 30px #6d397d0d;
+}
+.booking-routes span {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #7b4d95;
+}
+.booking-routes h2 {
+  font: 500 clamp(1.7rem, 2.5vw, 2.5rem)/1.12 var(--font-display);
+  color: #341c42;
+  margin: 1rem 0 0.7rem;
+}
+.booking-routes p {
+  color: #73617d;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+.booking-routes strong {
+  margin-top: auto;
+  padding-top: 1.4rem;
+  color: #693886;
+  font-size: 0.9rem;
+}
+.booking-intro__help {
+  font-size: 0.85rem;
+}
+.booking-intro__help a {
+  color: #754391;
+}
+.page-contatti .booking-request {
+  scroll-margin-top: 7rem;
+  padding-top: 2rem;
+}
+.page-contatti .booking-request > .grid-2 {
+  grid-template-columns: 1.4fr 1fr;
+  align-items: start;
+}
+.page-contatti .card,
+.page-contatti .card--feature {
+  background: linear-gradient(140deg, #fff, #faf6fc);
+  border-color: #e2d8e8;
+  color: #301b3e;
+}
+.page-contatti .card__title,
+.page-contatti .contact-quick__value {
+  color: #301b3e;
+}
+.page-contatti .card__body,
+.page-contatti .form__note,
+.page-contatti .flow,
+.page-contatti .form__small {
+  color: #74617f;
+}
+.page-contatti .form label {
+  color: #4e345d;
+}
+.page-contatti .form input,
+.page-contatti .form select,
+.page-contatti .form textarea {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 48px;
+  border: 1px solid #d8cbe0;
+  background: #fff;
+  color: #301a3e;
+  padding: 0.8rem 0.9rem;
+  border-radius: 7px;
+  font: inherit;
+  font-size: 0.92rem;
+  box-sizing: border-box;
+}
+.page-contatti .form :focus-visible {
+  outline: 2px solid #8755a1;
+  outline-offset: 3px;
+}
+.page-contatti .booking-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1rem 1.2rem;
+  background: #eee5f4;
+  border-left: 3px solid #9664b0;
+  border-radius: 6px;
+  color: #422b50;
+  margin: 0;
+}
+.booking-selection strong {
+  font-size: 0.95rem;
+}
+.booking-selection span {
+  font-size: 0.85rem;
+}
+.booking-selection small {
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: #745d80;
+}
+.page-contatti .booking-whatsapp {
+  color: #67427b;
+  border-color: #cbb6d7;
+  background: #fff;
+  text-align: center;
+}
+.page-contatti .form__small a {
+  color: #743e91;
+  text-decoration: underline;
+}
+.page-contatti .form__row > * {
+  min-width: 0;
+}
+.page-contatti .form__feedback[data-state="error"] {
+  color: #9c2249;
+  background: #fff0f4;
+}
+.page-contatti .form__feedback[data-state="ok"] {
+  color: #246047;
+  background: #edf8f0;
+}
+.page-contatti .booking-request .card > .card__body {
+  margin-bottom: 1rem !important;
+}
+.page-contatti .form__intro {
+  margin-bottom: 1rem;
+}
+@media (max-width: 760px) {
+  .booking-routes,
+  .page-contatti .booking-request > .grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .booking-intro {
+    padding-top: 7.5rem;
+  }
+  .booking-routes {
+    gap: 0.8rem;
+  }
+  .booking-routes > a {
+    padding: 1.4rem;
+  }
+  .booking-routes h2 {
+    font-size: 1.9rem;
+  }
+  .booking-routes strong {
+    padding-top: 0.8rem;
+  }
+  .page-contatti .booking-request > .grid-2 > aside {
+    order: 2;
+  }
+  .page-contatti .form__row {
+    grid-template-columns: 1fr;
+  }
+  .page-contatti .card {
+    padding: 1.3rem;
+  }
+  .page-contatti .form .btn {
+    width: 100%;
+    white-space: normal;
+    font-size: 0.83rem;
+  }
+}

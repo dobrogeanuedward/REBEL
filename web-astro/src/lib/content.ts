@@ -69,6 +69,14 @@ export const homeHeroImages = [
 const siteAsset = (slot: string) => `/api/site-asset?slot=${encodeURIComponent(slot)}`;
 
 export const storeGalleryImages = [
+  { src: "/img/studio-treatwell/15432153.jpg", alt: "La postazione manicure REBEL", width: 1080, height: 720 },
+  { src: "/img/studio-treatwell/15432056.jpg", alt: "L’area attesa e accoglienza dello studio", width: 1080, height: 720 },
+  { src: "/img/studio-treatwell/15432127.jpg", alt: "Una cabina REBEL pronta per il trattamento", width: 1080, height: 720 },
+  { src: "/img/studio-treatwell/15432121.jpg", alt: "Tecnologie e attrezzature nella cabina REBEL", width: 1080, height: 720 },
+  { src: "/img/studio-treatwell/15432078.jpg", alt: "Lo spazio dedicato alla consulenza", width: 1080, height: 720 },
+  { src: "/img/studio-treatwell/15432117.jpg", alt: "La postazione per i trattamenti piedi", width: 1080, height: 720 },
+  { src: "/img/studio-treatwell/15432155.jpg", alt: "La cabina e le attrezzature professionali REBEL", width: 1080, height: 720 },
+
   {
     src: siteAsset("studio.real.overview.desktop"),
     alt: "REBEL Carmagnola — spazi interni dello studio",

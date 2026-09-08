@@ -25,16 +25,16 @@ const clearItems = items.map((item) => ({ q: clarifyCopy(item.q), a: clarifyCopy
 <style>
   .faq { display: grid; gap: 0.6rem; }
   .faq__item {
-    background: linear-gradient(180deg, rgba(31, 26, 58, 0.78), rgba(20, 16, 42, 0.72));
-    border: 1px solid var(--line);
+    background: linear-gradient(180deg, #fff, #faf6fc);
+    border: 1px solid #e1d6e7;
     border-radius: var(--r-md);
     padding: 1.1rem 1.3rem;
     transition: border-color var(--t-base) var(--ease-soft), background var(--t-base) var(--ease-soft);
     overflow: hidden;
   }
   .faq__item[open] {
-    border-color: var(--line-strong);
-    background: linear-gradient(180deg, rgba(46, 16, 101, 0.32), rgba(20, 16, 42, 0.85));
+    border-color: #bc9bce;
+    background: linear-gradient(180deg, #fff, #f3eaf8);
   }
   .faq__summary {
     list-style: none;
@@ -46,7 +46,7 @@ const clearItems = items.map((item) => ({ q: clarifyCopy(item.q), a: clarifyCopy
     font-family: var(--font-display);
     font-size: clamp(1.05rem, 1.5vw, 1.25rem);
     line-height: 1.2;
-    color: var(--text-strong);
+    color: #301b3d;
     letter-spacing: var(--tracking-editorial);
   }
   .faq__summary::-webkit-details-marker { display: none; }
@@ -55,37 +55,39 @@ const clearItems = items.map((item) => ({ q: clarifyCopy(item.q), a: clarifyCopy
     font-size: var(--t-micro);
     letter-spacing: var(--tracking-micro);
     text-transform: uppercase;
-    color: var(--mauve);
+    color: #784592;
     font-weight: 600;
     align-self: center;
     white-space: nowrap;
   }
-  .faq__q { color: var(--text-strong); }
+  .faq__q { color: #301b3d; }
   .faq__icon {
     font-family: var(--font-display);
     font-size: 1.4rem;
     line-height: 1;
-    color: var(--mauve);
+    color: #784592;
     transition: transform var(--t-base) var(--ease-cinema);
     align-self: center;
   }
   .faq__item[open] .faq__icon { transform: rotate(45deg); }
+  .faq__a p { color: #695774; }
+  .faq__summary:focus-visible { outline: 2px solid #80509b; outline-offset: 5px; }
   .faq__a {
     margin-top: 0.9rem;
-    color: var(--text-muted);
+    color: #695774;
     font-size: var(--t-body);
     line-height: var(--lh-body);
     max-width: 70ch;
   }
-  .scene-ivory .faq__item {
+  :global(.scene-ivory) .faq__item {
     background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(244, 238, 227, 0.96));
     border-color: var(--line-on-light);
   }
-  .scene-ivory .faq__item[open] { background: linear-gradient(180deg, #fff, rgba(244, 238, 227, 0.98)); }
-  .scene-ivory .faq__q { color: var(--on-light); }
-  .scene-ivory .faq__a { color: var(--on-light-muted); }
-  .scene-ivory .faq__kicker,
-  .scene-ivory .faq__icon { color: var(--violet-mid); }
+  :global(.scene-ivory) .faq__item[open] { background: linear-gradient(180deg, #fff, rgba(244, 238, 227, 0.98)); }
+  :global(.scene-ivory) .faq__q { color: var(--on-light); }
+  :global(.scene-ivory) .faq__a { color: var(--on-light-muted); }
+  :global(.scene-ivory) .faq__kicker,
+  :global(.scene-ivory) .faq__icon { color: var(--violet-mid); }
   @media (max-width: 680px) {
     .faq__summary { grid-template-columns: 1fr auto; }
     .faq__kicker { grid-column: 1 / -1; white-space: normal; }

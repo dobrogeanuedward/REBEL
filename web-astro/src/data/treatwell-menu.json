@@ -1,0 +1,3103 @@
+{
+  "source": "https://www.treatwell.it/salone/rebel-estetica-epigenetica/",
+  "checkedAt": "2026-09-08",
+  "categories": [
+    {
+      "id": "viso",
+      "name": "Viso",
+      "sourceName": "Trattamenti Viso",
+      "items": [
+        {
+          "id": "TR6412964",
+          "name": "Pulizia Viso Purificante",
+          "price": {
+            "min": 49.0,
+            "max": 49.0,
+            "saleMin": 24.5,
+            "saleMax": 49.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "12217738",
+              "name": "Pulizia Viso Purificante",
+              "duration": 60,
+              "price": {
+                "min": 49.0,
+                "max": 49.0,
+                "saleMin": 24.5,
+                "saleMax": 49.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161565",
+          "name": "Trattamento Viso Purificante",
+          "price": {
+            "min": 69.0,
+            "max": 69.0,
+            "saleMin": 34.5,
+            "saleMax": 69.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13600945",
+              "name": "Trattamento Viso Purificante",
+              "duration": 60,
+              "price": {
+                "min": 69.0,
+                "max": 69.0,
+                "saleMin": 34.5,
+                "saleMax": 69.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161566",
+          "name": "Trattamento Viso Idratante",
+          "price": {
+            "min": 69.0,
+            "max": 69.0,
+            "saleMin": 69.0,
+            "saleMax": 69.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13600946",
+              "name": "Trattamento Viso Idratante",
+              "duration": 60,
+              "price": {
+                "min": 69.0,
+                "max": 69.0,
+                "saleMin": 69.0,
+                "saleMax": 69.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161567",
+          "name": "Trattamento Viso Tonificante",
+          "price": {
+            "min": 79.0,
+            "max": 79.0,
+            "saleMin": 79.0,
+            "saleMax": 79.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13600947",
+              "name": "Trattamento Viso Tonificante",
+              "duration": 60,
+              "price": {
+                "min": 79.0,
+                "max": 79.0,
+                "saleMin": 79.0,
+                "saleMax": 79.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161569",
+          "name": "Trattamento Viso Antietà",
+          "price": {
+            "min": 89.0,
+            "max": 89.0,
+            "saleMin": 89.0,
+            "saleMax": 89.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13600949",
+              "name": "Trattamento Viso Antietà",
+              "duration": 60,
+              "price": {
+                "min": 89.0,
+                "max": 89.0,
+                "saleMin": 89.0,
+                "saleMax": 89.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161571",
+          "name": "Trattamento Viso alla Vitamina C",
+          "price": {
+            "min": 98.0,
+            "max": 98.0,
+            "saleMin": 98.0,
+            "saleMax": 98.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13600951",
+              "name": "Trattamento Viso alla Vitamina C",
+              "duration": 60,
+              "price": {
+                "min": 98.0,
+                "max": 98.0,
+                "saleMin": 98.0,
+                "saleMax": 98.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161574",
+          "name": "Uomo - Pulizia Viso",
+          "price": {
+            "min": 49.0,
+            "max": 49.0,
+            "saleMin": 49.0,
+            "saleMax": 49.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13600954",
+              "name": "Uomo - Pulizia Viso",
+              "duration": 60,
+              "price": {
+                "min": 49.0,
+                "max": 49.0,
+                "saleMin": 49.0,
+                "saleMax": 49.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161576",
+          "name": "Uomo - Trattamento Viso",
+          "price": {
+            "min": 79.0,
+            "max": 79.0,
+            "saleMin": 79.0,
+            "saleMax": 79.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13600957",
+              "name": "Uomo - Trattamento Viso",
+              "duration": 60,
+              "price": {
+                "min": 79.0,
+                "max": 79.0,
+                "saleMin": 79.0,
+                "saleMax": 79.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161578",
+          "name": "Pulizia Viso con Acido Mandelico",
+          "price": {
+            "min": 59.0,
+            "max": 59.0,
+            "saleMin": 59.0,
+            "saleMax": 59.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13600959",
+              "name": "Pulizia Viso con Acido Mandelico",
+              "duration": 60,
+              "price": {
+                "min": 59.0,
+                "max": 59.0,
+                "saleMin": 59.0,
+                "saleMax": 59.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161579",
+          "name": "Pulizia Viso con Acido Glicolico",
+          "price": {
+            "min": 59.0,
+            "max": 59.0,
+            "saleMin": 59.0,
+            "saleMax": 59.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13600960",
+              "name": "Pulizia Viso con Acido Glicolico",
+              "duration": 60,
+              "price": {
+                "min": 59.0,
+                "max": 59.0,
+                "saleMin": 59.0,
+                "saleMax": 59.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161581",
+          "name": "Pulizia Viso con Ultrasuoni",
+          "price": {
+            "min": 62.0,
+            "max": 62.0,
+            "saleMin": 62.0,
+            "saleMax": 62.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13600966",
+              "name": "Pulizia Viso con Ultrasuoni",
+              "duration": 60,
+              "price": {
+                "min": 62.0,
+                "max": 62.0,
+                "saleMin": 62.0,
+                "saleMax": 62.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161636",
+          "name": "Trattamento Viso Antimacchia",
+          "price": {
+            "min": 89.0,
+            "max": 89.0,
+            "saleMin": 89.0,
+            "saleMax": 89.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13601116",
+              "name": "Trattamento Viso Antimacchia",
+              "duration": 60,
+              "price": {
+                "min": 89.0,
+                "max": 89.0,
+                "saleMin": 89.0,
+                "saleMax": 89.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161637",
+          "name": "Maschera Viso",
+          "price": {
+            "min": 39.0,
+            "max": 39.0,
+            "saleMin": 39.0,
+            "saleMax": 39.0
+          },
+          "durationMin": 30,
+          "durationMax": 30,
+          "options": [
+            {
+              "id": "13601117",
+              "name": "Maschera Viso",
+              "duration": 30,
+              "price": {
+                "min": 39.0,
+                "max": 39.0,
+                "saleMin": 39.0,
+                "saleMax": 39.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161638",
+          "name": "Trattamento Contorno Occhi",
+          "price": {
+            "min": 49.0,
+            "max": 49.0,
+            "saleMin": 49.0,
+            "saleMax": 49.0
+          },
+          "durationMin": 30,
+          "durationMax": 30,
+          "options": [
+            {
+              "id": "13601118",
+              "name": "Trattamento Contorno Occhi",
+              "duration": 30,
+              "price": {
+                "min": 49.0,
+                "max": 49.0,
+                "saleMin": 49.0,
+                "saleMax": 49.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161640",
+          "name": "Trattamento Viso Express",
+          "price": {
+            "min": 39.0,
+            "max": 39.0,
+            "saleMin": 39.0,
+            "saleMax": 39.0
+          },
+          "durationMin": 35,
+          "durationMax": 35,
+          "options": [
+            {
+              "id": "13601120",
+              "name": "Trattamento Viso Express",
+              "duration": 35,
+              "price": {
+                "min": 39.0,
+                "max": 39.0,
+                "saleMin": 39.0,
+                "saleMax": 39.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161642",
+          "name": "Trattamento Viso al Collagene",
+          "price": {
+            "min": 125.0,
+            "max": 125.0,
+            "saleMin": 125.0,
+            "saleMax": 125.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13601124",
+              "name": "Trattamento Viso al Collagene",
+              "duration": 60,
+              "price": {
+                "min": 125.0,
+                "max": 125.0,
+                "saleMin": 125.0,
+                "saleMax": 125.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161643",
+          "name": "Trattamento Viso con Acido Mandelico",
+          "price": {
+            "min": 79.0,
+            "max": 79.0,
+            "saleMin": 79.0,
+            "saleMax": 79.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13601126",
+              "name": "Trattamento Viso con Acido Mandelico",
+              "duration": 60,
+              "price": {
+                "min": 79.0,
+                "max": 79.0,
+                "saleMin": 79.0,
+                "saleMax": 79.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161645",
+          "name": "Biostimolazione Viso",
+          "price": {
+            "min": 145.0,
+            "max": 145.0,
+            "saleMin": 145.0,
+            "saleMax": 145.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13601128",
+              "name": "Biostimolazione Viso",
+              "duration": 60,
+              "price": {
+                "min": 145.0,
+                "max": 145.0,
+                "saleMin": 145.0,
+                "saleMax": 145.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161647",
+          "name": "Microneedling Viso",
+          "price": {
+            "min": 145.0,
+            "max": 145.0,
+            "saleMin": 145.0,
+            "saleMax": 145.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13601130",
+              "name": "Microneedling Viso",
+              "duration": 60,
+              "price": {
+                "min": 145.0,
+                "max": 145.0,
+                "saleMin": 145.0,
+                "saleMax": 145.0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "laser-treatwell",
+      "name": "Laser",
+      "sourceName": "Epilazione Permanente",
+      "items": [
+        {
+          "id": "TR6498900",
+          "name": "THORY  LASER (Epilazione Laser a Zona )",
+          "price": {
+            "min": 25.9,
+            "max": 103.6,
+            "saleMin": 19.9,
+            "saleMax": 79.6
+          },
+          "durationMin": 5,
+          "durationMax": 40,
+          "options": [
+            {
+              "id": "13778555",
+              "name": "ORECCHIE",
+              "duration": 5,
+              "price": {
+                "min": 25.9,
+                "max": 25.9,
+                "saleMin": 19.9,
+                "saleMax": 19.9
+              }
+            },
+            {
+              "id": "13778551",
+              "name": "THORY LASER DONNA ATTACCATURA CAPELLI",
+              "duration": 5,
+              "price": {
+                "min": 25.9,
+                "max": 25.9,
+                "saleMin": 19.9,
+                "saleMax": 19.9
+              }
+            },
+            {
+              "id": "13778549",
+              "name": "THORY LASER DONNA BAFFETTI + MENTO",
+              "duration": 10,
+              "price": {
+                "min": 25.9,
+                "max": 25.9,
+                "saleMin": 19.9,
+                "saleMax": 19.9
+              }
+            },
+            {
+              "id": "13778552",
+              "name": "THORY LASER DONNA BASETTE",
+              "duration": 5,
+              "price": {
+                "min": 25.9,
+                "max": 25.9,
+                "saleMin": 19.9,
+                "saleMax": 19.9
+              }
+            },
+            {
+              "id": "13778553",
+              "name": "THORY LASER DONNA COLLO ANT .",
+              "duration": 10,
+              "price": {
+                "min": 25.9,
+                "max": 25.9,
+                "saleMin": 19.9,
+                "saleMax": 19.9
+              }
+            },
+            {
+              "id": "13778554",
+              "name": "THORY LASER DONNA COLLO POST",
+              "duration": 10,
+              "price": {
+                "min": 25.9,
+                "max": 25.9,
+                "saleMin": 19.9,
+                "saleMax": 19.9
+              }
+            },
+            {
+              "id": "13778457",
+              "name": "THORY LASER DONNA LINEA ALBA",
+              "duration": 5,
+              "price": {
+                "min": 25.9,
+                "max": 25.9,
+                "saleMin": 19.9,
+                "saleMax": 19.9
+              }
+            },
+            {
+              "id": "13778461",
+              "name": "THORY LASER DONNA MANI",
+              "duration": 5,
+              "price": {
+                "min": 25.9,
+                "max": 25.9,
+                "saleMin": 19.9,
+                "saleMax": 19.9
+              }
+            },
+            {
+              "id": "13778465",
+              "name": "THORY LASER DONNA PIEDI",
+              "duration": 5,
+              "price": {
+                "min": 25.9,
+                "max": 25.9,
+                "saleMin": 19.9,
+                "saleMax": 19.9
+              }
+            },
+            {
+              "id": "13778453",
+              "name": "THORY LASER DONNA SCHIENA ALTA",
+              "duration": 15,
+              "price": {
+                "min": 25.9,
+                "max": 25.9,
+                "saleMin": 19.9,
+                "saleMax": 19.9
+              }
+            },
+            {
+              "id": "13778454",
+              "name": "THORY LASER DONNA SCHIENA BASSA",
+              "duration": 15,
+              "price": {
+                "min": 25.9,
+                "max": 25.9,
+                "saleMin": 19.9,
+                "saleMax": 19.9
+              }
+            },
+            {
+              "id": "13778456",
+              "name": "THORY LASER DONNA SENI",
+              "duration": 10,
+              "price": {
+                "min": 25.9,
+                "max": 25.9,
+                "saleMin": 19.9,
+                "saleMax": 19.9
+              }
+            },
+            {
+              "id": "13778550",
+              "name": "THORY LASER DONNA ZIGOMI",
+              "duration": 5,
+              "price": {
+                "min": 25.9,
+                "max": 25.9,
+                "saleMin": 19.9,
+                "saleMax": 19.9
+              }
+            },
+            {
+              "id": "13778687",
+              "name": "THORY LASER UOMO ADDOME ALTO  DX",
+              "duration": 10,
+              "price": {
+                "min": 25.9,
+                "max": 25.9,
+                "saleMin": 19.9,
+                "saleMax": 19.9
+              }
+            },
+            {
+              "id": "13778688",
+              "name": "THORY LASER UOMO ADDOME ALTO  SX",
+              "duration": 10,
+              "price": {
+                "min": 25.9,
+                "max": 25.9,
+                "saleMin": 19.9,
+                "saleMax": 19.9
+              }
+            },
+            {
+              "id": "13778693",
+              "name": "THORY LASER UOMO MANI",
+              "duration": 5,
+              "price": {
+                "min": 25.9,
+                "max": 25.9,
+                "saleMin": 19.9,
+                "saleMax": 19.9
+              }
+            },
+            {
+              "id": "13778680",
+              "name": "THORY LASER UOMO SCHIENA ALTA DX",
+              "duration": 10,
+              "price": {
+                "min": 25.9,
+                "max": 25.9,
+                "saleMin": 19.9,
+                "saleMax": 19.9
+              }
+            },
+            {
+              "id": "13778681",
+              "name": "THORY LASER UOMO SCHIENA ALTA SX",
+              "duration": 10,
+              "price": {
+                "min": 25.9,
+                "max": 25.9,
+                "saleMin": 19.9,
+                "saleMax": 19.9
+              }
+            },
+            {
+              "id": "13778682",
+              "name": "THORY LASER UOMO SCHIENA BASSA DX",
+              "duration": 10,
+              "price": {
+                "min": 25.9,
+                "max": 25.9,
+                "saleMin": 19.9,
+                "saleMax": 19.9
+              }
+            },
+            {
+              "id": "13778683",
+              "name": "THORY LASER UOMO SCHIENA BASSA SX",
+              "duration": 10,
+              "price": {
+                "min": 25.9,
+                "max": 25.9,
+                "saleMin": 19.9,
+                "saleMax": 19.9
+              }
+            },
+            {
+              "id": "13778684",
+              "name": "THORY LASER UOMO SCHIENA COMPLETA",
+              "duration": 35,
+              "price": {
+                "min": 25.9,
+                "max": 25.9,
+                "saleMin": 19.9,
+                "saleMax": 19.9
+              }
+            },
+            {
+              "id": "13778685",
+              "name": "THORY LASER UOMO TORACE DX",
+              "duration": 10,
+              "price": {
+                "min": 25.9,
+                "max": 25.9,
+                "saleMin": 19.9,
+                "saleMax": 19.9
+              }
+            },
+            {
+              "id": "13778686",
+              "name": "THORY LASER UOMO TORACE SX",
+              "duration": 10,
+              "price": {
+                "min": 25.9,
+                "max": 25.9,
+                "saleMin": 19.9,
+                "saleMax": 19.9
+              }
+            },
+            {
+              "id": "13778455",
+              "name": "THORY LASER DONNA  SCHIENA COMPLETA",
+              "duration": 25,
+              "price": {
+                "min": 51.8,
+                "max": 51.8,
+                "saleMin": 39.8,
+                "saleMax": 39.8
+              }
+            },
+            {
+              "id": "13778459",
+              "name": "THORY LASER DONNA ASCELLE",
+              "duration": 10,
+              "price": {
+                "min": 51.8,
+                "max": 51.8,
+                "saleMin": 39.8,
+                "saleMax": 39.8
+              }
+            },
+            {
+              "id": "13778460",
+              "name": "THORY LASER DONNA BRACCIA",
+              "duration": 20,
+              "price": {
+                "min": 51.8,
+                "max": 51.8,
+                "saleMin": 39.8,
+                "saleMax": 39.8
+              }
+            },
+            {
+              "id": "13778463",
+              "name": "THORY LASER DONNA GAMBA 1/2 INFERIORE",
+              "duration": 20,
+              "price": {
+                "min": 51.8,
+                "max": 51.8,
+                "saleMin": 39.8,
+                "saleMax": 39.8
+              }
+            },
+            {
+              "id": "13778462",
+              "name": "THORY LASER DONNA GAMBA 1/2 SUPERIORE",
+              "duration": 25,
+              "price": {
+                "min": 51.8,
+                "max": 51.8,
+                "saleMin": 39.8,
+                "saleMax": 39.8
+              }
+            },
+            {
+              "id": "13778466",
+              "name": "THORY LASER DONNA GLUTEI",
+              "duration": 15,
+              "price": {
+                "min": 51.8,
+                "max": 51.8,
+                "saleMin": 39.8,
+                "saleMax": 39.8
+              }
+            },
+            {
+              "id": "13778458",
+              "name": "THORY LASER DONNA INGUINE",
+              "duration": 15,
+              "price": {
+                "min": 51.8,
+                "max": 51.8,
+                "saleMin": 39.8,
+                "saleMax": 39.8
+              }
+            },
+            {
+              "id": "13778690",
+              "name": "THORY LASER UOMO ASCELLE",
+              "duration": 15,
+              "price": {
+                "min": 51.8,
+                "max": 51.8,
+                "saleMin": 39.8,
+                "saleMax": 39.8
+              }
+            },
+            {
+              "id": "13778691",
+              "name": "THORY LASER UOMO AVAMBRACCI",
+              "duration": 20,
+              "price": {
+                "min": 51.8,
+                "max": 51.8,
+                "saleMin": 39.8,
+                "saleMax": 39.8
+              }
+            },
+            {
+              "id": "13778692",
+              "name": "THORY LASER UOMO BRACIA",
+              "duration": 30,
+              "price": {
+                "min": 51.8,
+                "max": 51.8,
+                "saleMin": 39.8,
+                "saleMax": 39.8
+              }
+            },
+            {
+              "id": "13778694",
+              "name": "THORY LASER UOMO GAMBA 1/2 SUPERIORE",
+              "duration": 25,
+              "price": {
+                "min": 51.8,
+                "max": 51.8,
+                "saleMin": 39.8,
+                "saleMax": 39.8
+              }
+            },
+            {
+              "id": "13778464",
+              "name": "THORY LASER DONNA GAMBA COMPLETA",
+              "duration": 40,
+              "price": {
+                "min": 103.6,
+                "max": 103.6,
+                "saleMin": 79.6,
+                "saleMax": 79.6
+              }
+            },
+            {
+              "id": "13778689",
+              "name": "THORY LASER UOMO ADDOME COMPLETO",
+              "duration": 30,
+              "price": {
+                "min": 103.6,
+                "max": 103.6,
+                "saleMin": 79.6,
+                "saleMax": 79.6
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mani",
+      "name": "Mani",
+      "sourceName": "Manicure E Trattamenti Mani",
+      "items": [
+        {
+          "id": "TR6412935",
+          "name": "Manicure",
+          "price": {
+            "min": 17.0,
+            "max": 17.0,
+            "saleMin": 17.0,
+            "saleMax": 17.0
+          },
+          "durationMin": 30,
+          "durationMax": 30,
+          "options": [
+            {
+              "id": "12217684",
+              "name": "Manicure",
+              "duration": 30,
+              "price": {
+                "min": 17.0,
+                "max": 17.0,
+                "saleMin": 17.0,
+                "saleMax": 17.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR6412931",
+          "name": "Manicure con Smalto",
+          "price": {
+            "min": 23.0,
+            "max": 23.0,
+            "saleMin": 23.0,
+            "saleMax": 23.0
+          },
+          "durationMin": 40,
+          "durationMax": 40,
+          "options": [
+            {
+              "id": "12217680",
+              "name": "Manicure con Smalto",
+              "duration": 40,
+              "price": {
+                "min": 23.0,
+                "max": 23.0,
+                "saleMin": 23.0,
+                "saleMax": 23.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR6412932",
+          "name": "Manicure Semipermanente",
+          "price": {
+            "min": 26.0,
+            "max": 26.0,
+            "saleMin": 26.0,
+            "saleMax": 26.0
+          },
+          "durationMin": 50,
+          "durationMax": 50,
+          "options": [
+            {
+              "id": "12217681",
+              "name": "Manicure Semipermanente",
+              "duration": 50,
+              "price": {
+                "min": 26.0,
+                "max": 26.0,
+                "saleMin": 26.0,
+                "saleMax": 26.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161632",
+          "name": "Rimozione Smalto Semipermanente Mani",
+          "price": {
+            "min": 5.0,
+            "max": 5.0,
+            "saleMin": 5.0,
+            "saleMax": 5.0
+          },
+          "durationMin": 15,
+          "durationMax": 15,
+          "options": [
+            {
+              "id": "13601112",
+              "name": "Rimozione Smalto Semipermanente Mani",
+              "duration": 15,
+              "price": {
+                "min": 5.0,
+                "max": 5.0,
+                "saleMin": 5.0,
+                "saleMax": 5.0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sguardo",
+      "name": "Ciglia e sopracciglia",
+      "sourceName": "Ciglia E Sopracciglia",
+      "items": [
+        {
+          "id": "TR6412972",
+          "name": "Laminazione Ciglia e Sopracciglia",
+          "price": {
+            "min": 79.0,
+            "max": 79.0,
+            "saleMin": 39.5,
+            "saleMax": 79.0
+          },
+          "durationMin": 105,
+          "durationMax": 105,
+          "options": [
+            {
+              "id": "12217752",
+              "name": "Laminazione Ciglia e Sopracciglia",
+              "duration": 105,
+              "price": {
+                "min": 79.0,
+                "max": 79.0,
+                "saleMin": 39.5,
+                "saleMax": 79.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161633",
+          "name": "Trattamento Viso Illuminante",
+          "price": {
+            "min": 79.0,
+            "max": 79.0,
+            "saleMin": 79.0,
+            "saleMax": 79.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13601113",
+              "name": "Trattamento Viso Illuminante",
+              "duration": 60,
+              "price": {
+                "min": 79.0,
+                "max": 79.0,
+                "saleMin": 79.0,
+                "saleMax": 79.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7355535",
+          "name": "Laminazione Ciglia",
+          "price": {
+            "min": 75.0,
+            "max": 75.0,
+            "saleMin": 75.0,
+            "saleMax": 75.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13961736",
+              "name": "Laminazione Ciglia",
+              "duration": 60,
+              "price": {
+                "min": 75.0,
+                "max": 75.0,
+                "saleMin": 75.0,
+                "saleMax": 75.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7355542",
+          "name": "Laminazione Sopracciglia",
+          "price": {
+            "min": 49.0,
+            "max": 49.0,
+            "saleMin": 49.0,
+            "saleMax": 49.0
+          },
+          "durationMin": 45,
+          "durationMax": 45,
+          "options": [
+            {
+              "id": "13961748",
+              "name": "Laminazione Sopracciglia",
+              "duration": 45,
+              "price": {
+                "min": 49.0,
+                "max": 49.0,
+                "saleMin": 49.0,
+                "saleMax": 49.0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piedi",
+      "name": "Piedi",
+      "sourceName": "Pedicure E Trattamenti Piedi",
+      "items": [
+        {
+          "id": "TR6412942",
+          "name": "Pedicure Estetico",
+          "price": {
+            "min": 33.0,
+            "max": 33.0,
+            "saleMin": 33.0,
+            "saleMax": 33.0
+          },
+          "durationMin": 45,
+          "durationMax": 45,
+          "options": [
+            {
+              "id": "12217711",
+              "name": "Pedicure Estetico",
+              "duration": 45,
+              "price": {
+                "min": 33.0,
+                "max": 33.0,
+                "saleMin": 33.0,
+                "saleMax": 33.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR6412950",
+          "name": "Taglio Unghie Piedi",
+          "price": {
+            "min": 17.0,
+            "max": 17.0,
+            "saleMin": 17.0,
+            "saleMax": 17.0
+          },
+          "durationMin": 15,
+          "durationMax": 15,
+          "options": [
+            {
+              "id": "12217720",
+              "name": "Taglio Unghie Piedi",
+              "duration": 15,
+              "price": {
+                "min": 17.0,
+                "max": 17.0,
+                "saleMin": 17.0,
+                "saleMax": 17.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR6412949",
+          "name": "Pedicure VIP con Scrub",
+          "price": {
+            "min": 44.0,
+            "max": 44.0,
+            "saleMin": 22.0,
+            "saleMax": 44.0
+          },
+          "durationMin": 75,
+          "durationMax": 75,
+          "options": [
+            {
+              "id": "12217719",
+              "name": "Pedicure VIP con Scrub",
+              "duration": 75,
+              "price": {
+                "min": 44.0,
+                "max": 44.0,
+                "saleMin": 22.0,
+                "saleMax": 44.0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "corpo",
+      "name": "Corpo",
+      "sourceName": "Trattamenti Corpo",
+      "items": [
+        {
+          "id": "TR6412965",
+          "name": "Scrub Corpo",
+          "price": {
+            "min": 49.0,
+            "max": 49.0,
+            "saleMin": 24.5,
+            "saleMax": 49.0
+          },
+          "durationMin": 45,
+          "durationMax": 45,
+          "options": [
+            {
+              "id": "12217739",
+              "name": "Scrub Corpo",
+              "duration": 45,
+              "price": {
+                "min": 49.0,
+                "max": 49.0,
+                "saleMin": 24.5,
+                "saleMax": 49.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161582",
+          "name": "Trattamento Corpo",
+          "price": {
+            "min": 79.0,
+            "max": 79.0,
+            "saleMin": 79.0,
+            "saleMax": 79.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13600968",
+              "name": "Trattamento Corpo",
+              "duration": 60,
+              "price": {
+                "min": 79.0,
+                "max": 79.0,
+                "saleMin": 79.0,
+                "saleMax": 79.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161583",
+          "name": "Peeling Corpo",
+          "price": {
+            "min": 69.0,
+            "max": 69.0,
+            "saleMin": 69.0,
+            "saleMax": 69.0
+          },
+          "durationMin": 50,
+          "durationMax": 50,
+          "options": [
+            {
+              "id": "13600969",
+              "name": "Peeling Corpo",
+              "duration": 50,
+              "price": {
+                "min": 69.0,
+                "max": 69.0,
+                "saleMin": 69.0,
+                "saleMax": 69.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161586",
+          "name": "Fotoringiovanimento",
+          "price": {
+            "min": 120.0,
+            "max": 120.0,
+            "saleMin": 120.0,
+            "saleMax": 120.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13600972",
+              "name": "Fotoringiovanimento",
+              "duration": 60,
+              "price": {
+                "min": 120.0,
+                "max": 120.0,
+                "saleMin": 120.0,
+                "saleMax": 120.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161587",
+          "name": "Fotobiomodulazione",
+          "price": {
+            "min": 129.0,
+            "max": 129.0,
+            "saleMin": 129.0,
+            "saleMax": 129.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13600973",
+              "name": "Fotobiomodulazione",
+              "duration": 60,
+              "price": {
+                "min": 129.0,
+                "max": 129.0,
+                "saleMin": 129.0,
+                "saleMax": 129.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161592",
+          "name": "Trattamento Elasticizzante",
+          "price": {
+            "min": 89.0,
+            "max": 89.0,
+            "saleMin": 44.5,
+            "saleMax": 89.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13600984",
+              "name": "Trattamento Elasticizzante",
+              "duration": 60,
+              "price": {
+                "min": 89.0,
+                "max": 89.0,
+                "saleMin": 44.5,
+                "saleMax": 89.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161594",
+          "name": "Infrarossi Anticellulite",
+          "price": {
+            "min": 98.0,
+            "max": 98.0,
+            "saleMin": 98.0,
+            "saleMax": 98.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13600986",
+              "name": "Infrarossi Anticellulite",
+              "duration": 60,
+              "price": {
+                "min": 98.0,
+                "max": 98.0,
+                "saleMin": 98.0,
+                "saleMax": 98.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161596",
+          "name": "Trattamento Antismagliature",
+          "price": {
+            "min": 79.0,
+            "max": 79.0,
+            "saleMin": 39.5,
+            "saleMax": 79.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13600997",
+              "name": "Trattamento Antismagliature",
+              "duration": 60,
+              "price": {
+                "min": 79.0,
+                "max": 79.0,
+                "saleMin": 39.5,
+                "saleMax": 79.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161597",
+          "name": "Trattamento Rimodellante Seno",
+          "price": {
+            "min": 78.0,
+            "max": 78.0,
+            "saleMin": 39.0,
+            "saleMax": 78.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13601001",
+              "name": "Trattamento Rimodellante Seno",
+              "duration": 60,
+              "price": {
+                "min": 78.0,
+                "max": 78.0,
+                "saleMin": 39.0,
+                "saleMax": 78.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161598",
+          "name": "Trattamento Dimagrante Slim Up",
+          "price": {
+            "min": 39.0,
+            "max": 79.0,
+            "saleMin": 19.5,
+            "saleMax": 79.0
+          },
+          "durationMin": 30,
+          "durationMax": 90,
+          "options": [
+            {
+              "id": "13601007",
+              "name": "30 minuti",
+              "duration": 30,
+              "price": {
+                "min": 39.0,
+                "max": 39.0,
+                "saleMin": 19.5,
+                "saleMax": 39.0
+              }
+            },
+            {
+              "id": "13601008",
+              "name": "45 minuti",
+              "duration": 45,
+              "price": {
+                "min": 59.0,
+                "max": 59.0,
+                "saleMin": 29.5,
+                "saleMax": 59.0
+              }
+            },
+            {
+              "id": "13601005",
+              "name": "60 minuti",
+              "duration": 60,
+              "price": {
+                "min": 69.0,
+                "max": 69.0,
+                "saleMin": 34.5,
+                "saleMax": 69.0
+              }
+            },
+            {
+              "id": "13601006",
+              "name": "90 minuti",
+              "duration": 90,
+              "price": {
+                "min": 79.0,
+                "max": 79.0,
+                "saleMin": 39.5,
+                "saleMax": 79.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161599",
+          "name": "Radiofrequenza Corpo",
+          "price": {
+            "min": 39.0,
+            "max": 69.0,
+            "saleMin": 39.0,
+            "saleMax": 69.0
+          },
+          "durationMin": 30,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13601010",
+              "name": "30 minuti",
+              "duration": 30,
+              "price": {
+                "min": 39.0,
+                "max": 39.0,
+                "saleMin": 39.0,
+                "saleMax": 39.0
+              }
+            },
+            {
+              "id": "13601011",
+              "name": "45 minuti",
+              "duration": 45,
+              "price": {
+                "min": 59.0,
+                "max": 59.0,
+                "saleMin": 59.0,
+                "saleMax": 59.0
+              }
+            },
+            {
+              "id": "13601012",
+              "name": "60 minuti",
+              "duration": 60,
+              "price": {
+                "min": 69.0,
+                "max": 69.0,
+                "saleMin": 69.0,
+                "saleMax": 69.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161600",
+          "name": "Vacuumterapia Corpo",
+          "price": {
+            "min": 89.0,
+            "max": 89.0,
+            "saleMin": 89.0,
+            "saleMax": 89.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13601013",
+              "name": "Vacuumterapia Corpo",
+              "duration": 60,
+              "price": {
+                "min": 89.0,
+                "max": 89.0,
+                "saleMin": 89.0,
+                "saleMax": 89.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161604",
+          "name": "Trattamento Dimagrante T-Shape",
+          "price": {
+            "min": 39.0,
+            "max": 89.0,
+            "saleMin": 39.0,
+            "saleMax": 89.0
+          },
+          "durationMin": 30,
+          "durationMax": 90,
+          "options": [
+            {
+              "id": "13601017",
+              "name": "30 minuti",
+              "duration": 30,
+              "price": {
+                "min": 39.0,
+                "max": 39.0,
+                "saleMin": 39.0,
+                "saleMax": 39.0
+              }
+            },
+            {
+              "id": "13601020",
+              "name": "45 minuti",
+              "duration": 45,
+              "price": {
+                "min": 59.0,
+                "max": 59.0,
+                "saleMin": 59.0,
+                "saleMax": 59.0
+              }
+            },
+            {
+              "id": "13601018",
+              "name": "60 minuti",
+              "duration": 60,
+              "price": {
+                "min": 69.0,
+                "max": 69.0,
+                "saleMin": 69.0,
+                "saleMax": 69.0
+              }
+            },
+            {
+              "id": "13601019",
+              "name": "90 minuti",
+              "duration": 90,
+              "price": {
+                "min": 89.0,
+                "max": 89.0,
+                "saleMin": 89.0,
+                "saleMax": 89.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161667",
+          "name": "Massaggio Rassodante",
+          "price": {
+            "min": 79.0,
+            "max": 79.0,
+            "saleMin": 79.0,
+            "saleMax": 79.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13601164",
+              "name": "Massaggio Rassodante",
+              "duration": 60,
+              "price": {
+                "min": 79.0,
+                "max": 79.0,
+                "saleMin": 79.0,
+                "saleMax": 79.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161682",
+          "name": "Elettrostimolazione",
+          "price": {
+            "min": 49.0,
+            "max": 49.0,
+            "saleMin": 49.0,
+            "saleMax": 49.0
+          },
+          "durationMin": 30,
+          "durationMax": 30,
+          "options": [
+            {
+              "id": "13601186",
+              "name": "Elettrostimolazione",
+              "duration": 30,
+              "price": {
+                "min": 49.0,
+                "max": 49.0,
+                "saleMin": 49.0,
+                "saleMax": 49.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161687",
+          "name": "Riducella",
+          "price": {
+            "min": 89.0,
+            "max": 89.0,
+            "saleMin": 89.0,
+            "saleMax": 89.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13601192",
+              "name": "Riducella",
+              "duration": 60,
+              "price": {
+                "min": 89.0,
+                "max": 89.0,
+                "saleMin": 89.0,
+                "saleMax": 89.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161688",
+          "name": "Scrub Corpo",
+          "price": {
+            "min": 49.0,
+            "max": 49.0,
+            "saleMin": 49.0,
+            "saleMax": 49.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13601193",
+              "name": "Scrub Corpo",
+              "duration": 60,
+              "price": {
+                "min": 49.0,
+                "max": 49.0,
+                "saleMin": 49.0,
+                "saleMax": 49.0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "massaggi",
+      "name": "Massaggi",
+      "sourceName": "Massaggi",
+      "items": [
+        {
+          "id": "TR6412966",
+          "name": "Massaggio Rilassante",
+          "price": {
+            "min": 59.0,
+            "max": 59.0,
+            "saleMin": 59.0,
+            "saleMax": 59.0
+          },
+          "durationMin": 50,
+          "durationMax": 50,
+          "options": [
+            {
+              "id": "12217740",
+              "name": "Massaggio Rilassante",
+              "duration": 50,
+              "price": {
+                "min": 59.0,
+                "max": 59.0,
+                "saleMin": 59.0,
+                "saleMax": 59.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR6412967",
+          "name": "Massaggio Linfodrenante",
+          "price": {
+            "min": 69.0,
+            "max": 69.0,
+            "saleMin": 34.5,
+            "saleMax": 69.0
+          },
+          "durationMin": 50,
+          "durationMax": 50,
+          "options": [
+            {
+              "id": "12217741",
+              "name": "Massaggio Linfodrenante",
+              "duration": 50,
+              "price": {
+                "min": 69.0,
+                "max": 69.0,
+                "saleMin": 34.5,
+                "saleMax": 69.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR6412968",
+          "name": "Massaggio Schiena o Cervicale",
+          "price": {
+            "min": 29.0,
+            "max": 29.0,
+            "saleMin": 29.0,
+            "saleMax": 29.0
+          },
+          "durationMin": 30,
+          "durationMax": 30,
+          "options": [
+            {
+              "id": "12217742",
+              "name": "Massaggio Schiena o Cervicale",
+              "duration": 30,
+              "price": {
+                "min": 29.0,
+                "max": 29.0,
+                "saleMin": 29.0,
+                "saleMax": 29.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161657",
+          "name": "Massaggio Personalizzato",
+          "price": {
+            "min": 150.0,
+            "max": 150.0,
+            "saleMin": 150.0,
+            "saleMax": 150.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13601146",
+              "name": "Massaggio Personalizzato",
+              "duration": 60,
+              "price": {
+                "min": 150.0,
+                "max": 150.0,
+                "saleMin": 150.0,
+                "saleMax": 150.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161658",
+          "name": "Massaggio Viso",
+          "price": {
+            "min": 69.0,
+            "max": 69.0,
+            "saleMin": 69.0,
+            "saleMax": 69.0
+          },
+          "durationMin": 50,
+          "durationMax": 50,
+          "options": [
+            {
+              "id": "13601147",
+              "name": "Massaggio Viso",
+              "duration": 50,
+              "price": {
+                "min": 69.0,
+                "max": 69.0,
+                "saleMin": 69.0,
+                "saleMax": 69.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161662",
+          "name": "Massaggio Connettivale",
+          "price": {
+            "min": 49.0,
+            "max": 90.0,
+            "saleMin": 49.0,
+            "saleMax": 90.0
+          },
+          "durationMin": 30,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13601151",
+              "name": "30 minuti",
+              "duration": 30,
+              "price": {
+                "min": 49.0,
+                "max": 49.0,
+                "saleMin": 49.0,
+                "saleMax": 49.0
+              }
+            },
+            {
+              "id": "13601154",
+              "name": "45 minuti",
+              "duration": 45,
+              "price": {
+                "min": 59.0,
+                "max": 59.0,
+                "saleMin": 59.0,
+                "saleMax": 59.0
+              }
+            },
+            {
+              "id": "13601153",
+              "name": "50 minuti",
+              "duration": 50,
+              "price": {
+                "min": 69.0,
+                "max": 69.0,
+                "saleMin": 69.0,
+                "saleMax": 69.0
+              }
+            },
+            {
+              "id": "13601152",
+              "name": "60 minuti",
+              "duration": 60,
+              "price": {
+                "min": 90.0,
+                "max": 90.0,
+                "saleMin": 90.0,
+                "saleMax": 90.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161663",
+          "name": "Massaggio Ayurvedico",
+          "price": {
+            "min": 68.0,
+            "max": 98.0,
+            "saleMin": 68.0,
+            "saleMax": 98.0
+          },
+          "durationMin": 30,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13601157",
+              "name": "30 minuti",
+              "duration": 30,
+              "price": {
+                "min": 68.0,
+                "max": 68.0,
+                "saleMin": 68.0,
+                "saleMax": 68.0
+              }
+            },
+            {
+              "id": "13601158",
+              "name": "45 minuti",
+              "duration": 45,
+              "price": {
+                "min": 78.0,
+                "max": 78.0,
+                "saleMin": 78.0,
+                "saleMax": 78.0
+              }
+            },
+            {
+              "id": "13601155",
+              "name": "50 minuti",
+              "duration": 50,
+              "price": {
+                "min": 88.0,
+                "max": 88.0,
+                "saleMin": 88.0,
+                "saleMax": 88.0
+              }
+            },
+            {
+              "id": "13601156",
+              "name": "60 minuti",
+              "duration": 60,
+              "price": {
+                "min": 98.0,
+                "max": 98.0,
+                "saleMin": 98.0,
+                "saleMax": 98.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161665",
+          "name": "Scrub e Massaggio",
+          "price": {
+            "min": 89.0,
+            "max": 89.0,
+            "saleMin": 89.0,
+            "saleMax": 89.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13601162",
+              "name": "Scrub e Massaggio",
+              "duration": 60,
+              "price": {
+                "min": 89.0,
+                "max": 89.0,
+                "saleMin": 89.0,
+                "saleMax": 89.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161668",
+          "name": "Massaggio Piedi",
+          "price": {
+            "min": 39.0,
+            "max": 39.0,
+            "saleMin": 39.0,
+            "saleMax": 39.0
+          },
+          "durationMin": 30,
+          "durationMax": 30,
+          "options": [
+            {
+              "id": "13601165",
+              "name": "Massaggio Piedi",
+              "duration": 30,
+              "price": {
+                "min": 39.0,
+                "max": 39.0,
+                "saleMin": 39.0,
+                "saleMax": 39.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161677",
+          "name": "Massaggio Anticellulite",
+          "price": {
+            "min": 79.0,
+            "max": 79.0,
+            "saleMin": 79.0,
+            "saleMax": 79.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13601176",
+              "name": "Massaggio Anticellulite",
+              "duration": 60,
+              "price": {
+                "min": 79.0,
+                "max": 79.0,
+                "saleMin": 79.0,
+                "saleMax": 79.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161678",
+          "name": "Massaggio Gambe e Schiena",
+          "price": {
+            "min": 49.0,
+            "max": 49.0,
+            "saleMin": 49.0,
+            "saleMax": 49.0
+          },
+          "durationMin": 30,
+          "durationMax": 30,
+          "options": [
+            {
+              "id": "13601177",
+              "name": "Massaggio Gambe e Schiena",
+              "duration": 30,
+              "price": {
+                "min": 49.0,
+                "max": 49.0,
+                "saleMin": 49.0,
+                "saleMax": 49.0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ceretta-donna",
+      "name": "Ceretta donna",
+      "sourceName": "Epilazione A Cera",
+      "items": [
+        {
+          "id": "TR6412882",
+          "name": "Epilazione a Cera Sopracciglia",
+          "price": {
+            "min": 9.0,
+            "max": 9.0,
+            "saleMin": 9.0,
+            "saleMax": 9.0
+          },
+          "durationMin": 15,
+          "durationMax": 15,
+          "options": [
+            {
+              "id": "12217583",
+              "name": "Epilazione a Cera Sopracciglia",
+              "duration": 15,
+              "price": {
+                "min": 9.0,
+                "max": 9.0,
+                "saleMin": 9.0,
+                "saleMax": 9.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR6412881",
+          "name": "Epilazione a Cera Labbro Superiore",
+          "price": {
+            "min": 5.0,
+            "max": 5.0,
+            "saleMin": 5.0,
+            "saleMax": 5.0
+          },
+          "durationMin": 15,
+          "durationMax": 15,
+          "options": [
+            {
+              "id": "12217582",
+              "name": "Epilazione a Cera Labbro Superiore",
+              "duration": 15,
+              "price": {
+                "min": 5.0,
+                "max": 5.0,
+                "saleMin": 5.0,
+                "saleMax": 5.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR6412883",
+          "name": "Epilazione a Cera Mento",
+          "price": {
+            "min": 4.0,
+            "max": 4.0,
+            "saleMin": 4.0,
+            "saleMax": 4.0
+          },
+          "durationMin": 15,
+          "durationMax": 15,
+          "options": [
+            {
+              "id": "12217584",
+              "name": "Epilazione a Cera Mento",
+              "duration": 15,
+              "price": {
+                "min": 4.0,
+                "max": 4.0,
+                "saleMin": 4.0,
+                "saleMax": 4.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR6412885",
+          "name": "Epilazione a Cera Basette",
+          "price": {
+            "min": 5.0,
+            "max": 5.0,
+            "saleMin": 5.0,
+            "saleMax": 5.0
+          },
+          "durationMin": 15,
+          "durationMax": 15,
+          "options": [
+            {
+              "id": "12217586",
+              "name": "Epilazione a Cera Basette",
+              "duration": 15,
+              "price": {
+                "min": 5.0,
+                "max": 5.0,
+                "saleMin": 5.0,
+                "saleMax": 5.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR6412886",
+          "name": "Epilazione a Cera Ascelle",
+          "price": {
+            "min": 9.0,
+            "max": 9.0,
+            "saleMin": 9.0,
+            "saleMax": 9.0
+          },
+          "durationMin": 15,
+          "durationMax": 15,
+          "options": [
+            {
+              "id": "12217587",
+              "name": "Epilazione a Cera Ascelle",
+              "duration": 15,
+              "price": {
+                "min": 9.0,
+                "max": 9.0,
+                "saleMin": 9.0,
+                "saleMax": 9.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR6412888",
+          "name": "Epilazione a Cera Braccia",
+          "price": {
+            "min": 15.0,
+            "max": 15.0,
+            "saleMin": 15.0,
+            "saleMax": 15.0
+          },
+          "durationMin": 15,
+          "durationMax": 15,
+          "options": [
+            {
+              "id": "12217590",
+              "name": "Epilazione a Cera Braccia",
+              "duration": 15,
+              "price": {
+                "min": 15.0,
+                "max": 15.0,
+                "saleMin": 15.0,
+                "saleMax": 15.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR6412889",
+          "name": "Epilazione a Cera Addome",
+          "price": {
+            "min": 11.0,
+            "max": 11.0,
+            "saleMin": 11.0,
+            "saleMax": 11.0
+          },
+          "durationMin": 15,
+          "durationMax": 15,
+          "options": [
+            {
+              "id": "12217592",
+              "name": "Epilazione a Cera Addome",
+              "duration": 15,
+              "price": {
+                "min": 11.0,
+                "max": 11.0,
+                "saleMin": 11.0,
+                "saleMax": 11.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR6412890",
+          "name": "Epilazione a Cera Inguine",
+          "price": {
+            "min": 15.0,
+            "max": 18.0,
+            "saleMin": 15.0,
+            "saleMax": 18.0
+          },
+          "durationMin": 15,
+          "durationMax": 15,
+          "options": [
+            {
+              "id": "12217594",
+              "name": "Parziale",
+              "duration": 15,
+              "price": {
+                "min": 15.0,
+                "max": 15.0,
+                "saleMin": 15.0,
+                "saleMax": 15.0
+              }
+            },
+            {
+              "id": "12217595",
+              "name": "Totale",
+              "duration": 15,
+              "price": {
+                "min": 18.0,
+                "max": 18.0,
+                "saleMin": 18.0,
+                "saleMax": 18.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR6412894",
+          "name": "Epilazione a Cera Gambe",
+          "price": {
+            "min": 16.0,
+            "max": 25.0,
+            "saleMin": 16.0,
+            "saleMax": 25.0
+          },
+          "durationMin": 30,
+          "durationMax": 40,
+          "options": [
+            {
+              "id": "12217599",
+              "name": "Mezza Gamba",
+              "duration": 30,
+              "price": {
+                "min": 16.0,
+                "max": 16.0,
+                "saleMin": 16.0,
+                "saleMax": 16.0
+              }
+            },
+            {
+              "id": "12217600",
+              "name": "Gamba Completa",
+              "duration": 40,
+              "price": {
+                "min": 25.0,
+                "max": 25.0,
+                "saleMin": 25.0,
+                "saleMax": 25.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR6412896",
+          "name": "Epilazione a Cera Total Body",
+          "price": {
+            "min": 79.0,
+            "max": 79.0,
+            "saleMin": 79.0,
+            "saleMax": 79.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "12217602",
+              "name": "Epilazione a Cera Total Body",
+              "duration": 60,
+              "price": {
+                "min": 79.0,
+                "max": 79.0,
+                "saleMin": 79.0,
+                "saleMax": 79.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161607",
+          "name": "Epilazione a Cera Brasiliana Viso",
+          "price": {
+            "min": 8.0,
+            "max": 22.0,
+            "saleMin": 8.0,
+            "saleMax": 22.0
+          },
+          "durationMin": 5,
+          "durationMax": 20,
+          "options": [
+            {
+              "id": "13601025",
+              "name": "Mento",
+              "duration": 5,
+              "price": {
+                "min": 8.0,
+                "max": 8.0,
+                "saleMin": 8.0,
+                "saleMax": 8.0
+              }
+            },
+            {
+              "id": "13601028",
+              "name": "Basette",
+              "duration": 5,
+              "price": {
+                "min": 9.0,
+                "max": 9.0,
+                "saleMin": 9.0,
+                "saleMax": 9.0
+              }
+            },
+            {
+              "id": "13601029",
+              "name": "Labbro Superiore",
+              "duration": 5,
+              "price": {
+                "min": 10.0,
+                "max": 10.0,
+                "saleMin": 10.0,
+                "saleMax": 10.0
+              }
+            },
+            {
+              "id": "13601027",
+              "name": "Sopracciglia",
+              "duration": 10,
+              "price": {
+                "min": 10.0,
+                "max": 10.0,
+                "saleMin": 10.0,
+                "saleMax": 10.0
+              }
+            },
+            {
+              "id": "13601026",
+              "name": "Zigomi",
+              "duration": 10,
+              "price": {
+                "min": 10.0,
+                "max": 10.0,
+                "saleMin": 10.0,
+                "saleMax": 10.0
+              }
+            },
+            {
+              "id": "13601030",
+              "name": "Viso Completo",
+              "duration": 20,
+              "price": {
+                "min": 22.0,
+                "max": 22.0,
+                "saleMin": 22.0,
+                "saleMax": 22.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161609",
+          "name": "Epilazione a Cera Brasiliana Braccia",
+          "price": {
+            "min": 15.0,
+            "max": 45.0,
+            "saleMin": 15.0,
+            "saleMax": 45.0
+          },
+          "durationMin": 15,
+          "durationMax": 30,
+          "options": [
+            {
+              "id": "13601035",
+              "name": "Mezze Braccia",
+              "duration": 15,
+              "price": {
+                "min": 15.0,
+                "max": 15.0,
+                "saleMin": 15.0,
+                "saleMax": 15.0
+              }
+            },
+            {
+              "id": "13601034",
+              "name": "Braccia Intere",
+              "duration": 20,
+              "price": {
+                "min": 30.0,
+                "max": 30.0,
+                "saleMin": 30.0,
+                "saleMax": 30.0
+              }
+            },
+            {
+              "id": "13601036",
+              "name": "Braccia e Ascelle",
+              "duration": 30,
+              "price": {
+                "min": 45.0,
+                "max": 45.0,
+                "saleMin": 45.0,
+                "saleMax": 45.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161612",
+          "name": "EPILAZIONE CERA BRASILIANA PETTO",
+          "price": {
+            "min": 35.0,
+            "max": 35.0,
+            "saleMin": 35.0,
+            "saleMax": 35.0
+          },
+          "durationMin": 30,
+          "durationMax": 30,
+          "options": [
+            {
+              "id": "13778217",
+              "name": "EPILAZIONE CERA BRASILIANA PETTO",
+              "duration": 30,
+              "price": {
+                "min": 35.0,
+                "max": 35.0,
+                "saleMin": 35.0,
+                "saleMax": 35.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161615",
+          "name": "Epilazione a Cera Brasiliana Gambe e Inguine",
+          "price": {
+            "min": 42.0,
+            "max": 68.0,
+            "saleMin": 42.0,
+            "saleMax": 68.0
+          },
+          "durationMin": 30,
+          "durationMax": 30,
+          "options": [
+            {
+              "id": "13601056",
+              "name": "Mezza Gamba e Inguine Parziale",
+              "duration": 30,
+              "price": {
+                "min": 42.0,
+                "max": 42.0,
+                "saleMin": 42.0,
+                "saleMax": 42.0
+              }
+            },
+            {
+              "id": "13601055",
+              "name": "Mezza Gamba e Inguine Totale",
+              "duration": 30,
+              "price": {
+                "min": 48.0,
+                "max": 48.0,
+                "saleMin": 48.0,
+                "saleMax": 48.0
+              }
+            },
+            {
+              "id": "13601057",
+              "name": "Gambe Completa e Inguine Parziale",
+              "duration": 30,
+              "price": {
+                "min": 62.0,
+                "max": 62.0,
+                "saleMin": 62.0,
+                "saleMax": 62.0
+              }
+            },
+            {
+              "id": "13601054",
+              "name": "Gamba Completa e Inguine Totale",
+              "duration": 30,
+              "price": {
+                "min": 68.0,
+                "max": 68.0,
+                "saleMin": 68.0,
+                "saleMax": 68.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161617",
+          "name": "Epilazione a Cera Brasiliana Gambe",
+          "price": {
+            "min": 20.0,
+            "max": 40.0,
+            "saleMin": 20.0,
+            "saleMax": 40.0
+          },
+          "durationMin": 15,
+          "durationMax": 30,
+          "options": [
+            {
+              "id": "13601059",
+              "name": "Mezza Gamba",
+              "duration": 20,
+              "price": {
+                "min": 20.0,
+                "max": 20.0,
+                "saleMin": 20.0,
+                "saleMax": 20.0
+              }
+            },
+            {
+              "id": "13601060",
+              "name": "Cosce",
+              "duration": 15,
+              "price": {
+                "min": 25.0,
+                "max": 25.0,
+                "saleMin": 25.0,
+                "saleMax": 25.0
+              }
+            },
+            {
+              "id": "13601061",
+              "name": "Gamba Intera",
+              "duration": 30,
+              "price": {
+                "min": 40.0,
+                "max": 40.0,
+                "saleMin": 40.0,
+                "saleMax": 40.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161621",
+          "name": "Epilazione a Cera Brasiliana Corpo",
+          "price": {
+            "min": 10.0,
+            "max": 305.0,
+            "saleMin": 10.0,
+            "saleMax": 305.0
+          },
+          "durationMin": 10,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13601084",
+              "name": "Linea Alba",
+              "duration": 10,
+              "price": {
+                "min": 10.0,
+                "max": 10.0,
+                "saleMin": 10.0,
+                "saleMax": 10.0
+              }
+            },
+            {
+              "id": "13601078",
+              "name": "Mani",
+              "duration": 10,
+              "price": {
+                "min": 10.0,
+                "max": 10.0,
+                "saleMin": 10.0,
+                "saleMax": 10.0
+              }
+            },
+            {
+              "id": "13601073",
+              "name": "Piedi",
+              "duration": 10,
+              "price": {
+                "min": 10.0,
+                "max": 10.0,
+                "saleMin": 10.0,
+                "saleMax": 10.0
+              }
+            },
+            {
+              "id": "13601079",
+              "name": "Petto",
+              "duration": 20,
+              "price": {
+                "min": 12.0,
+                "max": 12.0,
+                "saleMin": 12.0,
+                "saleMax": 12.0
+              }
+            },
+            {
+              "id": "13601076",
+              "name": "Ascelle",
+              "duration": 10,
+              "price": {
+                "min": 15.0,
+                "max": 15.0,
+                "saleMin": 15.0,
+                "saleMax": 15.0
+              }
+            },
+            {
+              "id": "13601091",
+              "name": "Glutei",
+              "duration": 20,
+              "price": {
+                "min": 15.0,
+                "max": 15.0,
+                "saleMin": 15.0,
+                "saleMax": 15.0
+              }
+            },
+            {
+              "id": "13601085",
+              "name": "Spalle",
+              "duration": 20,
+              "price": {
+                "min": 15.0,
+                "max": 15.0,
+                "saleMin": 15.0,
+                "saleMax": 15.0
+              }
+            },
+            {
+              "id": "13601087",
+              "name": "Inguine",
+              "duration": 15,
+              "price": {
+                "min": 17.0,
+                "max": 17.0,
+                "saleMin": 17.0,
+                "saleMax": 17.0
+              }
+            },
+            {
+              "id": "13601088",
+              "name": "Addome",
+              "duration": 20,
+              "price": {
+                "min": 20.0,
+                "max": 20.0,
+                "saleMin": 20.0,
+                "saleMax": 20.0
+              }
+            },
+            {
+              "id": "13601081",
+              "name": "Mezza Gamba",
+              "duration": 20,
+              "price": {
+                "min": 20.0,
+                "max": 20.0,
+                "saleMin": 20.0,
+                "saleMax": 20.0
+              }
+            },
+            {
+              "id": "13601082",
+              "name": "Inguine Parziale",
+              "duration": 15,
+              "price": {
+                "min": 22.0,
+                "max": 22.0,
+                "saleMin": 22.0,
+                "saleMax": 22.0
+              }
+            },
+            {
+              "id": "13601077",
+              "name": "Schiena Parziale",
+              "duration": 20,
+              "price": {
+                "min": 25.0,
+                "max": 25.0,
+                "saleMin": 25.0,
+                "saleMax": 25.0
+              }
+            },
+            {
+              "id": "13601080",
+              "name": "Inguine Totale",
+              "duration": 15,
+              "price": {
+                "min": 28.0,
+                "max": 28.0,
+                "saleMin": 28.0,
+                "saleMax": 28.0
+              }
+            },
+            {
+              "id": "13601083",
+              "name": "Zona Lombare",
+              "duration": 20,
+              "price": {
+                "min": 29.0,
+                "max": 29.0,
+                "saleMin": 29.0,
+                "saleMax": 29.0
+              }
+            },
+            {
+              "id": "13601089",
+              "name": "Braccia",
+              "duration": 15,
+              "price": {
+                "min": 30.0,
+                "max": 30.0,
+                "saleMin": 30.0,
+                "saleMax": 30.0
+              }
+            },
+            {
+              "id": "13601086",
+              "name": "Schiena Totale",
+              "duration": 20,
+              "price": {
+                "min": 30.0,
+                "max": 30.0,
+                "saleMin": 30.0,
+                "saleMax": 30.0
+              }
+            },
+            {
+              "id": "13601075",
+              "name": "Gamba Intera",
+              "duration": 30,
+              "price": {
+                "min": 40.0,
+                "max": 40.0,
+                "saleMin": 40.0,
+                "saleMax": 40.0
+              }
+            },
+            {
+              "id": "13601074",
+              "name": "Total Body",
+              "duration": 60,
+              "price": {
+                "min": 200.0,
+                "max": 200.0,
+                "saleMin": 200.0,
+                "saleMax": 200.0
+              }
+            },
+            {
+              "id": "13601090",
+              "name": "Totale",
+              "duration": 60,
+              "price": {
+                "min": 305.0,
+                "max": 305.0,
+                "saleMin": 305.0,
+                "saleMax": 305.0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ceretta-uomo",
+      "name": "Ceretta uomo",
+      "sourceName": "Epilazione A Cera Uomo",
+      "items": [
+        {
+          "id": "TR6412899",
+          "name": "Epilazione a Cera Sopracciglia Uomo",
+          "price": {
+            "min": 9.0,
+            "max": 9.0,
+            "saleMin": 9.0,
+            "saleMax": 9.0
+          },
+          "durationMin": 15,
+          "durationMax": 15,
+          "options": [
+            {
+              "id": "12217606",
+              "name": "Epilazione a Cera Sopracciglia Uomo",
+              "duration": 15,
+              "price": {
+                "min": 9.0,
+                "max": 9.0,
+                "saleMin": 9.0,
+                "saleMax": 9.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR6412901",
+          "name": "Epilazione a Cera Braccia Uomo",
+          "price": {
+            "min": 16.0,
+            "max": 16.0,
+            "saleMin": 16.0,
+            "saleMax": 16.0
+          },
+          "durationMin": 15,
+          "durationMax": 15,
+          "options": [
+            {
+              "id": "12217608",
+              "name": "Epilazione a Cera Braccia Uomo",
+              "duration": 15,
+              "price": {
+                "min": 16.0,
+                "max": 16.0,
+                "saleMin": 16.0,
+                "saleMax": 16.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR6412902",
+          "name": "Epilazione a Cera Ascelle Uomo",
+          "price": {
+            "min": 10.0,
+            "max": 10.0,
+            "saleMin": 10.0,
+            "saleMax": 10.0
+          },
+          "durationMin": 15,
+          "durationMax": 15,
+          "options": [
+            {
+              "id": "12217609",
+              "name": "Epilazione a Cera Ascelle Uomo",
+              "duration": 15,
+              "price": {
+                "min": 10.0,
+                "max": 10.0,
+                "saleMin": 10.0,
+                "saleMax": 10.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR6412904",
+          "name": "Epilazione a Cera Petto e Addome Uomo",
+          "price": {
+            "min": 25.0,
+            "max": 25.0,
+            "saleMin": 25.0,
+            "saleMax": 25.0
+          },
+          "durationMin": 30,
+          "durationMax": 30,
+          "options": [
+            {
+              "id": "12217611",
+              "name": "Epilazione a Cera Petto e Addome Uomo",
+              "duration": 30,
+              "price": {
+                "min": 25.0,
+                "max": 25.0,
+                "saleMin": 25.0,
+                "saleMax": 25.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR6412910",
+          "name": "Epilazione a Cera Schiena Uomo",
+          "price": {
+            "min": 19.0,
+            "max": 19.0,
+            "saleMin": 19.0,
+            "saleMax": 19.0
+          },
+          "durationMin": 30,
+          "durationMax": 30,
+          "options": [
+            {
+              "id": "12217628",
+              "name": "Epilazione a Cera Schiena Uomo",
+              "duration": 30,
+              "price": {
+                "min": 19.0,
+                "max": 19.0,
+                "saleMin": 19.0,
+                "saleMax": 19.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR6412914",
+          "name": "Epilazione a Cera Gamba Completa Uomo",
+          "price": {
+            "min": 27.0,
+            "max": 27.0,
+            "saleMin": 27.0,
+            "saleMax": 27.0
+          },
+          "durationMin": 30,
+          "durationMax": 30,
+          "options": [
+            {
+              "id": "12217635",
+              "name": "Epilazione a Cera Gamba Completa Uomo",
+              "duration": 30,
+              "price": {
+                "min": 27.0,
+                "max": 27.0,
+                "saleMin": 27.0,
+                "saleMax": 27.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR6412915",
+          "name": "Epilazione a Cera Total Body Uomo",
+          "price": {
+            "min": 98.0,
+            "max": 98.0,
+            "saleMin": 98.0,
+            "saleMax": 98.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "12217637",
+              "name": "Epilazione a Cera Total Body Uomo",
+              "duration": 60,
+              "price": {
+                "min": 98.0,
+                "max": 98.0,
+                "saleMin": 98.0,
+                "saleMax": 98.0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pressoterapia",
+      "name": "Pressoterapia e linfodrenaggio",
+      "sourceName": "Pressoterapia E Linfodrenaggio",
+      "items": [
+        {
+          "id": "TR6498883",
+          "name": "Pressoterapia",
+          "price": {
+            "min": 33.0,
+            "max": 50.0,
+            "saleMin": 16.5,
+            "saleMax": 35.0
+          },
+          "durationMin": 30,
+          "durationMax": 45,
+          "options": [
+            {
+              "id": "12362077",
+              "name": "30 minuti",
+              "duration": 30,
+              "price": {
+                "min": 33.0,
+                "max": 33.0,
+                "saleMin": 16.5,
+                "saleMax": 33.0
+              }
+            },
+            {
+              "id": "12362078",
+              "name": "45 minuti",
+              "duration": 45,
+              "price": {
+                "min": 50.0,
+                "max": 50.0,
+                "saleMin": 25.0,
+                "saleMax": 35.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161625",
+          "name": "Pressoterapia Occhi",
+          "price": {
+            "min": 39.0,
+            "max": 39.0,
+            "saleMin": 39.0,
+            "saleMax": 39.0
+          },
+          "durationMin": 30,
+          "durationMax": 30,
+          "options": [
+            {
+              "id": "13601099",
+              "name": "Pressoterapia Occhi",
+              "duration": 30,
+              "price": {
+                "min": 39.0,
+                "max": 39.0,
+                "saleMin": 39.0,
+                "saleMax": 39.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "TR7161629",
+          "name": "Pressoterapia e Bendaggi",
+          "price": {
+            "min": 69.0,
+            "max": 69.0,
+            "saleMin": 69.0,
+            "saleMax": 69.0
+          },
+          "durationMin": 60,
+          "durationMax": 60,
+          "options": [
+            {
+              "id": "13601105",
+              "name": "Pressoterapia e Bendaggi",
+              "duration": 60,
+              "price": {
+                "min": 69.0,
+                "max": 69.0,
+                "saleMin": 69.0,
+                "saleMax": 69.0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

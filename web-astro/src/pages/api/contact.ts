@@ -1,4 +1,5 @@
 import type { APIRoute } from "astro";
+import { bookingChoices, menu, priceRange } from "@/lib/treatment-catalog";
 import { siteConfig } from "@/lib/site-config";
 
 // Endpoint must run server-side (Vercel function), not at build time.
@@ -13,6 +14,10 @@ type ContactPayload = {
   ritual?: string;
   source?: string;
   website?: string;
+  selection?: string;
+  variant?: string;
+  preferredDate?: string;
+  preferredTime?: string;
 };
 
 const ritualLabels: Record<string, string> = {
@@ -34,6 +39,7 @@ const sourceLabels: Record<string, string> = {
   "mappa-rebel": "Mappa REBEL · Orientamento online",
   percorso: "Pagina percorso REBEL",
   contatti: "Pagina contatti",
+  listino: "Catalogo trattamenti e prezzi",
 };
 
 const required = (value?: string) =>
@@ -46,47 +52,97 @@ const json = (data: unknown, status = 200) =>
   });
 
 const html = (title: string, message: string, status = 200) =>
-  new Response(`<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${title} · REBEL</title><style>body{margin:0;min-height:100svh;display:grid;place-items:center;padding:24px;background:#f8f3ed;color:#291637;font-family:system-ui,sans-serif}.card{max-width:620px;padding:clamp(28px,7vw,64px);border:1px solid #dfd3df;border-radius:28px;background:#fff;box-shadow:0 28px 80px #321b4317}small{color:#b61f64;font-weight:800;letter-spacing:.12em;text-transform:uppercase}h1{font-size:clamp(2.4rem,9vw,5rem);line-height:.9;letter-spacing:-.06em}p{font-size:1.05rem;line-height:1.65}a{display:inline-flex;margin-top:12px;padding:14px 18px;border-radius:999px;background:#321b43;color:#fff;font-weight:800;text-decoration:none}</style></head><body><main class="card"><small>REBEL · Carmagnola</small><h1>${title}</h1><p>${message}</p><a href="/contatti">Torna ai contatti</a></main></body></html>`, {
-    status,
-    headers: { "content-type": "text/html; charset=utf-8" },
-  });
+  new Response(
+    `<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${title} · REBEL</title><style>body{margin:0;min-height:100svh;display:grid;place-items:center;padding:24px;background:#f8f3ed;color:#291637;font-family:system-ui,sans-serif}.card{max-width:620px;padding:clamp(28px,7vw,64px);border:1px solid #dfd3df;border-radius:28px;background:#fff;box-shadow:0 28px 80px #321b4317}small{color:#b61f64;font-weight:800;letter-spacing:.12em;text-transform:uppercase}h1{font-size:clamp(2.4rem,9vw,5rem);line-height:.9;letter-spacing:-.06em}p{font-size:1.05rem;line-height:1.65}a{display:inline-flex;margin-top:12px;padding:14px 18px;border-radius:999px;background:#321b43;color:#fff;font-weight:800;text-decoration:none}</style></head><body><main class="card"><small>REBEL · Carmagnola</small><h1>${title}</h1><p>${message}</p><a href="/contatti">Torna ai contatti</a></main></body></html>`,
+    {
+      status,
+      headers: { "content-type": "text/html; charset=utf-8" },
+    },
+  );
 
 export const POST: APIRoute = async ({ request }) => {
   let payload: ContactPayload;
-  const isJson = request.headers.get("content-type")?.includes("application/json") ?? false;
+  const isJson =
+    request.headers.get("content-type")?.includes("application/json") ?? false;
   try {
     if (isJson) {
       payload = (await request.json()) as ContactPayload;
     } else {
       const form = await request.formData();
       payload = Object.fromEntries(
-        [...form.entries()].map(([key, value]) => [key, typeof value === "string" ? value : ""]),
+        [...form.entries()].map(([key, value]) => [
+          key,
+          typeof value === "string" ? value : "",
+        ]),
       ) as ContactPayload;
     }
   } catch {
     return isJson
       ? json({ ok: false, message: "Dati non validi. Riprova." }, 400)
-      : html("Dati non validi", "Torna al modulo e controlla i campi prima di riprovare.", 400);
+      : html(
+          "Dati non validi",
+          "Torna al modulo e controlla i campi prima di riprovare.",
+          400,
+        );
   }
 
   // Honeypot — silently accept and discard bots.
   if (payload.website && payload.website.trim().length > 0) {
     return isJson
       ? json({ ok: true, message: "Messaggio ricevuto." })
-      : html("Richiesta ricevuta", "Grazie. Ti ricontatteremo negli orari di apertura.");
+      : html(
+          "Richiesta ricevuta",
+          "Grazie. Ti ricontatteremo negli orari di apertura.",
+        );
   }
 
   // Email and message are not required on landing forms (we ask for the bare
   // minimum to maximise conversion). Name + phone are always mandatory.
   if (!required(payload.name) || !required(payload.phone)) {
     return isJson
-      ? json({ ok: false, message: "Compila almeno nome e telefono prima di inviare." }, 400)
-      : html("Mancano alcuni dati", "Compila almeno nome e telefono prima di inviare.", 400);
+      ? json(
+          {
+            ok: false,
+            message: "Compila almeno nome e telefono prima di inviare.",
+          },
+          400,
+        )
+      : html(
+          "Mancano alcuni dati",
+          "Compila almeno nome e telefono prima di inviare.",
+          400,
+        );
   }
 
+  // Preserve the selected treatment for the native form submission as well.
+  if (!isJson) {
+    const choice = bookingChoices.find((c) => c.id === payload.selection);
+    const item = menu.categories
+      .flatMap((c) => c.items)
+      .find((i) => i.id === payload.selection);
+    const option = item?.options.find((o) => o.id === payload.variant);
+    const date = /^\d{4}-\d{2}-\d{2}$/.test(payload.preferredDate ?? "")
+      ? payload.preferredDate
+      : "";
+    const time = /^\d{2}:\d{2}$/.test(payload.preferredTime ?? "")
+      ? payload.preferredTime
+      : "";
+    payload.message = [
+      choice ? `Mi interessa: ${choice.label}.` : "",
+      option ? `Variante: ${option.name} · ${priceRange(option.price)}.` : "",
+      date ? `Giorno desiderato: ${date}.` : "",
+      time ? `Orario preferito: ${time}.` : "",
+      payload.message ?? "",
+    ]
+      .filter(Boolean)
+      .join("\n");
+  }
   const recipient = import.meta.env.CONTACT_GMAIL_TO || siteConfig.email;
   const sourceKey = payload.source?.trim() ?? "";
-  const sourceLine = sourceKey && sourceLabels[sourceKey] ? sourceLabels[sourceKey] : "Pagina contatti";
+  const sourceLine =
+    sourceKey && sourceLabels[sourceKey]
+      ? sourceLabels[sourceKey]
+      : "Pagina contatti";
   const subject = `${sourceLine} — ${payload.name?.trim()}`;
   const city = payload.city?.trim() ? `\nCittà: ${payload.city.trim()}` : "";
   const email = payload.email?.trim() ? `\nEmail: ${payload.email.trim()}` : "";
@@ -117,18 +173,49 @@ Telefono / WhatsApp: ${payload.phone?.trim()}${city}${ritualLine}${messageLine}`
       }),
     });
 
-    if (!upstream.ok) {
+    const upstreamResult = (await upstream.json().catch(() => null)) as {
+      success?: boolean | string;
+    } | null;
+    if (
+      !upstream.ok ||
+      (upstreamResult?.success !== true && upstreamResult?.success !== "true")
+    ) {
       return isJson
-        ? json({ ok: false, message: "Invio non riuscito. Puoi scriverci direttamente su WhatsApp." }, 502)
-        : html("Invio non riuscito", "Scrivici su WhatsApp: ti rispondiamo durante gli orari di apertura.", 502);
+        ? json(
+            {
+              ok: false,
+              message:
+                "Invio non riuscito. Puoi scriverci direttamente su WhatsApp.",
+            },
+            502,
+          )
+        : html(
+            "Invio non riuscito",
+            "Scrivici su WhatsApp: ti rispondiamo durante gli orari di apertura.",
+            502,
+          );
     }
 
     return isJson
       ? json({ ok: true, message: "Messaggio inviato correttamente." })
-      : html("Richiesta ricevuta", "Grazie. Ti ricontatteremo negli orari di apertura.");
+      : html(
+          "Richiesta ricevuta",
+          "Grazie. Ti ricontatteremo negli orari di apertura.",
+        );
   } catch {
     return isJson
-      ? json({ ok: false, message: "Connessione momentaneamente instabile. Prova tra poco o scrivici su WhatsApp." }, 500)
-      : html("Connessione instabile", "Prova tra poco oppure scrivici direttamente su WhatsApp.", 500);
+      ? json(
+          {
+            ok: false,
+            message:
+              "Connessione momentaneamente instabile. Prova tra poco o scrivici su WhatsApp.",
+          },
+          500,
+        )
+      : html(
+          "Connessione instabile",
+          "Prova tra poco oppure scrivici direttamente su WhatsApp.",
+          500,
+        );
   }
 };
