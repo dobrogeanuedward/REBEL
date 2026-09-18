@@ -1,5 +1,7 @@
 .treatment-menu {
   --catalog-ink: #2b1739;
+  /* Keep global strong text, including all catalog prices, readable on light cards. */
+  --text-strong: var(--catalog-ink);
   --catalog-muted: #6e5f75;
   --catalog-line: #e4dbe8;
   background: #fbf9fc;
