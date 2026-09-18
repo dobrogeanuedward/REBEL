@@ -57,9 +57,7 @@ const modeLabels: Record<string, string> = {
 
 export default function ContactForm() {
   const [form, setForm] = useState<FormState>(initial);
-  const [status, setStatus] = useState<"idle" | "loading" | "ok" | "error">(
-    "idle",
-  );
+  const [isReady, setIsReady] = useState(false);
   const [feedback, setFeedback] = useState("");
   const [selected, setSelected] = useState("valutazione");
   const [variant, setVariant] = useState("");
@@ -70,34 +68,46 @@ export default function ContactForm() {
   const treatment = menu.categories
     .flatMap((c) => c.items)
     .find((i) => i.id === selected);
-  const option = treatment?.options.find((o) => o.id === variant);
+  const option =
+    treatment?.options.find((o) => o.id === variant) ??
+    (treatment?.options.length === 1 ? treatment.options[0] : undefined);
   const requestMessage = [
     `Mi interessa: ${choice?.label ?? "un consiglio REBEL"}.`,
     option
       ? `Variante: ${option.name} · ${priceRange(option.price)} · ${option.duration} min.`
+      : choice?.price
+        ? `Prezzo di riferimento: ${choice.price}.`
+        : "",
+    treatment && treatment.options.length > 1 && !option
+      ? "Variante: da concordare insieme."
       : "",
     preferredDate
       ? `Giorno desiderato: ${preferredDate.split("-").reverse().join("/")}.`
       : "",
     preferredTime ? `Orario preferito: ${preferredTime}.` : "",
-    form.message,
+    form.message.trim() ? `Dettagli: ${form.message.trim()}` : "",
   ]
     .filter(Boolean)
     .join("\n");
   const whatsappMessage = [
     "Ciao REBEL!",
-    form.name ? `Sono ${form.name}.` : "",
+    form.name.trim() ? `Sono ${form.name.trim()}.` : "",
+    form.phone.trim() ? `Telefono / WhatsApp: ${form.phone.trim()}` : "",
+    form.email.trim() ? `Email: ${form.email.trim()}` : "",
+    form.city.trim() ? `Città: ${form.city.trim()}` : "",
     requestMessage,
     "Attendo conferma della disponibilità.",
   ]
     .filter(Boolean)
     .join("\n");
-  const whatsappUrl = `https://wa.me/${siteConfig.phoneRaw.replace(/\D/g, "")}?text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappBaseUrl = `https://wa.me/${siteConfig.phoneRaw.replace(/\D/g, "")}`;
+  const whatsappUrl = `${whatsappBaseUrl}?text=${encodeURIComponent(whatsappMessage)}`;
 
   // Whitelisted deep links let the Mappa and journey pages carry context
   // without accepting arbitrary query-string content into the message.
   useEffect(() => {
     if (typeof window === "undefined") return;
+    setIsReady(true);
     const params = new URLSearchParams(window.location.search);
     setToday(
       new Intl.DateTimeFormat("sv-SE", {
@@ -159,48 +169,30 @@ export default function ContactForm() {
     }
   }, []);
 
-  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus("loading");
-    setFeedback("");
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, message: requestMessage }),
-      });
-      const data = (await res.json().catch(() => ({}))) as {
-        ok?: boolean;
-        message?: string;
-      };
-      if (!res.ok || !data.ok) {
-        throw new Error(data.message || "Errore durante l'invio.");
-      }
-      setStatus("ok");
-      setFeedback(
-        "Richiesta ricevuta. Ti contattiamo per concordare un orario disponibile.",
-      );
-      setForm(initial);
-      setPreferredDate("");
-      setPreferredTime("");
-    } catch (err) {
-      setStatus("error");
-      setFeedback(
-        err instanceof Error ? err.message : "Si è verificato un errore.",
-      );
-    }
+    if (!isReady || form.website || !e.currentTarget.reportValidity()) return;
+
+    // Open synchronously from the user's submit gesture, without an API request.
+    // Keep the form intact: only the customer can confirm sending in WhatsApp.
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    setFeedback(
+      "Il messaggio è pronto: controllalo e premi Invia su WhatsApp. L’appuntamento sarà confermato dallo studio.",
+    );
   };
 
   return (
     <form
       className="form"
-      action="/api/contact"
-      method="post"
+      action={whatsappBaseUrl}
+      method="get"
+      target="_blank"
+      rel="noopener noreferrer"
       onSubmit={onSubmit}
     >
       <div className="form__intro">
         <p className="form__kicker">
-          La tua richiesta, direttamente allo studio
+          La tua richiesta, direttamente su WhatsApp
         </p>
         <p className="form__note">
           Scegli cosa ti interessa e, se vuoi, indica giorno e orario preferiti.
@@ -355,39 +347,39 @@ export default function ContactForm() {
       />
 
       <input type="hidden" name="source" value={form.source} />
+      <input type="hidden" name="text" value={whatsappMessage} />
 
       <button
         type="submit"
         className="btn btn--primary btn--halo"
-        disabled={status === "loading"}
+        disabled={!isReady}
+        aria-describedby="booking-whatsapp-help"
       >
-        {status === "loading"
-          ? "Invio in corso…"
-          : "Invia la richiesta allo studio"}
+        Invia la richiesta su WhatsApp
       </button>
-
-      <a
-        className="btn btn--secondary booking-whatsapp"
-        href={whatsappUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Oppure continua su WhatsApp ↗
-      </a>
-      <p className="form__small">
-        Useremo i tuoi dati solo per rispondere alla richiesta. Ti contattiamo
+      <p className="form__small" id="booking-whatsapp-help">
+        Si apre WhatsApp con il messaggio già compilato: controllalo e premi
+        Invia nella chat. Useremo i tuoi dati solo per rispondere alla richiesta,
         negli orari di apertura.
       </p>
 
       {feedback ? (
-        <p
-          className="form__feedback"
-          data-state={status === "ok" ? "ok" : "error"}
-          role="status"
-        >
-          {feedback}
+        <p className="form__small" role="status">
+          {feedback}{" "}
+          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+            WhatsApp non si è aperto? Continua qui ↗
+          </a>
         </p>
       ) : null}
+      <noscript>
+        <p className="form__small">
+          Per compilare il messaggio dal modulo, attiva JavaScript oppure{" "}
+          <a href={whatsappBaseUrl} target="_blank" rel="noopener noreferrer">
+            scrivici direttamente su WhatsApp ↗
+          </a>
+          .
+        </p>
+      </noscript>
     </form>
   );
 }
