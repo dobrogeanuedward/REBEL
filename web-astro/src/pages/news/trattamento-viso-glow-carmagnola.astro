@@ -1,0 +1,62 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import { buildArticleSchema, buildBreadcrumbSchema, createPageMeta } from "@/lib/seo";
+const path = "/news/trattamento-viso-glow-carmagnola";
+const meta = createPageMeta({
+  title: "Trattamento viso Glow a Carmagnola: promo 49 € | REBEL",
+  description: "Ritrova il tuo Glow da REBEL a Carmagnola: trattamento viso personalizzato a 49 € anziché 100 €. Posti limitati, prenota al 351 691 9416.",
+  path, openGraphType: "article", image: "/img/news/glow-settembre-2026/glow-og.jpg",
+  keywords: ["trattamento viso Glow Carmagnola", "promozione viso REBEL"],
+});
+const article = { ...buildArticleSchema({headline: "Cambia stagione. Ritrova il tuo Glow.", description: meta.description, path, section: "News", image: meta.ogImage}), datePublished: "2026-09-19", dateModified: "2026-09-19" };
+const breadcrumb = buildBreadcrumbSchema([{name: "Home", path: "/"}, {name: "Novità Glow", path}]);
+const whatsapp = "https://wa.me/393516919416?text=" + encodeURIComponent("Ciao REBEL, vorrei prenotare il trattamento viso Glow in promo a 49 €.");
+const slides = [
+  "Cambia stagione. Ritrova il tuo Glow: il trattamento viso REBEL.",
+  "A chi è dedicato: pelle spenta, colorito poco uniforme e pelle affaticata.",
+  "Il metodo REBEL: valutazione della pelle e trattamento personalizzato.",
+  "Prenota subito: 49 € anziché 100 €. Posti limitati. Telefono e WhatsApp 351 691 9416.",
+];
+---
+<BaseLayout meta={meta} bodyClass="rebel-rebrand">
+  <JsonLd data={article} /><JsonLd data={breadcrumb} />
+  <article class="glow-article">
+    <header class="glow-header">
+      <a class="back" href="/#news-glow">← Torna alle novità REBEL</a>
+      <p class="eyebrow">News · Viso · <time datetime="2026-09-19">19 settembre 2026</time></p>
+      <h1>Cambia stagione.<br /><em>Ritrova il tuo Glow.</em></h1>
+      <p class="intro">Un nuovo gesto di attenzione per la tua pelle. Il trattamento viso Glow ti aspetta da REBEL a Carmagnola, a <strong>49 € anziché 100 €.</strong></p>
+    </header>
+    <div class="glow-body">
+      <div class="story">
+        <h2>Di cosa ha bisogno la tua pelle, oggi?</h2>
+        <p>Al cambio di stagione puoi sentire il desiderio di ritrovare un viso più fresco e luminoso. Glow è dedicato a chi nota pelle spenta, colorito poco uniforme o un aspetto affaticato e desidera un trattamento costruito sulle proprie esigenze.</p>
+        <h2>Il tuo Glow, con il metodo REBEL.</h2>
+        <p>Partiamo dalla valutazione della pelle per personalizzare il trattamento e scegliere gli attivi più adatti. Al centro ci sei tu: le esigenze della tua pelle guidano ogni passaggio.</p>
+        <p>Scopri anche il <a href="/percorsi/glow">percorso Glow</a> e il <a href="/metodo-rebel">metodo REBEL</a>.</p>
+      </div>
+      <aside class="booking" aria-labelledby="booking-title">
+        <p class="eyebrow">Promozione viso Glow</p>
+        <h2 id="booking-title">Prenota subito.</h2>
+        <p class="price"><del>100 €</del> <strong>49 €</strong></p>
+        <p class="limited">Posti limitati</p>
+        <a class="btn btn--primary btn--halo" href={whatsapp}>Prenota su WhatsApp</a>
+        <p>Oppure chiamaci: <a href="tel:+393516919416">351 691 9416</a></p>
+        <p>REBEL · Viale Barbaroux 20, Carmagnola</p>
+      </aside>
+    </div>
+    <section class="campaign" aria-label="Il carosello della promozione Glow">
+      {slides.map((alt, index) => <img src={`/img/news/glow-settembre-2026/glow-${index + 1}.webp`} width="1080" height="1350" loading="lazy" alt={alt} />)}
+    </section>
+  </article>
+</BaseLayout>
+<style>
+  .glow-article{padding:140px 24px 72px;color:#351c3e;background:radial-gradient(ellipse at 95% 0,#e9dcf1 0,transparent 40%),radial-gradient(ellipse at 0 25%,#f8e5ea 0,transparent 45%),#faf7f1}
+  .glow-header,.glow-body,.campaign{max-width:1160px;margin-left:auto;margin-right:auto}.back{font-size:13px;color:#674873;text-decoration:underline;text-underline-offset:4px}.eyebrow{font-size:11px;line-height:1.7;text-transform:uppercase;letter-spacing:.16em;margin:32px 0 20px}
+  h1,h2{font-family:'Playfair Display',Georgia,serif;color:#351c3e;font-weight:500;letter-spacing:-.035em}h1{font-size:clamp(42px,6vw,80px);line-height:1.09;margin:0 0 28px}h1 em{color:#835090;font-weight:500}.intro{font-size:clamp(18px,2vw,23px);line-height:1.7;max-width:760px}
+  .glow-body{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:start;margin-top:64px}.story h2{font-size:30px;line-height:1.25;margin:0 0 18px}.story h2:not(:first-child){margin-top:36px}.story p{font-size:16px;line-height:1.85;margin-bottom:16px}.story a{color:#754282;text-decoration:underline;text-underline-offset:4px}
+  .booking{padding:36px;border:1px solid #dfcfe4;border-radius:8px;background:radial-gradient(ellipse at 90% 0,#e0cbe9,transparent 75%),radial-gradient(ellipse at 0 100%,#f2d3e1,transparent 75%),#f9f0f8}.booking .eyebrow{margin:0 0 14px}.booking h2{font-size:36px;margin:0}.price{display:flex;gap:20px;align-items:baseline;margin:20px 0 8px}.price del{font-size:24px;color:#7c6384}.price strong{font-family:'Playfair Display',Georgia,serif;font-size:70px;font-weight:500;line-height:1.1}.limited{text-transform:uppercase;letter-spacing:.16em;font-size:11px;margin:0 0 24px}.booking>p:not(.price):not(.eyebrow):not(.limited){font-size:13px;line-height:1.8;margin:20px 0 0}.booking a:not(.btn){color:inherit;font-weight:600}
+  .campaign{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:64px}.campaign img{display:block;width:100%;height:auto;box-shadow:0 12px 30px #351c3e10}
+  @media(max-width:760px){.glow-article{padding:112px 20px 48px}.glow-body{grid-template-columns:1fr;gap:28px;margin-top:40px}.booking{padding:28px}.campaign{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:40px}}
+</style>

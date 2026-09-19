@@ -8,6 +8,7 @@ import LocalBookingGuide from "@/components/LocalBookingGuide.astro";
 import TreatmentGallery from "@/components/TreatmentGallery.astro";
 import InstagramFeed from "@/components/InstagramFeed.astro";
 import LaserOffer from "@/components/LaserOffer.astro";
+import GlowNews from "@/components/GlowNews.astro";
 import { methodSteps, storeGalleryImages } from "@/lib/content";
 import { rebelWorlds, getJourneysByWorld } from "@/lib/rebel-journeys";
 import { siteConfig } from "@/lib/site-config";
@@ -130,6 +131,7 @@ const worlds = [
       </div>
     </section>
 
+    <GlowNews />
     <section class="rebel-section rebel-section--laser-offer">
       <div class="rebel-container">
         <LaserOffer />
