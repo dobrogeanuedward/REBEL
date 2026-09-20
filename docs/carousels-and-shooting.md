@@ -36,3 +36,8 @@ Se manca uno scatto, generarlo con ImageGen usando il materiale recente come rif
 
 ## Verifica del 20 settembre 2026
 Build Astro completata con 0 errori e 0 warning. Verificati asset, JSON-LD, 8 slide per pagina, 2 copertine in Percorsi e assenza di poster in home; sitemap immagini con 24 riferimenti. Audit browser sul sito pubblicato a 1348 px: copertine intere, gallery e nuove scene coerenti; navigazione avanti/fine/indietro, ingrandimento, Escape e ritorno del focus funzionanti. Rilevati e corretti margini della hero e centratura del dialog, ereditati dal reset CSS. Il browser disponibile non espone un viewport mobile indipendente: la verifica visuale su telefono resta distinta da questi controlli; i layout responsive sono definiti a 720/650 px, con controlli da almeno 44 px e scorrimento confinato alla rail.
+
+
+## Revisione fotografica e variabilità editoriale
+
+Applicare anche `carousel-revision-2026-09-20.md`, che recupera il brief fotografico completo e supera le bozze di consulenza ripetitive. Mantenere identità e corporatura, evitare cabine inventate e variare composizione, distanza, sguardo e funzione delle fotografie. Per ogni percorso impostare una regia autonoma, non replicare otto slide cambiando il titolo.

@@ -24,6 +24,17 @@ const visual = getJourneyVisual(journey.slug);
 const carousel = journeyCarousels[journey.slug];
 const photographs = journeyPhotographs.filter(photo => photo.journey === journey.slug);
 const editorialHero = carousel ? `/img/film-editorial-v1/${journey.slug}.webp` : undefined;
+const editorialHeroAlts: Record<string, string> = {
+  "skin-reset": "Applicazione di un cosmetico con un pennello sul viso di una cliente",
+  barrier: "Applicazione di una crema viso con un pennello",
+  balance: "Applicazione di una maschera grigia con un pennello sul viso di un cliente",
+  glow: "Manualità sul contorno del viso di una cliente sul lettino",
+  white: "Applicazione mirata con una garza sulla guancia di una cliente",
+  structure: "Manualità sulle tempie e sulle guance di una cliente",
+  longevity: "Massaggio del viso di una cliente con fascia bianca e capelli grigi",
+  forma: "Preparazione dei gambali per il pressomassaggio di una cliente",
+  liberta: "Una cliente sistema gli occhiali protettivi prima dell’epilazione",
+};
 const displayName = journey.slug === "white" ? "Uniformare · White" : journey.name;
 const descriptions: Record<string, string> = {
   "skin-reset": "Skin Reset prepara la pelle ai trattamenti successivi. A Carmagnola, circa 60 minuti, da €69. Scopri come funziona il percorso REBEL.",
@@ -87,7 +98,7 @@ const siblingAreaLabel = journey.area === "Viso" ? "per il viso" : journey.area 
     <section class="journey-hero">
       <div class="journey-hero__media">
         <picture>
-          <img src={editorialHero ?? siteAsset(visual.momentSlot)} alt={journey.slug === "barrier" ? "Applicazione di una crema viso con un pennello" : visual.momentAlt} width="1536" height="1024" fetchpriority="high" decoding="async" />
+          <img src={editorialHero ?? siteAsset(visual.momentSlot)} alt={editorialHero ? editorialHeroAlts[journey.slug] ?? visual.momentAlt : visual.momentAlt} width="1536" height="1024" fetchpriority="high" decoding="async" />
         </picture>
       </div>
       <div class="journey-hero__veil" aria-hidden="true"></div>

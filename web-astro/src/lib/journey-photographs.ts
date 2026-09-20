@@ -1,3 +1,4 @@
+import { getJourney } from "./rebel-journeys";
 import { siteConfig } from "./site-config";
 
 export const journeyPhotographs = [
@@ -52,6 +53,188 @@ export const journeyPhotographs = [
     "caption": "Gli attivi del percorso vengono selezionati dopo la valutazione della pelle.",
     "illustrative": true,
     "newGeneration": false
+  },
+  {
+    "id": "balance-ritratto-rebel-carmagnola",
+    "src": "/img/shooting-rebel/balance-ritratto-rebel-carmagnola.webp",
+    "preview": "/img/shooting-rebel/balance-ritratto-rebel-carmagnola-640.webp",
+    "width": 1122,
+    "height": 1402,
+    "journey": "balance",
+    "title": "Osservare, prima di scegliere.",
+    "alt": "Ritratto ravvicinato di un uomo con capelli ricci, sguardo laterale e un lieve sorriso.",
+    "caption": "La valutazione di lucidità, pori, comfort e sensibilità orienta la scelta degli attivi.",
+    "illustrative": true,
+    "newGeneration": true
+  },
+  {
+    "id": "balance-preparazione-rebel-carmagnola",
+    "src": "/img/shooting-rebel/balance-preparazione-rebel-carmagnola.webp",
+    "preview": "/img/shooting-rebel/balance-preparazione-rebel-carmagnola-640.webp",
+    "width": 1536,
+    "height": 1024,
+    "journey": "balance",
+    "title": "Il gesto segue la pelle.",
+    "alt": "Una mano sostiene una ciotola con maschera cosmetica grigia su un vassoio in acciaio.",
+    "caption": "Preparazione cosmetica illustrativa: prodotti e manualità si scelgono in base alle esigenze osservate.",
+    "illustrative": true,
+    "newGeneration": true
+  },
+  {
+    "id": "glow-concentrato-rebel-carmagnola",
+    "src": "/img/shooting-rebel/glow-concentrato-rebel-carmagnola.webp",
+    "preview": "/img/shooting-rebel/glow-concentrato-rebel-carmagnola-640.webp",
+    "width": 1600,
+    "height": 900,
+    "journey": "glow",
+    "title": "Luce e materia.",
+    "alt": "Una pipetta immersa in un concentrato cosmetico ambrato.",
+    "caption": "Dettaglio della preparazione cosmetica: una fotografia di materia, senza rappresentare una formulazione specifica.",
+    "illustrative": true,
+    "newGeneration": false
+  },
+  {
+    "id": "glow-trattamento-rebel-carmagnola",
+    "src": "/img/shooting-rebel/glow-trattamento-rebel-carmagnola.webp",
+    "preview": "/img/shooting-rebel/glow-trattamento-rebel-carmagnola-640.webp",
+    "width": 1600,
+    "height": 900,
+    "journey": "glow",
+    "title": "La tua luce, ogni giorno.",
+    "alt": "Manualità sul contorno del viso di una cliente sul lettino.",
+    "caption": "Glow accompagna luminosità e uniformità con cosmetici e manualità scelti dopo la valutazione.",
+    "illustrative": true,
+    "newGeneration": false
+  },
+  {
+    "id": "white-osservazione-rebel-carmagnola",
+    "src": "/img/shooting-rebel/white-osservazione-rebel-carmagnola.webp",
+    "preview": "/img/shooting-rebel/white-osservazione-rebel-carmagnola-640.webp",
+    "width": 1600,
+    "height": 900,
+    "journey": "white",
+    "title": "Ogni tono ha una storia.",
+    "alt": "Una cliente sul lettino guarda verso l’alto durante un momento di osservazione del viso.",
+    "caption": "Distribuzione delle discromie, sensibilità, abitudini ed esposizione orientano il percorso White.",
+    "illustrative": true,
+    "newGeneration": false
+  },
+  {
+    "id": "white-preparazione-rebel-carmagnola",
+    "src": "/img/shooting-rebel/white-preparazione-rebel-carmagnola.webp",
+    "preview": "/img/shooting-rebel/white-preparazione-rebel-carmagnola-640.webp",
+    "width": 1600,
+    "height": 900,
+    "journey": "white",
+    "title": "La combinazione si sceglie.",
+    "alt": "Dosaggio di un cosmetico con una pipetta in una ciotola prima del trattamento.",
+    "caption": "Attivi e combinazioni vengono definiti dopo aver osservato la pelle; l’immagine illustra la preparazione cosmetica.",
+    "illustrative": true,
+    "newGeneration": false
+  },
+  {
+    "id": "structure-manualita-rebel-carmagnola",
+    "src": "/img/shooting-rebel/structure-manualita-rebel-carmagnola.webp",
+    "preview": "/img/shooting-rebel/structure-manualita-rebel-carmagnola-640.webp",
+    "width": 1600,
+    "height": 900,
+    "journey": "structure",
+    "title": "Sostieni la tua pelle.",
+    "alt": "Manualità sulle tempie e sulle guance di una cliente sul lettino.",
+    "caption": "Il percorso Structure lavora su tono, elasticità e compattezza con una combinazione personalizzata.",
+    "illustrative": true,
+    "newGeneration": false
+  },
+  {
+    "id": "structure-radiofrequenza-rebel-carmagnola",
+    "src": "/img/shooting-rebel/structure-radiofrequenza-rebel-carmagnola.webp",
+    "preview": "/img/shooting-rebel/structure-radiofrequenza-rebel-carmagnola-640.webp",
+    "width": 1600,
+    "height": 900,
+    "journey": "structure",
+    "title": "La tecnologia segue l’obiettivo.",
+    "alt": "Un manipolo per radiofrequenza è appoggiato lungo il contorno mandibolare di una cliente.",
+    "caption": "La radiofrequenza è una delle tecnologie valutabili nel percorso: la scelta avviene dopo l’osservazione della pelle.",
+    "illustrative": true,
+    "newGeneration": false
+  },
+  {
+    "id": "longevity-ritratto-rebel-carmagnola",
+    "src": "/img/shooting-rebel/longevity-ritratto-rebel-carmagnola.webp",
+    "preview": "/img/shooting-rebel/longevity-ritratto-rebel-carmagnola-640.webp",
+    "width": 1122,
+    "height": 1402,
+    "journey": "longevity",
+    "title": "La cura continua.",
+    "alt": "Ritratto di una donna con capelli grigi ricci e fascia bianca, occhi aperti e sorriso rilassato.",
+    "caption": "La continuità tiene conto di barriera, luminosità, tono, elasticità e abitudini.",
+    "illustrative": true,
+    "newGeneration": true
+  },
+  {
+    "id": "longevity-manualita-rebel-carmagnola",
+    "src": "/img/shooting-rebel/longevity-manualita-rebel-carmagnola.webp",
+    "preview": "/img/shooting-rebel/longevity-manualita-rebel-carmagnola-640.webp",
+    "width": 1600,
+    "height": 900,
+    "journey": "longevity",
+    "title": "Un tempo dedicato a te.",
+    "alt": "Massaggio del viso di una cliente con fascia bianca e asciugamano grigio.",
+    "caption": "Sedute, controlli e routine accompagnano la pelle nel tempo senza promettere risultati uguali per tutti.",
+    "illustrative": true,
+    "newGeneration": false
+  },
+  {
+    "id": "forma-pressomassaggio-rebel-carmagnola",
+    "src": "/img/shooting-rebel/forma-pressomassaggio-rebel-carmagnola.webp",
+    "preview": "/img/shooting-rebel/forma-pressomassaggio-rebel-carmagnola-640.webp",
+    "width": 1600,
+    "height": 900,
+    "journey": "forma",
+    "title": "Il tuo corpo, il tuo percorso.",
+    "alt": "Una professionista prepara i gambali per il pressomassaggio di una cliente sul lettino.",
+    "caption": "Il programma Forma viene definito in base alla zona, alle esigenze osservate e al tempo disponibile.",
+    "illustrative": true,
+    "newGeneration": false
+  },
+  {
+    "id": "forma-dettaglio-gambali-rebel-carmagnola",
+    "src": "/img/shooting-rebel/forma-dettaglio-gambali-rebel-carmagnola.webp",
+    "preview": "/img/shooting-rebel/forma-dettaglio-gambali-rebel-carmagnola-640.webp",
+    "width": 1536,
+    "height": 1024,
+    "journey": "forma",
+    "title": "L’attenzione ai dettagli.",
+    "alt": "Una mano controlla la vestibilità del tessuto beige di un gambale per pressomassaggio.",
+    "caption": "Dettaglio illustrativo della preparazione: tecnologie, sequenza e intensità si concordano dopo la valutazione.",
+    "illustrative": true,
+    "newGeneration": true
+  },
+  {
+    "id": "liberta-preparazione-rebel-carmagnola",
+    "src": "/img/shooting-rebel/liberta-preparazione-rebel-carmagnola.webp",
+    "preview": "/img/shooting-rebel/liberta-preparazione-rebel-carmagnola-640.webp",
+    "width": 1600,
+    "height": 900,
+    "journey": "liberta",
+    "title": "Si comincia dalla valutazione.",
+    "alt": "Una cliente sul lettino sistema gli occhiali protettivi prima della seduta di epilazione.",
+    "caption": "Zona, fototipo, caratteristiche del pelo ed esposizione orientano il percorso Libertà.",
+    "illustrative": true,
+    "newGeneration": false
+  },
+  {
+    "id": "liberta-cura-cosmetica-rebel-carmagnola",
+    "src": "/img/shooting-rebel/liberta-cura-cosmetica-rebel-carmagnola.webp",
+    "preview": "/img/shooting-rebel/liberta-cura-cosmetica-rebel-carmagnola-640.webp",
+    "width": 1536,
+    "height": 1024,
+    "journey": "liberta",
+    "title": "Il comfort dopo la seduta.",
+    "alt": "Una ciotola in vetro con gel cosmetico, una spatola e dettagli di aloe e calendula su un vassoio.",
+    "caption": "Composizione illustrativa dedicata alla cura cosmetica dopo la seduta; non rappresenta una confezione o una formula specifica.",
+    "illustrative": true,
+    "newGeneration": true
   }
 ];
 
@@ -65,5 +248,5 @@ export const photographSchema = (photo: JourneyPhotograph) => ({
   width: photo.width, height: photo.height,
   creditText: "REBEL · Immagine illustrativa del percorso",
   representativeOfPage: false,
-  about: { "@type": "Service", "@id": `${siteConfig.siteUrl}/percorsi/${photo.journey}#service`, name: photo.journey === "barrier" ? "Barrier" : "Skin Reset", provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` }, areaServed: { "@type": "City", name: "Carmagnola" } },
+  about: { "@type": "Service", "@id": `${siteConfig.siteUrl}/percorsi/${photo.journey}#service`, name: getJourney(photo.journey)?.name ?? photo.journey, provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` }, areaServed: { "@type": "City", name: "Carmagnola" } },
 });
