@@ -1,0 +1,290 @@
+{
+  "viso-detersione": {
+    "src": "/img/catalogo/viso-detersione-rebel.webp",
+    "preview": "/img/catalogo/viso-detersione-rebel-480.webp",
+    "alt": "Detersione della guancia con un dischetto di cotone",
+    "width": 1440,
+    "height": 810,
+    "illustrative": true
+  },
+  "viso-enzimi": {
+    "src": "/img/catalogo/viso-enzimi-rebel.webp",
+    "preview": "/img/catalogo/viso-enzimi-rebel-480.webp",
+    "alt": "Applicazione di un cosmetico con un pennello a ventaglio",
+    "width": 1440,
+    "height": 810,
+    "illustrative": true
+  },
+  "viso-manualita": {
+    "src": "/img/catalogo/viso-manualita-rebel.webp",
+    "preview": "/img/catalogo/viso-manualita-rebel-480.webp",
+    "alt": "Manualità sulle guance durante un trattamento viso",
+    "width": 1440,
+    "height": 810,
+    "illustrative": true
+  },
+  "viso-radiofrequenza": {
+    "src": "/img/catalogo/viso-radiofrequenza-rebel.webp",
+    "preview": "/img/catalogo/viso-radiofrequenza-rebel-480.webp",
+    "alt": "Manipolo professionale lungo il contorno mandibolare",
+    "width": 1440,
+    "height": 810,
+    "illustrative": true
+  },
+  "viso-ultrasuoni": {
+    "src": "/img/catalogo/viso-ultrasuoni-rebel.webp",
+    "preview": "/img/catalogo/viso-ultrasuoni-rebel-480.webp",
+    "alt": "Dettaglio di un trattamento estetico della guancia",
+    "width": 1440,
+    "height": 810,
+    "illustrative": true
+  },
+  "viso-preparazione": {
+    "src": "/img/catalogo/viso-preparazione-rebel.webp",
+    "preview": "/img/catalogo/viso-preparazione-rebel-480.webp",
+    "alt": "Preparazione di una miscela cosmetica in una ciotola",
+    "width": 1440,
+    "height": 810,
+    "illustrative": true
+  },
+  "viso-idratazione": {
+    "src": "/img/catalogo/viso-idratazione-rebel.webp",
+    "preview": "/img/catalogo/viso-idratazione-rebel-480.webp",
+    "alt": "Dosaggio di un gel nella preparazione cosmetica",
+    "width": 1440,
+    "height": 810,
+    "illustrative": true
+  },
+  "viso-microneedling": {
+    "src": "/img/catalogo/viso-microneedling-rebel.webp",
+    "preview": "/img/catalogo/viso-microneedling-rebel-480.webp",
+    "alt": "Preparazione di una cartuccia per microneedling con guanti",
+    "width": 1440,
+    "height": 810,
+    "illustrative": true
+  },
+  "viso-illuminante": {
+    "src": "/img/catalogo/viso-illuminante-rebel.webp",
+    "preview": "/img/catalogo/viso-illuminante-rebel-480.webp",
+    "alt": "Pipetta in un concentrato cosmetico ambrato",
+    "width": 1440,
+    "height": 810,
+    "illustrative": true
+  },
+  "mani-cuticole": {
+    "src": "/img/catalogo/mani-cuticole-rebel.webp",
+    "preview": "/img/catalogo/mani-cuticole-rebel-480.webp",
+    "alt": "Cura della cuticola con uno strumento manuale",
+    "width": 1440,
+    "height": 810,
+    "illustrative": true
+  },
+  "mani-smalto": {
+    "src": "/img/catalogo/mani-smalto-rebel.webp",
+    "preview": "/img/catalogo/mani-smalto-rebel-480.webp",
+    "alt": "Applicazione di smalto prugna su un’unghia",
+    "width": 1440,
+    "height": 810,
+    "illustrative": true
+  },
+  "mani-finitura": {
+    "src": "/img/catalogo/mani-finitura-rebel.webp",
+    "preview": "/img/catalogo/mani-finitura-rebel-480.webp",
+    "alt": "Finitura del bordo di un’unghia con smalto prugna",
+    "width": 1440,
+    "height": 810,
+    "illustrative": true
+  },
+  "mani-rimozione": {
+    "src": "/img/catalogo/mani-rimozione-rebel.webp",
+    "preview": "/img/catalogo/mani-rimozione-rebel-480.webp",
+    "alt": "Pulizia della superficie di un’unghia naturale",
+    "width": 1440,
+    "height": 810,
+    "illustrative": true
+  },
+  "laminazione-ciglia": {
+    "src": "/img/catalogo/laminazione-ciglia-rebel.webp",
+    "preview": "/img/catalogo/laminazione-ciglia-rebel-480.webp",
+    "alt": "Applicazione di un prodotto sulle ciglia allineate sul supporto in silicone",
+    "width": 1440,
+    "height": 810,
+    "illustrative": true
+  },
+  "laminazione-sopracciglia": {
+    "src": "/img/catalogo/laminazione-sopracciglia-rebel.webp",
+    "preview": "/img/catalogo/laminazione-sopracciglia-rebel-480.webp",
+    "alt": "Pettinatura delle sopracciglia con uno scovolino",
+    "width": 1440,
+    "height": 810,
+    "illustrative": true
+  },
+  "laminazione-sguardo": {
+    "src": "/img/catalogo/laminazione-sguardo-rebel.webp",
+    "preview": "/img/catalogo/laminazione-sguardo-rebel-480.webp",
+    "alt": "Ritratto di una donna con sguardo espressivo e ciglia naturali",
+    "width": 1440,
+    "height": 810,
+    "illustrative": true
+  },
+  "laser-gamba": {
+    "src": "/img/catalogo/laser-gamba-rebel.webp",
+    "preview": "/img/catalogo/laser-gamba-rebel-480.webp",
+    "alt": "Manipolo per epilazione a contatto con la gamba",
+    "width": 1440,
+    "height": 810,
+    "illustrative": true
+  },
+  "cera-gamba": {
+    "src": "/img/catalogo/cera-gamba-rebel.webp",
+    "preview": "/img/catalogo/cera-gamba-rebel-480.webp",
+    "alt": "Rimozione di una striscia di cera dalla gamba di un cliente",
+    "width": 1122,
+    "height": 1402,
+    "illustrative": true
+  },
+  "corpo-materia": {
+    "src": "/img/catalogo/corpo-materia-rebel.webp",
+    "preview": "/img/catalogo/corpo-materia-rebel-480.webp",
+    "alt": "Preparazione di cosmetici con argilla e alghe",
+    "width": 1440,
+    "height": 810,
+    "illustrative": true
+  },
+  "pedicure-cura": {
+    "src": "/img/catalogo/pedicure-cura-rebel.webp",
+    "preview": "/img/catalogo/pedicure-cura-rebel-480.webp",
+    "alt": "Cura delle cuticole dell’alluce con strumento manuale e guanti",
+    "width": 1440,
+    "height": 960,
+    "illustrative": true
+  },
+  "cera-preparazione": {
+    "src": "/img/catalogo/cera-preparazione-rebel.webp",
+    "preview": "/img/catalogo/cera-preparazione-rebel-480.webp",
+    "alt": "Preparazione della cera depilatoria con una spatola di legno",
+    "width": 1440,
+    "height": 960,
+    "illustrative": true
+  },
+  "corpo-gel": {
+    "src": "/img/catalogo/corpo-gel-rebel.webp",
+    "preview": "/img/catalogo/corpo-gel-rebel-480.webp",
+    "alt": "Applicazione di gel cosmetico sulla gamba",
+    "width": 1440,
+    "height": 960,
+    "illustrative": true
+  },
+  "bendaggi": {
+    "src": "/img/catalogo/bendaggi-rebel.webp",
+    "preview": "/img/catalogo/bendaggi-rebel-480.webp",
+    "alt": "Sistemazione di un bendaggio cosmetico intorno al polpaccio",
+    "width": 1440,
+    "height": 960,
+    "illustrative": true
+  },
+  "laminazione-routine": {
+    "src": "/img/catalogo/laminazione-routine-rebel.webp",
+    "preview": "/img/catalogo/laminazione-routine-rebel-480.webp",
+    "alt": "Scovolino e microapplicatore su una coppetta di vetro",
+    "width": 1440,
+    "height": 960,
+    "illustrative": true
+  },
+  "scrub-gamba": {
+    "src": "/img/catalogo/scrub-gamba-rebel.webp",
+    "preview": "/img/catalogo/scrub-gamba-rebel-480.webp",
+    "alt": "Applicazione manuale di scrub cosmetico sulla gamba",
+    "width": 1440,
+    "height": 960,
+    "illustrative": true
+  },
+  "laminazione-ritratto": {
+    "src": "/img/catalogo/laminazione-ritratto-rebel.webp",
+    "preview": "/img/catalogo/laminazione-ritratto-rebel-480.webp",
+    "alt": "Ritratto ravvicinato di una donna con sorriso naturale",
+    "width": 1440,
+    "height": 960,
+    "illustrative": true
+  },
+  "massaggio-spalle": {
+    "src": "/img/catalogo/massaggio-spalle-rebel.webp",
+    "preview": "/img/catalogo/massaggio-spalle-rebel-480.webp",
+    "alt": "Gesto di massaggio sulle spalle di una cliente vestita",
+    "width": 1440,
+    "height": 960,
+    "illustrative": true
+  },
+  "percorso-skin-reset": {
+    "src": "/img/catalogo/percorso-skin-reset-rebel.webp",
+    "preview": "/img/catalogo/percorso-skin-reset-rebel-480.webp",
+    "alt": "Applicazione di un cosmetico viso con pennello",
+    "width": 1440,
+    "height": 810,
+    "illustrative": true
+  },
+  "percorso-barrier": {
+    "src": "/img/catalogo/percorso-barrier-rebel.webp",
+    "preview": "/img/catalogo/percorso-barrier-rebel-480.webp",
+    "alt": "Trattamento cosmetico per il comfort della pelle",
+    "width": 1440,
+    "height": 810,
+    "illustrative": true
+  },
+  "percorso-balance": {
+    "src": "/img/catalogo/percorso-balance-rebel.webp",
+    "preview": "/img/catalogo/percorso-balance-rebel-480.webp",
+    "alt": "Applicazione di maschera sul viso di un cliente",
+    "width": 1440,
+    "height": 810,
+    "illustrative": true
+  },
+  "percorso-glow": {
+    "src": "/img/catalogo/percorso-glow-rebel.webp",
+    "preview": "/img/catalogo/percorso-glow-rebel-480.webp",
+    "alt": "Manualità durante un trattamento viso",
+    "width": 1440,
+    "height": 810,
+    "illustrative": true
+  },
+  "percorso-white": {
+    "src": "/img/catalogo/percorso-white-rebel.webp",
+    "preview": "/img/catalogo/percorso-white-rebel-480.webp",
+    "alt": "Detersione della guancia con una garza",
+    "width": 1440,
+    "height": 810,
+    "illustrative": true
+  },
+  "percorso-structure": {
+    "src": "/img/catalogo/percorso-structure-rebel.webp",
+    "preview": "/img/catalogo/percorso-structure-rebel-480.webp",
+    "alt": "Manualità nella zona delle tempie",
+    "width": 1440,
+    "height": 810,
+    "illustrative": true
+  },
+  "percorso-longevity": {
+    "src": "/img/catalogo/percorso-longevity-rebel.webp",
+    "preview": "/img/catalogo/percorso-longevity-rebel-480.webp",
+    "alt": "Massaggio del viso di una cliente",
+    "width": 1440,
+    "height": 810,
+    "illustrative": true
+  },
+  "percorso-forma": {
+    "src": "/img/catalogo/percorso-forma-rebel.webp",
+    "preview": "/img/catalogo/percorso-forma-rebel-480.webp",
+    "alt": "Cliente con gambali per pressomassaggio",
+    "width": 1440,
+    "height": 810,
+    "illustrative": true
+  },
+  "percorso-liberta": {
+    "src": "/img/catalogo/percorso-liberta-rebel.webp",
+    "preview": "/img/catalogo/percorso-liberta-rebel-480.webp",
+    "alt": "Preparazione con occhiali protettivi per epilazione",
+    "width": 1440,
+    "height": 810,
+    "illustrative": true
+  }
+}

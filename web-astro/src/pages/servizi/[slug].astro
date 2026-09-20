@@ -1,4 +1,9 @@
 ---
+import JourneyCarousel from "@/components/JourneyCarousel.astro";
+import laminazioneCarousel from "@/data/laminazione-carousel.json";
+import { servicePhotography } from "@/lib/beauty-editorial";
+import { photographs } from "@/lib/catalog-visuals";
+import { menu, priceRange, durationRange, requestTreatment } from "@/lib/treatment-catalog";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHero from "@/components/PageHero.astro";
 import SectionHead from "@/components/SectionHead.astro";
@@ -38,9 +43,13 @@ export async function getStaticPaths() {
   }));
 }
 
-const { service } = Astro.props;
+const { service: originalService } = Astro.props;
+const selectedPhotos = servicePhotography[originalService.slug]?.map(key => photographs[key]);
+const service = { ...originalService, heroImage: selectedPhotos?.[0] ?? originalService.heroImage };
+const isLamination = service.slug === "laminazione-ciglia-sopracciglia-carmagnola";
+const laminationChoices = ["TR7355535","TR7355542","TR6412972"].map(id => menu.categories.flatMap(c=>c.items).find(i=>i.id===id)!);
 
-const moodImage = service.category === "laser" ? media.laser.mood : media.studio.cabin;
+const moodImage = selectedPhotos?.[0] ?? (service.category === "laser" ? media.laser.mood : media.studio.cabin);
 
 const resolveEditorialMedia = (slug: string): readonly ImageAsset[] => {
   if (/laser/.test(slug)) return [media.laser.handpiece, media.laser.consult];
@@ -55,7 +64,7 @@ const resolveEditorialMedia = (slug: string): readonly ImageAsset[] => {
   if (/scrub-corpo/.test(slug)) return [media.corpo.detail, media.corpo.hero];
   return [media.studio.professional, media.studio.reception];
 };
-const editorialMedia = resolveEditorialMedia(service.slug);
+const editorialMedia = selectedPhotos?.slice(1) ?? resolveEditorialMedia(service.slug);
 
 const fallbackImage =
   service.category === "laser"
@@ -309,6 +318,8 @@ const tocItems = [
     ctaSecondary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp }}
   />
 
+  {isLamination && <JourneyCarousel carousel={laminazioneCarousel} slug="laminazione" service />}
+
   {service.category === "laser" ? (
     <section class="section section--tight">
       <div class="container"><LaserOffer compact /></div>
@@ -336,6 +347,7 @@ const tocItems = [
               ? `Prezzo ordinario indicato: ${displayPrice}. Le condizioni della promozione sono riportate sopra e vengono confermate prima dell’appuntamento.`
               : `Prezzo indicato: ${displayPrice}. Se cambia in base alla zona, alla durata o alla tipologia, te lo confermiamo prima dell’appuntamento.`}
           />
+          {isLamination && <div class="lamination-choices">{laminationChoices.map(i=><a href={requestTreatment(i.id)}><span>{i.name}</span><strong>{priceRange(i.price)}</strong><small>{durationRange(i.durationMin,i.durationMax)} · Richiedi ↗</small></a>)}</div>}
           <div class="card-grid card-grid--2">
             <FeatureCard
               kicker={service.category === "laser" ? "Listino ordinario" : "Prezzo indicato"}
@@ -536,6 +548,7 @@ const tocItems = [
 </BaseLayout>
 
 <style>
+.lamination-choices{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0}.lamination-choices a{display:flex;flex-direction:column;gap:.7rem;border:1px solid #ddcce6;border-radius:12px;padding:1.2rem;background:#fff;color:#3e244c;text-decoration:none}.lamination-choices strong{font-size:1.6rem}.lamination-choices small{font-size:.75rem}@media(max-width:650px){.lamination-choices{grid-template-columns:1fr}}
   .detail-grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 320px;

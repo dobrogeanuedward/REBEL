@@ -1,13 +1,13 @@
 ---
 import type { JourneyCarousel } from "@/lib/journey-carousels";
-interface Props { carousel: JourneyCarousel; slug: string }
-const { carousel, slug } = Astro.props;
+interface Props { carousel: JourneyCarousel; slug: string; service?: boolean }
+const { carousel, slug, service = false } = Astro.props;
 ---
-<section class="journey-editorial rebel-section" id="guida" aria-labelledby={`guida-${slug}`}>
+<section class:list={["journey-editorial rebel-section", { "journey-editorial--service": service }]} id="guida" aria-labelledby={`guida-${slug}`}>
   <div class="rebel-container">
     <div class="journey-editorial__heading">
-      <div><p class="rebel-kicker">Il percorso da sfogliare</p><h2 id={`guida-${slug}`}>{carousel.name},<br/><em>da vicino.</em></h2></div>
-      <p>Esigenze, attivi, botaniche e gesti: scopri il percorso in otto immagini. Scorri e apri le pagine per guardarle più da vicino.</p>
+      <div><p class="rebel-kicker">{service ? "Il trattamento da sfogliare" : "Il percorso da sfogliare"}</p><h2 id={`guida-${slug}`}>{carousel.name},<br/><em>da vicino.</em></h2></div>
+      <p>{service ? "Gesti, cura e prezzi: scopri il trattamento nelle immagini. Scorri e apri le pagine per guardarle più da vicino." : "Esigenze, attivi, botaniche e gesti: scopri il percorso nelle immagini. Scorri e apri le pagine per guardarle più da vicino."}</p>
     </div>
     <rebel-carousel>
       <div class="journey-editorial__controls" data-controls hidden>
@@ -89,6 +89,7 @@ if (!customElements.get("rebel-carousel")) customElements.define("rebel-carousel
 </script>
 
 <style>
+.journey-editorial--service{background:#fff!important;border-block:1px solid #e9e0ec}
 .journey-editorial{background:radial-gradient(ellipse at 90% 15%,#e5d7f5aa,transparent 60%),radial-gradient(ellipse at 0% 95%,#f1d6e6bb,transparent 55%),#f9f5f0;scroll-margin-top:6rem}
 .journey-editorial__heading{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end;margin-bottom:1.4rem}
 .journey-editorial__heading h2{font:500 clamp(2.8rem,5vw,4.8rem)/1.05 var(--font-display);letter-spacing:-.045em;margin:0;color:#291633;text-transform:none}

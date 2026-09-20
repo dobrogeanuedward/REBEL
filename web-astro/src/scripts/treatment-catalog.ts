@@ -70,11 +70,10 @@ function initCatalog() {
     searching = active;
     const count = items.filter((i) => !i.hidden).length;
     clear.hidden = !active;
-    empty.hidden =
-      count > 0 || !root.querySelector<HTMLElement>(".catalog-promo")!.hidden;
+    empty.hidden = count > 0;
     result.textContent = active
-      ? `${count} trattamenti e percorsi trovati${!root.querySelector<HTMLElement>(".catalog-promo")!.hidden ? " · promo laser disponibile" : ""}`
-      : "85 trattamenti beauty · 9 percorsi REBEL · promo laser";
+      ? `${count} risultati tra trattamenti, percorsi e promozioni`
+      : "85 trattamenti beauty · 9 percorsi REBEL · scegli una categoria";
   }
   search.addEventListener("input", filter);
   root

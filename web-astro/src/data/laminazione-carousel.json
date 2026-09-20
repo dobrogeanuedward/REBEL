@@ -1,0 +1,41 @@
+{
+  "name": "Laminazione",
+  "slides": [
+    {
+      "src": "/img/carousels/laminazione/01-copertina.webp",
+      "preview": "/img/carousels/laminazione/01-copertina-640.webp",
+      "title": "Il tuo sguardo, più definito.",
+      "text": "Laminazione ciglia e sopracciglia. Forma, direzione e un effetto concordato con te."
+    },
+    {
+      "src": "/img/carousels/laminazione/02-ciglia.webp",
+      "preview": "/img/carousels/laminazione/02-ciglia-640.webp",
+      "title": "Ciglia, una nuova curva.",
+      "text": "La laminazione valorizza la curvatura delle ciglia naturali. Osserviamo lunghezza, direzione e caratteristiche del pelo prima di scegliere l’effetto."
+    },
+    {
+      "src": "/img/carousels/laminazione/03-sopracciglia.webp",
+      "preview": "/img/carousels/laminazione/03-sopracciglia-640.webp",
+      "title": "Sopracciglia, forma e direzione.",
+      "text": "La laminazione disciplina le sopracciglia naturali. Concordiamo una forma più ordinata e un’intensità che rispetti lineamenti e preferenze."
+    },
+    {
+      "src": "/img/carousels/laminazione/04-cura.webp",
+      "preview": "/img/carousels/laminazione/04-cura-640.webp",
+      "title": "La cura continua a casa.",
+      "text": "Dopo la seduta ricevi indicazioni per le prime ore e per la routine. La durata varia con la crescita naturale e le abitudini: il richiamo si valuta osservando ciglia e sopracciglia."
+    },
+    {
+      "src": "/img/carousels/laminazione/05-prezzi.webp",
+      "preview": "/img/carousels/laminazione/05-prezzi-640.webp",
+      "title": "Scegli il tuo trattamento.",
+      "text": "Listino ordinario: laminazione ciglia €75, 60 minuti; sopracciglia €49, 45 minuti; ciglia e sopracciglia €79, 105 minuti. Disponibilità e condizioni confermate alla prenotazione."
+    },
+    {
+      "src": "/img/carousels/laminazione/06-prenotazione.webp",
+      "preview": "/img/carousels/laminazione/06-prenotazione-640.webp",
+      "title": "Prenota il tuo momento.",
+      "text": "Prenota subito. Telefono e WhatsApp 351 691 9416. REBEL, Viale Barbaroux 20, Carmagnola."
+    }
+  ]
+}

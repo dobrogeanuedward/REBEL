@@ -8,6 +8,7 @@ import { laserOffer } from "@/lib/laser-offer";
 import { rebelJourneys } from "@/lib/rebel-journeys";
 import { protocolPages } from "@/lib/protocol-pages";
 import "@/styles/treatment-catalog.css";
+import { photographs, treatmentPhoto, categoryVisuals } from "@/lib/catalog-visuals";
 const meta = createPageMeta({ title: "Trattamenti e prezzi a Carmagnola | Listino completo REBEL", description: `Il menu REBEL: 85 trattamenti beauty, 9 percorsi, protocolli viso e corpo. Durate, varianti e prezzi. Laser ${laserOffer.zone.price} a zona, Full Body ${laserOffer.totalBody.price}.`, path: "/listino-estetica-laser" });
 const faq = [
  { q: "Posso scegliere un singolo trattamento?", a: "Sì. Puoi prenotare un servizio beauty senza iniziare un percorso. Se hai dubbi, ti aiutiamo a scegliere in base all’esigenza e al tempo a disposizione." },
@@ -15,7 +16,9 @@ const faq = [
  { q: "Che differenza c’è tra servizio, protocollo e percorso?", a: "Il servizio è il trattamento che scegli dal listino. Il protocollo combina passaggi dedicati a un’esigenza. Il percorso REBEL parte dalla valutazione e prevede frequenza e controlli concordati: prima di iniziare ti spieghiamo cosa comprende e quanto costa." },
  { q: "Come funziona la promo laser?", a: `${laserOffer.zone.price} per zona e seduta oppure ${laserOffer.totalBody.price} per ${laserOffer.totalBody.detail} in una seduta. L’inguine conta come due zone. Confermiamo insieme il conteggio e l’idoneità al trattamento prima di iniziare.` },
 ];
-const categoryImages: Record<string,string> = { viso:"glow", corpo:"forma", massaggi:"longevity", "laser-treatwell":"liberta", sguardo:"skin-reset", pressoterapia:"forma" };
+// Keep source IDs and prices intact; present the illuminating facial with the other facials.
+const categories = menu.categories.map(c => ({ ...c, items: c.id === "viso" ? [...c.items, ...menu.categories.find(x => x.id === "sguardo")!.items.filter(i => i.id === "TR7161633")] : c.items.filter(i => i.id !== "TR7161633") }));
+const total = categories.reduce((n,c) => n+c.items.length,0);
 const catalogSchema = { "@context":"https://schema.org", "@type":"ItemList", name:"Trattamenti e prezzi REBEL a Carmagnola", numberOfItems:menu.categories.reduce((n,c)=>n+c.items.length,0), itemListElement:menu.categories.flatMap(c=>c.items).map((i,n)=>({"@type":"ListItem",position:n+1,name:i.name,url:`https://www.rebelepigenetica.it/listino-estetica-laser#${i.id}`})) };
 ---
 <BaseLayout meta={meta} bodyClass="page-listino">
@@ -27,33 +30,33 @@ const catalogSchema = { "@context":"https://schema.org", "@type":"ItemList", nam
   </header>
   <div class="catalog-tools"><div class="catalog-wrap">
    <label class="catalog-search"><span class="sr-only">Cerca un trattamento, una zona o un percorso</span><span aria-hidden="true">⌕</span><input type="search" placeholder="Cerca: pulizia viso, laser, manicure…" data-catalog-search autocomplete="off"/><button type="button" data-catalog-clear hidden aria-label="Cancella la ricerca">×</button></label>
-   <details class="catalog-navigation"><summary>Categorie <span aria-hidden="true">＋</span></summary><nav aria-label="Categorie del listino"><a href="#laser">Promo laser</a><a href="#percorsi">Percorsi REBEL</a><a href="#protocolli">Protocolli</a>{menu.categories.map(c=><a href={`#${c.id}`}>{c.name}<small>{c.items.length}</small></a>)}</nav></details>
+   <details class="catalog-navigation"><summary>Categorie <span aria-hidden="true">＋</span></summary><nav aria-label="Categorie del listino"><a href="#percorsi">Percorsi REBEL <small>9</small></a><a href="#protocolli">Protocolli</a>{categories.map(c=><a href={`#${c.id}`}>{c.name}<small>{c.items.length}</small></a>)}</nav></details>
   </div></div>
   <div class="catalog-wrap catalog-body">
-   <p class="catalog-result" data-catalog-result role="status" aria-live="polite">85 trattamenti beauty · 9 percorsi REBEL · promo laser</p>
+   <p class="catalog-result" data-catalog-result role="status" aria-live="polite">{total} trattamenti beauty · 9 percorsi REBEL · scegli una categoria</p>
    <div class="catalog-empty" data-catalog-empty hidden><h2>Troviamolo insieme.</h2><p>Prova con una zona o un’esigenza, oppure chiedici un consiglio.</p><button type="button" class="btn btn--secondary" data-catalog-reset>Mostra tutto</button><a href="/contatti#prenota" class="btn btn--primary">Chiedi a REBEL</a></div>
-   <section id="laser" class="catalog-promo" data-catalog-section data-search="laser epilazione promo full body total corpo zone">
-    <div class="catalog-promo__heading"><p class="catalog-kicker">{laserOffer.campaignLabel}</p><h2>Più libertà.<br/><em>A partire da una zona.</em></h2><a href={laserOffer.landingPath}>Scopri come funziona la promo →</a></div>
-    <a class="catalog-promo__price" href={requestTreatment("promo-zona")}><span>Laser · a zona</span><strong>{laserOffer.zone.price}</strong><small>per zona · una seduta</small><b>Richiedi la promo ↗</b></a>
-    <a class="catalog-promo__price" href={requestTreatment("promo-full-body")}><span>Laser · Full Body</span><strong>{laserOffer.totalBody.price}</strong><small>{laserOffer.totalBody.detail} · una seduta</small><b>Scegli Full Body ↗</b></a>
-    <p class="catalog-promo__note">L’inguine conta come 2 zone. Confermiamo il conteggio prima della prenotazione. Promo diretta REBEL, distinta dal listino su Treatwell.</p>
-   </section>
-   <section id="percorsi" class="catalog-paths" data-catalog-section>
-    <div class="catalog-section-head"><div><p class="catalog-kicker">Un obiettivo, un percorso</p><h2>I nove percorsi REBEL.</h2></div><a href="/percorsi">Come scegliere →</a></div>
-    <div class="catalog-path-grid">{rebelJourneys.map(j=><article class="catalog-path" data-catalog-item data-search={`${j.name} ${j.area} ${j.priority} ${j.summary}`}><img src={`/img/film-editorial-v1/${j.slug}.webp`} alt={j.heroAlt} width="1664" height="936" loading="lazy"/><div><span class="catalog-kicker">{j.area} · {j.priority}</span><h3>{j.name}</h3><p>{j.summary}</p><strong>{j.price}</strong><small>{j.priceNote}</small><a href={`/percorsi/${j.slug}`}>Cosa comprende →</a></div></article>)}</div>
-   </section>
-   <section id="protocolli" class="catalog-protocols" data-catalog-section><div class="catalog-section-head"><div><p class="catalog-kicker">Le combinazioni REBEL</p><h2>I protocolli.</h2></div></div><div class="catalog-service-grid">{protocolPages.map(p=><article class="catalog-protocol" data-catalog-item data-search={`${p.name} ${p.shortDescription}`}><h3>{p.name}</h3><p>{p.shortDescription}</p><strong>{p.price}</strong><a href={`/protocolli/${p.slug}`}>Esplora il protocollo →</a></article>)}</div></section>
-   <section id="estetica" class="catalog-beauty"><div class="catalog-section-head"><div><p class="catalog-kicker">Anche un solo trattamento</p><h2>Il listino beauty completo.</h2></div><a href={menu.source} target="_blank" rel="noopener noreferrer">Disponibilità su Treatwell ↗</a></div><p class="catalog-source">Prezzi ordinari e durate del listino Treatwell, verificati l’8 settembre 2026. Le offerte della piattaforma possono variare: verifica il totale al momento della prenotazione.</p>
-    {menu.categories.map(c=><details id={c.id} class="catalog-category" data-catalog-section data-category>
-     <summary class="catalog-category__heading">{categoryImages[c.id] && <img src={`/img/film-editorial-v1/${categoryImages[c.id]}.webp`} alt="" width="120" height="90" loading="lazy"/>}<h2>{c.name}</h2><span>{c.items.length} {c.items.length===1?"trattamento":"trattamenti"}</span><b aria-hidden="true">＋</b></summary>
-     {c.id==="laser-treatwell" && <p class="catalog-source">Questi sono i prezzi della piattaforma. Per la promozione diretta REBEL <a href="#laser">vai alla promo laser ↑</a>.</p>}
-     <div class="catalog-service-grid">{c.items.map(i=><details id={i.id} class="catalog-service" data-catalog-item data-search={`${c.name} ${i.name} ${i.options.map(o=>o.name).join(" ")}`}>
-      <summary><span><h3>{i.name}</h3><small>{durationRange(i.durationMin,i.durationMax)}{i.options.length>1?` · ${i.options.length} varianti`:""}</small></span><span class="catalog-service__price"><strong>{priceRange(i.price)}</strong><small>Dettagli e prenota ＋</small></span></summary>
-      <div class="catalog-service__details">{i.options.map(o=><div class="catalog-option"><div><h4>{o.name}</h4><span>{o.duration} min · {priceRange(o.price)}</span>{o.price.saleMin < o.price.min && <small>Su Treatwell da {euro(o.price.saleMin)}, secondo disponibilità.</small>}</div><a href={requestTreatment(i.id,o.id)} aria-label={`Richiedi ${i.name}, ${o.name}`}>Richiedi ↗</a></div>)}<a class="catalog-treatwell" href={menu.source} target="_blank" rel="noopener noreferrer">Scegli servizio e orario su Treatwell ↗</a><p>Il link apre il listino REBEL su Treatwell: seleziona lì trattamento, variante e appuntamento.</p></div>
-     </details>)}</div>
-     {['viso','corpo','massaggi','laser-treatwell'].includes(c.id) && <aside class="catalog-bridge">Cerchi continuità nei trattamenti? <a href={c.id==='laser-treatwell'?laserOffer.landingPath:c.id==='viso'?'/percorsi':'/percorsi/forma'}>Confronta {c.id==='laser-treatwell'?'la promo laser':'i percorsi REBEL'} →</a></aside>}
-    </details>)}
-   </section>
+   <details id="percorsi" class="catalog-category" data-catalog-section data-category>
+    <summary class="catalog-category__heading"><img src={photographs["percorso-glow"].preview} alt="" width="160" height="110" loading="lazy"/><span class="catalog-category__title"><small>Un obiettivo, un percorso</small><h2>Percorsi REBEL</h2><p>Viso, corpo ed epilazione: una scelta guidata, nel tempo.</p></span><span class="catalog-count">9 percorsi</span><b aria-hidden="true">＋</b></summary>
+    <div class="catalog-category__body"><p class="catalog-source">Puoi scegliere un percorso oppure un singolo trattamento nelle categorie qui sotto. <a href="/percorsi">Ti aiutiamo a orientarti →</a></p><div class="catalog-path-grid">{rebelJourneys.map(j=><article class="catalog-path" data-catalog-item data-search={`percorsi percorso ${j.name} ${j.area} ${j.priority} ${j.summary}`}><img src={photographs[`percorso-${j.slug}` as keyof typeof photographs].preview} alt={j.heroAlt} width="480" height="270" loading="lazy"/><div><span class="catalog-kicker">{j.area} · {j.priority}</span><h3>{j.name}</h3><p>{j.summary}</p><strong>{j.price}</strong><small>{j.priceNote}</small><a href={`/percorsi/${j.slug}`}>Cosa comprende →</a></div></article>)}</div></div>
+   </details>
+   <p class="catalog-source" id="estetica">Apri una categoria per vedere fotografie, prezzi, durate e varianti. Prezzi ordinari del listino Treatwell verificati l’8 settembre 2026; le offerte della piattaforma possono variare.</p>
+   {categories.map(c=><details id={c.id} class="catalog-category" data-catalog-section data-category>
+    <summary class="catalog-category__heading"><img src={photographs[categoryVisuals[c.id].photo].preview} alt="" width="160" height="110" loading="lazy"/><span class="catalog-category__title"><small>Trattamenti beauty</small><h2>{c.id === "laser-treatwell" ? "Epilazione laser" : c.name}</h2><p>{categoryVisuals[c.id].description}</p></span><span class="catalog-count">{c.items.length} {c.items.length === 1 ? "trattamento" : "trattamenti"}</span><b aria-hidden="true">＋</b></summary>
+    <div class="catalog-category__body">
+     {c.id === "laser-treatwell" && <article id="laser" class="catalog-promo" data-catalog-item data-search="laser epilazione promo full body total corpo zone">
+      <div><p class="catalog-kicker">{laserOffer.campaignLabel}</p><h3>La promo diretta REBEL.</h3><a href={laserOffer.landingPath}>Condizioni e dettagli →</a></div>
+      <a href={requestTreatment("promo-zona")}><span>A zona · una seduta</span><strong>{laserOffer.zone.price}</strong><b>Richiedi ↗</b></a>
+      <a href={requestTreatment("promo-full-body")}><span>Full Body · una seduta</span><strong>{laserOffer.totalBody.price}</strong><small>{laserOffer.totalBody.detail}</small><b>Richiedi ↗</b></a>
+      <p>L’inguine conta come 2 zone. Confermiamo conteggio e idoneità prima di iniziare. Sotto trovi il listino ordinario della piattaforma.</p>
+     </article>}
+     <div class="catalog-service-grid">{c.items.map(i=>{const photo=treatmentPhoto(i.id); return <details id={i.id} class="catalog-service" data-catalog-item data-search={`${c.name} ${i.name} ${i.options.map(o=>o.name).join(" ")}`}>
+      <summary><img src={photo.preview} alt={photo.alt} width="480" height="360" loading="lazy" decoding="async"/><span class="catalog-service__label"><h3>{i.name}</h3><small>{durationRange(i.durationMin,i.durationMax)}{i.options.length>1?` · ${i.options.length} varianti`:""}</small></span><span class="catalog-service__price"><strong>{priceRange(i.price)}</strong><small>Dettagli e prenota ＋</small></span></summary>
+      <div class="catalog-service__details"><p class="catalog-photo-note">Foto editoriale illustrativa: {photo.alt.charAt(0).toLocaleLowerCase("it") + photo.alt.slice(1)}. La scheda descrive il servizio prenotabile.</p>{i.options.map(o=><div class="catalog-option"><div><h4>{o.name}</h4><span>{o.duration} min · {priceRange(o.price)}</span>{o.price.saleMin < o.price.min && <small>Su Treatwell da {euro(o.price.saleMin)}, secondo disponibilità.</small>}</div><a href={requestTreatment(i.id,o.id)} aria-label={`Richiedi ${i.name}, ${o.name}`}>Richiedi ↗</a></div>)}<a class="catalog-treatwell" href={menu.source} target="_blank" rel="noopener noreferrer">Scegli servizio e orario su Treatwell ↗</a><p>Su Treatwell seleziona trattamento, variante e appuntamento. Ti mostrerà il totale prima della conferma.</p></div>
+     </details>})}</div>
+     {c.id === "sguardo" && <a class="catalog-bridge" href="/servizi/laminazione-ciglia-sopracciglia-carmagnola#guida">Sfoglia la guida alla laminazione →</a>}
+    </div>
+   </details>)}
+   <details id="protocolli" class="catalog-category" data-catalog-section data-category><summary class="catalog-category__heading"><img src={photographs["viso-enzimi"].preview} alt="" width="160" height="110" loading="lazy"/><span class="catalog-category__title"><small>Le combinazioni REBEL</small><h2>Protocolli viso e corpo</h2><p>Passaggi coordinati intorno a un’esigenza.</p></span><span class="catalog-count">{protocolPages.length} protocolli</span><b aria-hidden="true">＋</b></summary><div class="catalog-category__body catalog-path-grid">{protocolPages.map(p=><article class="catalog-path" data-catalog-item data-search={`protocollo protocolli ${p.name} ${p.shortDescription}`}><div><h3>{p.name}</h3><p>{p.shortDescription}</p><strong>{p.price}</strong><a href={`/protocolli/${p.slug}`}>Esplora il protocollo →</a></div></article>)}</div></details>
    <section class="catalog-faq"><p class="catalog-kicker">Prima di scegliere</p><h2>Domande sui trattamenti e sulle prenotazioni.</h2><FaqAccordion items={faq}/></section>
    <aside class="catalog-final"><h2>Hai trovato quello che cercavi?</h2><p>Ci trovi in Viale Barbaroux 20 a Carmagnola. Porta con te il trattamento che hai scelto: al resto pensiamo insieme.</p><a class="btn btn--primary" href="/contatti#prenota">Scegli come prenotare →</a></aside>
   </div>
