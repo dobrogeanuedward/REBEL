@@ -10,6 +10,7 @@ Disallow: /api/
 Disallow: /api/*
 
 Sitemap: ${baseUrl}/sitemap.xml
+Sitemap: ${baseUrl}/sitemap-images.xml
 Host: ${hostname}
 `;
   return new Response(body, {

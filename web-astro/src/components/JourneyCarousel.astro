@@ -1,0 +1,104 @@
+---
+import type { JourneyCarousel } from "@/lib/journey-carousels";
+interface Props { carousel: JourneyCarousel; slug: string }
+const { carousel, slug } = Astro.props;
+---
+<section class="journey-editorial rebel-section" id="guida" aria-labelledby={`guida-${slug}`}>
+  <div class="rebel-container">
+    <div class="journey-editorial__heading">
+      <div><p class="rebel-kicker">Il percorso da sfogliare</p><h2 id={`guida-${slug}`}>{carousel.name},<br/><em>da vicino.</em></h2></div>
+      <p>Esigenze, attivi, botaniche e gesti: scopri il percorso in otto immagini. Scorri e apri le pagine per guardarle più da vicino.</p>
+    </div>
+    <rebel-carousel>
+      <div class="journey-editorial__controls" data-controls hidden>
+        <span data-counter aria-live="polite" aria-atomic="true">1 / {carousel.slides.length}</span>
+        <div><button type="button" data-prev aria-label="Pagina precedente" disabled>←</button><button type="button" data-next aria-label="Pagina successiva">→</button></div>
+      </div>
+      <ol class="journey-editorial__rail" aria-label={`Guida ${carousel.name}`} tabindex="0" data-lenis-prevent>
+        {carousel.slides.map((slide, i) => <li>
+          <a href={slide.src} data-open data-index={i} aria-label={`Ingrandisci pagina ${i + 1}: ${slide.title}`}>
+            <img src={slide.src} srcset={`${slide.preview} 640w, ${slide.src} 1080w`} sizes="(max-width: 720px) 86vw, 440px" alt={`${carousel.name}. ${slide.title}`} width="1080" height="1350" loading="lazy" decoding="async" />
+            <span class="journey-editorial__zoom" aria-hidden="true">↗</span>
+          </a>
+          <span class="journey-editorial__caption">{String(i + 1).padStart(2, "0")} <span>{slide.title}</span></span>
+        </li>)}
+      </ol>
+      <dialog class="journey-editorial__dialog" aria-label={`Guida ${carousel.name} ingrandita`} data-lenis-prevent>
+        <div class="journey-editorial__dialog-bar"><span data-modal-counter></span><button type="button" data-close aria-label="Chiudi ingrandimento">Chiudi ×</button></div>
+        <div class="journey-editorial__dialog-content"><img data-full-image alt="" width="1080" height="1350" /></div>
+        <div class="journey-editorial__dialog-nav"><button type="button" data-modal-prev>← Precedente</button><button type="button" data-modal-next>Successiva →</button></div>
+      </dialog>
+    </rebel-carousel>
+    <details class="journey-editorial__transcript"><summary>Leggi la guida {carousel.name}</summary><div>{carousel.slides.map(slide => <section><h3>{slide.title}</h3><p>{slide.text}</p></section>)}</div></details>
+  </div>
+</section>
+
+<script>
+class RebelCarousel extends HTMLElement {
+  connectedCallback() {
+    if (this.dataset.ready) return;
+    this.dataset.ready = "true";
+    const rail = this.querySelector<HTMLOListElement>("ol")!;
+    const links = Array.from(this.querySelectorAll<HTMLAnchorElement>("[data-open]"));
+    const prev = this.querySelector<HTMLButtonElement>("[data-prev]")!;
+    const next = this.querySelector<HTMLButtonElement>("[data-next]")!;
+    const counter = this.querySelector<HTMLElement>("[data-counter]")!;
+    const modal = this.querySelector<HTMLDialogElement>("dialog")!;
+    const full = this.querySelector<HTMLImageElement>("[data-full-image]")!;
+    const modalPrev = this.querySelector<HTMLButtonElement>("[data-modal-prev]")!;
+    const modalNext = this.querySelector<HTMLButtonElement>("[data-modal-next]")!;
+    let current = 0, enlarged = 0, opener: HTMLAnchorElement | undefined;
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => {
+      const left = rail.getBoundingClientRect().left;
+      current = links.reduce((best, link, i) => Math.abs(link.getBoundingClientRect().left - left) < Math.abs(links[best].getBoundingClientRect().left - left) ? i : best, 0);
+      // The last page may not reach the leading edge on a multi-page desktop rail.
+      if (rail.scrollLeft >= rail.scrollWidth - rail.clientWidth - 4) current = links.length - 1;
+      prev.disabled = rail.scrollLeft < 4;
+      next.disabled = rail.scrollLeft >= rail.scrollWidth - rail.clientWidth - 4;
+      counter.textContent = `${current + 1} / ${links.length}`;
+    };
+    const move = (delta: number) => {
+      const step = links[1].getBoundingClientRect().left - links[0].getBoundingClientRect().left;
+      rail.scrollBy({ left: delta * step, behavior: reduced.matches ? "instant" : "smooth" });
+    };
+    prev.addEventListener("click", () => move(-1)); next.addEventListener("click", () => move(1));
+    rail.addEventListener("scroll", update, { passive: true });
+    rail.addEventListener("keydown", event => { if (event.target === rail && ["ArrowLeft", "ArrowRight"].includes(event.key)) { event.preventDefault(); move(event.key === "ArrowRight" ? 1 : -1); } });
+    const show = (index: number) => {
+      enlarged = Math.max(0, Math.min(links.length - 1, index));
+      full.src = links[enlarged].href; full.alt = links[enlarged].querySelector("img")!.alt;
+      this.querySelector<HTMLElement>("[data-modal-counter]")!.textContent = `${enlarged + 1} / ${links.length}`;
+      modalPrev.disabled = enlarged === 0; modalNext.disabled = enlarged === links.length - 1;
+      this.querySelector<HTMLElement>(".journey-editorial__dialog-content")!.scrollTop = 0;
+    };
+    links.forEach((link, i) => link.addEventListener("click", event => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault(); opener = link; show(i); modal.showModal();
+    }));
+    this.querySelector("[data-close]")!.addEventListener("click", () => modal.close());
+    modal.addEventListener("click", event => { if (event.target === modal) modal.close(); });
+    modal.addEventListener("close", () => opener?.focus({ preventScroll: true }));
+    modal.addEventListener("keydown", event => { if (["ArrowLeft", "ArrowRight"].includes(event.key)) { event.preventDefault(); show(enlarged + (event.key === "ArrowRight" ? 1 : -1)); } });
+    modalPrev.addEventListener("click", () => show(enlarged - 1)); modalNext.addEventListener("click", () => show(enlarged + 1));
+    this.querySelector<HTMLElement>("[data-controls]")!.hidden = false;
+    update();
+  }
+}
+if (!customElements.get("rebel-carousel")) customElements.define("rebel-carousel", RebelCarousel);
+</script>
+
+<style>
+.journey-editorial{background:radial-gradient(ellipse at 90% 15%,#e5d7f5aa,transparent 60%),radial-gradient(ellipse at 0% 95%,#f1d6e6bb,transparent 55%),#f9f5f0;scroll-margin-top:6rem}
+.journey-editorial__heading{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end;margin-bottom:1.4rem}
+.journey-editorial__heading h2{font:500 clamp(2.8rem,5vw,4.8rem)/1.05 var(--font-display);letter-spacing:-.045em;margin:0;color:#291633;text-transform:none}
+.journey-editorial__heading em{color:#793e9b}.journey-editorial__heading>p{max-width:29rem;line-height:1.7;color:#66556e;margin:0 0 .25rem}
+rebel-carousel{display:block;min-width:0}.journey-editorial__controls{display:flex;justify-content:space-between;align-items:center;margin-bottom:.9rem;font-size:.82rem;font-variant-numeric:tabular-nums}.journey-editorial__controls[hidden]{display:none}.journey-editorial__controls>div{display:flex;gap:.5rem}
+button{font:inherit;cursor:pointer;background:#fff9;color:#32163f;border:1px solid #48295340;border-radius:99px;min-height:44px;min-width:44px;padding:.6rem 1rem}button:disabled{opacity:.35;cursor:default}button:focus-visible,a:focus-visible,summary:focus-visible,ol:focus-visible{outline:3px solid #8040c1;outline-offset:4px}
+.journey-editorial__rail{display:flex;gap:1.1rem;margin:0;padding:0 0 1rem;list-style:none;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:#ae8ac0 transparent}
+.journey-editorial__rail>li{flex:0 0 min(38%,440px);min-width:0;scroll-snap-align:start}.journey-editorial__rail a{display:block;position:relative;color:inherit;overflow:hidden;border-radius:.35rem;box-shadow:0 7px 22px #30113912}.journey-editorial__rail img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:contain}.journey-editorial__zoom{position:absolute;right:.65rem;bottom:.65rem;width:30px;height:30px;background:#fffdf7e8;border-radius:50%;display:grid;place-items:center;font-size:1.1rem;color:#432650}
+.journey-editorial__caption{display:flex;gap:.8rem;font-size:.75rem;line-height:1.45;padding:.8rem 0;color:#75607d}.journey-editorial__caption>span{color:#392344}
+.journey-editorial__transcript{margin-top:1.5rem;border-top:1px solid #48295328;padding-top:1rem}.journey-editorial__transcript summary{cursor:pointer;font-weight:700;color:#6d3389;padding:.5rem 0}.journey-editorial__transcript>div{display:grid;grid-template-columns:1fr 1fr;gap:1rem 2.5rem;padding-top:1rem}.journey-editorial__transcript h3{font-size:1.15rem;color:#362040;margin:.5rem 0}.journey-editorial__transcript p{line-height:1.65;color:#68566f;margin:0 0 1rem}
+.journey-editorial__dialog{border:0;border-radius:.75rem;padding:0;width:min(860px,calc(100vw - 24px));max-width:none;max-height:calc(100dvh - 24px);color:#f8f3ed;background:#24132f;overflow:hidden}.journey-editorial__dialog::backdrop{background:#130c20df;backdrop-filter:blur(6px)}.journey-editorial__dialog-bar,.journey-editorial__dialog-nav{display:flex;align-items:center;justify-content:space-between;padding:.55rem 1rem;gap:.5rem}.journey-editorial__dialog button{background:transparent;border-color:#ffffff50;color:#fff}.journey-editorial__dialog-content{max-height:calc(100dvh - 160px);overflow-y:auto;overscroll-behavior:contain}.journey-editorial__dialog-content img{width:100%;height:auto;display:block}.journey-editorial__dialog-bar{font-size:.85rem}
+@media(max-width:720px){.journey-editorial__heading{grid-template-columns:1fr;gap:1.1rem}.journey-editorial__heading h2{font-size:3rem}.journey-editorial__rail>li{flex-basis:90%}.journey-editorial__rail{gap:.75rem}.journey-editorial__transcript>div{grid-template-columns:1fr}.journey-editorial__dialog-nav{font-size:.82rem}}
+</style>

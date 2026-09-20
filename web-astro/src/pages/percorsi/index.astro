@@ -3,6 +3,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import { rebelJourneys } from "@/lib/rebel-journeys";
+import { journeyCarousels } from "@/lib/journey-carousels";
 import { getJourneyVisual } from "@/lib/journey-visuals";
 import { buildBreadcrumbSchema, buildItemListSchema, buildWebPageSchema, createPageMeta } from "@/lib/seo";
 import "@/styles/journey-pages.css";
@@ -100,8 +101,13 @@ const journeyAreas = [
         <div class="journey-index">
           {rebelJourneys.map((journey) => {
             const visual = getJourneyVisual(journey.slug);
+            const editorial = journeyCarousels[journey.slug];
             return (
-              <a class="journey-index__card" href={`/percorsi/${journey.slug}`}>
+              <a class:list={["journey-index__card", { "journey-index__card--editorial": editorial }]} href={`/percorsi/${journey.slug}`} aria-label={editorial ? `${journey.name}: ${journey.summary} ${journey.price}, ${journey.duration}. Scopri il percorso.` : undefined}>
+                {editorial ? <>
+                  <figure class="journey-index__cover"><img src={editorial.slides[0].src} srcset={`${editorial.slides[0].preview} 640w, ${editorial.slides[0].src} 1080w`} sizes="(max-width:720px) 94vw, (max-width:980px) 46vw, 32vw" alt={`Copertina della guida ${journey.name}`} width="1080" height="1350" loading="lazy" decoding="async" /></figure>
+                  <div class="journey-index__editorial-footer"><h3>Scopri {journey.name} <span aria-hidden="true">↗</span></h3><p><strong>{journey.price}</strong><span>{journey.duration}</span></p></div>
+                </> : <>
                 <figure class="journey-index__moment">
                   <img src={siteAsset(visual.momentSlot)} alt={visual.momentAlt} width="1200" height="800" loading="lazy" decoding="async" />
                 </figure>
@@ -118,6 +124,7 @@ const journeyAreas = [
                   </p>
                 </div>
                 <div class="journey-index__price"><span>{journey.price}</span><small>{journey.duration}</small></div>
+                </>}
               </a>
             );
           })}

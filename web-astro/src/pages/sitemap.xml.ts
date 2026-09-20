@@ -87,6 +87,7 @@ export const GET: APIRoute = () => {
     make("/metodo-rebel", "weekly", 0.88),
     make("/protocolli-epigenetici", "weekly", 0.89),
     make("/percorsi", "weekly", 0.95),
+    make("/gallery", "monthly", 0.8),
     make("/tecnologie-rebel", "weekly", 0.93),
     make("/listino-estetica-laser", "weekly", 0.95),
     make("/servizi", "weekly", 0.93),

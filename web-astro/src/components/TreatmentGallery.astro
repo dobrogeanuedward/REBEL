@@ -1,5 +1,19 @@
-<section class="treatment-gallery rebel-section" aria-labelledby="treatment-gallery-title"> <div class="rebel-container"> <p class="rebel-kicker">Attivi · Manualità · Percorsi</p> <h2 id="treatment-gallery-title">La cura, da vicino.</h2> <div class="treatment-gallery__grid"> <a href="/percorsi/skin-reset"> <img src="/img/film-editorial-v1/skin-reset.webp" alt="Applicazione di un gel viso con pennello" width="1664" height="936" loading="lazy" decoding="async"> <span>Preparare<span aria-hidden="true">↗</span></span> </a><a href="/percorsi/glow"> <img src="/img/film-editorial-v1/glow.webp" alt="Manualità per l’assorbimento di un cosmetico viso" width="1664" height="936" loading="lazy" decoding="async"> <span>Illuminare<span aria-hidden="true">↗</span></span> </a><a href="/percorsi/longevity"> <img src="/img/film-editorial-v1/longevity.webp" alt="Massaggio viso con gesti manuali" width="1664" height="936" loading="lazy" decoding="async"> <span>Prendersi cura<span aria-hidden="true">↗</span></span> </a> </div> </div> </section>
+---
+import { journeyPhotographs } from "@/lib/journey-photographs";
+const barrierPhotos = journeyPhotographs.filter(photo => photo.journey === "barrier");
+---
+<section class="treatment-gallery rebel-section" aria-labelledby="treatment-gallery-title">
+  <div class="rebel-container">
+    <p class="rebel-kicker">Attivi · Manualità · Percorsi</p><h2 id="treatment-gallery-title">La cura, da vicino.</h2>
+    <div class="treatment-gallery__grid">
+      <a href="/percorsi/skin-reset"><img src="/img/film-editorial-v1/skin-reset.webp" alt="Applicazione di un gel viso con pennello" width="1664" height="936" loading="lazy" decoding="async"/><span>Preparare<span aria-hidden="true">↗</span></span></a>
+      <a href="/percorsi/glow"><img src="/img/film-editorial-v1/glow.webp" alt="Manualità per l’assorbimento di un cosmetico viso" width="1664" height="936" loading="lazy" decoding="async"/><span>Illuminare<span aria-hidden="true">↗</span></span></a>
+      <a href="/percorsi/longevity"><img src="/img/film-editorial-v1/longevity.webp" alt="Massaggio viso con gesti manuali" width="1664" height="936" loading="lazy" decoding="async"/><span>Prendersi cura<span aria-hidden="true">↗</span></span></a>
+      {barrierPhotos.map(photo => <a class="treatment-gallery__new" href="/percorsi/barrier"><img src={photo.src} srcset={`${photo.preview} 640w, ${photo.src} ${photo.width}w`} sizes="(max-width:650px) 92vw, 46vw" alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async"/><span>{photo.title}<span aria-hidden="true">↗</span></span></a>)}
+    </div>
+    <a class="treatment-gallery__all" href="/gallery">Esplora la gallery REBEL →</a>
+  </div>
+</section>
 <style>
-.treatment-gallery{background:#fff}h2{font-size:clamp(2rem,4vw,4rem);margin:0 0 2rem}.treatment-gallery__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem}a{text-decoration:none;color:inherit;min-width:0}img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:3px}a>span{display:flex;justify-content:space-between;font-size:1.1rem;padding:1rem 0}@media(max-width:650px){.treatment-gallery__grid{grid-template-columns:1fr}img{aspect-ratio:16/10}}
-
+.treatment-gallery{background:#fff}h2{font-size:clamp(2rem,4vw,4rem);margin:0 0 2rem}.treatment-gallery__grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1.2rem}.treatment-gallery__grid>a{grid-column:span 2}.treatment-gallery__grid>a.treatment-gallery__new{grid-column:span 3}a{text-decoration:none;color:inherit;min-width:0}img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:50% 40%;border-radius:3px}a>span{display:flex;justify-content:space-between;gap:1rem;font-size:1.1rem;padding:1rem 0}.treatment-gallery__all{display:inline-block;margin-top:1.5rem;color:#783a94;font-weight:700;border-bottom:1px solid #783a9470;padding-bottom:.4rem}@media(max-width:650px){.treatment-gallery__grid{grid-template-columns:1fr}.treatment-gallery__grid>a,.treatment-gallery__grid>a.treatment-gallery__new{grid-column:auto}img{aspect-ratio:16/10}}
 </style>
