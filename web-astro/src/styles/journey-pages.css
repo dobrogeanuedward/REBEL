@@ -633,10 +633,13 @@
 }
 
 /* Poster artwork stays intact in the journey index; home photography is independent. */
-.journey-hub .journey-index__card--editorial { padding:0; justify-content:flex-start; background:#fff; }
+.journey-hub .journey-index__card--editorial { padding:0; min-height:0; justify-content:flex-start; background:#fff; }
 .journey-hub .journey-index__cover { margin:0; width:100%; overflow:hidden; background:#e9dfef; }
 .journey-hub .journey-index__cover img { display:block; width:100%; height:auto; aspect-ratio:4/5; object-fit:contain; }
 .journey-hub .journey-index__editorial-footer { display:grid; gap:1rem; padding:1.4rem 1.6rem; margin-top:auto; }
 .journey-hub .journey-index__editorial-footer h3 { display:flex; justify-content:space-between; gap:.7rem; margin:0; font-family:var(--font-body); font-size:1rem; line-height:1.4; letter-spacing:0; }
 .journey-hub .journey-index__editorial-footer p { display:flex; justify-content:space-between; gap:.5rem; font-size:.9rem; color:#6c5474; }
 .journey-hub .journey-index__editorial-footer strong { color:#35213e; }
+
+.journey-page--editorial .journey-hero__content { width:min(1240px, calc(100% - clamp(2rem, 5vw, 5rem))); }
+@media (max-width:720px) { .journey-page--editorial .journey-hero__content { width:calc(100% - 1.5rem); } }
