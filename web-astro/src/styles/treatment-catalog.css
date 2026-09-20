@@ -39,6 +39,7 @@
   font-weight: 700;
 }
 .catalog-intro h1 {
+  color: var(--catalog-ink);
   font: 500 clamp(2.9rem, 5vw, 5rem)/1.05 var(--font-display);
   letter-spacing: -0.045em;
   text-transform: none;
@@ -427,6 +428,7 @@
   scroll-margin-top: calc(var(--catalog-header-height, 80px) + 100px);
 }
 .catalog-promo h3 {
+  color: var(--catalog-ink);
   font: 500 2rem/1.1 var(--font-display);
   margin: 0.6rem 0 1rem;
 }
@@ -530,6 +532,7 @@
     width: calc(100% - 28px);
   }
   .catalog-intro h1 {
+  color: var(--catalog-ink);
     font-size: 2.9rem;
   }
   .catalog-tools > .catalog-wrap {
