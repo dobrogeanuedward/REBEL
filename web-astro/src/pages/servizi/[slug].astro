@@ -309,7 +309,7 @@ const tocItems = [
     kicker={service.category === "laser" ? "Epilazione laser · Carmagnola" : "Trattamento estetico · Carmagnola"}
     title={service.name.replace(/Carmagnola/i, "_Carmagnola_")}
     lead={service.longDescription}
-    bullets={[service.category === "laser" ? `Listino ordinario · ${displayPrice}` : displayPrice, "Come si svolge e che cosa sapere", "Su appuntamento · Carmagnola"]}
+    bullets={[isLamination ? "Ciglia + sopracciglia · €79" : service.category === "laser" ? `Listino ordinario · ${displayPrice}` : displayPrice, "Come si svolge e che cosa sapere", "Su appuntamento · Carmagnola"]}
     meta={[
       "Viale Barbaroux 20",
       "Da martedì a sabato",
@@ -343,16 +343,16 @@ const tocItems = [
           <SectionHead
             kicker="Prezzo"
             title={`Quanto costa _${serviceWithArticle}_.`}
-            lead={service.category === "laser"
+            lead={isLamination ? "Scegli ciglia, sopracciglia oppure il trattamento combinato: qui trovi i tre prezzi ordinari e le durate." : service.category === "laser"
               ? `Prezzo ordinario indicato: ${displayPrice}. Le condizioni della promozione sono riportate sopra e vengono confermate prima dell’appuntamento.`
               : `Prezzo indicato: ${displayPrice}. Se cambia in base alla zona, alla durata o alla tipologia, te lo confermiamo prima dell’appuntamento.`}
           />
           {isLamination && <div class="lamination-choices">{laminationChoices.map(i=><a href={requestTreatment(i.id)}><span>{i.name}</span><strong>{priceRange(i.price)}</strong><small>{durationRange(i.durationMin,i.durationMax)} · Richiedi ↗</small></a>)}</div>}
           <div class="card-grid card-grid--2">
             <FeatureCard
-              kicker={service.category === "laser" ? "Listino ordinario" : "Prezzo indicato"}
-              title={displayPrice}
-              body={service.category === "laser"
+              kicker={isLamination ? "Ciglia + sopracciglia insieme" : service.category === "laser" ? "Listino ordinario" : "Prezzo indicato"}
+              title={isLamination ? "€79 · 105 minuti" : displayPrice}
+              body={isLamination ? "Puoi scegliere il trattamento combinato oppure prenotare ciglia o sopracciglia separatamente, ai prezzi riportati sopra." : service.category === "laser"
                 ? "Fuori dalla promozione, il prezzo ordinario varia in base alla zona e alla tipologia. Te lo confermiamo prima dell’appuntamento."
                 : "Se il servizio prevede varianti per zona, durata o tipologia, ti confermiamo il prezzo prima dell’appuntamento."}
             />
