@@ -63,7 +63,7 @@
   border-radius: 3rem .5rem 3rem .5rem;
   background: #30193f;
 }
-.journey-hub__portrait img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
+.journey-hub__portrait img { width: 100%; height: auto; aspect-ratio: 4/5; object-fit: cover; display: block; }
 .journey-hub__portrait figcaption {
   position: absolute;
   inset: auto 0 0;
@@ -80,7 +80,7 @@
 .booking-direct { display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; margin-top: 1rem; }
 .booking-direct a { display: inline-flex; align-items: center; min-height: 44px; color: #693886; font-size: .9rem; text-underline-offset: .3em; }
 .booking-studio { margin: 0 0 1.5rem; }
-.booking-studio img { width: 100%; aspect-ratio: 3/2; object-fit: cover; border-radius: 8px; }
+.booking-studio img { width: 100%; height: auto; aspect-ratio: 3/2; object-fit: cover; border-radius: 8px; }
 .booking-studio figcaption { color: #62506e; font-size: .8rem; line-height: 1.6; margin-top: .6rem; }
 .page-contatti .form__optional { border-block: 1px solid #dfd3e6; padding: .5rem 0; }
 .page-contatti .form__optional summary { min-height: 44px; align-content: center; color: #693886; font-weight: 600; cursor: pointer; }
@@ -119,3 +119,5 @@
   .treatment-menu .catalog-option { align-items: start; flex-wrap: wrap; }
   .treatment-menu .catalog-service__price small { flex-basis: 100%; }
 }
+
+.page-contatti .form__kicker { color: #8a3569; }
