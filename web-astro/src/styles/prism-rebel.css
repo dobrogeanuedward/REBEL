@@ -272,8 +272,16 @@ html {
     max-width: 142px;
   }
 
-  .rebel-site-header__signature,
-  .rebel-site-header .site-header__cta { display: none; }
+  .rebel-site-header__signature { display: none; }
+  .rebel-site-header .site-header__cta {
+    display: inline-flex;
+    flex: 0 0 auto;
+    margin-left: auto;
+    width: auto;
+    min-height: 44px;
+    padding: .65rem .9rem;
+    font-size: .85rem;
+  }
 
   .rebel-site-header .burger,
   .rebel-drawer .burger {

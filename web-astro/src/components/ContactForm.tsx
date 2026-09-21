@@ -42,6 +42,16 @@ const journeyLabels: Record<string, string> = {
   liberta: "Libertà",
 };
 
+const bookingGroups = [
+  { label: "Promo laser", choices: bookingChoices.filter(c => c.id.startsWith("promo-")) },
+  { label: "Percorsi REBEL", choices: bookingChoices.filter(c => c.id.startsWith("percorso-")) },
+  { label: "Protocolli", choices: bookingChoices.filter(c => c.id.startsWith("protocollo-")) },
+  ...menu.categories.map(category => ({
+    label: category.name,
+    choices: bookingChoices.filter(c => category.items.some(item => item.id === c.id)),
+  })),
+];
+
 const allowedSources = new Set([
   "contatti",
   "mappa-rebel",
@@ -210,10 +220,11 @@ export default function ContactForm() {
             setVariant("");
           }}
         >
-          {bookingChoices.map((c) => (
-            <option key={c.id} value={c.id}>
-              {c.label}
-            </option>
+          <option value="valutazione">Aiutatemi a scegliere · valutazione REBEL</option>
+          {bookingGroups.map(group => (
+            <optgroup key={group.label} label={group.label}>
+              {group.choices.map(c => <option key={c.id} value={c.id}>{c.label}</option>)}
+            </optgroup>
           ))}
         </select>
       </label>
@@ -287,42 +298,46 @@ export default function ContactForm() {
         />
       </label>
 
-      <div className="form__row">
-        <label>
-          Email (facoltativa)
-          <input
-            name="email"
-            type="email"
-            value={form.email}
-            onChange={(e) => setForm((v) => ({ ...v, email: e.target.value }))}
-            placeholder="nome@email.com"
-            autoComplete="email"
-          />
-        </label>
-        <label>
-          Telefono / WhatsApp*
-          <input
-            required
-            name="phone"
-            type="tel"
-            value={form.phone}
-            onChange={(e) => setForm((v) => ({ ...v, phone: e.target.value }))}
-            placeholder="+39…"
-            autoComplete="tel"
-          />
-        </label>
-      </div>
+      <details className="form__optional">
+        <summary>Altri recapiti (facoltativi)</summary>
+        <p className="form__small">Ti risponderemo su WhatsApp. Aggiungi qui un recapito diverso, se preferisci.</p>
+        <div className="form__row">
+          <label>
+            Email (facoltativa)
+            <input
+              name="email"
+              type="email"
+              value={form.email}
+              onChange={(e) => setForm((v) => ({ ...v, email: e.target.value }))}
+              placeholder="nome@email.com"
+              autoComplete="email"
+            />
+          </label>
+          <label>
+            Altro telefono (facoltativo)
+            <input
+              name="phone"
+              type="tel"
+              value={form.phone}
+              onChange={(e) => setForm((v) => ({ ...v, phone: e.target.value }))}
+              placeholder="+39…"
+              autoComplete="tel"
+            />
+          </label>
+        </div>
 
-      <label>
-        Città
-        <input
-          name="city"
-          value={form.city}
-          onChange={(e) => setForm((v) => ({ ...v, city: e.target.value }))}
-          placeholder="Da dove ci raggiungi (es. Carmagnola)"
-          autoComplete="address-level2"
-        />
-      </label>
+        <label>
+          Città (facoltativa)
+          <input
+            name="city"
+            value={form.city}
+            onChange={(e) => setForm((v) => ({ ...v, city: e.target.value }))}
+            placeholder="Da dove ci raggiungi (es. Carmagnola)"
+            autoComplete="address-level2"
+          />
+        </label>
+
+      </details>
 
       <label>
         Aggiungi un dettaglio (facoltativo)
@@ -355,7 +370,7 @@ export default function ContactForm() {
         disabled={!isReady}
         aria-describedby="booking-whatsapp-help"
       >
-        Invia la richiesta su WhatsApp
+        Prepara il messaggio WhatsApp
       </button>
       <p className="form__small" id="booking-whatsapp-help">
         Si apre WhatsApp con il messaggio già compilato: controllalo e premi

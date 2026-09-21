@@ -1,6 +1,7 @@
 ---
 import "@/styles/global.css";
 import "@/styles/live-preserved.css";
+import "@/styles/brand-usability.css";
 import { ClientRouter } from "astro:transitions";
 import type { PageMeta } from "@/lib/seo";
 import {
@@ -40,7 +41,7 @@ const pathname = Astro.url.pathname;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="format-detection" content="telephone=no" />
-    <meta name="theme-color" content="#07050E" />
+    <meta name="theme-color" content="#fffdf9" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="icon" type="image/png" href={siteConfig.assets.logoLight} />
 
@@ -51,24 +52,7 @@ const pathname = Astro.url.pathname;
     <link rel="preconnect" href="https://imagedelivery.net" crossorigin />
     <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
     <link rel="dns-prefetch" href="https://www.google.com" />
-    {pathname === "/" ? (
-      <>
-        <link
-          rel="preload"
-          as="image"
-          href="/api/site-asset?slot=home.hero.method.mobile"
-          media="(max-width: 860px) and (orientation: portrait)"
-          fetchpriority="high"
-        />
-        <link
-          rel="preload"
-          as="image"
-          href="/api/site-asset?slot=home.hero.method.desktop"
-          media="(min-width: 861px), (orientation: landscape)"
-          fetchpriority="high"
-        />
-      </>
-    ) : null}
+    {pathname === "/" ? <link rel="preload" as="image" href="/media/rebel-film-v1/poster.webp" fetchpriority="high" /> : null}
 
     <SeoHead meta={meta} />
     <JsonLd data={orgSchema} />

@@ -1,0 +1,121 @@
+/* Shared, scoped corrections from the desktop and responsive UI review. */
+.rebel-site-header .site-header__brand:hover .site-header__logo,
+.rebel-site-header .site-header__brand:focus-visible .site-header__logo {
+  filter: none;
+}
+.landing-header .landing-header__brand {
+  background: #fffdf9;
+  padding: .35rem .65rem;
+  border-radius: 8px 3px 8px 3px;
+  min-height: 44px;
+  flex-shrink: 0;
+}
+.landing-header .landing-header__phone {
+  min-width: 44px;
+  min-height: 44px;
+  justify-content: center;
+  color: #fffdf9;
+}
+.landing-header .landing-header__whatsapp { width: auto; }
+
+/* Match the editorial display face used in the listino and studio pages. */
+.page-metodo-rebel .rb-hero > .rb-hero__content h1,
+.tech-showcase .tech-showcase-hero__content h1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.8rem, 5.7vw, 5.6rem);
+  line-height: 1.07;
+  letter-spacing: -.045em;
+  text-transform: none;
+  max-width: 14ch;
+}
+.tech-showcase .tech-showcase-hero__content h1 span {
+  font: inherit;
+  text-transform: none;
+}
+.tech-showcase .tech-showcase-hero__content h1 em {
+  margin-left: 0;
+  font-weight: 400;
+}
+.journey-hub .journey-hub__hero {
+  padding: clamp(8rem, 11vw, 11rem) 0 4rem;
+  background: #fffdf9;
+}
+.journey-hub .journey-hub__hero::after { display: none; }
+.journey-hub .journey-hub__intro {
+  max-width: 1400px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+.journey-hub .journey-hub__intro .rebel-display {
+  font: 500 clamp(2.8rem, 5.6vw, 5.6rem)/1.04 var(--font-display);
+  letter-spacing: -.045em;
+  text-transform: none;
+  color: #30193f;
+}
+.journey-hub__intro .rebel-display em { color: #7c4896; font-weight: 400; }
+.journey-hub__portrait {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 3rem .5rem 3rem .5rem;
+  background: #30193f;
+}
+.journey-hub__portrait img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
+.journey-hub__portrait figcaption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 4rem 1.6rem 1.6rem;
+  background: linear-gradient(transparent, #25122ceb);
+  color: #fff;
+  font-size: .8rem;
+  line-height: 1.7;
+}
+.journey-hub__portrait figcaption span { font: italic 400 1.55rem/1.4 var(--font-display); }
+.journey-hub .journey-index__card { scroll-margin-top: 8rem; }
+.journey-hub #tutti-i-percorsi { scroll-margin-top: 5rem; }
+
+.booking-direct { display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; margin-top: 1rem; }
+.booking-direct a { display: inline-flex; align-items: center; min-height: 44px; color: #693886; font-size: .9rem; text-underline-offset: .3em; }
+.booking-studio { margin: 0 0 1.5rem; }
+.booking-studio img { width: 100%; aspect-ratio: 3/2; object-fit: cover; border-radius: 8px; }
+.booking-studio figcaption { color: #62506e; font-size: .8rem; line-height: 1.6; margin-top: .6rem; }
+.page-contatti .form__optional { border-block: 1px solid #dfd3e6; padding: .5rem 0; }
+.page-contatti .form__optional summary { min-height: 44px; align-content: center; color: #693886; font-weight: 600; cursor: pointer; }
+.page-contatti .form__optional[open] { display: grid; gap: 1rem; padding-bottom: 1rem; }
+.page-contatti .form__optional .form__row { margin: 1rem 0; }
+.page-contatti .form__optional > label { display: grid; gap: .5rem; }
+
+.treatment-menu .catalog-navigation nav { max-height: min(65svh, calc(100svh - var(--catalog-header-height, 100px) - 110px)); }
+.treatment-menu .catalog-navigation a { min-height: 44px; display: flex; align-items: center; }
+.treatment-menu .catalog-search button { min-width: 44px; min-height: 44px; }
+.treatment-menu .catalog-photo-note { font-size: .75rem; line-height: 1.5; }
+.treatment-menu .catalog-treatwell { min-height: 44px; display: inline-flex; align-items: center; }
+.treatment-menu .catalog-service__price small { font-size: .75rem; max-width: 100px; }
+.treatment-menu .catalog-service__label > small { font-size: .8rem; }
+.treatment-menu .catalog-service__price { flex-wrap: wrap; }
+.treatment-menu .catalog-kicker { font-size: .72rem; }
+
+@media (max-width: 760px) {
+  .journey-hub .journey-hub__intro { grid-template-columns: 1fr; gap: 2rem; }
+  .journey-hub .journey-hub__hero { padding: 8rem 0 2.5rem; }
+  .journey-hub__portrait img { aspect-ratio: 16/10; }
+  .journey-hub .journey-worlds { grid-template-columns: 1fr; }
+  .tech-showcase .tech-showcase-hero__content h1,
+  .page-metodo-rebel .rb-hero > .rb-hero__content h1 { font-size: clamp(2.7rem, 10vw, 4rem); }
+  .treatment-menu .catalog-search input { font-size: 1rem; }
+  .treatment-menu .catalog-category__title > small { font-size: .7rem; letter-spacing: .06em; }
+  .treatment-menu .catalog-category__title p { font-size: .8rem; line-height: 1.5; }
+  .treatment-menu .catalog-service__price strong { font-size: 1rem; }
+  .treatment-menu .catalog-service__price small { max-width: none; text-align: left; }
+  .page-contatti .form input,
+  .page-contatti .form select,
+  .page-contatti .form textarea { font-size: 1rem; }
+}
+@media (max-width: 380px) {
+  .treatment-menu .catalog-search > span[aria-hidden] { display: none; }
+  .treatment-menu .catalog-option { align-items: start; flex-wrap: wrap; }
+  .treatment-menu .catalog-service__price small { flex-basis: 100%; }
+}

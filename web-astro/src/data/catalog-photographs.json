@@ -286,5 +286,53 @@
     "width": 1440,
     "height": 810,
     "illustrative": true
+  },
+  "viso-purificante": {
+    "src": "/img/catalogo/viso-purificante-rebel-v2.webp",
+    "preview": "/img/catalogo/viso-purificante-rebel-v2-480.webp",
+    "alt": "Maschera purificante minerale nella zona T",
+    "width": 1440,
+    "height": 960,
+    "illustrative": true
+  },
+  "viso-maschera": {
+    "src": "/img/catalogo/viso-maschera-rebel-v2.webp",
+    "preview": "/img/catalogo/viso-maschera-rebel-v2-480.webp",
+    "alt": "Applicazione di una maschera cosmetica sulla guancia",
+    "width": 1440,
+    "height": 960,
+    "illustrative": true
+  },
+  "viso-contorno-occhi": {
+    "src": "/img/catalogo/viso-contorno-occhi-rebel-v2.webp",
+    "preview": "/img/catalogo/viso-contorno-occhi-rebel-v2-480.webp",
+    "alt": "Patch cosmetici nella zona del contorno occhi",
+    "width": 1440,
+    "height": 960,
+    "illustrative": true
+  },
+  "viso-ultrasuoni-spatola": {
+    "src": "/img/catalogo/viso-ultrasuoni-spatola-rebel-v2.webp",
+    "preview": "/img/catalogo/viso-ultrasuoni-spatola-rebel-v2-480.webp",
+    "alt": "Spatola piatta per la pulizia viso a ultrasuoni",
+    "width": 1440,
+    "height": 960,
+    "illustrative": true
+  },
+  "piedi-taglio": {
+    "src": "/img/catalogo/piedi-taglio-rebel-v2.webp",
+    "preview": "/img/catalogo/piedi-taglio-rebel-v2-480.webp",
+    "alt": "Taglio del bordo dell’unghia durante il pedicure",
+    "width": 1440,
+    "height": 960,
+    "illustrative": true
+  },
+  "piedi-scrub": {
+    "src": "/img/catalogo/piedi-scrub-rebel-v2.webp",
+    "preview": "/img/catalogo/piedi-scrub-rebel-v2-480.webp",
+    "alt": "Scrub cosmetico su tallone e caviglia",
+    "width": 1440,
+    "height": 960,
+    "illustrative": true
   }
 }

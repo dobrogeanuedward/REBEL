@@ -94,7 +94,7 @@ const siblingAreaLabel = journey.area === "Viso" ? "per il viso" : journey.area 
   <JsonLd data={{ ...webPage, ...(editorialHero ? { primaryImageOfPage: new URL(editorialHero, siteConfig.siteUrl).href } : {}), ...(photographs.length ? { image: photographs.map(photographSchema) } : {}) }} />
   {carousel && <JsonLd data={{ "@context": "https://schema.org", "@type": "Service", "@id": `${siteConfig.siteUrl}/percorsi/${journey.slug}#service`, name: journey.name, description: journey.summary, url: `${siteConfig.siteUrl}/percorsi/${journey.slug}`, provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` }, areaServed: { "@type": "City", name: "Carmagnola" }, image: photographs.map(photographSchema) }} />}
 
-  <main class:list={["journey-page", { "journey-page--editorial": carousel }]} data-world={journey.world}>
+  <div class:list={["journey-page", { "journey-page--editorial": carousel }]} data-world={journey.world}>
     <section class="journey-hero">
       <div class="journey-hero__media">
         <picture>
@@ -211,7 +211,7 @@ const siblingAreaLabel = journey.area === "Viso" ? "per il viso" : journey.area 
     </section>
 
     {siblings.length > 0 ? <section class="rebel-section rebel-section--paper"><div class="rebel-container"><p class="rebel-kicker">Altri percorsi</p><h2 class="rebel-title">Altri percorsi {siblingAreaLabel}.</h2><div class="journey-siblings">{siblings.map((sibling) => <a href={`/percorsi/${sibling.slug}`}><span>{sibling.slug === "white" ? "Uniformare · White" : `${sibling.priority} · ${sibling.name}`}</span><span>→</span></a>)}</div></div></section> : null}
-  </main>
+  </div>
 
   <StickyBookingBar
     priceHint={journey.slug === "liberta" ? laserOffer.stickyLabel : undefined}

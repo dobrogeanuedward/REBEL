@@ -106,6 +106,10 @@ const hours = [
   <header class="booking-intro container">
     <p class="rebel-kicker">REBEL · Carmagnola</p><h1>Il tuo prossimo<br/><em>momento REBEL.</em></h1>
     <p>Un trattamento preciso o un consiglio per iniziare? Scegli il modo più comodo per prenotare.</p>
+    <nav class="booking-direct" aria-label="Parla direttamente con REBEL">
+      <a href={siteConfig.social.whatsapp} target="_blank" rel="noopener noreferrer">Scrivici su WhatsApp ↗</a>
+      <a href={`tel:${siteConfig.phoneRaw}`}>Chiama lo studio</a>
+    </nav>
     <div class="booking-routes">
       <a href={menu.source} target="_blank" rel="noopener noreferrer"><span>01 · Ho già scelto un servizio</span><h2>Vedi gli appuntamenti.</h2><p>Scegli trattamento, variante e orario disponibili su Treatwell.</p><strong>Apri le disponibilità ↗</strong></a>
       <a href="#prenota"><span>02 · Promo laser, percorsi e consigli</span><h2>Parliamone con REBEL.</h2><p>Porta la tua scelta, indica quando vorresti venire e attendi la nostra conferma.</p><strong>Prepara la richiesta ↓</strong></a>
@@ -124,6 +128,7 @@ const hours = [
       </article>
 
       <aside class="card">
+        <figure class="booking-studio"><img src="/img/studio-treatwell/15432056.jpg" alt="Area accoglienza dello studio REBEL a Carmagnola" width="1200" height="800" loading="lazy"/><figcaption>Ti aspettiamo in Viale Barbaroux 20, Carmagnola.</figcaption></figure>
         <p class="card__kicker">Come funziona la valutazione</p>
         <h2 class="card__title">Dalla richiesta al trattamento consigliato.</h2>
         <ol class="flow" style="margin-top:1.2rem; counter-reset: step;">

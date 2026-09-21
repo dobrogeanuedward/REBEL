@@ -30,7 +30,7 @@ const journeyAreas = [
     name: "Viso",
     eyebrow: "Pelle del viso",
     summary: "Percorsi per pulizia, idratazione, impurità, luminosità, macchie, tono ed elasticità.",
-    href: "#tutti-i-percorsi",
+    href: "#percorso-skin-reset",
     heroSlot: "home.hero.face.desktop",
     paths: rebelJourneys.filter((journey) => journey.area === "Viso"),
   },
@@ -39,7 +39,7 @@ const journeyAreas = [
     name: "Corpo",
     eyebrow: "Trattamenti corpo",
     summary: "Percorsi per leggerezza, tono e compattezza, definiti in base alle tue esigenze.",
-    href: "#tutti-i-percorsi",
+    href: "#percorso-forma",
     heroSlot: "home.hero.body.desktop",
     paths: rebelJourneys.filter((journey) => journey.area === "Corpo"),
   },
@@ -59,16 +59,17 @@ const journeyAreas = [
   <JsonLd data={webPage} />
   <JsonLd data={itemList} />
 
-  <main>
+  <div class="journey-hub__body">
     <section class="journey-hub__hero">
-      <div class="rebel-container journey-hub__intro">
+      <div class="rebel-container journey-hub__intro"><div class="journey-hub__copy">
         <p class="rebel-kicker">Viso · corpo · laser</p>
-        <h1 class="rebel-display">Tre aree.<br/>Nove percorsi.</h1>
+        <h1 class="rebel-display">Tre aree.<br/><em>Nove percorsi.</em></h1>
         <p class="rebel-lead">Scegli l’area e l’esigenza da cui vuoi partire. Per ogni percorso trovi a chi è rivolto, cosa può includere, durata e prezzo di partenza.</p>
         <div class="rebel-hero__actions">
-          <a class="btn btn--primary" href="/#mappa-rebel-live">Scopri da dove partire</a>
+          <a class="btn btn--primary" href="#tutti-i-percorsi">Confronta i percorsi</a>
           <a class="btn btn--secondary" href="/contatti">Prenota la valutazione</a>
         </div>
+        </div><figure class="journey-hub__portrait"><img src="/img/catalogo/percorso-glow-rebel.webp" srcset="/img/catalogo/percorso-glow-rebel-480.webp 480w, /img/catalogo/percorso-glow-rebel.webp 1440w" sizes="(max-width:760px) 100vw, 45vw" alt="Manualità durante un trattamento viso" width="1440" height="810" fetchpriority="high"/><figcaption>Viso · Corpo · Laser<br/><span>Il tuo percorso comincia da te.</span></figcaption></figure>
       </div>
     </section>
 
@@ -103,7 +104,7 @@ const journeyAreas = [
             const visual = getJourneyVisual(journey.slug);
             const editorial = journeyCarousels[journey.slug];
             return (
-              <a class:list={["journey-index__card", { "journey-index__card--editorial": editorial }]} href={`/percorsi/${journey.slug}`} aria-label={editorial ? `${journey.name}: ${journey.summary} ${journey.price}, ${journey.duration}. Scopri il percorso.` : undefined}>
+              <a id={`percorso-${journey.slug}`} class:list={["journey-index__card", { "journey-index__card--editorial": editorial }]} href={`/percorsi/${journey.slug}`} aria-label={editorial ? `${journey.name}: ${journey.summary} ${journey.price}, ${journey.duration}. Scopri il percorso.` : undefined}>
                 {editorial ? <>
                   <figure class="journey-index__cover"><img src={editorial.slides[0].src} srcset={`${editorial.slides[0].preview} 640w, ${editorial.slides[0].src} 1080w`} sizes="(max-width:720px) 94vw, (max-width:980px) 46vw, 32vw" alt={`Copertina della guida ${journey.name}`} width="1080" height="1350" loading="lazy" decoding="async" /></figure>
                   <div class="journey-index__editorial-footer"><h3>Scopri {journey.name} <span aria-hidden="true">↗</span></h3><p><strong>{journey.price}</strong><span>{journey.duration}</span></p></div>
@@ -139,7 +140,7 @@ const journeyAreas = [
         <div class="rebel-hero__actions" style="justify-content:center"><a class="btn btn--primary" href="/contatti">Prenota la valutazione REBEL</a></div>
       </div>
     </section>
-  </main>
+  </div>
 
   <StickyBookingBar primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
 </BaseLayout>

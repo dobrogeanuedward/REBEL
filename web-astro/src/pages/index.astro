@@ -10,7 +10,6 @@ import InstagramFeed from "@/components/InstagramFeed.astro";
 import LaserOffer from "@/components/LaserOffer.astro";
 import GlowNews from "@/components/GlowNews.astro";
 import { methodSteps, storeGalleryImages } from "@/lib/content";
-import { rebelWorlds, getJourneysByWorld } from "@/lib/rebel-journeys";
 import { siteConfig } from "@/lib/site-config";
 import {
   buildArticleSchema,
@@ -63,20 +62,6 @@ const priorities = [
   ["Segni del tempo", "Rughe, contorno occhi e qualità generale della pelle."],
 ];
 
-const journeyImages = {
-  glow: siteAsset("journeys.glow.moment"),
-  longevity: siteAsset("journeys.longevity.moment"),
-  forma: siteAsset("services.technologies.detail.desktop"),
-  liberta: siteAsset("services.laser.handpiece.desktop"),
-};
-const journeys = rebelWorlds.map((world) => ({
-  name: world.name,
-  kicker: world.eyebrow,
-  copy: world.summary,
-  image: journeyImages[world.id],
-  tags: getJourneysByWorld(world.id).map((journey) => journey.slug === "white" ? "Uniformare" : journey.name),
-  href: world.href,
-}));
 
 const worlds = [
   {
@@ -184,23 +169,6 @@ const worlds = [
       </div>
     </section>
 
-    <section class="rebel-section rebel-section--plum">
-      <div class="rebel-container">
-        <p class="rebel-kicker">I Percorsi Rebel</p>
-        <h2 class="rebel-title">Nove percorsi per esigenze diverse.</h2>
-        <p class="rebel-lead">Luminosità ed equilibrio, tono nel tempo, forma del corpo ed epilazione progressiva: scegli l’area su cui vuoi lavorare e confronta i percorsi disponibili.</p>
-        <div class="rebel-journeys">
-          {journeys.map((journey)=>(
-            <a class="rebel-journey" href={journey.href}>
-              <figure class="rebel-journey__media" aria-hidden="true">
-                <img src={journey.image} alt="" width="1536" height="1024" loading="lazy" decoding="async" />
-              </figure>
-              <div class="rebel-journey__copy"><p class="rebel-kicker">{journey.kicker}</p><h3>{journey.name}</h3><p>{journey.copy}</p><div class="rebel-journey__tags">{journey.tags.map(tag=><span>{tag}</span>)}</div></div>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
 
     <section class="rebel-section">
       <div class="rebel-container">
@@ -247,7 +215,6 @@ const worlds = [
       </div>
     </section>
 
-    <LocalBookingGuide />
     <LocalBookingGuide />
     <section class="rebel-campaign">
       <div class="rebel-container">
