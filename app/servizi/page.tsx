@@ -69,7 +69,7 @@ export default function ServiziHubPage() {
     "massaggio-rilassante-carmagnola-cervicale-stress",
     "scrub-corpo-carmagnola-quando-farlo",
     "pedicure-carmagnola-ogni-quanto-talloni",
-    "pressoterapia-carmagnola-guida-pratica",
+    "pressomassaggio-carmagnola-guida-pratica",
   ];
   const featuredEditorials = editorialSlugs
     .map((slug) => competencePages.find((item) => item.slug === slug))

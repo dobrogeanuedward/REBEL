@@ -92,6 +92,10 @@ function initCatalog() {
     } catch {
       return;
     }
+    if (id === "pressoterapia") {
+      id = "pressomassaggio";
+      history.replaceState(history.state, "", `#${id}`);
+    }
     const target = document.getElementById(id);
     if (!target || !root.contains(target)) return;
     if (search.value) {

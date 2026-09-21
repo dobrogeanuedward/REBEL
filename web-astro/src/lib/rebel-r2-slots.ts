@@ -124,7 +124,7 @@ export const SLOT_RULES: SlotRule[] = [
   {
     slot: "home.hero.technologies.desktop",
     prefixes: ["rebel/home/hero/", "assets/rebel/technologies/", "rebel/technologies/"],
-    keywords: ["technolog", "tecar", "fotobio", "pressoterapia"],
+    keywords: ["technolog", "tecar", "fotobio", "pressomassaggio"],
     variant: "desktop",
     label: "Home hero · tecnologie (desktop)",
   },

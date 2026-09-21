@@ -39,7 +39,11 @@ export default defineConfig({
     "/competenze/linfodrenante-carmagnola-guida-pratica":
       "/competenze/linfodrenante-carmagnola",
     "/competenze/pressoterapia-carmagnola-guida-pratica":
-      "/competenze/pressoterapia-carmagnola",
+      "/competenze/pressomassaggio-carmagnola",
+    "/competenze/pressoterapia-carmagnola":
+      "/competenze/pressomassaggio-carmagnola",
+    "/competenze/pressomassaggio-carmagnola-guida-pratica":
+      "/competenze/pressomassaggio-carmagnola",
   },
   prefetch: {
     prefetchAll: true,

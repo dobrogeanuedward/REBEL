@@ -29,7 +29,7 @@ export default function CompetenzeHubPage() {
   const featuredSlugs = [
     "pulizia-viso-carmagnola-frequenza-benefici",
     "pedicure-carmagnola-ogni-quanto-talloni",
-    "pressoterapia-carmagnola-guida-pratica",
+    "pressomassaggio-carmagnola-guida-pratica",
     "epilazione-laser-ascelle-carmagnola-guida-pratica",
     "epilazione-laser-inguine-carmagnola-guida-pratica",
     "laser-uomo-carmagnola-guida-pratica",

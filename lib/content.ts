@@ -202,7 +202,7 @@ export const homeHeroImages = [
   },
   {
     src: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/ba59e49d-5727-4c34-4b78-5ed055fb6f00/public",
-    alt: "Rebel Carmagnola - Pressoterapia in cabina",
+    alt: "Rebel Carmagnola - Pressomassaggio in cabina",
     objectPosition: "50% 34%",
   },
   {

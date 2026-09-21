@@ -164,8 +164,8 @@ export default function LocalitaHubPage() {
                 Mani ordinate e look curato: pratico, immediato, pulito.
               </p>
             </Link>
-            <Link className="card-light" href="/competenze/pressoterapia-carmagnola-guida-pratica">
-              <h3 style={{ marginTop: 0 }}>Pressoterapia (guida)</h3>
+            <Link className="card-light" href="/competenze/pressomassaggio-carmagnola-guida-pratica">
+              <h3 style={{ marginTop: 0 }}>Pressomassaggio (guida)</h3>
               <p className="lead" style={{ marginTop: "0.35rem", marginBottom: 0, color: "rgba(39,31,56,0.78)" }}>
                 Quando ha senso e come inserirla bene in un percorso drenante.
               </p>

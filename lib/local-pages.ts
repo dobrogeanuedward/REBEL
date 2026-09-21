@@ -109,9 +109,9 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Per alleggerire la sensazione di gonfiore e impostare un calendario che non ti stressi.",
         },
         {
-          label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
-          description: "Quando può aiutare davvero e come inserirla in un percorso drenante ordinato.",
+          label: "Pressomassaggio: guida pratica",
+          href: "/competenze/pressomassaggio-carmagnola-guida-pratica",
+          description: "Quando può aiutare davvero e come inserirlo in un percorso drenante ordinato.",
         },
         {
           label: "Scrub corpo",
@@ -250,7 +250,7 @@ export const localAreaPages: LocalAreaPage[] = [
       paragraphs: [
         "Il punto non è scegliere “il trattamento perfetto”: è scegliere l'ordine giusto. Se l'obiettivo è il laser, si parte dalle zone che ti cambiano davvero la gestione quotidiana e si imposta un calendario realistico.",
         "Se invece vuoi vederti più curata subito, spesso funziona partire da un gancio semplice: pulizia viso (comfort e luminosità), semipermanente (mani ordinate), laminazione (sguardo più definito ma naturale), pedicure (piedi più comodi e in ordine).",
-        "E se senti pesantezza o gonfiore, ha senso leggere bene la situazione: linfodrenante e pressoterapia non sono “magie”, ma strumenti che funzionano quando sono inseriti con ritmo e buonsenso.",
+        "E se senti pesantezza o gonfiore, ha senso leggere bene la situazione: linfodrenante e pressomassaggio non sono “magie”, ma strumenti che funzionano quando sono inseriti con ritmo e buonsenso.",
       ],
       links: [
         {
@@ -294,9 +294,9 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Piedi più comodi e in ordine, con lavoro delicato e sensato.",
         },
         {
-          label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
-          description: "Quando ha senso e come inserirla in un percorso drenante ordinato.",
+          label: "Pressomassaggio: guida pratica",
+          href: "/competenze/pressomassaggio-carmagnola-guida-pratica",
+          description: "Quando ha senso e come inserirlo in un percorso drenante ordinato.",
         },
       ],
     },
@@ -392,8 +392,8 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Piedi più comodi e in ordine: base concreta tutto l'anno.",
         },
         {
-          label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          label: "Pressomassaggio: guida pratica",
+          href: "/competenze/pressomassaggio-carmagnola-guida-pratica",
           description: "Se cerchi leggerezza sulle gambe: criteri pratici e aspettative sane.",
         },
       ],
@@ -451,7 +451,7 @@ export const localAreaPages: LocalAreaPage[] = [
       paragraphs: [
         "La differenza tra un percorso che funziona e uno che stanca è spesso l'ordine: scegliere una priorità (laser, viso o corpo) e dare continuità con un calendario realistico.",
         "Se sei indecisa, partire da un gancio base è la scelta più intelligente: pulizia viso, semipermanente, laminazione o pedicure ti danno un risultato curato e ti fanno capire il metodo in studio.",
-        "Se il tema è la leggerezza sulle gambe, si ragiona con buonsenso: drenaggio e pressoterapia si inseriscono bene quando sono gestiti con ritmo e aspettative sane.",
+        "Se il tema è la leggerezza sulle gambe, si ragiona con buonsenso: drenaggio e pressomassaggio si inseriscono bene quando sono gestiti con ritmo e aspettative sane.",
       ],
       links: [
         {
@@ -490,9 +490,9 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Percorsi viso/corpo quando vuoi progressione e controllo.",
         },
         {
-          label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
-          description: "Per capire se ha senso e come inserirla nel percorso.",
+          label: "Pressomassaggio: guida pratica",
+          href: "/competenze/pressomassaggio-carmagnola-guida-pratica",
+          description: "Per capire se ha senso e come inserirlo nel percorso.",
         },
       ],
     },
@@ -549,7 +549,7 @@ export const localAreaPages: LocalAreaPage[] = [
       paragraphs: [
         "Molte persone cercano una soluzione “vicina”, ma la vera differenza è trovare un metodo. Noi partiamo dall'ordine: una priorità e un calendario che riesci a tenere davvero.",
         "Per un risultato subito percepibile, spesso conviene partire da un gancio base: pulizia viso (pelle più comoda), semipermanente (mani più curate), laminazione (sguardo più ordinato), pedicure (piedi più comodi).",
-        "Se invece l'obiettivo è un percorso corpo più “di continuità”, si valuta bene cosa inserire e quando: drenaggio e pressoterapia funzionano quando sono gestiti con buonsenso, non con eccessi.",
+        "Se invece l'obiettivo è un percorso corpo più “di continuità”, si valuta bene cosa inserire e quando: drenaggio e pressomassaggio funzionano quando sono gestiti con buonsenso, non con eccessi.",
       ],
       links: [
         {
@@ -593,9 +593,9 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Percorsi viso/corpo quando vuoi progressione e controllo.",
         },
         {
-          label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
-          description: "Per orientarti su quando ha senso e come inserirla bene.",
+          label: "Pressomassaggio: guida pratica",
+          href: "/competenze/pressomassaggio-carmagnola-guida-pratica",
+          description: "Per orientarti su quando ha senso e come inserirlo bene.",
         },
       ],
     },
@@ -1512,7 +1512,7 @@ export const localAreaPages: LocalAreaPage[] = [
       paragraphs: [
         "Spesso la richiesta è molto concreta: ridurre la gestione quotidiana (laser) oppure vedersi più curate senza cambiare routine ogni settimana. In entrambi i casi, la chiave è l'ordine.",
         "Se il laser è la priorità, scegliamo le zone con criterio e impostiamo un calendario che riesci davvero a seguire. Se invece vuoi partire da qualcosa di immediato, i ganci base sono perfetti: pulizia viso, semipermanente, laminazione e pedicure ti danno un risultato curato e ti fanno capire il metodo in studio.",
-        "Se senti pesantezza o gonfiore, ha senso orientarsi con lucidità: drenaggio e pressoterapia funzionano quando sono inseriti con ritmo e buonsenso, non quando diventano una corsa.",
+        "Se senti pesantezza o gonfiore, ha senso orientarsi con lucidità: drenaggio e pressomassaggio funzionano quando sono inseriti con ritmo e buonsenso, non quando diventano una corsa.",
       ],
       links: [
         {
@@ -1556,9 +1556,9 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Piedi più comodi e in ordine, con lavoro sensato e delicato.",
         },
         {
-          label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
-          description: "Quando ha senso e come inserirla in un percorso drenante ordinato.",
+          label: "Pressomassaggio: guida pratica",
+          href: "/competenze/pressomassaggio-carmagnola-guida-pratica",
+          description: "Quando ha senso e come inserirlo in un percorso drenante ordinato.",
         },
       ],
     },
@@ -1615,7 +1615,7 @@ export const localAreaPages: LocalAreaPage[] = [
       paragraphs: [
         "Nel nostro lavoro la qualità non è fare mille cose: è fare la cosa giusta, nel momento giusto. Per questo partiamo sempre da una priorità (laser, viso o corpo) e impostiamo un calendario che si regge nel tempo.",
         "Per un risultato subito percepibile, spesso conviene partire da un gancio base: pulizia viso, semipermanente, laminazione o pedicure. Sono servizi semplici, ma fatti bene cambiano davvero la sensazione.",
-        "Se il tema è la leggerezza sulle gambe, ti diamo criteri pratici: drenaggio e pressoterapia si inseriscono quando hanno senso, senza trasformarli in un impegno infinito.",
+        "Se il tema è la leggerezza sulle gambe, ti diamo criteri pratici: drenaggio e pressomassaggio si inseriscono quando hanno senso, senza trasformarli in un impegno infinito.",
       ],
       links: [
         {
@@ -1654,8 +1654,8 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Piedi più comodi e in ordine: base concreta tutto l'anno.",
         },
         {
-          label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          label: "Pressomassaggio: guida pratica",
+          href: "/competenze/pressomassaggio-carmagnola-guida-pratica",
           description: "Per capire se ha senso e cosa aspettarti davvero.",
         },
       ],
@@ -1804,9 +1804,9 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Quando cerchi leggerezza e vuoi impostare un percorso drenante sensato.",
         },
         {
-          label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
-          description: "Quando ha senso, cosa aspettarti e come inserirla in modo ordinato nel percorso corpo.",
+          label: "Pressomassaggio: guida pratica",
+          href: "/competenze/pressomassaggio-carmagnola-guida-pratica",
+          description: "Quando ha senso, cosa aspettarti e come inserirlo in modo ordinato nel percorso corpo.",
         },
         {
           label: "Massaggio rilassante",
@@ -1915,8 +1915,8 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Un gancio concreto quando vuoi sentirti più in ordine (e più comoda) senza complicarti il percorso.",
         },
         {
-          label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          label: "Pressomassaggio: guida pratica",
+          href: "/competenze/pressomassaggio-carmagnola-guida-pratica",
           description: "Se cerchi leggerezza sulle gambe: criteri pratici e aspettative sane.",
         },
         {
@@ -2081,9 +2081,9 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Per leggerezza e gonfiore, con un ritmo che riesci a tenere.",
         },
         {
-          label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
-          description: "Se cerchi leggerezza sulle gambe: quando può aiutare davvero e come inserirla bene.",
+          label: "Pressomassaggio: guida pratica",
+          href: "/competenze/pressomassaggio-carmagnola-guida-pratica",
+          description: "Se cerchi leggerezza sulle gambe: quando può aiutare davvero e come inserirlo bene.",
         },
         {
           label: "Pedicure VIP",
@@ -2228,9 +2228,9 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Piedi più comodi e ordinati: un servizio base molto richiesto quando vuoi semplificarti la gestione.",
         },
         {
-          label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
-          description: "Quando ha senso e come inserirla bene in un percorso corpo (senza fare confusione).",
+          label: "Pressomassaggio: guida pratica",
+          href: "/competenze/pressomassaggio-carmagnola-guida-pratica",
+          description: "Quando ha senso e come inserirlo bene in un percorso corpo (senza fare confusione).",
         },
         {
           label: "Epilazione laser viso",
@@ -2352,8 +2352,8 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Quando vuoi un risultato subito percepibile: piedi più in ordine e più comodi, con metodo e delicatezza.",
         },
         {
-          label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
+          label: "Pressomassaggio: guida pratica",
+          href: "/competenze/pressomassaggio-carmagnola-guida-pratica",
           description: "Se cerchi leggerezza: cosa aspettarti e quando conviene essere prudenti.",
         },
         {
@@ -2486,9 +2486,9 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Un servizio base molto concreto: piedi più ordinati e più comodi, senza complicazioni.",
         },
         {
-          label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
-          description: "Per orientarti con chiarezza su quando ha senso e come inserirla nel percorso corpo.",
+          label: "Pressomassaggio: guida pratica",
+          href: "/competenze/pressomassaggio-carmagnola-guida-pratica",
+          description: "Per orientarti con chiarezza su quando ha senso e come inserirlo nel percorso corpo.",
         },
         {
           label: "Laser diodo: differenze e criteri di scelta",
@@ -2827,7 +2827,7 @@ export const localAreaPages: LocalAreaPage[] = [
       paragraphs: [
         "Quando vieni da un paese vicino, la tentazione è fare tutto subito. Noi preferiamo il contrario: scegliere una priorità e tenere il filo. È così che un percorso diventa efficace e sostenibile.",
         "Se la priorità è il laser, partiamo dalle zone che ti cambiano davvero la gestione quotidiana e impostiamo calendario e regole pratiche. Se invece vuoi vederti più curata subito, un gancio base (pulizia viso, semipermanente, laminazione, pedicure) è perfetto: risultato pulito e zero complicazioni.",
-        "E se la richiesta è la leggerezza sulle gambe, ti diamo criteri concreti: drenaggio e pressoterapia hanno senso quando sono inseriti con ritmo e buonsenso, non quando diventano un impegno infinito.",
+        "E se la richiesta è la leggerezza sulle gambe, ti diamo criteri concreti: drenaggio e pressomassaggio hanno senso quando sono inseriti con ritmo e buonsenso, non quando diventano un impegno infinito.",
       ],
       links: [
         {
@@ -2866,9 +2866,9 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Piedi più comodi e in ordine: base concreta tutto l'anno.",
         },
         {
-          label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
-          description: "Quando ha senso e come inserirla in un percorso drenante ordinato.",
+          label: "Pressomassaggio: guida pratica",
+          href: "/competenze/pressomassaggio-carmagnola-guida-pratica",
+          description: "Quando ha senso e come inserirlo in un percorso drenante ordinato.",
         },
       ],
     },
@@ -2925,7 +2925,7 @@ export const localAreaPages: LocalAreaPage[] = [
       paragraphs: [
         "Quando hai un obiettivo chiaro, la scelta migliore è una progressione chiara. Se l'obiettivo è il laser, si parte da 1-2 zone e si imposta una progressione sensata: è così che la gestione quotidiana cambia davvero.",
         "Se invece vuoi sentirti più curata subito, i ganci base funzionano perché sono semplici e concreti: pulizia viso, semipermanente, laminazione e pedicure ti danno un risultato pulito, senza post complicati.",
-        "E se il tema è il corpo (leggerezza, gonfiore, ritenzione), ti diamo criteri pratici: drenaggio e pressoterapia hanno senso se inseriti in un ritmo sostenibile, non come promesse veloci.",
+        "E se il tema è il corpo (leggerezza, gonfiore, ritenzione), ti diamo criteri pratici: drenaggio e pressomassaggio hanno senso se inseriti in un ritmo sostenibile, non come promesse veloci.",
       ],
       links: [
         {
@@ -2969,9 +2969,9 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Piedi più comodi e in ordine: base concreta tutto l'anno.",
         },
         {
-          label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
-          description: "Quando ha senso e come inserirla bene in un percorso drenante.",
+          label: "Pressomassaggio: guida pratica",
+          href: "/competenze/pressomassaggio-carmagnola-guida-pratica",
+          description: "Quando ha senso e come inserirlo bene in un percorso drenante.",
         },
       ],
     },
@@ -3029,7 +3029,7 @@ export const localAreaPages: LocalAreaPage[] = [
       paragraphs: [
         "Vivere nel Roero ha vantaggi precisi: ritmi più umani, paesaggi che non danno mai per scontati, una qualità della vita che molti dalla città ci invidiano. La controparte è che, sull'estetica più tecnica, l'offerta in paese è ridotta. Capita di accontentarsi, e con un centro estetico questo è un peccato — perché la differenza fra una scelta media e una scelta giusta, sulla pelle, si vede.",
         "Per questo, da Carmagnola, ci raggiungono spesso persone che hanno provato qualcosa vicino casa e cercano un metodo. Iniziamo sempre con la valutazione: priorità reale (laser, viso, corpo), tempi che riesci a gestire davvero, abitudini che contano (sole, sport, lavoro outdoor). Da lì costruiamo un piano scritto, condiviso, modificabile. Niente pacchetti pre-confezionati, niente promesse generiche.",
-        "Per chi viene dal Roero il consiglio pratico è sempre lo stesso: una priorità per volta. Se l'obiettivo è il laser, partiamo da una o due zone e teniamo un calendario serrato per i primi mesi; se l'obiettivo è il viso, si parte da una valutazione e si decide se serve un protocollo strutturato o se basta un percorso classico. Sul corpo, drenaggio e pressoterapia si valutano in base a stagione e ritmo di vita.",
+        "Per chi viene dal Roero il consiglio pratico è sempre lo stesso: una priorità per volta. Se l'obiettivo è il laser, partiamo da una o due zone e teniamo un calendario serrato per i primi mesi; se l'obiettivo è il viso, si parte da una valutazione e si decide se serve un protocollo strutturato o se basta un percorso classico. Sul corpo, drenaggio e pressomassaggio si valutano in base a stagione e ritmo di vita.",
         "I servizi base (pulizia viso, manicure semipermanente, laminazione ciglia e sopracciglia, pedicure VIP, massaggio rilassante) sono ottimi ganci pratici: ti fanno uscire dallo studio già più curata, senza richiedere progressioni complesse. Spesso si abbinano alla seduta laser per ottimizzare la giornata di chi viene da fuori.",
         "Se vuoi qualcosa di più completo, i protocolli epigenetici (Collagen Code per tono e compattezza, Eye Genesis per contorno occhi) sono la naturale evoluzione: si scelgono solo quando ha senso, mai per default.",
       ],
@@ -3120,9 +3120,9 @@ export const localAreaPages: LocalAreaPage[] = [
           description: "Quando vuoi alleggerire pesantezza e gonfiore.",
         },
         {
-          label: "Pressoterapia: guida pratica",
-          href: "/competenze/pressoterapia-carmagnola-guida-pratica",
-          description: "Quando ha davvero senso inserirla in un percorso drenante.",
+          label: "Pressomassaggio: guida pratica",
+          href: "/competenze/pressomassaggio-carmagnola-guida-pratica",
+          description: "Quando ha davvero senso inserirlo in un percorso drenante.",
         },
         {
           label: "Estetica avanzata",

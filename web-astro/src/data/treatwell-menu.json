@@ -3007,13 +3007,13 @@
       ]
     },
     {
-      "id": "pressoterapia",
-      "name": "Pressoterapia e linfodrenaggio",
-      "sourceName": "Pressoterapia E Linfodrenaggio",
+      "id": "pressomassaggio",
+      "name": "Pressomassaggio e linfodrenaggio",
+      "sourceName": "Pressomassaggio E Linfodrenaggio",
       "items": [
         {
           "id": "TR6498883",
-          "name": "Pressoterapia",
+          "name": "Pressomassaggio",
           "price": {
             "min": 33.0,
             "max": 50.0,
@@ -3049,7 +3049,7 @@
         },
         {
           "id": "TR7161625",
-          "name": "Pressoterapia Occhi",
+          "name": "Pressomassaggio Occhi",
           "price": {
             "min": 39.0,
             "max": 39.0,
@@ -3061,7 +3061,7 @@
           "options": [
             {
               "id": "13601099",
-              "name": "Pressoterapia Occhi",
+              "name": "Pressomassaggio Occhi",
               "duration": 30,
               "price": {
                 "min": 39.0,
@@ -3074,7 +3074,7 @@
         },
         {
           "id": "TR7161629",
-          "name": "Pressoterapia e Bendaggi",
+          "name": "Pressomassaggio e Bendaggi",
           "price": {
             "min": 69.0,
             "max": 69.0,
@@ -3086,7 +3086,7 @@
           "options": [
             {
               "id": "13601105",
-              "name": "Pressoterapia e Bendaggi",
+              "name": "Pressomassaggio e Bendaggi",
               "duration": 60,
               "price": {
                 "min": 69.0,

@@ -4,7 +4,7 @@ export const editorialImageAssets = {
   pedicure: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/dd34e324-2953-4a98-18ee-ef36b7c59e00/public",
   linfodrenante: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/0d01138f-a507-4cb2-4c48-a70aa8b5ad00/public",
   laserInverno: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/b01b968e-9ca9-4bd9-62eb-41cfea80bb00/public",
-  pressoterapia: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/ba59e49d-5727-4c34-4b78-5ed055fb6f00/public",
+  pressomassaggio: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/ba59e49d-5727-4c34-4b78-5ed055fb6f00/public",
   peliIncarniti: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/b0f43f31-21d2-4834-4ddc-36a50a511200/public",
   puliziaViso: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/7dc5354b-33e1-4a9e-a21d-ff321ecf4500/public",
   laserViso: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/8d07afc2-b036-4eff-d34e-523a6c656d00/public",
@@ -4208,14 +4208,14 @@ export const competencePages: CompetencePage[] = [
     ],
   },
   {
-    slug: "pressoterapia-carmagnola",
-    title: "Pressoterapia a Carmagnola: come funziona e precauzioni",
+    slug: "pressomassaggio-carmagnola",
+    title: "Pressomassaggio a Carmagnola: come funziona e precauzioni",
     shortDescription:
-      "Come si svolge una seduta di pressoterapia estetica e quali informazioni comunicare prima di iniziare.",
+      "Come si svolge una seduta di pressomassaggio estetico e quali informazioni comunicare prima di iniziare.",
     longDescription:
-      "La pressoterapia estetica utilizza gambali che esercitano una compressione sequenziale. Questa guida descrive la sensazione durante la seduta, le differenze rispetto al massaggio manuale e le precauzioni. Non è un trattamento medico e non va usata per gestire gonfiore o dolore senza una valutazione sanitaria.",
+      "Il pressomassaggio estetico utilizza gambali che esercitano una compressione sequenziale. Questa guida descrive la sensazione durante la seduta, le differenze rispetto al massaggio manuale e le precauzioni. Non è un trattamento medico e non va usato per gestire gonfiore o dolore senza una valutazione sanitaria.",
     localAngle:
-      "Scritta per chi cerca pressoterapia a Carmagnola e vuole capire se e come inserirla in un percorso corpo.",
+      "Scritta per chi cerca pressomassaggio a Carmagnola e vuole capire se e come inserirlo in un percorso corpo.",
     intent: "commercial",
     benefits: [
       "Descrive apparecchiatura e sensazione durante la seduta",
@@ -4224,8 +4224,8 @@ export const competencePages: CompetencePage[] = [
     ],
     faqs: [
       {
-        q: "La pressoterapia è uguale al linfodrenante?",
-        a: "No. Il linfodrenante è un massaggio manuale; la pressoterapia usa gambali che applicano una compressione sequenziale. Finalità, sensazioni e precauzioni sono differenti.",
+        q: "Il pressomassaggio è uguale al linfodrenante?",
+        a: "No. Il linfodrenante è un massaggio manuale; il pressomassaggio usa gambali che applicano una compressione sequenziale. Finalità, sensazioni e precauzioni sono differenti.",
       },
       {
         q: "Quante sedute servono?",
@@ -4241,14 +4241,14 @@ export const competencePages: CompetencePage[] = [
       },
       {
         q: "Si può abbinare ad altri trattamenti corpo?",
-        a: "Possiamo abbinarla ad altri trattamenti corpo, ma prima verifichiamo che l’abbinamento sia adatto a te. Ti spieghiamo anche come distanziare gli appuntamenti e quali precauzioni seguire.",
+        a: "Possiamo abbinarlo ad altri trattamenti corpo, ma prima verifichiamo che l’abbinamento sia adatto a te. Ti spieghiamo anche come distanziare gli appuntamenti e quali precauzioni seguire.",
       },
     ],
     keywords: [
-      "pressoterapia Carmagnola",
-      "pressoterapia gambe Carmagnola",
+      "pressomassaggio Carmagnola",
+      "pressomassaggio gambe Carmagnola",
       "pressodren Carmagnola",
-      "gambe pesanti Carmagnola pressoterapia",
+      "gambe pesanti Carmagnola pressomassaggio",
       "trattamento drenante Carmagnola",
     ],
     relatedServiceSlugs: ["massaggio-linfodrenante-carmagnola"],
@@ -4259,8 +4259,8 @@ export const competencePages: CompetencePage[] = [
       "beauty-routine-carmagnola",
     ],
     heroImage: {
-      src: editorialImageAssets.pressoterapia,
-      alt: "Gambali per una seduta di pressoterapia estetica in cabina.",
+      src: editorialImageAssets.pressomassaggio,
+      alt: "Gambali per una seduta di pressomassaggio estetico in cabina.",
     },
     editorialSections: [
       {
@@ -4274,13 +4274,13 @@ export const competencePages: CompetencePage[] = [
         heading: "Seduta singola o calendario",
         paragraphs: [
           "Puoi prenotare una seduta singola oppure scegliere più appuntamenti.",
-          "Prima di iniziare ti diciamo ogni quanto vederci, quanto costa e quando fare il punto. La pressoterapia resta un trattamento estetico, non una terapia.",
+          "Prima di iniziare ti diciamo ogni quanto vederci, quanto costa e quando fare il punto. Il pressomassaggio resta un trattamento estetico, non una terapia.",
         ],
       },
       {
         heading: "Differenza rispetto al massaggio manuale",
         paragraphs: [
-          "La pressoterapia applica una compressione attraverso i gambali, mentre il linfodrenante viene eseguito manualmente dall’operatrice.",
+          "Il pressomassaggio applica una compressione attraverso i gambali, mentre il linfodrenante viene eseguito manualmente dall’operatrice.",
           "Durante la valutazione spieghiamo quale servizio proponiamo, con quali limiti e perché.",
         ],
       },

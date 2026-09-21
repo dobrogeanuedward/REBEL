@@ -59,7 +59,7 @@ const resolveTheme = (slug: string): { hero: ImageAsset; mood: ImageAsset; edito
   if (/semipermanente|manicure|unghie/.test(slug)) {
     return { hero: media.manicure.hero, mood: media.manicure.mood, editorial: [media.manicure.detail, media.manicure.hero] };
   }
-  if (/linfodrenante|drenaggio|drenante|pressoterapia/.test(slug)) {
+  if (/linfodrenante|drenaggio|drenante|pressomassaggio/.test(slug)) {
     return { hero: media.drenante.hero, mood: media.drenante.mood, editorial: [media.drenante.detail, media.drenante.hero] };
   }
   if (/massaggio|cervicale/.test(slug)) {

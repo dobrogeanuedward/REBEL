@@ -4,7 +4,7 @@ export const editorialImageAssets = {
   pedicure: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/dd34e324-2953-4a98-18ee-ef36b7c59e00/public",
   linfodrenante: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/0d01138f-a507-4cb2-4c48-a70aa8b5ad00/public",
   laserInverno: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/b01b968e-9ca9-4bd9-62eb-41cfea80bb00/public",
-  pressoterapia: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/ba59e49d-5727-4c34-4b78-5ed055fb6f00/public",
+  pressomassaggio: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/ba59e49d-5727-4c34-4b78-5ed055fb6f00/public",
   peliIncarniti: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/b0f43f31-21d2-4834-4ddc-36a50a511200/public",
   puliziaViso: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/7dc5354b-33e1-4a9e-a21d-ff321ecf4500/public",
   laserViso: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/8d07afc2-b036-4eff-d34e-523a6c656d00/public",
@@ -4195,14 +4195,14 @@ export const competencePages: CompetencePage[] = [
     ],
   },
   {
-    slug: "pressoterapia-carmagnola-guida-pratica",
-    title: "Pressoterapia a Carmagnola: quando ha senso e cosa aspettarti",
+    slug: "pressomassaggio-carmagnola-guida-pratica",
+    title: "Pressomassaggio a Carmagnola: quando ha senso e cosa aspettarti",
     shortDescription:
-      "Guida pratica: a chi può essere utile, che sensazioni aspettarti e come inserirla in un percorso drenante ordinato.",
+      "Guida pratica: a chi può essere utile, che sensazioni aspettarti e come inserirlo in un percorso drenante ordinato.",
     longDescription:
-      "La pressoterapia viene spesso cercata quando si sente pesantezza, gonfiore o bisogno di \"leggerezza\" sulle gambe. Qui trovi una guida concreta: cosa aspettarti davvero, come si inserisce in un percorso fatto bene (senza esagerare) e quando invece conviene essere prudenti. L'obiettivo è semplice: scegliere con lucidità e costruire un calendario sostenibile, non inseguire promesse.",
+      "Il pressomassaggio viene spesso cercato quando si sente pesantezza, gonfiore o bisogno di \"leggerezza\" sulle gambe. Qui trovi una guida concreta: cosa aspettarti davvero, come si inserisce in un percorso fatto bene (senza esagerare) e quando invece conviene essere prudenti. L'obiettivo è semplice: scegliere con lucidità e costruire un calendario sostenibile, non inseguire promesse.",
     localAngle:
-      "Scritta per chi cerca pressoterapia a Carmagnola e vuole capire se e come inserirla in un percorso corpo.",
+      "Scritta per chi cerca pressomassaggio a Carmagnola e vuole capire se e come inserirlo in un percorso corpo.",
     intent: "commercial",
     benefits: [
       "Chiarisce quando ha senso e quali aspettative avere",
@@ -4211,8 +4211,8 @@ export const competencePages: CompetencePage[] = [
     ],
     faqs: [
       {
-        q: "La pressoterapia è uguale al linfodrenante?",
-        a: "No: sono strumenti diversi. Il linfodrenante è manualità; la pressoterapia è una compressione controllata. In studio scegliamo quello più coerente con il tuo obiettivo e con la risposta del corpo.",
+        q: "Il pressomassaggio è uguale al linfodrenante?",
+        a: "No: sono strumenti diversi. Il linfodrenante è manualità; il pressomassaggio è una compressione controllata. In studio scegliamo quello più coerente con il tuo obiettivo e con la risposta del corpo.",
       },
       {
         q: "Quante sedute servono?",
@@ -4228,14 +4228,14 @@ export const competencePages: CompetencePage[] = [
       },
       {
         q: "Si può abbinare ad altri trattamenti corpo?",
-        a: "Spesso sì. In molti casi ha senso abbinarla a un percorso drenante (manualità) o a una routine corpo semplice. L'importante è non fare tutto insieme: scegliamo una priorità e teniamo il filo.",
+        a: "Spesso sì. In molti casi ha senso abbinarlo a un percorso drenante (manualità) o a una routine corpo semplice. L'importante è non fare tutto insieme: scegliamo una priorità e teniamo il filo.",
       },
     ],
     keywords: [
-      "pressoterapia Carmagnola",
-      "pressoterapia gambe Carmagnola",
+      "pressomassaggio Carmagnola",
+      "pressomassaggio gambe Carmagnola",
       "pressodren Carmagnola",
-      "gambe pesanti Carmagnola pressoterapia",
+      "gambe pesanti Carmagnola pressomassaggio",
       "trattamento drenante Carmagnola",
     ],
     relatedServiceSlugs: ["massaggio-linfodrenante-carmagnola"],
@@ -4246,12 +4246,12 @@ export const competencePages: CompetencePage[] = [
       "beauty-routine-carmagnola",
     ],
     heroImage: {
-      src: editorialImageAssets.pressoterapia,
-      alt: "Pressoterapia: gambali e compressione ritmica, sensazione di leggerezza, atmosfera pulita e confortevole.",
+      src: editorialImageAssets.pressomassaggio,
+      alt: "Pressomassaggio: gambali e compressione ritmica, sensazione di leggerezza, atmosfera pulita e confortevole.",
     },
     editorialSections: [
       {
-        heading: "Perché viene richiesta spesso: leggerezza nella vita reale",
+        heading: "Perché viene richiesto spesso: leggerezza nella vita reale",
         paragraphs: [
           "Molte persone non cercano una parola tecnica: cercano una sensazione. Gambe più leggere, meno gonfiore percepito, più comfort nella giornata.",
           "Il punto è scegliere lo strumento giusto e inserirlo in un ritmo sostenibile: è così che un trattamento corpo diventa utile davvero.",
@@ -4265,9 +4265,9 @@ export const competencePages: CompetencePage[] = [
         ],
       },
       {
-        heading: "Pressoterapia e manualità: come scegliere (senza confondere tutto)",
+        heading: "Pressomassaggio e manualità: come scegliere (senza confondere tutto)",
         paragraphs: [
-          "La pressoterapia è compressione controllata; il linfodrenante è manualità. A volte si integrano, altre volte conviene scegliere una priorità e tenere il percorso più pulito.",
+          "Il pressomassaggio è compressione controllata; il linfodrenante è manualità. A volte si integrano, altre volte conviene scegliere una priorità e tenere il percorso più pulito.",
           "In studio ti spieghiamo il perché della scelta, in modo semplice: così sai cosa stai facendo e cosa aspettarti.",
         ],
       },

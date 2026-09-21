@@ -46,8 +46,8 @@ export const categoryVisuals: Record<
     description:
       "Epilazione a cera per viso, braccia, torace, schiena e gambe.",
   },
-  pressoterapia: {
+  pressomassaggio: {
     photo: "bendaggi",
-    description: "Pressoterapia e abbinamenti: scopri durata e varianti.",
+    description: "Pressomassaggio e abbinamenti: scopri durata e varianti.",
   },
 };

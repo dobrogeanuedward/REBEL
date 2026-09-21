@@ -105,7 +105,7 @@ export const beautyPhotographs = [
     key: "bendaggi",
     title: "Il tempo della posa.",
     caption: "La preparazione di un bendaggio cosmetico sulla gamba.",
-    path: "/listino-estetica-laser#pressoterapia",
+    path: "/listino-estetica-laser#pressomassaggio",
   },
   {
     key: "cera-preparazione",
