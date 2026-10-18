@@ -1,0 +1,172 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import FaqAccordion from "@/components/FaqAccordion.astro";
+import ServiceAreaDiscovery from "@/components/ServiceAreaDiscovery.astro";
+import { categoryTreatments, type ServiceCategory } from "@/lib/service-categories";
+import { photographs, treatmentPhoto } from "@/lib/catalog-visuals";
+import { menu, euro, priceRange, durationRange, requestTreatment } from "@/lib/treatment-catalog";
+import { siteConfig } from "@/lib/site-config";
+import { createPageMeta, buildBreadcrumbSchema, buildServiceSchema, buildWebPageSchema } from "@/lib/seo";
+
+interface Props { category: ServiceCategory }
+const { category } = Astro.props;
+const groups = categoryTreatments(category);
+const treatments = groups.flatMap((group) => group.items);
+const photo = photographs[category.heroPhoto];
+const path = `/servizi/${category.slug}`;
+const meta = createPageMeta({ title: `${category.name}: prezzi e durata | REBEL`, description: category.metaDescription, path, image: photo.src });
+const minPrice = Math.min(...treatments.map((item) => item.price.min));
+const minDuration = Math.min(...treatments.map((item) => item.durationMin));
+const maxDuration = Math.max(...treatments.map((item) => item.durationMax));
+const sourceDate = new Intl.DateTimeFormat("it-IT", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(`${menu.checkedAt}T12:00:00Z`));
+const sourceNote = `Prezzi ordinari del menu verificato il ${sourceDate}. Le offerte su Treatwell possono dipendere da orario e disponibilità: il totale aggiornato è visibile sulla piattaforma prima della conferma.`;
+const canonical = new URL(path, siteConfig.siteUrl).href;
+const breadcrumb = buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Servizi", path: "/servizi" }, { name: category.name, path }]);
+const serviceSchema = {
+  ...buildServiceSchema(category.name, category.lead, path),
+  hasOfferCatalog: {
+    "@type": "OfferCatalog", name: category.name,
+    itemListElement: groups.map((group) => ({
+      "@type": "OfferCatalog", name: group.name,
+      itemListElement: group.items.flatMap((item) => item.options.map((option) => ({
+        "@type": "Offer", name: `${item.name} · ${option.name}`,
+        url: `${canonical}#${item.id}`, priceCurrency: "EUR",
+        ...(option.price.min === option.price.max
+          ? { price: option.price.min }
+          : { priceSpecification: { "@type": "PriceSpecification", minPrice: option.price.min, maxPrice: option.price.max, priceCurrency: "EUR" } }),
+        description: `${option.duration} minuti. ${sourceNote}`,
+        seller: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
+        itemOffered: { "@type": "Service", name: item.name, provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` } },
+      }))),
+    })),
+  },
+};
+const faqs = [...category.faqs, { q: "I prezzi del sito e quelli di Treatwell sono uguali?", a: sourceNote }];
+---
+<BaseLayout meta={meta} bodyClass={`page-service-category page-service-category--${category.key}`}>
+  <JsonLd data={breadcrumb} />
+  <JsonLd data={buildWebPageSchema({ name: category.name, description: category.metaDescription, path })} />
+  <JsonLd data={serviceSchema} />
+  <JsonLd data={{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.q, acceptedAnswer: { "@type": "Answer", text: faq.a } })) }} />
+
+  <div class="category-page">
+    <section class="category-hero" aria-labelledby="category-title"><div class="category-shell category-hero__grid">
+      <div>
+        <nav class="category-breadcrumb" aria-label="Percorso di navigazione"><a href="/">Home</a><span aria-hidden="true"> / </span><a href="/servizi">Servizi</a><span aria-hidden="true"> / </span><span>{category.name}</span></nav>
+        <p class="category-kicker">REBEL · Carmagnola</p><h1 id="category-title">{category.title}<br /><em>{category.emphasis}</em></h1><p class="category-hero__lead">{category.lead}</p>
+        <dl class="category-facts"><div><dt>Prezzi ordinari</dt><dd>da {euro(minPrice)}</dd></div><div><dt>Durata indicativa</dt><dd>{durationRange(minDuration, maxDuration)}</dd></div><div><dt>Da confrontare</dt><dd>{treatments.length} proposte</dd></div></dl>
+        <div class="category-actions"><a class="btn btn--primary" href="#trattamenti">Confronta servizi e prezzi <span aria-hidden="true">↓</span></a><a class="category-link" href="#scegliere">Servizio o percorso?</a></div><p class="category-location">Viale Barbaroux 20 · 10022 Carmagnola (TO)</p>
+      </div>
+      <figure class="category-hero__photo"><img src={photo.src} srcset={`${photo.preview} 480w, ${photo.src} ${photo.width}w`} sizes="(max-width:900px) 100vw, 48vw" alt={photo.alt} width={photo.width} height={photo.height} loading="eager" fetchpriority="high" decoding="async" /><figcaption>Il tuo momento REBEL <span>Immagine illustrativa del trattamento.</span></figcaption></figure>
+    </div></section>
+
+    <section class="category-section" id="trattamenti" aria-labelledby="category-menu-title"><div class="category-shell">
+      <div class="category-heading"><p class="category-kicker">Il menu, in chiaro</p><h2 id="category-menu-title">{category.comparisonTitle}</h2><p>{category.comparisonIntro}</p></div>
+      {groups.length > 1 && <nav class="category-jumpnav" aria-label="Scegli il gruppo di trattamenti">{groups.map((group) => <a href={`#${group.id}`}>{group.name}<span aria-hidden="true">↓</span></a>)}</nav>}
+      <p class="category-source">{sourceNote} <a href={menu.source} target="_blank" rel="noreferrer">Apri il menu su Treatwell <span aria-hidden="true">↗</span></a></p>
+      <div class="category-groups">{groups.map((group) => <section class="category-group" id={group.id} aria-labelledby={`group-${group.id}`}>
+        <header><h3 id={`group-${group.id}`}>{group.name}</h3><p>{group.description}</p></header>
+        <div class="category-treatment-grid">{group.items.map((item) => {
+          const itemPhoto = treatmentPhoto(item.id);
+          return <article class="category-treatment" id={item.id}>
+            <header class="category-treatment__head"><img src={itemPhoto.preview} alt={itemPhoto.alt} width="480" height="270" loading="lazy" decoding="async" /><div><h4>{item.name}</h4><p>{durationRange(item.durationMin,item.durationMax)}{item.options.length > 1 ? ` · ${item.options.length} varianti` : ""}</p><strong>{priceRange(item.price)}</strong></div></header>
+            {item.options.length === 1 ? <div class="category-treatment__footer"><a class="category-link" href={requestTreatment(item.id,item.options[0].id)} aria-label={`Richiedi ${item.name}, ${item.options[0].name}`}>Richiedi questo servizio <span aria-hidden="true">↗</span></a></div> : <details class="category-options"><summary>Scegli durata e variante <span aria-hidden="true">＋</span></summary><div>{item.options.map((option) => <div class="category-option"><div><h5>{option.name}</h5><p>{option.duration} min · {priceRange(option.price)}</p></div><a href={requestTreatment(item.id,option.id)} aria-label={`Richiedi ${item.name}, ${option.name}`}>Richiedi <span aria-hidden="true">↗</span></a></div>)}</div></details>}
+          </article>;
+        })}</div>
+      </section>)}</div>
+      <p class="category-photo-note">Le fotografie illustrano i trattamenti e le zone; non mostrano risultati prima e dopo.</p>
+    </div></section>
+
+    <div class="category-material" aria-hidden="true"></div>
+
+    <section class="category-section category-section--paper" id="scegliere" aria-labelledby="category-choose-title"><div class="category-shell">
+      <div class="category-heading"><p class="category-kicker">Da dove vuoi iniziare?</p><h2 id="category-choose-title">Una seduta.<br /><em>Oppure un percorso tuo.</em></h2></div>
+      <div class="category-choice-grid"><article><span class="category-index" aria-hidden="true">01</span><h3>{category.singleTitle}</h3><p>{category.singleCopy}</p><a class="category-link" href="#trattamenti">Scegli il servizio <span aria-hidden="true">↑</span></a></article><article><span class="category-index" aria-hidden="true">02</span><h3>{category.pathTitle}</h3><p>{category.pathCopy}</p><a class="category-link" href={category.pathHref}>Esplora il percorso <span aria-hidden="true">↗</span></a></article></div>
+      <div class="category-preparation"><div><p class="category-kicker">Prima dell’appuntamento</p><h3>Prepariamo la tua visita.</h3><p>Indicaci servizio e disponibilità. Per scegliere un percorso puoi richiedere una valutazione REBEL di 30–40 minuti, gratuita se inizi il percorso proposto.</p><a class="category-link" href="/contatti">Parlane con REBEL <span aria-hidden="true">↗</span></a></div><ol>{category.preparation.map((step) => <li><h4>{step.title}</h4><p>{step.text}</p></li>)}</ol></div>
+    </div></section>
+
+    <section class="category-section" aria-labelledby="category-faq-title"><div class="category-shell"><div class="category-heading"><p class="category-kicker">Prima di scegliere</p><h2 id="category-faq-title">Le domande <em>pratiche.</em></h2></div><FaqAccordion items={faqs} kicker="Servizi REBEL" /><div class="category-related">{category.related.map((link) => <a href={link.href}><h3>{link.label}<span aria-hidden="true"> ↗</span></h3><p>{link.description}</p></a>)}</div></div></section>
+    <ServiceAreaDiscovery />
+  </div>
+</BaseLayout>
+
+<style>
+  .category-page { color-scheme: light; --text: #301b3e; --text-strong: #211427; --text-muted: #685471; --line: #e2d6e7; background: #f8f3ed; color: #301b3e; }
+  .category-shell { width: min(1240px,calc(100% - 2 * clamp(1.2rem,4vw,3.5rem))); margin-inline: auto; }
+  .category-page :is(h1,h2,h3,h4,h5,p,figure,ul,ol,dl,dd) { margin: 0; }
+  .category-page p { color: #685471; line-height: 1.75; }
+  .category-page :is(h1,h2,h3,h4,h5) { color: #301b3e; overflow-wrap: normal; word-break: normal; }
+  .category-page h1 { font: 500 clamp(2.8rem,4.8vw,4.8rem)/1.08 var(--font-display); letter-spacing: -.045em; }
+  .category-page h2 { font: 500 clamp(2.2rem,4vw,4rem)/1.1 var(--font-display); letter-spacing: -.035em; }
+  .category-page em { color: #70428b; font-weight: 400; }
+  .category-page .category-kicker { color: #a51e58; font: 700 .75rem/1.6 var(--font-body); letter-spacing: .13em; text-transform: uppercase; margin-bottom: 1rem; }
+  .category-hero { background: #fffdf9; padding: clamp(9rem,13vw,11rem) 0 4rem; }
+  .category-hero__grid { display: grid; grid-template-columns: 1.08fr 1fr; align-items: center; gap: clamp(2rem,4vw,4rem); }
+  .category-breadcrumb { color: #685471; font-size: .76rem; line-height: 1.6; margin-bottom: 1.8rem; }
+  .category-breadcrumb a { color: #70428b; text-underline-offset: .3em; }
+  .category-hero__lead { margin-top: 1.4rem !important; font-size: 1.03rem; max-width: 58ch; }
+  .category-hero__photo { min-width: 0; }
+  .category-hero__photo>img { display: block; width: 100%; height: auto; aspect-ratio: 4/5; object-fit: cover; border-radius: 3.5rem .5rem 3.5rem .5rem; background: #e7dce9; box-shadow: 0 24px 64px #301b3e14; }
+  .category-hero__photo figcaption { display: flex; flex-wrap: wrap; gap: .25rem .8rem; margin-top: .8rem; color: #685471; font-size: .73rem; }
+  .category-facts { display: flex; flex-wrap: wrap; gap: 1rem 1.7rem; border-block: 1px solid #e2d6e7; padding-block: 1.3rem; margin-top: 1.7rem !important; }
+  .category-facts dt { color: #685471; font-size: .72rem; line-height: 1.5; }
+  .category-facts dd { color: #301b3e; font-size: 1rem; font-weight: 700; margin-top: .25rem; }
+  .category-actions { display: flex; flex-wrap: wrap; gap: .8rem 1.5rem; align-items: center; margin-top: 1.7rem; }
+  .category-page .btn { gap: .6rem; }
+  .category-page .category-link { display: inline-flex; min-height: 44px; align-items: center; gap: .5rem; color: #70428b; font-size: .86rem; font-weight: 650; text-underline-offset: .3em; }
+  .category-page .category-location { margin-top: 1.3rem; font-size: .75rem; }
+  .category-section { padding-block: clamp(3.5rem,7vw,6rem); scroll-margin-top: 7rem; }
+  .category-section--paper { background: #fffdf9; }
+  .category-heading { max-width: 800px; margin-bottom: 2.3rem; }
+  .category-heading>p:last-child:not(.category-kicker) { margin-top: 1.2rem; }
+  .category-jumpnav { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 1.5rem; }
+  .category-jumpnav a { display: inline-flex; align-items: center; gap: .8rem; min-height: 44px; padding: .7rem 1rem; border: 1px solid #d8c8e1; border-radius: 1rem .3rem 1rem .3rem; color: #70428b; background: #fffdf9; text-decoration: none; font-size: .8rem; }
+  .category-page .category-source { font-size: .78rem; max-width: 98ch; padding-bottom: 1.5rem; }
+  .category-source a { color: #70428b; display: inline-flex; align-items: center; min-height: 44px; text-underline-offset: .3em; }
+  .category-groups { display: grid; gap: 3rem; }
+  .category-group { scroll-margin-top: 7rem; }
+  .category-group>header { border-top: 1px solid #cdb9d8; padding-top: 1.7rem; margin-bottom: 1.5rem; max-width: 92ch; }
+  .category-group>header h3 { font: 500 clamp(1.65rem,2.7vw,2.5rem)/1.2 var(--font-display); }
+  .category-group>header p { margin-top: .8rem; font-size: .93rem; }
+  .category-treatment-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; align-items: start; }
+  .category-treatment { min-width: 0; border: 1px solid #dfd0e6; border-radius: 1.5rem .4rem 1.5rem .4rem; background: #fffdf9; overflow: hidden; scroll-margin-top: 7rem; }
+  .category-treatment:nth-child(even) { border-radius: .4rem 1.5rem .4rem 1.5rem; }
+  .category-treatment__head { display: grid; grid-template-columns: 112px minmax(0,1fr); gap: 1.2rem; padding: 1.3rem; align-items: center; }
+  .category-treatment__head img { display: block; width: 112px; height: auto; aspect-ratio: 1/1; object-fit: cover; border-radius: .8rem .2rem .8rem .2rem; background: #eadfe7; }
+  .category-treatment__head h4 { font: 500 1.3rem/1.25 var(--font-display); }
+  .category-treatment__head p { font-size: .78rem; margin-top: .5rem; }
+  .category-treatment__head strong { display: block; margin-top: .3rem; color: #70428b; font-size: .95rem; }
+  .category-treatment__footer { padding: 0 1.3rem .8rem; }
+  .category-options { border-top: 1px solid #e2d6e7; }
+  .category-options summary { display: flex; align-items: center; justify-content: space-between; gap: .8rem; min-height: 52px; padding: .8rem 1.3rem; color: #70428b; font-size: .86rem; font-weight: 650; cursor: pointer; list-style: none; }
+  .category-options summary::-webkit-details-marker { display: none; }
+  .category-options[open] summary>span { transform: rotate(45deg); }
+  .category-options>div { padding: 0 1.3rem .5rem; }
+  .category-option { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .8rem; border-top: 1px solid #e2d6e7; }
+  .category-option h5 { font: 650 .85rem/1.5 var(--font-body); }
+  .category-option p { font-size: .78rem; }
+  .category-option a { flex-shrink: 0; display: inline-flex; align-items: center; min-height: 44px; color: #70428b; font-size: .8rem; text-underline-offset: .3em; }
+  .category-page .category-photo-note { margin-top: 1.5rem; font-size: .73rem; }
+  .category-material { height: clamp(4rem,10vw,8rem); background: #f8f3ed url('/img/rebel-r2/rebel/brand/rebel-prism-desktop.webp') center/cover no-repeat; }
+  .category-choice-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.3rem; }
+  .category-choice-grid article { border: 1px solid #dfd0e6; padding: clamp(1.5rem,3vw,2.5rem); border-radius: 2rem .4rem 2rem .4rem; background: #faf5fb; }
+  .category-choice-grid article:nth-child(even) { border-radius: .4rem 2rem .4rem 2rem; background: #fbf4f7; }
+  .category-index { color: #a51e58; font-size: .75rem; letter-spacing: .15em; }
+  .category-choice-grid h3 { font: 500 clamp(1.5rem,2.4vw,2rem)/1.2 var(--font-display); margin-block: 1rem; }
+  .category-choice-grid p { font-size: .93rem; }
+  .category-choice-grid a { margin-top: .7rem; }
+  .category-preparation { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(1.5rem,5vw,5rem); margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #dfd0e6; }
+  .category-preparation h3 { font: 500 1.8rem/1.2 var(--font-display); }
+  .category-preparation>div>p:not(.category-kicker) { margin-top: 1rem; font-size: .93rem; }
+  .category-preparation ol { list-style: none; padding: 0; display: grid; gap: 1.6rem; }
+  .category-preparation h4 { font: 650 1rem/1.5 var(--font-body); }
+  .category-preparation li p { margin-top: .5rem; font-size: .93rem; }
+  .category-related { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .category-related>a { min-width: 0; color: #70428b; border-top: 1px solid #cdb9d8; padding-top: 1.2rem; text-decoration: none; }
+  .category-related h3 { font: 500 1.35rem/1.3 var(--font-display); }
+  .category-related p { margin-top: .7rem; font-size: .85rem; }
+  .category-page :is(a,summary):focus-visible { outline: 3px solid #7047ff; outline-offset: 4px; }
+  @media(max-width:900px) { .category-hero__grid { grid-template-columns: 1fr; } .category-hero__photo>img { aspect-ratio: 16/9; } .category-related { grid-template-columns: 1fr; } .category-preparation { grid-template-columns: 1fr; } }
+  @media(max-width:600px) { .category-hero { padding-top: 7.5rem; } .category-page h1 { font-size: clamp(2.7rem,10.5vw,4rem); } .category-treatment-grid,.category-choice-grid { grid-template-columns: 1fr; } .category-treatment__head { grid-template-columns: 88px minmax(0,1fr); gap: 1rem; padding: 1rem; } .category-treatment__head img { width: 88px; } .category-treatment__head h4 { font-size: 1.2rem; } .category-hero__photo>img { border-radius: 2rem .4rem 2rem .4rem; } .category-material { background-image: url('/img/rebel-r2/rebel/brand/rebel-prism-mobile.webp'); } }
+</style>

@@ -1,9 +1,12 @@
 ---
+import RblNailEditorial from "@/components/RblNailEditorial.astro";
+import ServiceCatalogChoices from "@/components/ServiceCatalogChoices.astro";
+import { getServiceSearchCopy } from "@/lib/service-search-content";
+import { serviceContactPath, serviceWhatsApp } from "@/lib/service-booking";
 import JourneyCarousel from "@/components/JourneyCarousel.astro";
 import laminazioneCarousel from "@/data/laminazione-carousel.json";
 import { servicePhotography } from "@/lib/beauty-editorial";
 import { photographs } from "@/lib/catalog-visuals";
-import { menu, priceRange, durationRange, requestTreatment } from "@/lib/treatment-catalog";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHero from "@/components/PageHero.astro";
 import SectionHead from "@/components/SectionHead.astro";
@@ -24,16 +27,13 @@ import {
   competencePages,
 } from "@/lib/seo-content-refined";
 import { protocolPages } from "@/lib/protocol-pages";
-import { localAreaPages } from "@/lib/local-pages";
 import {
-  buildArticleSchema,
   buildBreadcrumbSchema,
   buildItemListSchema,
   buildServiceSchema,
   buildWebPageSchema,
   createPageMeta,
 } from "@/lib/seo";
-import { siteConfig } from "@/lib/site-config";
 import { laserOffer } from "@/lib/laser-offer";
 
 export async function getStaticPaths() {
@@ -44,10 +44,15 @@ export async function getStaticPaths() {
 }
 
 const { service: originalService } = Astro.props;
-const selectedPhotos = servicePhotography[originalService.slug]?.map(key => photographs[key]);
+const selectedPhotos = (originalService.slug === "ceretta-carmagnola"
+  ? [photographs["cera-gamba"], photographs["cera-preparazione"]]
+  : servicePhotography[originalService.slug]?.map(key => photographs[key]));
 const service = { ...originalService, heroImage: selectedPhotos?.[0] ?? originalService.heroImage };
 const isLamination = service.slug === "laminazione-ciglia-sopracciglia-carmagnola";
-const laminationChoices = ["TR7355535","TR7355542","TR6412972"].map(id => menu.categories.flatMap(c=>c.items).find(i=>i.id===id)!);
+const isColorPedicure = ["pedicure-estetico-con-smalto-carmagnola", "pedicure-semipermanente-carmagnola"].includes(service.slug);
+const hasRblEditorial = ["manicure-semipermanente-carmagnola", "pedicure-carmagnola", "pedicure-estetico-con-smalto-carmagnola", "pedicure-semipermanente-carmagnola"].includes(service.slug);
+const contactPath = serviceContactPath(service.slug);
+const whatsappPath = serviceWhatsApp(service.slug);
 
 const moodImage = selectedPhotos?.[0] ?? (service.category === "laser" ? media.laser.mood : media.studio.cabin);
 
@@ -77,7 +82,7 @@ const serviceArticle = /^epilazione\b/i.test(serviceNameLower)
   ? "l’"
   : /^scrub\b/i.test(serviceNameLower)
     ? "lo "
-    : /^(?:pulizia|laminazione|manicure)\b/i.test(serviceNameLower)
+    : /^(?:pulizia|laminazione|manicure|ceretta)\b/i.test(serviceNameLower)
       ? "la "
       : "il ";
 const serviceWithArticle = `${serviceArticle}${serviceNameLower}`;
@@ -96,17 +101,7 @@ const displayPrice = formatPrice(service.priceHint);
 const serviceMetaDescription = service.shortDescription.length >= 105
   ? service.shortDescription
   : `${service.shortDescription} Durata, prezzo e prenotazioni nel centro REBEL di Carmagnola.`;
-const serviceSearchCopy: Record<string, { title: string; description: string }> = {
-  "manicure-semipermanente-carmagnola": {
-    title: "Manicure e semipermanente a Carmagnola | REBEL",
-    description: "Manicure, smalto semipermanente e cura delle unghie a Carmagnola con RBL Nails. Scopri prezzi, rimozione e durata. REBEL, Viale Barbaroux 20.",
-  },
-  "massaggio-linfodrenante-carmagnola": {
-    title: "Massaggio linfodrenante a Carmagnola | REBEL",
-    description: "Massaggio drenante e linfodrenante estetico a Carmagnola: manualità, frequenza, precauzioni e prezzi REBEL. Richiedi un appuntamento in studio.",
-  },
-};
-const searchCopy = serviceSearchCopy[service.slug];
+const searchCopy = getServiceSearchCopy(service.slug);
 const priceIntentKeywords = [
   `${baseServiceName} prezzi Carmagnola`,
   `prezzi ${baseServiceName} Carmagnola`,
@@ -152,14 +147,6 @@ const serviceSchema = buildServiceSchema(
     keywords: [...service.keywords, ...priceIntentKeywords],
   },
 );
-const articleSchema = buildArticleSchema({
-  headline: service.name,
-  description: service.longDescription,
-  path: `/servizi/${service.slug}`,
-  keywords: service.keywords,
-  section: service.category === "laser" ? "Laser" : "Estetica classica",
-  image: service.heroImage?.src,
-});
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -177,18 +164,19 @@ const relatedProtocols = (service.relatedProtocolSlugs ?? [])
   .map((sl) => protocolPages.find((p) => p.slug === sl))
   .filter((p): p is (typeof protocolPages)[number] => Boolean(p))
   .slice(0, 4);
+const explicitRelatedServices = service.relatedServiceSlugs ?? [];
 const siblingServices = servicePages
   .filter((i) => i.slug !== service.slug && i.category === service.category)
   .map((i) => ({
     item: i,
-    score: i.relatedCompetenceSlugs.filter((rs) =>
+    score: (explicitRelatedServices.includes(i.slug) ? 100 : 0) + i.relatedCompetenceSlugs.filter((rs) =>
       service.relatedCompetenceSlugs.includes(rs),
     ).length,
   }))
   .sort((a, b) => b.score - a.score)
   .slice(0, 4)
   .map(({ item }) => item);
-const featuredAreas = localAreaPages.filter((a) => a.cluster === "asse-carmagnola").slice(0, 4);
+
 
 const relatedCompetencesSchema =
   relatedCompetences.length > 0
@@ -214,54 +202,46 @@ const siblingServicesSchema =
         items: siblingServices.map((s) => ({ name: s.name, path: `/servizi/${s.slug}` })),
       })
     : null;
-const featuredAreasSchema =
-  featuredAreas.length > 0
-    ? buildItemListSchema({
-        name: `Indicazioni dai comuni vicini per ${service.name}`,
-        path: `/servizi/${service.slug}`,
-        items: featuredAreas.map((a) => ({ name: a.city, path: `/localita/${a.slug}` })),
-      })
-    : null;
-
 const editorialSections = service.editorialSections ?? [];
 const sourceLinks = service.sourceLinks ?? [];
 
 const tocItems = [
   { id: "benefici", label: "Obiettivi" },
-  { id: "prezzi", label: "Prezzo" },
+  ...(!isColorPedicure ? [{ id: "prezzi", label: "Prezzo" }] : []),
+  ...(hasRblEditorial ? [{ id: "rbl-colori", label: "Colori e formule RBL" }] : []),
   ...(editorialSections.length > 0 ? [{ id: "dettagli", label: "Come si svolge" }] : []),
   { id: "faq", label: "Domande frequenti" },
   { id: "guide", label: "Approfondimenti" },
   ...(sourceLinks.length > 0 ? [{ id: "fonti", label: "Fonti" }] : []),
   ...(relatedProtocols.length > 0 ? [{ id: "protocolli", label: "Protocolli REBEL" }] : []),
   { id: "anche", label: "Altri trattamenti" },
-  ...(featuredAreas.length > 0 ? [{ id: "localita", label: "Come raggiungerci" }] : []),
+  { id: "raggiungerci", label: "Come raggiungerci" },
 ];
 ---
 <BaseLayout meta={meta} bodyClass={`page-servizio-detail ${service.category === "laser" ? "page-servizio-laser" : "page-servizio-classica"}`}>
   <JsonLd data={breadcrumb} />
   <JsonLd data={webPage} />
   <JsonLd data={serviceSchema} />
-  <JsonLd data={articleSchema} />
   <JsonLd data={faqSchema} />
   {relatedCompetencesSchema ? <JsonLd data={relatedCompetencesSchema} /> : null}
   {relatedProtocolsSchema ? <JsonLd data={relatedProtocolsSchema} /> : null}
   {siblingServicesSchema ? <JsonLd data={siblingServicesSchema} /> : null}
-  {featuredAreasSchema ? <JsonLd data={featuredAreasSchema} /> : null}
 
   <PageHero
     image={service.heroImage}
     kicker={service.category === "laser" ? "Epilazione laser · Carmagnola" : "Trattamento estetico · Carmagnola"}
     title={service.name.replace(/Carmagnola/i, "_Carmagnola_")}
     lead={service.longDescription}
-    bullets={[isLamination ? "Ciglia + sopracciglia · €79" : service.category === "laser" ? `Listino ordinario · ${displayPrice}` : displayPrice, "Come si svolge e che cosa sapere", "Su appuntamento · Carmagnola"]}
+    bullets={[service.category === "laser" ? `Listino ordinario · ${displayPrice}` : displayPrice, "Come si svolge e che cosa sapere", "Su appuntamento · Carmagnola"]}
     meta={[
       "Viale Barbaroux 20",
       "Da martedì a sabato",
     ]}
-    ctaPrimary={{ label: "Chiedi un appuntamento", href: "/contatti", halo: true }}
-    ctaSecondary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp }}
+    ctaPrimary={{ label: "Chiedi un appuntamento", href: contactPath, halo: true }}
+    ctaSecondary={{ label: "Scrivici su WhatsApp", href: whatsappPath }}
   />
+
+  {hasRblEditorial && <RblNailEditorial area={service.slug.includes("manicure") ? "mani" : "piedi"} />}
 
   {isLamination && <JourneyCarousel carousel={laminazioneCarousel} slug="laminazione" service />}
 
@@ -284,7 +264,7 @@ const tocItems = [
           <KeyPointsGrid points={service.benefits} />
         </div>
 
-        <div id="prezzi" class="detail-section">
+        {!isColorPedicure && <div id="prezzi" class="detail-section">
           <SectionHead
             kicker="Prezzo"
             title={`Quanto costa _${serviceWithArticle}_.`}
@@ -292,12 +272,12 @@ const tocItems = [
               ? `Prezzo ordinario indicato: ${displayPrice}. Le condizioni della promozione sono riportate sopra e vengono confermate prima dell’appuntamento.`
               : `Prezzo indicato: ${displayPrice}. Se cambia in base alla zona, alla durata o alla tipologia, te lo confermiamo prima dell’appuntamento.`}
           />
-          {isLamination && <div class="lamination-choices">{laminationChoices.map(i=><a href={requestTreatment(i.id)}><span>{i.name}</span><strong>{priceRange(i.price)}</strong><small>{durationRange(i.durationMin,i.durationMax)} · Richiedi ↗</small></a>)}</div>}
+          <ServiceCatalogChoices slug={service.slug} />
           <div class="card-grid card-grid--2">
             <FeatureCard
-              kicker={isLamination ? "Ciglia + sopracciglia insieme" : service.category === "laser" ? "Listino ordinario" : "Prezzo indicato"}
-              title={isLamination ? "€79 · 105 minuti" : displayPrice}
-              body={isLamination ? "Puoi scegliere il trattamento combinato oppure prenotare ciglia o sopracciglia separatamente, ai prezzi riportati sopra." : service.category === "laser"
+              kicker={service.category === "laser" ? "Listino ordinario" : "Il tuo appuntamento"}
+              title={displayPrice}
+              body={service.category === "laser"
                 ? "Fuori dalla promozione, il prezzo ordinario varia in base alla zona e alla tipologia. Te lo confermiamo prima dell’appuntamento."
                 : "Se il servizio prevede varianti per zona, durata o tipologia, ti confermiamo il prezzo prima dell’appuntamento."}
             />
@@ -308,7 +288,7 @@ const tocItems = [
               href="/listino-estetica-laser"
             />
           </div>
-        </div>
+        </div>}
 
         {editorialSections.length > 0 ? (
           <div id="dettagli" class="detail-section">
@@ -424,27 +404,6 @@ const tocItems = [
           </div>
         </div>
 
-        {featuredAreas.length > 0 ? (
-          <div id="localita" class="detail-section">
-            <SectionHead
-              kicker="Come raggiungerci"
-              title="Indicazioni per chi arriva dai comuni vicini."
-              lead="Apri la pagina del tuo comune per vedere la mappa e il percorso verso Viale Barbaroux 20 a Carmagnola."
-            />
-            <div class="card-grid card-grid--2">
-              {featuredAreas.map((a, i) => (
-                <FeatureCard
-                  kicker="Località"
-                  title={a.city}
-                  body={`Indicazioni e contatti per organizzare la visita da ${a.city}.`}
-                  href={`/localita/${a.slug}`}
-                  variant="quiet"
-                  index={i + 1}
-                />
-              ))}
-            </div>
-          </div>
-        ) : null}
       </article>
 
       <aside class="detail-aside">
@@ -452,8 +411,8 @@ const tocItems = [
         <InlineCta
           kicker="Appuntamenti REBEL · Carmagnola"
           title={`Vuoi prenotare _${serviceWithArticle}_?`}
-          lead="Scrivici: ti confermiamo disponibilità, durata e prezzo. Se prima serve una valutazione REBEL, dedichiamo 30–40 minuti a capire che cosa può essere adatto a te. Se scegli di iniziare il percorso proposto, la valutazione iniziale è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi."
-          primaryHref="/contatti"
+          lead={isColorPedicure ? "Scrivici per scegliere il tuo colore e organizzare il prossimo appuntamento. Raccontaci il risultato che desideri: ti aiutiamo a trovare la tonalità e la finitura che senti tue." : "Scrivici: ti confermiamo disponibilità, durata e prezzo. Se prima serve una valutazione REBEL, dedichiamo 30–40 minuti a capire che cosa può essere adatto a te. Se scegli di iniziare il percorso proposto, la valutazione iniziale è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi."}
+          primaryHref={contactPath}
           primaryLabel="Chiedi un appuntamento"
           secondaryHref="/listino-estetica-laser"
           secondaryLabel="Consulta il listino"
@@ -468,8 +427,8 @@ const tocItems = [
     align="left"
     kicker={`${baseServiceName} · Rebel Carmagnola`}
     title={`Prenota _${serviceWithArticle}_.`}
-    lead="Ti confermiamo disponibilità, durata e prezzo prima dell’appuntamento. Se serve una valutazione REBEL, ti spieghiamo subito come funziona."
-    cta={{ label: "Contattaci", href: "/contatti" }}
+    lead={isColorPedicure ? "Dal colore alla finitura, scegliamo insieme i dettagli del tuo prossimo pedicure." : "Ti confermiamo disponibilità, durata e prezzo prima dell’appuntamento. Se serve una valutazione REBEL, ti spieghiamo subito come funziona."}
+    cta={{ label: "Contattaci", href: contactPath }}
   />
 
   <ServiceAreaDiscovery />
@@ -479,7 +438,8 @@ const tocItems = [
     promo={service.category === "laser"}
     primary={service.category === "laser"
       ? { label: "Richiedi la promo", href: laserOffer.contactPath }
-      : { label: "Chiedi un appuntamento", href: "/contatti" }}
+      : { label: "Chiedi un appuntamento", href: contactPath }}
+    whatsappHref={whatsappPath}
   />
 </BaseLayout>
 
@@ -527,7 +487,7 @@ const tocItems = [
     transition: color var(--t-fast) var(--ease-soft), border-color var(--t-fast) var(--ease-soft);
   }
   .source-list a:hover {
-    color: var(--ivory-1);
+    color: #6c2f70;
     border-bottom-color: var(--mauve);
   }
   .detail-aside { display: grid; gap: 1.4rem; }

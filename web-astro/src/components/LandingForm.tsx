@@ -1,4 +1,5 @@
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
+import { isAcceptedFormRequest, trackConversion } from "@/lib/measurement";
 
 /**
  * LandingForm — short, conversion-oriented variant of ContactForm.
@@ -57,6 +58,7 @@ export default function LandingForm({
   });
   const [status, setStatus] = useState<"idle" | "loading" | "ok" | "error">("idle");
   const [feedback, setFeedback] = useState("");
+  const submitting = useRef(false);
 
   // Allow overriding the ritual via `?ritual=` query param so deeplinks from
   // PromoBanner-like CTAs land already configured.
@@ -71,6 +73,19 @@ export default function LandingForm({
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (submitting.current || form.website.length > 0) return;
+    const phoneDigits = form.phone.replace(/\D/g, "");
+    const clientValid = e.currentTarget.reportValidity()
+      && form.name.trim().length > 1
+      && /^\+?[\d\s().-]+$/.test(form.phone.trim())
+      && phoneDigits.length >= 6 && phoneDigits.length <= 15;
+    if (!clientValid) {
+      setStatus("error");
+      setFeedback("Controlla nome, numero di telefono ed eventuale email prima di inviare.");
+      return;
+    }
+    const honeypotEmpty = form.website.length === 0;
+    submitting.current = true;
     setStatus("loading");
     setFeedback("");
     try {
@@ -83,8 +98,11 @@ export default function LandingForm({
         ok?: boolean;
         message?: string;
       };
-      if (!res.ok || !data.ok) {
+      if (!res.ok || data.ok !== true) {
         throw new Error(data.message || "Errore durante l'invio.");
+      }
+      if (isAcceptedFormRequest({ httpOk: res.ok, responseOk: data.ok, honeypotEmpty, clientValid })) {
+        trackConversion("form_request_accepted");
       }
       setStatus("ok");
       setFeedback(
@@ -103,15 +121,19 @@ export default function LandingForm({
     } catch (err) {
       setStatus("error");
       setFeedback(err instanceof Error ? err.message : "Si è verificato un errore.");
+    } finally {
+      submitting.current = false;
     }
   };
 
   return (
-    <form className="form form--landing" onSubmit={onSubmit} noValidate>
+    <form className="form form--landing" onSubmit={onSubmit}>
       <label>
         Nome*
         <input
           required
+          minLength={2}
+          maxLength={80}
           value={form.name}
           onChange={(e) => setForm((v) => ({ ...v, name: e.target.value }))}
           placeholder="Come ti chiami?"
@@ -123,6 +145,8 @@ export default function LandingForm({
         Telefono / WhatsApp*
         <input
           required
+          minLength={6}
+          maxLength={32}
           type="tel"
           inputMode="tel"
           value={form.phone}

@@ -1,200 +1,120 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import PageHero from "@/components/PageHero.astro";
-import SectionHead from "@/components/SectionHead.astro";
-import FeatureCard from "@/components/FeatureCard.astro";
-import MediaFigure from "@/components/MediaFigure.astro";
-import InlineCta from "@/components/InlineCta.astro";
-import FullBleedBand from "@/components/FullBleedBand.astro";
-import StickyBookingBar from "@/components/StickyBookingBar.astro";
-import JsonLd from "@/components/JsonLd.astro";
 import FaqAccordion from "@/components/FaqAccordion.astro";
+import JsonLd from "@/components/JsonLd.astro";
+import { localAreaPages, localAreaGroups, visitServiceLinks } from "@/lib/local-pages";
 import { media } from "@/lib/page-media";
-import { localAreaPages, localAreaGroups } from "@/lib/local-pages";
 import { laserOffer } from "@/lib/laser-offer";
-import {
-  buildBreadcrumbSchema,
-  buildItemListSchema,
-  buildWebPageSchema,
-  createPageMeta,
-} from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
+import { buildBreadcrumbSchema, buildItemListSchema, buildWebPageSchema, createPageMeta } from "@/lib/seo";
 
 const meta = createPageMeta({
   title: "REBEL Carmagnola: indicazioni da Torino e comuni vicini",
-  description:
-    "Da Torino e dai comuni vicini a REBEL Carmagnola: indirizzo, mappe, servizi, prezzi e informazioni per organizzare il tuo appuntamento in Viale Barbaroux 20.",
-  path: "/localita",
-  keywords: [
-    "centro estetico Carmagnola e dintorni",
-    "estetista Carmagnola Torino sud",
-    "estetista vicino Carmagnola",
-    "epilazione laser Torino sud",
-    "epilazione laser Cuneese",
-  ],
-});
-
-const groupMedia = [
-  {
-    key: "asse-carmagnola" as const,
-    image: media.locale.racconigi,
-    caption: "Il territorio tra Carmagnola e Racconigi; per tempi e percorso aggiornati apri sempre la mappa.",
-  },
-  {
-    key: "torino-sud" as const,
-    image: media.studio.realExterior,
-    caption: "L’ingresso REBEL in Viale Barbaroux 20, punto di arrivo delle indicazioni.",
-  },
-  {
-    key: "cuneo" as const,
-    image: media.locale.langhe,
-    caption: "Filari e colline delle Langhe, una delle aree da cui raggiungere lo studio di Carmagnola.",
-  },
-];
-
-const breadcrumb = buildBreadcrumbSchema([
-  { name: "Home", path: "/" },
-  { name: "Località", path: "/localita" },
-]);
-const webPageSchema = buildWebPageSchema({
-  name: "Località e indicazioni per raggiungere Rebel",
-  description:
-    "Mappe, indicazioni e contatti per raggiungere lo studio REBEL di Carmagnola dai comuni vicini.",
+  description: "Da Torino e dai comuni vicini a REBEL Carmagnola: indirizzo, mappe, servizi, prezzi e informazioni per il tuo appuntamento in Viale Barbaroux 20.",
   path: "/localita",
 });
-const localAreaListSchema = buildItemListSchema({
-  name: "Località con indicazioni per raggiungere REBEL",
-  path: "/localita",
-  items: localAreaPages.map((a) => ({ name: a.city, path: `/localita/${a.slug}` })),
-});
-
-const groupedAreas = localAreaGroups.map((group) => ({
-  ...group,
-  ...groupMedia.find((item) => item.key === group.key)!,
-  areas: localAreaPages.filter((area) => area.cluster === group.key),
-}));
+const photo = media.studio.realExterior;
+const studio = localAreaPages.find((area) => area.slug === "carmagnola")!;
+const groups = localAreaGroups.map((group) => ({ ...group, areas: localAreaPages.filter((area) => area.cluster === group.key).sort((a,b) => a.city.localeCompare(b.city, "it")) }));
 const faqs = [
-  { q: "Dove si svolgono i trattamenti REBEL?", a: "Tutti i trattamenti si svolgono nello studio di Viale Barbaroux 20, 10022 Carmagnola (TO). Le località elencate indicano da dove puoi raggiungerci, non altre sedi REBEL." },
-  { q: "Posso prenotare la promozione laser anche se abito a Torino?", a: "Puoi chiederci un appuntamento anche se parti da Torino. La seduta si svolge a Carmagnola: consulta la promozione laser per prezzi, conteggio delle zone e condizioni, poi verifica con noi disponibilità e preparazione." },
-  { q: "Posso prenotare più servizi nella stessa visita?", a: "Indicaci i trattamenti che desideri quando ci contatti. Verifichiamo la disponibilità e il tempo necessario prima di confermare l’appuntamento." },
-  { q: "Come verifico il percorso e il tempo di viaggio?", a: "Apri la mappa dal tuo comune e imposta l’indirizzo di partenza e il mezzo che userai. Per tempi di viaggio e collegamenti aggiornati consulta la mappa prima di partire." },
+  { q: "Dove si trova REBEL?", a: "Lo studio REBEL si trova in Viale Barbaroux 20, 10022 Carmagnola (TO). Tutte le valutazioni e i trattamenti si svolgono qui. Le località della pagina indicano da dove puoi raggiungere lo studio." },
+  { q: "Posso chiedere un appuntamento anche se parto da Torino?", a: "Sì. Indicaci il servizio e le tue disponibilità per concordare l’appuntamento a Carmagnola. Dalla pagina Torino puoi aprire le indicazioni in auto o con il trasporto pubblico e sostituire la partenza generica con il tuo indirizzo." },
+  { q: "Serve la valutazione iniziale anche per un servizio singolo?", a: "Se sai già cosa desideri, puoi indicarci direttamente il servizio e chiedere disponibilità. La valutazione di 30–40 minuti è dedicata a scegliere un percorso viso, corpo o laser ed è gratuita se inizi il percorso proposto. Ti spieghiamo le condizioni prima di confermare." },
+  { q: "Posso prenotare più servizi nella stessa visita?", a: "Indicaci tutti i trattamenti che ti interessano quando ci contatti. Verifichiamo disponibilità e durata complessiva prima di confermare l’appuntamento." },
 ];
 ---
 <BaseLayout meta={meta} bodyClass="page-localita">
-  <JsonLd data={breadcrumb} />
-  <JsonLd data={localAreaListSchema} />
-  <JsonLd data={webPageSchema} />
+  <JsonLd data={buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Come arrivare", path: "/localita" }])} />
+  <JsonLd data={buildWebPageSchema({ name: "Come raggiungere lo studio REBEL a Carmagnola", description: meta.description, path: "/localita" })} />
+  <JsonLd data={buildItemListSchema({ name: "Punti di partenza verso REBEL Carmagnola", path: "/localita", items: localAreaPages.map((area) => ({ name: area.city, path: `/localita/${area.slug}` })) })} />
   <JsonLd data={{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.q, acceptedAnswer: { "@type": "Answer", text: faq.a } })) }} />
 
-  <PageHero
-    image={media.studio.realExterior}
-    kicker="Come raggiungere Rebel · Carmagnola"
-    title="Il tuo appuntamento a Carmagnola, _da Torino e dai comuni vicini_."
-    lead="Un solo indirizzo: Viale Barbaroux 20. Qui trovi le indicazioni per arrivare, il listino e i servizi da scegliere prima della visita, dal laser alla cura di viso, corpo e beauty."
-    bullets={[`${localAreaPages.length} località`, "Mappe e indicazioni", "Valutazione REBEL · 30–40 min"]}
-    meta={["Viale Barbaroux 20 · Carmagnola", "Da martedì a sabato", "Su appuntamento"]}
-    ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
-    ctaSecondary={{ label: "Indicazioni da Carmagnola", href: "/localita/carmagnola" }}
-  />
+  <div class="area-page">
+    <section class="area-hero" aria-labelledby="area-title"><div class="area-shell area-hero__grid">
+      <div><p class="area-kicker">Il tuo appuntamento REBEL</p><h1 id="area-title">Una destinazione.<br /><em>Carmagnola.</em></h1><p class="area-hero__lead">Da Torino, dai comuni vicini e dal Cuneese: ti aspettiamo in <strong>Viale Barbaroux 20</strong>. Scegli la tua partenza per trovare il percorso e preparare il tempo che dedichi a te.</p><div class="area-actions"><a class="btn btn--primary" href="#partenze">Scegli da dove arrivi <span aria-hidden="true">↓</span></a><a class="area-link" href="/contatti">Contatti e orari</a></div><p class="area-address">Viale Barbaroux 20 · 10022 Carmagnola (TO)</p></div>
+      <figure class="area-hero__photo"><picture>{photo.srcMobile && <source media="(max-width:600px)" srcset={photo.srcMobile} />}<img src={photo.src} alt={photo.alt} width="1672" height="941" loading="eager" fetchpriority="high" decoding="async" /></picture><figcaption>L’ingresso dello studio <span>La tua visita comincia qui.</span></figcaption></figure>
+    </div></section>
 
-  {groupedAreas.map((group) =>
-    group.areas.length > 0 ? (
-      <section class="section" id={group.key}>
-        <div class="container">
-          <SectionHead kicker={group.name} title={group.title} lead={group.description} />
-          <p class="territory-note">{group.visitNote}</p>
-          <MediaFigure src={group.image.src} alt={group.image.alt} caption={group.caption} ratio="21/9" width={1915} height={821} />
-          <div class="card-grid card-grid--3" style="margin-top:2rem;">
-            {group.areas.map((area, i) => (
-              <FeatureCard
-                kicker="Indicazioni e servizi"
-                title={area.city}
-                body={`Mappa, contatti e informazioni per organizzare la visita da ${area.city}.`}
-                href={`/localita/${area.slug}`}
-                ariaLabel={`Apri indicazioni e servizi per ${area.city}`}
-                index={i + 1}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-    ) : null,
-  )}
+    <section class="area-section" id="partenze" aria-labelledby="area-origins-title"><div class="area-shell">
+      <div class="area-heading"><p class="area-kicker">La tua partenza</p><h2 id="area-origins-title">Trova il percorso.<br /><em>Al resto pensiamo insieme.</em></h2><p>Le indicazioni conducono tutte allo studio di Carmagnola. Puoi cambiare l’indirizzo iniziale sulla mappa e confrontare le opzioni per il giorno della visita.</p></div>
+      <nav class="area-cluster-nav" aria-label="Scegli la zona di partenza">{groups.map((group) => <a href={`#${group.key}`}>{group.name}<span aria-hidden="true">↓</span></a>)}</nav>
+      <div class="area-groups">{groups.map((group, index) => <section class="area-group" id={group.key} aria-labelledby={`title-${group.key}`}><div class="area-group__intro"><p class="area-kicker">0{index + 1} / {group.name}</p><h3 id={`title-${group.key}`}>{group.title}</h3><p>{group.description}</p></div><ul class="area-origin-list">{group.areas.map((area) => <li><a href={`/localita/${area.slug}`}><span>{area.city}{area.kind === "area" && <small>Area di partenza</small>}</span><span aria-hidden="true">↗</span></a></li>)}</ul></section>)}</div>
+    </div></section>
 
-  <section class="section section--scene-ivory">
-    <div class="container">
-      <SectionHead
-        kicker="Informazioni prima di venire"
-        title="Epilazione laser, percorsi viso e corpo e listino completo."
-        lead="Scopri i trattamenti disponibili, come funziona la valutazione e quali sono i prezzi."
-      />
-      <div class="card-grid card-grid--3">
-        <FeatureCard
-          kicker="Promo laser · Carmagnola e Torino"
-          title="Laser a zona e Total Body: la promozione REBEL"
-          body="Prezzo per seduta, conteggio delle zone e informazioni da verificare prima di prenotare. I trattamenti si svolgono a Carmagnola."
-          href={laserOffer.landingPath}
-        />
-        <FeatureCard
-          kicker="Epilazione laser"
-          title="Epilazione laser con ICE Polar: zone, prezzi e sedute"
-          body="Tecnologia, raffreddamento, valutazione iniziale, frequenza e prezzi per viso e corpo."
-          href="/epilazione-laser-carmagnola"
-        />
-        <FeatureCard
-          kicker="Trattamenti personalizzati"
-          title="Protocolli professionali per viso e corpo"
-          body="Confronta esigenze trattate, modalità, prezzi e indicazioni prima di prenotare."
-          href="/protocolli-epigenetici"
-        />
-        <FeatureCard
-          kicker="Prezzi"
-          title="Listino completo Rebel"
-          body="Prezzi di viso, corpo, beauty, massaggi, laser e protocolli professionali."
-          href="/listino-estetica-laser"
-        />
-        <FeatureCard
-          kicker="Beauty e massaggi"
-          title="Manicure, pedicure, laminazione, ceretta e massaggi"
-          body="Scegli il servizio, confronta le varianti e consulta prezzo e durata prima di organizzare l’appuntamento."
-          href="/servizi"
-        />
-      </div>
-    </div>
-  </section>
+    <section class="area-section area-section--paper" aria-labelledby="area-plan-title"><div class="area-shell">
+      <div class="area-heading"><p class="area-kicker">Prima di partire</p><h2 id="area-plan-title">Il tuo tempo.<br /><em>La nostra attenzione.</em></h2></div>
+      <ol class="area-steps"><li><span aria-hidden="true">01</span><h3>Scegli cosa desideri.</h3><p>Consulta prezzi, durata indicativa e varianti. Se vuoi abbinare più servizi, indicaceli quando ci scrivi.</p><a class="area-link" href="/listino-estetica-laser">Trattamenti e prezzi <span aria-hidden="true">↗</span></a></li><li><span aria-hidden="true">02</span><h3>Concorda l’appuntamento.</h3><p>Scrivici il trattamento e le tue disponibilità. Per un percorso viso, corpo o laser puoi chiedere una valutazione di 30–40 minuti.</p><a class="area-link" href="/contatti">Prenota con REBEL <span aria-hidden="true">↗</span></a></li><li><span aria-hidden="true">03</span><h3>Controlla il percorso.</h3><p>Dopo la conferma dell’appuntamento, apri la mappa dal tuo indirizzo. Itinerari e collegamenti cambiano in base alla partenza e al giorno.</p><a class="area-link" href={studio.directions.mapsUrl} target="_blank" rel="noreferrer">Apri Google Maps <span aria-hidden="true">↗</span></a></li></ol>
+    </div></section>
 
-  <FullBleedBand
-    image={media.locale.langhe}
-    height="sm"
-    align="left"
-    kicker="Studio Rebel · Carmagnola"
-    quote="Viale Barbaroux 20: quattro cabine per viso, corpo, laser e beauty."
-    cite="Da martedì a sabato su appuntamento"
-  />
+    <div class="area-material" aria-hidden="true"></div>
 
-  <section class="section">
-    <div class="container">
-      <SectionHead kicker="Prima del viaggio" title="Organizziamo il tempo _che dedichi a te_." />
-      <FaqAccordion items={faqs} />
-    </div>
-  </section>
+    <section class="area-section" aria-labelledby="area-services-title"><div class="area-shell">
+      <div class="area-heading"><p class="area-kicker">Il tuo momento in studio</p><h2 id="area-services-title">Prima conosciamoci.<br /><em>Parti da ciò che cerchi.</em></h2><p>Scopri le informazioni sul servizio che desideri, poi scegli quando raggiungerci a Carmagnola.</p></div>
+      <div class="area-services">{visitServiceLinks.map((service) => <article><h3>{service.name}</h3><p>{service.description}</p><ul>{service.links.map((link) => <li><a href={link.href}>{link.label}<span aria-hidden="true"> ↗</span></a></li>)}</ul></article>)}</div>
+      <aside class="area-promo"><div><p class="area-kicker">La promozione laser</p><h3>Una zona o <em>Total Body.</em></h3><p>La promozione si svolge nello studio di Carmagnola, anche per chi parte da Torino. Prezzo per seduta, conteggio delle zone e condizioni sono raccolti in un’unica pagina.</p></div><a class="btn btn--primary" href={laserOffer.landingPath}>Scopri la promo laser <span aria-hidden="true">↗</span></a></aside>
+    </div></section>
 
-  <section class="section">
-    <div class="container">
-      <InlineCta
-        kicker="Vieni da un altro comune?"
-        title="Indicaci località e servizio: ti aiutiamo a _organizzare la visita_."
-        lead="Scrivi quale trattamento ti interessa e quando sei disponibile. Ti contattiamo per concordare l’appuntamento e darti le informazioni utili."
-        primaryHref="/contatti"
-        primaryLabel="Prenota la valutazione"
-        secondaryHref="/servizi"
-        secondaryLabel="Vedi tutti i servizi"
-      />
-    </div>
-  </section>
-
-  <StickyBookingBar primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
+    <section class="area-section area-section--paper" aria-labelledby="area-faq-title"><div class="area-shell"><div class="area-heading"><p class="area-kicker">Prima dell’appuntamento</p><h2 id="area-faq-title">Le informazioni <em>pratiche.</em></h2></div><FaqAccordion items={faqs} kicker="In studio" /></div></section>
+    <section class="area-closing"><div class="area-shell"><p class="area-kicker">REBEL · Viale Barbaroux 20</p><h2>Ci vediamo <em>a Carmagnola.</em></h2><p>Indicaci il servizio e le tue disponibilità: concordiamo insieme l’appuntamento.</p><div class="area-actions"><a class="btn btn--primary" href={siteConfig.social.whatsapp}>Scrivici su WhatsApp <span aria-hidden="true">↗</span></a><a class="area-link" href={`tel:${siteConfig.phoneRaw}`}>{siteConfig.phoneDisplay}</a></div></div></section>
+  </div>
 </BaseLayout>
 
 <style>
-  .territory-note { max-width: 76ch; margin: -0.5rem 0 2rem; font-size: var(--t-body); line-height: var(--leading-body); color: var(--text); }
+  .area-page { color-scheme: light; --text: #301b3e; --text-strong: #211427; --text-muted: #685471; --line: #e2d6e7; background: #f8f3ed; color: #301b3e; }
+  .area-shell { width: min(1240px, calc(100% - 2 * clamp(1.2rem,4vw,3.5rem))); margin-inline: auto; }
+  .area-page :is(h1,h2,h3,p,figure,ul,ol) { margin: 0; }
+  .area-page p { line-height: 1.75; color: #685471; }
+  .area-page :is(h1,h2,h3) { color: #301b3e; }
+  .area-page h1 { font: 500 clamp(3.5rem,6.5vw,6.5rem)/1.02 var(--font-display); letter-spacing: -.05em; overflow-wrap: normal; word-break: normal; hyphens: none; }
+  .area-page h2 { font: 500 clamp(2.2rem,4.2vw,4.2rem)/1.08 var(--font-display); letter-spacing: -.035em; }
+  .area-page em { color: #70428b; font-weight: 400; }
+  .area-page .area-kicker { margin-bottom: 1rem; color: #a51e58; font: 700 .75rem/1.6 var(--font-body); letter-spacing: .13em; text-transform: uppercase; }
+  .area-hero { padding: clamp(9rem,14vw,12rem) 0 4rem; background: #fffdf9; }
+  .area-hero__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem,5vw,5rem); align-items: center; }
+  .area-hero__lead { margin-top: 1.7rem !important; max-width: 52ch; font-size: 1.05rem; }
+  .area-hero__lead strong { color: #301b3e; }
+  .area-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.5rem; margin-top: 1.8rem; }
+  .area-page .btn { gap: .8rem; }
+  .area-page .area-link { display: inline-flex; min-height: 44px; align-items: center; gap: .4rem; color: #70428b; font-size: .9rem; font-weight: 650; text-underline-offset: .3em; }
+  .area-page .area-address { margin-top: 1.6rem; font-size: .78rem; }
+  .area-hero__photo { min-width: 0; }
+  .area-hero__photo picture { display: block; overflow: hidden; border-radius: 3rem .5rem 3rem .5rem; background: #ede1e9; box-shadow: 0 24px 64px #301b3e14; }
+  .area-hero__photo img { display: block; width: 100%; height: auto; aspect-ratio: 4/3; object-fit: cover; }
+  .area-hero__photo figcaption { display: flex; flex-wrap: wrap; gap: .3rem 1rem; margin-top: .8rem; font-size: .75rem; color: #685471; }
+  .area-section { padding-block: clamp(3.5rem,7vw,6rem); scroll-margin-top: 7rem; }
+  .area-section--paper { background: #fffdf9; }
+  .area-heading { max-width: 780px; margin-bottom: 2.5rem; }
+  .area-heading>p:last-child:not(.area-kicker) { margin-top: 1.2rem; }
+  .area-cluster-nav { display: flex; flex-wrap: wrap; gap: .7rem; margin-bottom: 2.5rem; }
+  .area-cluster-nav a { display: inline-flex; align-items: center; min-height: 44px; gap: 1rem; padding: .7rem 1rem; border: 1px solid #d8c8e1; border-radius: 1rem .3rem 1rem .3rem; background: #fffdf9; color: #70428b; font-size: .85rem; text-decoration: none; }
+  .area-groups { display: grid; gap: 2.5rem; }
+  .area-group { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(1.5rem,5vw,5rem); padding-top: 2.2rem; border-top: 1px solid #d8c8e1; scroll-margin-top: 7rem; }
+  .area-group__intro h3 { font: 500 clamp(1.7rem,2.8vw,2.4rem)/1.2 var(--font-display); }
+  .area-group__intro>p:last-child { margin-top: 1rem; font-size: .95rem; }
+  .area-origin-list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .2rem 1.5rem; align-content: start; }
+  .area-origin-list a { display: flex; align-items: center; justify-content: space-between; min-height: 48px; gap: .7rem; padding-block: .5rem; border-bottom: 1px solid #e2d6e7; color: #301b3e; font-size: .9rem; line-height: 1.5; text-decoration: none; }
+  .area-origin-list a:hover { color: #a51e58; }
+  .area-origin-list small { display: block; font-size: .7rem; color: #685471; }
+  .area-steps { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 2rem; }
+  .area-steps li { border-top: 1px solid #d8c8e1; padding-top: 1.5rem; }
+  .area-steps li>span { font-size: .75rem; letter-spacing: .15em; color: #a51e58; }
+  .area-steps h3 { margin-block: 1rem; font: 500 1.75rem/1.2 var(--font-display); }
+  .area-steps p { font-size: .95rem; }
+  .area-steps a { margin-top: .7rem; }
+  .area-material { height: clamp(4rem,10vw,8rem); background: #f8f3ed url('/img/rebel-r2/rebel/brand/rebel-cut-desktop.webp') center/cover no-repeat; }
+  .area-services { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2rem; }
+  .area-services article { border-top: 1px solid #d8c8e1; padding-top: 1.3rem; }
+  .area-services h3 { font: 500 1.65rem/1.25 var(--font-display); }
+  .area-services p { margin-top: .7rem; font-size: .9rem; }
+  .area-services ul { list-style: none; padding: 0; margin-top: .7rem; }
+  .area-services a { display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; color: #70428b; font-size: .85rem; text-underline-offset: .3em; }
+  .area-promo { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem 3rem; margin-top: 3rem; padding: clamp(1.5rem,3vw,2.5rem); border: 1px solid #cdb9d8; border-radius: .5rem 2.5rem .5rem 2.5rem; background: #fffdf9; }
+  .area-promo h3 { font: 500 clamp(1.7rem,2.6vw,2.4rem)/1.2 var(--font-display); }
+  .area-promo p:last-child { margin-top: .7rem; max-width: 65ch; font-size: .9rem; }
+  .area-promo .btn { flex-shrink: 0; }
+  .area-closing { padding-block: clamp(3.5rem,7vw,6rem); background: radial-gradient(ellipse at 85% 30%,#e8d9f3,transparent 65%),#f9f1f5; }
+  .area-closing p:not(.area-kicker) { margin-top: 1.2rem; }
+  .area-page :is(a,summary):focus-visible { outline: 3px solid #7047ff; outline-offset: 4px; }
+  @media(max-width:900px) { .area-hero__grid,.area-group { grid-template-columns: 1fr; } .area-hero__photo img { aspect-ratio: 16/9; } .area-steps,.area-services { grid-template-columns: repeat(2,minmax(0,1fr)); } .area-promo { flex-direction: column; align-items: flex-start; } }
+  @media(max-width:600px) { .area-hero { padding-top: 7.5rem; } .area-page h1 { font-size: clamp(3.1rem,12vw,4.5rem); } .area-steps,.area-services { grid-template-columns: 1fr; } .area-origin-list { gap: .2rem 1rem; } .area-origin-list a { font-size: .85rem; } .area-hero__photo picture { border-radius: 2rem .4rem 2rem .4rem; } .area-material { background-image: url('/img/rebel-r2/rebel/brand/rebel-cut-mobile.webp'); } }
 </style>

@@ -16,6 +16,8 @@ import {
 } from "@/lib/seo";
 import { editorialImageAssets, servicePages } from "@/lib/seo-content-refined";
 import { localAreaPages } from "@/lib/local-pages";
+import { photographs } from "@/lib/catalog-visuals";
+import { serviceCategories } from "@/lib/service-categories";
 import { media } from "@/lib/page-media";
 
 const meta = createPageMeta({
@@ -65,7 +67,7 @@ const queryTargets: QueryTarget[] = [
     image: { src: editorialImageAssets.puliziaViso, alt: "Pulizia viso professionale Rebel" },
   },
   {
-    label: "Manicure semipermanente",
+    label: "Unghie, manicure e colore RBL",
     href: "/servizi/manicure-semipermanente-carmagnola",
     description: "Preparazione dell’unghia, applicazione del colore RBL Nails e finitura. Trovi online prezzo e durata.",
     image: { src: editorialImageAssets.manicureSemipermanente, alt: "Manicure semipermanente naturale" },
@@ -79,7 +81,7 @@ const queryTargets: QueryTarget[] = [
   {
     label: "Pedicure",
     href: "/servizi/pedicure-carmagnola",
-    description: "Trattamento estetico di unghie, cuticole e pelle del piede. Prezzo e durata nella scheda.",
+    description: "Confronta pedicure estetico, colore, VIP con scrub e taglio unghie: scegli la cura che cerchi per i piedi.",
     image: { src: editorialImageAssets.pedicure, alt: "Pedicure professionale a Carmagnola" },
   },
   {
@@ -95,8 +97,8 @@ const queryTargets: QueryTarget[] = [
     image: { src: editorialImageAssets.scrubCorpo, alt: "Scrub corpo Rebel a Carmagnola" },
   },
   {
-    label: "Massaggio rilassante",
-    href: "/servizi/massaggio-rilassante-carmagnola",
+    label: "Massaggi estetici e di benessere",
+    href: "/servizi/massaggi-carmagnola",
     description: "Massaggio dedicato al relax e al benessere generale, con durata e prezzo consultabili online.",
     image: { src: editorialImageAssets.massaggioRilassante, alt: "Massaggio rilassante a Carmagnola" },
   },
@@ -108,8 +110,14 @@ const queryTargets: QueryTarget[] = [
   },
 ];
 
+for (const category of serviceCategories.filter(c => c.key !== "massaggi")) {
+  const photo = photographs[category.heroPhoto];
+  queryTargets.push({ label: category.name.replace(" a Carmagnola", ""), href: `/servizi/${category.slug}`, description: category.metaDescription, image: { src: photo.src, alt: photo.alt } });
+}
+queryTargets.push({ label: "Ceretta donna e uomo", href: "/servizi/ceretta-carmagnola", description: "Epilazione a cera di viso e corpo: zone, varianti e informazioni per il tuo appuntamento.", image: { src: photographs["cera-gamba"].src, alt: photographs["cera-gamba"].alt } });
+
 const querySchema = buildItemListSchema({
-  name: "Servizi più cercati del centro estetico Rebel a Carmagnola",
+  name: "Servizi e trattamenti del centro estetico REBEL a Carmagnola",
   path: "/centro-estetico-carmagnola",
   items: queryTargets.map((it) => ({ name: it.label, path: it.href })),
 });
@@ -187,7 +195,7 @@ const keyServices = keySlugs
   <section class="section">
     <div class="container">
       <SectionHead
-        kicker="Servizi più richiesti"
+        kicker="Scegli il tuo trattamento"
         title="Prezzi e informazioni sui principali trattamenti."
         lead="Scegli il trattamento che ti interessa per conoscere prezzo, durata indicativa e informazioni utili prima dell’appuntamento."
       />

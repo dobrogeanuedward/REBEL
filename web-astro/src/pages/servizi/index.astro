@@ -9,6 +9,8 @@ import FullBleedBand from "@/components/FullBleedBand.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import ServiceAreaDiscovery from "@/components/ServiceAreaDiscovery.astro";
+import { serviceCategoryDestinations } from "@/lib/service-navigation";
+import { serviceCategories } from "@/lib/service-categories";
 import { menu } from "@/lib/treatment-catalog";
 import { laserOffer } from "@/lib/laser-offer";
 import { media } from "@/lib/page-media";
@@ -53,7 +55,7 @@ const webPageSchema = buildWebPageSchema({
 const serviceListSchema = buildItemListSchema({
   name: "Servizi Rebel Carmagnola",
   path: "/servizi",
-  items: servicePages.map((s) => ({ name: s.name, path: `/servizi/${s.slug}` })),
+  items: [...servicePages.map((s) => ({ name: s.name, path: `/servizi/${s.slug}` })), ...serviceCategories.map(s => ({ name: s.name, path: `/servizi/${s.slug}` }))],
 });
 const protocolListSchema = buildItemListSchema({
   name: "Protocolli professionali Rebel",
@@ -93,7 +95,7 @@ const catalogListSchema = buildItemListSchema({
   path: "/servizi",
   items: menu.categories.map((category) => ({
     name: category.name,
-    path: category.id === "laser-treatwell" ? laserOffer.landingPath : `/listino-estetica-laser#${category.id}`,
+    path: serviceCategoryDestinations[category.id] ?? `/listino-estetica-laser#${category.id}`,
   })),
 });
 
@@ -133,7 +135,7 @@ const switchItems = [
     lead="Scegli il trattamento che ti interessa per conoscere obiettivo, modalità, prezzo e durata indicativa prima dell’appuntamento."
     bullets={["Prezzi pubblicati online", "Durata indicativa", "Valutazione REBEL · 30–40 min"]}
     meta={["Pulizia viso, beauty e massaggi", "Epilazione laser con ICE Polar", "Protocolli professionali"]}
-    ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
+    ctaPrimary={{ label: "Scegli il tuo trattamento", href: "#menu-completo", halo: true }}
     ctaSecondary={{ label: "Scrivici su WhatsApp", href: "https://wa.me/393516919416" }}
   />
 
@@ -159,7 +161,7 @@ const switchItems = [
       />
       <div class="service-directory">
         {menu.categories.map((category, i) => (
-          <a class="service-directory__item" href={category.id === "laser-treatwell" ? laserOffer.landingPath : `/listino-estetica-laser#${category.id}`}>
+          <a class="service-directory__item" href={serviceCategoryDestinations[category.id] ?? `/listino-estetica-laser#${category.id}`}>
             <span class="service-directory__number" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
             <div><h3>{category.id === "laser-treatwell" ? "Epilazione laser" : category.name}</h3><p>{catalogDescriptions[category.id]}</p></div>
             <span aria-hidden="true">↗</span>

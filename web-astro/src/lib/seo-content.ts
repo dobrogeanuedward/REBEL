@@ -1,5 +1,25 @@
 import { protocolPages } from "@/lib/protocol-pages";
 import { isIndexableSearchPage } from "@/lib/search-intents";
+import treatmentMenu from "@/data/treatwell-menu.json";
+
+// Published booking facts come from the same catalog as the treatment menu.
+const catalogItems = treatmentMenu.categories.flatMap(category => category.items);
+const catalogItem = (id: string) => {
+  const item = catalogItems.find(entry => entry.id === id);
+  if (!item) throw new Error(`[seo-content] Unknown catalog treatment: ${id}`);
+  return item;
+};
+const catalogEuro = (amount: number) => new Intl.NumberFormat("it-IT", { style: "currency", currency: "EUR" }).format(amount);
+const catalogTariff = (id: string) => {
+  const item = catalogItem(id);
+  const price = item.price.min === item.price.max
+    ? catalogEuro(item.price.min)
+    : `${catalogEuro(item.price.min)}–${catalogEuro(item.price.max)}`;
+  const duration = item.durationMin === item.durationMax
+    ? `${item.durationMin} minuti`
+    : `${item.durationMin}–${item.durationMax} minuti`;
+  return `${price} · ${duration}`;
+};
 
 export const editorialImageAssets = {
   pedicure: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/dd34e324-2953-4a98-18ee-ef36b7c59e00/public",
@@ -34,6 +54,7 @@ export type ServicePage = {
   faqs: Array<{ q: string; a: string }>;
   keywords: string[];
   relatedCompetenceSlugs: string[];
+  relatedServiceSlugs?: string[];
   // Curated links to protocol detail pages (advanced next step).
   relatedProtocolSlugs?: string[];
   editorialSections?: Array<{
@@ -87,7 +108,7 @@ const authoredServicePages: ServicePage[] = [
       "Trattamento viso con detersione, esfoliazione delicata e passaggi mirati in base alle impurità osservate e alla sensibilità della pelle.",
     longDescription:
       "La seduta inizia con l’osservazione della pelle e comprende detersione, esfoliazione delicata, pulizia mirata e una fase finale lenitiva. Adattiamo prodotti e intensità alle condizioni della pelle, sia come trattamento singolo sia come preparazione a un percorso viso.",
-    priceHint: "da 49 €",
+    priceHint: catalogTariff("TR6412964"),
     category: "estetica-classica",
     benefits: [
       "Pelle più fresca, pulita e uniforme",
@@ -182,7 +203,7 @@ const authoredServicePages: ServicePage[] = [
       "Scrub corpo con esfoliazione controllata, adattata alla zona e alla sensibilità della pelle.",
     longDescription:
       "Lo scrub corpo è un trattamento esfoliante che rimuove le cellule superficiali in eccesso. Scegliamo prodotto, pressione e durata in base alla zona e alla sensibilità della pelle, poi completiamo la seduta con una fase idratante o lenitiva.",
-    priceHint: "da 49 €",
+    priceHint: catalogTariff("TR6412965"),
     category: "estetica-classica",
     benefits: [
       "Pelle più morbida, uniforme e levigata al tatto",
@@ -269,7 +290,7 @@ const authoredServicePages: ServicePage[] = [
       "Massaggio linfodrenante manuale e delicato, pensato per chi avverte pesantezza e desidera una sensazione di maggiore leggerezza.",
     longDescription:
       "Il linfodrenante è un massaggio estetico manuale delicato, scelto soprattutto quando avverti pesantezza e desideri una sensazione di maggiore leggerezza. Durante la seduta adattiamo zone, pressione e manualità al tuo comfort. Non è un trattamento sanitario: in presenza di condizioni particolari chiediamo prima un parere medico.",
-    priceHint: "da 69 €",
+    priceHint: catalogTariff("TR6412967"),
     category: "estetica-classica",
     benefits: [
       "Può attenuare la sensazione di pesantezza",
@@ -376,7 +397,7 @@ const authoredServicePages: ServicePage[] = [
       "Massaggio distensivo dedicato a schiena, spalle e zona cervicale, con pressione adattata alle tue preferenze.",
     longDescription:
       "Il massaggio rilassante è una seduta di 50 minuti dedicata al riposo e al comfort. Lavoriamo soprattutto su schiena, spalle e zona cervicale con manualità graduali, scegliendo la pressione in base alla sensibilità e alle preferenze del momento.",
-    priceHint: "59 € (50 min)",
+    priceHint: catalogTariff("TR6412966"),
     category: "estetica-classica",
     benefits: [
       "Cinquanta minuti dedicati al relax",
@@ -456,7 +477,7 @@ const authoredServicePages: ServicePage[] = [
       "Ciglia e sopracciglia più ordinate e definite, con effetto naturale e armonioso.",
     longDescription:
       "La laminazione disciplina ciglia e sopracciglia e ne valorizza forma e direzione. Prima del trattamento osserviamo lineamenti e caratteristiche del pelo, poi concordiamo un effetto naturale o più definito.",
-    priceHint: "da 79 €",
+    priceHint: `da ${catalogEuro(catalogItem("TR7355542").price.min)} · in base alla variante`,
     category: "estetica-classica",
     benefits: [
       "Effetto visivo di sguardo più aperto",
@@ -536,15 +557,15 @@ const authoredServicePages: ServicePage[] = [
     slug: "manicure-semipermanente-carmagnola",
     name: "Manicure semipermanente a Carmagnola",
     shortDescription:
-      "Manicure semipermanente con preparazione accurata, colore uniforme e una finitura ordinata che dura più dello smalto classico.",
+      "Manicure e semipermanente RBL Nails a Carmagnola: forma curata, nude delicati, rossi decisi e riflessi da scegliere secondo il tuo stile.",
     longDescription:
-      "Prepariamo unghie e cuticole, definiamo forma e lunghezza e applichiamo il colore con precisione. Scegliamo insieme tonalità e finitura per ottenere mani ordinate e un risultato adatto al tuo stile.",
-    priceHint: "da 26 €",
+      "Il colore comincia dalla forma: prepariamo unghie e cuticole e definiamo lunghezza e profilo prima dell’applicazione. Per il semipermanente entriamo nel mondo RBL Nails, un catalogo di 138 cromie tra nude, rossi, rosa, blu e riflessi luminosi. Guardiamo insieme tono della pelle, stile e finitura per scegliere una manicure che senti tua.",
+    priceHint: catalogTariff("TR6412932"),
     category: "estetica-classica",
     benefits: [
-      "Aspetto ordinato e curato per più tempo",
-      "Finitura più resistente rispetto allo smalto classico",
-      "Colore e finitura scelti in base al tuo stile",
+      "Preparazione di unghie e cuticole, forma e lunghezza concordate",
+      "Semipermanente con la gamma colori RBL Nails",
+      "Nude, colori pieni e riflessi scelti insieme a te",
     ],
     faqs: [
       {
@@ -615,10 +636,17 @@ const authoredServicePages: ServicePage[] = [
         ],
       },
       {
-        heading: "Colori e finiture naturali",
+        heading: "La tua palette nel mondo RBL Nails",
         paragraphs: [
-          "Per un effetto discreto possiamo scegliere tonalità neutre e finiture leggere, adatte al colore della pelle e alla forma dell’unghia.",
-          "Se preferisci un risultato più evidente, valutiamo insieme colore e dettagli prima dell’applicazione.",
+          "Soft Beige per un nude caldo, Powder Blush per un rosa cipria, Scarlet Red per un rosso più presente: i nomi e i codici RBL aiutano a ritrovare una tinta e a confrontarla con quelle vicine. Puoi partire da un colore che ami o da una fotografia delle collezioni.",
+          "Conta anche come il colore prende la luce: un lucido netto, una lettura satinata, un effetto metallico o shimmer cambiano il carattere della manicure. Le immagini aiutano a scegliere la direzione; osserviamo i campioni e concordiamo la finitura prima di applicarla.",
+        ],
+      },
+      {
+        heading: "La formula dei gel colore RBL",
+        paragraphs: [
+          "RBL presenta la propria linea gel come vegan, HEMA free e TPO free. Sono caratteristiche dichiarate dal marchio per quella linea: non significano assenza di ogni possibile sensibilità e non si estendono automaticamente a qualsiasi prodotto usato nella manicure.",
+          "Se in passato un prodotto ti ha creato fastidio, raccontacelo prima di una nuova applicazione. La scelta del colore va insieme alla preparazione, al sistema applicato e alla cura della rimozione.",
         ],
       },
       {
@@ -630,6 +658,9 @@ const authoredServicePages: ServicePage[] = [
       },
     ],
     sourceLinks: [
+      { label: "RBL Nails — gamma colori ufficiale", url: "https://www.rbl-nails.it/colori" },
+      { label: "RBL Nails — linea gel e formulazione", url: "https://www.rbl-nails.it/about" },
+      { label: "AAD — prodotti per unghie e sensibilità individuale", url: "https://www.aad.org/public/everyday-care/nail-care-secrets/basics/pedicures/manicure-pedicure-safety/" },
       {
         label: "AAD - Nail care basics",
         url: "https://www.aad.org/public/everyday-care/nail-care-secrets/basics/nail-care-basics",
@@ -642,17 +673,18 @@ const authoredServicePages: ServicePage[] = [
   },
   {
     slug: "pedicure-carmagnola",
-    name: "Pedicure VIP con scrub a Carmagnola",
+    name: "Pedicure a Carmagnola",
+    relatedServiceSlugs: ["pedicure-estetico-carmagnola", "pedicure-estetico-con-smalto-carmagnola", "pedicure-semipermanente-carmagnola", "taglio-unghie-piedi-carmagnola"],
     shortDescription:
-      "Pedicure VIP con scrub per rifinire unghie e pelle e lasciare i piedi più lisci e ordinati.",
+      "La cura dei piedi nella versione che desideri: pedicure estetico, VIP con scrub, solo taglio oppure colore con smalto e semipermanente.",
     longDescription:
-      "Il Pedicure VIP unisce la cura estetica di unghie e cuticole a uno scrub dedicato alla pelle del piede. Adattiamo intensità e passaggi alle condizioni osservate, con particolare delicatezza su talloni secchi o zone più ispessite.",
-    priceHint: "44 €",
+      "Al naturale, con uno scrub dedicato o con il colore che ami: il pedicure REBEL a Carmagnola parte da ciò che vuoi per i tuoi piedi. Puoi scegliere la cura estetica di unghie e cuticole, il VIP con scrub o il solo taglio. Le varianti con smalto e semipermanente aggiungono una scelta di stile; per il gel colore puoi esplorare il mondo RBL Nails, dai nude ai toni più intensi.",
+    priceHint: "Prezzo in base al trattamento",
     category: "estetica-classica",
     benefits: [
-      "Cura estetica di unghie, cuticole e pelle del piede",
-      "Attenzione mirata a talloni secchi e zone più ispessite",
-      "Scrub e rifinitura adattati alle condizioni della pelle",
+      "Confronto tra pedicure estetico, VIP con scrub e solo taglio unghie",
+      "Varianti con smalto e semipermanente per chi desidera il colore",
+      "Scelta della prestazione in base ai passaggi che desideri includere",
     ],
     faqs: [
       {
@@ -669,7 +701,7 @@ const authoredServicePages: ServicePage[] = [
       },
       {
         q: "Posso mettere lo smalto dopo il pedicure?",
-        a: "Sì. Per un effetto molto naturale, possiamo orientarti su finiture pulite e discrete. Se preferisci colore, lo scegliamo insieme in base allo stile che ti piace.",
+        a: "Puoi scegliere il pedicure con smalto oppure il pedicure semipermanente. Indica quale finitura desideri e se hai un prodotto da rimuovere. Il VIP è invece la formula dedicata anche allo scrub.",
       },
       {
         q: "Se ho dolore o noto un possibile problema all’unghia, cosa devo fare?",
@@ -687,7 +719,7 @@ const authoredServicePages: ServicePage[] = [
     ],
     heroImage: {
       src: editorialImageAssets.pedicure,
-      alt: "Pedicure professionale Rebel con finish naturale a Carmagnola",
+      alt: "Cura estetica del piede durante un pedicure REBEL a Carmagnola",
     },
     relatedCompetenceSlugs: [
       "come-scegliere-centro-estetico-carmagnola",
@@ -728,11 +760,12 @@ const authoredServicePages: ServicePage[] = [
   {
     slug: "pedicure-estetico-carmagnola",
     name: "Pedicure estetico a Carmagnola",
+    relatedServiceSlugs: ["pedicure-carmagnola"],
     shortDescription:
       "Pedicure estetico di 45 minuti dedicato a unghie, cuticole e rifinitura del piede.",
     longDescription:
       "Il pedicure estetico comprende la cura di unghie e cuticole e una rifinitura della pelle. Dura circa 45 minuti ed è indicato come trattamento singolo o come mantenimento tra servizi più completi.",
-    priceHint: "33 €",
+    priceHint: catalogTariff("TR6412942"),
     category: "estetica-classica",
     benefits: [
       "Unghie e cuticole curate in circa 45 minuti",
@@ -772,11 +805,12 @@ const authoredServicePages: ServicePage[] = [
   {
     slug: "pedicure-estetico-con-smalto-carmagnola",
     name: "Pedicure estetico con smalto a Carmagnola",
+    relatedServiceSlugs: ["pedicure-carmagnola"],
     shortDescription:
-      "Pedicure estetico di 50 minuti con cura di unghie e cuticole, rifinitura e applicazione dello smalto.",
+      "Cura del piede e piacere del colore: unghie rifinite, smalto e una tonalità da scegliere pensando al tuo stile, alla stagione o a un’occasione.",
     longDescription:
-      "Questa versione aggiunge l’applicazione dello smalto al pedicure estetico. Scegliamo insieme colore e finitura in base al tuo stile e completiamo il trattamento in circa 50 minuti.",
-    priceHint: "35 €",
+      "Il pedicure con smalto unisce la cura estetica di unghie, cuticole e pelle del piede alla scelta del colore. Un tono discreto, un rosso pieno o un accostamento con la manicure: partiamo dall’effetto che desideri e rifiniamo forma e lunghezza prima dell’applicazione. Se cerchi invece una finitura gel, puoi esplorare la variante semipermanente e le collezioni RBL Nails.",
+    priceHint: "Colore e cura dei piedi",
     category: "estetica-classica",
     benefits: [
       "Cura estetica di unghie, cuticole e pelle del piede",
@@ -785,16 +819,16 @@ const authoredServicePages: ServicePage[] = [
     ],
     faqs: [
       {
-        q: "Quanto dura il trattamento?",
-        a: "Circa 50 minuti.",
+        q: "Posso abbinare il colore delle mani e dei piedi?",
+        a: "Sì, puoi portarci una fotografia o descrivere la manicure che hai in mente. Valutiamo un abbinamento coordinato, tono su tono oppure a contrasto, scegliendo separatamente il tipo di smalto per mani e piedi.",
       },
       {
         q: "Posso scegliere un colore discreto?",
         a: "Sì. Possiamo orientarti su finiture e colori molto naturali, puliti e facili da portare.",
       },
       {
-        q: "Se ho poco tempo, conviene questa versione o il pedicure estetico?",
-        a: "Il pedicure estetico dura circa 45 minuti; la versione con smalto richiede circa 50 minuti. Scegli quest’ultima se desideri completare il trattamento con il colore.",
+        q: "Che differenza c’è rispetto al pedicure semipermanente?",
+        a: "Qui la richiesta è la cura del piede con smalto tradizionale. La variante semipermanente utilizza un sistema gel con applicazione e rimozione specifiche: scegli quella pagina se vuoi esplorare il gel colore RBL Nails.",
       },
     ],
     keywords: [
@@ -814,21 +848,22 @@ const authoredServicePages: ServicePage[] = [
   {
     slug: "pedicure-semipermanente-carmagnola",
     name: "Pedicure estetico semipermanente a Carmagnola",
+    relatedServiceSlugs: ["pedicure-carmagnola"],
     shortDescription:
-      "Pedicure estetico con semipermanente della durata di circa un’ora, con una finitura più stabile rispetto allo smalto classico.",
+      "Pedicure e semipermanente piedi con RBL Nails: nude, rossi, toni profondi e riflessi per dare al colore il tuo carattere.",
     longDescription:
-      "Il trattamento comprende pedicure estetico e applicazione del semipermanente. La finitura dura più dello smalto classico; per limitare il rischio di danneggiare l’unghia, applicazione e rimozione devono essere eseguite senza strappi o limature eccessive.",
-    priceHint: "39 €",
+      "La cura estetica del piede incontra il semipermanente RBL Nails. Prepariamo le unghie, definiamo forma e lunghezza e scegliamo la tinta: un rosa tenue, un bordeaux, un blu deciso o un colore da coordinare con le mani. Il catalogo RBL raccoglie 138 cromie e fotografie di collezione per trovare ispirazione. Concordiamo applicazione, eventuale rimozione e finitura in base alle condizioni delle unghie.",
+    priceHint: "Colore e cura dei piedi",
     category: "estetica-classica",
     benefits: [
-      "Finitura più stabile rispetto allo smalto classico",
+      "Gamma gel colore RBL Nails per esprimere il tuo stile",
       "Cura estetica di unghie, cuticole e pelle del piede",
       "Colore e finitura personalizzabili",
     ],
     faqs: [
       {
-        q: "Quanto dura il trattamento?",
-        a: "Circa 1 ora.",
+        q: "Come scelgo il colore del semipermanente piedi?",
+        a: "Puoi partire dalle collezioni RBL, da un nome o da un codice colore. Confrontiamo la tinta, il sottotono e la finitura, anche in relazione alla manicure. Luce e schermo possono cambiare la resa delle fotografie: il campione aiuta a scegliere.",
       },
       {
         q: "Il semipermanente rovina l'unghia del piede?",
@@ -854,6 +889,9 @@ const authoredServicePages: ServicePage[] = [
       "beauty-routine-carmagnola",
     ],
     sourceLinks: [
+      { label: "RBL Nails — colori semipermanenti", url: "https://www.rbl-nails.it/colori" },
+      { label: "RBL Nails — caratteristiche della linea gel", url: "https://www.rbl-nails.it/about" },
+      { label: "AAD — prodotti per unghie e sensibilità individuale", url: "https://www.aad.org/public/everyday-care/nail-care-secrets/basics/pedicures/manicure-pedicure-safety/" },
       {
         label: "AAD - Gel manicures: Tips for healthy nails",
         url: "https://www.aad.org/media/news-releases/gel-manicures-dermatologists-share-tips-to-keep-nails-healthy",
@@ -863,11 +901,12 @@ const authoredServicePages: ServicePage[] = [
   {
     slug: "taglio-unghie-piedi-carmagnola",
     name: "Taglio unghie piedi a Carmagnola",
+    relatedServiceSlugs: ["pedicure-carmagnola"],
     shortDescription:
       "Taglio e rifinitura estetica delle unghie dei piedi in circa 15 minuti.",
     longDescription:
       "Il servizio comprende taglio e rifinitura estetica delle unghie dei piedi. Dura circa 15 minuti e può essere prenotato da solo o come mantenimento tra due pedicure.",
-    priceHint: "17 €",
+    priceHint: catalogTariff("TR6412950"),
     category: "estetica-classica",
     benefits: [
       "Durata indicativa di 15 minuti",
@@ -1277,6 +1316,62 @@ const authoredServicePages: ServicePage[] = [
     ],
   },
 ];
+
+// A commercial category with catalog-backed variants, rather than separate
+// near-identical pages for every wax treatment or neighbouring municipality.
+authoredServicePages.push({
+  slug: "ceretta-carmagnola",
+  name: "Ceretta donna e uomo a Carmagnola",
+  shortDescription: "Epilazione a cera di viso e corpo, donna e uomo: scegli zone e varianti brasiliane dal listino REBEL e concorda il tuo appuntamento a Carmagnola.",
+  longDescription: "La ceretta REBEL comprende proposte per singole aree del viso e del corpo e formule Total Body. Il listino distingue donna, uomo e varianti con cera brasiliana: prima di prenotare scegliamo la voce che corrisponde alle zone da trattare, con il suo prezzo e il tempo previsto. Lo studio si trova in Viale Barbaroux 20 a Carmagnola.",
+  priceHint: "Prezzo in base a zona e variante",
+  category: "estetica-classica",
+  benefits: [
+    "Scelta tra singole zone del viso, aree del corpo e formule Total Body",
+    "Varianti donna, uomo e cera brasiliana confrontabili nel listino",
+    "Zone, durata e prezzo confermati prima dell’appuntamento",
+  ],
+  keywords: ["ceretta Carmagnola", "ceretta donna Carmagnola", "ceretta uomo Carmagnola", "ceretta inguine Carmagnola", "cera brasiliana Carmagnola", "ceretta gambe Carmagnola"],
+  heroImage: { src: "/img/catalogo/cera-gamba-rebel.webp", alt: "Epilazione a cera della gamba durante un trattamento REBEL" },
+  relatedCompetenceSlugs: ["beauty-routine-carmagnola", "come-scegliere-centro-estetico-carmagnola"],
+  faqs: [
+    { q: "Posso prenotare solo una zona?", a: "Sì. Il listino comprende singole aree come labbro superiore, sopracciglia, ascelle, braccia, inguine e gambe. Quando ci contatti indica quali zone desideri trattare, così concordiamo le voci e il tempo necessario." },
+    { q: "Cera brasiliana e inguine totale sono la stessa cosa?", a: "Nel listino REBEL la cera brasiliana è proposta per diverse parti del viso e del corpo. Inguine parziale o totale indica invece l’estensione della zona. Specifica entrambe le preferenze quando prenoti per scegliere la variante corretta." },
+    { q: "Quanto dura un appuntamento di ceretta?", a: "Dipende dalla zona e dalla variante. Le durate delle singole voci sono pubblicate nel listino; se richiedi più aree, confermiamo come organizzarle nello stesso appuntamento prima di prenotare." },
+    { q: "Posso fare la ceretta se sto già seguendo un percorso laser?", a: "Prima di prenotare avvisaci del percorso laser e delle date delle sedute. Concordiamo con te come gestire le zone interessate e la preparazione; evita di cambiare metodo di epilazione senza confrontarti con chi segue il trattamento." },
+    { q: "Che cosa devo comunicare prima dell’appuntamento?", a: "Indica le aree, l’eventuale preferenza per la cera brasiliana e se desideri un trattamento parziale o completo. Segnala anche sensibilità della pelle, trattamenti recenti o prodotti particolari che stai usando sulle zone." },
+  ],
+  editorialSections: [
+    {
+      heading: "Viso e corpo: scegli le aree da trattare",
+      paragraphs: [
+        "Puoi prenotare una piccola zona del viso, un’area del corpo o chiedere un appuntamento per più zone. Per l’inguine e le gambe il listino distingue anche versioni parziali e complete: sono scelte da specificare, non aggiunte implicite.",
+        `Per esempio, la ceretta donna alle braccia è a listino a ${catalogTariff("TR6412888")}; la gamba può essere prenotata come mezza o completa, con le tariffe e i tempi previsti dalla relativa variante.`,
+      ],
+    },
+    {
+      heading: "Ceretta uomo: schiena, petto, gambe e altre zone",
+      paragraphs: [
+        `Il catalogo uomo comprende, tra le altre voci, la schiena (${catalogTariff("TR6412910")}), petto e addome (${catalogTariff("TR6412904")}) e gamba completa (${catalogTariff("TR6412914")}).`,
+        `È presente anche la ceretta Total Body uomo (${catalogTariff("TR6412915")}). Prima di prenotare verifichiamo quali aree desideri includere: il nome della formula da solo non sostituisce l’accordo sulle zone.`,
+      ],
+    },
+    {
+      heading: "Le varianti con cera brasiliana",
+      paragraphs: [
+        "Nel listino trovi voci con cera brasiliana dedicate al viso, alle braccia, alle gambe e all’inguine, oltre a opzioni per altre aree del corpo. Confronta sempre zona e variante completa: un trattamento viso, un inguine e una formula corpo hanno contenuti e tempi diversi.",
+        "Se non sai quale voce scegliere, indica semplicemente le aree che vuoi trattare. Ti aiutiamo a individuare la proposta del catalogo senza attribuire a una tipologia di cera un risultato identico per ogni pelle.",
+      ],
+    },
+    {
+      heading: "Prima di prenotare in Viale Barbaroux 20",
+      paragraphs: [
+        "Scrivici le zone, la variante che preferisci e le tue disponibilità. Se arrivi da un altro comune, concordiamo il tempo complessivo dell’appuntamento prima che tu parta per Carmagnola.",
+        "Segnala sensibilità, trattamenti recenti e un eventuale percorso laser sulle stesse aree. Prima della conferma ti diamo le indicazioni di preparazione e specifichiamo prezzo e durata del servizio scelto.",
+      ],
+    },
+  ],
+});
 
 const authoredCompetencePages: CompetencePage[] = [
   {
@@ -1789,14 +1884,14 @@ const authoredCompetencePages: CompetencePage[] = [
   },
   {
     slug: "trattamenti-viso-carmagnola",
-    title: "Trattamenti viso a Carmagnola",
+    title: "Come scegliere un trattamento viso: guida REBEL",
     shortDescription:
-      "Trattamenti viso per luminosità, uniformità e comfort, scelti dopo una valutazione della pelle.",
+      "Come scegliere tra pulizia e altri trattamenti viso: quali informazioni raccogliere, come preparare la prima seduta e concordare la frequenza.",
     longDescription:
-      "Come scegliamo un trattamento viso in REBEL: osserviamo le condizioni della pelle, definiamo l’obiettivo estetico e proponiamo una seduta o un calendario. Al termine forniamo indicazioni semplici per la cura a casa.",
+      "Prima di scegliere un trattamento viso, chiarisci che cosa osservi sulla pelle, quali prodotti usi e quali altri trattamenti hai eseguito. Questa guida ti aiuta a preparare le domande per la valutazione, distinguere pulizia e altri obiettivi estetici e capire come concordare il calendario e la cura a casa.",
     localAngle:
-      "Utile se cerchi un trattamento viso a Carmagnola e vuoi conoscere valutazione, frequenza e cura a casa.",
-    intent: "commercial",
+      "Per preparare il primo incontro REBEL a Carmagnola con informazioni sulla pelle, sulle abitudini e sui trattamenti recenti.",
+    intent: "informational",
     benefits: [
       "Aiuta a scegliere tra pulizia, luminosità, comfort e cura quotidiana",
       "Spiega come vengono definiti trattamento e frequenza",
@@ -1821,11 +1916,11 @@ const authoredCompetencePages: CompetencePage[] = [
       },
     ],
     keywords: [
-      "trattamenti viso Carmagnola",
-      "centro viso Carmagnola",
-      "estetista viso Carmagnola",
-      "trattamento viso luminosità Carmagnola",
-      "pulizia viso Carmagnola",
+      "come scegliere trattamento viso",
+      "pulizia viso o trattamento idratante",
+      "prima seduta viso cosa sapere",
+      "frequenza trattamenti viso",
+      "routine dopo trattamento viso",
     ],
     relatedServiceSlugs: [
       "pulizia-viso-carmagnola",
@@ -1844,10 +1939,11 @@ const authoredCompetencePages: CompetencePage[] = [
     relatedProtocolSlugs: ["catalysis-ritual", "rebel-lift-protocol", "collagen-code", "eye-genesis"],
     editorialSections: [
       {
-        heading: "La valutazione prima del trattamento",
+        heading: "Le informazioni da portare alla valutazione",
         paragraphs: [
           "Le condizioni della pelle possono variare nel tempo. Prima della seduta osserviamo sensibilità, impurità superficiali, idratazione e prodotti usati a casa.",
           "Queste informazioni ci aiutano a scegliere il trattamento e a indicare se può essere utile programmare altri appuntamenti.",
+          "Può essere utile annotare i prodotti che usi e le date dei trattamenti recenti. Se cerchi una seduta prima di un evento, comunica anche la data: è un’informazione da considerare prima di definire il calendario.",
         ],
       },
       {
@@ -1896,14 +1992,14 @@ const authoredCompetencePages: CompetencePage[] = [
   },
   {
     slug: "trattamenti-corpo-carmagnola",
-    title: "Trattamenti corpo a Carmagnola",
+    title: "Come scegliere un trattamento corpo: guida REBEL",
     shortDescription:
-      "Massaggi, scrub e percorsi corpo con obiettivi e frequenza definiti in base alle tue esigenze.",
+      "Guida alla scelta di un trattamento corpo: chiarire l’obiettivo, distinguere seduta singola e percorso e organizzare abbinamenti e calendario.",
     longDescription:
-      "Una panoramica dei trattamenti corpo disponibili in REBEL: massaggio linfodrenante, massaggio rilassante, scrub e percorsi estetici. Durante la valutazione scegliamo il servizio e concordiamo un calendario compatibile con le tue disponibilità.",
+      "Relax, cura della pelle e un percorso dedicato a un obiettivo estetico sono richieste diverse. Questa guida raccoglie le domande da fare prima di scegliere un trattamento corpo: quali zone includere, che cosa comprende la seduta, come concordare gli abbinamenti e quali informazioni comunicare per programmare gli appuntamenti.",
     localAngle:
-      "Per chi cerca a Carmagnola un trattamento corpo e vuole confrontare servizi, obiettivi e frequenza.",
-    intent: "commercial",
+      "Un aiuto per preparare la valutazione REBEL a Carmagnola e confrontare contenuto e organizzazione dei diversi appuntamenti corpo.",
+    intent: "informational",
     benefits: [
       "Aiuta a scegliere tra linfodrenante, massaggio rilassante e scrub",
       "Spiega come vengono definiti calendario e controlli",
@@ -1928,10 +2024,11 @@ const authoredCompetencePages: CompetencePage[] = [
       },
     ],
     keywords: [
-      "trattamenti corpo Carmagnola",
-      "centro corpo Carmagnola",
-      "rimodellamento corpo Carmagnola",
-      "massaggio drenante Carmagnola",
+      "come scegliere trattamento corpo",
+      "seduta singola o percorso corpo",
+      "scrub o massaggio cosa scegliere",
+      "abbinare trattamenti corpo",
+      "prima valutazione corpo cosa sapere",
     ],
     relatedServiceSlugs: [
       "scrub-corpo-carmagnola",
@@ -1973,6 +2070,7 @@ const authoredCompetencePages: CompetencePage[] = [
         paragraphs: [
           "Se viene proposto un percorso, concordiamo numero indicativo di sedute, frequenza e controlli in base all’obiettivo e alle disponibilità.",
           "Prima di iniziare indichiamo anche che cosa fare tra un appuntamento e l’altro.",
+          "Se hai già prenotato ceretta, laser o altre sedute sulle stesse zone, porta le date al primo confronto. Anche sport, viaggi e disponibilità personali aiutano a organizzare una proposta compatibile con i tuoi impegni.",
         ],
       },
     ],
@@ -4225,14 +4323,14 @@ const authoredCompetencePages: CompetencePage[] = [
   },
   {
     slug: "pressomassaggio-carmagnola",
-    title: "Pressomassaggio a Carmagnola: come funziona e precauzioni",
+    title: "Pressomassaggio: preparazione e precauzioni | REBEL",
     shortDescription:
-      "Come si svolge una seduta di pressomassaggio estetico e quali informazioni comunicare prima di iniziare.",
+      "Guida alla prima seduta di pressomassaggio estetico: preparazione, sensazioni, differenze dal massaggio manuale e informazioni da comunicare.",
     longDescription:
       "Il pressomassaggio estetico utilizza gambali che esercitano una compressione sequenziale. Questa guida descrive la sensazione durante la seduta, le differenze rispetto al massaggio manuale e le precauzioni. Non è un trattamento medico e non va usato per gestire gonfiore o dolore senza una valutazione sanitaria.",
     localAngle:
-      "Scritta per chi cerca pressomassaggio a Carmagnola e vuole capire se e come inserirlo in un percorso corpo.",
-    intent: "commercial",
+      "Per preparare il confronto prima di una seduta estetica REBEL a Carmagnola e chiarire i limiti rispetto a un trattamento sanitario.",
+    intent: "informational",
     benefits: [
       "Descrive apparecchiatura e sensazione durante la seduta",
       "Chiarisce la differenza rispetto al linfodrenante manuale",
@@ -4261,11 +4359,11 @@ const authoredCompetencePages: CompetencePage[] = [
       },
     ],
     keywords: [
-      "pressomassaggio Carmagnola",
-      "pressomassaggio gambe Carmagnola",
-      "pressodren Carmagnola",
-      "gambe pesanti Carmagnola pressomassaggio",
-      "trattamento drenante Carmagnola",
+      "pressomassaggio come funziona",
+      "preparazione pressomassaggio",
+      "pressomassaggio precauzioni",
+      "differenza pressomassaggio linfodrenante",
+      "prima seduta pressomassaggio",
     ],
     relatedServiceSlugs: ["massaggio-linfodrenante-carmagnola"],
     relatedCompetenceSlugs: [
@@ -4287,10 +4385,10 @@ const authoredCompetencePages: CompetencePage[] = [
         ],
       },
       {
-        heading: "Seduta singola o calendario",
+        heading: "Come chiarire la frequenza prima di iniziare",
         paragraphs: [
-          "Puoi prenotare una seduta singola oppure scegliere più appuntamenti.",
-          "Prima di iniziare ti diciamo ogni quanto vederci, quanto costa e quando fare il punto. Il pressomassaggio resta un trattamento estetico, non una terapia.",
+          "Chiedi che cosa si intende osservare dopo la prima seduta e perché viene eventualmente proposto un calendario. La frequenza dipende dalla proposta estetica e dalle informazioni raccolte, non soltanto dal nome dell’apparecchiatura.",
+          "Prima di decidere, chiarisci quali zone sono incluse e come si organizza l’eventuale abbinamento con altri servizi. Il pressomassaggio estetico non sostituisce una terapia o indicazioni sanitarie.",
         ],
       },
       {
@@ -4425,10 +4523,239 @@ const authoredCompetencePages: CompetencePage[] = [
 const isPublishedCompetence = (slug: string) =>
   isIndexableSearchPage("/competenze/" + slug);
 
-export const servicePages: ServicePage[] = authoredServicePages.map((page) => ({
-  ...page,
-  relatedCompetenceSlugs: page.relatedCompetenceSlugs.filter(isPublishedCompetence),
-}));
+type ServicePlanningContent = {
+  sections: NonNullable<ServicePage["editorialSections"]>;
+  faqs: ServicePage["faqs"];
+};
+
+// These additions answer a different booking question for each service. They
+// complement the treatment explanation without creating service × city pages.
+const servicePlanningContent: Partial<Record<string, ServicePlanningContent>> = {
+  "pulizia-viso-carmagnola": {
+    sections: [
+      { heading: "Purificante, con acidi o ultrasuoni: le voci del listino", paragraphs: [
+        `La Pulizia Viso Purificante è a listino a ${catalogTariff("TR6412964")}. Sono presenti anche la pulizia con acido mandelico (${catalogTariff("TR7161578")}), con acido glicolico (${catalogTariff("TR7161579")}) e con ultrasuoni (${catalogTariff("TR7161581")}).`,
+        "La scelta parte dalle condizioni della pelle e dai trattamenti già eseguiti. Se non sai quale variante prenotare, puoi descrivere cosa osservi: impurità, sensibilità o sensazione di pelle ruvida. Non occorre scegliere da sola o da solo un acido o una tecnologia.",
+      ] },
+      { heading: "Pulizia singola o trattamento viso", paragraphs: [
+        "La pulizia e un trattamento viso idratante, tonificante o dedicato alla luminosità sono voci differenti del catalogo. Durante il confronto iniziale chiariamo se desideri soprattutto una pulizia o se cerchi un trattamento con un altro obiettivo estetico.",
+        "Quando prenoti segnala trattamenti recenti e prodotti esfolianti che stai usando. Se hai un evento o un appuntamento importante, comunica la data così possiamo valutare insieme quando programmare la seduta.",
+      ] },
+    ],
+    faqs: [{ q: "Non so quale variante selezionare: come prenoto?", a: "Puoi richiedere una pulizia viso e descrivere ciò che desideri migliorare. Prima di confermare la variante valutiamo le informazioni sulla pelle e ti indichiamo il servizio, il prezzo e il tempo previsto dal listino." }],
+  },
+  "scrub-corpo-carmagnola": {
+    sections: [
+      { heading: "Scrub, peeling o scrub e massaggio", paragraphs: [
+        `Il listino distingue Scrub Corpo (${catalogTariff("TR6412965")}), Peeling Corpo (${catalogTariff("TR7161583")}) e Scrub e Massaggio (${catalogTariff("TR7161665")}). Il contenuto dell’appuntamento cambia con la voce scelta.`,
+        "Se desideri anche un massaggio, comunica questa preferenza al momento della richiesta. Non va considerato già compreso nello scrub singolo: confermiamo prima formula e durata.",
+      ] },
+      { heading: "Come organizzare l’appuntamento corpo", paragraphs: [
+        "Indica le zone su cui desideri concentrarti e se hai eseguito di recente ceretta, laser o altri trattamenti corpo. Queste informazioni ci aiutano a programmare la seduta e a darti le indicazioni prima di venire in studio.",
+        "Puoi iniziare con il servizio singolo e confrontarti con noi sull’eventuale abbinamento con altre proposte del catalogo.",
+      ] },
+    ],
+    faqs: [{ q: "Posso prenotare scrub e massaggio insieme?", a: `Sì, il catalogo prevede la voce Scrub e Massaggio a ${catalogTariff("TR7161665")}. Richiedi questa formula quando desideri entrambi; verifichiamo prima che sia compatibile con le condizioni della pelle.` }],
+  },
+  "massaggio-linfodrenante-carmagnola": {
+    sections: [
+      { heading: "Linfodrenante e pressomassaggio: due scelte da distinguere", paragraphs: [
+        `Il Massaggio Linfodrenante a listino è a ${catalogTariff("TR6412967")}. Il Pressomassaggio è una voce distinta, con varianti a ${catalogTariff("TR6498883")}; è presente anche l’abbinamento Pressomassaggio e Bendaggi (${catalogTariff("TR7161629")}).`,
+        "I nomi non indicano lo stesso appuntamento. Per scegliere descrivi come percepisci le gambe, quali aree desideri trattare e se cerchi una seduta manuale; verifichiamo insieme la proposta prima di prenotare.",
+      ] },
+      { heading: "Le informazioni utili per la prima seduta", paragraphs: [
+        "Indica se desideri concentrarti sulle gambe o su altre zone e se stai già seguendo trattamenti estetici. Ci aiuta anche sapere se cerchi un singolo appuntamento o una cadenza da organizzare con i tuoi impegni.",
+        "Comunica in anticipo eventuali condizioni per cui hai ricevuto indicazioni sanitarie. La seduta REBEL rimane un servizio estetico: quando occorre, prima di confermarla ti chiediamo di confrontarti con il professionista che ti segue.",
+      ] },
+    ],
+    faqs: [{ q: "Il prezzo del linfodrenante è lo stesso del pressomassaggio?", a: "Sono servizi diversi e hanno voci separate nel listino. Nella richiesta specifica quale desideri oppure raccontaci che tipo di appuntamento cerchi: confermiamo servizio e tariffa prima della prenotazione." }],
+  },
+  "massaggio-rilassante-carmagnola": {
+    sections: [
+      { heading: "Una seduta completa o una zona specifica", paragraphs: [
+        `Il Massaggio Rilassante è a listino a ${catalogTariff("TR6412966")}. Se cerchi un appuntamento mirato, puoi confrontarlo con Massaggio Schiena o Cervicale (${catalogTariff("TR6412968")}) e Massaggio Piedi (${catalogTariff("TR7161668")}).`,
+        "Scegli in base al tempo che vuoi dedicarti e alle zone che preferisci. La richiesta di lavorare soprattutto sulla schiena non rende automaticamente uguali un servizio di zona e il massaggio rilassante completo.",
+      ] },
+      { heading: "Pressione, zone e preferenze da comunicare", paragraphs: [
+        "Quando prenoti puoi indicarci se preferisci una manualità più delicata e quali zone desideri includere o evitare. Prima della seduta confermiamo la proposta e durante il trattamento puoi chiedere di modificarne la pressione.",
+        "Se vuoi abbinare anche uno scrub, richiedi la formula specifica Scrub e Massaggio. In questo modo riserviamo il tempo previsto per entrambi i passaggi.",
+      ] },
+    ],
+    faqs: [{ q: "Se cerco soltanto un massaggio alla schiena, cosa scelgo?", a: `Il catalogo comprende Massaggio Schiena o Cervicale a ${catalogTariff("TR6412968")}. Puoi indicare questa preferenza nella richiesta; se desideri invece una pausa più lunga, confrontiamo la proposta con il Massaggio Rilassante.` }],
+  },
+  "laminazione-ciglia-sopracciglia-carmagnola": {
+    sections: [
+      { heading: "Ciglia, sopracciglia o trattamento combinato", paragraphs: [
+        `Le tre opzioni a listino sono Laminazione Ciglia (${catalogTariff("TR7355535")}), Laminazione Sopracciglia (${catalogTariff("TR7355542")}) e Laminazione Ciglia e Sopracciglia (${catalogTariff("TR6412972")}).`,
+        "Sono prenotazioni con tempi diversi. Scegli la proposta combinata quando desideri lavorare su entrambe le aree; se ti interessa soltanto una, indica ciglia o sopracciglia prima di confermare l’appuntamento.",
+      ] },
+      { heading: "Concordare l’effetto e preparare la visita", paragraphs: [
+        "Puoi descrivere se preferisci un aspetto discreto o più definito. Prima di iniziare osserviamo forma e direzione dei peli e concordiamo ciò che desideri valorizzare, senza applicare lo stesso disegno a ogni viso.",
+        "Quando ci contatti segnala eventuali extension, una laminazione recente o sensibilità nell’area. Ti diamo le indicazioni di preparazione e, al termine, quelle di cura adatte al trattamento eseguito.",
+      ] },
+    ],
+    faqs: [{ q: "Devo prenotare separatamente ciglia e sopracciglia?", a: "Puoi scegliere le singole voci oppure il trattamento combinato già presente nel catalogo. Indica quali aree desideri trattare: verifichiamo la disponibilità e riserviamo il tempo della variante scelta." }],
+  },
+  "manicure-semipermanente-carmagnola": {
+    sections: [
+      { heading: "Manicure semplice, con smalto o semipermanente", paragraphs: [
+        `Puoi confrontare Manicure (${catalogTariff("TR6412935")}), Manicure con Smalto (${catalogTariff("TR6412931")}) e Manicure Semipermanente (${catalogTariff("TR6412932")}). Le proposte hanno contenuti e tempi differenti.`,
+        "Se desideri soprattutto sistemare forma e cuticole, non è necessario scegliere automaticamente il semipermanente. Se cerchi il colore, specifichiamo insieme il tipo di applicazione e la finitura.",
+      ] },
+      { heading: "Hai già un prodotto sulle unghie?", paragraphs: [
+        `Il catalogo include Rimozione Smalto Semipermanente Mani a ${catalogTariff("TR7161632")}. Indica il prodotto presente quando prenoti, così verifichiamo come organizzare rimozione e nuova applicazione.`,
+        "Porta alla nostra attenzione anche un’unghia che si è spezzata o un’applicazione precedente che ti ha creato fastidio. Prima di iniziare concordiamo lunghezza, colore e servizi necessari, con il relativo prezzo.",
+      ] },
+    ],
+    faqs: [{ q: "Devo segnalare la rimozione prima dell’appuntamento?", a: "Sì. La rimozione è una voce specifica del catalogo: dicci quale prodotto hai già sulle unghie e se vuoi una nuova applicazione. Ti confermiamo come combinare i servizi e il tempo da riservare." }],
+  },
+  "pedicure-carmagnola": {
+    sections: [
+      { heading: "Cinque richieste diverse: scegli il pedicure", paragraphs: [
+        `Il Pedicure VIP con Scrub è a ${catalogTariff("TR6412949")}. Le alternative sono Pedicure Estetico (${catalogTariff("TR6412942")}) e Taglio Unghie Piedi (${catalogTariff("TR6412950")}).`,
+        "Scegli la formula VIP se desideri includere lo scrub e dedicare più tempo alla cura estetica della pelle. L’estetico e il solo taglio rispondono a richieste più circoscritte: non sono la stessa prestazione con durate diverse.",
+        "Se desideri anche il colore, scegli tra smalto tradizionale e semipermanente. La variante gel apre alla gamma RBL Nails: dai toni vicini alla pelle fino a rossi, blu e riflessi più intensi. Il servizio si sceglie per i passaggi che desideri e per la finitura che vuoi indossare.",
+      ] },
+      { heading: "Cosa indicare nella richiesta di pedicure", paragraphs: [
+        "Indica se desideri cura di unghie e cuticole, scrub, solo taglio o un’applicazione di colore. Segnala anche se porti già smalto o semipermanente, così possiamo considerare l’eventuale rimozione prima di confermare.",
+        "Se stai organizzando l’appuntamento prima di un evento o di una partenza, indica la data e raccontaci l’effetto che cerchi. Puoi portare una fotografia della tua manicure o una cromia RBL per costruire un abbinamento con i piedi.",
+      ] },
+    ],
+    faqs: [{ q: "Come scelgo tra VIP, estetico e solo taglio?", a: "Il VIP comprende lo scrub oltre alla cura estetica del piede. L’estetico è dedicato a unghie, cuticole e rifinitura; il taglio è il servizio mirato alle unghie. Puoi indicarci ciò che desideri fare e ti aiutiamo a selezionare la voce corretta." }],
+  },
+  "pedicure-estetico-carmagnola": {
+    sections: [
+      { heading: "La cura del piede senza aggiunte automatiche", paragraphs: [
+        `Il Pedicure Estetico è a listino a ${catalogTariff("TR6412942")}. È dedicato a unghie, cuticole e rifinitura estetica del piede, come appuntamento singolo o mantenimento.`,
+        "Puoi scegliere un aspetto naturale senza applicare colore. Se desideri anche lo smalto, esplora la pagina dedicata al pedicure con smalto o quella del semipermanente piedi: raccontano applicazione, scelta della tinta e finitura.",
+      ] },
+      { heading: "Quando confrontarlo con il VIP o con il solo taglio", paragraphs: [
+        `Se desideri includere uno scrub, confronta il servizio con Pedicure VIP con Scrub (${catalogTariff("TR6412949")}). Se ti occorre soltanto accorciare e rifinire le unghie, esiste Taglio Unghie Piedi (${catalogTariff("TR6412950")}).`,
+        "Descrivere ciò che vuoi sistemare aiuta a prenotare la prestazione adatta. La scelta non dipende soltanto dal tempo disponibile, ma dai passaggi che desideri includere.",
+      ] },
+      { heading: "Le informazioni da darci prima dell’appuntamento", paragraphs: [
+        "Indica se hai già smalto o semipermanente e se desideri mantenere le unghie naturali. Se hai zone che ti danno fastidio, segnalale prima della conferma: il pedicure REBEL è un servizio estetico.",
+        "Al termine possiamo confrontarci sul mantenimento e su quando riprenotare. La cadenza viene concordata in base alle tue abitudini, senza richiedere un ciclo fisso per ogni persona.",
+      ] },
+    ],
+    faqs: [{ q: "Il pedicure estetico comprende anche lo smalto?", a: "Il pedicure estetico è dedicato alla cura e alla rifinitura del piede. Se desideri il colore, scegli la variante con smalto oppure quella semipermanente, indicando se hai già un prodotto sulle unghie." }],
+  },
+  "pedicure-estetico-con-smalto-carmagnola": {
+    sections: [
+      { heading: "Prima la forma, poi il colore", paragraphs: [
+        "Un colore ordinato parte da unghie rifinite: curiamo forma, lunghezza e cuticole prima dell’applicazione dello smalto. La scelta può seguire il tuo stile quotidiano, un paio di sandali o una manicure che vuoi coordinare.",
+        "Per un effetto discreto puoi orientarti sui nude e sui rosa; per una presenza più netta, sui rossi o sui toni profondi. Guardiamo insieme la direzione cromatica che ti piace, senza imporre un colore della stagione.",
+      ] },
+      { heading: "Smalto classico o semipermanente ai piedi", paragraphs: [
+        "Lo smalto tradizionale e il semipermanente sono due scelte diverse. Qui trovi la cura del piede con applicazione dello smalto; la pagina del semipermanente è dedicata al sistema gel e alla sua rimozione.",
+        "Le fotografie e le collezioni RBL che trovi in questa pagina raccontano il mondo del gel colore: possono ispirare una palette. Se desideri proprio quel sistema, scegli la variante semipermanente piedi; se vuoi le unghie al naturale, scegli il pedicure estetico.",
+      ] },
+      { heading: "Prenotare prima di un evento o di una partenza", paragraphs: [
+        "Quando ci scrivi indica la data che hai in mente, il colore che cerchi e se porti già smalto sulle unghie. Se vuoi coordinare mani e piedi, raccontaci entrambi: possiamo ragionare su una tinta uguale oppure su due sfumature che stanno bene insieme.",
+        "Dopo l’applicazione segui le indicazioni per la finitura appena realizzata e per i successivi ritocchi. Segnala prima del trattamento un’unghia o una zona che ti crea fastidio, così la cura estetica tiene conto di ciò che osservi.",
+      ] },
+    ],
+    faqs: [{ q: "Devo avvisare se ho già smalto sulle unghie dei piedi?", a: "Sì, specifica se è smalto tradizionale o semipermanente e se desideri rimuoverlo o cambiare colore. Indica anche se vuoi mantenere una tinta simile o scegliere una palette nuova." }],
+  },
+  "pedicure-semipermanente-carmagnola": {
+    sections: [
+      { heading: "RBL Nails: il colore anche ai piedi", paragraphs: [
+        "Il semipermanente lascia spazio a una scelta personale: un nude caldo come Soft Beige, il rosa cipria Powder Blush, Scarlet Red o il bordeaux Deep Burgundy. Puoi cercare continuità con le mani oppure scegliere per i piedi un accento diverso.",
+        "Nel catalogo RBL trovi famiglie cromatiche, sottotoni e fotografie di collezione. Parti da quelle che ti attirano; prima dell’applicazione confrontiamo il colore e la finitura, considerando anche forma e lunghezza delle unghie.",
+      ] },
+      { heading: "Gel colore vegan, HEMA free e TPO free", paragraphs: [
+        "Queste sono le caratteristiche con cui RBL presenta la propria linea gel colore. La scelta della formula accompagna quella della tinta; preparazione, base, top e rimozione restano passaggi specifici del sistema applicato.",
+        "Le diciture HEMA free e TPO free non equivalgono a una garanzia di assenza di reazioni. Raccontaci eventuali sensibilità o fastidi già avuti con altri prodotti prima di una nuova applicazione.",
+      ] },
+      { heading: "Mantenimento e appuntamento successivo", paragraphs: [
+        "Prima dell’appuntamento indica se hai già semipermanente, desideri una nuova applicazione o vuoi rimuovere il colore e lasciare le unghie naturali. Il prodotto presente e le condizioni delle unghie aiutano a organizzare i passaggi.",
+        "Comunica distacchi del prodotto, fastidi o alterazioni che hai notato. Concordiamo i passaggi estetici possibili e ti spieghiamo quando è opportuno rimandare l’applicazione e chiedere un parere sanitario.",
+      ] },
+    ],
+    faqs: [{ q: "Posso ritrovare lo stesso colore al prossimo appuntamento?", a: "Il nome e il codice RBL servono proprio a riconoscere una cromia. Annotali o conserva la fotografia della collezione che ti piace: quando ci scrivi puoi indicarci quel riferimento o chiederci una sfumatura vicina." }],
+  },
+  "taglio-unghie-piedi-carmagnola": {
+    sections: [
+      { heading: "Un servizio mirato alle unghie", paragraphs: [
+        `Taglio Unghie Piedi è una voce autonoma del catalogo a ${catalogTariff("TR6412950")}. Comprende taglio e rifinitura estetica e può essere richiesto quando non desideri un pedicure completo.`,
+        "Il tempo breve corrisponde a una prestazione precisa: non comprende automaticamente scrub, applicazione dello smalto o l’intero lavoro previsto da altre formule.",
+      ] },
+      { heading: "Quando serve un pedicure più completo", paragraphs: [
+        `Se desideri anche cura di cuticole e rifinitura del piede, confronta Pedicure Estetico (${catalogTariff("TR6412942")}); se cerchi la formula con scrub, il listino propone Pedicure VIP con Scrub (${catalogTariff("TR6412949")}).`,
+        "Quando ci scrivi puoi descrivere semplicemente ciò che vuoi sistemare. Ti aiutiamo a distinguere il solo taglio dal servizio più ampio prima di riservare l’appuntamento.",
+      ] },
+      { heading: "Cosa segnalare prima di venire in studio", paragraphs: [
+        "Indica se sulle unghie è presente un prodotto e se richiedi anche altri passaggi estetici. Il servizio resta dedicato a taglio e rifinitura; le aggiunte devono essere concordate con il loro prezzo e il loro tempo.",
+        "In presenza di dolore, lesioni o sospetta infezione chiedi prima un parere medico o podologico. La prenotazione di un servizio breve non sostituisce una valutazione sanitaria del problema.",
+      ] },
+    ],
+    faqs: [{ q: "Il taglio unghie comprende anche scrub o smalto?", a: "No, è il servizio mirato di taglio e rifinitura estetica delle unghie. Se desideri cura più completa del piede, scrub o colore, richiedilo prima di prenotare per concordare la prestazione corretta." }],
+  },
+  "epilazione-laser-viso-carmagnola": {
+    sections: [
+      { heading: "Baffetti, mento e contorni: definire il confine", paragraphs: [
+        "Per il viso è utile distinguere l’area che desideri trattare dalle zone vicine che preferisci mantenere. Baffetti, mento, basette e collo non vanno riuniti automaticamente in un’unica richiesta generica di laser viso.",
+        "Prima della prima seduta concordiamo i confini e il conteggio delle zone. Un’area piccola non permette da sola di stabilire parametri, numero di appuntamenti o risultato atteso.",
+      ] },
+      { heading: "Cosa scrivere quando prenoti il laser viso", paragraphs: [
+        "Indica le parti del viso interessate, il metodo che usi attualmente per gestire i peli e se hai una data importante o trattamenti viso già programmati. Diamo le indicazioni di preparazione dopo aver raccolto queste informazioni.",
+        "Se stai confrontando i prezzi della promo, consulta l’offerta laser REBEL e chiedi conferma del conteggio. La valutazione serve a scegliere come impostare il trattamento del viso, non a garantire un ciclo uguale per ogni persona.",
+      ] },
+    ],
+    faqs: [{ q: "Per prenotare basta scrivere “laser viso”?", a: "È meglio indicare le aree, per esempio baffetti, mento o basette, e se desideri mantenerne altre. Prima della prenotazione ti confermiamo la valutazione, il conteggio delle zone e il tempo da riservare." }],
+  },
+  "epilazione-laser-corpo-carmagnola": {
+    sections: [
+      { heading: "Gambe, ascelle e inguine: una richiesta precisa", paragraphs: [
+        "Nel catalogo trovi voci distinte per gamba completa, mezza gamba superiore o inferiore, ascelle e inguine, oltre ad altre aree del corpo. Scegliere le zone è diverso da scegliere il nome generico di una formula.",
+        "Durante la valutazione concordiamo le aree e il loro conteggio prima di definire l’appuntamento. Il numero di zone di una promozione non corrisponde automaticamente al numero di nomi anatomici che hai elencato.",
+      ] },
+      { heading: "Un appuntamento che tenga conto dei tuoi impegni", paragraphs: [
+        "Se desideri trattare più aree, comunicale prima della conferma. Segnala anche attività all’aperto, viaggi o altri trattamenti sulle stesse zone: valutiamo come organizzare la prima seduta e i successivi controlli.",
+        "Le condizioni commerciali della promo a zona e Total Body sono raccolte nell’offerta laser REBEL. Quando prenoti distingui il prezzo della singola seduta dal numero di sedute che potrà richiedere il tuo percorso.",
+      ] },
+    ],
+    faqs: [{ q: "Posso aggiungere altre zone il giorno dell’appuntamento?", a: "Chiedici prima conferma: l’aggiunta dipende dalle zone, dalla valutazione e dal tempo disponibile. Indicare tutte le aree già nella richiesta permette di concordare conteggio, prezzo e durata prima di arrivare." }],
+  },
+  "epilazione-laser-viso-uomo-carmagnola": {
+    sections: [
+      { heading: "Definire un contorno o trattare un’area più ampia", paragraphs: [
+        "Una richiesta per il collo o per il contorno della barba è diversa da una richiesta che comprende una parte più ampia del viso. Prima di iniziare mostriamo e concordiamo quali aree desideri trattare e quali vuoi mantenere.",
+        "La forma della barba è una preferenza personale da comunicare durante la valutazione. Non decidiamo i confini soltanto in base al nome della zona usato nella prenotazione.",
+      ] },
+      { heading: "Rasatura e calendario della tua richiesta", paragraphs: [
+        "Quando ci contatti indica se cerchi il trattamento del collo, delle basette o di altri contorni e come gestisci oggi la rasatura. Ti diamo le istruzioni di preparazione prima della seduta.",
+        "Se hai impegni all’aperto o altri trattamenti viso programmati, segnalali prima di scegliere la data. Prezzo, conteggio delle zone e organizzazione degli appuntamenti vengono confermati dopo il confronto iniziale.",
+      ] },
+    ],
+    faqs: [{ q: "Come faccio a spiegare il contorno della barba che desidero mantenere?", a: "Descrivilo quando richiedi l’appuntamento e mostracelo durante la valutazione. Prima della seduta concordiamo le aree da trattare e quelle da mantenere, senza usare un disegno identico per tutti." }],
+  },
+  "epilazione-laser-corpo-uomo-carmagnola": {
+    sections: [
+      { heading: "Schiena completa, torace o singole aree", paragraphs: [
+        "Il catalogo uomo distingue schiena completa e aree parziali, torace, addome, braccia e gambe. Quando chiedi un appuntamento indica l’estensione desiderata: “schiena” o “corpo” da soli non definiscono tutto il trattamento.",
+        "La valutazione chiarisce quali aree includere nello stesso appuntamento e quali eventualmente programmare a parte. Il conteggio e il prezzo vengono concordati prima della seduta.",
+      ] },
+      { heading: "Organizzare più zone senza confondere seduta e percorso", paragraphs: [
+        "Puoi richiedere più aree, ma è utile comunicarle tutte prima di prenotare. Raccontaci anche come si inserisce l’appuntamento tra sport, lavoro all’aperto e altri impegni: ci aiuta a concordare la preparazione e il calendario.",
+        "La formula Total Body della promo riguarda le zone previste per una singola seduta. Per la schiena e per le altre aree il numero di appuntamenti dipende dal percorso definito durante la valutazione e dai controlli successivi.",
+      ] },
+    ],
+    faqs: [{ q: "Devo specificare schiena completa o parziale quando prenoto?", a: "Sì. Indica se desideri la schiena completa, una parte della schiena o altre aree del corpo. Prima della conferma verifichiamo le zone, il loro conteggio e il tempo necessario all’appuntamento." }],
+  },
+};
+
+export const servicePages: ServicePage[] = authoredServicePages.map((page) => {
+  const planning = servicePlanningContent[page.slug];
+  return {
+    ...page,
+    editorialSections: page.slug === "pedicure-carmagnola"
+      ? [...(planning?.sections ?? []), ...(page.editorialSections ?? [])]
+      : [...(page.editorialSections ?? []), ...(planning?.sections ?? [])],
+    faqs: [...page.faqs, ...(planning?.faqs ?? [])],
+    relatedCompetenceSlugs: page.relatedCompetenceSlugs.filter(isPublishedCompetence),
+  };
+});
 
 export const competencePages: CompetencePage[] = authoredCompetencePages
   .filter((page) => isPublishedCompetence(page.slug))

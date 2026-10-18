@@ -1,6 +1,8 @@
 import { useEffect, useState, type FormEvent } from "react";
 import { bookingChoices, menu, priceRange } from "@/lib/treatment-catalog";
 import { siteConfig } from "@/lib/site-config";
+import { serviceRequests } from "@/lib/service-booking";
+import { trackConversion } from "@/lib/measurement";
 import { laserOfferContactMessage } from "@/lib/laser-offer";
 
 type FormState = {
@@ -58,6 +60,8 @@ const allowedSources = new Set([
   "percorso",
   "promo-laser",
   "listino",
+  "servizio",
+  "localita",
 ]);
 const modeLabels: Record<string, string> = {
   esplorare: "Capire un trattamento",
@@ -74,7 +78,13 @@ export default function ContactForm() {
   const [preferredDate, setPreferredDate] = useState("");
   const [preferredTime, setPreferredTime] = useState("");
   const [today, setToday] = useState("");
-  const choice = bookingChoices.find((c) => c.id === selected);
+  const [linkedServiceSlug, setLinkedServiceSlug] = useState("");
+  const linkedService = Object.hasOwn(serviceRequests, linkedServiceSlug) ? serviceRequests[linkedServiceSlug] : undefined;
+  const contextServiceSlug = selected.startsWith("servizio:") ? selected.slice(9) : "";
+  const contextService = Object.hasOwn(serviceRequests, contextServiceSlug) ? serviceRequests[contextServiceSlug] : undefined;
+  const choice = contextService
+    ? { label: contextService.name, price: "" }
+    : bookingChoices.find((c) => c.id === selected);
   const treatment = menu.categories
     .flatMap((c) => c.items)
     .find((i) => i.id === selected);
@@ -127,6 +137,12 @@ export default function ContactForm() {
         day: "2-digit",
       }).format(new Date()),
     );
+    const requestedService = params.get("trattamento") ?? "";
+    if (params.get("source") === "servizio" && Object.hasOwn(serviceRequests, requestedService)) {
+      setLinkedServiceSlug(requestedService);
+      setSelected(`servizio:${requestedService}`);
+      setForm(value => ({ ...value, source: "servizio" }));
+    }
     const requested = params.get("servizio") ?? "";
     if (bookingChoices.some((c) => c.id === requested)) {
       setSelected(requested);
@@ -185,6 +201,7 @@ export default function ContactForm() {
 
     // Open synchronously from the user's submit gesture, without an API request.
     // Keep the form intact: only the customer can confirm sending in WhatsApp.
+    trackConversion("whatsapp_intent", { service: contextService ? contextServiceSlug : selected });
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
     setFeedback(
       "Il messaggio è pronto: controllalo e premi Invia su WhatsApp. L’appuntamento sarà confermato dallo studio.",
@@ -220,6 +237,7 @@ export default function ContactForm() {
             setVariant("");
           }}
         >
+          {linkedService && <option value={`servizio:${linkedServiceSlug}`}>{linkedService.name}</option>}
           <option value="valutazione">Aiutatemi a scegliere · valutazione REBEL</option>
           {bookingGroups.map(group => (
             <optgroup key={group.label} label={group.label}>

@@ -4,7 +4,7 @@ import { localAreaPages } from "@/lib/local-pages";
 import { protocolPages } from "@/lib/protocol-pages";
 import { rebelJourneys } from "@/lib/rebel-journeys";
 import { siteConfig } from "@/lib/site-config";
-import { isIndexableSearchPage, searchIntentPaths } from "@/lib/search-intents";
+import { isIndexableSearchPage, searchIntentPaths, commercialCategoryPaths } from "@/lib/search-intents";
 
 type ChangeFreq =
   | "always"
@@ -53,34 +53,10 @@ export const GET: APIRoute = () => {
     make(searchIntentPaths.laserService, "daily", 0.98),
     make(searchIntentPaths.laserOffer, "weekly", 0.95, absoluteUrl("/img/catalogo/laser-gamba-rebel.webp")),
     make(searchIntentPaths.laserTechnology, "weekly", 0.92),
-    make("/epilazione-laser-alba", "weekly", 0.92),
-    make("/epilazione-laser-bra", "weekly", 0.92),
-    make("/epilazione-laser-canale", "weekly", 0.92),
-    make("/epilazione-laser-racconigi", "weekly", 0.93),
-    make("/pulizia-viso-alba", "weekly", 0.91),
-    make("/pulizia-viso-bra", "weekly", 0.91),
-    make("/pulizia-viso-canale", "weekly", 0.91),
-    make("/pulizia-viso-racconigi", "weekly", 0.91),
-    make("/manicure-semipermanente-alba", "weekly", 0.91),
-    make("/manicure-semipermanente-bra", "weekly", 0.91),
-    make("/manicure-semipermanente-canale", "weekly", 0.91),
-    make("/manicure-semipermanente-racconigi", "weekly", 0.91),
-    make("/laminazione-alba", "weekly", 0.90),
-    make("/laminazione-bra", "weekly", 0.90),
-    make("/laminazione-canale", "weekly", 0.90),
-    make("/laminazione-racconigi", "weekly", 0.90),
-    make("/massaggio-rilassante-alba", "weekly", 0.90),
-    make("/massaggio-rilassante-bra", "weekly", 0.90),
-    make("/massaggio-rilassante-canale", "weekly", 0.90),
-    make("/massaggio-rilassante-racconigi", "weekly", 0.90),
-    make("/pedicure-racconigi", "weekly", 0.89),
-    make("/pedicure-alba", "weekly", 0.89),
-    make("/pedicure-bra", "weekly", 0.89),
-    make("/pedicure-canale", "weekly", 0.89),
-    make("/massaggio-linfodrenante-racconigi", "weekly", 0.89),
-    make("/massaggio-linfodrenante-alba", "weekly", 0.89),
-    make("/massaggio-linfodrenante-bra", "weekly", 0.89),
-    make("/massaggio-linfodrenante-canale", "weekly", 0.89),
+    make(commercialCategoryPaths.face, "weekly", 0.86),
+    make(commercialCategoryPaths.body, "weekly", 0.86),
+    make(commercialCategoryPaths.pressomassage, "weekly", 0.86),
+    make(commercialCategoryPaths.massages, "weekly", 0.86),
     make("/chi-siamo", "weekly", 0.9),
     make("/metodo-rebel", "weekly", 0.88),
     make("/protocolli-epigenetici", "weekly", 0.89),

@@ -4,6 +4,7 @@ import JsonLd from "@/components/JsonLd.astro";
 import FaqAccordion from "@/components/FaqAccordion.astro";
 import { createPageMeta, buildBreadcrumbSchema } from "@/lib/seo";
 import { menu, euro, priceRange, durationRange, requestTreatment } from "@/lib/treatment-catalog";
+import { serviceCategoryDestinations } from "@/lib/service-navigation";
 import { laserOffer } from "@/lib/laser-offer";
 import { rebelJourneys } from "@/lib/rebel-journeys";
 import { protocolPages } from "@/lib/protocol-pages";
@@ -53,7 +54,7 @@ const catalogSchema = { "@context":"https://schema.org", "@type":"ItemList", nam
       <summary><img src={photo.preview} alt={photo.alt} width="480" height="360" loading="lazy" decoding="async"/><span class="catalog-service__label"><h3>{i.name}</h3><small>{durationRange(i.durationMin,i.durationMax)}{i.options.length>1?` · ${i.options.length} varianti`:""}</small></span><span class="catalog-service__price"><strong>{priceRange(i.price)}</strong><small>Dettagli e prenota ＋</small></span></summary>
       <div class="catalog-service__details"><p class="catalog-photo-note">Immagine illustrativa del trattamento o della zona.</p>{i.options.map(o=><div class="catalog-option"><div><h4>{o.name}</h4><span>{o.duration} min · {priceRange(o.price)}</span>{o.price.saleMin < o.price.min && <small>Su Treatwell da {euro(o.price.saleMin)}, secondo disponibilità.</small>}</div><a href={requestTreatment(i.id,o.id)} aria-label={`Richiedi ${i.name}, ${o.name}`}>Richiedi ↗</a></div>)}<a class="catalog-treatwell" href={menu.source} target="_blank" rel="noopener noreferrer">Scegli servizio e orario su Treatwell ↗</a><p>Su Treatwell seleziona trattamento, variante e appuntamento. Ti mostrerà il totale prima della conferma.</p></div>
      </details>})}</div>
-     {c.id === "sguardo" && <a class="catalog-bridge" href="/servizi/laminazione-ciglia-sopracciglia-carmagnola#guida">Sfoglia la guida alla laminazione →</a>}
+     {serviceCategoryDestinations[c.id] && <a class="catalog-bridge" href={serviceCategoryDestinations[c.id]}>Conosci i trattamenti, le differenze e la preparazione →</a>}
     </div>
    </details>)}
    <details id="protocolli" class="catalog-category" data-catalog-section data-category><summary class="catalog-category__heading"><img src={photographs["viso-enzimi"].preview} alt="" width="160" height="110" loading="lazy"/><span class="catalog-category__title"><small>Le combinazioni REBEL</small><h2>Protocolli viso e corpo</h2><p>Passaggi coordinati intorno a un’esigenza.</p></span><span class="catalog-count">{protocolPages.length} protocolli</span><b aria-hidden="true">＋</b></summary><div class="catalog-category__body catalog-path-grid">{protocolPages.map(p=><article class="catalog-path" data-catalog-item data-search={`protocollo protocolli ${p.name} ${p.shortDescription}`}><div><h3>{p.name}</h3><p>{p.shortDescription}</p><strong>{p.price}</strong><a href={`/protocolli/${p.slug}`}>Esplora il protocollo →</a></div></article>)}</div></details>
