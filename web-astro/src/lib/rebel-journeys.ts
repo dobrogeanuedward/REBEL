@@ -40,7 +40,7 @@ export const rebelWorlds = [
     name: "Pelle in equilibrio",
     eyebrow: "Viso · preparazione, idratazione e luminosità",
     summary: "Percorsi viso per preparare la pelle e lavorare su barriera, impurità, luminosità e uniformità del tono.",
-    href: "/percorsi#glow",
+    href: "/percorsi#viso",
     heroSlot: "home.hero.epigenetics.desktop",
   },
   {
@@ -48,7 +48,7 @@ export const rebelWorlds = [
     name: "Tono e cura nel tempo",
     eyebrow: "Viso · compattezza ed elasticità",
     summary: "Percorsi viso dedicati a tono, elasticità, compattezza e continuità dei trattamenti.",
-    href: "/percorsi#longevity",
+    href: "/percorsi#percorso-longevity",
     heroSlot: "journeys.longevity.moment",
   },
   {
