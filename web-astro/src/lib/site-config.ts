@@ -30,7 +30,7 @@ export const siteConfig = {
   },
   areasServed: [
     "Carmagnola", "Carignano", "Racconigi", "Poirino", "Villastellone",
-    "Pancalieri", "Sommariva del Bosco", "Torino Sud", "Moncalieri",
+    "Pancalieri", "Sommariva del Bosco", "Torino", "Moncalieri",
     "Nichelino", "Vinovo", "La Loggia", "Trofarello", "Chieri",
     "Orbassano", "Alba", "Bra", "Canale", "Savigliano", "Fossano", "Saluzzo",
   ],

@@ -1,4 +1,5 @@
 import { protocolPages } from "@/lib/protocol-pages";
+import { isIndexableSearchPage } from "@/lib/search-intents";
 
 export const editorialImageAssets = {
   pedicure: "https://imagedelivery.net/8Z69WIPvPk97iU4IP5m1ig/dd34e324-2953-4a98-18ee-ef36b7c59e00/public",
@@ -78,7 +79,7 @@ export type CompetencePage = {
   }>;
 };
 
-export const servicePages: ServicePage[] = [
+const authoredServicePages: ServicePage[] = [
   {
     slug: "pulizia-viso-carmagnola",
     name: "Pulizia viso a Carmagnola",
@@ -267,7 +268,7 @@ export const servicePages: ServicePage[] = [
     shortDescription:
       "Massaggio linfodrenante manuale e delicato, pensato per chi avverte pesantezza e desidera una sensazione di maggiore leggerezza.",
     longDescription:
-      "Il linfodrenante è un massaggio manuale delicato, scelto soprattutto quando avverti pesantezza e desideri una sensazione di maggiore leggerezza. Durante la seduta adattiamo zone, pressione e manualità al tuo comfort; in presenza di condizioni particolari chiediamo prima un parere medico.",
+      "Il linfodrenante è un massaggio estetico manuale delicato, scelto soprattutto quando avverti pesantezza e desideri una sensazione di maggiore leggerezza. Durante la seduta adattiamo zone, pressione e manualità al tuo comfort. Non è un trattamento sanitario: in presenza di condizioni particolari chiediamo prima un parere medico.",
     priceHint: "da 69 €",
     category: "estetica-classica",
     benefits: [
@@ -295,6 +296,14 @@ export const servicePages: ServicePage[] = [
       {
         q: "Se ho una condizione specifica, posso farlo comunque?",
         a: "Segnalacela prima di prenotare. In base alla situazione potremmo chiederti un parere medico prima di eseguire il trattamento.",
+      },
+      {
+        q: "Drenaggio corpo e linfodrenante indicano sempre lo stesso massaggio?",
+        a: "I nomi possono indicare manualità diverse. Prima di prenotare chiedi che tipo di massaggio viene eseguito e con quale finalità. In REBEL raccogliamo le informazioni utili e ti spieghiamo la proposta estetica prima della seduta.",
+      },
+      {
+        q: "Il drenaggio sostituisce sport, alimentazione o terapie?",
+        a: "No. È un massaggio estetico e di benessere; non sostituisce attività fisica, alimentazione, terapie o indicazioni di un professionista sanitario.",
       },
     ],
     keywords: [
@@ -339,6 +348,13 @@ export const servicePages: ServicePage[] = [
         paragraphs: [
           "Movimento regolare e idratazione possono accompagnare il programma, quando sono compatibili con le tue condizioni e le indicazioni del medico.",
           "Al termine di ogni seduta ti diamo indicazioni semplici e coerenti con il trattamento svolto.",
+        ],
+      },
+      {
+        heading: "Quando chiedere prima un parere medico",
+        paragraphs: [
+          "Un gonfiore persistente, improvviso, doloroso o associato ad altri sintomi richiede una valutazione medica e non va gestito con un semplice massaggio estetico.",
+          "Comunica diagnosi, terapie, interventi e sintomi recenti prima di prenotare. In caso di dubbio rimandiamo la seduta e chiediamo un parere medico.",
         ],
       },
     ],
@@ -1262,7 +1278,7 @@ export const servicePages: ServicePage[] = [
   },
 ];
 
-export const competencePages: CompetencePage[] = [
+const authoredCompetencePages: CompetencePage[] = [
   {
     slug: "come-scegliere-centro-estetico-carmagnola",
     title: "Come scegliere un centro estetico a Carmagnola",
@@ -4402,6 +4418,24 @@ export const competencePages: CompetencePage[] = [
     ],
   },
 ];
+
+// Keep authored copy for editorial reference, but publish only the canonical
+// guide registry. Every hub, dynamic route and related-guide list imports this
+// same filtered collection, so consolidated URLs cannot be rendered again.
+const isPublishedCompetence = (slug: string) =>
+  isIndexableSearchPage("/competenze/" + slug);
+
+export const servicePages: ServicePage[] = authoredServicePages.map((page) => ({
+  ...page,
+  relatedCompetenceSlugs: page.relatedCompetenceSlugs.filter(isPublishedCompetence),
+}));
+
+export const competencePages: CompetencePage[] = authoredCompetencePages
+  .filter((page) => isPublishedCompetence(page.slug))
+  .map((page) => ({
+    ...page,
+    relatedCompetenceSlugs: page.relatedCompetenceSlugs?.filter(isPublishedCompetence),
+  }));
 
 type SeoContentValidation = {
   errors: string[];

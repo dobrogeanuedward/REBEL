@@ -10,6 +10,7 @@ import type { APIRoute } from "astro";
 import { journeyCarousels } from "@/lib/journey-carousels";
 import { journeyPhotographs } from "@/lib/journey-photographs";
 import { siteConfig } from "@/lib/site-config";
+import { isIndexableSearchPage } from "@/lib/search-intents";
 const escapeXml = (s: string) =>
   s.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll('"', "&quot;");
 export const GET: APIRoute = () => {
@@ -24,6 +25,13 @@ export const GET: APIRoute = () => {
         .map((photo) => photo.src),
     ],
   }));
+  entries.push({
+    path: "/promo-epilazione-laser-carmagnola",
+    images: [
+      "/img/catalogo/laser-gamba-rebel.webp",
+      "/img/rebel-r2/rebel/studio/real-exterior-desktop.webp",
+    ],
+  });
   entries.push({
     path: "/gallery",
     images: [
@@ -53,8 +61,9 @@ export const GET: APIRoute = () => {
           : []),
       ],
     });
+  const canonicalEntries = entries.filter((entry) => isIndexableSearchPage(entry.path));
   return new Response(
-    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">${entries.map((entry) => `<url><loc>${absolute(entry.path)}</loc>${entry.images.map((src) => `<image:image><image:loc>${absolute(src)}</image:loc></image:image>`).join("")}</url>`).join("")}</urlset>`,
+    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">${canonicalEntries.map((entry) => `<url><loc>${absolute(entry.path)}</loc>${[...new Set(entry.images)].map((src) => `<image:image><image:loc>${absolute(src)}</image:loc></image:image>`).join("")}</url>`).join("")}</urlset>`,
     { headers: { "Content-Type": "application/xml; charset=utf-8" } },
   );
 };

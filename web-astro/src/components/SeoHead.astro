@@ -10,10 +10,9 @@ const { meta } = Astro.props;
 ---
 <title>{meta.title}</title>
 <meta name="description" content={meta.description} />
-<meta name="keywords" content={meta.keywords.join(", ")} />
 <link rel="canonical" href={meta.canonical} />
-<meta name="robots" content={meta.indexable ? "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" : "noindex, nofollow"} />
-<meta name="googlebot" content={meta.indexable ? "index, follow" : "noindex, nofollow"} />
+<meta name="robots" content={meta.indexable ? "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" : "noindex, follow"} />
+<meta name="googlebot" content={meta.indexable ? "index, follow" : "noindex, follow"} />
 <meta name="author" content={siteConfig.name} />
 <meta name="publisher" content={siteConfig.name} />
 <meta name="category" content="Beauty & Wellness" />

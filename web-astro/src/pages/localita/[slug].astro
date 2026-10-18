@@ -1,5 +1,4 @@
 ---
-import LaserOffer from "@/components/LaserOffer.astro";
 import { isLaserCampaignArea } from "@/lib/laser-campaign";
 import { laserOffer } from "@/lib/laser-offer";
 import BaseLayout from "@/layouts/BaseLayout.astro";
@@ -15,7 +14,8 @@ import FullBleedBand from "@/components/FullBleedBand.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import type { LocalAreaPage } from "@/lib/local-pages";
-import { localAreaPages } from "@/lib/local-pages";
+import { getLocalAreaGroup, localAreaPages, publicTransportDirections } from "@/lib/local-pages";
+import { siteConfig } from "@/lib/site-config";
 import { media } from "@/lib/page-media";
 import {
   buildBreadcrumbSchema,
@@ -44,15 +44,20 @@ const localeMood =
         : media.studio.realExterior;
 
 const isCarmagnola = area.slug === "carmagnola";
+const areaGroup = getLocalAreaGroup(area);
+const isTurin = area.slug === "torino" || area.slug === "torino-sud";
+const visitWhatsApp = `${siteConfig.social.whatsapp}?text=${encodeURIComponent(`Vorrei prenotare da REBEL a Carmagnola. Parto da ${area.city} e mi interessa questo servizio: `)}`;
 const visitMedia = isCarmagnola ? media.studio.realExterior : media.studio.realOverview;
 const originLabel = isCarmagnola ? "REBEL Carmagnola" : `Da ${area.city} a REBEL Carmagnola`;
 const clearTitle = isCarmagnola
-  ? "REBEL Carmagnola | Indirizzo, servizi e contatti"
-  : `Da ${area.city} a REBEL Carmagnola | Indicazioni e contatti`;
+  ? "Studio REBEL a Carmagnola | Indirizzo e appuntamenti"
+  : `Da ${area.city} allo studio REBEL a Carmagnola`;
 const clearDescription = isCarmagnola
   ? "REBEL si trova in Viale Barbaroux 20 a Carmagnola. Consulta mappa, servizi, prezzi e modalità di prenotazione."
   : `REBEL si trova in Viale Barbaroux 20 a Carmagnola. Da ${area.city}, consulta mappa, servizi, prezzi e modalità di prenotazione.`;
-const clearIntro = `Lo studio è in Viale Barbaroux 20 a Carmagnola. Qui trovi il percorso sulla mappa, i servizi disponibili, il listino e i contatti per prenotare.`;
+const clearIntro = isCarmagnola
+  ? "Il tuo appuntamento in Viale Barbaroux 20. Guarda l’ingresso dello studio, apri la mappa e consulta i servizi e il listino prima di prenotare."
+  : `Parti da ${area.city}? Il tuo appuntamento REBEL è in Viale Barbaroux 20 a Carmagnola. Qui trovi mappa, contatti e informazioni per organizzare il tempo in studio.`;
 const clearWhyRebel = [
   "Viale Barbaroux 20 · Carmagnola",
   "Trattamenti viso, corpo, laser e beauty",
@@ -60,8 +65,8 @@ const clearWhyRebel = [
 ];
 const clearFaqs = [
   {
-    q: "Dove si trova REBEL?",
-    a: "Lo studio è in Viale Barbaroux 20 a Carmagnola. Puoi aprire la mappa qui per ottenere il percorso aggiornato.",
+    q: isCarmagnola ? "Qual è l’indirizzo dello studio REBEL?" : `Dove si svolge l’appuntamento se arrivo da ${area.city}?`,
+    a: "Il tuo appuntamento si svolge nello studio REBEL di Viale Barbaroux 20, 10022 Carmagnola (TO). Apri la mappa e inserisci l’indirizzo da cui parti per ottenere il percorso aggiornato.",
   },
   {
     q: isCarmagnola ? "Come posso prenotare?" : `Come posso prenotare se arrivo da ${area.city}?`,
@@ -112,7 +117,13 @@ const focusLinks = [
 if (isLaserCampaignArea(area.slug)) {
   clearFaqs.push({
     q: `Posso richiedere la promozione laser arrivando da ${area.city}?`,
-    a: `Sì. La Promozione Carmagnola prevede ${laserOffer.zone.price} a zona oppure ${laserOffer.totalBody.price} full body per ${laserOffer.totalBody.detail}, per seduta. Il trattamento si svolge in Viale Barbaroux 20 a Carmagnola. ${laserOffer.zoneCounting.note} ${laserOffer.validity.label}`,
+    a: "Sì, puoi contattarci per un appuntamento a Carmagnola. Prima di spostarti consulta la promozione laser per prezzi e conteggio delle zone e verifica con noi disponibilità e preparazione. Il calendario delle sedute si definisce dopo la valutazione.",
+  });
+}
+if (isTurin) {
+  clearFaqs.push({
+    q: "Come organizzo il viaggio da Torino?",
+    a: "Usa il collegamento alla mappa, imposta il tuo indirizzo preciso e scegli il mezzo che userai. Sono disponibili anche le indicazioni per il trasporto pubblico. Conferma l’appuntamento con noi prima di partire e consulta il percorso aggiornato per il giorno della visita.",
   });
 }
 
@@ -120,7 +131,7 @@ const meta = createPageMeta({
   title: clearTitle,
   description: clearDescription,
   path: `/localita/${area.slug}`,
-  openGraphType: "article",
+  indexable: area.slug !== "torino",
 });
 
 const breadcrumb = buildBreadcrumbSchema([
@@ -168,7 +179,7 @@ const tocItems = [
   <PageHero
     image={localeMood}
     kicker={originLabel}
-    title={`Indicazioni per raggiungere _REBEL_.`}
+    title={isCarmagnola ? "Il tuo appuntamento nello studio _REBEL a Carmagnola_." : `Da ${area.city} allo studio _REBEL a Carmagnola_.`}
     lead={clearIntro}
     bullets={["Indirizzo e mappa", "Servizi e prezzi online", "Valutazione REBEL · 30–40 min"]}
     meta={[
@@ -179,10 +190,13 @@ const tocItems = [
     ctaSecondary={{ label: "Apri il percorso su Maps", href: area.directions.mapsUrl }}
   />
 
-  {isLaserCampaignArea(area.slug) && <section class="section section--tight"><div class="container">
-    <p class="eyebrow">{isCarmagnola ? "Promozione laser Carmagnola" : `Promo laser per chi arriva da ${area.city}`}</p>
-    <LaserOffer compact primaryHref={`${laserOffer.landingPath}#form`} />
-    <p><a href={laserOffer.fullBodyPath}>Full body: dieci zone per seduta</a> · <a href={laserOffer.territoryPath}>Promo laser: località e indicazioni</a></p>
+  {(isLaserCampaignArea(area.slug) || isTurin) && <section class="section section--tight"><div class="container">
+    <FeatureCard
+      kicker="Il laser, a Carmagnola"
+      title="Cerchi la promozione laser a zona o Total Body?"
+      body="Trovi tutti i dettagli in un unico posto: prezzo per seduta, conteggio delle zone e informazioni da verificare prima di prenotare."
+      href={laserOffer.landingPath}
+    />
   </div></section>}
 
   <section class="section">
@@ -192,7 +206,7 @@ const tocItems = [
           <SectionHead
             kicker="Prima di prenotare"
             title="Tutto ciò che ti serve per organizzare la visita."
-            lead="REBEL offre trattamenti viso, corpo, laser e beauty. Puoi consultare prezzi e durata online oppure scriverci per scegliere il trattamento."
+            lead={areaGroup.visitNote}
           />
           <KeyPointsGrid points={clearWhyRebel} title="Informazioni utili" />
         </div>
@@ -230,8 +244,10 @@ const tocItems = [
               <div>
                 <p class="directions-p">REBEL si trova a Carmagnola. Apri la mappa per ottenere il percorso aggiornato da {area.city} in base al mezzo con cui viaggi.</p>
                 <p class="directions-p">Per orari e disponibilità puoi contattarci prima di partire.</p>
+                {isTurin && <p class="directions-p">La mappa parte da un punto generico di Torino: inserisci il tuo indirizzo per confrontare i percorsi e gli orari adatti al giorno dell’appuntamento.</p>}
                 <div class="cluster" style="margin-top:1.4rem;">
                   <a class="btn btn--secondary btn--sm" href={clearDirections.mapsUrl} target="_blank" rel="noreferrer">Apri Google Maps</a>
+                  {isTurin && <a class="btn btn--secondary btn--sm" href={publicTransportDirections(area)} target="_blank" rel="noreferrer">Percorso con i mezzi pubblici</a>}
                   <a class="btn btn--secondary btn--sm" href="/contatti">Telefono, WhatsApp e orari</a>
                 </div>
               </div>
@@ -253,13 +269,14 @@ const tocItems = [
             <EditorialSection
               heading="Lo studio e il primo appuntamento."
               paragraphs={[
-                "Lo studio è a Carmagnola, in Viale Barbaroux 20. Trovi trattamenti viso, corpo, laser e beauty, con prezzi consultabili online.",
-                "Se non sai quale trattamento scegliere, durante la valutazione ti spieghiamo opzioni, frequenza e prezzo prima di iniziare.",
+                "Scegli prima il servizio e consulta prezzo, durata e varianti. Quando ci contatti, indica il trattamento e le tue disponibilità: possiamo così verificare il tempo necessario in studio.",
+                "Per una valutazione viso, corpo o laser considera 30–40 minuti in studio. Prima di partire conferma l’appuntamento; se desideri abbinare più servizi, segnalalo nella richiesta.",
               ]}
               media={visitMedia}
               mediaSide="end"
               level={3}
             />
+            <p><a class="btn btn--secondary" href={visitWhatsApp}>Organizza la visita su WhatsApp</a></p>
           </div>
           {focusLinks.length > 0 ? (
             <div class="card-grid card-grid--2" style="margin-top:1.5rem;">

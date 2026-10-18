@@ -1,4 +1,4 @@
-import { brandSeoKeywords, localSeoKeywords, siteConfig } from "@/lib/site-config";
+import { siteConfig } from "@/lib/site-config";
 import { servicePages } from "@/lib/seo-content";
 
 /* ==========================================================================
@@ -37,9 +37,7 @@ export function createPageMeta({
   image,
 }: CreatePageMetaInput): PageMeta {
   const canonical = new URL(path, siteConfig.siteUrl).toString();
-  const merged = Array.from(
-    new Set([...brandSeoKeywords, ...localSeoKeywords, ...keywords]),
-  );
+  const merged = Array.from(new Set(keywords));
   const ogImage = new URL(image ?? siteConfig.assets.ogImage, siteConfig.siteUrl).toString();
   return {
     title,
@@ -155,8 +153,7 @@ export function buildLocalBusinessSchema() {
         url: new URL(`/servizi/${s.slug}`, siteConfig.siteUrl).toString(),
       },
     }));
-  // `knowsAbout` lists every concrete service we deliver. Google uses this
-  // as a strong topical signal for "near me" / service-specific queries.
+  // Describe the actual treatments; this is factual business metadata.
   const knowsAbout = [
     "Centro estetico",
     "Estetica epigenetica",
@@ -243,10 +240,8 @@ export function buildLocalBusinessSchema() {
       latitude: siteConfig.geo.latitude,
       longitude: siteConfig.geo.longitude,
     },
-    // Two complementary signals:
-    // 1. `areaServed` lists named cities/areas (Carmagnola, Carignano, …)
-    // 2. `serviceArea` GeoCircle gives Google a hard "we work within ~30 km
-    //    of these coordinates" — the strongest signal for "near me" queries.
+    // These are customer origins. Every treatment takes place at the
+    // single Carmagnola address; there are no satellite locations.
     areaServed: [
       ...siteConfig.areasServed.map((city) => ({ "@type": "City", name: city })),
       {
@@ -258,15 +253,6 @@ export function buildLocalBusinessSchema() {
         name: "Provincia di Cuneo",
       },
     ],
-    serviceArea: {
-      "@type": "GeoCircle",
-      geoMidpoint: {
-        "@type": "GeoCoordinates",
-        latitude: siteConfig.geo.latitude,
-        longitude: siteConfig.geo.longitude,
-      },
-      geoRadius: 30000,
-    },
     openingHours: siteConfig.openingHours,
     openingHoursSpecification: toOpeningHoursSpecification(),
     hasOfferCatalog: {
@@ -295,11 +281,8 @@ export function buildLocalBusinessSchema() {
 }
 
 /**
- * Service schema with strong local signals.
- *
- * Optional `priceFrom` lets the page inject a numeric "from" price (parsed
- * from `priceHint` like "da EUR 26") so Google can show the offer in
- * service-specific SERPs. Optional `keywords` adds intent-rich variants.
+ * Describe the service and its actual delivery location. Optional prices
+ * must match the visible page; markup does not guarantee a search feature.
  */
 export function buildServiceSchema(
   serviceName: string,
@@ -318,26 +301,15 @@ export function buildServiceSchema(
     name: serviceName,
     serviceType: serviceName,
     description: serviceDescription,
-    // Two complementary signals (named cities + GeoCircle radius) — same
-    // pattern as LocalBusiness, repeated per-service so each /servizi/* URL
-    // can rank for "<service> vicino a me" queries.
+    // Customer catchment, distinct from the treatment location below.
     areaServed: [
       ...siteConfig.areasServed.map((city) => ({ "@type": "City", name: city })),
       { "@type": "AdministrativeArea", name: "Provincia di Torino" },
     ],
-    serviceArea: {
-      "@type": "GeoCircle",
-      geoMidpoint: {
-        "@type": "GeoCoordinates",
-        latitude: siteConfig.geo.latitude,
-        longitude: siteConfig.geo.longitude,
-      },
-      geoRadius: 30000,
-    },
     availableChannel: {
       "@type": "ServiceChannel",
       serviceLocation: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
-      servicePhone: siteConfig.phoneDisplay,
+      servicePhone: { "@type": "ContactPoint", telephone: siteConfig.phoneRaw },
       serviceUrl: `${siteConfig.siteUrl}/contatti`,
     },
     provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },

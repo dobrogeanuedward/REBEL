@@ -6,6 +6,7 @@ export const GET: APIRoute = () => {
   const hostname = new URL(siteConfig.siteUrl).hostname;
   const body = `User-agent: *
 Allow: /
+Allow: /api/site-asset?
 Disallow: /api/
 Disallow: /api/*
 

@@ -16,7 +16,7 @@ import InlineCta from "@/components/InlineCta.astro";
 import FullBleedBand from "@/components/FullBleedBand.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
-import NearMeBlock from "@/components/NearMeBlock.astro";
+import ServiceAreaDiscovery from "@/components/ServiceAreaDiscovery.astro";
 import LaserOffer from "@/components/LaserOffer.astro";
 import { media, type ImageAsset } from "@/lib/page-media";
 import {
@@ -96,6 +96,17 @@ const displayPrice = formatPrice(service.priceHint);
 const serviceMetaDescription = service.shortDescription.length >= 105
   ? service.shortDescription
   : `${service.shortDescription} Durata, prezzo e prenotazioni nel centro REBEL di Carmagnola.`;
+const serviceSearchCopy: Record<string, { title: string; description: string }> = {
+  "manicure-semipermanente-carmagnola": {
+    title: "Manicure e semipermanente a Carmagnola | REBEL",
+    description: "Manicure, smalto semipermanente e cura delle unghie a Carmagnola con RBL Nails. Scopri prezzi, rimozione e durata. REBEL, Viale Barbaroux 20.",
+  },
+  "massaggio-linfodrenante-carmagnola": {
+    title: "Massaggio linfodrenante a Carmagnola | REBEL",
+    description: "Massaggio drenante e linfodrenante estetico a Carmagnola: manualità, frequenza, precauzioni e prezzi REBEL. Richiedi un appuntamento in studio.",
+  },
+};
+const searchCopy = serviceSearchCopy[service.slug];
 const priceIntentKeywords = [
   `${baseServiceName} prezzi Carmagnola`,
   `prezzi ${baseServiceName} Carmagnola`,
@@ -105,8 +116,8 @@ const priceIntentKeywords = [
 ];
 
 const meta = createPageMeta({
-  title: service.name,
-  description: serviceMetaDescription,
+  title: searchCopy?.title ?? service.name,
+  description: searchCopy?.description ?? serviceMetaDescription,
   path: `/servizi/${service.slug}`,
   keywords: [...service.keywords, ...priceIntentKeywords],
   openGraphType: "article",
@@ -214,72 +225,6 @@ const featuredAreasSchema =
 
 const editorialSections = service.editorialSections ?? [];
 const sourceLinks = service.sourceLinks ?? [];
-
-const moneySlugs = new Set([
-  "manicure-semipermanente-carmagnola",
-  "laminazione-ciglia-sopracciglia-carmagnola",
-  "pedicure-carmagnola",
-  "pulizia-viso-carmagnola",
-  "massaggio-rilassante-carmagnola",
-  "epilazione-laser-viso-carmagnola",
-  "epilazione-laser-corpo-carmagnola",
-]);
-const showNearMe = moneySlugs.has(service.slug);
-const nearMeLabel = baseServiceName
-  .replace(/\s+a\s+Carmagnola$/i, "")
-  .replace(/\s+ciglia\s+e\s+sopracciglia$/i, " ciglia/sopracciglia");
-
-const nearMeHrefOverridesMap: Record<string, Record<string, string>> = {
-  "pulizia-viso-carmagnola": {
-    alba: "/pulizia-viso-alba",
-    bra: "/pulizia-viso-bra",
-    canale: "/pulizia-viso-canale",
-    racconigi: "/pulizia-viso-racconigi",
-  },
-  "manicure-semipermanente-carmagnola": {
-    alba: "/manicure-semipermanente-alba",
-    bra: "/manicure-semipermanente-bra",
-    canale: "/manicure-semipermanente-canale",
-    racconigi: "/manicure-semipermanente-racconigi",
-  },
-  "laminazione-ciglia-sopracciglia-carmagnola": {
-    alba: "/laminazione-alba",
-    bra: "/laminazione-bra",
-    canale: "/laminazione-canale",
-    racconigi: "/laminazione-racconigi",
-  },
-  "massaggio-rilassante-carmagnola": {
-    alba: "/massaggio-rilassante-alba",
-    bra: "/massaggio-rilassante-bra",
-    canale: "/massaggio-rilassante-canale",
-    racconigi: "/massaggio-rilassante-racconigi",
-  },
-  "massaggio-linfodrenante-carmagnola": {
-    alba: "/massaggio-linfodrenante-alba",
-    bra: "/massaggio-linfodrenante-bra",
-    canale: "/massaggio-linfodrenante-canale",
-    racconigi: "/massaggio-linfodrenante-racconigi",
-  },
-  "pedicure-carmagnola": {
-    alba: "/pedicure-alba",
-    bra: "/pedicure-bra",
-    canale: "/pedicure-canale",
-    racconigi: "/pedicure-racconigi",
-  },
-  "epilazione-laser-viso-carmagnola": {
-    alba: "/epilazione-laser-alba",
-    bra: "/epilazione-laser-bra",
-    canale: "/epilazione-laser-canale",
-    racconigi: "/epilazione-laser-racconigi",
-  },
-  "epilazione-laser-corpo-carmagnola": {
-    alba: "/epilazione-laser-alba",
-    bra: "/epilazione-laser-bra",
-    canale: "/epilazione-laser-canale",
-    racconigi: "/epilazione-laser-racconigi",
-  },
-};
-const nearMeHrefOverrides = nearMeHrefOverridesMap[service.slug] ?? {};
 
 const tocItems = [
   { id: "benefici", label: "Obiettivi" },
@@ -527,16 +472,7 @@ const tocItems = [
     cta={{ label: "Contattaci", href: "/contatti" }}
   />
 
-  {showNearMe ? (
-    <NearMeBlock
-      serviceLabel={nearMeLabel}
-      kicker={`${nearMeLabel} vicino a te`}
-      anchorPattern={(s, c) => `${s} a ${c}`}
-      clusters={["asse-carmagnola", "torino-sud", "cuneo"]}
-      limit={14}
-      hrefOverrides={nearMeHrefOverrides}
-    />
-  ) : null}
+  <ServiceAreaDiscovery />
 
   <StickyBookingBar
     priceHint={service.category === "laser" ? laserOffer.stickyLabel : displayPrice}

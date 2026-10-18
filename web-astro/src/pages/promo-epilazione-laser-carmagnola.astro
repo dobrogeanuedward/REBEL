@@ -1,200 +1,126 @@
 ---
-import LaserCampaignLinks from "@/components/LaserCampaignLinks.astro";
-import SplitFeature from "@/components/SplitFeature.astro";
-import { buildLaserCampaignSchema, campaignWhatsApp } from "@/lib/laser-campaign";
-import "@/styles/laser-campaign.css";
-import LaserCampaignFilm from "@/components/LaserCampaignFilm.astro";
 import LandingLayout from "@/layouts/LandingLayout.astro";
-import LandingHero from "@/components/landing/LandingHero.astro";
-import LandingProof from "@/components/landing/LandingProof.astro";
-import LandingSteps from "@/components/landing/LandingSteps.astro";
+import LaserCampaignFilm from "@/components/LaserCampaignFilm.astro";
+import PromoLaserPlanner from "@/components/PromoLaserPlanner.astro";
 import LandingFaq from "@/components/landing/LandingFaq.astro";
 import LandingFormCard from "@/components/landing/LandingFormCard.astro";
-import FullBleedBand from "@/components/FullBleedBand.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import { createPageMeta, buildBreadcrumbSchema } from "@/lib/seo";
-import { media } from "@/lib/page-media";
+import { buildLaserCampaignSchema, campaignWhatsApp, laserCampaignAreas } from "@/lib/laser-campaign";
 import { laserOffer, laserOfferContactMessage } from "@/lib/laser-offer";
+import { siteConfig } from "@/lib/site-config";
+import "@/styles/laser-promo-premium.css";
 
 const meta = createPageMeta({
-  title: `Promo epilazione laser Carmagnola — ${laserOffer.zone.price} a zona | REBEL`,
-  description:
-    `Promo epilazione laser REBEL a Carmagnola: ${laserOffer.zone.price} per zona, per seduta, e Total Body ${laserOffer.totalBody.price} per ${laserOffer.totalBody.detail}, per seduta. Lumina X1 Pro con ICE Polar.`,
+  title: `Laser ${laserOffer.zone.price} e Total Body ${laserOffer.totalBody.price} a Carmagnola | REBEL`,
+  description: `Laser a Carmagnola: ${laserOffer.zone.price} a zona o Total Body ${laserOffer.totalBody.price} per ${laserOffer.totalBody.detail}, a seduta. Arrivi da Torino o dai comuni vicini? Scopri la promo REBEL.`,
   path: laserOffer.landingPath,
-  keywords: [
-    "promo epilazione laser Carmagnola",
-    "offerta laser Carmagnola",
-    "promo laser zona Carmagnola",
-    "total body laser Carmagnola",
-    "ICE Polar Carmagnola",
-  ],
+  keywords: ["promo epilazione laser Carmagnola", "laser total body prezzi", "offerta laser Torino", "epilazione laser Carmagnola prezzi"],
   indexable: true,
-  image: media.laser.hero.src,
+  image: "/img/catalogo/laser-gamba-rebel.webp",
 });
-
 const breadcrumb = buildBreadcrumbSchema([
   { name: "Home", path: "/" },
   { name: "Promo epilazione laser", path: laserOffer.landingPath },
 ]);
-
 const serviceSchema = buildLaserCampaignSchema(laserOffer.landingPath);
-
+const number = (amount: number, decimals: number) => new Intl.NumberFormat("it-IT", {
+  minimumFractionDigits: decimals, maximumFractionDigits: decimals,
+}).format(amount);
+const torinoDirections = `https://www.google.com/maps/dir/?api=1&origin=Torino&destination=${encodeURIComponent(`${siteConfig.address.streetAddress}, ${siteConfig.address.postalCode} ${siteConfig.address.locality} TO`)}&travelmode=driving`;
+const nearby = laserCampaignAreas.filter(area => area.cluster === "asse-carmagnola" && area.slug !== "carmagnola");
+const torinoSouth = laserCampaignAreas.filter(area => area.cluster === "torino-sud");
+const further = laserCampaignAreas.filter(area => area.cluster === "cuneo");
 const faqs = [
-  {
-    q: "Quali sono i prezzi della promo laser?",
-    a: `La promo prevede ${laserOffer.zone.price} per zona, per seduta, oppure Total Body a ${laserOffer.totalBody.price} per ${laserOffer.totalBody.detail}, per seduta. ${laserOffer.validity.label}`,
-  },
-  {
-    q: "Quali zone comprende il Total Body?",
-    a: `Il Total Body comprende ${laserOffer.totalBody.detail} per seduta. Le zone da trattare vengono concordate e confermate prima di iniziare, in base alle tue esigenze e a quanto emerge dalla valutazione iniziale.`,
-  },
-  {
-    q: "Come vengono conteggiate le zone?",
-    a: laserOffer.zoneCounting.note,
-  },
-  {
-    q: "La promo sostituisce il listino ordinario?",
-    a: "No. È un’offerta separata dal listino ordinario del Percorso Libertà. Prima di iniziare ti confermiamo zone, calendario, condizioni della promo e prezzo.",
-  },
-  {
-    q: "Quando posso usare PagoDIL?",
-    a: laserOffer.financing.faq,
-  },
-  {
-    q: "Come capisco se l’epilazione laser è adatta a me?",
-    a: "Durante la valutazione iniziale osserviamo pelle, fototipo, caratteristiche del pelo e zone. Ti spieghiamo come impostare parametri e calendario prima della prima seduta.",
-  },
-  {
-    q: "Quante sedute servono?",
-    a: "Il numero varia in base alla zona, alla pelle, alle caratteristiche del pelo e all’andamento osservato durante il percorso. Dopo la valutazione ti diamo una prima indicazione e la aggiorniamo durante i controlli.",
-  },
-  {
-    q: "A cosa serve ICE Polar?",
-    a: "ICE Polar raffredda la pelle a contatto durante la seduta con Lumina X1 Pro. La sensazione può cambiare da persona a persona: durante il trattamento ti chiediamo come stai e adattiamo i parametri se necessario.",
-  },
+  { q: `Cosa comprende il prezzo di ${laserOffer.zone.price}?`, a: `Il prezzo è per una zona e per una singola seduta di epilazione laser. Le zone da trattare e il loro conteggio vengono confermati prima di prenotare. ${laserOffer.zoneCounting.note}` },
+  { q: `Il Total Body da ${laserOffer.totalBody.price} è un percorso completo?`, a: `Il Total Body comprende ${laserOffer.totalBody.detail} in una singola seduta. Non indica un intero ciclo di trattamenti: le sedute e gli intervalli vengono definiti dopo la valutazione. Le zone sono concordate e confermate prima di iniziare.` },
+  { q: "Posso scegliere le zone del Total Body?", a: `Scegliamo insieme le zone durante la valutazione, in base a pelle, caratteristiche del pelo e aree che desideri trattare. La formula comprende ${laserOffer.totalBody.detail} per seduta. L’inguine conta come 2 zone.` },
+  { q: "La valutazione iniziale è gratuita?", a: "La valutazione REBEL dura 30–40 minuti ed è gratuita se inizi il Percorso Libertà. Prima di confermare l’appuntamento ti spieghiamo le condizioni. Durante l’incontro osserviamo pelle, pelo e zone e definiamo il possibile percorso." },
+  { q: "Cerco un’offerta laser a Torino: dove si trova REBEL?", a: "Lo studio REBEL si trova a Carmagnola, in Viale Barbaroux 20. Se arrivi da Torino, Moncalieri, Nichelino o da un altro comune, concordiamo prima l’appuntamento. Usa le indicazioni Google Maps per controllare il tragitto e il traffico al momento della partenza." },
+  { q: "Quante sedute servono e che risultati posso aspettarmi?", a: "Dipende dalla zona, dalla pelle, dalle caratteristiche del pelo e dall’andamento del trattamento. Durante la valutazione ti diamo una prima indicazione, che aggiorniamo nei controlli. Non fissiamo un numero di sedute o un risultato uguale per tutte le persone." },
+  { q: "Come funziona il raffreddamento ICE Polar?", a: "ICE Polar raffredda la pelle a contatto durante la seduta con Lumina X1 Pro di THORY. La sensazione varia da persona a persona: ti chiediamo come stai e adattiamo i parametri quando necessario." },
+  { q: "Fino a quando è attiva la promozione?", a: `${laserOffer.validity.label} È separata dal listino ordinario del Percorso Libertà. Prima di iniziare ti confermiamo disponibilità, zone, calendario e condizioni della promo.` },
 ];
-
 const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.q,
-    acceptedAnswer: { "@type": "Answer", text: faq.a },
-  })),
+  "@context": "https://schema.org", "@type": "FAQPage",
+  mainEntity: faqs.map(faq => ({ "@type": "Question", name: faq.q, acceptedAnswer: { "@type": "Answer", text: faq.a } })),
 };
 ---
-<LandingLayout
-  meta={meta}
-  bodyClass="page-landing--laser page-landing--laser-offer"
-  ctaHref="#form"
-  ctaLabel="Richiedi la promo"
->
+<LandingLayout meta={meta} bodyClass="page-landing--laser page-landing--laser-offer laser-promo-premium" ctaHref="#scegli-la-promo" ctaLabel="Scegli la tua promo">
   <JsonLd data={breadcrumb} />
   <JsonLd data={serviceSchema} />
   <JsonLd data={faqSchema} />
 
-  <LandingHero
-    media={media.laser.hero}
-    badge={`${laserOffer.campaignLabel} · ${laserOffer.discount.value}`}
-    kicker="REBEL · Carmagnola"
-    title={`Laser a ${laserOffer.zone.price} a zona. Full body _${laserOffer.totalBody.price}._`}
-    lead="Lumina X1 Pro di THORY con raffreddamento a contatto ICE Polar. Prima di iniziare valutiamo pelle, pelo e zone e definiamo insieme il percorso."
-    bullets={[
-      { text: `${laserOffer.zone.price} per zona, per seduta.` },
-      { text: `${laserOffer.totalBody.label} ${laserOffer.totalBody.price} · ${laserOffer.totalBody.detail} a seduta.` },
-      { text: laserOffer.zoneCounting.shortNote },
-      { text: "Valutazione iniziale di 30–40 minuti, gratuita se inizi il Percorso Libertà." },
-      { text: `Percorso completo personalizzato dilazionabile con ${laserOffer.financing.provider} fino a ${laserOffer.financing.maxInstallments} rate.` },
-    ]}
-    primaryCta={{ label: "Richiedi la promo", href: "#form" }}
-    secondaryCta={{ label: "Chiedi su WhatsApp", href: campaignWhatsApp(laserOfferContactMessage), external: true }}
-    footnote={`${laserOffer.validity.label} ${laserOffer.financing.provider}: servizio soggetto all’approvazione di ${laserOffer.financing.lender}. Zone e condizioni vengono confermate prima di iniziare.`}
-  />
+  <section class="lp-hero" aria-labelledby="lp-title">
+    <div class="lp-shell lp-hero__grid">
+      <div class="lp-hero__copy">
+        <p class="lp-kicker"><span aria-hidden="true"></span> REBEL · Carmagnola</p>
+        <h1 id="lp-title">Epilazione laser.<br /><em>La tua libertà.</em></h1>
+        <p class="lp-hero__lead">Un’offerta da cui partire.<br />Un percorso da costruire su di te.</p>
+        <dl class="lp-hero__prices" aria-label="Prezzi della promozione laser">
+          <div><dt>{laserOffer.zone.label} <span>· {laserOffer.zone.sessionLabel}</span></dt><dd><strong>{number(laserOffer.zone.amount, 2)}<span>€</span></strong><small>per zona, per seduta</small></dd></div>
+          <div><dt>{laserOffer.totalBody.label} <span>· {laserOffer.totalBody.detail}</span></dt><dd><strong>{number(laserOffer.totalBody.amount, 0)}<span>€</span></strong><small>{laserOffer.totalBody.detail}, per seduta</small></dd></div>
+        </dl>
+        <p class="lp-hero__count">{laserOffer.zoneCounting.shortNote}</p>
+        <div class="lp-actions"><a class="lp-button lp-button--light" href="#scegli-la-promo">Scegli la tua promo <span aria-hidden="true">↗</span></a><a class="lp-text-link" href="#come-arrivare">Arrivi da Torino o dai dintorni? <span aria-hidden="true">↓</span></a></div>
+        <p class="lp-hero__validity">{laserOffer.validity.label} Zone e condizioni confermate prima di iniziare.</p>
+      </div>
+      <figure class="lp-hero__photo">
+        <img src="/img/catalogo/laser-gamba-rebel.webp" srcset="/img/catalogo/laser-gamba-rebel-480.webp 480w, /img/catalogo/laser-gamba-rebel.webp 1440w" sizes="(max-width: 800px) 100vw, 52vw" alt="Dettaglio del manipolo laser a contatto con la gamba durante un trattamento REBEL" width="1440" height="810" loading="eager" fetchpriority="high" decoding="async" />
+        <div class="lp-hero__photo-shade" aria-hidden="true"></div>
+        <figcaption><span>Il trattamento, da vicino.</span><strong>Lumina X1 Pro <i>con ICE Polar</i></strong></figcaption>
+        <a href="#laser-in-studio" class="lp-hero__film-link"><span aria-hidden="true">▶</span> Guarda il film REBEL</a>
+      </figure>
+    </div>
+    <div class="lp-hero__signature" aria-hidden="true">BE BEAUTIFUL. BE REBEL.</div>
+  </section>
 
-  <LaserCampaignFilm />
+  <nav class="lp-jumpnav" aria-label="Esplora la promozione"><div class="lp-shell"><a href="#la-formula">01 <span>La formula</span></a><a href="#laser-in-studio">02 <span>Il trattamento</span></a><a href="#come-arrivare">03 <span>Torino e dintorni</span></a><a href="#scegli-la-promo">04 <span>Disponibilità</span></a></div></nav>
 
-  <LandingProof
-    kicker="Cosa comprende l’offerta"
-    items={[
-      {
-        title: `${laserOffer.zone.price} per zona`,
-        body: `Il prezzo promozionale riguarda una singola zona per seduta. ${laserOffer.zoneCounting.note}`,
-      },
-      {
-        title: `Total Body ${laserOffer.totalBody.price}`,
-        body: `La formula Total Body comprende ${laserOffer.totalBody.detail} per seduta, definite e confermate prima di iniziare.`,
-      },
-      {
-        title: "Comfort ICE Polar",
-        body: "Il raffreddamento a contatto accompagna la seduta. Ti chiediamo come lo percepisci e adattiamo i parametri quando serve.",
-      },
-      {
-        title: "Percorso personalizzato",
-        body: "Numero di sedute, intervalli e parametri vengono definiti in base a pelle, pelo, zone e andamento osservato.",
-      },
-    ]}
-  />
-
-  <section class="section">
-    <div class="container">
-      <SplitFeature image={media.laser.handpiece} side="right" kicker="Meno ricrescita, più libertà"
-        title="Il laser incontra il _freddo_."
-        body="Lumina X1 Pro di THORY e ICE Polar: il manipolo raffredda la pelle a contatto durante la seduta. Pelle, pelo e zone guidano la scelta dei parametri e il calendario del tuo percorso."
-        bullets={["Viso e corpo: scegli le zone durante la valutazione", "Raffreddamento a contatto per accompagnare il trattamento", "Prezzo e numero di zone confermati prima di iniziare"]}
-        cta={{ label: "Scopri la tecnologia ICE Polar", href: "/epilazione-laser-ice-polar-carmagnola" }} />
-      <LaserCampaignLinks current={laserOffer.landingPath} />
+  <section class="lp-formula lp-section" id="la-formula" aria-labelledby="lp-formula-title">
+    <div class="lp-shell">
+      <div class="lp-section-heading"><div><p class="lp-kicker">01 / La formula</p><h2 id="lp-formula-title">Il prezzo è chiaro.<br /><em>Il percorso è tuo.</em></h2></div><p>Una zona o Total Body: scegli da dove iniziare. Prima della seduta concordiamo le aree da trattare e il loro conteggio.</p></div>
+      <div class="lp-formula__rows">
+        <article class="lp-formula__row"><div class="lp-formula__name"><span class="lp-index">01</span><h3>Una zona.<br /><em>Un inizio.</em></h3></div><div class="lp-formula__description"><p>Per concentrarti su un’area specifica del viso o del corpo, dopo la valutazione iniziale.</p><span>1 zona · 1 seduta</span></div><div class="lp-formula__price"><strong>{laserOffer.zone.price}</strong><span>per zona, per seduta</span></div></article>
+        <article class="lp-formula__row lp-formula__row--total" id="total-body"><div class="lp-formula__name"><span class="lp-index">02</span><h3>Total Body.<br /><em>La tua selezione.</em></h3></div><div class="lp-formula__description"><p>Una formula con {laserOffer.totalBody.detail} da concordare insieme. Il prezzo si riferisce a una singola seduta.</p><span>{laserOffer.totalBody.detail} · 1 seduta</span></div><div class="lp-formula__price"><strong>{laserOffer.totalBody.price}</strong><span>{laserOffer.totalBody.detail}, per seduta</span></div></article>
+      </div>
+      <div class="lp-formula__note"><span class="lp-note-mark" aria-hidden="true">i</span><p><strong>Prima contiamo le zone, insieme.</strong> {laserOffer.zoneCounting.note} Il Total Body è una seduta da {laserOffer.totalBody.detail}; il numero di sedute del percorso dipende dalla valutazione e dai controlli.</p></div>
     </div>
   </section>
 
-  <LandingSteps
-    kicker="Come iniziare"
-    title="Dalla richiesta al tuo percorso laser."
-    steps={[
-      {
-        title: "Richiedi la promo",
-        body: "Lascia nome e numero e, se vuoi, indica già le zone che ti interessano.",
-      },
-      {
-        title: "Concordiamo la valutazione",
-        body: "Ti contattiamo su WhatsApp o al telefono per scegliere un orario disponibile.",
-      },
-      {
-        title: "Valutiamo pelle, pelo e zone",
-        body: "In 30–40 minuti verifichiamo se il trattamento può essere indicato e definiamo parametri iniziali, calendario e prezzo.",
-      },
-      {
-        title: "Scegli come iniziare",
-        body: `Ti confermiamo la promo. Se attivi il percorso completo personalizzato, puoi richiedere ${laserOffer.financing.provider} e scegliere il numero di rate disponibile per l’importo.`,
-      },
-    ]}
-  />
+  <div id="laser-in-studio" class="lp-film-wrap"><LaserCampaignFilm /></div>
 
-  <FullBleedBand
-    image={media.laser.mood}
-    height="sm"
-    align="center"
-    kicker="Lumina X1 Pro · ICE Polar"
-    quote="Prima definiamo zone, parametri e calendario. Poi inizia il percorso."
-    cite="Studio REBEL · Viale Barbaroux 20"
-  />
-
-  <LandingFormCard
-    kicker="Promo epilazione laser"
-    title="Richiedi la promo."
-    lead="Bastano nome e numero. Se vuoi, indica già le zone che vorresti trattare: ti ricontattiamo per fissare la valutazione iniziale."
-    source="landing-laser-offer"
-    defaultMessage={laserOfferContactMessage}
-    submitLabel="Richiedi la promo"
-    showRitual={false}
-    showMessage={true}
-  />
-
-  <section class="section"><div class="container">
-    <p class="eyebrow">Dove fare il laser in promozione</p>
-    <h2>Ti aspettiamo a Carmagnola.</h2>
-    <p>REBEL è in Viale Barbaroux 20, Carmagnola (TO). Puoi raggiungerci da Carignano, Racconigi, Poirino, Villastellone, Sommariva del Bosco e Torino sud. Concordiamo l’appuntamento prima della partenza.</p>
-    <a class="btn btn--secondary" href={laserOffer.territoryPath}>Località e indicazioni per arrivare</a>
+  <section class="lp-treatment lp-section" aria-labelledby="lp-treatment-title"><div class="lp-shell lp-treatment__grid">
+    <div class="lp-treatment__intro"><p class="lp-kicker">02 / Tecnologia e attenzione</p><h2 id="lp-treatment-title">Il laser.<br />Il freddo.<br /><em>La tua pelle.</em></h2><a class="lp-text-link" href="/epilazione-laser-ice-polar-carmagnola">Conosci Lumina X1 Pro e ICE Polar <span aria-hidden="true">↗</span></a></div>
+    <div class="lp-treatment__details">
+      <article><span class="lp-index">01</span><div><h3>Partiamo da te.</h3><p>Fototipo, caratteristiche del pelo e zone guidano la scelta dei parametri. Durante la valutazione parliamo delle tue abitudini e di ciò che desideri trattare.</p></div></article>
+      <article><span class="lp-index">02</span><div><h3>Il contatto con ICE Polar.</h3><p>Il raffreddamento a contatto accompagna il trattamento con Lumina X1 Pro di THORY. Ti chiediamo come percepisci la seduta e adattiamo i parametri quando serve.</p></div></article>
+      <article><span class="lp-index">03</span><div><h3>Un calendario, poi i controlli.</h3><p>Numero di sedute e intervalli dipendono dalla persona e dalle zone. Li definiamo dopo la valutazione e li aggiorniamo in base all’andamento del percorso.</p></div></article>
+      <a class="lp-text-link" href="/epilazione-laser-carmagnola">Approfondisci il percorso di epilazione laser <span aria-hidden="true">↗</span></a>
+    </div>
   </div></section>
-  <LandingFaq items={faqs} />
+
+  <section class="lp-arrival lp-section" id="come-arrivare" aria-labelledby="lp-arrival-title"><div class="lp-shell">
+    <div class="lp-arrival__grid">
+      <figure class="lp-arrival__photo"><picture><source media="(max-width: 600px)" srcset="/img/rebel-r2/rebel/studio/real-exterior-mobile.webp" /><img src="/img/rebel-r2/rebel/studio/real-exterior-desktop.webp" alt="L’ingresso dello studio REBEL in Viale Barbaroux 20 a Carmagnola" width="1672" height="941" loading="lazy" decoding="async" /></picture><figcaption>Ci trovi qui. <span>Viale Barbaroux 20 · Carmagnola</span></figcaption></figure>
+      <div class="lp-arrival__copy"><p class="lp-kicker">03 / La tua destinazione: REBEL</p><h2 id="lp-arrival-title">Arrivi da Torino?<br /><em>Ti aspettiamo<br />a Carmagnola.</em></h2><p>Se cerchi una promo laser da Torino o dai comuni vicini, puoi scegliere REBEL a Carmagnola. Il trattamento si svolge nel nostro studio in <strong>Viale Barbaroux 20</strong>.</p><p>Concordiamo prima la valutazione e l’orario. Su Google Maps puoi controllare il percorso dal tuo punto di partenza e il traffico aggiornato.</p><div class="lp-actions"><a class="lp-button lp-button--plum" href={torinoDirections} target="_blank" rel="noreferrer">Indicazioni da Torino <span aria-hidden="true">↗</span></a><a class="lp-text-link" href={siteConfig.social.maps} target="_blank" rel="noreferrer">Apri lo studio su Maps</a></div></div>
+    </div>
+    <div class="lp-localities">
+      <div class="lp-localities__intro"><p class="lp-kicker">Da vicino. Anche da più lontano.</p><h3>Carmagnola e<br /><em>il tuo comune.</em></h3><p>La stessa promozione, nello studio REBEL di Carmagnola. Scegli la tua località per le informazioni utili prima di partire.</p></div>
+      <div class="lp-localities__groups">
+        <div><h4>Intorno a Carmagnola</h4><ul>{nearby.map(area => <li><a href={`/localita/${area.slug}`}>{area.city}</a></li>)}</ul></div>
+        <div><h4>Torino e l’area sud</h4><ul>{torinoSouth.map(area => <li><a href={`/localita/${area.slug}`}>{area.city}</a></li>)}</ul></div>
+        <div><h4>Verso Cuneo e il Roero</h4><ul>{further.map(area => <li><a href={`/localita/${area.slug}`}>{area.city}</a></li>)}</ul></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="lp-start lp-section" id="scegli-la-promo" aria-labelledby="lp-start-title"><div class="lp-shell lp-start__grid">
+    <div class="lp-start__intro"><p class="lp-kicker">04 / Il primo passo</p><h2 id="lp-start-title">Da dove arrivi.<br /><em>Da cosa inizi.</em></h2><p>Scegli il tuo comune e la formula che ti interessa. Prepariamo un messaggio per chiedere disponibilità su WhatsApp.</p><ol class="lp-start__steps"><li><span>1</span><div><strong>Ci scrivi.</strong><p>Ci dici da dove arrivi e quali zone vorresti trattare.</p></div></li><li><span>2</span><div><strong>Concordiamo la valutazione.</strong><p>Un incontro di 30–40 minuti, gratuito se inizi il Percorso Libertà.</p></div></li><li><span>3</span><div><strong>Definiamo come iniziare.</strong><p>Ti confermiamo conteggio delle zone, prezzo e calendario prima della prima seduta.</p></div></li></ol></div>
+    <PromoLaserPlanner />
+  </div></section>
+
+  <div class="lp-contact-wrap"><LandingFormCard kicker="Preferisci essere ricontattata o ricontattato?" title="Lasciaci il tuo contatto." lead="Indica nome e numero. Se vuoi, aggiungi il comune da cui arrivi e le zone che ti interessano: ti ricontattiamo per concordare la valutazione." source="landing-laser-offer" defaultMessage={laserOfferContactMessage} submitLabel="Richiedi un contatto" showRitual={false} showMessage={true} /><p class="lp-contact-alternative">Puoi anche chiamarci: <a href={`tel:${siteConfig.phoneRaw}`}>{siteConfig.phoneDisplay}</a></p></div>
+  <LandingFaq kicker="Prima di scegliere" title="Le domande, prima della seduta." items={faqs} />
+  <section class="lp-closing" aria-labelledby="lp-closing-title"><div class="lp-shell"><p class="lp-kicker">REBEL · Estetica epigenetica</p><h2 id="lp-closing-title">La libertà comincia<br /><em>con una scelta tua.</em></h2><a class="lp-button lp-button--light" href={campaignWhatsApp(laserOfferContactMessage)} target="_blank" rel="noreferrer">Chiedi la promo su WhatsApp <span aria-hidden="true">↗</span></a><p>{siteConfig.address.streetAddress} · {siteConfig.address.locality}</p></div></section>
 </LandingLayout>
