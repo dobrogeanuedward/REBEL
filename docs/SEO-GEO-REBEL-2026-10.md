@@ -38,25 +38,25 @@ Per la promozione laser a 5,90 € per zona e 59 € Total Body, il punto di ing
 - “massaggio rilassante Carmagnola”, durata e prenotazione → `/servizi/massaggio-rilassante-carmagnola`.
 - “laminazione ciglia Carmagnola”, “laminazione sopracciglia Carmagnola”, combinata → `/servizi/laminazione-ciglia-sopracciglia-carmagnola`, con varianti nella stessa destinazione.
 - “manicure Carmagnola”, “semipermanente mani Carmagnola”, rimozione e opzioni → `/servizi/manicure-semipermanente-carmagnola`.
-- “pedicure VIP con scrub Carmagnola” → `/servizi/pedicure-carmagnola`.
+- “pedicure Carmagnola”, confronto delle cinque proposte e “pedicure VIP con scrub Carmagnola” → `/servizi/pedicure-carmagnola`. Il VIP mantiene un dettaglio riconoscibile nella pagina generale.
 - “pedicure estetico Carmagnola” → `/servizi/pedicure-estetico-carmagnola`.
 - “pedicure con smalto Carmagnola” → `/servizi/pedicure-estetico-con-smalto-carmagnola`.
 - “pedicure semipermanente Carmagnola” → `/servizi/pedicure-semipermanente-carmagnola`.
 - “taglio unghie piedi Carmagnola” → `/servizi/taglio-unghie-piedi-carmagnola`.
-- Le quattro pagine laser viso/corpo, donna/uomo sono mappate nella sezione precedente. In totale le pagine servizio attuali sono 15.
+- “ceretta Carmagnola”, ceretta donna/uomo, zone e varianti → `/servizi/ceretta-carmagnola`.
+- Le quattro pagine laser viso/corpo, donna/uomo sono mappate nella sezione precedente. Le pagine servizio approfondite sono ora 16; con i quattro hub commerciali seguenti, le destinazioni commerciali sotto `/servizi/` sono 20.
 
-Il termine generico “pedicure Carmagnola” deve essere verificato in Search Console: l’attuale `/servizi/pedicure-carmagnola` è dedicata alla variante VIP. Non si unificano automaticamente le altre quattro varianti; il menu permette già il confronto nello stesso luogo, `/listino-estetica-laser#piedi`.
+Il proprietario della ricerca generica “pedicure Carmagnola” è stato riposizionato dopo la lettura di Search Console: `/servizi/pedicure-carmagnola` confronta estetico, VIP con scrub, solo taglio, smalto e semipermanente. Le altre quattro pagine mantengono il proprio intento e URL; in particolare il semipermanente conserva la domanda già osservata. Per smalto e semipermanente piedi non sono mostrati prezzi né diciture “da confermare”, come richiesto dall’utente. Il confronto del listino resta disponibile a `/listino-estetica-laser#piedi`.
 
-### Categorie del catalogo prive di pagina autonoma
+### Hub commerciali e rapporto con il catalogo
 
-- “trattamenti viso Carmagnola”, confronto dei singoli trattamenti → `/listino-estetica-laser#viso`; percorsi coordinati → `/percorsi#glow` e `/percorsi#longevity`.
-- “trattamenti corpo Carmagnola”, radiofrequenza corpo, vacuum e altre singole proposte → `/listino-estetica-laser#corpo`. Percorso personalizzato → `/percorsi/forma`.
-- “ceretta donna Carmagnola”, “ceretta inguine/gambe”, “cera brasiliana Carmagnola” → `/listino-estetica-laser#ceretta-donna` e ancore dei relativi trattamenti.
-- “ceretta uomo Carmagnola”, schiena, petto e addome → `/listino-estetica-laser#ceretta-uomo`.
-- “pressomassaggio Carmagnola”, “pressomassaggio e bendaggi” → `/listino-estetica-laser#pressomassaggio`. La guida su modalità e frequenza mantiene intento informativo.
-- Massaggi diversi dai due servizi principali, manicure semplice e altri trattamenti → ancore reali del listino, riportate nell’appendice. Non si inventano URL né si creano pagine corte per ogni voce.
+- “trattamenti viso Carmagnola”, confronto e scelta delle proposte → `/servizi/trattamenti-viso-carmagnola`; le tariffe rimangono nel catalogo `/listino-estetica-laser#viso`. I percorsi viso sono raggiungibili da `/percorsi#viso` e dalle pagine dei singoli percorsi.
+- “trattamenti corpo Carmagnola”, scelta tra le proposte del centro → `/servizi/trattamenti-corpo-carmagnola`; confronto delle singole voci → `/listino-estetica-laser#corpo`. Percorso personalizzato → `/percorsi/forma`.
+- “ceretta donna Carmagnola”, “ceretta inguine/gambe”, “cera brasiliana Carmagnola” e “ceretta uomo Carmagnola” → `/servizi/ceretta-carmagnola`. Il confronto puntuale resta nelle sezioni `/listino-estetica-laser#ceretta-donna` e `#ceretta-uomo` e nelle ancore dei trattamenti.
+- “pressomassaggio Carmagnola”, proposte e abbinamento con bendaggi → `/servizi/pressomassaggio-carmagnola`; tariffe → `/listino-estetica-laser#pressomassaggio`.
+- “massaggi Carmagnola”, confronto fra diverse manualità e richieste → `/servizi/massaggi-carmagnola`; rilassante e linfodrenante conservano i propri approfondimenti. Le singole voci del menu hanno le ancore riportate nell’appendice.
 
-Una futura pagina sulla ceretta può essere utile perché il menu contiene proposte, varianti e prezzi. Prima di crearla si raccolgono preparazione, durata, modalità e differenze reali: la sua query principale sarebbe “ceretta Carmagnola”; il listino continuerebbe a presidiare il confronto dei prezzi. Questa pagina non è stata creata nel presente intervento.
+La pagina ceretta e i quattro hub sono implementati nel sito con contenuti di scelta, collegamenti al catalogo e richieste di appuntamento contestuali. Le guide esistenti su viso, corpo e pressomassaggio sono state riorientate a scelta, preparazione e precauzioni, mantenendo gli URL e collegando i proprietari commerciali. Non sono state create pagine servizio × comune.
 
 ### I nove percorsi e i sei protocolli
 
@@ -82,7 +82,7 @@ Le query generiche legate a luminosità, comfort, tono e cura della pelle si dis
 
 ## Copertura territoriale senza matrice servizio × comune
 
-Tutti i servizi rimangono riferiti alla sede reale di Carmagnola. Il modulo condiviso `ServiceAreaDiscovery` collega le pagine servizio a indicazioni concrete; l’hub `/servizi` rende accessibili tutte le categorie del menu.
+Tutti i servizi rimangono riferiti alla sede reale di Carmagnola. Il modulo condiviso `ServiceAreaDiscovery` collega le pagine servizio a indicazioni concrete; l’hub `/servizi` rende accessibili tutte le categorie del menu. Le utilità coprono 30 origini, organizzate nei tre gruppi seguenti.
 
 - Carmagnola e comuni vicini: Carmagnola, Lombriasco, Caramagna Piemonte, Osasio, Casalgrasso, Carignano, Racconigi, Sommariva del Bosco, Poirino, Villastellone, Pancalieri, Virle Piemonte e Pralormo.
 - Torino e Torino Sud: Torino, l’area Torino Sud, Moncalieri, Nichelino, Vinovo, La Loggia, Trofarello, Chieri e Orbassano.
@@ -90,7 +90,7 @@ Tutti i servizi rimangono riferiti alla sede reale di Carmagnola. Il modulo cond
 
 Per ogni località, `/localita/<comune>` serve all’intento “da questo comune allo studio REBEL”. Title, H1 e testo dichiarano la destinazione a Carmagnola; non fingono una sede locale. Torino dispone di indicazioni auto e trasporto pubblico con partenza modificabile. Tempi, fermate e disponibilità non vengono inventati.
 
-Le pagine locali preesistenti restano indicizzabili in attesa dell’analisi dettagliata query/pagina e dei contatti generati. La baseline Search Console acquisita durante il lavoro non giustifica una deindicizzazione in blocco. La nuova `/localita/torino` è una pagina di utilità `noindex,follow`, esclusa dalla sitemap; la query commerciale Torino è assegnata alla landing promozionale. La presenza geografica non si estende tramite sedi fittizie, indirizzi duplicati o promesse di posizionamento nel raggio di 30 km.
+Le 30 utilità `/localita/` mantengono la funzione di orientamento e viaggio. La nuova `/localita/torino` è `noindex,follow` ed esclusa dalla sitemap; la query commerciale Torino è assegnata alla landing promozionale. Le 28 vecchie pagine autonome servizio × comune per Alba, Bra, Canale e Racconigi sono invece consolidate con 301 diretti nei sette proprietari di servizio, dopo il confronto fra contenuti e storico Search Console disponibile. La presenza geografica non si estende tramite sedi fittizie, indirizzi duplicati o promesse di posizionamento nel raggio di 30 km.
 
 ## Anticannibalizzazione implementata nel sito
 
@@ -100,22 +100,23 @@ Le pagine locali preesistenti restano indicizzabili in attesa dell’analisi det
 - Gli anchor promozionali puntano alla stessa landing; prezzo e condizioni commerciali derivano dalla fonte condivisa `laser-offer.ts`.
 - Sulle utility locali, il riquadro promozionale completo replicato è sostituito da un collegamento contestuale alla landing: le FAQ di viaggio non ricopiano il listino promo.
 - Rimosso il sistema di link servizio × comune dal template servizio; il modulo di territorio condiviso collega l’unica sede, le indicazioni e gli hub.
-- `/servizi` collega tutte le 10 categorie del catalogo, comprese ceretta donna/uomo, pressomassaggio, viso e corpo, oltre ai 15 approfondimenti servizio.
+- `/servizi` collega tutte le 10 categorie del catalogo, comprese ceretta donna/uomo, pressomassaggio, viso e corpo, e le 20 destinazioni commerciali di servizio e categoria.
 - L’hub `/localita` usa tre gruppi di provenienza e informazioni pratiche sulla visita, con FAQ visibili allineate ai dati strutturati.
 - Canonical, sitemap, schema e collegamenti interni seguono le destinazioni condivise. I contenuti di utilità esclusi dall’indice rimangono raggiungibili dagli utenti.
-- Il registro condiviso `search-intents.ts` governa i cinque consolidamenti, le relative esclusioni dalla sitemap e il nuovo URL Torino. I cataloghi pubblici delle guide vengono filtrati alla fonte e i collegamenti correlati risolti alla destinazione corrente. Eliminato il `lastmod` che cambiava a ogni build senza un reale aggiornamento editoriale.
+- Il registro condiviso `search-intents.ts` governa 45 redirect permanenti approvati: 28 consolidamenti territoriali e 17 altri consolidamenti, con la stessa policy di esclusione per sitemap editoriale, immagini e generata. I cataloghi pubblici delle guide vengono filtrati alla fonte e i collegamenti correlati risolti alla destinazione corrente. Eliminato il `lastmod` che cambiava a ogni build senza un reale aggiornamento editoriale.
+- Manicure e pedicure colore includono fotografie ufficiali RBL Nails, campioni con nomi e codici reali e riferimenti alle dichiarazioni della linea gel. Gli asset ufficiali sono ospitati in locale con provenienza registrata; vegan, HEMA free e TPO free non sono trasformati in promesse di assenza di reazioni o attribuiti automaticamente allo smalto tradizionale.
 
-## Audit da completare con Search Console
+## Decisioni da monitorare dopo la pubblicazione
 
-Le pagine di servizio dedicate ad Alba, Bra, Canale e Racconigi sono preesistenti. Non sono state moltiplicate. Senza un’analisi delle singole query non è corretto dichiararle tutte inutili né disattivarle in blocco. La prima lettura di Search Console è stata possibile durante il lavoro; per le decisioni sui cloni occorre comunque esportare i dati query/pagina, separando brand e non brand, dispositivo e Italia, preferibilmente su 12–16 mesi.
+L’audit della fase ha confrontato le 28 pagine territoriali con lo storico Search Console disponibile: selezione 16 mesi, storico effettivo 10 febbraio–16 ottobre 2026. Nel campione di 90 righe pagina, quattro URL territoriali sono osservati con 32 impressioni complessive e zero clic; gli altri 24 non sono osservati, senza dedurne traffico certamente nullo. Il consolidamento è stato approvato insieme alla verifica della sovrapposizione editoriale, senza dichiarare un danno da cannibalizzazione dimostrato. Dati e limiti sono registrati in `docs/audits/seo-geo-completamento-2026-10.md`.
 
-Controllare per prima cosa:
+Dopo la pubblicazione, confrontare periodi coerenti e controllare:
 
-1. Famiglia laser: `/epilazione-laser-ice-polar-carmagnola`, pagina principale laser, guide laser diodo, pagine servizio e 4 pagine laser territoriali. Se più URL competono per la stessa query senza un ruolo distinto, preservare il contenuto utile nella destinazione scelta e applicare un redirect 301 diretto.
-2. Famiglia pulizia viso, manicure, laminazione, massaggi e pedicure: confrontare le pagine Carmagnola con i 4 cloni territoriali per servizio. Una variante locale deve rispondere a una domanda concreta; sostituire il solo comune non basta.
+1. Famiglia laser: differenziazione fra tecnologia ICE Polar, servizio principale, promo e guide; ricezione dei quattro redirect territoriali da parte di Google.
+2. Pulizia viso, manicure, laminazione, massaggi e pedicure: andamento dei proprietari commerciali dopo i 28 consolidamenti e progressiva sostituzione dei vecchi URL nei risultati.
 3. `/localita/<comune>`: verificare query effettivamente navigazionali e utilità per richieste di contatto. Valutare consolidamento nell’hub per pagine prive di domanda distinta. Mantenere accessibile l’eventuale mappa utile.
-4. Varianti pedicure: confrontare query e conversioni prima di creare un nuovo hub o cambiare la destinazione della query generica.
-5. Guide su viso/corpo e percorsi: distinguere domande informative da scelta del trattamento. Aggiornare title e link, poi consolidare soltanto se i dati e il contenuto mostrano sovrapposizione effettiva.
+4. Pedicure: andamento del confronto generico riposizionato e delle quattro varianti conservate, senza attribuire automaticamente il traffico del semipermanente alla formula VIP.
+5. Hub viso/corpo/pressomassaggio/massaggi e pagina ceretta: indicizzazione, query di scelta e prenotazioni. Le guide riorientate mantengono il ruolo informativo; nuovi consolidamenti richiedono evidenze ulteriori.
 
 Due URL che appaiono per la stessa query non dimostrano da soli una cannibalizzazione. Segnali da verificare insieme: alternanza frequente delle destinazioni, clic distribuiti su pagine quasi identiche, contenuti sovrapposti e conversione inferiore rispetto alla destinazione scelta. Non si effettua un cambio di URL solo per inseguire una posizione media.
 
@@ -173,7 +174,7 @@ Dopo la pubblicazione:
 1. Search Console: inviare/verificare la sitemap, ispezionare landing e pagine principali, controllare redirect, canonical scelta da Google e pagine escluse. Registrare il giorno della pubblicazione come riferimento.
 2. Google Business Profile: verificare nome, indirizzo, orari, categorie, servizi e link prenotazione; aggiungere fotografie autentiche e l’offerta laser con sede e condizioni corrette. Nessuna scheda aggiuntiva per i comuni di provenienza.
 3. Conversioni: misurare separatamente clic WhatsApp, telefonate e richieste di appuntamento; registrare la conferma effettiva del modulo solo dopo risposta positiva. Mantenere eventuali strumenti di analisi nei limiti del consenso e della configurazione già autorizzata.
-4. Tra 28 giorni: confronto iniziale con il periodo precedente, annotando stagionalità e campagna. Tra 8–12 settimane: decisioni sui cloni sulla base di query/pagina e richieste effettive; non solo impression.
+4. Tra 28 giorni: confronto iniziale con il periodo precedente, annotando stagionalità e campagna. Tra 8–12 settimane: verifica degli effetti dei consolidamenti e dei nuovi proprietari sulla base di query/pagina e richieste effettive; non solo impression.
 5. Priorità di crescita: laser promozionale; snippet centro estetico e manicure sulla domanda già rilevata; servizi con domanda e capacità di prenotazione; chiarimenti che emergono dai contatti. Nuove pagine solo quando hanno un intento distinto e materiale reale.
 
 KPI: clic non brand sulle destinazioni assegnate, query commerciali che arrivano alla pagina corretta, richieste utili, appuntamenti confermati e quota di pagine con canonical corretta. Per le risposte AI, annotare citazioni osservabili e query testate senza presentare un campione manuale come un dato di mercato. Le posizioni sopra riportate sono quelle del report; non sono stati inventati volumi di mercato o baseline di conversione.

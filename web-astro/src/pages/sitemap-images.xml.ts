@@ -7,6 +7,9 @@ import {
 import { beautyPhotographs, servicePhotography } from "@/lib/beauty-editorial";
 import laminazione from "@/data/laminazione-carousel.json";
 import type { APIRoute } from "astro";
+import { servicePages } from "@/lib/seo-content";
+import { serviceCategories, categoryTreatments } from "@/lib/service-categories";
+import { treatmentPhoto } from "@/lib/catalog-visuals";
 import { journeyCarousels } from "@/lib/journey-carousels";
 import { journeyPhotographs } from "@/lib/journey-photographs";
 import { siteConfig } from "@/lib/site-config";
@@ -51,16 +54,23 @@ export const GET: APIRoute = () => {
       ]),
     ].map((key) => photographs[key as PhotoKey].src),
   });
-  for (const [slug, keys] of Object.entries(servicePhotography))
+  const rblImages = ["atelier-work.webp", "salon-proof.webp", "rosa-in-polvere.webp", "blu-assoluto-v2.webp"].map(name => `/img/rbl-official/${name}`);
+  for (const service of servicePages) {
+    const keys = servicePhotography[service.slug] ?? (service.slug === "ceretta-carmagnola" ? ["cera-gamba", "cera-preparazione"] as PhotoKey[] : []);
     entries.push({
-      path: `/servizi/${slug}`,
+      path: `/servizi/${service.slug}`,
       images: [
-        ...new Set(keys.map((key) => photographs[key].src)),
-        ...(slug.startsWith("laminazione")
-          ? laminazione.slides.map((slide) => slide.src)
-          : []),
+        ...keys.map(key => photographs[key].src),
+        ...(keys.length === 0 && service.heroImage ? [service.heroImage.src] : []),
+        ...(service.slug.startsWith("laminazione") ? laminazione.slides.map(slide => slide.src) : []),
+        ...(["manicure-semipermanente-carmagnola", "pedicure-carmagnola", "pedicure-estetico-con-smalto-carmagnola", "pedicure-semipermanente-carmagnola"].includes(service.slug) ? rblImages : []),
       ],
     });
+  }
+  for (const category of serviceCategories) entries.push({
+    path: `/servizi/${category.slug}`,
+    images: [photographs[category.heroPhoto].src, ...categoryTreatments(category).flatMap(group => group.items.map(item => treatmentPhoto(item.id).src))],
+  });
   const canonicalEntries = entries.filter((entry) => isIndexableSearchPage(entry.path));
   return new Response(
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">${canonicalEntries.map((entry) => `<url><loc>${absolute(entry.path)}</loc>${[...new Set(entry.images)].map((src) => `<image:image><image:loc>${absolute(src)}</image:loc></image:image>`).join("")}</url>`).join("")}</urlset>`,

@@ -1,0 +1,5 @@
+---
+import ServiceCategoryPage from "@/components/ServiceCategoryPage.astro";
+import { getServiceCategory } from "@/lib/service-categories";
+---
+<ServiceCategoryPage category={getServiceCategory("viso")} />

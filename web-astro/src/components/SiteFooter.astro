@@ -15,6 +15,17 @@ const primary = [
   { href: "/localita", label: "Da Torino e dai comuni vicini" },
 ];
 
+const treatments = [
+  { href: "/servizi/trattamenti-viso-carmagnola", label: "Trattamenti viso" },
+  { href: "/servizi/trattamenti-corpo-carmagnola", label: "Trattamenti corpo" },
+  { href: "/servizi/manicure-semipermanente-carmagnola", label: "Manicure e colore RBL" },
+  { href: "/servizi/pedicure-carmagnola", label: "Pedicure e cura dei piedi" },
+  { href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola", label: "Laminazione ciglia e sopracciglia" },
+  { href: "/servizi/massaggi-carmagnola", label: "Massaggi e linfodrenante" },
+  { href: "/servizi/pressomassaggio-carmagnola", label: "Pressomassaggio" },
+  { href: "/servizi/ceretta-carmagnola", label: "Ceretta donna e uomo" },
+];
+
 const days = [
   { day: "Lun", value: "Chiuso", closed: true },
   { day: "Mar", value: "9–19" },
@@ -57,6 +68,8 @@ const days = [
       </address>
     </div>
 
+    <nav class="site-footer__treatments" aria-label="Esplora i trattamenti REBEL"><p class="site-footer__title">Scegli il tuo trattamento</p><ul>{treatments.map(item => <li><a href={item.href}>{item.label}</a></li>)}</ul></nav>
+
     <div class="site-footer__network" aria-label="Network professionale">
       <span class="site-footer__network-label">Tecnologie e formazione professionale</span>
       <div class="site-footer__network-row">{siteConfig.network.map((n) => (<a class="site-footer__network-link" href={n.url} target="_blank" rel="noreferrer"><span class="site-footer__network-name">{n.label}</span><span class="site-footer__network-note">{n.note}</span></a>))}</div>
@@ -70,6 +83,11 @@ const days = [
 </footer>
 
 <style>
+  .site-footer__treatments { border-top: 1px solid var(--line); margin-top: 2rem; padding-top: 1.4rem; }
+  .site-footer__treatments ul { list-style: none; margin: .8rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: .6rem 1.3rem; }
+  .site-footer__treatments a { display: inline-flex; min-height: 44px; align-items: center; color: inherit; font-size: .85rem; text-underline-offset: .25em; }
+  @media(max-width: 800px) { .site-footer__treatments ul { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+  @media(max-width: 420px) { .site-footer__treatments ul { grid-template-columns: 1fr; } }
   .site-footer__hours { list-style:none; margin:.5rem 0 0; padding:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.25rem 1.4rem; }
   .site-footer__hours li { display:flex; justify-content:space-between; font-size:.82rem; padding-block:.15rem; }
   .site-footer__hours li span:last-child { font-variant-numeric:tabular-nums; }

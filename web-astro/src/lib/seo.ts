@@ -1,3 +1,4 @@
+import { localAreaPages } from "@/lib/local-pages";
 import { siteConfig } from "@/lib/site-config";
 import { servicePages } from "@/lib/seo-content";
 
@@ -243,7 +244,7 @@ export function buildLocalBusinessSchema() {
     // These are customer origins. Every treatment takes place at the
     // single Carmagnola address; there are no satellite locations.
     areaServed: [
-      ...siteConfig.areasServed.map((city) => ({ "@type": "City", name: city })),
+      ...localAreaPages.map((area) => ({ "@type": area.kind === "area" ? "Place" : "City", name: area.city })),
       {
         "@type": "AdministrativeArea",
         name: "Provincia di Torino",
@@ -303,7 +304,7 @@ export function buildServiceSchema(
     description: serviceDescription,
     // Customer catchment, distinct from the treatment location below.
     areaServed: [
-      ...siteConfig.areasServed.map((city) => ({ "@type": "City", name: city })),
+      ...localAreaPages.map((area) => ({ "@type": area.kind === "area" ? "Place" : "City", name: area.city })),
       { "@type": "AdministrativeArea", name: "Provincia di Torino" },
     ],
     availableChannel: {

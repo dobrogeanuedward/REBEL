@@ -25,7 +25,7 @@ export function buildLaserCampaignSchema(path: string, fullBodyOnly = false) {
     name: fullBodyOnly ? "Promozione laser full body a Carmagnola" : "Promozione epilazione laser a Carmagnola",
     serviceType: "Epilazione laser con Lumina X1 Pro di THORY e ICE Polar",
     provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
-    areaServed: laserCampaignAreas.map(area => ({ "@type": "City", name: area.city })),
+    areaServed: laserCampaignAreas.map(area => ({ "@type": area.kind === "area" ? "Place" : "City", name: area.city })),
     description: `${laserOffer.zoneCounting.note} ${laserOffer.validity.label}`,
     offers: options.map(option => ({
       "@type": "Offer", name: option.name, price: option.amount, priceCurrency: "EUR", url,

@@ -1,0 +1,57 @@
+---
+import { menu, priceRange, durationRange, requestTreatment } from "@/lib/treatment-catalog";
+import { serviceRequests, serviceContactPath } from "@/lib/service-booking";
+interface Props { slug: string }
+const { slug } = Astro.props;
+const ids = serviceRequests[slug]?.ids ?? [];
+const categories = slug === "ceretta-carmagnola"
+  ? menu.categories.filter(c => ["ceretta-donna", "ceretta-uomo"].includes(c.id))
+  : [{ id: slug, name: "Varianti e appuntamenti", items: menu.categories.flatMap(c => c.items).filter(i => ids.includes(i.id)) }];
+const pedicure = slug === "pedicure-carmagnola";
+const pedicureVariants = [
+  { slug: "pedicure-estetico-carmagnola", name: "Pedicure estetico", detail: "Cura estetica delle unghie e dei piedi." },
+  { slug: "pedicure-estetico-con-smalto-carmagnola", name: "Pedicure con smalto", detail: "Colore tradizionale e cura estetica dei piedi, con tonalità scelte insieme." },
+  { slug: "pedicure-semipermanente-carmagnola", name: "Pedicure semipermanente", detail: "Colore semipermanente e cura dei piedi: scopri applicazione, tonalità e rimozione." },
+  { slug: "taglio-unghie-piedi-carmagnola", name: "Taglio unghie piedi", detail: "Il servizio essenziale, distinto dal pedicure completo." },
+];
+---
+{categories.some(c => c.items.length > 0) && <div class="service-catalog" aria-label="Trattamenti con prezzi e durata dal listino REBEL">
+  {categories.map(category => category.items.length > 0 && <section id={category.id}>
+    {categories.length > 1 && <h3>{category.name}</h3>}
+    <div class="service-catalog__grid">{category.items.map(item => <article class="service-catalog__item">
+      <h3>{item.name}</h3>
+      <p class="service-catalog__price">{priceRange(item.price)} <span>{durationRange(item.durationMin, item.durationMax)}</span></p>
+      {item.options.length > 1 ? <details><summary>Zone e varianti</summary><ul>{item.options.map(option => <li><a href={requestTreatment(item.id, option.id)}><span>{option.name}</span><strong>{priceRange(option.price)}</strong><small>{option.duration} min · Richiedi ↗</small></a></li>)}</ul></details> : <a class="service-catalog__request" href={requestTreatment(item.id)}>Richiedi questo trattamento <span aria-hidden="true">↗</span></a>}
+    </article>)}</div>
+  </section>)}
+  <p class="service-catalog__note">Prezzi ordinari del listino REBEL. Confermiamo la variante e la disponibilità prima dell’appuntamento. Eventuali offerte sulle piattaforme di prenotazione si verificano direttamente sulla piattaforma.</p>
+</div>}
+{pedicure && <section class="service-catalog__comparison" aria-label="Confronta le varianti di pedicure">
+  <h3>Quale pedicure stai cercando?</h3>
+  <div class="service-catalog__grid">{pedicureVariants.map(item => <a class="service-catalog__variant" href={`/servizi/${item.slug}`}><strong>{item.name}</strong><span>{item.detail}</span><small>Conosci il servizio ↗</small></a>)}</div>
+  <p>Il VIP con scrub è riportato nel menu qui sopra. Per il colore tradizionale o semipermanente, <a href={serviceContactPath(slug)}>raccontaci il risultato che desideri</a>: scegliamo insieme tonalità e appuntamento.</p>
+</section>}
+<style>
+  .service-catalog { margin: 1.6rem 0; }
+  .service-catalog section + section { margin-top: 2rem; }
+  .service-catalog__grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1rem; margin: 1rem 0; }
+  .service-catalog__item, .service-catalog__variant { background: #fffdf9; border: 1px solid #dfd2e0; border-radius: 18px 6px; padding: 1.4rem; color: #27142f; min-width: 0; }
+  .service-catalog__item h3 { color: #27142f; font: 600 1.1rem/1.4 var(--font-body); margin: 0; }
+  .service-catalog__price { color: #704487; font-weight: 700; font-size: 1.5rem; margin: .8rem 0; }
+  .service-catalog__price span { display: block; color: #62506e; font-size: .85rem; font-weight: 400; margin-top: .35rem; }
+  .service-catalog a { color: #6c2f70; text-underline-offset: .25em; }
+  .service-catalog__request { display: flex; justify-content: space-between; gap: .6rem; padding: .6rem 0; }
+  .service-catalog details { border-top: 1px solid #dfd2e0; padding-top: .8rem; }
+  .service-catalog summary { cursor: pointer; font-weight: 600; min-height: 44px; }
+  .service-catalog ul { padding: 0; list-style: none; }
+  .service-catalog li a { display: grid; grid-template-columns: 1fr auto; gap: .2rem .6rem; padding: .8rem 0; border-top: 1px solid #e9deea; text-decoration: none; }
+  .service-catalog li small { grid-column: 1/-1; color: #62506e; }
+  .service-catalog__note { color: #62506e; font-size: .86rem; line-height: 1.7; }
+  .service-catalog__comparison { margin: 2rem 0 0; }
+  .service-catalog__variant { display: grid; gap: .7rem; text-decoration: none; }
+  .service-catalog__variant span { color: #62506e; line-height: 1.65; }
+  .service-catalog__variant small { color: #6c2f70; }
+  .service-catalog__variant:hover { border-color: #8e4ca5; }
+  .service-catalog a:focus-visible, .service-catalog__variant:focus-visible { outline: 2px solid #7047ff; outline-offset: 4px; }
+  @media(max-width: 650px) { .service-catalog__grid { grid-template-columns: 1fr; } }
+</style>

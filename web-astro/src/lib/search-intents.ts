@@ -1,6 +1,6 @@
 /**
- * One destination for each distinct laser search intent. Historical offer
- * URLs redirect here instead of publishing competing, self-canonical pages.
+ * Canonical destinations and approved permanent consolidations. Historical
+ * offers and repeated service/city pages point to the relevant service.
  */
 export const searchIntentPaths = {
   laserService: "/epilazione-laser-carmagnola",
@@ -8,7 +8,38 @@ export const searchIntentPaths = {
   laserTechnology: "/epilazione-laser-ice-polar-carmagnola",
 } as const;
 
+// Commercial comparisons sit apart from the guides explaining how to choose,
+// prepare for or combine treatments. Their targets are shared with sitemaps.
+export const commercialCategoryPaths = {
+  face: "/servizi/trattamenti-viso-carmagnola",
+  body: "/servizi/trattamenti-corpo-carmagnola",
+  pressomassage: "/servizi/pressomassaggio-carmagnola",
+  massages: "/servizi/massaggi-carmagnola",
+} as const;
+
+const territorialSearchCities = ["alba", "bra", "canale", "racconigi"] as const;
+
+// Reviewed against authored content and the available Search Console history.
+// Pedicure points to the comparison of all five options, not the former
+// VIP-only interpretation of that URL. Travel utilities remain separate.
+export const territorialServiceDestinations = {
+  "epilazione-laser": searchIntentPaths.laserService,
+  "pulizia-viso": "/servizi/pulizia-viso-carmagnola",
+  "manicure-semipermanente": "/servizi/manicure-semipermanente-carmagnola",
+  laminazione: "/servizi/laminazione-ciglia-sopracciglia-carmagnola",
+  "massaggio-rilassante": "/servizi/massaggio-rilassante-carmagnola",
+  "massaggio-linfodrenante": "/servizi/massaggio-linfodrenante-carmagnola",
+  pedicure: "/servizi/pedicure-carmagnola",
+} as const;
+
+export const territorialServiceRedirects: Record<string, string> = Object.fromEntries(
+  Object.entries(territorialServiceDestinations).flatMap(([service, destination]) =>
+    territorialSearchCities.map((city) => ["/" + service + "-" + city, destination]),
+  ),
+);
+
 export const permanentRedirects: Record<string, string> = {
+  ...territorialServiceRedirects,
   "/epilazione-laser-prova": searchIntentPaths.laserOffer,
   "/laser-full-body-carmagnola": searchIntentPaths.laserOffer,
   "/promo-laser-carmagnola-dintorni": searchIntentPaths.laserOffer,

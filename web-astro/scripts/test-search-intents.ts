@@ -4,9 +4,12 @@ import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
 import {
+  commercialCategoryPaths,
   isIndexableSearchPage,
   permanentRedirects,
   searchIntentPaths,
+  territorialServiceRedirects,
+  territorialServiceDestinations,
 } from "../src/lib/search-intents.ts";
 import { GET as getSitemap } from "../src/pages/sitemap.xml.ts";
 import { GET as getImageSitemap } from "../src/pages/sitemap-images.xml.ts";
@@ -14,6 +17,17 @@ import { competencePages, servicePages } from "../src/lib/seo-content-refined.ts
 
 const projectDir = fileURLToPath(new URL("../", import.meta.url));
 const origin = "https://www.rebelepigenetica.it";
+const staticOutputDir = join(projectDir, ".vercel/output/static");
+const getBuiltPage = (path: string) => {
+  const route = path === "/" ? "" : path.replace(/^\//, "");
+  const files = [
+    join(staticOutputDir, route, "index.html"),
+    join(staticOutputDir, route + ".html"),
+  ];
+  const file = files.find(existsSync);
+  assert.ok(file, "Missing built page: " + path);
+  return readFileSync(file, "utf8");
+};
 const pageLocations = (xml: string) =>
   [...xml.matchAll(/<url>\s*<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
 const verifySitemap = (xml: string) => {
@@ -39,11 +53,40 @@ test("sitemaps exclude redirects, noindex utilities and non-page endpoints", () 
     assert.equal(isIndexableSearchPage(origin + path), false, "Absolute " + path);
   }
   for (const path of [
-    "/", ...Object.values(searchIntentPaths), "/localita/carignano",
-    "/localita/racconigi", "/epilazione-laser-alba",
+    "/", ...Object.values(searchIntentPaths), ...Object.values(commercialCategoryPaths), "/localita/carignano",
+    "/localita/racconigi", "/localita/alba", "/localita/bra", "/localita/canale",
+    "/servizi/pedicure-carmagnola",
     "/competenze/epilazione-laser-inguine-carmagnola",
   ]) {
     assert.equal(isIndexableSearchPage(path), true, path);
+  }
+});
+
+test("all 28 reviewed service-city aliases consolidate directly without removing travel utilities or pedicure variants", () => {
+  assert.equal(Object.keys(territorialServiceRedirects).length, 28);
+  assert.equal(Object.keys(territorialServiceDestinations).length, 7);
+  for (const [alias, destination] of Object.entries(territorialServiceRedirects)) {
+    assert.equal(permanentRedirects[alias], destination, alias);
+    assert.equal(isIndexableSearchPage(alias), false, alias);
+    assert.equal(Object.hasOwn(permanentRedirects, destination), false, "Redirect chain: " + alias);
+    assert.equal(isIndexableSearchPage(destination), true, destination);
+    const url = new URL(destination, origin);
+    assert.equal(url.origin, origin);
+    assert.equal(url.hash, "", "Canonical destination must not be a fragment: " + alias);
+    assert.equal(url.search, "", "Canonical destination must not be a tracking URL: " + alias);
+  }
+  for (const city of ["alba", "bra", "canale", "racconigi"]) {
+    assert.equal(isIndexableSearchPage("/localita/" + city), true, city);
+    assert.equal(permanentRedirects["/pedicure-" + city], "/servizi/pedicure-carmagnola");
+  }
+  for (const slug of [
+    "pedicure-carmagnola",
+    "pedicure-estetico-carmagnola",
+    "pedicure-estetico-con-smalto-carmagnola",
+    "pedicure-semipermanente-carmagnola",
+    "taglio-unghie-piedi-carmagnola",
+  ]) {
+    assert.ok(servicePages.some((service) => service.slug === slug), "Pedicure option removed: " + slug);
   }
 });
 
@@ -51,7 +94,7 @@ test("approved offer aliases redirect directly to the indexable offer", () => {
   for (const alias of ["/laser-full-body-carmagnola", "/promo-laser-carmagnola-dintorni"]) {
     assert.equal(permanentRedirects[alias], searchIntentPaths.laserOffer);
     assert.equal(existsSync(join(projectDir, "src/pages", alias.slice(1) + ".astro")), false,
-      "A physical page would override the configured redirect.");
+      "Dedicated promotional aliases should not retain duplicate source pages.");
   }
   for (const target of Object.values(permanentRedirects)) {
     assert.equal(Object.hasOwn(permanentRedirects, target), false, "Redirect chain: " + target);
@@ -112,11 +155,20 @@ test("built deployment emits permanent redirects and an indexable self-canonical
 }, () => {
   const outputDir = join(projectDir, ".vercel/output");
   const config = JSON.parse(readFileSync(join(outputDir, "config.json"), "utf8"));
+  const filesystemIndex = config.routes.findIndex((entry: { handle?: string }) => entry.handle === "filesystem");
+  assert.ok(filesystemIndex >= 0, "Missing deployment filesystem boundary.");
   for (const [alias, destination] of Object.entries(permanentRedirects)) {
-    const route = config.routes.find((entry: { src?: string; status?: number; headers?: Record<string, string> }) =>
-      entry.src && new RegExp(entry.src).test(alias) && entry.status === 301 &&
-      (entry.headers?.Location ?? entry.headers?.location) === destination);
-    assert.ok(route, "Missing deployment 301 for " + alias);
+    const routeIndex = config.routes.findIndex((entry: { src?: string; status?: number }) =>
+      entry.src && new RegExp(entry.src).test(alias) && entry.status && entry.status >= 300 && entry.status < 400);
+    assert.ok(routeIndex >= 0 && routeIndex < filesystemIndex, "Redirect must precede file serving: " + alias);
+    const route = config.routes[routeIndex];
+    assert.equal(route.status, 301, "Expected permanent 301: " + alias);
+    assert.equal(route.headers?.Location ?? route.headers?.location, destination, "First matching redirect target: " + alias);
+  }
+  for (const destination of new Set(Object.values(permanentRedirects))) {
+    const html = getBuiltPage(destination);
+    assert.ok(html.includes('rel="canonical" href="' + origin + destination + '"'), "Redirect destination must self-canonicalize: " + destination);
+    assert.doesNotMatch(html, /<meta[^>]+name="(?:robots|googlebot)"[^>]+content="[^"]*noindex/i);
   }
   const staticDir = join(outputDir, "static");
   const offerFiles = [
@@ -130,5 +182,46 @@ test("built deployment emits permanent redirects and an indexable self-canonical
   assert.doesNotMatch(html, /<meta[^>]+name="robots"[^>]+content="[^"]*noindex/);
   for (const name of ["sitemap.xml", "sitemap-images.xml", "sitemap-0.xml"]) {
     verifySitemap(readFileSync(join(staticDir, name), "utf8"));
+  }
+});
+
+test("built service pages and commercial category hubs expose one indexable canonical, a unique title and one H1", {
+  skip: !process.argv.includes("--built"),
+}, () => {
+  const titles = new Map<string, string>();
+  const servicePaths = new Set([
+    ...servicePages.map((service) => "/servizi/" + service.slug),
+    ...Object.values(commercialCategoryPaths),
+  ]);
+  for (const path of servicePaths) {
+    const html = getBuiltPage(path);
+    const canonicals = [...html.matchAll(/<link\b[^>]*\brel="canonical"[^>]*\bhref="([^"]+)"[^>]*>/gi)];
+    assert.equal(canonicals.length, 1, "Canonical count: " + path);
+    assert.equal(canonicals[0][1], origin + path, "Canonical destination: " + path);
+    assert.doesNotMatch(html, /<meta[^>]+name="(?:robots|googlebot)"[^>]+content="[^"]*noindex/i);
+    assert.equal([...html.matchAll(/<h1(?:\s|>)/gi)].length, 1, "H1 count: " + path);
+    const title = html.match(/<title>(.*?)<\/title>/i)?.[1]?.trim();
+    assert.ok(title, "Missing title: " + path);
+    assert.equal(titles.has(title), false, "Service title repeated by " + titles.get(title) + " and " + path);
+    titles.set(title, path);
+    assert.match(html, /<meta[^>]+name="description"[^>]+content="[^"]+"/i);
+  }
+});
+
+test("built sitemaps reference real HTML pages rather than removed or ungenerated routes", {
+  skip: !process.argv.includes("--built"),
+}, () => {
+  const locations = new Set<string>();
+  for (const name of ["sitemap.xml", "sitemap-images.xml", "sitemap-0.xml"]) {
+    for (const url of verifySitemap(readFileSync(join(staticOutputDir, name), "utf8"))) {
+      locations.add(url);
+    }
+  }
+  for (const url of locations) getBuiltPage(new URL(url).pathname);
+  for (const service of servicePages) {
+    assert.ok(locations.has(origin + "/servizi/" + service.slug), "Published service missing from sitemaps: " + service.slug);
+  }
+  for (const path of Object.values(commercialCategoryPaths)) {
+    assert.ok(locations.has(origin + path), "Commercial category hub missing from sitemaps: " + path);
   }
 });

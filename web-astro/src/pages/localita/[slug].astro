@@ -1,402 +1,175 @@
 ---
-import { isLaserCampaignArea } from "@/lib/laser-campaign";
-import { laserOffer } from "@/lib/laser-offer";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import PageHero from "@/components/PageHero.astro";
-import SectionHead from "@/components/SectionHead.astro";
 import FaqAccordion from "@/components/FaqAccordion.astro";
-import FeatureCard from "@/components/FeatureCard.astro";
-import KeyPointsGrid from "@/components/KeyPointsGrid.astro";
-import EditorialSection from "@/components/EditorialSection.astro";
-import TableOfContents from "@/components/TableOfContents.astro";
-import InlineCta from "@/components/InlineCta.astro";
-import FullBleedBand from "@/components/FullBleedBand.astro";
-import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import type { LocalAreaPage } from "@/lib/local-pages";
-import { getLocalAreaGroup, localAreaPages, publicTransportDirections } from "@/lib/local-pages";
-import { siteConfig } from "@/lib/site-config";
+import { getLocalAreaGroup, localAreaPages, publicTransportDirections, visitServiceLinks } from "@/lib/local-pages";
+import { isLaserCampaignArea } from "@/lib/laser-campaign";
+import { laserOffer } from "@/lib/laser-offer";
 import { media } from "@/lib/page-media";
-import {
-  buildBreadcrumbSchema,
-  buildWebPageSchema,
-  createPageMeta,
-} from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
+import { buildBreadcrumbSchema, buildWebPageSchema, createPageMeta } from "@/lib/seo";
 
 export async function getStaticPaths() {
-  return localAreaPages.map((a) => ({
-    params: { slug: a.slug },
-    props: { area: a },
-  }));
+  return localAreaPages.map((area) => ({ params: { slug: area.slug }, props: { area } }));
 }
 
 const { area } = Astro.props as { area: LocalAreaPage };
-
-const localeMood =
-  area.slug === "racconigi"
-    ? media.locale.racconigi
-    : area.slug === "alba"
-    ? media.locale.langhe
-    : area.slug === "canale"
-      ? media.locale.roero
-      : area.slug === "bra"
-        ? media.locale.bra
-        : media.studio.realExterior;
-
 const isCarmagnola = area.slug === "carmagnola";
-const areaGroup = getLocalAreaGroup(area);
-const isTurin = area.slug === "torino" || area.slug === "torino-sud";
-const visitWhatsApp = `${siteConfig.social.whatsapp}?text=${encodeURIComponent(`Vorrei prenotare da REBEL a Carmagnola. Parto da ${area.city} e mi interessa questo servizio: `)}`;
-const visitMedia = isCarmagnola ? media.studio.realExterior : media.studio.realOverview;
-const originLabel = isCarmagnola ? "REBEL Carmagnola" : `Da ${area.city} a REBEL Carmagnola`;
-const clearTitle = isCarmagnola
+const isArea = area.kind === "area";
+const group = getLocalAreaGroup(area);
+const photo = media.studio.realExterior;
+const showPromo = isLaserCampaignArea(area.slug);
+const originLabel = isCarmagnola ? "Lo studio REBEL" : `Da ${area.city}`;
+const title = isCarmagnola
   ? "Studio REBEL a Carmagnola | Indirizzo e appuntamenti"
   : `Da ${area.city} allo studio REBEL a Carmagnola`;
-const clearDescription = isCarmagnola
-  ? "REBEL si trova in Viale Barbaroux 20 a Carmagnola. Consulta mappa, servizi, prezzi e modalità di prenotazione."
-  : `REBEL si trova in Viale Barbaroux 20 a Carmagnola. Da ${area.city}, consulta mappa, servizi, prezzi e modalità di prenotazione.`;
-const clearIntro = isCarmagnola
-  ? "Il tuo appuntamento in Viale Barbaroux 20. Guarda l’ingresso dello studio, apri la mappa e consulta i servizi e il listino prima di prenotare."
-  : `Parti da ${area.city}? Il tuo appuntamento REBEL è in Viale Barbaroux 20 a Carmagnola. Qui trovi mappa, contatti e informazioni per organizzare il tempo in studio.`;
-const clearWhyRebel = [
-  "Viale Barbaroux 20 · Carmagnola",
-  "Trattamenti viso, corpo, laser e beauty",
-  "Listino online e valutazione REBEL di 30–40 minuti",
-];
-const clearFaqs = [
+const description = isCarmagnola
+  ? "REBEL in Viale Barbaroux 20 a Carmagnola: ingresso dello studio, mappa, servizi e contatti. Organizza il tuo appuntamento e consulta prezzi e durata."
+  : `Da ${area.city} a REBEL Carmagnola: mappa verso Viale Barbaroux 20, servizi, listino e contatti per organizzare il tuo appuntamento in studio.`;
+const whatsapp = `${siteConfig.social.whatsapp}?text=${encodeURIComponent(`Vorrei un appuntamento da REBEL a Carmagnola. ${isCarmagnola ? "" : `Parto da ${area.city}. `}Mi interessa questo servizio: `)}`;
+const routeNote = isArea
+  ? "Torino Sud indica un’area di partenza, non un indirizzo preciso. Inserisci su Maps il punto da cui parti e scegli il mezzo: la destinazione è lo studio di Carmagnola."
+  : isCarmagnola
+    ? "La mappa mostra lo studio. Apri le indicazioni e inserisci il tuo punto di partenza per scegliere il percorso."
+    : `Il percorso parte da un punto generico di ${area.city}. Sostituiscilo con il tuo indirizzo e controlla il tragitto per il giorno dell’appuntamento.`;
+const faqs = [
   {
-    q: isCarmagnola ? "Qual è l’indirizzo dello studio REBEL?" : `Dove si svolge l’appuntamento se arrivo da ${area.city}?`,
-    a: "Il tuo appuntamento si svolge nello studio REBEL di Viale Barbaroux 20, 10022 Carmagnola (TO). Apri la mappa e inserisci l’indirizzo da cui parti per ottenere il percorso aggiornato.",
+    q: isCarmagnola ? "Qual è l’indirizzo dello studio?" : `Dove si svolge il trattamento se arrivo da ${area.city}?`,
+    a: "Tutti i trattamenti e le valutazioni REBEL si svolgono in Viale Barbaroux 20, 10022 Carmagnola (TO). La fotografia in questa pagina mostra l’ingresso dello studio.",
   },
   {
-    q: isCarmagnola ? "Come posso prenotare?" : `Come posso prenotare se arrivo da ${area.city}?`,
-    a: "Puoi scriverci su WhatsApp oppure usare il modulo contatti. Indicaci il trattamento che ti interessa e le tue disponibilità.",
+    q: "Devo prenotare una valutazione per qualsiasi servizio?",
+    a: "Se hai già scelto un servizio, puoi comunicarci direttamente il trattamento e chiedere disponibilità. Per scegliere un percorso viso, corpo o laser puoi richiedere una valutazione di 30–40 minuti: è gratuita se inizi il percorso proposto. Ti spieghiamo le condizioni prima di confermare.",
   },
   {
-    q: "Dove posso vedere i prezzi?",
-    a: "Il listino online riporta i prezzi dei servizi, dei percorsi REBEL e delle aree laser.",
+    q: "Posso abbinare più servizi nella stessa visita?",
+    a: "Indicaci tutti i servizi che desideri quando ci contatti. Verifichiamo disponibilità e tempo necessario prima di confermare l’appuntamento.",
   },
   {
-    q: "Come funziona la valutazione REBEL?",
-    a: "Dura 30–40 minuti: osserviamo la zona e ti spieghiamo trattamento, frequenza e prezzo. Se scegli di iniziare il percorso proposto, la valutazione iniziale è gratuita.",
+    q: "Come verifico il viaggio e gli orari dello studio?",
+    a: `${routeNote} Controlla gli orari nella pagina Contatti e concorda l’appuntamento prima di partire. Per il viaggio consulta la mappa aggiornata, scegliendo auto o trasporto pubblico.`,
   },
 ];
-const clearDirections = area.directions
-  ? {
-      mapsUrl: area.directions.mapsUrl,
-      embedUrl: area.directions.embedUrl,
-    }
-  : undefined;
-const focusLinks = [
-  {
-    kicker: "Servizi",
-    label: "Scopri tutti i servizi",
-    body: "Consulta i trattamenti disponibili e le informazioni utili prima di prenotare.",
-    href: "/servizi",
-  },
-  {
-    kicker: "Prezzi",
-    label: "Consulta il listino",
-    body: "Trova prezzi e durata indicativa di trattamenti, laser e percorsi REBEL.",
-    href: "/listino-estetica-laser",
-  },
-  {
-    kicker: "Valutazione",
-    label: "Prenota la valutazione REBEL",
-    body: "Scrivici per verificare la disponibilità e organizzare il primo appuntamento.",
-    href: "/contatti",
-  },
-  {
-    kicker: "Percorsi REBEL",
-    label: "Esplora i nove percorsi",
-    body: "Confronta obiettivi, durata e prezzo di ogni percorso REBEL.",
-    href: "/percorsi",
-  },
-];
-
-if (isLaserCampaignArea(area.slug)) {
-  clearFaqs.push({
-    q: `Posso richiedere la promozione laser arrivando da ${area.city}?`,
-    a: "Sì, puoi contattarci per un appuntamento a Carmagnola. Prima di spostarti consulta la promozione laser per prezzi e conteggio delle zone e verifica con noi disponibilità e preparazione. Il calendario delle sedute si definisce dopo la valutazione.",
-  });
-}
-if (isTurin) {
-  clearFaqs.push({
-    q: "Come organizzo il viaggio da Torino?",
-    a: "Usa il collegamento alla mappa, imposta il tuo indirizzo preciso e scegli il mezzo che userai. Sono disponibili anche le indicazioni per il trasporto pubblico. Conferma l’appuntamento con noi prima di partire e consulta il percorso aggiornato per il giorno della visita.",
-  });
-}
-
-const meta = createPageMeta({
-  title: clearTitle,
-  description: clearDescription,
-  path: `/localita/${area.slug}`,
-  indexable: area.slug !== "torino",
-});
-
-const breadcrumb = buildBreadcrumbSchema([
-  { name: "Home", path: "/" },
-  { name: "Località", path: "/localita" },
-  { name: area.city, path: `/localita/${area.slug}` },
-]);
-const webPage = buildWebPageSchema({
-  name: clearTitle,
-  description: clearDescription,
-  path: `/localita/${area.slug}`,
-});
-
-const faqSchema =
-  clearFaqs.length > 0
-    ? {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: clearFaqs.map((faq) => ({
-          "@type": "Question",
-          name: faq.q,
-          acceptedAnswer: { "@type": "Answer", text: faq.a },
-        })),
-      }
-    : null;
-
-const relatedAreas = localAreaPages
-  .filter((item) => item.slug !== area.slug && item.cluster === area.cluster)
-  .slice(0, 6);
-
-const tocItems = [
-  { id: "servizi", label: "Servizi e informazioni" },
-  { id: "prenotare", label: "Prezzi e prenotazione" },
-  ...(clearDirections ? [{ id: "come-arrivare", label: "Percorso e mappa" }] : []),
-  { id: "focus", label: "Prima di venire" },
-  { id: "faq", label: "Domande frequenti" },
-  ...(relatedAreas.length > 0 ? [{ id: "vicini", label: "Altri comuni" }] : []),
-];
+const meta = createPageMeta({ title, description, path: `/localita/${area.slug}`, indexable: area.slug !== "torino" });
+const breadcrumb = buildBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Come arrivare", path: "/localita" }, { name: area.city, path: `/localita/${area.slug}` }]);
+const webPage = buildWebPageSchema({ name: title, description, path: `/localita/${area.slug}` });
+const relatedAreas = localAreaPages.filter((item) => item.slug !== area.slug && item.cluster === area.cluster);
 ---
 <BaseLayout meta={meta} bodyClass="page-localita-detail">
   <JsonLd data={breadcrumb} />
   <JsonLd data={webPage} />
-  {faqSchema ? <JsonLd data={faqSchema} /> : null}
+  <JsonLd data={{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.q, acceptedAnswer: { "@type": "Answer", text: faq.a } })) }} />
 
-  <PageHero
-    image={localeMood}
-    kicker={originLabel}
-    title={isCarmagnola ? "Il tuo appuntamento nello studio _REBEL a Carmagnola_." : `Da ${area.city} allo studio _REBEL a Carmagnola_.`}
-    lead={clearIntro}
-    bullets={["Indirizzo e mappa", "Servizi e prezzi online", "Valutazione REBEL · 30–40 min"]}
-    meta={[
-      "Viale Barbaroux 20 · Carmagnola",
-      "Da martedì a sabato · su appuntamento",
-    ]}
-    ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
-    ctaSecondary={{ label: "Apri il percorso su Maps", href: area.directions.mapsUrl }}
-  />
-
-  {(isLaserCampaignArea(area.slug) || isTurin) && <section class="section section--tight"><div class="container">
-    <FeatureCard
-      kicker="Il laser, a Carmagnola"
-      title="Cerchi la promozione laser a zona o Total Body?"
-      body="Trovi tutti i dettagli in un unico posto: prezzo per seduta, conteggio delle zone e informazioni da verificare prima di prenotare."
-      href={laserOffer.landingPath}
-    />
-  </div></section>}
-
-  <section class="section">
-    <div class="container detail-grid">
-      <article class="detail-main">
-        <div id="servizi">
-          <SectionHead
-            kicker="Prima di prenotare"
-            title="Tutto ciò che ti serve per organizzare la visita."
-            lead={areaGroup.visitNote}
-          />
-          <KeyPointsGrid points={clearWhyRebel} title="Informazioni utili" />
+  <div class="visit-page">
+    <section class="visit-hero" aria-labelledby="visit-title">
+      <div class="visit-shell visit-hero__grid">
+        <div>
+          <nav class="visit-breadcrumb" aria-label="Percorso di navigazione"><a href="/localita">Come arrivare</a><span aria-hidden="true"> / </span><span>{area.city}</span></nav>
+          <p class="visit-kicker">{originLabel} · Carmagnola</p>
+          <h1 id="visit-title">{isCarmagnola ? <>Il tuo appuntamento<br />da <em>REBEL Carmagnola.</em></> : <>Da {area.city}<br />a <em>REBEL Carmagnola.</em></>}</h1>
+          <p class="visit-hero__lead">Ti aspettiamo in <strong>Viale Barbaroux 20, a Carmagnola.</strong> Qui trovi il percorso e le informazioni per preparare la visita, dal servizio singolo alla valutazione di un percorso.</p>
+          <div class="visit-actions"><a class="btn btn--primary" href="#come-arrivare">Trova il percorso <span aria-hidden="true">↗</span></a><a class="visit-link" href={whatsapp}>Chiedi un appuntamento</a></div>
         </div>
+        <figure class="visit-hero__photo"><picture>{photo.srcMobile && <source media="(max-width: 600px)" srcset={photo.srcMobile} />}<img src={photo.src} alt={photo.alt} width="1672" height="941" loading="eager" fetchpriority="high" decoding="async" /></picture><figcaption>L’ingresso REBEL <span>Viale Barbaroux 20 · Carmagnola</span></figcaption></figure>
+      </div>
+    </section>
 
-        <div id="prenotare" class="detail-section">
-          <SectionHead
-            kicker="Prezzi e prenotazione"
-            title={isCarmagnola ? "Organizza la tua visita." : `Organizza la tua visita da ${area.city}.`}
-            lead="Consulta il listino oppure prenota una valutazione REBEL di 30–40 minuti per definire trattamento, frequenza e prezzo. Se scegli di iniziare il percorso proposto, la valutazione iniziale è gratuita."
-          />
-          <div class="card-grid card-grid--2">
-            <FeatureCard
-              kicker="Prezzi"
-              title="Consulta il listino Rebel"
-              body="Prezzi per trattamenti viso, corpo, laser, beauty, massaggi e protocolli professionali."
-              href="/listino-estetica-laser"
-              variant="quiet"
-              index={1}
-            />
-            <FeatureCard
-              kicker="Valutazione"
-              title="Prenota la valutazione REBEL"
-              body="In 30–40 minuti valutiamo la zona e definiamo trattamento, frequenza e prezzo. Se inizi il percorso proposto, la valutazione iniziale è gratuita."
-              href="/contatti"
-              variant="quiet"
-              index={2}
-            />
-          </div>
-        </div>
+    <nav class="visit-nav visit-shell" aria-label="Organizza la visita"><a href="#come-arrivare">01 <span>Il percorso</span></a><a href="#appuntamento">02 <span>L’appuntamento</span></a><a href="#servizi">03 <span>I servizi</span></a><a href="#faq">04 <span>Le domande</span></a></nav>
 
-        {clearDirections ? (
-          <div id="come-arrivare" class="detail-section">
-            <SectionHead kicker="Percorso e mappa" title={isCarmagnola ? "Viale Barbaroux 20, Carmagnola." : `Da ${area.city} a Viale Barbaroux 20.`} />
-            <div class="directions-grid">
-              <div>
-                <p class="directions-p">REBEL si trova a Carmagnola. Apri la mappa per ottenere il percorso aggiornato da {area.city} in base al mezzo con cui viaggi.</p>
-                <p class="directions-p">Per orari e disponibilità puoi contattarci prima di partire.</p>
-                {isTurin && <p class="directions-p">La mappa parte da un punto generico di Torino: inserisci il tuo indirizzo per confrontare i percorsi e gli orari adatti al giorno dell’appuntamento.</p>}
-                <div class="cluster" style="margin-top:1.4rem;">
-                  <a class="btn btn--secondary btn--sm" href={clearDirections.mapsUrl} target="_blank" rel="noreferrer">Apri Google Maps</a>
-                  {isTurin && <a class="btn btn--secondary btn--sm" href={publicTransportDirections(area)} target="_blank" rel="noreferrer">Percorso con i mezzi pubblici</a>}
-                  <a class="btn btn--secondary btn--sm" href="/contatti">Telefono, WhatsApp e orari</a>
-                </div>
-              </div>
-              <div class="map-frame">
-                <iframe
-                  src={clearDirections.embedUrl ?? "https://www.google.com/maps?q=Viale+Barbaroux+20,+Carmagnola&output=embed"}
-                  loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
-                  title={`Mappa del percorso da ${area.city} a Rebel Carmagnola`}
-                ></iframe>
-              </div>
-            </div>
-          </div>
-        ) : null}
+    <section class="visit-section" id="come-arrivare" aria-labelledby="visit-map-title"><div class="visit-shell visit-map-grid">
+      <div>
+        <p class="visit-kicker">01 / La destinazione</p><h2 id="visit-map-title">Ci trovi qui.<br /><em>A Carmagnola.</em></h2>
+        <address class="visit-address"><strong>{siteConfig.name}</strong><span>{siteConfig.address.streetAddress}</span><span>{siteConfig.address.postalCode} {siteConfig.address.locality} ({siteConfig.address.region})</span></address>
+        <p>{routeNote}</p>
+        <div class="visit-actions"><a class="btn btn--primary" href={area.directions.mapsUrl} target="_blank" rel="noreferrer">Percorso in auto <span aria-hidden="true">↗</span></a><a class="visit-link" href={publicTransportDirections(area)} target="_blank" rel="noreferrer">Confronta i mezzi pubblici <span aria-hidden="true">↗</span></a></div>
+        <p class="visit-small">Itinerari e collegamenti dipendono dalla partenza e dal giorno di viaggio. Consulta Maps per le informazioni aggiornate.</p>
+      </div>
+      <div class="visit-map"><iframe src={area.directions.embedUrl} loading="lazy" referrerpolicy="no-referrer-when-downgrade" title={isArea || isCarmagnola ? "Mappa dello studio REBEL a Carmagnola" : `Indicazioni da ${area.city} allo studio REBEL a Carmagnola`}></iframe></div>
+    </div></section>
 
-        <div id="focus" class="detail-section">
-          <SectionHead kicker="Prima di venire" title={isCarmagnola ? "Servizi e prezzi a Carmagnola." : `Servizi e prezzi per chi arriva da ${area.city}.`} />
-          <div class="editorial-flow">
-            <EditorialSection
-              heading="Lo studio e il primo appuntamento."
-              paragraphs={[
-                "Scegli prima il servizio e consulta prezzo, durata e varianti. Quando ci contatti, indica il trattamento e le tue disponibilità: possiamo così verificare il tempo necessario in studio.",
-                "Per una valutazione viso, corpo o laser considera 30–40 minuti in studio. Prima di partire conferma l’appuntamento; se desideri abbinare più servizi, segnalalo nella richiesta.",
-              ]}
-              media={visitMedia}
-              mediaSide="end"
-              level={3}
-            />
-            <p><a class="btn btn--secondary" href={visitWhatsApp}>Organizza la visita su WhatsApp</a></p>
-          </div>
-          {focusLinks.length > 0 ? (
-            <div class="card-grid card-grid--2" style="margin-top:1.5rem;">
-              {focusLinks.map((link, i) => (
-                <FeatureCard
-                  kicker={link.kicker}
-                  title={link.label}
-                  body={link.body}
-                  href={link.href}
-                  variant="quiet"
-                  index={i + 1}
-                />
-              ))}
-            </div>
-          ) : null}
-        </div>
+    <section class="visit-section visit-section--paper" id="appuntamento" aria-labelledby="visit-book-title"><div class="visit-shell">
+      <div class="visit-section-heading"><p class="visit-kicker">02 / Prima di venire</p><h2 id="visit-book-title">Scegli il servizio.<br /><em>Organizziamo il tempo.</em></h2><p>{group.visitNote}</p></div>
+      <div class="visit-choice-grid">
+        <article class="visit-choice"><span class="visit-index" aria-hidden="true">01</span><h3>So già cosa prenotare.</h3><p>Nel listino trovi varianti, prezzi e durata indicativa. Scrivici il nome del servizio e quando sei disponibile; se vuoi abbinarne altri, indicaceli nella stessa richiesta.</p><a class="visit-link" href="/listino-estetica-laser">Scegli dal listino <span aria-hidden="true">→</span></a></article>
+        <article class="visit-choice"><span class="visit-index" aria-hidden="true">02</span><h3>Vorrei un consiglio.</h3><p>Per un percorso viso, corpo o laser, la valutazione dura 30–40 minuti. Osserviamo la zona e parliamo di trattamenti, frequenza e prezzo. È gratuita se inizi il percorso proposto.</p><a class="visit-link" href="/contatti">Richiedi la valutazione <span aria-hidden="true">→</span></a></article>
+      </div>
+      <div class="visit-contact"><p><strong>Conferma l’appuntamento prima di partire.</strong> Siamo aperti da martedì a sabato; consulta gli orari dei singoli giorni e verifica con noi la disponibilità.</p><div><a class="visit-link" href="/contatti">Contatti e orari</a><a class="visit-link" href={`tel:${siteConfig.phoneRaw}`}>{siteConfig.phoneDisplay}</a><a class="visit-link" href={whatsapp}>Organizza la visita su WhatsApp</a></div></div>
+    </div></section>
 
-        <div id="faq" class="detail-section">
-          <SectionHead
-            kicker="Domande frequenti"
-            title="Le informazioni pratiche prima dell’appuntamento."
-          />
-          <FaqAccordion items={clearFaqs} kicker={`Da ${area.city}`} />
-        </div>
+    <div class="visit-material" aria-hidden="true"></div>
 
-        {relatedAreas.length > 0 ? (
-          <div id="vicini" class="detail-section">
-            <SectionHead
-              kicker="Altri comuni della zona"
-              title="Indicazioni per raggiungere Rebel dai comuni vicini."
-              lead="Scegli il comune per aprire la mappa e trovare contatti, servizi e prezzi."
-            />
-            <div class="card-grid card-grid--3">
-              {relatedAreas.map((relatedArea, i) => (
-                <FeatureCard
-                  kicker="Località"
-                  title={relatedArea.city}
-                  body={`Indicazioni e contatti per organizzare la visita da ${relatedArea.city}.`}
-                  href={`/localita/${relatedArea.slug}`}
-                  variant="quiet"
-                  index={i + 1}
-                />
-              ))}
-            </div>
-          </div>
-        ) : null}
-      </article>
+    <section class="visit-section" id="servizi" aria-labelledby="visit-services-title"><div class="visit-shell">
+      <div class="visit-section-heading"><p class="visit-kicker">03 / Il tuo momento in studio</p><h2 id="visit-services-title">Da cosa vuoi <em>iniziare?</em></h2><p>Approfondisci il servizio che ti interessa prima dell’appuntamento. Tutte le proposte si svolgono nello studio di Carmagnola.</p></div>
+      <div class="visit-services">{visitServiceLinks.map((service) => <article><h3>{service.name}</h3><p>{service.description}</p><ul>{service.links.map((link) => <li><a href={link.href}>{link.label}<span aria-hidden="true"> ↗</span></a></li>)}</ul></article>)}</div>
+      {showPromo && <aside class="visit-promo"><div><p class="visit-kicker">La promozione laser</p><h3>Una zona o <em>Total Body.</em></h3><p>Prezzo per seduta, conteggio delle zone e condizioni della promozione: tutti i dettagli prima di prenotare a Carmagnola.</p></div><a class="btn btn--primary" href={laserOffer.landingPath}>Scopri la promo laser <span aria-hidden="true">↗</span></a></aside>}
+    </div></section>
 
-      <aside class="detail-aside">
-        <TableOfContents items={tocItems} />
-        <InlineCta
-          kicker="Valutazione REBEL · 30–40 minuti"
-          title={isCarmagnola ? "Prenota una valutazione in studio." : `Vieni da ${area.city}? Prenota una valutazione in studio.`}
-          lead="Indicaci il servizio o la zona che ti interessa. Ti spieghiamo trattamento, frequenza e prezzo prima di iniziare."
-          primaryHref="/contatti"
-          primaryLabel="Prenota la valutazione"
-          secondaryHref="/servizi"
-          secondaryLabel="Vedi tutti i servizi"
-        />
-      </aside>
-    </div>
-  </section>
+    <section class="visit-section visit-section--paper" id="faq" aria-labelledby="visit-faq-title"><div class="visit-shell"><div class="visit-section-heading"><p class="visit-kicker">04 / Le informazioni pratiche</p><h2 id="visit-faq-title">Prima <em>dell’appuntamento.</em></h2></div><FaqAccordion items={faqs} kicker="La tua visita" /></div></section>
 
-  <FullBleedBand
-    image={media.studio.reception}
-    height="sm"
-    align="center"
-    kicker={originLabel}
-    title="Valutazione REBEL di _30–40 minuti_."
-    lead="Valutiamo la zona e definiamo trattamento, frequenza e prezzo. Se scegli di iniziare il percorso proposto, la valutazione iniziale è gratuita."
-    cta={{ label: "Prenota la valutazione", href: "/contatti" }}
-  />
-
-  <StickyBookingBar priceHint="Valutazione 30–40 min" primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
+    <section class="visit-section visit-section--compact" aria-labelledby="visit-origins-title"><div class="visit-shell"><p class="visit-kicker">{group.name}</p><h2 id="visit-origins-title">Parti da <em>un’altra località?</em></h2><p>Seleziona un’altra partenza o torna a tutte le indicazioni.</p><ul class="visit-origins">{relatedAreas.map((related) => <li><a href={`/localita/${related.slug}`}>{related.city}<span aria-hidden="true"> ↗</span></a></li>)}</ul><a class="visit-link" href="/localita">Tutte le località <span aria-hidden="true">→</span></a></div></section>
+  </div>
 </BaseLayout>
 
 <style>
-  .detail-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 320px;
-    gap: clamp(2rem, 4vw, 4rem);
-    align-items: start;
-  }
-  @media (max-width: 980px) {
-    .detail-grid { grid-template-columns: 1fr; }
-    .detail-aside { order: -1; }
-  }
-  .detail-main { min-width: 0; }
-  .detail-section { margin-top: clamp(3rem, 6vw, 5rem); }
-  .directions-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.6rem;
-    margin-top: 1.4rem;
-  }
-  @media (max-width: 760px) {
-    .directions-grid { grid-template-columns: 1fr; }
-  }
-  .directions-p {
-    font-size: var(--t-body);
-    line-height: var(--leading-body);
-    color: var(--text);
-    margin: 0 0 0.85rem;
-    max-width: 70ch;
-  }
-  .map-frame {
-    position: relative;
-    aspect-ratio: 4 / 3;
-    border-radius: var(--r-md);
-    overflow: hidden;
-    border: 1px solid var(--line);
-    background: rgba(7, 5, 14, 0.5);
-  }
-  .map-frame iframe {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-  }
-  .editorial-flow { display: grid; gap: 1rem; margin-top: 1.6rem; }
-  .detail-aside { display: grid; gap: 1.4rem; }
+  .visit-page { color-scheme: light; --text: #301b3e; --text-strong: #211427; --text-muted: #685471; --line: #e2d6e7; background: #f8f3ed; color: #301b3e; }
+  .visit-shell { width: min(1240px, calc(100% - 2 * clamp(1.2rem, 4vw, 3.5rem))); margin-inline: auto; }
+  .visit-page :is(h1,h2,h3,p,figure,ul) { margin: 0; }
+  .visit-page p { line-height: 1.75; color: #685471; }
+  .visit-page :is(h1,h2,h3) { color: #301b3e; }
+  .visit-page h1 { font: 500 clamp(2.9rem, 5.6vw, 5.8rem)/1.05 var(--font-display); letter-spacing: -.045em; overflow-wrap: normal; word-break: normal; hyphens: none; }
+  .visit-page h2 { font: 500 clamp(2.1rem, 4vw, 4rem)/1.1 var(--font-display); letter-spacing: -.035em; }
+  .visit-page em { color: #70428b; font-weight: 400; }
+  .visit-page .visit-kicker { margin-bottom: 1rem; color: #a51e58; font: 700 .75rem/1.6 var(--font-body); letter-spacing: .13em; text-transform: uppercase; }
+  .visit-hero { padding: clamp(9rem, 14vw, 12rem) 0 3.5rem; background: #fffdf9; }
+  .visit-hero__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+  .visit-breadcrumb { margin-bottom: 2rem; font-size: .8rem; color: #685471; }
+  .visit-breadcrumb a { color: #70428b; text-underline-offset: .3em; }
+  .visit-hero__lead { margin-top: 1.5rem !important; max-width: 54ch; font-size: 1.04rem; }
+  .visit-hero__lead strong { color: #301b3e; font-weight: 650; }
+  .visit-hero__photo { min-width: 0; }
+  .visit-hero__photo picture { display: block; overflow: hidden; border-radius: 3rem .5rem 3rem .5rem; background: #ede1e9; box-shadow: 0 24px 64px #301b3e14; }
+  .visit-hero__photo img { width: 100%; height: auto; aspect-ratio: 4/3; object-fit: cover; display: block; }
+  .visit-hero__photo figcaption { display: flex; flex-wrap: wrap; gap: .2rem .8rem; margin-top: .75rem; font-size: .75rem; color: #685471; }
+  .visit-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.5rem; margin-top: 1.8rem; }
+  .visit-page .visit-link { display: inline-flex; min-height: 44px; align-items: center; gap: .5rem; font-size: .9rem; font-weight: 650; color: #70428b; text-underline-offset: .3em; }
+  .visit-page .btn { gap: .8rem; }
+  .visit-nav { display: flex; flex-wrap: wrap; gap: .4rem 2rem; padding-block: 1.1rem; border-bottom: 1px solid #e2d6e7; }
+  .visit-nav a { min-height: 44px; display: inline-flex; align-items: center; gap: .65rem; font-size: .75rem; color: #a51e58; text-decoration: none; }
+  .visit-nav span { color: #301b3e; font-weight: 650; font-size: .85rem; }
+  .visit-section { padding-block: clamp(3.5rem, 7vw, 6rem); scroll-margin-top: 7rem; }
+  .visit-section--paper { background: #fffdf9; }
+  .visit-section--compact { padding-block: 3rem; }
+  .visit-section-heading { max-width: 760px; margin-bottom: 2.5rem; }
+  .visit-section-heading>p:last-child:not(.visit-kicker) { margin-top: 1.2rem; }
+  .visit-map-grid { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: clamp(2rem, 5vw, 5rem); }
+  .visit-address { display: grid; font-style: normal; gap: .3rem; margin-block: 1.5rem; line-height: 1.5; }
+  .visit-address strong { font-weight: 700; }
+  .visit-map { position: relative; min-width: 0; aspect-ratio: 5/4; border: 1px solid #d8c8e1; border-radius: .5rem 3rem .5rem 3rem; overflow: hidden; background: #f0e7f2; }
+  .visit-map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .visit-page .visit-small { font-size: .78rem; margin-top: 1rem; }
+  .visit-choice-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1rem; }
+  .visit-choice { padding: clamp(1.5rem, 3vw, 2.5rem); border: 1px solid #e2d6e7; border-radius: 2rem .4rem 2rem .4rem; background: #fbf7fc; }
+  .visit-choice:nth-child(even) { border-radius: .4rem 2rem .4rem 2rem; background: #fbf5f7; }
+  .visit-index { font-size: .75rem; letter-spacing: .15em; color: #a51e58; }
+  .visit-choice h3 { margin-block: 1rem; font: 500 clamp(1.5rem, 2.3vw, 2rem)/1.2 var(--font-display); }
+  .visit-choice .visit-link { margin-top: 1rem; }
+  .visit-contact { margin-top: 2rem; border-top: 1px solid #e2d6e7; padding-top: 1.6rem; }
+  .visit-contact>div { display: flex; flex-wrap: wrap; gap: .3rem 1.5rem; margin-top: .7rem; }
+  .visit-material { height: clamp(4rem, 10vw, 8rem); background: #f8f3ed url('/img/rebel-r2/rebel/brand/rebel-prism-desktop.webp') center/cover no-repeat; }
+  .visit-services { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 2rem; }
+  .visit-services article { min-width: 0; padding-top: 1.3rem; border-top: 1px solid #cdb9d8; }
+  .visit-services h3 { font: 500 1.65rem/1.25 var(--font-display); }
+  .visit-services p { margin-top: .7rem; font-size: .9rem; }
+  .visit-services ul { padding: 0; list-style: none; margin-top: .8rem; }
+  .visit-services a { display: inline-flex; align-items: center; min-height: 44px; gap: .4rem; color: #70428b; font-size: .85rem; text-underline-offset: .3em; }
+  .visit-promo { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem 3rem; margin-top: 3rem; padding: clamp(1.5rem,3vw,2.5rem); border: 1px solid #cdb9d8; border-radius: .5rem 2.5rem .5rem 2.5rem; background: #fffdf9; }
+  .visit-promo h3 { font: 500 clamp(1.65rem,2.5vw,2.4rem)/1.2 var(--font-display); }
+  .visit-promo p:last-child { margin-top: .6rem; max-width: 65ch; font-size: .9rem; }
+  .visit-promo .btn { flex-shrink: 0; }
+  .visit-origins { display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; list-style: none; padding: 1.3rem 0; }
+  .visit-origins a { display: inline-flex; min-height: 44px; align-items: center; gap: .3rem; color: #70428b; font-size: .9rem; text-underline-offset: .3em; }
+  .visit-page :is(a,summary):focus-visible { outline: 3px solid #7047ff; outline-offset: 4px; }
+  @media(max-width: 900px) { .visit-hero__grid,.visit-map-grid { grid-template-columns: 1fr; } .visit-hero__photo img { aspect-ratio: 16/9; } .visit-map { aspect-ratio: 16/10; } .visit-services { grid-template-columns: repeat(2,minmax(0,1fr)); } .visit-promo { flex-direction: column; align-items: flex-start; } }
+  @media(max-width: 600px) { .visit-hero { padding-top: 7.5rem; } .visit-page h1 { font-size: clamp(2.7rem,10.8vw,4.2rem); } .visit-choice-grid,.visit-services { grid-template-columns: 1fr; } .visit-hero__photo picture { border-radius: 2rem .4rem 2rem .4rem; } .visit-map { aspect-ratio: 1/1; border-radius: .4rem 2rem .4rem 2rem; } .visit-nav { gap: 0 1.2rem; } .visit-nav a { width: calc(50% - .6rem); } .visit-material { background-image: url('/img/rebel-r2/rebel/brand/rebel-prism-mobile.webp'); } }
 </style>

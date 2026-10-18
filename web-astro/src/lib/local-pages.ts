@@ -1,314 +1,108 @@
+import { siteConfig } from "./site-config";
+
 export type LocalAreaPage = {
   slug: string;
   city: string;
   cluster: "asse-carmagnola" | "torino-sud" | "cuneo";
-  directions: {
-    mapsUrl: string;
-    embedUrl: string;
-  };
+  kind: "municipality" | "area";
+  directions: { mapsUrl: string; embedUrl: string };
 };
 
-export const localAreaPages: LocalAreaPage[] = [
-  {
-    slug: "carmagnola",
-    city: "Carmagnola",
-    cluster: "asse-carmagnola",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/search/?api=1&query=Viale+Barbaroux+20,+10022+Carmagnola+TO",
-      embedUrl: "https://www.google.com/maps?q=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "lombriasco",
-    city: "Lombriasco",
-    cluster: "asse-carmagnola",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Lombriasco&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Lombriasco&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "caramagna-piemonte",
-    city: "Caramagna Piemonte",
-    cluster: "asse-carmagnola",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Caramagna+Piemonte&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Caramagna+Piemonte&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "osasio",
-    city: "Osasio",
-    cluster: "asse-carmagnola",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Osasio&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Osasio&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "casalgrasso",
-    city: "Casalgrasso",
-    cluster: "asse-carmagnola",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Casalgrasso&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Casalgrasso&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "carignano",
-    city: "Carignano",
-    cluster: "asse-carmagnola",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Carignano&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Carignano&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "racconigi",
-    city: "Racconigi",
-    cluster: "asse-carmagnola",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Racconigi&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Racconigi&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "sommariva-del-bosco",
-    city: "Sommariva del Bosco",
-    cluster: "asse-carmagnola",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Sommariva+del+Bosco&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Sommariva+del+Bosco&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "poirino",
-    city: "Poirino",
-    cluster: "asse-carmagnola",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Poirino&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Poirino&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "villastellone",
-    city: "Villastellone",
-    cluster: "asse-carmagnola",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Villastellone&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Villastellone&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "pancalieri",
-    city: "Pancalieri",
-    cluster: "asse-carmagnola",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Pancalieri&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Pancalieri&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "virle-piemonte",
-    city: "Virle Piemonte",
-    cluster: "asse-carmagnola",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Virle+Piemonte&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Virle+Piemonte&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "pralormo",
-    city: "Pralormo",
-    cluster: "asse-carmagnola",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Pralormo&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Pralormo&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "torino",
-    city: "Torino",
-    cluster: "torino-sud",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Torino+TO&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Torino+TO&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "torino-sud",
-    city: "Torino Sud",
-    cluster: "torino-sud",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/search/?api=1&query=Viale+Barbaroux+20,+10022+Carmagnola+TO",
-      embedUrl: "https://www.google.com/maps?q=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "moncalieri",
-    city: "Moncalieri",
-    cluster: "torino-sud",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Moncalieri&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Moncalieri&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "nichelino",
-    city: "Nichelino",
-    cluster: "torino-sud",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Nichelino&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Nichelino&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "vinovo",
-    city: "Vinovo",
-    cluster: "torino-sud",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Vinovo&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Vinovo&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "la-loggia",
-    city: "La Loggia",
-    cluster: "torino-sud",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=La+Loggia&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=La+Loggia&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "trofarello",
-    city: "Trofarello",
-    cluster: "torino-sud",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Trofarello&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Trofarello&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "chieri",
-    city: "Chieri",
-    cluster: "torino-sud",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Chieri&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Chieri&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "orbassano",
-    city: "Orbassano",
-    cluster: "torino-sud",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Orbassano&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Orbassano&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "polonghera",
-    city: "Polonghera",
-    cluster: "cuneo",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Polonghera&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Polonghera&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "ceresole-d-alba",
-    city: "Ceresole d'Alba",
-    cluster: "cuneo",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Ceresole+d%27Alba&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Ceresole+d%27Alba&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "canale",
-    city: "Canale",
-    cluster: "cuneo",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Canale+CN&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Canale+CN&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "alba",
-    city: "Alba",
-    cluster: "cuneo",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Alba&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Alba&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "bra",
-    city: "Bra",
-    cluster: "cuneo",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Bra&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Bra&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "savigliano",
-    city: "Savigliano",
-    cluster: "cuneo",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Savigliano&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Savigliano&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "fossano",
-    city: "Fossano",
-    cluster: "cuneo",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Fossano&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Fossano&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
-  {
-    slug: "saluzzo",
-    city: "Saluzzo",
-    cluster: "cuneo",
-    directions: {
-      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Saluzzo&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
-      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Saluzzo&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
-    },
-  },
+type LocalAreaSeed = Pick<LocalAreaPage, "slug" | "city" | "cluster"> & {
+  kind?: LocalAreaPage["kind"];
+};
+
+// Origins, not branches: every route ends at the same real REBEL studio.
+// Keep existing slugs stable while reviewing their search performance.
+const localAreaSeeds: LocalAreaSeed[] = [
+  { slug: "carmagnola", city: "Carmagnola", cluster: "asse-carmagnola" },
+  { slug: "lombriasco", city: "Lombriasco", cluster: "asse-carmagnola" },
+  { slug: "caramagna-piemonte", city: "Caramagna Piemonte", cluster: "asse-carmagnola" },
+  { slug: "osasio", city: "Osasio", cluster: "asse-carmagnola" },
+  { slug: "casalgrasso", city: "Casalgrasso", cluster: "asse-carmagnola" },
+  { slug: "carignano", city: "Carignano", cluster: "asse-carmagnola" },
+  { slug: "racconigi", city: "Racconigi", cluster: "asse-carmagnola" },
+  { slug: "sommariva-del-bosco", city: "Sommariva del Bosco", cluster: "asse-carmagnola" },
+  { slug: "poirino", city: "Poirino", cluster: "asse-carmagnola" },
+  { slug: "villastellone", city: "Villastellone", cluster: "asse-carmagnola" },
+  { slug: "pancalieri", city: "Pancalieri", cluster: "asse-carmagnola" },
+  { slug: "virle-piemonte", city: "Virle Piemonte", cluster: "asse-carmagnola" },
+  { slug: "pralormo", city: "Pralormo", cluster: "asse-carmagnola" },
+  { slug: "torino", city: "Torino", cluster: "torino-sud" },
+  { slug: "torino-sud", city: "Torino Sud", cluster: "torino-sud", kind: "area" },
+  { slug: "moncalieri", city: "Moncalieri", cluster: "torino-sud" },
+  { slug: "nichelino", city: "Nichelino", cluster: "torino-sud" },
+  { slug: "vinovo", city: "Vinovo", cluster: "torino-sud" },
+  { slug: "la-loggia", city: "La Loggia", cluster: "torino-sud" },
+  { slug: "trofarello", city: "Trofarello", cluster: "torino-sud" },
+  { slug: "chieri", city: "Chieri", cluster: "torino-sud" },
+  { slug: "orbassano", city: "Orbassano", cluster: "torino-sud" },
+  { slug: "polonghera", city: "Polonghera", cluster: "cuneo" },
+  { slug: "ceresole-d-alba", city: "Ceresole d’Alba", cluster: "cuneo" },
+  { slug: "canale", city: "Canale", cluster: "cuneo" },
+  { slug: "alba", city: "Alba", cluster: "cuneo" },
+  { slug: "bra", city: "Bra", cluster: "cuneo" },
+  { slug: "savigliano", city: "Savigliano", cluster: "cuneo" },
+  { slug: "fossano", city: "Fossano", cluster: "cuneo" },
+  { slug: "saluzzo", city: "Saluzzo", cluster: "cuneo" },
 ];
+
+const studioAddress = `${siteConfig.address.streetAddress}, ${siteConfig.address.postalCode} ${siteConfig.address.locality} ${siteConfig.address.region}, Italia`;
+
+function routeOrigin(area: Pick<LocalAreaPage, "slug" | "city" | "kind">) {
+  // An area has no single departure point. Ask Maps for the visitor's address.
+  return area.kind === "area" || area.slug === "carmagnola"
+    ? undefined
+    : `${area.city}, Italia`;
+}
+
+function directionsUrl(area: Pick<LocalAreaPage, "slug" | "city" | "kind">, mode: "driving" | "transit") {
+  const parameters = new URLSearchParams({ api: "1", destination: studioAddress, travelmode: mode });
+  const origin = routeOrigin(area);
+  if (origin) parameters.set("origin", origin);
+  return `https://www.google.com/maps/dir/?${parameters}`;
+}
+
+export const localAreaPages: LocalAreaPage[] = localAreaSeeds.map((seed) => {
+  const area = { ...seed, kind: seed.kind ?? "municipality" as const };
+  const origin = routeOrigin(area);
+  const embedParameters = origin
+    ? new URLSearchParams({ f: "d", source: "s_d", saddr: origin, daddr: studioAddress, output: "embed" })
+    : new URLSearchParams({ q: studioAddress, output: "embed" });
+  return {
+    ...area,
+    directions: {
+      mapsUrl: directionsUrl(area, "driving"),
+      embedUrl: `https://www.google.com/maps?${embedParameters}`,
+    },
+  };
+});
 
 export function getLocalAreaPage(slug: string) {
   return localAreaPages.find((item) => item.slug === slug);
 }
 
-// These groups describe where a visit starts. REBEL has one studio, in Carmagnola.
-// They are shared by the service directory and directions, rather than generating
-// a separate service page for every municipality.
 export const localAreaGroups = [
   {
     key: "asse-carmagnola" as const,
     name: "Carmagnola e comuni vicini",
     title: "Il tuo appuntamento a Carmagnola.",
-    description: "Da Carignano, Racconigi, Poirino e dai comuni vicini, scegli il trattamento e consulta durata e prezzo prima di organizzare la visita.",
-    visitNote: "Per un servizio singolo puoi indicare subito il trattamento che desideri. Se vuoi valutare un percorso viso, corpo o laser, chiedi invece la valutazione iniziale e verifica la disponibilità prima di venire.",
+    description: "Scegli il tuo comune per vedere il percorso verso Viale Barbaroux 20 e preparare la visita.",
+    visitNote: "Hai già scelto un servizio? Indicaci il trattamento e le tue disponibilità. Se vuoi capire quale percorso viso, corpo o laser scegliere, chiedi la valutazione iniziale.",
   },
   {
     key: "torino-sud" as const,
-    name: "Torino e Torino Sud",
-    title: "Da Torino, una visita da organizzare intorno a te.",
-    description: "Lo studio è a Carmagnola: anche se parti da Torino, Moncalieri, Nichelino o Vinovo, puoi confrontare prima servizi e prezzi e chiederci un appuntamento.",
-    visitNote: "Se parti da Torino, imposta il tuo indirizzo esatto sulla mappa e scegli tra auto e trasporto pubblico. Per il laser, prima di spostarti verifica con noi zone da trattare, preparazione e disponibilità: il calendario delle sedute si definisce dopo la valutazione.",
+    name: "Torino e l’area sud",
+    title: "Da Torino e dai comuni dell’area sud.",
+    description: "Confronta auto e trasporto pubblico dalla tua partenza. Lo studio e tutti i trattamenti sono a Carmagnola.",
+    visitNote: "Prima di partire verifica l’appuntamento e inserisci il tuo indirizzo esatto sulla mappa. Se desideri iniziare il laser, chiedici anche come preparare le zone e quanto tempo riservare alla prima visita.",
   },
   {
     key: "cuneo" as const,
     name: "Cuneese, Roero e Langhe",
-    title: "Da Alba, Bra e dal Cuneese allo studio REBEL.",
-    description: "Per chi parte da Ceresole d’Alba, Canale, Bra, Alba, Savigliano, Fossano o Saluzzo: informazioni sullo studio, listino e indicazioni per arrivare a Carmagnola.",
-    visitNote: "Se vuoi abbinare più servizi nella stessa visita, segnalalo quando ci contatti: verifichiamo insieme la disponibilità e il tempo necessario. Per i percorsi che prevedono più appuntamenti concordiamo la frequenza in base al trattamento scelto.",
+    title: "Da Alba, Bra e dal Cuneese.",
+    description: "Trova le indicazioni per Carmagnola e consulta servizi, durata e prezzi prima di organizzare l’appuntamento.",
+    visitNote: "Se desideri più servizi nella stessa visita, segnalalo quando ci contatti. Verifichiamo disponibilità e durata complessiva prima di confermare l’appuntamento.",
   },
 ];
 
@@ -317,6 +111,17 @@ export function getLocalAreaGroup(area: LocalAreaPage) {
 }
 
 export function publicTransportDirections(area: LocalAreaPage) {
-  const origin = area.slug === "torino-sud" ? "Torino, Italia" : `${area.city}, Italia`;
-  return `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent("Viale Barbaroux 20, 10022 Carmagnola TO")}&travelmode=transit`;
+  return directionsUrl(area, "transit");
 }
+
+// Distinct needs link to existing destinations, without service × city URLs.
+export const visitServiceLinks = [
+  { name: "Epilazione laser", description: "Tecnologia, zone e preparazione prima della seduta.", links: [{ label: "Come funziona il laser", href: "/epilazione-laser-carmagnola" }, { label: "Viso", href: "/servizi/epilazione-laser-viso-carmagnola" }, { label: "Corpo", href: "/servizi/epilazione-laser-corpo-carmagnola" }] },
+  { name: "Viso", description: "Pulizia professionale, trattamenti singoli e percorsi per la tua pelle.", links: [{ label: "Confronta i trattamenti", href: "/servizi/trattamenti-viso-carmagnola" }, { label: "Pulizia viso", href: "/servizi/pulizia-viso-carmagnola" }] },
+  { name: "Mani e piedi", description: "Manicure, semipermanente e varianti di pedicure.", links: [{ label: "Manicure", href: "/servizi/manicure-semipermanente-carmagnola" }, { label: "Confronta i pedicure", href: "/listino-estetica-laser#piedi" }] },
+  { name: "Ciglia e sopracciglia", description: "Laminazione ciglia, sopracciglia o combinata.", links: [{ label: "Laminazione e varianti", href: "/servizi/laminazione-ciglia-sopracciglia-carmagnola" }] },
+  { name: "Corpo", description: "Scrub, cosmetici e tecnologie da scegliere in studio.", links: [{ label: "Confronta i trattamenti", href: "/servizi/trattamenti-corpo-carmagnola" }, { label: "Percorso Forma", href: "/percorsi/forma" }] },
+  { name: "Massaggi", description: "Le manualità e le zone del menu, con durata e prezzo.", links: [{ label: "Confronta i massaggi", href: "/servizi/massaggi-carmagnola" }, { label: "Rilassante", href: "/servizi/massaggio-rilassante-carmagnola" }, { label: "Linfodrenante", href: "/servizi/massaggio-linfodrenante-carmagnola" }] },
+  { name: "Ceretta", description: "Le zone e le varianti dell’epilazione a cera nel menu.", links: [{ label: "Ceretta donna", href: "/listino-estetica-laser#ceretta-donna" }, { label: "Ceretta uomo", href: "/listino-estetica-laser#ceretta-uomo" }] },
+  { name: "Pressomassaggio", description: "Confronta sedute, durate e abbinamento con bendaggi.", links: [{ label: "Proposte e prezzi", href: "/servizi/pressomassaggio-carmagnola" }] },
+];

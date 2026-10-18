@@ -1,0 +1,61 @@
+{
+  "brand": "RBL Nails",
+  "retrieved": "2026-10-18",
+  "purpose": "Official product/collection imagery used by REBEL; not client before/after results.",
+  "images": [
+    {
+      "file": "atelier-work.webp",
+      "source": "https://www.rbl-nails.it/images/campaign/atelier-work.webp",
+      "dimensions": [
+        1122,
+        1402
+      ],
+      "bytes": 114326
+    },
+    {
+      "file": "salon-proof.webp",
+      "source": "https://www.rbl-nails.it/images/campaign/salon-proof.webp",
+      "dimensions": [
+        1122,
+        1402
+      ],
+      "bytes": 123528
+    },
+    {
+      "file": "rosa-in-polvere-800.webp",
+      "source": "https://www.rbl-nails.it/images/atelier/hands/rosa-in-polvere-800.webp",
+      "dimensions": [
+        800,
+        533
+      ],
+      "bytes": 49052
+    },
+    {
+      "file": "rosa-in-polvere.webp",
+      "source": "https://www.rbl-nails.it/images/atelier/hands/rosa-in-polvere.webp",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bytes": 164348
+    },
+    {
+      "file": "blu-assoluto-v2-800.webp",
+      "source": "https://www.rbl-nails.it/images/atelier/hands/blu-assoluto-v2-800.webp",
+      "dimensions": [
+        800,
+        533
+      ],
+      "bytes": 102138
+    },
+    {
+      "file": "blu-assoluto-v2.webp",
+      "source": "https://www.rbl-nails.it/images/atelier/hands/blu-assoluto-v2.webp",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bytes": 263752
+    }
+  ]
+}

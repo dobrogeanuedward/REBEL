@@ -12,7 +12,6 @@ import GlowNews from "@/components/GlowNews.astro";
 import { methodSteps, storeGalleryImages } from "@/lib/content";
 import { siteConfig } from "@/lib/site-config";
 import {
-  buildArticleSchema,
   buildBreadcrumbSchema,
   buildWebPageSchema,
   createPageMeta,
@@ -36,14 +35,6 @@ const meta = createPageMeta({
 
 const breadcrumb = buildBreadcrumbSchema([{ name: "Home", path: "/" }]);
 const webPage = buildWebPageSchema({ name: "Rebel Estetica Epigenetica", description: meta.description, path: "/" });
-const article = buildArticleSchema({
-  headline: "Trattamenti viso, percorsi corpo ed epilazione laser a Carmagnola",
-  description: meta.description,
-  path: "/",
-  keywords: ["Metodo Rebel", "estetica epigenetica", "Carmagnola"],
-  section: "Home",
-});
-
 const siteAsset = (slot: string) => `/api/site-asset?slot=${encodeURIComponent(slot)}`;
 const faceImage = siteAsset("journeys.glow.hero.desktop");
 const bodyImage = siteAsset("journeys.forma.hero.desktop");
@@ -69,15 +60,15 @@ const worlds = [
     name: "Viso",
     copy: "Pulizia viso, Glow, Longevity, trattamenti con attivi epigenetici, contorno occhi e laminazione coreana.",
     image: faceImage,
-    href: "/percorsi",
+    href: "/servizi/trattamenti-viso-carmagnola",
     cta: "Esplora il viso",
   },
   {
     number: "02",
     name: "Corpo",
-    copy: "Drenaggio, massaggi, rimodellamento e LPG in percorsi definiti dopo la valutazione.",
+    copy: "Scrub, cosmetici, massaggi e tecnologie: una singola seduta o un percorso definito dopo la valutazione.",
     image: bodyImage,
-    href: "/percorsi/forma",
+    href: "/servizi/trattamenti-corpo-carmagnola",
     cta: "Esplora il corpo",
   },
   {
@@ -93,7 +84,6 @@ const worlds = [
 <BaseLayout meta={meta} bodyClass="rebel-rebrand">
   <JsonLd data={breadcrumb} />
   <JsonLd data={webPage} />
-  <JsonLd data={article} />
 
   <div class="rebel-shell">
     <HomeFilm />

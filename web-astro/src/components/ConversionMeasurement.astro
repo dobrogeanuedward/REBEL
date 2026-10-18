@@ -1,0 +1,64 @@
+---
+import { createMeasurementPolicy } from "@/lib/measurement";
+import { serviceRequests } from "@/lib/service-booking";
+import { bookingChoices } from "@/lib/treatment-catalog";
+import { servicePages, competencePages } from "@/lib/seo-content-refined";
+import { localAreaPages } from "@/lib/local-pages";
+import { protocolPages } from "@/lib/protocol-pages";
+import { rebelJourneys } from "@/lib/rebel-journeys";
+
+// Route and service registries stay server-side; only their public identifiers
+// are serialized. Static routes include new commercial category pages.
+const staticPaths = Object.keys(import.meta.glob("../pages/**/*.astro"))
+  .filter((file) => !file.includes("["))
+  .map((file) => file.replace("../pages", "").replace(/\/index\.astro$/, "/").replace(/\.astro$/, ""));
+const policy = createMeasurementPolicy({
+  paths: [
+    ...staticPaths,
+    ...servicePages.map((page) => `/servizi/${page.slug}`),
+    ...competencePages.map((page) => `/competenze/${page.slug}`),
+    ...localAreaPages.map((page) => `/localita/${page.slug}`),
+    ...protocolPages.map((page) => `/protocolli/${page.slug}`),
+    ...rebelJourneys.map((page) => `/percorsi/${page.slug}`),
+  ],
+  services: [...Object.keys(serviceRequests), ...bookingChoices.map((choice) => choice.id)],
+});
+const serializedPolicy = JSON.stringify(policy).replaceAll("<", "\\u003c");
+---
+<script is:inline type="application/json" data-rebel-measurement-policy set:html={serializedPolicy}></script>
+<script>
+  import { conversionTypeForLink, trackConversion } from "@/lib/measurement";
+  type MeasurementWindow = Window & {
+    __rebelConversionLifecycle?: AbortController;
+    __rebelConversionCleanup?: () => void;
+  };
+  const measurementWindow = window as MeasurementWindow;
+  measurementWindow.__rebelConversionLifecycle?.abort();
+  measurementWindow.__rebelConversionCleanup?.();
+  const lifecycle = new AbortController();
+  measurementWindow.__rebelConversionLifecycle = lifecycle;
+
+  const init = () => {
+    measurementWindow.__rebelConversionCleanup?.();
+    const listeners = new AbortController();
+    const onClick = (event: MouseEvent) => {
+      if (!event.isTrusted || (event.type === "click" ? event.button !== 0 : event.button !== 1)) return;
+      const target = event.target instanceof Element ? event.target : null;
+      const anchor = target?.closest<HTMLAnchorElement>("a[href]");
+      if (!anchor || anchor.hasAttribute("data-rebel-measurement-ignore")) return;
+      const type = conversionTypeForLink(anchor.href);
+      if (!type) return;
+      const service = anchor.closest<HTMLElement>("[data-rebel-service]")?.dataset.rebelService;
+      trackConversion(type, { service });
+    };
+    // Submits are deliberately excluded: forms emit only at their real handoff.
+    document.addEventListener("click", onClick, { signal: listeners.signal });
+    document.addEventListener("auxclick", onClick, { signal: listeners.signal });
+    const cleanup = () => listeners.abort();
+    measurementWindow.__rebelConversionCleanup = cleanup;
+  };
+
+  init();
+  document.addEventListener("astro:page-load", init, { signal: lifecycle.signal });
+  document.addEventListener("astro:before-swap", () => measurementWindow.__rebelConversionCleanup?.(), { signal: lifecycle.signal });
+</script>

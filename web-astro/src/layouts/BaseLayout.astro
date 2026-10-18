@@ -20,6 +20,7 @@ import Reveal from "@/components/Reveal.astro";
 import SiteFooter from "@/components/SiteFooter.astro";
 import WhatsappLive from "@/components/WhatsappLive.astro";
 import SiteHeader from "@/components/SiteHeader.tsx";
+import ConversionMeasurement from "@/components/ConversionMeasurement.astro";
 import manropeLatin400 from "@fontsource/manrope/files/manrope-latin-400-normal.woff2?url";
 import playfairLatin500 from "@fontsource/playfair-display/files/playfair-display-latin-500-normal.woff2?url";
 import playfairLatin500Italic from "@fontsource/playfair-display/files/playfair-display-latin-500-italic.woff2?url";
@@ -62,6 +63,7 @@ const pathname = Astro.url.pathname;
     <ClientRouter fallback="swap" />
   </head>
   <body class={bodyClass}>
+    <ConversionMeasurement />
     <a href="#content" class="sr-only" data-skip-link>Salta al contenuto</a>
 
     <AmbientLayer />

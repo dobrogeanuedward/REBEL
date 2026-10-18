@@ -79,7 +79,7 @@ export const siteConfig = {
     {
       name: "RBL Nails",
       kind: "Smalti e gel professionali",
-      url: undefined,
+      url: "https://www.rbl-nails.it/",
       blurb:
         "Smalti e gel professionali con colori e finiture classiche o stagionali.",
     },
@@ -94,6 +94,7 @@ export const siteConfig = {
   // Sister sites in the Thory / DOGO network. Used in the footer.
   network: [
     { label: "thory-tech.com", url: "https://www.thory-tech.com/", note: "Tecnologia laser" },
+    { label: "rbl-nails.it", url: "https://www.rbl-nails.it/", note: "Colore professionale" },
     { label: "academy.thory-tech.com", url: "https://academy.thory-tech.com/", note: "Formazione" },
   ],
   // Branding & web by DOGO Studio (footer credit).
