@@ -1,5 +1,6 @@
 ---
-import LandingLayout from "@/layouts/LandingLayout.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import LaserCampaignFilm from "@/components/LaserCampaignFilm.astro";
 import PromoLaserPlanner from "@/components/PromoLaserPlanner.astro";
 import LandingFaq from "@/components/landing/LandingFaq.astro";
@@ -46,7 +47,7 @@ const faqSchema = {
   mainEntity: faqs.map(faq => ({ "@type": "Question", name: faq.q, acceptedAnswer: { "@type": "Answer", text: faq.a } })),
 };
 ---
-<LandingLayout meta={meta} bodyClass="page-landing--laser page-landing--laser-offer laser-promo-premium" ctaHref="#scegli-la-promo" ctaLabel="Scegli la tua promo">
+<BaseLayout meta={meta} bodyClass="page-laser-offer laser-promo-premium">
   <JsonLd data={breadcrumb} />
   <JsonLd data={serviceSchema} />
   <JsonLd data={faqSchema} />
@@ -123,4 +124,5 @@ const faqSchema = {
   <div class="lp-contact-wrap"><LandingFormCard kicker="Preferisci essere ricontattata o ricontattato?" title="Lasciaci il tuo contatto." lead="Indica nome e numero. Se vuoi, aggiungi il comune da cui arrivi e le zone che ti interessano: ti ricontattiamo per concordare la valutazione." source="landing-laser-offer" defaultMessage={laserOfferContactMessage} submitLabel="Richiedi un contatto" showRitual={false} showMessage={true} /><p class="lp-contact-alternative">Puoi anche chiamarci: <a href={`tel:${siteConfig.phoneRaw}`}>{siteConfig.phoneDisplay}</a></p></div>
   <LandingFaq kicker="Prima di scegliere" title="Le domande, prima della seduta." items={faqs} />
   <section class="lp-closing" aria-labelledby="lp-closing-title"><div class="lp-shell"><p class="lp-kicker">REBEL · Estetica epigenetica</p><h2 id="lp-closing-title">La libertà comincia<br /><em>con una scelta tua.</em></h2><a class="lp-button lp-button--light" href={campaignWhatsApp(laserOfferContactMessage)} target="_blank" rel="noreferrer">Chiedi la promo su WhatsApp <span aria-hidden="true">↗</span></a><p>{siteConfig.address.streetAddress} · {siteConfig.address.locality}</p></div></section>
-</LandingLayout>
+  <StickyBookingBar promo primary={{ label: "Scegli la tua promo", href: "#scegli-la-promo" }} whatsappHref={campaignWhatsApp(laserOfferContactMessage)} />
+</BaseLayout>
