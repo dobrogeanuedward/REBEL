@@ -3,6 +3,7 @@ import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import vercel from "@astrojs/vercel";
+import { isIndexableSearchPage, permanentRedirects } from "./src/lib/search-intents.ts";
 
 const SITE = "https://www.rebelepigenetica.it";
 
@@ -19,32 +20,8 @@ export default defineConfig({
   build: {
     format: "directory",
   },
-  // 301 redirects: cleaned-up competence slugs (removed "guida pratica/realistica").
-  redirects: {
-    "/epilazione-laser-prova": "/promo-epilazione-laser-carmagnola",
-    "/competenze/epilazione-laser-viso-carmagnola-guida-realistica":
-      "/competenze/epilazione-laser-viso-carmagnola-cosa-sapere",
-    "/competenze/epilazione-laser-inguine-carmagnola-guida-pratica":
-      "/competenze/epilazione-laser-inguine-carmagnola",
-    "/competenze/epilazione-laser-ascelle-carmagnola-guida-pratica":
-      "/competenze/epilazione-laser-ascelle-carmagnola",
-    "/competenze/laser-uomo-carmagnola-guida-pratica":
-      "/competenze/laser-uomo-carmagnola",
-    "/competenze/laser-barba-collo-carmagnola-guida-pratica":
-      "/competenze/laser-barba-collo-carmagnola",
-    "/competenze/laser-schiena-carmagnola-guida-pratica":
-      "/competenze/laser-schiena-carmagnola",
-    "/competenze/laser-gambe-carmagnola-guida-pratica":
-      "/competenze/laser-gambe-carmagnola",
-    "/competenze/linfodrenante-carmagnola-guida-pratica":
-      "/competenze/linfodrenante-carmagnola",
-    "/competenze/pressoterapia-carmagnola-guida-pratica":
-      "/competenze/pressomassaggio-carmagnola",
-    "/competenze/pressoterapia-carmagnola":
-      "/competenze/pressomassaggio-carmagnola",
-    "/competenze/pressomassaggio-carmagnola-guida-pratica":
-      "/competenze/pressomassaggio-carmagnola",
-  },
+  // Astro emits permanent (301) redirects, also in the Vercel route manifest.
+  redirects: permanentRedirects,
   prefetch: {
     prefetchAll: true,
     defaultStrategy: "viewport",
@@ -52,14 +29,7 @@ export default defineConfig({
   integrations: [
     react(),
     sitemap({
-      filter: (page) =>
-        !page.includes("/api/") &&
-        !page.endsWith("/feed.xml") &&
-        !page.endsWith("/feed.json") &&
-        // /prenota is a noindex ads landing — keep it out of the sitemap so
-        // it never competes with the canonical pages on SEO.
-        !page.endsWith("/prenota") &&
-        !page.endsWith("/prenota/"),
+      filter: isIndexableSearchPage,
       changefreq: "weekly",
       priority: 0.7,
     }),

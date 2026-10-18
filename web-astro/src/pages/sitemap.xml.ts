@@ -4,6 +4,7 @@ import { localAreaPages } from "@/lib/local-pages";
 import { protocolPages } from "@/lib/protocol-pages";
 import { rebelJourneys } from "@/lib/rebel-journeys";
 import { siteConfig } from "@/lib/site-config";
+import { isIndexableSearchPage, searchIntentPaths } from "@/lib/search-intents";
 
 type ChangeFreq =
   | "always"
@@ -31,7 +32,6 @@ const escapeXml = (value: string) =>
 
 export const GET: APIRoute = () => {
   const baseUrl = siteConfig.siteUrl.replace(/\/$/, "");
-  const lastmod = new Date().toISOString();
   const absoluteUrl = (value: string) => new URL(value, `${baseUrl}/`).toString();
   const defaultImage = absoluteUrl(siteConfig.assets.ogImage);
 
@@ -50,11 +50,9 @@ export const GET: APIRoute = () => {
   const staticEntries: Entry[] = [
     make("/", "daily", 1),
     make("/centro-estetico-carmagnola", "daily", 0.99),
-    make("/epilazione-laser-carmagnola", "daily", 0.98),
-    make("/promo-epilazione-laser-carmagnola", "weekly", 0.95),
-    make("/laser-full-body-carmagnola", "weekly", 0.9),
-    make("/promo-laser-carmagnola-dintorni", "weekly", 0.85),
-    make("/epilazione-laser-ice-polar-carmagnola", "weekly", 0.92),
+    make(searchIntentPaths.laserService, "daily", 0.98),
+    make(searchIntentPaths.laserOffer, "weekly", 0.95, absoluteUrl("/img/catalogo/laser-gamba-rebel.webp")),
+    make(searchIntentPaths.laserTechnology, "weekly", 0.92),
     make("/epilazione-laser-alba", "weekly", 0.92),
     make("/epilazione-laser-bra", "weekly", 0.92),
     make("/epilazione-laser-canale", "weekly", 0.92),
@@ -142,14 +140,17 @@ export const GET: APIRoute = () => {
     ),
   );
 
-  const entries = [
+  // List canonical, indexable URLs once. A rebuild is not evidence that a
+  // page changed, so omit lastmod until per-page revision dates are available.
+  const entries = [...new Map([
     ...staticEntries,
     ...serviceEntries,
     ...competenceEntries,
     ...protocolEntries,
     ...journeyEntries,
     ...localEntries,
-  ];
+  ].filter((entry) => isIndexableSearchPage(entry.loc))
+    .map((entry) => [entry.loc, entry] as const)).values()];
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -158,7 +159,6 @@ ${entries
   .map(
     (entry) => `  <url>
     <loc>${escapeXml(entry.loc)}</loc>
-    <lastmod>${lastmod}</lastmod>
     <changefreq>${entry.changefreq}</changefreq>
     <priority>${entry.priority.toFixed(2)}</priority>${
       entry.image

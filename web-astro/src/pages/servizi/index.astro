@@ -8,6 +8,9 @@ import InlineCta from "@/components/InlineCta.astro";
 import FullBleedBand from "@/components/FullBleedBand.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
+import ServiceAreaDiscovery from "@/components/ServiceAreaDiscovery.astro";
+import { menu } from "@/lib/treatment-catalog";
+import { laserOffer } from "@/lib/laser-offer";
 import { media } from "@/lib/page-media";
 import { protocolCards } from "@/lib/content";
 import { competencePages, servicePages } from "@/lib/seo-content-refined";
@@ -73,6 +76,26 @@ const esteticaSorted = estetica.slice().sort((a, b) => {
 });
 const laser = servicePages.filter((s) => s.category === "laser");
 const featuredProtocols = protocolCards.slice(0, 6);
+const catalogDescriptions: Record<string, string> = {
+  viso: "Pulizia viso, trattamenti idratanti, vitamina C, contorno occhi e altre proposte viso.",
+  "laser-treatwell": "La promozione laser a zona e Total Body, il conteggio delle zone e il listino ordinario.",
+  mani: "Manicure, smalto, semipermanente e rimozione: scegli la cura che cerchi per le mani.",
+  sguardo: "Laminazione ciglia, sopracciglia o combinata, con durata e varianti.",
+  piedi: "Pedicure estetico, con smalto o semipermanente, VIP con scrub e taglio unghie.",
+  corpo: "Scrub, peeling e trattamenti corpo: confronta le singole proposte disponibili.",
+  massaggi: "Rilassante, linfodrenante, schiena e cervicale, ayurvedico e altri massaggi estetici.",
+  "ceretta-donna": "Epilazione a cera di viso e corpo, inguine, gambe, Total Body e cera brasiliana.",
+  "ceretta-uomo": "Epilazione a cera uomo per schiena, petto, addome, braccia, gambe e Total Body.",
+  pressomassaggio: "Pressomassaggio, zona occhi e abbinamento con bendaggi: consulta prezzi e durata.",
+};
+const catalogListSchema = buildItemListSchema({
+  name: "Categorie dei trattamenti REBEL",
+  path: "/servizi",
+  items: menu.categories.map((category) => ({
+    name: category.name,
+    path: category.id === "laser-treatwell" ? laserOffer.landingPath : `/listino-estetica-laser#${category.id}`,
+  })),
+});
 
 const editorialSlugs = [
   "epilazione-laser-ascelle-carmagnola",
@@ -89,6 +112,7 @@ const featuredEditorials = editorialSlugs
   .filter((c): c is (typeof competencePages)[number] => Boolean(c));
 
 const switchItems = [
+  { href: "#menu-completo", label: "Tutti i trattamenti", glyph: "↗" },
   { href: "#estetica", label: "Viso, corpo e beauty", glyph: "✦" },
   { href: "#laser", label: "Epilazione laser", glyph: "◉" },
   { href: "#epigenetica", label: "Protocolli viso e corpo", glyph: "⬡" },
@@ -100,6 +124,7 @@ const switchItems = [
   <JsonLd data={serviceListSchema} />
   <JsonLd data={protocolListSchema} />
   <JsonLd data={webPageSchema} />
+  <JsonLd data={catalogListSchema} />
 
   <PageHero
     image={media.studio.cabin}
@@ -122,6 +147,25 @@ const switchItems = [
           </a>
         ))}
       </nav>
+    </div>
+  </section>
+
+  <section class="section section--tight" id="menu-completo">
+    <div class="container">
+      <SectionHead
+        kicker="Il menu REBEL"
+        title="Quello che cerchi, _con il suo prezzo_."
+        lead="Dal trattamento singolo al percorso: scegli una categoria per vedere tutte le proposte, le varianti e la durata. Per i servizi più richiesti trovi anche gli approfondimenti qui sotto."
+      />
+      <div class="service-directory">
+        {menu.categories.map((category, i) => (
+          <a class="service-directory__item" href={category.id === "laser-treatwell" ? laserOffer.landingPath : `/listino-estetica-laser#${category.id}`}>
+            <span class="service-directory__number" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+            <div><h3>{category.id === "laser-treatwell" ? "Epilazione laser" : category.name}</h3><p>{catalogDescriptions[category.id]}</p></div>
+            <span aria-hidden="true">↗</span>
+          </a>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -171,7 +215,8 @@ const switchItems = [
       </div>
       <div class="cluster cluster--stack-mobile" style="margin-top:2rem; justify-content:center;">
         <a class="btn btn--primary btn--halo" href="/epilazione-laser-carmagnola">Come funziona il percorso laser</a>
-        <a class="btn btn--secondary" href="/listino-estetica-laser#laser">Prezzi e zone laser</a>
+        <a class="btn btn--secondary" href={laserOffer.landingPath}>Promo laser: zona e Total Body</a>
+        <a class="btn btn--secondary" href="/listino-estetica-laser#laser">Listino e conteggio zone</a>
       </div>
     </div>
   </section>
@@ -228,6 +273,8 @@ const switchItems = [
     </section>
   ) : null}
 
+  <ServiceAreaDiscovery />
+
   <FullBleedBand
     image={media.studio.cabin}
     height="sm"
@@ -255,6 +302,14 @@ const switchItems = [
 </BaseLayout>
 
 <style>
+  .service-directory { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 2rem; }
+  .service-directory__item { display: grid; grid-template-columns: 1.6rem 1fr 1rem; gap: 1rem; padding: 1.5rem 0; color: var(--text); border-bottom: 1px solid var(--line); text-decoration: none; }
+  .service-directory__number { padding-top: 0.2rem; color: var(--mauve); font-size: 0.7rem; letter-spacing: 0.08em; }
+  .service-directory__item h3 { margin: 0 0 0.4rem; font-size: 1.3rem; font-family: var(--font-display); }
+  .service-directory__item p { margin: 0; font-size: 0.9rem; line-height: 1.6; color: var(--text); }
+  .service-directory__item:hover h3 { color: var(--mauve); }
+  .service-directory__item:focus-visible { outline: 2px solid var(--mauve); outline-offset: 4px; }
+  @media (max-width: 680px) { .service-directory { grid-template-columns: 1fr; } }
   .listino-switch {
     display: flex;
     flex-wrap: wrap;

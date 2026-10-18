@@ -1,3 +1,5 @@
+import { searchIntentPaths } from "./search-intents";
+
 const formatEuro = (amount: number) => new Intl.NumberFormat("it-IT", {
   style: "currency",
   currency: "EUR",
@@ -81,9 +83,9 @@ export const laserOffer = {
   },
   disclaimer:
     "La promozione è separata dal listino ordinario del Percorso Libertà. Prima di iniziare verifichiamo se il trattamento può essere indicato e definiamo zone e calendario.",
-  landingPath: "/promo-epilazione-laser-carmagnola",
-  fullBodyPath: "/laser-full-body-carmagnola",
-  territoryPath: "/promo-laser-carmagnola-dintorni",
+  landingPath: searchIntentPaths.laserOffer,
+  fullBodyPath: `${searchIntentPaths.laserOffer}#total-body`,
+  territoryPath: `${searchIntentPaths.laserOffer}#come-arrivare`,
   contactPath: "/contatti?source=promo-laser&percorso=liberta",
   stickyLabel: `Promo · ${zonePrice} a zona`,
   imageSlot: "services.laser.handpiece.desktop",

@@ -3,8 +3,8 @@ import { laserOffer } from "@/lib/laser-offer";
 const { current = "" } = Astro.props;
 const links = [
   { href: laserOffer.landingPath, title: `Laser a ${laserOffer.zone.price} a zona`, text: "Prezzi, conteggio delle zone e condizioni della promozione." },
-  { href: laserOffer.fullBodyPath, title: `Full body a ${laserOffer.totalBody.price}`, text: `${laserOffer.totalBody.detail} in una seduta: scopri come comporre il tuo trattamento.` },
-  { href: laserOffer.territoryPath, title: "Raggiungi REBEL a Carmagnola", text: "Località, indicazioni e prenotazione prima di partire." },
+  { href: "/epilazione-laser-carmagnola", title: "Il tuo percorso laser", text: "Pelle, pelo, zone e calendario: come valutiamo il trattamento." },
+  { href: "/localita", title: "Raggiungi REBEL a Carmagnola", text: "Da Torino e dai comuni vicini: scegli la tua provenienza e apri le indicazioni." },
 ].filter(item => item.href !== current);
 ---
 <nav class="campaign-links" aria-label="Approfondisci la promozione laser">

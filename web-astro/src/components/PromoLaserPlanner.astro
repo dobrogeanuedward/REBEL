@@ -1,0 +1,60 @@
+---
+import { campaignWhatsApp, laserCampaignAreas } from "@/lib/laser-campaign";
+import { laserOffer, laserOfferContactMessage } from "@/lib/laser-offer";
+import { siteConfig } from "@/lib/site-config";
+
+const origins = [...new Set(["Torino", "Carmagnola", ...laserCampaignAreas.map(area => area.city)])];
+const destination = `${siteConfig.address.streetAddress}, ${siteConfig.address.postalCode} ${siteConfig.address.locality} TO`;
+const formulas = [
+  { value: "total-body", label: `${laserOffer.totalBody.label} · ${laserOffer.totalBody.price} · ${laserOffer.totalBody.detail} / seduta`, message: `${laserOffer.totalBody.label} a ${laserOffer.totalBody.price} per ${laserOffer.totalBody.detail}, per seduta` },
+  { value: "zona", label: `Una o più zone · ${laserOffer.zone.price} a zona / seduta`, message: `una o più zone a ${laserOffer.zone.price} per zona, per seduta` },
+  { value: "da-valutare", label: "Vorrei scegliere durante la valutazione", message: `l’epilazione laser a ${laserOffer.zone.price} per zona oppure ${laserOffer.totalBody.price} per ${laserOffer.totalBody.detail}, per seduta; vorrei scegliere le zone durante la valutazione` },
+];
+---
+<div class="lp-planner" data-promo-planner data-whatsapp={siteConfig.social.whatsapp} data-destination={destination}>
+  <p class="lp-planner__eyebrow">La tua richiesta, in due scelte</p>
+  <div class="lp-planner__fields">
+    <div class="lp-planner__field"><label for="promo-origin">Da dove arrivi?</label><select id="promo-origin" data-promo-origin><option value="">Scegli il comune (facoltativo)</option>{origins.map(city => <option value={city}>{city}</option>)}<option value="altro">Un altro comune</option></select></div>
+    <div class="lp-planner__field"><label for="promo-formula">Quale formula ti interessa?</label><select id="promo-formula" data-promo-formula>{formulas.map(formula => <option value={formula.value} data-message={formula.message}>{formula.label}</option>)}</select></div>
+  </div>
+  <div class="lp-planner__preview"><span>Il messaggio per REBEL</span><p data-promo-preview aria-live="polite" aria-atomic="true">{laserOfferContactMessage}</p></div>
+  <a class="lp-button lp-button--light lp-planner__cta" data-promo-whatsapp href={campaignWhatsApp(laserOfferContactMessage)} target="_blank" rel="noreferrer">Continua su WhatsApp <span aria-hidden="true">↗</span></a>
+  <p class="lp-planner__privacy">Si apre WhatsApp con il messaggio preparato: puoi modificarlo e scegliere se inviarlo. Queste scelte non vengono salvate.</p>
+  <a class="lp-text-link lp-planner__maps" data-promo-maps href={siteConfig.social.maps} target="_blank" rel="noreferrer">Controlla il percorso su Google Maps <span aria-hidden="true">↗</span></a>
+  <noscript><p class="lp-planner__privacy">Puoi chiedere direttamente la promo su WhatsApp e aggiungere il tuo comune al messaggio.</p></noscript>
+</div>
+<script>
+  function initPromoPlanner() {
+    document.querySelectorAll<HTMLElement>("[data-promo-planner]").forEach(planner => {
+      if (planner.dataset.initialized) return;
+      const origin = planner.querySelector<HTMLSelectElement>("[data-promo-origin]");
+      const formula = planner.querySelector<HTMLSelectElement>("[data-promo-formula]");
+      const preview = planner.querySelector<HTMLElement>("[data-promo-preview]");
+      const whatsapp = planner.querySelector<HTMLAnchorElement>("[data-promo-whatsapp]");
+      const maps = planner.querySelector<HTMLAnchorElement>("[data-promo-maps]");
+      const whatsappBase = planner.dataset.whatsapp;
+      const destination = planner.dataset.destination;
+      if (!origin || !formula || !preview || !whatsapp || !maps || !whatsappBase || !destination) return;
+      planner.dataset.initialized = "true";
+      const update = () => {
+        const interest = formula.selectedOptions[0]?.dataset.message;
+        if (!interest) return;
+        const from = origin.value === "altro" ? "Arrivo da un altro comune e " : origin.value ? `Arrivo da ${origin.value} e ` : "";
+        const message = `Ciao REBEL! ${from}mi interessa la promo laser: ${interest}. Vorrei conoscere la disponibilità e concordare la valutazione iniziale a Carmagnola.`;
+        preview.textContent = message;
+        whatsapp.href = `${whatsappBase}?text=${encodeURIComponent(message)}`;
+        const directions = new URL("https://www.google.com/maps/dir/");
+        directions.searchParams.set("api", "1");
+        directions.searchParams.set("destination", destination);
+        if (origin.value && origin.value !== "altro") directions.searchParams.set("origin", origin.value);
+        directions.searchParams.set("travelmode", "driving");
+        maps.href = directions.href;
+      };
+      origin.addEventListener("change", update);
+      formula.addEventListener("change", update);
+      update();
+    });
+  }
+  document.addEventListener("astro:page-load", initPromoPlanner);
+  initPromoPlanner();
+</script>

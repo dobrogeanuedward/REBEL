@@ -127,6 +127,15 @@ export const localAreaPages: LocalAreaPage[] = [
     },
   },
   {
+    slug: "torino",
+    city: "Torino",
+    cluster: "torino-sud",
+    directions: {
+      mapsUrl: "https://www.google.com/maps/dir/?api=1&origin=Torino+TO&destination=Viale+Barbaroux+20,+10022+Carmagnola+TO&travelmode=driving",
+      embedUrl: "https://www.google.com/maps?f=d&source=s_d&saddr=Torino+TO&daddr=Viale+Barbaroux+20,+10022+Carmagnola+TO&output=embed",
+    },
+  },
+  {
     slug: "torino-sud",
     city: "Torino Sud",
     cluster: "torino-sud",
@@ -274,4 +283,40 @@ export const localAreaPages: LocalAreaPage[] = [
 
 export function getLocalAreaPage(slug: string) {
   return localAreaPages.find((item) => item.slug === slug);
+}
+
+// These groups describe where a visit starts. REBEL has one studio, in Carmagnola.
+// They are shared by the service directory and directions, rather than generating
+// a separate service page for every municipality.
+export const localAreaGroups = [
+  {
+    key: "asse-carmagnola" as const,
+    name: "Carmagnola e comuni vicini",
+    title: "Il tuo appuntamento a Carmagnola.",
+    description: "Da Carignano, Racconigi, Poirino e dai comuni vicini, scegli il trattamento e consulta durata e prezzo prima di organizzare la visita.",
+    visitNote: "Per un servizio singolo puoi indicare subito il trattamento che desideri. Se vuoi valutare un percorso viso, corpo o laser, chiedi invece la valutazione iniziale e verifica la disponibilità prima di venire.",
+  },
+  {
+    key: "torino-sud" as const,
+    name: "Torino e Torino Sud",
+    title: "Da Torino, una visita da organizzare intorno a te.",
+    description: "Lo studio è a Carmagnola: anche se parti da Torino, Moncalieri, Nichelino o Vinovo, puoi confrontare prima servizi e prezzi e chiederci un appuntamento.",
+    visitNote: "Se parti da Torino, imposta il tuo indirizzo esatto sulla mappa e scegli tra auto e trasporto pubblico. Per il laser, prima di spostarti verifica con noi zone da trattare, preparazione e disponibilità: il calendario delle sedute si definisce dopo la valutazione.",
+  },
+  {
+    key: "cuneo" as const,
+    name: "Cuneese, Roero e Langhe",
+    title: "Da Alba, Bra e dal Cuneese allo studio REBEL.",
+    description: "Per chi parte da Ceresole d’Alba, Canale, Bra, Alba, Savigliano, Fossano o Saluzzo: informazioni sullo studio, listino e indicazioni per arrivare a Carmagnola.",
+    visitNote: "Se vuoi abbinare più servizi nella stessa visita, segnalalo quando ci contatti: verifichiamo insieme la disponibilità e il tempo necessario. Per i percorsi che prevedono più appuntamenti concordiamo la frequenza in base al trattamento scelto.",
+  },
+];
+
+export function getLocalAreaGroup(area: LocalAreaPage) {
+  return localAreaGroups.find((group) => group.key === area.cluster)!;
+}
+
+export function publicTransportDirections(area: LocalAreaPage) {
+  const origin = area.slug === "torino-sud" ? "Torino, Italia" : `${area.city}, Italia`;
+  return `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent("Viale Barbaroux 20, 10022 Carmagnola TO")}&travelmode=transit`;
 }

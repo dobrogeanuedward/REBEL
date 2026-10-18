@@ -4,7 +4,7 @@ import { siteConfig } from "./site-config";
 
 // Selected campaign catchment; no fabricated distances or satellite locations.
 const catchment = new Set([
-  "carmagnola", "carignano", "racconigi", "caramagna-piemonte", "villastellone",
+  "carmagnola", "torino", "carignano", "racconigi", "caramagna-piemonte", "villastellone",
   "poirino", "pancalieri", "lombriasco", "osasio", "casalgrasso", "virle-piemonte",
   "sommariva-del-bosco", "pralormo", "moncalieri", "nichelino", "vinovo", "la-loggia",
   "trofarello", "chieri", "orbassano", "bra", "canale", "savigliano", "saluzzo",
