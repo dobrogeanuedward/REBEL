@@ -1,21 +1,13 @@
 ---
+import ServicesHub from "@/components/ServicesHub.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import PageHero from "@/components/PageHero.astro";
-import SectionHead from "@/components/SectionHead.astro";
-import FeatureCard from "@/components/FeatureCard.astro";
-import MediaFigure from "@/components/MediaFigure.astro";
-import InlineCta from "@/components/InlineCta.astro";
-import FullBleedBand from "@/components/FullBleedBand.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
-import ServiceAreaDiscovery from "@/components/ServiceAreaDiscovery.astro";
 import { serviceCategoryDestinations } from "@/lib/service-navigation";
 import { serviceCategories } from "@/lib/service-categories";
 import { menu } from "@/lib/treatment-catalog";
-import { laserOffer } from "@/lib/laser-offer";
-import { media } from "@/lib/page-media";
 import { protocolCards } from "@/lib/content";
-import { competencePages, servicePages } from "@/lib/seo-content-refined";
+import { servicePages } from "@/lib/seo-content-refined";
 import {
   buildBreadcrumbSchema,
   buildItemListSchema,
@@ -63,33 +55,6 @@ const protocolListSchema = buildItemListSchema({
   items: protocolCards.slice(0, 6).map((p) => ({ name: p.name, path: `/protocolli/${p.slug}` })),
 });
 
-const estetica = servicePages.filter((s) => s.category === "estetica-classica");
-const esteticaSorted = estetica.slice().sort((a, b) => {
-  const score = (slug: string) => {
-    if (slug === "pulizia-viso-carmagnola") return 6;
-    if (slug === "manicure-semipermanente-carmagnola") return 5;
-    if (slug === "laminazione-ciglia-sopracciglia-carmagnola") return 4;
-    if (slug === "pedicure-carmagnola") return 3;
-    if (slug === "massaggio-rilassante-carmagnola") return 2;
-    if (slug === "massaggio-linfodrenante-carmagnola") return 1;
-    return 0;
-  };
-  return score(b.slug) - score(a.slug);
-});
-const laser = servicePages.filter((s) => s.category === "laser");
-const featuredProtocols = protocolCards.slice(0, 6);
-const catalogDescriptions: Record<string, string> = {
-  viso: "Pulizia viso, trattamenti idratanti, vitamina C, contorno occhi e altre proposte viso.",
-  "laser-treatwell": "La promozione laser a zona e Total Body, il conteggio delle zone e il listino ordinario.",
-  mani: "Manicure, smalto, semipermanente e rimozione: scegli la cura che cerchi per le mani.",
-  sguardo: "Laminazione ciglia, sopracciglia o combinata, con durata e varianti.",
-  piedi: "Pedicure estetico, con smalto o semipermanente, VIP con scrub e taglio unghie.",
-  corpo: "Scrub, peeling e trattamenti corpo: confronta le singole proposte disponibili.",
-  massaggi: "Rilassante, linfodrenante, schiena e cervicale, ayurvedico e altri massaggi estetici.",
-  "ceretta-donna": "Epilazione a cera di viso e corpo, inguine, gambe, Total Body e cera brasiliana.",
-  "ceretta-uomo": "Epilazione a cera uomo per schiena, petto, addome, braccia, gambe e Total Body.",
-  pressomassaggio: "Pressomassaggio, zona occhi e abbinamento con bendaggi: consulta prezzi e durata.",
-};
 const catalogListSchema = buildItemListSchema({
   name: "Categorie dei trattamenti REBEL",
   path: "/servizi",
@@ -98,246 +63,13 @@ const catalogListSchema = buildItemListSchema({
     path: serviceCategoryDestinations[category.id] ?? `/listino-estetica-laser#${category.id}`,
   })),
 });
-
-const editorialSlugs = [
-  "epilazione-laser-ascelle-carmagnola",
-  "epilazione-laser-inguine-carmagnola",
-  "laser-uomo-carmagnola",
-  "epilazione-laser-estate-sole-carmagnola",
-  "peli-incarniti-laser-carmagnola",
-  "pulizia-viso-carmagnola-frequenza-benefici",
-  "manicure-semipermanente-carmagnola-durata-rimozione",
-  "laminazione-ciglia-sopracciglia-carmagnola-durata-cura",
-];
-const featuredEditorials = editorialSlugs
-  .map((s) => competencePages.find((c) => c.slug === s))
-  .filter((c): c is (typeof competencePages)[number] => Boolean(c));
-
-const switchItems = [
-  { href: "#menu-completo", label: "Tutti i trattamenti", glyph: "↗" },
-  { href: "#estetica", label: "Viso, corpo e beauty", glyph: "✦" },
-  { href: "#laser", label: "Epilazione laser", glyph: "◉" },
-  { href: "#epigenetica", label: "Protocolli viso e corpo", glyph: "⬡" },
-  { href: "#guide", label: "Guide pratiche", glyph: "❖" },
-];
 ---
-<BaseLayout meta={meta} bodyClass="page-servizi">
+<BaseLayout meta={meta} bodyClass="rebel-rebrand rebel-shell page-servizi">
   <JsonLd data={breadcrumb} />
   <JsonLd data={serviceListSchema} />
   <JsonLd data={protocolListSchema} />
   <JsonLd data={webPageSchema} />
   <JsonLd data={catalogListSchema} />
-
-  <PageHero
-    image={media.studio.cabin}
-    kicker="Servizi Rebel · Carmagnola"
-    title="Trattamenti per _viso, corpo, laser e beauty_."
-    lead="Scegli il trattamento che ti interessa per conoscere obiettivo, modalità, prezzo e durata indicativa prima dell’appuntamento."
-    bullets={["Prezzi pubblicati online", "Durata indicativa", "Valutazione REBEL · 30–40 min"]}
-    meta={["Pulizia viso, beauty e massaggi", "Epilazione laser con ICE Polar", "Protocolli professionali"]}
-    ctaPrimary={{ label: "Scegli il tuo trattamento", href: "#menu-completo", halo: true }}
-    ctaSecondary={{ label: "Scrivici su WhatsApp", href: "https://wa.me/393516919416" }}
-  />
-
-  <section class="section section--tight">
-    <div class="container">
-      <nav class="listino-switch" aria-label="Vai alla categoria">
-        {switchItems.map((it) => (
-          <a class="listino-switch__btn" href={it.href}>
-            <span aria-hidden="true">{it.glyph}</span>
-            {it.label}
-          </a>
-        ))}
-      </nav>
-    </div>
-  </section>
-
-  <section class="section section--tight" id="menu-completo">
-    <div class="container">
-      <SectionHead
-        kicker="Il menu REBEL"
-        title="Quello che cerchi, _con il suo prezzo_."
-        lead="Dal trattamento singolo al percorso: scegli una categoria per vedere tutte le proposte, le varianti e la durata. Per i servizi più richiesti trovi anche gli approfondimenti qui sotto."
-      />
-      <div class="service-directory">
-        {menu.categories.map((category, i) => (
-          <a class="service-directory__item" href={serviceCategoryDestinations[category.id] ?? `/listino-estetica-laser#${category.id}`}>
-            <span class="service-directory__number" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
-            <div><h3>{category.id === "laser-treatwell" ? "Epilazione laser" : category.name}</h3><p>{catalogDescriptions[category.id]}</p></div>
-            <span aria-hidden="true">↗</span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="estetica">
-    <div class="container">
-      <SectionHead
-        kicker="Viso, corpo e beauty"
-        title="Pulizia viso, manicure, pedicure, laminazione, ceretta e massaggi."
-        lead="Puoi prenotarli singolarmente e vedere online prezzo, durata indicativa e informazioni utili."
-      />
-      <MediaFigure src={media.studio.professional.src} alt={media.studio.professional.alt} caption="Prepariamo prodotti e strumenti in base al servizio prenotato." ratio="16/7" width={1536} height={1024} />
-      <div class="card-grid card-grid--2" style="margin-top:2rem;">
-        {esteticaSorted.map((s, i) => (
-          <FeatureCard
-            kicker={s.priceHint}
-            title={s.name}
-            body={s.shortDescription}
-            href={`/servizi/${s.slug}`}
-            ariaLabel={`Scopri ${s.name}`}
-            index={i + 1}
-          />
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--scene-ivory" id="laser">
-    <div class="container">
-      <SectionHead
-        kicker="Epilazione laser"
-        title="Lumina X1 Pro con comfort ICE Polar per viso e corpo."
-        lead="Lumina X1 Pro di THORY combina quattro lunghezze d’onda. Il raffreddamento a contatto, che in REBEL chiamiamo ICE Polar, aiuta a rendere più confortevole la seduta. Trovi online prezzi e indicazioni per ogni area."
-      />
-      <MediaFigure src={media.laser.handpiece.src} alt={media.laser.handpiece.alt} caption="Il manipolo lavora a contatto con la pelle; zona e parametri vengono definiti prima della seduta." ratio="16/7" width={1536} height={1024} />
-      <div class="card-grid card-grid--2" style="margin-top:2rem;">
-        {laser.map((s, i) => (
-          <FeatureCard
-            kicker={s.priceHint}
-            title={s.name}
-            body={s.shortDescription}
-            href={`/servizi/${s.slug}`}
-            ariaLabel={`Scopri ${s.name}`}
-            variant="feature"
-            index={i + 1}
-          />
-        ))}
-      </div>
-      <div class="cluster cluster--stack-mobile" style="margin-top:2rem; justify-content:center;">
-        <a class="btn btn--primary btn--halo" href="/epilazione-laser-carmagnola">Come funziona il percorso laser</a>
-        <a class="btn btn--secondary" href={laserOffer.landingPath}>Promo laser: zona e Total Body</a>
-        <a class="btn btn--secondary" href="/listino-estetica-laser#laser">Listino e conteggio zone</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="epigenetica">
-    <div class="container">
-      <SectionHead
-        kicker="Protocolli professionali"
-        title="Trattamenti viso e corpo per esigenze specifiche."
-        lead="Confronta i protocolli dedicati a luminosità, idratazione, tono, pelle matura, contorno occhi, texture e compattezza, con il relativo prezzo."
-      />
-      <MediaFigure src={media.viso.products.src} alt={media.viso.products.alt} caption="Prodotti, attivi e manualità vengono scelti dopo la valutazione della zona." ratio="16/7" width={1122} height={1402} />
-      <div class="card-grid card-grid--3" style="margin-top:2rem;">
-        {featuredProtocols.map((p, i) => (
-          <FeatureCard
-            kicker={p.price}
-            title={p.name}
-            body={p.desc}
-            href={`/protocolli/${p.slug}`}
-            ariaLabel={`Apri il protocollo ${p.name}`}
-            index={i + 1}
-          />
-        ))}
-      </div>
-      <div class="cluster cluster--stack-mobile" style="margin-top:2rem; justify-content:center;">
-        <a class="btn btn--primary btn--halo" href="/protocolli-epigenetici">Confronta tutti i protocolli</a>
-        <a class="btn btn--secondary" href="/contatti">Prenota la valutazione</a>
-      </div>
-    </div>
-  </section>
-
-  {featuredEditorials.length > 0 ? (
-    <section class="section section--scene-ivory" id="guide">
-      <div class="container">
-        <SectionHead
-          kicker="Guide pratiche"
-          title="Durata, preparazione, frequenza e indicazioni dopo il trattamento."
-          lead="Approfondimenti dedicati alle domande più comuni su laser, pulizia viso, manicure e laminazione."
-        />
-        <MediaFigure src={media.laser.consult.src} alt={media.laser.consult.alt} caption="Le guide raccolgono preparazione, frequenza e indicazioni pratiche prima e dopo la seduta." ratio="16/7" width={1122} height={1402} />
-        <div class="card-grid card-grid--2" style="margin-top:2rem;">
-          {featuredEditorials.map((e, i) => (
-            <FeatureCard
-              kicker="Guida"
-              title={e.title}
-              body={e.shortDescription}
-              href={`/competenze/${e.slug}`}
-              variant="quiet"
-              index={i + 1}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
-  ) : null}
-
-  <ServiceAreaDiscovery />
-
-  <FullBleedBand
-    image={media.studio.cabin}
-    height="sm"
-    align="left"
-    kicker="Valutazione REBEL · 30–40 minuti"
-    quote="Valutiamo la zona e ti spieghiamo trattamento, frequenza e prezzo."
-    cite="Studio Rebel · Viale Barbaroux 20"
-  />
-
-  <section class="section">
-    <div class="container">
-      <InlineCta
-        kicker="Valutazione REBEL · 30–40 minuti"
-        title="Non sai quale servizio prenotare? _Valutiamolo insieme_."
-        lead="In 30–40 minuti osserviamo la zona e definiamo trattamento, frequenza e prezzo. Se scegli di iniziare il percorso proposto, la valutazione iniziale è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi."
-        primaryHref="/contatti"
-        primaryLabel="Prenota la valutazione"
-        secondaryHref="/listino-estetica-laser"
-        secondaryLabel="Consulta il listino"
-      />
-    </div>
-  </section>
-
-  <StickyBookingBar primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
+  <ServicesHub />
+  <StickyBookingBar primary={{ label: "Scegli il tuo trattamento", href: "#menu-completo" }} />
 </BaseLayout>
-
-<style>
-  .service-directory { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 2rem; }
-  .service-directory__item { display: grid; grid-template-columns: 1.6rem 1fr 1rem; gap: 1rem; padding: 1.5rem 0; color: var(--text); border-bottom: 1px solid var(--line); text-decoration: none; }
-  .service-directory__number { padding-top: 0.2rem; color: var(--mauve); font-size: 0.7rem; letter-spacing: 0.08em; }
-  .service-directory__item h3 { margin: 0 0 0.4rem; font-size: 1.3rem; font-family: var(--font-display); }
-  .service-directory__item p { margin: 0; font-size: 0.9rem; line-height: 1.6; color: var(--text); }
-  .service-directory__item:hover h3 { color: var(--mauve); }
-  .service-directory__item:focus-visible { outline: 2px solid var(--mauve); outline-offset: 4px; }
-  @media (max-width: 680px) { .service-directory { grid-template-columns: 1fr; } }
-  .listino-switch {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    justify-content: center;
-  }
-  .listino-switch__btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.7rem 1.2rem;
-    border-radius: var(--r-pill);
-    border: 1px solid var(--line-strong);
-    color: var(--text);
-    font-size: 0.85rem;
-    letter-spacing: 0.04em;
-    transition: border-color var(--t-fast) var(--ease-soft), background var(--t-fast) var(--ease-soft);
-    background: rgba(7, 5, 14, 0.4);
-  }
-  .listino-switch__btn:hover {
-    border-color: var(--mauve);
-    background: rgba(91, 43, 216, 0.12);
-    color: var(--ivory-1);
-  }
-  .listino-switch__btn span {
-    color: var(--mauve);
-    font-size: 0.95rem;
-  }
-</style>

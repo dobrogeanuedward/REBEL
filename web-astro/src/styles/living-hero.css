@@ -9,9 +9,9 @@
   min-height: clamp(720px, 92dvh, 960px);
   padding: clamp(8.2rem, 10vw, 10rem) 0 clamp(3.5rem, 6vw, 5.25rem);
   align-items: center;
+  /* Crop decorative media only; the hero's height is always content driven. */
   overflow: hidden;
   overflow: clip;
-  contain: paint;
   background: var(--rebel-porcelain);
   touch-action: pan-y;
 }
@@ -587,8 +587,7 @@
   .rebel-hero--living {
     min-height: max(360px, 100svh);
     min-height: max(360px, 100dvh);
-    height: 100svh;
-    height: 100dvh;
+    height: auto;
     padding: 0;
     display: grid;
     align-items: stretch;
@@ -612,7 +611,7 @@
     flex-direction: column;
     justify-content: center;
     width: min(64%, 610px);
-    height: 100%;
+    height: auto;
     max-width: none;
     margin: 0 auto 0 max(.7rem, env(safe-area-inset-left, 0px));
     padding:

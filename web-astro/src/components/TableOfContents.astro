@@ -29,20 +29,23 @@ const clearItems = items.map((item) => ({ ...item, label: clarifyCopy(item.label
 
 <style>
   .toc {
+    --toc-ink: #4f3a5b;
+    --toc-accent: #784592;
+    --toc-line: #e3d7e9;
+    color-scheme: light;
     position: sticky;
     top: calc(72px + 1.2rem);
     padding: 1.2rem 1.3rem;
-    border: 1px solid var(--line);
+    border: 1px solid var(--toc-line);
     border-radius: var(--r-md);
-    background: linear-gradient(180deg, rgba(31, 26, 58, 0.55), rgba(20, 16, 42, 0.4));
-    backdrop-filter: blur(10px);
+    background: linear-gradient(150deg, #fffdf9, #faf5fb);
   }
   .toc__title {
     font-family: var(--font-body);
     font-size: var(--t-kicker);
     letter-spacing: var(--tracking-kicker);
     text-transform: uppercase;
-    color: var(--mauve);
+    color: var(--toc-accent);
     font-weight: 600;
     margin: 0 0 0.85rem;
   }
@@ -58,9 +61,10 @@ const clearItems = items.map((item) => ({ ...item, label: clarifyCopy(item.label
     grid-template-columns: auto 1fr;
     gap: 0.85rem;
     align-items: baseline;
+    min-height: 44px;
     padding: 0.55rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    color: var(--text-muted);
+    border-bottom: 1px solid var(--toc-line);
+    color: var(--toc-ink);
     font-size: 0.9rem;
     transition: color var(--t-fast) var(--ease-soft);
   }
@@ -69,19 +73,14 @@ const clearItems = items.map((item) => ({ ...item, label: clarifyCopy(item.label
     font-family: var(--font-display);
     font-size: 0.78rem;
     letter-spacing: var(--tracking-kicker);
-    color: var(--text-faint);
+    color: var(--toc-accent);
     min-width: 1.6rem;
   }
   .toc__link:hover,
-  .toc__link[data-active="true"] { color: var(--text-strong); }
-  .toc__link[data-active="true"] .toc__index { color: var(--mauve); }
-  .scene-ivory .toc {
-    background: rgba(255, 255, 255, 0.78);
-    border-color: var(--line-on-light);
-  }
-  .scene-ivory .toc__link { color: rgba(20, 16, 42, 0.7); }
-  .scene-ivory .toc__link:hover,
-  .scene-ivory .toc__link[data-active="true"] { color: var(--on-light); }
+  .toc__link[data-active="true"] { color: #301b3d; }
+  .toc__link[data-active="true"] .toc__label { text-decoration: underline; text-underline-offset: .25em; text-decoration-color: #a783b7; }
+  .toc__link[data-active="true"] .toc__index { color: #a32f68; }
+  .toc__link:focus-visible { outline: 2px solid var(--toc-accent); outline-offset: 4px; border-radius: 3px; }
 </style>
 
 <script>

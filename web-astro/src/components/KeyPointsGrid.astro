@@ -23,13 +23,19 @@ const clearPoints = points.map((point) => clarifyCopy(point.replace(/^[-\s]+/, "
 </div>
 
 <style>
-  .key-points { margin-top: 1.4rem; }
+  .key-points {
+    --point-ink: #301b3d;
+    --point-accent: #784592;
+    --point-line: #dfd1e6;
+    color-scheme: light;
+    margin-top: 1.4rem;
+  }
   .key-points__title {
     font-family: var(--font-body);
     font-size: var(--t-kicker);
     letter-spacing: var(--tracking-kicker);
     text-transform: uppercase;
-    color: var(--mauve);
+    color: var(--point-accent);
     font-weight: 600;
     margin: 0 0 0.9rem;
   }
@@ -46,38 +52,32 @@ const clearPoints = points.map((point) => clarifyCopy(point.replace(/^[-\s]+/, "
     gap: 1.1rem;
     padding: 1rem 1.1rem 1rem 1.2rem;
     border-radius: var(--r-md);
-    background: linear-gradient(180deg, rgba(31, 26, 58, 0.55), rgba(20, 16, 42, 0.4));
-    border: 1px solid var(--line);
+    background: linear-gradient(150deg, #fffdf9, #faf5fb);
+    border: 1px solid var(--point-line);
     align-items: center;
     transition: border-color var(--t-base) var(--ease-soft), background var(--t-base) var(--ease-soft);
   }
   .key-points__item:hover {
-    border-color: var(--line-strong);
-    background: linear-gradient(180deg, rgba(46, 16, 101, 0.22), rgba(20, 16, 42, 0.6));
+    border-color: #b99ac9;
+    background: linear-gradient(150deg, #fffdf9, #f2e8f6);
   }
   .key-points__num {
     font-family: var(--font-display);
     font-size: 1.05rem;
-    color: var(--mauve);
+    color: var(--point-accent);
     letter-spacing: -0.02em;
     line-height: 1;
   }
   .key-points__text {
     font-size: var(--t-small);
     line-height: 1.6;
-    color: var(--text);
+    color: var(--point-ink);
   }
   .key-points--quiet .key-points__item {
     background: transparent;
     border-color: transparent;
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid var(--point-line);
     border-radius: 0;
     padding-left: 0;
   }
-  .scene-ivory .key-points__item {
-    background: rgba(255, 255, 255, 0.7);
-    border-color: var(--line-on-light);
-  }
-  .scene-ivory .key-points__text { color: var(--on-light); }
-  .scene-ivory .key-points__num { color: var(--violet-mid); }
 </style>

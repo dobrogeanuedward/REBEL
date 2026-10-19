@@ -14,6 +14,7 @@ import { journeyCarousels } from "@/lib/journey-carousels";
 import { journeyPhotographs } from "@/lib/journey-photographs";
 import { siteConfig } from "@/lib/site-config";
 import { isIndexableSearchPage } from "@/lib/search-intents";
+import { rblImagesForService } from "@/lib/rbl-nails";
 const escapeXml = (s: string) =>
   s.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll('"', "&quot;");
 export const GET: APIRoute = () => {
@@ -36,6 +37,19 @@ export const GET: APIRoute = () => {
     ],
   });
   entries.push({
+    path: "/servizi",
+    images: [
+      ...["viso-manualita", "laser-gamba", "laminazione-sopracciglia", "pedicure-cura", "scrub-gamba", "cera-preparazione", "cera-gamba"].map(key => `/img/catalogo/${key}-rebel.webp`),
+      "/img/rebel-r2/rebel/services/massage/hero-desktop.webp",
+      "/img/catalogo/percorso-forma-rebel.webp",
+      "/img/shooting-rebel/glow-trattamento-rebel-carmagnola.webp",
+      "/img/rbl-official/rosa-in-polvere.webp",
+      "/img/rbl-official/hands-studio-rosso.webp",
+      "/img/rbl-official/collection-rosa-in-polvere-tips.webp",
+      "/img/studio-treatwell/15432056.jpg",
+    ],
+  });
+  entries.push({
     path: "/gallery",
     images: [
       ...journeyPhotographs.map((photo) => photo.src),
@@ -54,7 +68,6 @@ export const GET: APIRoute = () => {
       ]),
     ].map((key) => photographs[key as PhotoKey].src),
   });
-  const rblImages = ["atelier-work.webp", "salon-proof.webp", "rosa-in-polvere.webp", "blu-assoluto-v2.webp"].map(name => `/img/rbl-official/${name}`);
   for (const service of servicePages) {
     const keys = servicePhotography[service.slug] ?? (service.slug === "ceretta-carmagnola" ? ["cera-gamba", "cera-preparazione"] as PhotoKey[] : []);
     entries.push({
@@ -63,7 +76,7 @@ export const GET: APIRoute = () => {
         ...keys.map(key => photographs[key].src),
         ...(keys.length === 0 && service.heroImage ? [service.heroImage.src] : []),
         ...(service.slug.startsWith("laminazione") ? laminazione.slides.map(slide => slide.src) : []),
-        ...(["manicure-semipermanente-carmagnola", "pedicure-carmagnola", "pedicure-estetico-con-smalto-carmagnola", "pedicure-semipermanente-carmagnola"].includes(service.slug) ? rblImages : []),
+        ...rblImagesForService(service.slug),
       ],
     });
   }

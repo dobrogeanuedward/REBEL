@@ -10,6 +10,8 @@
   background: var(--wash-violet);
   color: var(--ivory-1);
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
   gap: var(--gap-md);
   box-shadow: var(--shadow-md);
 }
@@ -34,6 +36,7 @@
 }
 
 .inline-cta__title {
+  overflow-wrap: anywhere;
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3.4rem);
   line-height: 1;
@@ -63,6 +66,17 @@
   display: flex; flex-wrap: wrap;
   gap: var(--gap-sm);
   margin-top: 0.6rem;
+}
+
+.inline-cta__actions .btn {
+  max-width: 100%;
+  min-height: 44px;
+  white-space: normal;
+  text-align: center;
+}
+
+@media (max-width: 540px) {
+  .inline-cta { padding: 1.4rem 1.2rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

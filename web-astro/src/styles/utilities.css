@@ -145,7 +145,7 @@
 }
 
 @media (max-width: 920px) {
-  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* ---------- Visually hidden ---------- */

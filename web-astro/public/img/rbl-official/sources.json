@@ -56,6 +56,168 @@
         1024
       ],
       "bytes": 263752
+    },
+    {
+      "file": "color-sheet-rbl001-obsidian-black.jpg",
+      "source": "https://pub-0e5279698882494e9a717b60f207cc0f.r2.dev/colori/_optimized/1920/RBL-001.jpg",
+      "sourcePage": "https://www.rbl-nails.it/colori/obsidian-black",
+      "kind": "official-colour-editorial-sheet",
+      "colorCode": "RBL-001",
+      "colorName": "Obsidian Black",
+      "caption": "Obsidian Black: immagine editoriale RBL con manicure, flacone e TIP; nome e grafica originali conservati.",
+      "dimensions": [
+        1920,
+        815
+      ],
+      "format": "JPEG",
+      "bytes": 91569,
+      "inspectedOn": "2026-10-18",
+      "usageNote": "Originale ufficiale RBL scaricato senza editing; immagine di prodotto/collezione, non risultato su clienti REBEL."
+    },
+    {
+      "file": "color-sheet-rbl003-scarlet-red.jpg",
+      "source": "https://pub-0e5279698882494e9a717b60f207cc0f.r2.dev/colori/_optimized/1920/RBL-003.jpg",
+      "sourcePage": "https://www.rbl-nails.it/colori/scarlet-red",
+      "kind": "official-colour-editorial-sheet",
+      "colorCode": "RBL-003",
+      "colorName": "Scarlet Red",
+      "caption": "Scarlet Red: immagine editoriale RBL con manicure, flacone e TIP; nome e grafica originali conservati.",
+      "dimensions": [
+        1920,
+        815
+      ],
+      "format": "JPEG",
+      "bytes": 112548,
+      "inspectedOn": "2026-10-18",
+      "usageNote": "Originale ufficiale RBL scaricato senza editing; immagine di prodotto/collezione, non risultato su clienti REBEL."
+    },
+    {
+      "file": "color-sheet-rbl007-soft-beige.jpg",
+      "source": "https://pub-0e5279698882494e9a717b60f207cc0f.r2.dev/colori/_optimized/1920/RBL-007.jpg",
+      "sourcePage": "https://www.rbl-nails.it/colori/soft-beige",
+      "kind": "official-colour-editorial-sheet",
+      "colorCode": "RBL-007",
+      "colorName": "Soft Beige",
+      "caption": "Soft Beige: immagine editoriale RBL con manicure, flacone e TIP; nome e grafica originali conservati.",
+      "dimensions": [
+        1920,
+        815
+      ],
+      "format": "JPEG",
+      "bytes": 128438,
+      "inspectedOn": "2026-10-18",
+      "usageNote": "Originale ufficiale RBL scaricato senza editing; immagine di prodotto/collezione, non risultato su clienti REBEL."
+    },
+    {
+      "file": "color-sheet-rbl009-powder-blush.jpg",
+      "source": "https://pub-0e5279698882494e9a717b60f207cc0f.r2.dev/colori/_optimized/1920/RBL-009.jpg",
+      "sourcePage": "https://www.rbl-nails.it/colori/powder-blush",
+      "kind": "official-colour-editorial-sheet",
+      "colorCode": "RBL-009",
+      "colorName": "Powder Blush",
+      "caption": "Powder Blush: immagine editoriale RBL con manicure, flacone e TIP; nome e grafica originali conservati.",
+      "dimensions": [
+        1584,
+        672
+      ],
+      "format": "JPEG",
+      "bytes": 66049,
+      "inspectedOn": "2026-10-18",
+      "usageNote": "Originale ufficiale RBL scaricato senza editing; immagine di prodotto/collezione, non risultato su clienti REBEL."
+    },
+    {
+      "file": "color-sheet-rbl026-deep-burgundy.jpg",
+      "source": "https://pub-0e5279698882494e9a717b60f207cc0f.r2.dev/colori/_optimized/1920/RBL-026.jpg",
+      "sourcePage": "https://www.rbl-nails.it/colori/deep-burgundy",
+      "kind": "official-colour-editorial-sheet",
+      "colorCode": "RBL-026",
+      "colorName": "Deep Burgundy",
+      "caption": "Deep Burgundy: immagine editoriale RBL con manicure, flacone e TIP; nome e grafica originali conservati.",
+      "dimensions": [
+        1280,
+        543
+      ],
+      "format": "JPEG",
+      "bytes": 55120,
+      "inspectedOn": "2026-10-18",
+      "usageNote": "Originale ufficiale RBL scaricato senza editing; immagine di prodotto/collezione, non risultato su clienti REBEL."
+    },
+    {
+      "file": "color-sheet-rbl080-electric-cobalt.jpg",
+      "source": "https://pub-0e5279698882494e9a717b60f207cc0f.r2.dev/colori/_optimized/1920/RBL-080.jpg",
+      "sourcePage": "https://www.rbl-nails.it/colori/electric-cobalt",
+      "kind": "official-colour-editorial-sheet",
+      "colorCode": "RBL-080",
+      "colorName": "Electric Cobalt",
+      "caption": "Electric Cobalt: immagine editoriale RBL con manicure, flacone e TIP; nome e grafica originali conservati.",
+      "dimensions": [
+        1280,
+        543
+      ],
+      "format": "JPEG",
+      "bytes": 50063,
+      "inspectedOn": "2026-10-18",
+      "usageNote": "Originale ufficiale RBL scaricato senza editing; immagine di prodotto/collezione, non risultato su clienti REBEL."
+    },
+    {
+      "file": "collection-rosa-in-polvere-tips.webp",
+      "source": "https://www.rbl-nails.it/images/atelier/collection/rosa-in-polvere.webp",
+      "sourcePage": "https://www.rbl-nails.it/collezioni/rosa-in-polvere",
+      "kind": "official-collection-tips",
+      "caption": "Rosa In Polvere: composizione ufficiale RBL con cinque TIP della collezione, flacone e logo.",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "format": "WEBP",
+      "bytes": 165304,
+      "inspectedOn": "2026-10-18",
+      "usageNote": "Originale ufficiale RBL scaricato senza editing; immagine di prodotto/collezione, non risultato su clienti REBEL."
+    },
+    {
+      "file": "collection-argento-vivo-tips.webp",
+      "source": "https://www.rbl-nails.it/images/atelier/collection/argento-vivo.webp",
+      "sourcePage": "https://www.rbl-nails.it/collezioni/argento-vivo",
+      "kind": "official-collection-tips",
+      "caption": "Argento Vivo: composizione ufficiale RBL con cinque TIP della collezione, flacone e logo.",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "format": "WEBP",
+      "bytes": 207932,
+      "inspectedOn": "2026-10-18",
+      "usageNote": "Originale ufficiale RBL scaricato senza editing; immagine di prodotto/collezione, non risultato su clienti REBEL."
+    },
+    {
+      "file": "hands-argento-vivo.webp",
+      "source": "https://www.rbl-nails.it/images/atelier/hands/argento-vivo-v2.webp",
+      "sourcePage": "https://www.rbl-nails.it/collezioni/argento-vivo",
+      "kind": "official-collection-editorial-manicure",
+      "caption": "Interpretazione editoriale della collezione RBL Argento Vivo sulle mani.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "WEBP",
+      "bytes": 180212,
+      "inspectedOn": "2026-10-18",
+      "usageNote": "Originale ufficiale RBL scaricato senza editing; immagine di prodotto/collezione, non risultato su clienti REBEL."
+    },
+    {
+      "file": "hands-studio-rosso.webp",
+      "source": "https://www.rbl-nails.it/images/atelier/hands/studio-rosso-v2.webp",
+      "sourcePage": "https://www.rbl-nails.it/collezioni/studio-rosso",
+      "kind": "official-collection-editorial-manicure",
+      "caption": "Interpretazione editoriale della collezione RBL Studio Rosso sulle mani.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "WEBP",
+      "bytes": 224144,
+      "inspectedOn": "2026-10-18",
+      "usageNote": "Originale ufficiale RBL scaricato senza editing; immagine di prodotto/collezione, non risultato su clienti REBEL."
     }
   ]
 }

@@ -98,6 +98,10 @@
   --lh-editorial: 1.06;
   --lh-body: 1.66;
 
+  /* Compatibility names still used by editorial and booking templates. */
+  --t-lead: var(--t-body-lg);
+  --leading-body: var(--lh-body);
+
   --tracking-display: -0.045em;
   --tracking-section: -0.025em;
   --tracking-editorial: -0.015em;

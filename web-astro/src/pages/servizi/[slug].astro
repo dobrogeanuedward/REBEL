@@ -1,5 +1,6 @@
 ---
 import RblNailEditorial from "@/components/RblNailEditorial.astro";
+import { rblVariantForService } from "@/lib/rbl-nails";
 import ServiceCatalogChoices from "@/components/ServiceCatalogChoices.astro";
 import { getServiceSearchCopy } from "@/lib/service-search-content";
 import { serviceContactPath, serviceWhatsApp } from "@/lib/service-booking";
@@ -50,7 +51,8 @@ const selectedPhotos = (originalService.slug === "ceretta-carmagnola"
 const service = { ...originalService, heroImage: selectedPhotos?.[0] ?? originalService.heroImage };
 const isLamination = service.slug === "laminazione-ciglia-sopracciglia-carmagnola";
 const isColorPedicure = ["pedicure-estetico-con-smalto-carmagnola", "pedicure-semipermanente-carmagnola"].includes(service.slug);
-const hasRblEditorial = ["manicure-semipermanente-carmagnola", "pedicure-carmagnola", "pedicure-estetico-con-smalto-carmagnola", "pedicure-semipermanente-carmagnola"].includes(service.slug);
+const rblVariant = rblVariantForService(service.slug);
+const hasRblEditorial = Boolean(rblVariant);
 const contactPath = serviceContactPath(service.slug);
 const whatsappPath = serviceWhatsApp(service.slug);
 
@@ -241,7 +243,7 @@ const tocItems = [
     ctaSecondary={{ label: "Scrivici su WhatsApp", href: whatsappPath }}
   />
 
-  {hasRblEditorial && <RblNailEditorial area={service.slug.includes("manicure") ? "mani" : "piedi"} />}
+  {rblVariant && <RblNailEditorial variant={rblVariant} bookingHref={contactPath} />}
 
   {isLamination && <JourneyCarousel carousel={laminazioneCarousel} slug="laminazione" service />}
 

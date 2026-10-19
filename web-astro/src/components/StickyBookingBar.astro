@@ -99,23 +99,28 @@ const {
   @media (max-width: 640px) {
     .sticky-book {
       display: grid;
-      gap: 0.45rem;
-      padding-inline: 0.75rem;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.35rem;
+      padding: 0.5rem 0.75rem calc(0.5rem + env(safe-area-inset-bottom, 0px));
     }
     .sticky-book__price {
       text-align: center;
       white-space: normal;
+      font-size: .72rem;
+      line-height: 1.35;
     }
     .sticky-book__actions {
       width: 100%;
       min-width: 0;
       margin-left: 0;
     }
-    .sticky-book__wa { flex: 0 0 auto; }
+    .sticky-book__wa { flex: 0 0 auto; min-height: 44px; font-size: .78rem; }
     .sticky-book__primary {
       min-width: 0;
-      padding-inline: 0.75rem;
-      line-height: 1.15;
+      min-height: 44px;
+      padding: .6rem .7rem;
+      font-size: .78rem;
+      line-height: 1.2;
       white-space: normal;
     }
     .sticky-book--promo {
@@ -142,10 +147,12 @@ const {
     const bar = document.querySelector<HTMLElement>("[data-sticky-book]");
     if (!bar) return;
     const mobileViewport = window.matchMedia("(max-width: 860px)");
+    const hero = document.querySelector<HTMLElement>("main .page-hero, main .lp-hero, main .hub-hero, main > section");
 
     let raf = 0;
     const update = () => {
-      const show = mobileViewport.matches && window.scrollY > 520;
+      const pastHero = hero ? hero.getBoundingClientRect().bottom <= 80 : window.scrollY > 520;
+      const show = mobileViewport.matches && pastHero;
       bar.dataset.visible = show ? "true" : "false";
       bar.inert = !show;
       bar.setAttribute("aria-hidden", show ? "false" : "true");
@@ -159,11 +166,13 @@ const {
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
     mobileViewport.addEventListener("change", update);
     update();
 
     const cleanup = () => {
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
       mobileViewport.removeEventListener("change", update);
       if (raf) window.cancelAnimationFrame(raf);
       delete document.body.dataset.bookingBarVisible;

@@ -1,150 +1,235 @@
 ---
-interface Props { area?: "mani" | "piedi" }
-const { area = "mani" } = Astro.props;
-const official = "https://www.rbl-nails.it";
-// Names, codes and display colours come from the corresponding official RBL sheets.
-// Photographs are published RBL assets; they are not presented as REBEL client results.
-const shades = [
-  { name: "Soft Beige", code: "007", hex: "#C5A28B", slug: "soft-beige" },
-  { name: "Powder Blush", code: "009", hex: "#DDABB4", slug: "powder-blush" },
-  { name: "Scarlet Red", code: "003", hex: "#BD2F28", slug: "scarlet-red" },
-  { name: "Deep Burgundy", code: "026", hex: "#5F1B2D", slug: "deep-burgundy" },
-  { name: "Electric Cobalt", code: "080", hex: "#1240B8", slug: "electric-cobalt" },
-  { name: "Obsidian Black", code: "001", hex: "#141413", slug: "obsidian-black" },
-];
-const collections = [
-  { name: "Rosa in Polvere", detail: "Una palette di rosa e nude, dal tenue al malva.", slug: "rosa-in-polvere", image: "rosa-in-polvere", alt: "Manicure nelle tonalità rosa e nude della collezione ufficiale RBL Rosa in Polvere" },
-  { name: "Blu Assoluto", detail: "Il colore diventa un accento più deciso.", slug: "blu-assoluto", image: "blu-assoluto-v2", alt: "Manicure blu nella fotografia di collezione ufficiale RBL Blu Assoluto" },
-];
+import { rblCollections, rblOfficial, rblShades, type RblNailVariant } from "@/lib/rbl-nails";
+
+interface Props {
+  variant?: RblNailVariant;
+  bookingHref?: string;
+  area?: "mani" | "piedi";
+}
+const { variant: requestedVariant, bookingHref, area = "mani" } = Astro.props;
+const variant = requestedVariant ?? (area === "mani" ? "manicure" : "piedi");
+const full = variant === "manicure";
+const compact = variant === "confronto" || variant === "classico";
+const prefix = `rbl-${variant}`;
+const selectedCollection = rblCollections[variant === "classico" ? 1 : 0];
+const semiHref = "/servizi/pedicure-semipermanente-carmagnola";
+const bookHref = bookingHref ?? `/contatti?source=servizio&trattamento=${full ? "manicure-semipermanente-carmagnola" : "pedicure-semipermanente-carmagnola"}#prenota`;
 ---
 
-<section id="rbl-colori" class="rbl-nails" aria-labelledby="rbl-colori-title">
-  <div class="rbl-nails__intro">
-    <div class="rbl-nails__heading">
-      <span class="rbl-nails__eyebrow">REBEL × RBL Nails</span>
-      <h2 id="rbl-colori-title">Il tuo colore.<br /><em>Il tuo modo di essere.</em></h2>
-    </div>
-    <div class="rbl-nails__opening">
-      <p>Un nude che senti tuo. Un rosso che si fa notare. Un riflesso che cambia con la luce. Il catalogo RBL Nails raccoglie <strong>138 cromie di semipermanente</strong>: un mondo da esplorare per trovare la tua direzione.</p>
-      <p>{area === "mani" ? "Da REBEL a Carmagnola, la manicure parte da forma e lunghezza e prende carattere con il colore. Porta un’idea o lasciati guidare tra tonalità e finiture." : "Anche il colore dei piedi può raccontare il tuo stile: coordinato con le mani, tono su tono o a contrasto. Esplora la gamma gel RBL e scegli tra smalto tradizionale e semipermanente nella pagina del servizio."}</p>
-      <a class="rbl-nails__text-link" href={`${official}/colori`}>Esplora tutti i colori RBL <span aria-hidden="true">↗</span></a>
-    </div>
-  </div>
-
-  <div class="rbl-nails__atelier">
-    <figure class="rbl-nails__work">
-      <img src="/img/rbl-official/atelier-work.webp" width="1122" height="1402" loading="lazy" decoding="async" alt="Applicazione di gel nude al banco di lavoro, fotografia ufficiale RBL Nails" />
-      <figcaption><span>Il gesto</span>Preparazione, applicazione, attenzione al dettaglio. Il racconto in studio di RBL Nails.</figcaption>
-    </figure>
-    <div class="rbl-nails__palette">
-      <span class="rbl-nails__eyebrow">Sei cromie da cui partire</span>
-      <h3>Dal quasi naturale<br /><em>al colore pieno.</em></h3>
-      <p>Questi nomi e codici arrivano dal catalogo ufficiale. Apri la scheda per vedere la tinta nel suo mondo; conserva il riferimento che ti piace e portalo al tuo appuntamento.</p>
-      <ul class="rbl-nails__swatches" aria-label="Selezione di colori dal catalogo RBL Nails">
-        {shades.map(shade => <li>
-          <a href={`${official}/colori/${shade.slug}`}>
-            <span class="rbl-nails__chip" style={`--shade: ${shade.hex}`} aria-hidden="true"></span>
-            <span class="rbl-nails__shade-name">{shade.name}<small>RBL-{shade.code}</small></span>
-            <span class="rbl-nails__arrow" aria-hidden="true">↗</span>
+<section id="rbl-colori" class:list={["rbl-story", `rbl-story--${variant}`, { "rbl-story--compact": compact }]} aria-labelledby={`${prefix}-title`}>
+  <div class="rbl-shell">
+    {compact ? (
+      <div class="rbl-teaser">
+        <figure class="rbl-teaser__photo">
+          <a href={`${rblOfficial}/collezioni/${selectedCollection.slug}`} aria-label={`Esplora i colori della collezione RBL ${selectedCollection.name}`}>
+            <img src={selectedCollection.tips} alt={`TIP della collezione ufficiale RBL ${selectedCollection.name}`} width="1600" height="900" loading="lazy" decoding="async" />
           </a>
-        </li>)}
-      </ul>
-      <p class="rbl-nails__note">Campioni digitali indicativi: luce e schermo possono cambiare la percezione della tinta. La fotografia dà l’ispirazione; il confronto dei campioni aiuta a scegliere il colore.</p>
-    </div>
-  </div>
+          <figcaption>Collezione gel RBL {selectedCollection.name}.</figcaption>
+        </figure>
+        <div class="rbl-teaser__copy">
+          <p class="rbl-kicker">Il colore, da REBEL</p>
+          <h2 id={`${prefix}-title`}>{variant === "classico" ? <>La sfumatura giusta.<br /><em>Il finish che ami.</em></> : <>Tradizionale o gel?<br /><em>Parti dal tuo stile.</em></>}</h2>
+          <p>{variant === "classico" ? "Un tono discreto o un colore che si fa notare: per lo smalto tradizionale scegliamo insieme la tonalità e la finitura, in studio." : "Il pedicure cambia con le tue abitudini. Esplora le opzioni di cura dei piedi e, se ami il semipermanente, lasciati ispirare dalle collezioni RBL."}</p>
+          <a class="rbl-text-link" href={semiHref}>{variant === "classico" ? "Preferisci il semipermanente? Scoprilo" : "Esplora il pedicure semipermanente"}<span aria-hidden="true">↗</span></a>
+          <p class="rbl-note">Le TIP fotografate appartengono alla linea gel RBL; sono un’ispirazione cromatica, non campioni di smalto tradizionale.</p>
+        </div>
+      </div>
+    ) : (
+      <>
+        <header class="rbl-intro">
+          <div><p class="rbl-kicker">REBEL × RBL Nails</p><h2 id={`${prefix}-title`}>{full ? <>Il colore che scegli.<br /><em>Il carattere che hai.</em></> : <>Anche ai piedi,<br /><em>il colore è tuo.</em></>}</h2></div>
+          <div class="rbl-intro__copy">
+            <p>{full ? <>Un nude luminoso. Il tuo rosso. Una sfumatura che non avevi ancora considerato. <strong>138 cromie di semipermanente RBL</strong>, da esplorare e interpretare insieme a Carmagnola.</> : "Tono su tono, in contrasto con le mani o pronto per i sandali. Parti dai campioni della linea gel RBL e trova la direzione del tuo prossimo pedicure semipermanente."}</p>
+            <a class="rbl-text-link" href={`${rblOfficial}/colori`}>Tutto il mondo colore RBL<span aria-hidden="true">↗</span></a>
+          </div>
+        </header>
 
-  <div class="rbl-nails__formula">
-    <div>
-      <span class="rbl-nails__eyebrow">Dentro la linea gel colore</span>
-      <h3>La formula accompagna <em>la scelta.</em></h3>
-      <p>RBL dichiara la propria linea gel <strong>vegan, HEMA free, TPO free e 6 toxins free</strong>. Scegliamo il colore insieme ai passaggi di preparazione, applicazione e rimozione adatti al sistema utilizzato.</p>
-      <p class="rbl-nails__note">Le caratteristiche si riferiscono alla linea gel RBL e non descrivono automaticamente lo smalto tradizionale o ogni altro prodotto del trattamento. Se hai già avuto sensibilità a prodotti per unghie, raccontacelo prima dell’applicazione.</p>
-      <a class="rbl-nails__text-link" href={`${official}/about`}>Conosci la linea RBL <span aria-hidden="true">↗</span></a>
-    </div>
-    <figure>
-      <img src="/img/rbl-official/salon-proof.webp" width="1122" height="1402" loading="lazy" decoding="async" alt="Unghie color malva accanto a una lampada, immagine ufficiale del mondo RBL Nails" />
-      <figcaption>Colore e finitura nel racconto in studio RBL.</figcaption>
-    </figure>
-  </div>
+        {full ? (
+          <figure class="rbl-feature">
+            <img src="/img/rbl-official/rosa-in-polvere.webp" srcset="/img/rbl-official/rosa-in-polvere-800.webp 800w, /img/rbl-official/rosa-in-polvere.webp 1536w" sizes="(max-width: 1300px) 100vw, 1280px" width="1536" height="1024" loading="lazy" decoding="async" alt="Manicure rosa, nude e malva nella fotografia ufficiale RBL Rosa in Polvere" />
+            <figcaption><span>Rosa in Polvere</span><strong>Delicatezza, con personalità.</strong><a href={`${rblOfficial}/collezioni/rosa-in-polvere`}>Entra nella collezione <span aria-hidden="true">↗</span></a></figcaption>
+          </figure>
+        ) : (
+          <figure class="rbl-feet-palette"><img src={rblCollections[0].tips} width="1600" height="900" loading="lazy" decoding="async" alt="Cinque TIP nude, rosa e malva della collezione gel RBL Rosa in Polvere" /><figcaption>Rosa in Polvere · i campioni della linea gel RBL, da cui prendere ispirazione.</figcaption></figure>
+        )}
 
-  <div class="rbl-nails__collections-heading">
-    <h3>Una palette, <em>più interpretazioni.</em></h3>
-    <p>Le fotografie di collezione RBL raccontano accostamenti, materia e luce. Parti dall’atmosfera che ami e scegli la tua sfumatura.</p>
+        <div class="rbl-picker">
+          <div class="rbl-section-heading"><p class="rbl-kicker">Sei colori, sei direzioni</p><h3>Scegli una sfumatura.<br /><em>Guardala da vicino.</em></h3><p>Seleziona il colore per aprire la sua scheda ufficiale.</p></div>
+          <fieldset class="rbl-shades"><legend class="rbl-sr-only">Scegli il colore RBL da esplorare</legend>
+            {rblShades.map((shade, index) => <>
+              <input class="rbl-radio" type="radio" id={`${prefix}-shade-${shade.code}`} name={`${prefix}-shade`} value={shade.code} checked={index === 0} aria-controls={`${prefix}-sheet-${shade.code}`} />
+              <label for={`${prefix}-shade-${shade.code}`} style={`--shade: ${shade.hex}`}><span class="rbl-swatch" aria-hidden="true"></span><span>{shade.name}<small>RBL-{shade.code}</small></span></label>
+            </>)}
+          </fieldset>
+          <div class="rbl-colour-stage">
+            {rblShades.map((shade, index) => <figure class:list={["rbl-sheet", { "rbl-sheet--first": index === 0 }]} data-shade={shade.code} id={`${prefix}-sheet-${shade.code}`}>
+              <a class="rbl-sheet__image" href={shade.image} target="_blank" rel="noreferrer" aria-label={`Ingrandisci il colore ${shade.name}`}><img src={shade.image} width={shade.width} height={shade.height} alt={`Scheda ufficiale RBL-${shade.code} ${shade.name}: manicure, flacone e TIP del colore`} loading="lazy" decoding="async" /></a>
+              <figcaption><div><small>RBL-{shade.code}</small><h4>{shade.name}</h4><p>{shade.description}</p></div><a class="rbl-text-link" href={shade.href}>Scheda colore RBL<span aria-hidden="true">↗</span></a></figcaption>
+            </figure>)}
+          </div>
+          <p class="rbl-note">Tocca la fotografia per vederla intera a piena dimensione. Luce e schermo possono cambiare la percezione del colore: scegliamo il campione insieme in studio.{!full && " Le schede ufficiali mostrano il colore sulle mani, come riferimento per la tinta."}</p>
+        </div>
+
+        {full && <div class="rbl-collections">
+          <div class="rbl-section-heading"><p class="rbl-kicker">Le collezioni</p><h3>Una palette.<br /><em>Più modi di sentirla.</em></h3></div>
+          <fieldset class="rbl-collection-tabs"><legend class="rbl-sr-only">Scegli la collezione RBL</legend>
+            {rblCollections.map((collection, index) => <><input class="rbl-radio" type="radio" id={`${prefix}-collection-${collection.slug}`} name={`${prefix}-collection`} value={collection.slug} checked={index === 0} aria-controls={`${prefix}-collection-panel-${collection.slug}`} /><label for={`${prefix}-collection-${collection.slug}`}>{collection.name}<span aria-hidden="true">↗</span></label></>)}
+          </fieldset>
+          {rblCollections.map((collection, index) => <div class:list={["rbl-collection", { "rbl-collection--first": index === 0 }]} data-collection={collection.slug} id={`${prefix}-collection-panel-${collection.slug}`}>
+            <figure class="rbl-collection__hands"><img src={collection.hands} width="1536" height="1024" loading="lazy" decoding="async" alt={`Interpretazione ufficiale sulle mani della collezione RBL ${collection.name}`} /><figcaption>{collection.name}, sulle mani.</figcaption></figure>
+            <div class="rbl-collection__palette"><figure><img src={collection.tips} width="1600" height="900" loading="lazy" decoding="async" alt={`La palette completa di TIP della collezione RBL ${collection.name}`} /></figure><div><h4>{collection.name}</h4><p>{collection.description}</p><a class="rbl-text-link" href={`${rblOfficial}/collezioni/${collection.slug}`}>Esplora la collezione<span aria-hidden="true">↗</span></a></div></div>
+          </div>)}
+        </div>}
+
+        {!full && <figure class="rbl-second-palette"><img src={rblCollections[1].tips} width="1600" height="900" loading="lazy" decoding="async" alt="TIP della collezione gel RBL Argento Vivo" /><figcaption>Argento Vivo · se cerchi una luce diversa. <a href={`${rblOfficial}/collezioni/argento-vivo`}>Esplora la collezione ↗</a></figcaption></figure>}
+
+        <div class="rbl-formula">
+          <div class="rbl-section-heading"><p class="rbl-kicker">La linea gel colore RBL</p><h3>Il colore conta.<br /><em>Anche la formula.</em></h3></div>
+          <ul class="rbl-formula__words" aria-label="Caratteristiche dichiarate da RBL per la propria linea gel"><li>Vegan<span>La scelta della linea.</span></li><li>HEMA <em>free</em><span>Una formula senza HEMA.</span></li><li>TPO <em>free</em><span>Una formula senza TPO.</span></li></ul>
+          <div class="rbl-formula__copy"><p>RBL dichiara la propria linea gel <strong>vegan, HEMA free, TPO free e 6 toxins free</strong>. Sono caratteristiche della linea gel colore: preparazione, applicazione e rimozione completano il trattamento.</p><a class="rbl-text-link" href={`${rblOfficial}/about`}>Conosci la linea RBL<span aria-hidden="true">↗</span></a></div>
+          <p class="rbl-note">Queste caratteristiche riguardano la linea gel RBL, non lo smalto tradizionale né automaticamente tutti i prodotti utilizzati durante il servizio. Se hai già avuto sensibilità a prodotti per unghie, raccontacelo prima dell’applicazione.</p>
+        </div>
+
+        {full && <div class="rbl-atelier">
+          <figure class="rbl-atelier__red"><img src="/img/rbl-official/hands-studio-rosso.webp" width="1536" height="1024" loading="lazy" decoding="async" alt="Manicure rossa nella fotografia ufficiale della collezione RBL Studio Rosso" /><figcaption>Studio Rosso · l’ispirazione RBL.</figcaption></figure>
+          <div class="rbl-atelier__gesture"><img src="/img/rbl-official/atelier-work.webp" width="1122" height="1402" loading="lazy" decoding="async" alt="Applicazione professionale del gel al banco di lavoro nel racconto ufficiale RBL" /><div><p class="rbl-kicker">Dal colore al gesto</p><h3>Il dettaglio<br /><em>fa la differenza.</em></h3><p>Forma, preparazione, finitura. Da REBEL il tuo colore prende forma con attenzione, dall’inizio all’ultimo passaggio.</p></div></div>
+        </div>}
+        <div class="rbl-booking"><p>{full ? "Hai trovato il tuo colore?" : "Il prossimo colore, lo scegliamo insieme."}</p><a class="rbl-booking__button" href={bookHref}>{full ? "Scegli la tua manicure REBEL" : "Parliamo del tuo pedicure"}<span aria-hidden="true">↗</span></a></div>
+      </>
+    )}
+    <p class="rbl-credits">Fotografie e schede ufficiali <a href={rblOfficial}>RBL Nails</a>: ispirazioni di prodotto e collezione, non risultati su clienti REBEL.</p>
   </div>
-  <div class="rbl-nails__collections">
-    {collections.map(collection => <figure>
-      <a href={`${official}/collezioni/${collection.slug}`} aria-label={`Esplora la collezione RBL ${collection.name}`}>
-        <img src={`/img/rbl-official/${collection.image}-800.webp`} srcset={`/img/rbl-official/${collection.image}-800.webp 800w, /img/rbl-official/${collection.image}.webp 1536w`} sizes="(max-width: 650px) 100vw, (max-width: 1100px) 50vw, 440px" width="1536" height="1024" loading="lazy" decoding="async" alt={collection.alt} />
-      </a>
-      <figcaption><strong>{collection.name}</strong><span>{collection.detail}</span><a class="rbl-nails__text-link" href={`${official}/collezioni/${collection.slug}`}>Guarda la collezione <span aria-hidden="true">↗</span></a></figcaption>
-    </figure>)}
-  </div>
-  <p class="rbl-nails__credits">Fotografie e riferimenti cromatici: <a href={official}>RBL Nails</a>. Le immagini di collezione sono ispirazioni della linea semipermanente.</p>
 </section>
 
 <style>
-  .rbl-nails { --rbl-ink: #301a3a; --rbl-muted: #66536b; --rbl-rose: #ad2862; --rbl-line: #e2d6e1; color: var(--rbl-ink); background: #fffcf8; border: 1px solid var(--rbl-line); border-radius: 22px 7px; padding: clamp(1.35rem, 4vw, 3.5rem); margin-block: 3rem; scroll-margin-top: 7rem; font-family: var(--font-body); }
-  .rbl-nails :is(h2,h3,p,figure,ul) { margin: 0; }
-  .rbl-nails :is(h2,h3) { color: var(--rbl-ink); font-family: var(--font-body); font-weight: 550; letter-spacing: -.04em; }
-  .rbl-nails h2 { font-size: clamp(2rem, 3.7vw, 3.45rem); line-height: 1.15; }
-  .rbl-nails h3 { font-size: clamp(1.6rem, 2.6vw, 2.3rem); line-height: 1.25; }
-  .rbl-nails :is(h2,h3) em { color: var(--rbl-rose); font-family: var(--font-display); font-weight: 400; letter-spacing: -.035em; }
-  .rbl-nails p { color: var(--rbl-muted); font-size: .98rem; line-height: 1.85; }
-  .rbl-nails p + p { margin-top: 1rem; }
-  .rbl-nails strong { color: var(--rbl-ink); font-weight: 650; }
-  .rbl-nails a { color: var(--rbl-ink); text-underline-offset: .3em; }
-  .rbl-nails a:focus-visible { outline: 2px solid #7047ff; outline-offset: 5px; }
-  .rbl-nails__eyebrow { display: block; margin-bottom: 1rem; color: var(--rbl-rose); font-size: .69rem; font-weight: 750; line-height: 1.6; letter-spacing: .15em; text-transform: uppercase; }
-  .rbl-nails__intro { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.08fr); gap: clamp(1.8rem, 4vw, 3.5rem); align-items: start; }
-  .rbl-nails__text-link { display: inline-flex; align-items: center; gap: .8rem; min-height: 44px; font-size: .87rem; font-weight: 700; text-decoration-thickness: 1px; }
-  .rbl-nails__opening > .rbl-nails__text-link { margin-top: .8rem; }
-  .rbl-nails__atelier { display: grid; grid-template-columns: minmax(0,.86fr) minmax(0,1fr); gap: clamp(1.6rem, 4vw, 3rem); align-items: center; margin-top: 3rem; }
-  .rbl-nails figure { min-width: 0; }
-  .rbl-nails img { display: block; width: 100%; height: auto; }
-  .rbl-nails__work img { aspect-ratio: 4/5; object-fit: cover; border-radius: 7px 40px 7px 7px; }
-  .rbl-nails figcaption { color: var(--rbl-muted); font-size: .75rem; line-height: 1.7; margin-top: .85rem; }
-  .rbl-nails__work figcaption > span { display: block; color: var(--rbl-ink); font-weight: 700; margin-bottom: .2rem; }
-  .rbl-nails__palette > p { margin-top: 1rem; }
-  .rbl-nails .rbl-nails__swatches { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 1rem; padding: 0; list-style: none; margin-top: 1.2rem; }
-  .rbl-nails__swatches li { min-width: 0; border-bottom: 1px solid var(--rbl-line); }
-  .rbl-nails__swatches a { display: flex; gap: .65rem; align-items: center; min-height: 80px; padding-block: .7rem; text-decoration: none; }
-  .rbl-nails__chip { flex: 0 0 30px; width: 30px; height: 42px; background: var(--shade); border-radius: 45% 45% 38% 38%; border: 1px solid rgba(48,26,58,.14); }
-  .rbl-nails__shade-name { font-size: .78rem; line-height: 1.45; font-weight: 650; overflow-wrap: anywhere; }
-  .rbl-nails__shade-name small { display: block; color: var(--rbl-muted); font-size: .67rem; font-weight: 450; letter-spacing: .06em; margin-top: .2rem; }
-  .rbl-nails__arrow { margin-left: auto; color: var(--rbl-rose); font-size: .85rem; }
-  .rbl-nails .rbl-nails__note { font-size: .78rem; line-height: 1.8; }
-  .rbl-nails__formula { display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,.7fr); gap: 2rem; align-items: center; padding-block: 2.5rem; margin-block: 2.5rem; border-block: 1px solid var(--rbl-line); }
-  .rbl-nails__formula h3 { margin-bottom: 1.1rem; }
-  .rbl-nails__formula .rbl-nails__text-link { margin-top: .7rem; }
-  .rbl-nails__formula img { aspect-ratio: 1; object-fit: cover; border-radius: 25px 6px; }
-  .rbl-nails__collections-heading { max-width: 36rem; }
-  .rbl-nails__collections-heading p { margin-top: 1rem; }
-  .rbl-nails__collections { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.3rem; margin-top: 1.6rem; }
-  .rbl-nails__collections img { aspect-ratio: 3/2; object-fit: cover; border-radius: 18px 6px; }
-  .rbl-nails__collections figcaption { display: grid; gap: .35rem; }
-  .rbl-nails__collections strong { font-size: 1rem; }
-  .rbl-nails__collections .rbl-nails__text-link { justify-self: start; font-size: .78rem; }
-  .rbl-nails .rbl-nails__credits { margin-top: 1.8rem; padding-top: 1rem; border-top: 1px solid var(--rbl-line); font-size: .72rem; }
-  @media (max-width: 900px) {
-    .rbl-nails__intro, .rbl-nails__atelier { grid-template-columns: minmax(0,1fr); }
-    .rbl-nails__work { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,.65fr); gap: 1.2rem; align-items: end; }
-    .rbl-nails__work img { max-height: 420px; }
-    .rbl-nails__work figcaption { margin: 0; padding-bottom: .3rem; }
-    .rbl-nails__swatches a { gap: .8rem; }
+  .rbl-story { --rbl-ink: #301a3a; --rbl-muted: #685471; --rbl-rose: #a32f68; --rbl-line: #e2d6e1; background: #fffdf9; color: var(--rbl-ink); padding-block: clamp(3rem,6vw,6rem); scroll-margin-top: 6rem; font-family: var(--font-body); color-scheme: light; }
+  .rbl-shell { width: min(1280px,calc(100% - 3rem)); margin-inline: auto; }
+  .rbl-story :is(h2,h3,h4,p,figure,fieldset,ul) { margin: 0; }
+  .rbl-story :is(h2,h3,h4) { font-family: var(--font-display); font-weight: 500; letter-spacing: -.045em; line-height: 1.08; color: var(--rbl-ink); }
+  .rbl-story h2 { font-size: clamp(2.3rem,4.4vw,4.7rem); }
+  .rbl-story h3 { font-size: clamp(2rem,3.4vw,3.5rem); }
+  .rbl-story h4 { font-size: clamp(1.8rem,2.8vw,3rem); }
+  .rbl-story :is(h2,h3) em { font-weight: 400; color: #784795; }
+  .rbl-story p { color: var(--rbl-muted); font-size: .98rem; line-height: 1.8; }
+  .rbl-story strong { color: var(--rbl-ink); }
+  .rbl-story img { display: block; width: 100%; height: auto; }
+  .rbl-story figure { min-width: 0; }
+  .rbl-story a { color: var(--rbl-ink); text-underline-offset: .3em; }
+  .rbl-story a:focus-visible { outline: 3px solid #7047ff; outline-offset: 5px; }
+  .rbl-story .rbl-kicker { color: var(--rbl-rose); font-size: .72rem; font-weight: 750; letter-spacing: .15em; line-height: 1.5; text-transform: uppercase; margin-bottom: 1rem; }
+  .rbl-intro { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(1.5rem,4vw,4rem); align-items: end; }
+  .rbl-intro__copy { max-width: 47ch; }
+  .rbl-text-link { display: inline-flex; min-height: 44px; align-items: center; gap: .8rem; font-size: .83rem; font-weight: 700; line-height: 1.6; padding-block: .5rem; text-decoration: underline; }
+  .rbl-intro__copy .rbl-text-link { margin-top: .7rem; }
+  .rbl-feature { position: relative; margin-top: clamp(2rem,4vw,4rem) !important; overflow: hidden; border-radius: 5px 48px 5px 32px; }
+  .rbl-feature > img { aspect-ratio: 3/2; object-fit: cover; }
+  .rbl-feature figcaption { position: absolute; inset: auto 0 0; padding: clamp(1.4rem,4vw,3rem); display: grid; gap: .5rem; background: linear-gradient(transparent,#28152fd9); color: #fffdf9; }
+  .rbl-feature figcaption > span { font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; }
+  .rbl-feature figcaption strong { color: #fffdf9; font: 500 clamp(1.8rem,3vw,3rem)/1.1 var(--font-display); }
+  .rbl-feature figcaption a { color: #fffdf9; justify-self: start; min-height: 44px; align-content: center; text-decoration: underline; font-size: .82rem; }
+  .rbl-section-heading { max-width: 43rem; }
+  .rbl-section-heading > p:last-child:not(.rbl-kicker) { margin-top: 1rem; }
+  .rbl-picker { margin-top: clamp(3rem,6vw,6rem); }
+  .rbl-shades { min-width: 0; border: 0; padding: 0; display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: .6rem; margin-top: 1.7rem !important; }
+  .rbl-radio { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+  .rbl-shades label { min-width: 0; min-height: 90px; display: flex; align-items: center; gap: .7rem; padding: 1rem .7rem; border: 1px solid var(--rbl-line); border-radius: 7px 20px 7px 20px; background: #fff; color: var(--rbl-ink); cursor: pointer; font-size: .76rem; font-weight: 650; line-height: 1.4; }
+  .rbl-shades label small { display: block; color: var(--rbl-muted); font-size: .65rem; font-weight: 450; letter-spacing: .04em; margin-top: .3rem; }
+  .rbl-swatch { flex: 0 0 22px; width: 22px; height: 34px; border-radius: 40% 40% 35% 35%; background: var(--shade); border: 1px solid #301a3a26; }
+  .rbl-radio:checked + label { background: #f5edf7; border-color: #895f99; box-shadow: inset 0 0 0 1px #895f99; }
+  .rbl-radio:focus-visible + label { outline: 3px solid #7047ff; outline-offset: 3px; }
+  .rbl-colour-stage { margin-top: 1.3rem; }
+  .rbl-sheet { display: none; }
+  .rbl-sheet--first { display: block; }
+  .rbl-sheet__image { display: block; border: 1px solid var(--rbl-line); border-radius: 22px 5px; overflow: hidden; background: #f2e8e1; }
+  .rbl-sheet__image img { object-fit: contain; }
+  .rbl-sheet figcaption { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1rem; padding-block: 1.2rem; border-bottom: 1px solid var(--rbl-line); }
+  .rbl-sheet figcaption small { display: block; color: var(--rbl-rose); font-size: .72rem; letter-spacing: .1em; margin-bottom: .4rem; }
+  .rbl-sheet figcaption p { margin-top: .5rem; font-size: .9rem; }
+  .rbl-story .rbl-note { font-size: .75rem; line-height: 1.75; margin-top: 1rem; max-width: 100ch; }
+  .rbl-collections { margin-top: clamp(3rem,6vw,6rem); }
+  .rbl-collection-tabs { border: 0; min-width: 0; padding: 0; display: flex; gap: .6rem; flex-wrap: wrap; margin-top: 1.5rem !important; }
+  .rbl-collection-tabs label { display: flex; align-items: center; justify-content: space-between; gap: 2rem; min-height: 50px; padding: .8rem 1.2rem; border: 1px solid var(--rbl-line); border-radius: 5px 16px; cursor: pointer; font-size: .88rem; font-weight: 650; }
+  .rbl-collection { display: none; grid-template-columns: 1.05fr 1fr; gap: clamp(1rem,2vw,2rem); align-items: start; margin-top: 1.5rem; }
+  .rbl-collection--first { display: grid; }
+  .rbl-collection img { border-radius: 5px 30px 5px 20px; }
+  .rbl-collection__hands figcaption { font-size: .75rem; line-height: 1.7; color: var(--rbl-muted); margin-top: .7rem; }
+  .rbl-collection__palette > div { padding-top: 1.3rem; }
+  .rbl-collection__palette p { font-size: .9rem; margin-top: .6rem; }
+  .rbl-formula { margin-top: clamp(3rem,6vw,6rem); padding-block: clamp(2rem,4vw,3.5rem); border-block: 1px solid var(--rbl-line); }
+  .rbl-formula__words { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.6rem; padding: 0; list-style: none; margin-block: 2rem !important; }
+  .rbl-formula__words li { min-width: 0; color: #713e8b; font: 500 clamp(2rem,4.8vw,4.8rem)/1.08 var(--font-display); letter-spacing: -.05em; }
+  .rbl-formula__words em { font-weight: 400; }
+  .rbl-formula__words span { display: block; margin-top: .7rem; color: var(--rbl-muted); font: 500 .75rem/1.7 var(--font-body); letter-spacing: 0; }
+  .rbl-formula__copy { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem 2rem; }
+  .rbl-formula__copy p { max-width: 77ch; font-size: .9rem; }
+  .rbl-atelier { margin-top: clamp(3rem,6vw,6rem); display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(1.4rem,3vw,3rem); align-items: center; }
+  .rbl-atelier__red img { border-radius: 30px 5px; }
+  .rbl-atelier__red figcaption { color: var(--rbl-muted); font-size: .75rem; margin-top: .7rem; }
+  .rbl-atelier__gesture { display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,1fr); align-items: center; gap: 1.3rem; }
+  .rbl-atelier__gesture img { border-radius: 5px 24px; }
+  .rbl-atelier__gesture h3 { font-size: clamp(1.65rem,2.3vw,2.3rem); }
+  .rbl-atelier__gesture p:not(.rbl-kicker) { font-size: .85rem; margin-top: .8rem; }
+  .rbl-booking { margin-top: 3rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1.5rem; border-block: 1px solid var(--rbl-line); }
+  .rbl-booking p { font: 500 clamp(1.5rem,2.5vw,2rem)/1.2 var(--font-display); color: var(--rbl-ink); }
+  .rbl-booking__button { display: inline-flex; align-items: center; justify-content: center; gap: 1rem; min-height: 50px; max-width: 100%; padding: .9rem 1.2rem; border-radius: 18px 6px; color: #fff !important; background: linear-gradient(130deg,#32163d,#7047ff 65%,#ad386e); font-size: .85rem; font-weight: 700; text-align: center; }
+  .rbl-story .rbl-credits { padding-top: 1.3rem; margin-top: 1.7rem; color: var(--rbl-muted); font-size: .7rem; line-height: 1.7; }
+  .rbl-credits a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline; }
+  .rbl-feet-palette { margin-top: 2rem !important; }
+  .rbl-feet-palette img { border-radius: 5px 38px; }
+  .rbl-feet-palette figcaption, .rbl-second-palette figcaption { margin-top: .7rem; color: var(--rbl-muted); font-size: .75rem; line-height: 1.7; }
+  .rbl-second-palette { display: grid; grid-template-columns: 1.4fr 1fr; gap: 2rem; align-items: center; margin-top: 3rem !important; }
+  .rbl-second-palette img { border-radius: 25px 5px; }
+  .rbl-second-palette figcaption a { display: inline-flex; min-height: 44px; align-items: center; color: var(--rbl-ink); text-decoration: underline; }
+  .rbl-teaser { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(1.5rem,4vw,4rem); align-items: center; }
+  .rbl-teaser__photo img { border-radius: 5px 35px; }
+  .rbl-teaser__photo figcaption { margin-top: .7rem; color: var(--rbl-muted); font-size: .73rem; }
+  .rbl-teaser__copy > p:not(.rbl-kicker) { margin-top: 1rem; }
+  .rbl-teaser__copy .rbl-text-link { margin-top: .7rem; }
+  .rbl-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+  @supports selector(:has(input:checked)) {
+    .rbl-picker:has(input:checked) .rbl-sheet { display: none; }
+    .rbl-picker:has(input[value="007"]:checked) [data-shade="007"],
+    .rbl-picker:has(input[value="009"]:checked) [data-shade="009"],
+    .rbl-picker:has(input[value="003"]:checked) [data-shade="003"],
+    .rbl-picker:has(input[value="026"]:checked) [data-shade="026"],
+    .rbl-picker:has(input[value="080"]:checked) [data-shade="080"],
+    .rbl-picker:has(input[value="001"]:checked) [data-shade="001"] { display: block; }
+    .rbl-collections:has(input:checked) .rbl-collection { display: none; }
+    .rbl-collections:has(input[value="rosa-in-polvere"]:checked) [data-collection="rosa-in-polvere"],
+    .rbl-collections:has(input[value="argento-vivo"]:checked) [data-collection="argento-vivo"] { display: grid; }
   }
-  @media (max-width: 650px) {
-    .rbl-nails { margin-block: 2rem; }
-    .rbl-nails__intro { gap: 1.3rem; }
-    .rbl-nails__atelier { margin-top: 2rem; }
-    .rbl-nails__work, .rbl-nails__formula, .rbl-nails__collections { grid-template-columns: minmax(0,1fr); }
-    .rbl-nails__work { gap: .7rem; }
-    .rbl-nails__work img { max-height: none; aspect-ratio: 1; }
-    .rbl-nails__formula { gap: 1.3rem; margin-block: 2rem; padding-block: 2rem; }
-    .rbl-nails__formula figure { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 1rem; align-items: end; }
-    .rbl-nails__formula figcaption { margin: 0; }
-    .rbl-nails__collections { gap: 1.7rem; }
-    .rbl-nails__chip { flex-basis: 25px; width: 25px; height: 36px; }
-    .rbl-nails__swatches a { gap: .5rem; }
-    .rbl-nails__shade-name { font-size: .73rem; }
+  @media (max-width: 1000px) {
+    .rbl-shades { grid-template-columns: repeat(3,minmax(0,1fr)); }
+    .rbl-atelier { grid-template-columns: 1fr; }
+    .rbl-atelier__gesture { grid-template-columns: minmax(0,.55fr) minmax(0,1fr); }
+    .rbl-atelier__gesture img { max-height: 300px; width: auto; }
+  }
+  @media (max-width: 700px) {
+    .rbl-shell { width: calc(100% - 2rem); }
+    .rbl-intro, .rbl-teaser, .rbl-collection { grid-template-columns: minmax(0,1fr); gap: 1.5rem; }
+    .rbl-intro__copy { max-width: none; }
+    .rbl-feature { border-radius: 5px 28px; }
+    .rbl-feature figcaption { position: static; background: #f7f0e9; color: var(--rbl-ink); padding: 1.2rem; }
+    .rbl-feature figcaption strong, .rbl-feature figcaption a { color: var(--rbl-ink); }
+    .rbl-shades { gap: .5rem; }
+    .rbl-shades label { min-height: 88px; padding: .8rem .55rem; gap: .5rem; font-size: .73rem; }
+    .rbl-swatch { flex-basis: 18px; width: 18px; height: 30px; }
+    .rbl-formula__words { grid-template-columns: 1fr; gap: 1.4rem; }
+    .rbl-formula__words li { font-size: clamp(2.8rem,9.5vw,4.8rem); padding-bottom: 1rem; border-bottom: 1px solid var(--rbl-line); }
+    .rbl-formula__words span { margin-top: .4rem; }
+    .rbl-second-palette { grid-template-columns: 1fr; gap: .3rem; }
+    .rbl-booking { align-items: stretch; flex-direction: column; }
+    .rbl-booking__button { width: 100%; }
+    .rbl-collection-tabs label { flex: 1 1 auto; }
+  }
+  @media (max-width: 420px) {
+    .rbl-shades { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .rbl-shades label { min-height: 76px; }
+    .rbl-collection-tabs { display: grid; grid-template-columns: minmax(0,1fr); }
+    .rbl-atelier__gesture { grid-template-columns: minmax(0,.65fr) minmax(0,1fr); gap: 1rem; }
+    .rbl-atelier__gesture h3 { font-size: 1.65rem; }
+    .rbl-atelier__gesture p:not(.rbl-kicker) { font-size: .8rem; }
+    .rbl-atelier__gesture .rbl-kicker { font-size: .62rem; }
   }
 </style>
