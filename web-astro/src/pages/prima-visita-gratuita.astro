@@ -1,11 +1,10 @@
 ---
-import LandingLayout from "@/layouts/LandingLayout.astro";
-import LandingHero from "@/components/landing/LandingHero.astro";
-import LandingProof from "@/components/landing/LandingProof.astro";
-import LandingSteps from "@/components/landing/LandingSteps.astro";
-import LandingFaq from "@/components/landing/LandingFaq.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import EvaluationStory from "@/components/EvaluationStory.astro";
+import FaqAccordion from "@/components/FaqAccordion.astro";
+import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import LandingFormCard from "@/components/landing/LandingFormCard.astro";
-import FullBleedBand from "@/components/FullBleedBand.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import { createPageMeta, buildBreadcrumbSchema } from "@/lib/seo";
 import { media } from "@/lib/page-media";
@@ -72,100 +71,11 @@ const faqSchema = {
   })),
 };
 ---
-<LandingLayout
-  meta={meta}
-  bodyClass="page-landing--prima-visita"
-  ctaHref="#form"
-  ctaLabel="Prenota la valutazione"
->
-  <JsonLd data={breadcrumb} />
-  <JsonLd data={evaluationSchema} />
-  <JsonLd data={faqSchema} />
-
-  <LandingHero
-    media={media.method.hero}
-    badge="Valutazione · 30–40 minuti"
-    kicker="Centro estetico · Carmagnola"
-    title="Una valutazione per scegliere il _Percorso REBEL_."
-    lead="In 30–40 minuti parliamo del risultato che desideri, osserviamo la pelle o la zona da trattare e ti spieghiamo trattamenti, frequenza e prezzo. Se scegli di iniziare il percorso proposto, la valutazione iniziale è gratuita."
-    bullets={[
-      { text: "Valutazione e analisi di 30–40 minuti." },
-      { text: "Trattamenti, frequenza e prezzo spiegati prima di iniziare." },
-      { text: "Gratuita se scegli di iniziare il percorso proposto." },
-      { text: "Eventuali prodotti per casa non inclusi." },
-    ]}
-    primaryCta={{ label: "Prenota la valutazione", href: "#form" }}
-    secondaryCta={{
-      label: "Scrivici su WhatsApp",
-      href: siteConfig.social.whatsapp,
-      external: true,
-    }}
-    footnote="Ti contattiamo personalmente negli orari di apertura (mar–sab)."
-  />
-
-  <LandingProof
-    kicker="Perché Rebel"
-    items={[
-      {
-        title: "Uno studio a Carmagnola",
-        body: "Quattro cabine, una postazione manicure e tecnologie professionali in Viale Barbaroux 20.",
-      },
-      {
-        title: "Tecnologia Thory",
-        body: "Lumina X1 Pro di THORY integra quattro lunghezze d’onda. Durante l’epilazione, ICE Polar raffredda la pelle a contatto; parametri e zone vengono definiti dopo la valutazione.",
-      },
-      {
-        title: "Linee professionali",
-        body: "Utilizziamo Marbellas, Eberlin e RBL Nails nei trattamenti viso, corpo e manicure.",
-      },
-      {
-        title: "Listino sempre online",
-        body: "Puoi consultare online il prezzo di ogni servizio prima di contattarci.",
-      },
-    ]}
-  />
-
-  <LandingSteps
-    kicker="Come funziona"
-    title="La valutazione in quattro passaggi."
-    steps={[
-      {
-        title: "Lascia i tuoi recapiti",
-        body: "Bastano nome e numero. Se vuoi, dicci già cosa ti interesserebbe fare.",
-      },
-      {
-        title: "Concordiamo l’appuntamento",
-        body: "Ti contattiamo personalmente via WhatsApp o telefono con un orario disponibile.",
-      },
-      {
-        title: "Vieni in studio per 30–40 minuti",
-        body: "Parliamo del risultato che desideri, osserviamo la pelle o l’area da trattare e ti spieghiamo trattamenti, tempi e prezzi.",
-      },
-      {
-        title: "Decidi se iniziare",
-        body: "Se scegli di iniziare il percorso proposto, la valutazione iniziale è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi.",
-      },
-    ]}
-  />
-
-  <FullBleedBand
-    image={media.studio.reception}
-    height="sm"
-    align="center"
-    kicker="Da REBEL · Carmagnola"
-    quote="Trenta–quaranta minuti per capire insieme _come iniziare_."
-    cite="Studio Rebel · Viale Barbaroux 20"
-  />
-
-  <LandingFormCard
-    kicker="Richiedi un appuntamento"
-    title="Prenota la valutazione."
-    lead="Solo nome e telefono. Email e dettagli sono opzionali — possiamo sentirci anche su WhatsApp."
-    source="landing-prima-visita"
-    submitLabel="Prenota la valutazione"
-    showRitual={false}
-    showMessage={true}
-  />
-
-  <LandingFaq items={faqs} />
-</LandingLayout>
+<BaseLayout meta={meta} bodyClass="rebel-rebrand page-prima-visita">
+ <JsonLd data={breadcrumb} /><JsonLd data={evaluationSchema} /><JsonLd data={faqSchema} />
+ <PageHero image={media.method.hero} imageCaption="Il momento della valutazione, illustrato." kicker="Valutazione REBEL · Carmagnola" title="Il tuo percorso. _Comincia da te_." lead="Trenta–quaranta minuti per ascoltarti, osservare la pelle e scegliere insieme come iniziare." bullets={["Trattamenti, frequenza e prezzo spiegati prima di iniziare", "Valutazione iniziale gratuita se scegli il percorso proposto", "Eventuali prodotti per casa non inclusi"]} ctaPrimary={{label:"Chiedi una valutazione",href:"#form"}} ctaSecondary={{label:"Scrivici su WhatsApp",href:siteConfig.social.whatsapp}} meta={["Viale Barbaroux 20 · Carmagnola","Su appuntamento · Mar–sab"]} />
+ <EvaluationStory />
+ <LandingFormCard kicker="Il primo passo" title="Parliamo del tuo prossimo momento REBEL." lead="Lascia nome e telefono: ti ricontattiamo per concordare un appuntamento. Email e dettagli sono opzionali." source="landing-prima-visita" submitLabel="Richiedi la valutazione" showRitual={false} showMessage={true} />
+ <section class="section"><div class="container container--narrow"><p class="kicker">Prima di venire</p><h2 class="section__title">Le informazioni che cerchi.</h2><FaqAccordion items={faqs} kicker="La valutazione REBEL" /></div></section>
+ <StickyBookingBar primary={{label:"Richiedi la valutazione",href:"#form"}} />
+</BaseLayout>

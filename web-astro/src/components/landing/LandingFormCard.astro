@@ -56,3 +56,21 @@ const {
     </article>
   </div>
 </section>
+
+<style>
+  .landing-form-section { scroll-margin-top:7rem;padding-block:clamp(3rem,6vw,6rem);background:#fffdf9;color:#301a3a; }
+  .landing-form-card { --text:#301a3a;--text-strong:#27142f;--text-muted:#685471;--text-faint:#786581;--line:#ddcfe3;--line-strong:#bca1c9;background:#f6eef5;color:#301a3a;border:1px solid #e2d6e1;border-radius:35px 5px;padding:clamp(1.4rem,4vw,3rem);box-shadow:none; }
+  .landing-form-card__head { margin-bottom:1.8rem; }
+  .landing-form-card__kicker { color:#a32f68;font:750 .7rem/1.6 var(--font-body);letter-spacing:.14em;text-transform:uppercase;margin:0 0 1rem; }
+  .landing-form-card__title { color:#301a3a;font:500 clamp(2rem,4vw,3.3rem)/1.12 var(--font-display);letter-spacing:-.04em;margin:0; }
+  .landing-form-card__lead { color:#685471;font-size:.95rem;line-height:1.8;margin:1rem 0 0; }
+  .landing-form-card :global(.form label),.landing-form-card :global(.form__small),.landing-form-card :global(.form__optional),.landing-form-card :global(.form__note) { color:#685471; }
+  .landing-form-card :global(.form input:not([type="checkbox"])),.landing-form-card :global(.form select),.landing-form-card :global(.form textarea) { color:#301a3a;background:#fffdf9;border-color:#cbb8d4;font-size:1rem;min-width:0; }
+  .landing-form-card :global(.form input::placeholder),.landing-form-card :global(.form textarea::placeholder) { color:#8a768f; }
+  .landing-form-card :global(.form input:focus-visible),.landing-form-card :global(.form select:focus-visible),.landing-form-card :global(.form textarea:focus-visible) { outline:3px solid #71367a;outline-offset:3px;border-color:#71367a; }
+  .landing-form-card :global(.form__consent) { color:#685471; }
+  .landing-form-card :global(.form__small a),.landing-form-card :global(.form__consent a) { color:#71367a; }
+  .landing-form-card :global(.form__submit-block) { white-space:normal;min-height:48px;max-width:100%; }
+  .landing-form-card :global(.form__feedback[data-state="ok"]) { color:#20593f;background:#e8f3ec;border-color:#80ad93; }
+  .landing-form-card :global(.form__feedback[data-state="error"]) { color:#8b2349;background:#fceaf0;border-color:#cb87a0; }
+</style>

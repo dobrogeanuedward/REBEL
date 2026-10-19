@@ -9,85 +9,47 @@ const meta = createPageMeta({
   indexable: false,
 });
 ---
-<BaseLayout meta={meta} bodyClass="page-404">
-  <section class="not-found">
-    <div class="container not-found__inner">
-      <p class="not-found__kicker">Errore 404</p>
-      <h1 class="not-found__title">Questa pagina non c'è più.</h1>
-      <p class="not-found__lead">
-        Forse il link è cambiato o l'URL non è corretto. Puoi tornare alla home, consultare
-        il listino oppure contattarci per prenotare una valutazione.
-      </p>
-      <div class="cluster cluster--stack-mobile not-found__cta">
-        <a class="btn btn--primary btn--halo" href="/">Torna alla home</a>
-        <a class="btn btn--secondary" href="/listino-estetica-laser">Listino e prezzi</a>
-        <a class="btn btn--secondary" href="/contatti">Prenota la valutazione</a>
+<BaseLayout meta={meta} bodyClass="rebel-rebrand rebel-shell page-404">
+  <section class="not-found" aria-labelledby="not-found-title">
+    <div class="not-found__shell">
+      <div class="not-found__cover">
+        <div class="not-found__copy"><p class="not-found__kicker">404 · Pagina non trovata</p><h1 id="not-found-title">Questa pagina<br /><em>non si trova.</em></h1><p class="not-found__lead">Il link potrebbe essere cambiato oppure l’indirizzo è incompleto. Scegli da dove ripartire: il tuo prossimo momento REBEL è qui.</p><a class="not-found__home" href="/">Torna alla home <span aria-hidden="true">↗</span></a></div>
+        <figure class="not-found__studio"><img src="/img/studio-treatwell/15432056.jpg" alt="L’accoglienza dello studio REBEL a Carmagnola, con vetrina e marchio" width="1080" height="720" fetchpriority="high" decoding="async" /><figcaption>REBEL · Viale Barbaroux 20, Carmagnola</figcaption></figure>
       </div>
-
-      <ul class="not-found__list">
-        <li><a href="/centro-estetico-carmagnola">Centro estetico Carmagnola</a></li>
-        <li><a href="/epilazione-laser-carmagnola">Epilazione laser</a></li>
-        <li><a href="/protocolli-epigenetici">Protocolli viso e corpo</a></li>
-        <li><a href="/metodo-rebel">Come lavoriamo</a></li>
-        <li><a href="/chi-siamo">Chi siamo</a></li>
-      </ul>
+      <nav class="not-found__destinations" aria-label="Scegli da dove ripartire">
+        <a href="/servizi"><small>01 / Trova il tuo trattamento</small><strong>Servizi e trattamenti <span aria-hidden="true">↗</span></strong><span>Viso, corpo, laser e beauty.</span></a>
+        <a href="/percorsi"><small>02 / Parti dalla tua esigenza</small><strong>Percorsi Epigenetici REBEL <span aria-hidden="true">↗</span></strong><span>Nove percorsi, obiettivi e prezzi.</span></a>
+        <a href="/contatti"><small>03 / Parliamone insieme</small><strong>Contatta REBEL <span aria-hidden="true">↗</span></strong><span>Prenotazioni, orari e indicazioni.</span></a>
+      </nav>
+      <nav class="not-found__links" aria-label="Altre pagine utili"><a href="/listino-estetica-laser">Listino e prezzi</a><a href="/epilazione-laser-carmagnola">Epilazione laser</a><a href="/protocolli-epigenetici">Protocolli viso e corpo</a><a href="/metodo-rebel">Come lavoriamo</a><a href="/chi-siamo">Lo studio REBEL</a><a href="/centro-estetico-carmagnola">Centro estetico Carmagnola</a></nav>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  .not-found {
-    min-height: 78vh;
-    display: grid;
-    place-items: center;
-    padding-block: clamp(8rem, 14vw, 12rem) clamp(4rem, 8vw, 6rem);
-    position: relative;
-  }
-  .not-found__inner {
-    max-width: 720px;
-    text-align: center;
-  }
-  .not-found__kicker {
-    font-family: var(--font-body);
-    font-size: var(--t-kicker);
-    letter-spacing: var(--tracking-kicker);
-    text-transform: uppercase;
-    color: var(--mauve);
-    margin: 0 0 1.2rem;
-  }
-  .not-found__title {
-    font-family: var(--font-display);
-    font-size: clamp(2.4rem, 6vw, 4rem);
-    line-height: 1.05;
-    letter-spacing: var(--tracking-display);
-    color: var(--text-strong);
-    margin: 0 0 1.4rem;
-  }
-  .not-found__lead {
-    font-size: var(--t-lead);
-    color: var(--text-muted);
-    line-height: var(--leading-body);
-    max-width: 56ch;
-    margin: 0 auto 2.2rem;
-  }
-  .not-found__cta { justify-content: center; }
-  .not-found__list {
-    list-style: none;
-    margin: 3rem auto 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.2rem 2rem;
-  }
-  .not-found__list a {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    border-bottom: 1px solid transparent;
-    transition: color var(--t-fast) var(--ease-soft), border-color var(--t-fast) var(--ease-soft);
-  }
-  .not-found__list a:hover {
-    color: var(--text-strong);
-    border-bottom-color: var(--mauve);
-  }
+  .not-found { padding:clamp(7.5rem,11vw,10rem) 0 clamp(3rem,6vw,6rem);background:#fffdf9;color:#301a3a; }
+  .not-found__shell { width:min(1400px,calc(100% - 2 * clamp(1.1rem,3.4vw,4rem)));margin-inline:auto; }
+  .not-found__cover { display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,6rem);align-items:center; }
+  .not-found__copy { min-width:0; }
+  .not-found__kicker { margin:0 0 1.5rem;color:#9a3c70;font:700 .7rem/1.6 var(--font-body);letter-spacing:.14em;text-transform:uppercase; }
+  .not-found h1 { margin:0;color:#301a3a;font:500 clamp(2.7rem,5.5vw,5.5rem)/1.06 var(--font-display);letter-spacing:-.05em; }
+  .not-found h1 em { color:#85497c;font-weight:400; }
+  .not-found__lead { max-width:44ch;margin:1.5rem 0 1.75rem;color:#6d5872;font-size:.95rem;line-height:1.85; }
+  .not-found__home { display:inline-flex;align-items:center;justify-content:space-between;gap:2rem;min-height:50px;padding:.9rem 1.35rem;border-radius:999px;background:linear-gradient(110deg,#b12b73,#773eb9 62%,#496ca9);color:#fff;font-size:.8rem;font-weight:700;text-decoration:none; }
+  .not-found__home:hover { box-shadow:0 8px 24px #71377d26; }
+  .not-found__studio { min-width:0;margin:0; }
+  .not-found__studio img { display:block;width:100%;height:auto;aspect-ratio:6/5;object-fit:cover;border-radius:.4rem 3rem .4rem .4rem; }
+  .not-found__studio figcaption { margin-top:.8rem;color:#7d6881;font-size:.65rem;line-height:1.7; }
+  .not-found__destinations { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1rem,3vw,3rem);margin-top:clamp(3rem,6vw,6rem); }
+  .not-found__destinations > a { display:grid;align-content:start;gap:.8rem;min-width:0;padding:1.4rem 0;border-top:1px solid #dfd1df;color:inherit;text-decoration:none; }
+  .not-found__destinations small { color:#8d4b7b;font-size:.6rem;line-height:1.7;letter-spacing:.08em;text-transform:uppercase; }
+  .not-found__destinations strong { display:flex;align-items:start;justify-content:space-between;gap:1rem;color:#301a3a;font:500 clamp(1.4rem,2.4vw,2rem)/1.25 var(--font-display);letter-spacing:-.025em; }
+  .not-found__destinations strong > span { color:#8d4b7b;font:400 1.25rem/1.5 var(--font-body); }
+  .not-found__destinations > a > span { color:#7d6881;font-size:.75rem;line-height:1.7; }
+  .not-found__destinations > a:hover strong { color:#8d4b7b; }
+  .not-found__links { display:flex;flex-wrap:wrap;gap:.25rem 1.5rem;margin-top:1.5rem;padding-top:1rem;border-top:1px solid #dfd1df; }
+  .not-found__links a { display:inline-flex;align-items:center;min-height:44px;color:#7a547d;font-size:.72rem;text-decoration:none; }
+  .not-found__links a:hover { text-decoration:underline;text-underline-offset:.3em; }
+  .not-found a:focus-visible { outline:3px solid #8c569e;outline-offset:5px; }
+  @media(max-width:760px) { .not-found { padding-top:7rem; }.not-found__cover { grid-template-columns:1fr;gap:2rem; }.not-found h1 { font-size:clamp(2.7rem,10.5vw,4rem); }.not-found__studio img { aspect-ratio:4/3; }.not-found__destinations { grid-template-columns:1fr;gap:.5rem;margin-top:2.5rem; }.not-found__destinations strong { font-size:1.7rem; }.not-found__links { gap:0 1.2rem; } }
 </style>

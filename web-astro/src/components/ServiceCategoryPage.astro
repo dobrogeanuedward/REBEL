@@ -14,6 +14,7 @@ const { category } = Astro.props;
 const groups = categoryTreatments(category);
 const treatments = groups.flatMap((group) => group.items);
 const photo = photographs[category.heroPhoto];
+const storyPhoto = photographs[category.key === "viso" ? "viso-preparazione" : category.key === "corpo" ? "scrub-gamba" : category.key === "massaggi" ? "massaggio-spalle" : "bendaggi"];
 const path = `/servizi/${category.slug}`;
 const meta = createPageMeta({ title: `${category.name}: prezzi e durata | REBEL`, description: category.metaDescription, path, image: photo.src });
 const minPrice = Math.min(...treatments.map((item) => item.price.min));
@@ -44,7 +45,7 @@ const serviceSchema = {
 };
 const faqs = [...category.faqs, { q: "I prezzi del sito e quelli di Treatwell sono uguali?", a: sourceNote }];
 ---
-<BaseLayout meta={meta} bodyClass={`page-service-category page-service-category--${category.key}`}>
+<BaseLayout meta={meta} bodyClass={`rebel-rebrand rebel-shell page-service-category page-service-category--${category.key}`}>
   <JsonLd data={breadcrumb} />
   <JsonLd data={buildWebPageSchema({ name: category.name, description: category.metaDescription, path })} />
   <JsonLd data={serviceSchema} />
@@ -67,10 +68,10 @@ const faqs = [...category.faqs, { q: "I prezzi del sito e quelli di Treatwell so
       <p class="category-source">{sourceNote} <a href={menu.source} target="_blank" rel="noreferrer">Apri il menu su Treatwell <span aria-hidden="true">↗</span></a></p>
       <div class="category-groups">{groups.map((group) => <section class="category-group" id={group.id} aria-labelledby={`group-${group.id}`}>
         <header><h3 id={`group-${group.id}`}>{group.name}</h3><p>{group.description}</p></header>
-        <div class="category-treatment-grid">{group.items.map((item) => {
+        <div class="category-treatment-grid">{group.items.map((item, index) => {
           const itemPhoto = treatmentPhoto(item.id);
-          return <article class="category-treatment" id={item.id}>
-            <header class="category-treatment__head"><img src={itemPhoto.preview} alt={itemPhoto.alt} width="480" height="270" loading="lazy" decoding="async" /><div><h4>{item.name}</h4><p>{durationRange(item.durationMin,item.durationMax)}{item.options.length > 1 ? ` · ${item.options.length} varianti` : ""}</p><strong>{priceRange(item.price)}</strong></div></header>
+          return <article class:list={["category-treatment", {"category-treatment--featured": index === 0}]} id={item.id}>
+            <header class="category-treatment__head"><img src={index === 0 ? itemPhoto.src : itemPhoto.preview} alt={itemPhoto.alt} width={index === 0 ? itemPhoto.width : 480} height={index === 0 ? itemPhoto.height : 270} loading="lazy" decoding="async" /><div><span class="category-treatment__eyebrow">Il tuo tempo REBEL</span><h4>{item.name}</h4><p>{durationRange(item.durationMin,item.durationMax)}{item.options.length > 1 ? ` · ${item.options.length} varianti` : ""}</p><strong>{priceRange(item.price)}</strong></div></header>
             {item.options.length === 1 ? <div class="category-treatment__footer"><a class="category-link" href={requestTreatment(item.id,item.options[0].id)} aria-label={`Richiedi ${item.name}, ${item.options[0].name}`}>Richiedi questo servizio <span aria-hidden="true">↗</span></a></div> : <details class="category-options"><summary>Scegli durata e variante <span aria-hidden="true">＋</span></summary><div>{item.options.map((option) => <div class="category-option"><div><h5>{option.name}</h5><p>{option.duration} min · {priceRange(option.price)}</p></div><a href={requestTreatment(item.id,option.id)} aria-label={`Richiedi ${item.name}, ${option.name}`}>Richiedi <span aria-hidden="true">↗</span></a></div>)}</div></details>}
           </article>;
         })}</div>
@@ -83,7 +84,7 @@ const faqs = [...category.faqs, { q: "I prezzi del sito e quelli di Treatwell so
     <section class="category-section category-section--paper" id="scegliere" aria-labelledby="category-choose-title"><div class="category-shell">
       <div class="category-heading"><p class="category-kicker">Da dove vuoi iniziare?</p><h2 id="category-choose-title">Una seduta.<br /><em>Oppure un percorso tuo.</em></h2></div>
       <div class="category-choice-grid"><article><span class="category-index" aria-hidden="true">01</span><h3>{category.singleTitle}</h3><p>{category.singleCopy}</p><a class="category-link" href="#trattamenti">Scegli il servizio <span aria-hidden="true">↑</span></a></article><article><span class="category-index" aria-hidden="true">02</span><h3>{category.pathTitle}</h3><p>{category.pathCopy}</p><a class="category-link" href={category.pathHref}>Esplora il percorso <span aria-hidden="true">↗</span></a></article></div>
-      <div class="category-preparation"><div><p class="category-kicker">Prima dell’appuntamento</p><h3>Prepariamo la tua visita.</h3><p>Indicaci servizio e disponibilità. Per scegliere un percorso puoi richiedere una valutazione REBEL di 30–40 minuti, gratuita se inizi il percorso proposto.</p><a class="category-link" href="/contatti">Parlane con REBEL <span aria-hidden="true">↗</span></a></div><ol>{category.preparation.map((step) => <li><h4>{step.title}</h4><p>{step.text}</p></li>)}</ol></div>
+      <div class="category-preparation"><figure class="category-preparation__photo"><img src={storyPhoto.src} alt={storyPhoto.alt} width={storyPhoto.width} height={storyPhoto.height} loading="lazy" decoding="async" /><figcaption>Il dettaglio di un gesto · immagine illustrativa.</figcaption></figure><div><p class="category-kicker">Prima dell’appuntamento</p><h3>Prepariamo la tua visita.</h3><p>Indicaci servizio e disponibilità. Per scegliere un percorso puoi richiedere una valutazione REBEL di 30–40 minuti, gratuita se inizi il percorso proposto.</p><ol>{category.preparation.map((step, index) => <li><span aria-hidden="true">{String(index + 1).padStart(2,"0")}</span><div><h4>{step.title}</h4><p>{step.text}</p></div></li>)}</ol><a class="category-link" href="/contatti">Parlane con REBEL <span aria-hidden="true">↗</span></a></div></div>
     </div></section>
 
     <section class="category-section" aria-labelledby="category-faq-title"><div class="category-shell"><div class="category-heading"><p class="category-kicker">Prima di scegliere</p><h2 id="category-faq-title">Le domande <em>pratiche.</em></h2></div><FaqAccordion items={faqs} kicker="Servizi REBEL" /><div class="category-related">{category.related.map((link) => <a href={link.href}><h3>{link.label}<span aria-hidden="true"> ↗</span></h3><p>{link.description}</p></a>)}</div></div></section>
@@ -102,7 +103,8 @@ const faqs = [...category.faqs, { q: "I prezzi del sito e quelli di Treatwell so
   .category-page em { color: #70428b; font-weight: 400; }
   .category-page .category-kicker { color: #a51e58; font: 700 .75rem/1.6 var(--font-body); letter-spacing: .13em; text-transform: uppercase; margin-bottom: 1rem; }
   .category-hero { background: #fffdf9; padding: clamp(9rem,13vw,11rem) 0 4rem; }
-  .category-hero__grid { display: grid; grid-template-columns: 1.08fr 1fr; align-items: center; gap: clamp(2rem,4vw,4rem); }
+  .category-hero__grid { display: grid; grid-template-columns: minmax(0,1.08fr) minmax(0,1fr); align-items: center; gap: clamp(2rem,4vw,4rem); }
+  .category-hero__grid > div { min-width: 0; }
   .category-breadcrumb { color: #685471; font-size: .76rem; line-height: 1.6; margin-bottom: 1.8rem; }
   .category-breadcrumb a { color: #70428b; text-underline-offset: .3em; }
   .category-hero__lead { margin-top: 1.4rem !important; font-size: 1.03rem; max-width: 58ch; }
@@ -137,6 +139,16 @@ const faqs = [...category.faqs, { q: "I prezzi del sito e quelli di Treatwell so
   .category-treatment__head h4 { font: 500 1.3rem/1.25 var(--font-display); }
   .category-treatment__head p { font-size: .78rem; margin-top: .5rem; }
   .category-treatment__head strong { display: block; margin-top: .3rem; color: #70428b; font-size: .95rem; }
+  .category-treatment__eyebrow { display: none; color: #a51e58; font: 650 .67rem/1.6 var(--font-body); letter-spacing: .12em; text-transform: uppercase; }
+  .category-treatment--featured { grid-column: 1/-1; border-radius: 2rem .4rem 2rem .4rem; }
+  .category-treatment--featured .category-treatment__head { grid-template-columns: 1fr 1.1fr; padding: 0; gap: clamp(1.5rem,4vw,4rem); align-items: center; }
+  .category-treatment--featured .category-treatment__head img { width: 100%; border-radius: 0; aspect-ratio: 16/10; }
+  .category-treatment--featured .category-treatment__head>div { padding: 1.5rem clamp(1.5rem,4vw,3rem) 1.5rem 0; }
+  .category-treatment--featured .category-treatment__head h4 { font-size: clamp(1.6rem,3vw,2.5rem); }
+  .category-treatment--featured .category-treatment__head strong { font-size: 1.25rem; margin-top: .7rem; }
+  .category-treatment--featured .category-treatment__eyebrow { display: block; margin-bottom: 1rem; }
+  .category-treatment--featured .category-treatment__footer,.category-treatment--featured .category-options summary { padding-inline: clamp(1.5rem,3vw,2.5rem); }
+  .category-treatment--featured .category-treatment__footer { padding-block: .5rem; border-top: 1px solid #e2d6e7; }
   .category-treatment__footer { padding: 0 1.3rem .8rem; }
   .category-options { border-top: 1px solid #e2d6e7; }
   .category-options summary { display: flex; align-items: center; justify-content: space-between; gap: .8rem; min-height: 52px; padding: .8rem 1.3rem; color: #70428b; font-size: .86rem; font-weight: 650; cursor: pointer; list-style: none; }
@@ -156,10 +168,14 @@ const faqs = [...category.faqs, { q: "I prezzi del sito e quelli di Treatwell so
   .category-choice-grid h3 { font: 500 clamp(1.5rem,2.4vw,2rem)/1.2 var(--font-display); margin-block: 1rem; }
   .category-choice-grid p { font-size: .93rem; }
   .category-choice-grid a { margin-top: .7rem; }
-  .category-preparation { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(1.5rem,5vw,5rem); margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #dfd0e6; }
+  .category-preparation { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(1.5rem,5vw,5rem); margin-top: clamp(3rem,7vw,6rem); align-items: center; }
+  .category-preparation__photo img { display: block; width: 100%; height: auto; aspect-ratio: 4/5; object-fit: cover; border-radius: .4rem 3rem .4rem 3rem; }
+  .category-preparation__photo figcaption { margin-top: .65rem; color: #786981; font-size: .7rem; line-height: 1.5; }
   .category-preparation h3 { font: 500 1.8rem/1.2 var(--font-display); }
   .category-preparation>div>p:not(.category-kicker) { margin-top: 1rem; font-size: .93rem; }
-  .category-preparation ol { list-style: none; padding: 0; display: grid; gap: 1.6rem; }
+  .category-preparation ol { list-style: none; padding: 0; display: grid; gap: 1.6rem; margin-block: 1.7rem !important; }
+  .category-preparation li { display: grid; grid-template-columns: auto minmax(0,1fr); gap: 1rem; padding-top: 1rem; border-top: 1px solid #dfd0e6; }
+  .category-preparation li>span { color: #a51e58; font-size: .75rem; letter-spacing: .12em; padding-top: .25rem; }
   .category-preparation h4 { font: 650 1rem/1.5 var(--font-body); }
   .category-preparation li p { margin-top: .5rem; font-size: .93rem; }
   .category-related { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.5rem; margin-top: 3rem; }
@@ -167,6 +183,8 @@ const faqs = [...category.faqs, { q: "I prezzi del sito e quelli di Treatwell so
   .category-related h3 { font: 500 1.35rem/1.3 var(--font-display); }
   .category-related p { margin-top: .7rem; font-size: .85rem; }
   .category-page :is(a,summary):focus-visible { outline: 3px solid #7047ff; outline-offset: 4px; }
-  @media(max-width:900px) { .category-hero__grid { grid-template-columns: 1fr; } .category-hero__photo>img { aspect-ratio: 16/9; } .category-related { grid-template-columns: 1fr; } .category-preparation { grid-template-columns: 1fr; } }
+  @media(max-width:900px) { .category-hero__grid { grid-template-columns: minmax(0,1fr); } .category-hero__photo>img { aspect-ratio: 16/9; } .category-related { grid-template-columns: 1fr; } .category-preparation { grid-template-columns: 1fr; } }
   @media(max-width:600px) { .category-hero { padding-top: 7.5rem; } .category-page h1 { font-size: clamp(2.7rem,10.5vw,4rem); } .category-treatment-grid,.category-choice-grid { grid-template-columns: 1fr; } .category-treatment__head { grid-template-columns: 88px minmax(0,1fr); gap: 1rem; padding: 1rem; } .category-treatment__head img { width: 88px; } .category-treatment__head h4 { font-size: 1.2rem; } .category-hero__photo>img { border-radius: 2rem .4rem 2rem .4rem; } .category-material { background-image: url('/img/rebel-r2/rebel/brand/rebel-prism-mobile.webp'); } }
+  @media(max-width:600px) { .category-treatment--featured .category-treatment__head { grid-template-columns: 1fr; gap: 0; } .category-treatment--featured .category-treatment__head>div { padding: 1.5rem; } .category-treatment--featured .category-treatment__head img { width: 100%; } .category-treatment--featured .category-treatment__head h4 { font-size: 1.65rem; } .category-preparation__photo img { aspect-ratio: 4/3; } }
+  @media(max-width:380px) { .category-page h1 { font-size: 2.3rem; } }
 </style>

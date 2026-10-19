@@ -1,13 +1,10 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHero from "@/components/PageHero.astro";
+import LaserHub from "@/components/LaserHub.astro";
 import SectionHead from "@/components/SectionHead.astro";
-import FeatureCard from "@/components/FeatureCard.astro";
 import FaqAccordion from "@/components/FaqAccordion.astro";
 import InlineCta from "@/components/InlineCta.astro";
-import SplitFeature from "@/components/SplitFeature.astro";
-import LaserOffer from "@/components/LaserOffer.astro";
-import FullBleedBand from "@/components/FullBleedBand.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import {
@@ -16,7 +13,6 @@ import {
   buildServiceSchema,
   createPageMeta,
 } from "@/lib/seo";
-import { siteConfig } from "@/lib/site-config";
 import { getPageMedia } from "@/lib/page-media";
 import { laserOffer } from "@/lib/laser-offer";
 
@@ -91,130 +87,31 @@ const faqSchema = {
     acceptedAnswer: { "@type": "Answer", text: faq.a },
   })),
 };
-
-const principles = [
-  {
-    kicker: "Cosa fa",
-    title: "Raffredda la pelle durante la seduta",
-    body: "Il sistema Ice Point Cooling di Lumina X1 Pro lavora a contatto attraverso la superficie in zaffiro del manipolo.",
-  },
-  {
-    kicker: "Come lo usiamo",
-    title: "Impostiamo i parametri dopo la valutazione",
-    body: "Prima di iniziare valutiamo pelle, caratteristiche del pelo e zona. Durante gli appuntamenti osserviamo i cambiamenti e aggiorniamo i parametri quando serve.",
-  },
-  {
-    kicker: "Perché conta",
-    title: "Raffreddamento durante il trattamento",
-    body: "Il manipolo raffredda la pelle a ogni passaggio. La sensazione varia da persona a persona e viene verificata durante la seduta.",
-  },
-];
-
-const shortcuts = [
-  { href: "/servizi/epilazione-laser-viso-carmagnola", label: "Laser viso" },
-  { href: "/servizi/epilazione-laser-corpo-carmagnola", label: "Laser corpo" },
-  { href: "/competenze/epilazione-laser-ascelle-carmagnola", label: "Guida ascelle" },
-  { href: "/competenze/epilazione-laser-inguine-carmagnola", label: "Guida inguine" },
-  { href: "/competenze/laser-uomo-carmagnola", label: "Laser uomo" },
-  { href: "/epilazione-laser-carmagnola", label: "Percorso laser" },
-  { href: "/listino-estetica-laser", label: "Prezzi e listino" },
-];
 ---
-<BaseLayout meta={meta} bodyClass="page-laser-ice-polar">
+<BaseLayout meta={meta} bodyClass="rebel-rebrand rebel-shell page-laser-ice-polar">
   <JsonLd data={breadcrumb} />
   <JsonLd data={serviceSchema} />
   <JsonLd data={articleSchema} />
   <JsonLd data={faqSchema} />
 
   <PageHero
-    image={m.hero}
-    kicker="Comfort ICE Polar · Carmagnola"
-    title="ICE Polar: raffreddamento a contatto durante il _percorso laser_."
-    lead="Durante la seduta con Lumina X1 Pro, il sistema ICE Polar raffredda la pelle attraverso il contatto in zaffiro del manipolo."
-    bullets={["Raffreddamento a contatto Ice Point Cooling", "Parametri definiti dopo la valutazione", "Valutazione · 30–40 minuti"]}
-    meta={["Lumina X1 Pro di THORY · comfort ICE Polar", "Viale Barbaroux 20"]}
-    ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
-    ctaSecondary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp }}
+    image={m.splitA}
+    imageCaption="Il contatto del manipolo. · Scena illustrativa"
+    imagePosition="55% 50%"
+    kicker="La guida alla tecnologia · ICE Polar"
+    title="ICE Polar. Il comfort, _sulla pelle._"
+    lead="Conosci il raffreddamento a contatto di Lumina X1 Pro di THORY: come funziona, che sensazione aspettarti e perché partiamo dalla valutazione."
+    bullets={["Contatto in zaffiro · Ice Point Cooling", "Parametri scelti per pelle, pelo e zona"]}
+    meta={["REBEL · Viale Barbaroux 20, Carmagnola"]}
+    ctaPrimary={{ label: "Scopri come funziona", href: "#ice-contatto", halo: true }}
+    ctaSecondary={{ label: "Esplora il percorso laser", href: "/epilazione-laser-carmagnola" }}
   />
 
-  <section class="section section--tight">
-    <div class="container"><LaserOffer compact /></div>
-  </section>
+  <LaserHub variant="ice" />
 
-  <section class="section">
-    <div class="container">
-      <SectionHead
-        kicker="Come funziona"
-        title="Come funziona il _raffreddamento ICE Polar_."
-        lead="Come funziona il raffreddamento, come scegliamo i parametri e perché la valutazione viene prima della seduta."
-      />
-      <div class="card-grid card-grid--3">
-        {principles.map((p) => (
-          <FeatureCard kicker={p.kicker} title={p.title} body={p.body} variant="feature" />
-        ))}
-      </div>
-    </div>
-  </section>
-
-  {m.splitA ? (
-    <section class="section section--tight">
-      <div class="container">
-        <SplitFeature
-          image={m.splitA}
-          side="right"
-          kicker="Tecnologia e comfort"
-          title="Lumina X1 Pro e ICE Polar: _come lavorano insieme_."
-          body="Lumina X1 Pro è il laser THORY che utilizziamo. Il sistema ICE Polar raffredda la pelle a contatto durante la seduta attraverso la superficie in zaffiro del manipolo."
-          bullets={["Lumina X1 Pro di THORY", "Contatto in zaffiro", "Raffreddamento durante la seduta"]}
-          cta={{ label: "Vedi il percorso laser completo", href: "/epilazione-laser-carmagnola" }}
-        />
-      </div>
-    </section>
-  ) : null}
-
-  <section class="section section--scene-ivory">
-    <div class="container split">
-      <article class="card">
-        <p class="kicker">In studio</p>
-        <h2 class="card__title">Il raffreddamento è una parte del percorso.</h2>
-        <p class="card__body">
-          Il sistema Ice Point Cooling di Lumina X1 Pro raffredda la pelle attraverso il contatto in
-          zaffiro del manipolo. La sensazione varia: ti chiediamo come stai e adattiamo i
-          parametri quando necessario.
-        </p>
-        <p class="card__body">
-          L’epilazione laser prevede più appuntamenti. Durante la valutazione definiamo parametri e
-          intervalli; ai controlli osserviamo la pelle e la ricrescita.
-        </p>
-      </article>
-      <aside class="card card--feature">
-        <p class="kicker">Da dove iniziare</p>
-        <h3 class="card__title">Approfondisci il percorso laser.</h3>
-        <ul class="ice-shortcuts">
-          {shortcuts.map((s) => (
-            <li><a class="btn btn--secondary btn--sm" href={s.href}>{s.label}</a></li>
-          ))}
-        </ul>
-      </aside>
-    </div>
-  </section>
-
-  {m.mood ? (
-    <FullBleedBand
-      image={m.mood}
-      height="sm"
-      align="left"
-      kicker="In studio, a Carmagnola"
-      quote="Il manipolo raffredda la pelle a contatto durante la seduta laser."
-    />
-  ) : null}
-
-  <section class="section">
-    <div class="container">
-      <SectionHead
-        kicker="Domande frequenti"
-        title="Le risposte alle domande su _ICE Polar_."
-      />
+  <section class="section ice-faq-section" id="laser-faq">
+    <div class="container container--narrow">
+      <SectionHead kicker="Domande frequenti" title="ICE Polar, _con chiarezza_." />
       <FaqAccordion items={faqs} kicker="Comfort e metodo" />
     </div>
   </section>
@@ -222,9 +119,9 @@ const shortcuts = [
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Da dove iniziare"
-        title="Scopri se l’_epilazione laser_ è adatta a te."
-        lead="In 30–40 minuti valutiamo zona, pelle e caratteristiche del pelo, poi ti spieghiamo parametri, frequenza e prezzo. Se scegli di iniziare il Percorso REBEL, la valutazione iniziale è gratuita."
+        kicker="Da dove iniziare · 30–40 minuti"
+        title="Il prossimo passo? _Parliamone._"
+        lead="Valutiamo zona, pelle e caratteristiche del pelo, poi ti spieghiamo parametri, frequenza e prezzo. Se scegli di iniziare il Percorso REBEL, la valutazione iniziale è gratuita."
         primaryHref="/contatti"
         primaryLabel="Prenota la valutazione"
         secondaryHref="/epilazione-laser-carmagnola"
@@ -237,12 +134,5 @@ const shortcuts = [
 </BaseLayout>
 
 <style>
-  .ice-shortcuts {
-    list-style: none;
-    margin: 1rem 0 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.55rem;
-  }
+  .ice-faq-section{background:#fff;scroll-margin-top:6rem}
 </style>

@@ -1,23 +1,20 @@
 ---
-import LaserCampaignLinks from "@/components/LaserCampaignLinks.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHero from "@/components/PageHero.astro";
+import LaserHub from "@/components/LaserHub.astro";
 import SectionHead from "@/components/SectionHead.astro";
-import FeatureCard from "@/components/FeatureCard.astro";
 import FaqAccordion from "@/components/FaqAccordion.astro";
 import InlineCta from "@/components/InlineCta.astro";
-import FullBleedBand from "@/components/FullBleedBand.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import NearMeBlock from "@/components/NearMeBlock.astro";
-import LaserOffer from "@/components/LaserOffer.astro";
 import {
   buildBreadcrumbSchema,
   buildServiceSchema,
   createPageMeta,
 } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
-import { getPageMedia, media } from "@/lib/page-media";
+import { getPageMedia } from "@/lib/page-media";
 import { laserOffer } from "@/lib/laser-offer";
 
 const m = getPageMedia("/epilazione-laser-carmagnola");
@@ -130,73 +127,8 @@ const localLandingSchema = {
     provider: { "@id": `${siteConfig.siteUrl}/#beauty-salon` },
   },
 };
-
-const principles = [
-  {
-    kicker: "01 · Valutazione · 30–40 minuti",
-    title: "Controlliamo zona, fototipo e caratteristiche del pelo.",
-    body: "In 30–40 minuti valutiamo pelle, pelo e zona. Prima della prima seduta ti spieghiamo parametri iniziali, frequenza e prezzo. Se scegli di iniziare il Percorso REBEL, la valutazione iniziale è gratuita.",
-  },
-  {
-    kicker: "02 · Tecnologia Thory",
-    title: "Quattro lunghezze d’onda nello stesso sistema.",
-    body: "Lumina X1 Pro integra 755, 808, 940 e 1064 nm. I parametri vengono impostati in base alla zona, alla pelle e al pelo osservato.",
-  },
-  {
-    kicker: "03 · ICE Polar",
-    title: "Raffreddamento a contatto durante la seduta.",
-    body: "La superficie in zaffiro del manipolo raffredda la pelle a ogni passaggio.",
-  },
-  {
-    kicker: "04 · Calendario",
-    title: "Ogni zona segue tempi di ricrescita differenti.",
-    body: "Ascelle, inguine, viso e gambe possono richiedere intervalli diversi. La data successiva viene indicata in base alla zona e alla ricrescita osservata.",
-  },
-];
-
-const guides = [
-  {
-    href: "/competenze/epilazione-laser-ascelle-carmagnola",
-    title: "Laser ascelle",
-    body: "Prezzo, durata indicativa, sensazioni durante la seduta e intervalli tra gli appuntamenti.",
-  },
-  {
-    href: "/competenze/epilazione-laser-inguine-carmagnola",
-    title: "Laser inguine",
-    body: "Come si svolge la seduta, quali aree si possono trattare e come gestire le ore successive.",
-  },
-  {
-    href: "/competenze/laser-gambe-carmagnola",
-    title: "Laser gambe",
-    body: "Tempi, stagionalità, numero indicativo di sedute e mantenimento per gambe complete o parziali.",
-  },
-  {
-    href: "/competenze/epilazione-laser-estate-sole-carmagnola",
-    title: "Laser e sole",
-    body: "Indicazioni sull’esposizione solare, la pelle abbronzata e le precauzioni prima e dopo la seduta.",
-  },
-  {
-    href: "/competenze/epilazione-laser-inverno-carmagnola",
-    title: "Laser in inverno",
-    body: "Perché i mesi con minore esposizione solare sono spesso comodi per iniziare un ciclo su gambe e zone esposte.",
-  },
-  {
-    href: "/competenze/laser-e-palestra-sport-carmagnola",
-    title: "Laser e palestra",
-    body: "Sport, doccia, sudore e indicazioni pratiche nelle 24-48 ore successive al trattamento.",
-  },
-];
-
-const zoneShortcuts = [
-  { href: "/servizi/epilazione-laser-viso-carmagnola", label: "Laser viso" },
-  { href: "/servizi/epilazione-laser-corpo-carmagnola", label: "Laser corpo" },
-  { href: "/servizi/epilazione-laser-viso-uomo-carmagnola", label: "Laser viso uomo" },
-  { href: "/servizi/epilazione-laser-corpo-uomo-carmagnola", label: "Laser corpo uomo" },
-  { href: "/competenze/laser-uomo-carmagnola", label: "Guida laser uomo" },
-  { href: "/competenze/peli-incarniti-laser-carmagnola", label: "Peli incarniti" },
-];
 ---
-<BaseLayout meta={meta} bodyClass="page-laser">
+<BaseLayout meta={meta} bodyClass="rebel-rebrand rebel-shell page-laser">
   <JsonLd data={breadcrumb} />
   <JsonLd data={laserServiceSchema} />
   <JsonLd data={faqSchema} />
@@ -204,111 +136,25 @@ const zoneShortcuts = [
 
   <PageHero
     image={m.hero}
-    kicker="Epilazione Laser ICE Polar · Carmagnola"
-    title="Laser per _viso e corpo_, con raffreddamento attivo."
-    lead="Lumina X1 Pro di THORY integra quattro lunghezze d’onda e il raffreddamento a contatto in zaffiro Ice Point Cooling. ICE Polar raffredda la pelle durante la seduta; la valutazione definisce zone, parametri, frequenza e prezzo."
-    bullets={["Viso, corpo, donna e uomo", "Listino ordinario da €25,90", "Valutazione REBEL · 30–40 min"]}
-    meta={["Lumina X1 Pro · 755 / 808 / 940 / 1064 nm", "Viale Barbaroux 20"]}
-    ctaPrimary={{ label: "Prenota la valutazione laser", href: "/contatti", halo: true }}
-    ctaSecondary={{ label: "Consulta prezzi e zone", href: "/listino-estetica-laser#laser" }}
+    imageCaption="Il trattamento laser, illustrato."
+    imagePosition="59% 50%"
+    kicker="Epilazione laser · Carmagnola"
+    title="Epilazione laser. La tua _libertà._"
+    lead="Epilazione laser viso e corpo, donna e uomo. Tecnologia Lumina X1 Pro di THORY e raffreddamento a contatto ICE Polar: il percorso comincia da te."
+    bullets={["Viso e corpo · Donna e uomo", "Valutazione REBEL · 30–40 min"]}
+    meta={["Lumina X1 Pro · ICE Polar", "Viale Barbaroux 20, Carmagnola"]}
+    ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
+    ctaSecondary={{ label: "Esplora zone e prezzi", href: "#laser-zone" }}
   />
 
-  <section class="section section--tight">
-    <div class="container">
-      <LaserOffer />
-      <LaserCampaignLinks />
-    </div>
-  </section>
+  <LaserHub />
 
-  <section class="section">
-    <div class="container">
-      <SectionHead
-        kicker="Come si svolge il percorso"
-        title="Valutazione, tecnologia, raffreddamento e calendario."
-        lead="Prima di iniziare definiamo zona, parametri, raffreddamento e calendario; poi li controlliamo durante il percorso."
-      />
-      <div class="card-grid card-grid--2">
-        {principles.map((p, i) => (
-          <FeatureCard
-            kicker={p.kicker}
-            title={p.title}
-            body={p.body}
-            variant={i === 0 ? "feature" : "default"}
-            index={i + 1}
-          />
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="laser-spotlight">
-        <figure class="laser-spotlight__media">
-          <picture>
-            {media.studio.cabin.srcMobile ? <source media="(max-width: 880px) and (orientation: portrait)" srcset={media.studio.cabin.srcMobile} /> : null}
-            <img
-              src={media.studio.cabin.src}
-              alt={media.studio.cabin.alt}
-              width="1672"
-              height="941"
-              loading="lazy"
-              decoding="async"
-            />
-          </picture>
-        </figure>
-        <div class="laser-spotlight__body">
-          <p class="kicker">Zone e prezzi</p>
-          <h2 class="laser-spotlight__title">Scegli la zona e consulta la scheda dedicata.</h2>
-          <p class="laser-spotlight__lead">
-            Ogni scheda riporta prezzo, durata indicativa, caratteristiche della zona e informazioni da conoscere prima dell’appuntamento.
-          </p>
-          <div class="laser-spotlight__cluster">
-            {zoneShortcuts.map((z) => (
-              <a class="btn btn--secondary btn--sm" href={z.href}>{z.label}</a>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <SectionHead
-        kicker="Guide pratiche"
-        title="Ascelle, inguine, gambe, sole e attività sportiva."
-        lead="Approfondimenti specifici su prezzi, tempi, preparazione della pelle e indicazioni dopo la seduta."
-      />
-      <div class="card-grid card-grid--3">
-        {guides.map((g) => (
-          <FeatureCard
-            title={g.title}
-            body={g.body}
-            href={g.href}
-            variant="quiet"
-          />
-        ))}
-      </div>
-    </div>
-  </section>
-
-  {m.mood ? (
-    <FullBleedBand
-      image={m.mood}
-      height="md"
-      align="left"
-      kicker="ICE Polar"
-      quote="Il manipolo raffredda la pelle durante ogni impulso."
-      cta={{ label: "Prenota la valutazione laser", href: "/contatti" }}
-    />
-  ) : null}
-
-  <section class="section">
+  <section class="section laser-faq-section" id="laser-faq">
     <div class="container container--narrow">
       <SectionHead
         kicker="Domande frequenti"
-        title="Prezzi, numero di sedute, comfort, fototipo e sole."
+        title="Scegli con _più chiarezza_."
+        lead="Prezzi, numero di sedute, comfort, fototipo e sole: le risposte prima del tuo appuntamento."
       />
       <FaqAccordion items={faqs} kicker="Domande sul laser" />
     </div>
@@ -326,8 +172,8 @@ const zoneShortcuts = [
     <div class="container">
       <InlineCta
         kicker="Valutazione laser · 30–40 minuti"
-        title="Ricevi indicazioni su zone, parametri, _frequenza e prezzo_."
-        lead="In 30–40 minuti valutiamo pelle, pelo e zone e ti spieghiamo parametri, frequenza e prezzo. Se scegli di iniziare il Percorso REBEL, la valutazione iniziale è gratuita."
+        title="La libertà di _cominciare_."
+        lead="Valutiamo pelle, pelo e zone e ti spieghiamo parametri, frequenza e prezzo. Se scegli di iniziare il Percorso REBEL, la valutazione iniziale è gratuita."
         primaryLabel="Prenota la valutazione laser"
       />
     </div>
@@ -337,79 +183,5 @@ const zoneShortcuts = [
 </BaseLayout>
 
 <style>
-  .laser-spotlight {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.4rem;
-    align-items: stretch;
-    padding: 2rem;
-    border-radius: var(--r-lg);
-    background: linear-gradient(180deg, rgba(31, 26, 58, 0.7), rgba(20, 16, 42, 0.95));
-    border: 1px solid var(--line);
-    position: relative;
-    overflow: hidden;
-  }
-  .laser-spotlight::before {
-    content: "";
-    position: absolute;
-    inset: -40% -10% auto auto;
-    width: 60%;
-    height: 60%;
-    background: radial-gradient(closest-side, rgba(91, 43, 216, 0.35), transparent 70%);
-    filter: blur(40px);
-    pointer-events: none;
-  }
-  .laser-spotlight__media {
-    margin: 0;
-    border-radius: var(--r-md);
-    overflow: hidden;
-    aspect-ratio: 4 / 3;
-    position: relative;
-    z-index: 1;
-  }
-  .laser-spotlight__media picture,
-  .laser-spotlight__media img {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-  .laser-spotlight__media img {
-    object-fit: cover;
-  }
-  .laser-spotlight__body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
-    position: relative;
-    z-index: 1;
-  }
-  .laser-spotlight__title {
-    font-family: var(--font-display);
-    font-size: clamp(1.5rem, 2.4vw, 2rem);
-    line-height: 1.15;
-    letter-spacing: var(--tracking-editorial);
-    color: var(--text-strong);
-    margin: 0;
-  }
-  .laser-spotlight__lead {
-    color: var(--text-muted);
-    font-size: var(--t-body);
-    line-height: var(--lh-body);
-    margin: 0;
-    max-width: 50ch;
-  }
-  .laser-spotlight__cluster {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-  }
-  @media (max-width: 880px) {
-    .laser-spotlight {
-      grid-template-columns: 1fr;
-      padding: 1.4rem;
-      gap: 1.6rem;
-    }
-  }
+  .laser-faq-section{background:#fff;scroll-margin-top:6rem}
 </style>
