@@ -122,7 +122,7 @@ main { isolation: isolate; }
 .rebel-site-footer,
 .laser-spotlight,
 .page-hero--dark,
-.full-bleed-band {
+.fullbleed {
   --text: rgba(255,253,249,.88);
   --text-strong: #fffdf9;
   --text-muted: rgba(255,253,249,.68);

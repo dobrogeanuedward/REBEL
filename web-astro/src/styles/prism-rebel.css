@@ -53,8 +53,9 @@ html {
 .rebel-site-header {
   padding:
     max(.72rem, env(safe-area-inset-top, 0px))
-    var(--rebel-page-rail)
-    .72rem;
+    max(var(--rebel-page-rail), env(safe-area-inset-right, 0px))
+    .72rem
+    max(var(--rebel-page-rail), env(safe-area-inset-left, 0px));
   background: rgba(255,253,249,.82);
   border-bottom: 1px solid rgba(39,20,47,.10);
   box-shadow: 0 12px 40px rgba(39,20,47,.06);
@@ -174,8 +175,9 @@ html {
   overscroll-behavior: contain;
   padding:
     max(1rem, env(safe-area-inset-top, 0px))
-    var(--rebel-page-rail)
-    max(1rem, env(safe-area-inset-bottom, 0px));
+    max(var(--rebel-page-rail), env(safe-area-inset-right, 0px))
+    max(1rem, env(safe-area-inset-bottom, 0px))
+    max(var(--rebel-page-rail), env(safe-area-inset-left, 0px));
   background:
     radial-gradient(circle at 88% 8%, rgba(112,71,255,.2), transparent 24rem),
     radial-gradient(circle at 2% 92%, rgba(233,59,136,.15), transparent 26rem),
@@ -252,8 +254,9 @@ html {
   .rebel-site-header {
     padding:
       max(.48rem, env(safe-area-inset-top, 0px))
-      max(.8rem, var(--rebel-page-rail))
-      .48rem;
+      max(.8rem, var(--rebel-page-rail), env(safe-area-inset-right, 0px))
+      .48rem
+      max(.8rem, var(--rebel-page-rail), env(safe-area-inset-left, 0px));
   }
 
   .rebel-site-header .site-header__inner {
@@ -304,6 +307,13 @@ html {
   .rebel-drawer .drawer__link { font-size: 1.43rem; }
 }
 
+@media (max-height: 620px) {
+  .rebel-drawer__intro { display: none; }
+  .rebel-drawer .drawer__head { min-height: 44px; }
+  .rebel-drawer .drawer__link { font-size: 1.35rem; min-height: 44px; padding-block: .45rem; }
+  .rebel-drawer .drawer__foot { padding-top: .5rem; }
+}
+
 /* ---------- Buttons: controlled light, metallic edge, no generic pill overload ---------- */
 .btn {
   min-height: 48px;
@@ -334,7 +344,7 @@ html {
   box-shadow: inset 0 1px 0 rgba(255,255,255,.68);
 }
 
-:is(.rebel-section--plum, .section--dark, .section--scene-obsidian, .page-hero, .full-bleed-band, [data-surface="dark"]) .btn--secondary,
+:is(.rebel-section--plum, .rb-section--plum, .section--dark, .section--scene-obsidian, .page-hero--media, .fullbleed, .inline-cta, [data-surface="dark"]) .btn--secondary,
 .rebel-site-footer .btn--secondary {
   color: #fff;
   border-color: rgba(255,255,255,.34);
@@ -365,7 +375,7 @@ html {
     box-shadow: 0 14px 34px rgba(39,20,47,.1);
   }
 
-  :is(.rebel-section--plum, .section--dark, .section--scene-obsidian, .page-hero, .full-bleed-band, [data-surface="dark"]) .btn--secondary:hover,
+  :is(.rebel-section--plum, .rb-section--plum, .section--dark, .section--scene-obsidian, .page-hero--media, .fullbleed, .inline-cta, [data-surface="dark"]) .btn--secondary:hover,
   .rebel-site-footer .btn--secondary:hover {
     color: #fff;
     border-color: rgba(255,255,255,.62);
@@ -374,7 +384,8 @@ html {
 }
 
 /* ---------- Semantic surface tokens: one readable system across old and new components ---------- */
-:is(.rebel-section--plum, .scene-plum, .surface-plum, .section--dark, .section--scene-obsidian, .page-hero, .full-bleed-band, .laser-spotlight, [data-surface="dark"], .rebel-site-footer) {
+:is(.rebel-section--plum, .rb-section--plum, .scene-plum, .surface-plum, .section--dark, .section--scene-obsidian, .page-hero--media, .fullbleed, .inline-cta, .sticky-book, .laser-spotlight, [data-surface="dark"], .rebel-site-footer) {
+  color-scheme: dark;
   --text: var(--rebel-on-dark);
   --text-strong: #fff;
   --text-muted: var(--rebel-on-dark-muted);
@@ -384,7 +395,8 @@ html {
   color: var(--rebel-on-dark);
 }
 
-:is(.rebel-section--paper, .scene-ivory, .surface-paper, .section--light, [data-surface="light"]) {
+:is(.rebel-section--paper, .scene-ivory, .section--scene-ivory, .surface-paper, .section--light, [data-surface="light"]) {
+  color-scheme: light;
   --text: var(--rebel-ink);
   --text-strong: #180c1d;
   --text-muted: rgba(33,20,39,.72);
@@ -394,73 +406,29 @@ html {
   color: var(--rebel-ink);
 }
 
-/* Generic cards remain dark unless a page or surface explicitly declares a light treatment. */
+/* Generic cards share REBEL's paper surface. Only explicit dark scenes
+   below opt into the photographic/plum treatment. */
 .card {
-  --card-text: var(--rebel-on-dark);
-  --card-title: #fff;
-  --card-muted: var(--rebel-on-dark-muted);
+  --card-text: var(--rebel-ink);
+  --card-title: #27142f;
+  --card-muted: #685471;
   color: var(--card-text);
-  border-color: rgba(255,255,255,.15);
+  border-color: rgba(39,20,47,.13);
   border-radius: 34px 10px 34px 10px;
   background:
-    radial-gradient(circle at 100% 0%, rgba(112,71,255,.25), transparent 13rem),
-    linear-gradient(150deg, rgba(43,20,52,.97), rgba(21,9,27,.98));
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.12),
-    0 20px 56px rgba(20,8,25,.18);
+    radial-gradient(circle at 100% 0%, rgba(112,71,255,.06), transparent 13rem),
+    linear-gradient(150deg, #fffdf9, #fbf6f1);
+  box-shadow: var(--rebel-shadow-calm);
 }
 
 .card:nth-child(even) { border-radius: 10px 34px 10px 34px; }
 .card .card__title { color: var(--card-title); }
 .card .card__body,
 .card p { color: var(--card-muted); }
-.card .card__kicker { color: #ff77b2; }
+.card .card__kicker { color: #a32f68; }
 .card::before { height: 2px; background: var(--rebel-metal-line); opacity: .78; }
 
-:where(
-  .scene-ivory,
-  .rebel-section--paper,
-  .surface-paper,
-  .section--light,
-  [data-surface="light"],
-  body.rebel-rebrand,
-  body.page-beauty,
-  body.page-studio,
-  body.page-contatti,
-  body.page-prima-visita,
-  body.page-protocollo-detail,
-  body:has(.laser-spotlight)
-) .card:not(.card--feature),
-.card--quiet {
-  --card-text: var(--rebel-ink);
-  --card-title: #180c1d;
-  --card-muted: rgba(33,20,39,.72);
-  color: var(--card-text);
-  border-color: rgba(39,20,47,.13);
-  background:
-    radial-gradient(circle at 100% 0%, rgba(112,71,255,.10), transparent 12rem),
-    linear-gradient(145deg, rgba(255,255,255,.94), rgba(247,239,247,.86));
-  box-shadow: var(--rebel-shadow-calm);
-}
-
-:where(
-  .scene-ivory,
-  .rebel-section--paper,
-  .surface-paper,
-  .section--light,
-  [data-surface="light"],
-  body.rebel-rebrand,
-  body.page-beauty,
-  body.page-studio,
-  body.page-contatti,
-  body.page-prima-visita,
-  body.page-protocollo-detail
-) .card .card__kicker,
-.card--quiet .card__kicker {
-  color: #b52261;
-}
-
-:is(.rebel-section--plum, .section--dark, .section--scene-obsidian, .page-hero, .full-bleed-band, [data-surface="dark"]) .card {
+:is(.rebel-section--plum, .rb-section--plum, .section--dark, .section--scene-obsidian, .page-hero--media, .fullbleed, body.page-landing, [data-surface="dark"]) .card {
   --card-text: var(--rebel-on-dark);
   --card-title: #fff;
   --card-muted: var(--rebel-on-dark-muted);
@@ -469,6 +437,10 @@ html {
   background:
     radial-gradient(circle at 100% 0%, rgba(139,108,255,.28), transparent 13rem),
     linear-gradient(150deg, rgba(48,22,59,.97), rgba(19,8,25,.98));
+}
+
+:is(.rebel-section--plum, .rb-section--plum, .section--dark, .section--scene-obsidian, .page-hero--media, .fullbleed, body.page-landing, [data-surface="dark"]) .card .card__kicker {
+  color: #f1b4d0;
 }
 
 /* Explicitly protect image cards and deep-purple panels from inherited dark copy. */

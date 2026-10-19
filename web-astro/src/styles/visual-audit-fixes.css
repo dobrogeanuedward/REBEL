@@ -31,10 +31,10 @@
 /* Dark surfaces own their complete text system; no inherited black copy. */
 .rebel-section--plum,
 .rebel-site-footer,
-.page-hero,
+.page-hero--media,
 .section--dark,
 .section--scene-obsidian,
-.full-bleed-band {
+.fullbleed {
   --text: #fffdf9;
   --text-strong: #ffffff;
   --text-muted: rgba(255,255,255,.74);
@@ -45,22 +45,22 @@
 }
 .rebel-section--plum :is(h1,h2,h3,h4,h5,h6,p,li,a,strong,small,span),
 .rebel-site-footer :is(h1,h2,h3,h4,h5,h6,p,li,strong),
-.page-hero :is(h1,h2,h3,h4,h5,h6,p,li,strong),
+.page-hero--media :is(h1,h2,h3,h4,h5,h6,p,li,strong),
 .section--dark :is(h1,h2,h3,h4,h5,h6,p,li,strong),
 .section--scene-obsidian :is(h1,h2,h3,h4,h5,h6,p,li,strong),
-.full-bleed-band :is(h1,h2,h3,h4,h5,h6,p,li,strong) { color: inherit; }
+.fullbleed :is(h1,h2,h3,h4,h5,h6,p,li,strong) { color: inherit; }
 
 .rebel-section--plum .rebel-kicker,
-.page-hero .kicker,
+.page-hero--media .kicker,
 .section--dark .kicker,
 .section--scene-obsidian .kicker,
-.full-bleed-band .kicker { color: #ff72ad; }
+.fullbleed .kicker { color: #ff72ad; }
 
 .rebel-section--plum .btn--secondary,
-.page-hero .btn--secondary,
+.page-hero--media .btn--secondary,
 .section--dark .btn--secondary,
 .section--scene-obsidian .btn--secondary,
-.full-bleed-band .btn--secondary {
+.fullbleed .btn--secondary {
   color: #fff;
   border-color: rgba(255,255,255,.34);
   background: rgba(255,255,255,.07);
