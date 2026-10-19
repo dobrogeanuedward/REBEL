@@ -1,14 +1,8 @@
 ---
+import GuidesLibrary from "@/components/GuidesLibrary.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import PageHero from "@/components/PageHero.astro";
-import SectionHead from "@/components/SectionHead.astro";
-import FeatureCard from "@/components/FeatureCard.astro";
-import MediaFigure from "@/components/MediaFigure.astro";
-import InlineCta from "@/components/InlineCta.astro";
-import FullBleedBand from "@/components/FullBleedBand.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
-import { media } from "@/lib/page-media";
 import { competencePages } from "@/lib/seo-content-refined";
 import {
   buildBreadcrumbSchema,
@@ -32,24 +26,6 @@ const meta = createPageMeta({
   ],
 });
 
-const compactTitle = (v: string) => v.replace(/\s+a Carmagnola$/i, "").trim();
-
-const featuredSlugs = [
-  "pulizia-viso-carmagnola-frequenza-benefici",
-  "pedicure-carmagnola-ogni-quanto-talloni",
-  "pressomassaggio-carmagnola",
-  "epilazione-laser-ascelle-carmagnola",
-  "epilazione-laser-inguine-carmagnola",
-  "laser-uomo-carmagnola",
-  "peli-incarniti-laser-carmagnola",
-  "manicure-semipermanente-carmagnola-durata-rimozione",
-  "pelle-opaca-grana-irregolare-carmagnola",
-  "contorno-occhi-gonfiore-occhiaie-carmagnola",
-];
-const featuredGuides = featuredSlugs
-  .map((s) => competencePages.find((c) => c.slug === s))
-  .filter((c): c is (typeof competencePages)[number] => Boolean(c));
-
 const breadcrumb = buildBreadcrumbSchema([
   { name: "Home", path: "/" },
   { name: "Guide", path: "/competenze" },
@@ -65,106 +41,10 @@ const webPageSchema = buildWebPageSchema({
   path: "/competenze",
 });
 ---
-<BaseLayout meta={meta} bodyClass="page-competenze">
+<BaseLayout meta={meta} bodyClass="page-competenze rebel-rebrand">
   <JsonLd data={breadcrumb} />
   <JsonLd data={competenceListSchema} />
   <JsonLd data={webPageSchema} />
-
-  <PageHero
-    image={media.studio.cabin}
-    kicker="Guide pratiche · Rebel Carmagnola"
-    title="Durata, frequenza e indicazioni _prima del trattamento_."
-    lead="Trovi indicazioni su preparazione, durata, seduta e attenzioni da seguire dopo i trattamenti."
-    bullets={["Laser, viso, corpo e beauty", "Indicazioni pratiche", "Prezzi e prenotazione"]}
-    meta={["Guide aggiornate", "Servizi disponibili a Carmagnola", "Viale Barbaroux 20"]}
-    ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
-    ctaSecondary={{ label: "Consulta il listino", href: "/listino-estetica-laser" }}
-  />
-
-  {featuredGuides.length > 0 ? (
-    <section class="section">
-      <div class="container">
-        <SectionHead
-          kicker="Le domande che ci fate più spesso"
-          title="Laser, pulizia viso, manicure, pedicure e trattamenti corpo."
-          lead="Una selezione delle guide più consultate, con risposte su tempi, modalità, preparazione e mantenimento."
-        />
-        <MediaFigure
-          src={media.laser.consult.src}
-          alt={media.laser.consult.alt}
-          caption="Le guide aiutano a preparare domande concrete prima della valutazione."
-          ratio="16/7"
-          width={1122}
-          height={1402}
-        />
-        <div class="card-grid card-grid--2" style="margin-top:2rem;">
-          {featuredGuides.map((g, i) => (
-            <FeatureCard
-              kicker="Guida pratica"
-              title={compactTitle(g.title)}
-              body={g.shortDescription}
-              href={`/competenze/${g.slug}`}
-              variant="feature"
-              index={i + 1}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
-  ) : null}
-
-  <section class="section section--scene-ivory">
-    <div class="container">
-      <SectionHead
-        kicker="Tutte le guide"
-        title="Informazioni su servizi, tecnologie e cura dopo la seduta."
-        lead="Scegli l’argomento che ti interessa per conoscere modalità, preparazione, durata, prezzi e prenotazione."
-      />
-      <MediaFigure
-        src={media.viso.products.src}
-        alt={media.viso.products.alt}
-        caption="Preparazione, frequenza e indicazioni cambiano in base al trattamento: ogni guida le raccoglie in una pagina."
-        ratio="16/7"
-        width={1122}
-        height={1402}
-      />
-      <div class="card-grid card-grid--2" style="margin-top:2rem;">
-        {competencePages.map((c, i) => (
-          <FeatureCard
-            kicker={c.intent === "commercial" ? "Servizio e prenotazione" : "Guida pratica"}
-            title={c.title}
-            body={c.shortDescription}
-            href={`/competenze/${c.slug}`}
-            variant="quiet"
-            index={i + 1}
-          />
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <FullBleedBand
-    image={media.studio.cabin}
-    height="sm"
-    align="left"
-    kicker="Valutazione REBEL · 30–40 minuti"
-    quote="Valutiamo la zona e ti spieghiamo trattamento, frequenza e prezzo."
-    cite="Studio Rebel · Viale Barbaroux 20"
-  />
-
-  <section class="section">
-    <div class="container">
-      <InlineCta
-        kicker="Hai ancora un dubbio?"
-        title="Spiegaci quale zona o risultato ti _interessa_."
-        lead="In 30–40 minuti valutiamo la zona e definiamo trattamento, frequenza e prezzo. Se scegli di iniziare il percorso proposto, la valutazione iniziale è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi."
-        primaryHref="/contatti"
-        primaryLabel="Prenota la valutazione"
-        secondaryHref="/listino-estetica-laser"
-        secondaryLabel="Consulta il listino"
-      />
-    </div>
-  </section>
-
-  <StickyBookingBar primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
+  <GuidesLibrary />
+  <StickyBookingBar primary={{ label: "Parlane con REBEL", href: "/contatti" }} />
 </BaseLayout>

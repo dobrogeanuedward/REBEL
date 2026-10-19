@@ -5,6 +5,7 @@ import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import { rebelJourneys } from "@/lib/rebel-journeys";
 import { journeyCarousels } from "@/lib/journey-carousels";
 import { getJourneyVisual } from "@/lib/journey-visuals";
+import { photographs } from "@/lib/catalog-visuals";
 import { buildBreadcrumbSchema, buildItemListSchema, buildWebPageSchema, createPageMeta } from "@/lib/seo";
 import "@/styles/journey-pages.css";
 
@@ -32,6 +33,7 @@ const journeyAreas = [
     summary: "Percorsi per pulizia, idratazione, impurità, luminosità, macchie, tono ed elasticità.",
     href: "#percorso-skin-reset",
     heroSlot: "home.hero.face.desktop",
+    photo: photographs["viso-manualita"],
     paths: rebelJourneys.filter((journey) => journey.area === "Viso"),
   },
   {
@@ -41,6 +43,7 @@ const journeyAreas = [
     summary: "Percorsi per leggerezza, tono e compattezza, definiti in base alle tue esigenze.",
     href: "#percorso-forma",
     heroSlot: "home.hero.body.desktop",
+    photo: photographs["percorso-forma"],
     paths: rebelJourneys.filter((journey) => journey.area === "Corpo"),
   },
   {
@@ -50,11 +53,12 @@ const journeyAreas = [
     summary: "Epilazione con Lumina X1 Pro e raffreddamento a contatto ICE Polar.",
     href: "/percorsi/liberta",
     heroSlot: "home.hero.laser.desktop",
+    photo: photographs["laser-gamba"],
     paths: rebelJourneys.filter((journey) => journey.area === "Epilazione"),
   },
 ] as const;
 ---
-<BaseLayout meta={meta} bodyClass="rebel-rebrand journey-hub">
+<BaseLayout meta={meta} bodyClass="rebel-rebrand rebel-shell journey-hub">
   <JsonLd data={breadcrumb} />
   <JsonLd data={webPage} />
   <JsonLd data={itemList} />
@@ -62,7 +66,8 @@ const journeyAreas = [
   <div class="journey-hub__body">
     <section class="journey-hub__hero">
       <div class="rebel-container journey-hub__intro"><div class="journey-hub__copy">
-        <p class="rebel-kicker">Viso · corpo · laser</p>
+        <nav class="journey-breadcrumb" aria-label="Percorso di navigazione"><a href="/">REBEL</a><span aria-hidden="true">/</span><span>Percorsi</span></nav>
+        <p class="rebel-kicker">Percorsi Epigenetici REBEL · Viso · corpo · laser</p>
         <h1 class="rebel-display">Tre aree.<br/><em>Nove percorsi.</em></h1>
         <p class="rebel-lead">Scegli l’area e l’esigenza da cui vuoi partire. Per ogni percorso trovi a chi è rivolto, cosa può includere, durata e prezzo di partenza.</p>
         <div class="rebel-hero__actions">
@@ -80,7 +85,8 @@ const journeyAreas = [
         <div class="journey-worlds">
           {journeyAreas.map((area) => {
             return (
-              <a id={area.id} class="journey-world" href={area.href} style={`--world-image:url('${siteAsset(area.heroSlot)}')`}>
+              <a id={area.id} class="journey-world" href={area.href}>
+                <figure><img src={area.photo.src} srcset={`${area.photo.preview} 480w, ${area.photo.src} ${area.photo.width}w`} sizes="(max-width:760px) 100vw, 33vw" alt={area.photo.alt} width={area.photo.width} height={area.photo.height} loading="lazy" decoding="async" /><span aria-hidden="true">↗</span></figure>
                 <div class="journey-world__copy">
                   <p class="rebel-kicker">{area.eyebrow}</p>
                   <h2>{area.name}</h2>
@@ -91,6 +97,7 @@ const journeyAreas = [
             );
           })}
         </div>
+        <p class="journey-image-note">Scene illustrative dei trattamenti REBEL.</p>
       </div>
     </section>
 

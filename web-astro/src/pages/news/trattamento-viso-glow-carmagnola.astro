@@ -47,8 +47,11 @@ const slides = [
         <p>REBEL · Viale Barbaroux 20, Carmagnola</p>
       </aside>
     </div>
-    <section class="campaign" aria-label="Il carosello della promozione Glow">
-      {slides.map((alt, index) => <img src={`/img/news/glow-settembre-2026/glow-${index + 1}.webp`} width="1080" height="1350" loading="lazy" alt={alt} />)}
+    <section class="campaign-section" aria-labelledby="campaign-title">
+      <div class="campaign-heading"><div><p class="eyebrow">La promozione, da sfogliare</p><h2 id="campaign-title">Il tuo Glow, in quattro scene.</h2></div><p>Apri un’immagine per leggerla a tutta pagina.<span class="campaign-heading__mobile"> Scorri per vedere le altre.</span></p></div>
+      <div class="campaign" aria-label="Il carosello della promozione Glow">
+      {slides.map((alt, index) => <a href={`/img/news/glow-settembre-2026/glow-${index + 1}.webp`} target="_blank" rel="noreferrer" aria-label={`Apri e ingrandisci il poster ${index + 1} di 4: ${alt} Si apre in una nuova scheda.`}><img src={`/img/news/glow-settembre-2026/glow-${index + 1}.webp`} width="1080" height="1350" loading="lazy" alt={alt} /><span>Ingrandisci <span aria-hidden="true">{String(index + 1).padStart(2, "0")} / 04 ↗</span></span></a>)}
+      </div>
     </section>
   </article>
 </BaseLayout>
@@ -59,6 +62,7 @@ const slides = [
   h1,h2{font-family:'Playfair Display',Georgia,serif;color:#351c3e;font-weight:500;letter-spacing:-.035em}h1{font-size:clamp(42px,6vw,80px);line-height:1.09;margin:0 0 28px}h1 em{color:#835090;font-weight:500}.intro{font-size:clamp(18px,2vw,23px);line-height:1.7;max-width:760px}
   .glow-body{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:start;margin-top:64px}.story h2{font-size:30px;line-height:1.25;margin:0 0 18px}.story h2:not(:first-child){margin-top:36px}.story p{font-size:16px;line-height:1.85;margin-bottom:16px}.story a{color:#754282;text-decoration:underline;text-underline-offset:4px}
   .booking{padding:36px;border:1px solid #dfcfe4;border-radius:8px;background:radial-gradient(ellipse at 90% 0,#e0cbe9,transparent 75%),radial-gradient(ellipse at 0 100%,#f2d3e1,transparent 75%),#f9f0f8}.booking .eyebrow{margin:0 0 14px}.booking h2{font-size:36px;margin:0}.price{display:flex;gap:20px;align-items:baseline;margin:20px 0 8px}.price del{font-size:24px;color:#7c6384}.price strong{font-family:'Playfair Display',Georgia,serif;font-size:70px;font-weight:500;line-height:1.1}.limited{text-transform:uppercase;letter-spacing:.16em;font-size:11px;margin:0 0 24px}.booking>p:not(.price):not(.eyebrow):not(.limited){font-size:13px;line-height:1.8;margin:20px 0 0}.booking a:not(.btn){color:inherit;font-weight:600}
-  .campaign{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:64px}.campaign img{display:block;width:100%;height:auto;box-shadow:0 12px 30px #351c3e10}
-  @media(max-width:760px){.glow-article{padding:112px 20px 48px}.glow-body{grid-template-columns:1fr;gap:28px;margin-top:40px}.booking{padding:28px}.campaign{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:40px}}
+  .campaign-section{max-width:1160px;margin:64px auto 0}.campaign-heading{display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between;align-items:end;margin-bottom:24px}.campaign-heading .eyebrow{margin:0 0 12px}.campaign-heading h2{margin:0;font-size:clamp(28px,3vw,38px);line-height:1.2}.campaign-heading>p{max-width:28ch;margin:0;color:#796080;font-size:13px;line-height:1.8}.campaign-heading__mobile{display:none}
+  .campaign{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:0}.campaign>a{display:block;min-width:0;color:#71417d;text-decoration:none;border-radius:4px}.campaign img{display:block;width:100%;height:auto;box-shadow:0 12px 30px #351c3e10}.campaign>a>span{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;padding:12px 0;border-bottom:1px solid #dfcfe4;font-size:12px;font-weight:600}.campaign>a>span>span{font-size:10px;font-weight:400}.campaign>a:focus-visible{outline:3px solid #8040c1;outline-offset:5px}.campaign>a:hover>span{color:#a32f68}
+  @media(max-width:760px){.glow-article{padding:112px 20px 48px}.glow-body{grid-template-columns:1fr;gap:28px;margin-top:40px}.booking{padding:28px}.campaign-section{margin-top:40px}.campaign-heading{align-items:start;gap:1rem}.campaign-heading>p{max-width:38ch}.campaign-heading__mobile{display:inline}.campaign{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;padding:5px 0 14px;scrollbar-width:thin;scrollbar-color:#c2a1c9 transparent}.campaign>a{flex:0 0 min(86%,400px);scroll-snap-align:start}.campaign>a>span{font-size:13px}}
 </style>

@@ -1,9 +1,11 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import InlineCta from "@/components/InlineCta.astro";
+import PageHero from "@/components/PageHero.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
-import { media, type ImageAsset } from "@/lib/page-media";
+import { photographs } from "@/lib/catalog-visuals";
+import { getProtocolPhotography } from "@/lib/protocol-photography";
+import "@/styles/protocol-editorial.css";
 import { protocolCards } from "@/lib/content";
 import {
   buildArticleSchema,
@@ -55,117 +57,42 @@ const protocolsSchema = buildItemListSchema({
   path: "/protocolli-epigenetici",
   items: protocolCards.map((p) => ({ name: p.name, path: `/protocolli/${p.slug}` })),
 });
-const protocolMedia: Record<string, ImageAsset> = {
-  "rebel-lift-protocol": media.journeys.longevity,
-  "rebirth-60-plus": media.viso.texture,
-  "eye-genesis": media.viso.hero,
-  "catalysis-ritual": media.viso.products,
-  "collagen-code": media.studio.professional,
-  "rebel-cell-regeneration": media.journeys.glow,
-};
-const getProtocolMedia = (slug: string) => protocolMedia[slug] ?? media.studio.professional;
-
 ---
-<BaseLayout meta={meta} bodyClass="page-rebrand page-percorsi-rebel">
+<BaseLayout meta={meta} bodyClass="rebel-rebrand rebel-shell page-protocols-hub">
   <JsonLd data={breadcrumb} />
   <JsonLd data={webPageSchema} />
   <JsonLd data={serviceSchema} />
   <JsonLd data={articleSchema} />
   <JsonLd data={protocolsSchema} />
+  <div class="protocol-editorial">
+    <PageHero image={photographs["viso-manualita"]} imageCaption="REBEL · Scene illustrative dei trattamenti"
+      kicker="Trattamenti professionali · Carmagnola"
+      title="Protocolli viso _e corpo._"
+      lead="Luminosità, tono, comfort. Scopri a quali esigenze è dedicato ogni protocollo e trova da dove cominciare: la scelta parte dalla tua pelle."
+      ctaPrimary={{ label:"Esplora i protocolli", href:"#protocolli" }}
+      ctaSecondary={{ label:"Prenota la valutazione", href:"/contatti" }}
+      bullets={["6 protocolli professionali", "Obiettivi e prezzi a confronto"]}
+      meta={["Valutazione REBEL · 30–40 minuti", "Viale Barbaroux 20 · Carmagnola"]}
+    />
 
-  <section class="rb-hero rb-hero--journeys">
-    <div class="rb-hero__media">
-      <img src={media.journeys.hero.src} alt={media.journeys.hero.alt} />
-    </div>
-    <div class="rb-hero__veil"></div>
-    <div class="container rb-hero__content">
-      <p class="rb-kicker">Trattamenti professionali · Carmagnola</p>
-      <h1>Protocolli per viso <em>e corpo.</em></h1>
-      <p class="rb-lead">
-        Scopri a quali esigenze è dedicato ogni protocollo, come si svolge e quanto costa. La scelta parte dalla valutazione della pelle o della zona.
-      </p>
-      <div class="cluster cluster--stack-mobile">
-        <a class="btn btn--primary" href="/contatti">Prenota la valutazione</a>
-        <a class="btn btn--secondary" href="/metodo-rebel">Come scegliamo i trattamenti</a>
-      </div>
-    </div>
-  </section>
+    <section class="pe-section pe-section--paper" id="protocolli" aria-labelledby="protocols-title"><div class="pe-shell">
+      <div class="pe-heading"><div><p class="pe-kicker">La scelta comincia da te</p><h2 id="protocols-title">La tua esigenza.<br /><em>Il nostro punto di partenza.</em></h2></div><p>Durante la valutazione osserviamo la zona e parliamo di ciò che desideri migliorare. Ti spieghiamo prodotti, trattamento, sedute e prezzo prima di iniziare.</p></div>
+      <div class="pe-protocols">{protocolCards.map((protocol,index)=>{
+        const photo=getProtocolPhotography(protocol.slug).hero;
+        return <article class:list={["pe-protocol",{"pe-protocol--wide":index<2}]}>
+          <a class="pe-protocol__image" href={`/protocolli/${protocol.slug}`} aria-label={`Scopri ${protocol.name}`}><img src={photo.src} srcset={`${photo.preview} 480w, ${photo.src} ${photo.width}w`} sizes={index<2?"(max-width:760px) 100vw, 50vw":"(max-width:760px) 100vw, 33vw"} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" /><span class="pe-protocol__number">{String(index+1).padStart(2,"0")}</span><span class="pe-protocol__arrow" aria-hidden="true">↗</span></a>
+          <div class="pe-protocol__copy"><p class="pe-kicker">{protocol.price} · Protocollo professionale</p><h3><a href={`/protocolli/${protocol.slug}`}>{protocol.name}</a></h3><p>{protocol.desc}</p><a class="pe-link" href={`/protocolli/${protocol.slug}`}>Scopri il protocollo <span aria-hidden="true">→</span></a></div>
+        </article>;
+      })}</div>
+      <p class="pe-image-note">Scene illustrative dei trattamenti. La scelta del protocollo parte dalla valutazione estetica.</p>
+    </div></section>
 
-  <section class="rb-section rb-section--ivory">
-    <div class="container rb-intro-grid">
-      <div>
-        <p class="rb-kicker">Scelta del trattamento</p>
-        <h2>Partiamo da ciò che vuoi migliorare e da come si presenta la zona.</h2>
-      </div>
-      <div class="rb-copy">
-        <p>Durante la valutazione ci racconti che cosa vuoi migliorare. Osserviamo la zona interessata e ti spieghiamo quali trattamenti possono essere adatti.</p>
-        <p>Prima di iniziare ti spieghiamo quali prodotti e trattamenti useremo, quante sedute prevediamo e quando faremo il primo controllo.</p>
-      </div>
-    </div>
-  </section>
+    <section class="pe-section"><div class="pe-shell pe-explore">
+      <div class="pe-explore__pictures"><img src={photographs["percorso-glow"].src} alt={photographs["percorso-glow"].alt} width="1440" height="810" loading="lazy" decoding="async" /><img src={photographs["percorso-forma"].src} alt={photographs["percorso-forma"].alt} width="1440" height="810" loading="lazy" decoding="async" /></div>
+      <div><p class="pe-kicker">Percorsi Epigenetici REBEL</p><h2 class="pe-title">Tre aree.<br /><em>Nove modi di cominciare.</em></h2><p>Puoi partire da un’esigenza: più luminosità, meno pesantezza alle gambe, maggiore tono o meno ricrescita. Nei nove percorsi viso, corpo e laser trovi obiettivi, durata e prezzo di partenza.</p><a class="pe-button" href="/percorsi">Esplora i nove percorsi <span aria-hidden="true">↗</span></a></div>
+    </div></section>
 
-  <section class="rb-section rb-section--ivory">
-    <div class="container">
-      <div class="rb-section-head">
-        <p class="rb-kicker">Protocolli viso e corpo</p>
-        <h2>Confronta obiettivi, prezzi e modalità dei protocolli REBEL.</h2>
-      </div>
-      <div class="rb-protocol-grid">
-        {protocolCards.map((protocol, index) => {
-          const visual = getProtocolMedia(protocol.slug);
-          return (
-            <a class="rb-protocol-card" href={`/protocolli/${protocol.slug}`}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <figure>
-                <img
-                  src={visual.src}
-                  alt={visual.alt}
-                  width={visual.width ?? 1200}
-                  height={visual.height ?? 900}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </figure>
-              <div class="rb-protocol-card__copy">
-                <p class="rb-kicker">{protocol.price}</p>
-                <h3>{protocol.name}</h3>
-                <p>{protocol.desc}</p>
-              </div>
-            </a>
-          );
-        })}
-      </div>
-    </div>
-  </section>
-
-  <section class="rb-section rb-section--spectrum">
-    <div class="container rb-intro-grid">
-      <div>
-        <p class="rb-kicker">Valutazione REBEL · 30–40 minuti</p>
-        <h2>Ti aiutiamo a scegliere tra trattamenti viso, corpo e laser.</h2>
-      </div>
-      <div class="rb-copy">
-        <p>Non è necessario conoscere già il nome del protocollo. Puoi dirci, per esempio, che desideri più luminosità, meno pesantezza alle gambe, maggiore tono o meno ricrescita.</p>
-        <p>Osserviamo la zona e ti aiutiamo a capire da dove partire.</p>
-        <p>Per confrontare anche i nove percorsi viso, corpo e laser, consulta la sezione Percorsi REBEL.</p>
-        <p><a class="btn btn--secondary" href="/percorsi">Vedi i nove percorsi</a></p>
-      </div>
-    </div>
-  </section>
-
-  <section class="rb-section rb-section--closing">
-    <div class="container">
-      <InlineCta
-        kicker="Valutazione REBEL · 30–40 minuti"
-        title="Raccontaci che cosa vuoi _migliorare_."
-        lead="In 30–40 minuti valutiamo la zona e ti spieghiamo trattamenti, frequenza e prezzo. Se scegli di iniziare il Percorso REBEL, la valutazione iniziale è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi."
-        primaryHref="/contatti"
-        primaryLabel="Prenota la valutazione"
-        secondaryHref="/metodo-rebel"
-        secondaryLabel="Come lavoriamo"
-      />
-    </div>
-  </section>
-
-  <StickyBookingBar primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
+    <section class="pe-section pe-closing"><div class="pe-shell pe-closing__grid"><div><p class="pe-kicker">Valutazione REBEL · 30–40 minuti</p><h2>Non serve conoscere<br /><em>già il nome.</em></h2></div><div><p>Raccontaci che cosa vuoi migliorare. Osserviamo la zona e ti aiutiamo a capire da dove partire, con trattamento, frequenza e prezzo.</p><p>Se scegli di iniziare il Percorso REBEL, la valutazione iniziale è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi.</p><a class="pe-button" href="/contatti">Prenota la valutazione <span aria-hidden="true">↗</span></a><a class="pe-link" href="/metodo-rebel">Scopri come lavoriamo <span aria-hidden="true">→</span></a></div></div></section>
+  </div>
+  <StickyBookingBar primary={{ label:"Prenota la valutazione", href:"/contatti" }} />
 </BaseLayout>

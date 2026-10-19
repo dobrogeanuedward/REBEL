@@ -1,16 +1,12 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHero from "@/components/PageHero.astro";
-import SectionHead from "@/components/SectionHead.astro";
 import FaqAccordion from "@/components/FaqAccordion.astro";
-import KeyPointsGrid from "@/components/KeyPointsGrid.astro";
-import EditorialSection from "@/components/EditorialSection.astro";
-import InlineCta from "@/components/InlineCta.astro";
-import FullBleedBand from "@/components/FullBleedBand.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
-import { media, type ImageAsset } from "@/lib/page-media";
 import { protocolPages } from "@/lib/protocol-pages";
+import { getProtocolPhotography } from "@/lib/protocol-photography";
+import "@/styles/protocol-editorial.css";
 import {
   buildArticleSchema,
   buildBreadcrumbSchema,
@@ -28,25 +24,7 @@ export async function getStaticPaths() {
 
 const { protocol } = Astro.props;
 
-const resolveProtocolVisuals = (slug: string): { hero: ImageAsset; editorial: readonly ImageAsset[] } => {
-  if (/rebirth|cell-regeneration|lift|collagen/.test(slug)) {
-    return {
-      hero: media.journeys.longevity,
-      editorial: [media.viso.texture, media.viso.products, media.studio.professional],
-    };
-  }
-  if (/eye-genesis/.test(slug)) {
-    return {
-      hero: media.viso.hero,
-      editorial: [media.viso.texture, media.studio.professional],
-    };
-  }
-  return {
-    hero: media.journeys.glow,
-    editorial: [media.viso.products, media.viso.texture, media.studio.professional],
-  };
-};
-const protocolVisuals = resolveProtocolVisuals(protocol.slug);
+const protocolVisuals = getProtocolPhotography(protocol.slug);
 const protocolMetaDescription = protocol.shortDescription.length >= 105
   ? protocol.shortDescription
   : `${protocol.shortDescription} Indicazioni utili prima della valutazione a Carmagnola.`;
@@ -57,6 +35,7 @@ const meta = createPageMeta({
   path: `/protocolli/${protocol.slug}`,
   keywords: protocol.keywords,
   openGraphType: "article",
+  image: protocolVisuals.hero.src,
 });
 
 const breadcrumb = buildBreadcrumbSchema([
@@ -99,164 +78,55 @@ const relatedLinksSchema =
       })
     : null;
 ---
-<BaseLayout meta={meta} bodyClass="page-protocollo-detail">
+<BaseLayout meta={meta} bodyClass="rebel-rebrand rebel-shell page-protocollo-detail">
   <JsonLd data={breadcrumb} />
   <JsonLd data={webPage} />
   <JsonLd data={articleSchema} />
   {faqSchema ? <JsonLd data={faqSchema} /> : null}
   {relatedLinksSchema ? <JsonLd data={relatedLinksSchema} /> : null}
 
-  <PageHero
-    image={protocolVisuals.hero}
-    kicker="Protocollo professionale · Carmagnola"
-    title={`${protocol.name}: _a chi è dedicato e come funziona_.`}
-    lead={protocol.longDescription}
-    bullets={[protocol.price, "Valutazione REBEL · 30–40 minuti", "Trattamento definito dopo la valutazione"]}
-    meta={["Valutazione iniziale gratuita se inizi il percorso", "Viale Barbaroux 20"]}
-    ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
-    ctaSecondary={{ label: "Vedi tutti i protocolli", href: "/protocolli-epigenetici" }}
-  />
+  <div class="protocol-editorial">
+    <PageHero
+      image={protocolVisuals.hero}
+      imageCaption="Scene illustrative dei trattamenti REBEL"
+      kicker="Protocollo professionale · Carmagnola"
+      title={protocol.name}
+      lead={protocol.shortDescription}
+      bullets={[protocol.price, "Valutazione REBEL · 30–40 minuti"]}
+      meta={["Trattamento definito dopo la valutazione", "Viale Barbaroux 20 · Carmagnola"]}
+      ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
+      ctaSecondary={{ label: "Come funziona", href: "#il-protocollo" }}
+    />
 
-  <section class="section">
-    <div class="container">
-      <SectionHead
-        kicker="A che cosa serve"
-        title={`Gli obiettivi principali di _${protocol.name}_.`}
-        lead="Prima di consigliarlo valutiamo le condizioni della pelle, il risultato che desideri e le eventuali sensibilità."
-      />
-      <KeyPointsGrid points={protocol.benefits} title="Obiettivi del trattamento" />
-    </div>
-  </section>
-
-  {protocol.editorialSections.length > 0 ? (
-    <section class="section section--scene-ivory">
-      <div class="container">
-        <SectionHead
-          kicker="Come si svolge"
-          title="Valutazione, sedute e mantenimento."
-          lead="Il numero di appuntamenti e la frequenza vengono definiti in base alle condizioni della pelle, all’obiettivo e ai cambiamenti osservati durante il trattamento."
-        />
-        <div class="editorial-flow">
-          {protocol.editorialSections.map((s, i) => {
-            const mediaIndex = Math.floor(i / 2);
-            const sectionMedia = i % 2 === 0
-              ? protocolVisuals.editorial[mediaIndex % protocolVisuals.editorial.length]
-              : undefined;
-            return (
-              <EditorialSection
-                heading={s.heading}
-                paragraphs={s.paragraphs}
-                level={3}
-                media={sectionMedia}
-                mediaSide={mediaIndex % 2 === 0 ? "end" : "start"}
-              />
-            );
-          })}
-        </div>
+    <section class="pe-section pe-section--paper" aria-labelledby="protocol-objectives">
+      <div class="pe-shell">
+        <div class="pe-heading"><div><p class="pe-kicker">La tua pelle, al centro</p><h2 id="protocol-objectives">Da ciò che senti.<br /><em>A ciò che scegliamo.</em></h2></div><p>{protocol.longDescription}</p></div>
+        <ol class="pe-benefits">{protocol.benefits.map((benefit, index) => <li><span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span><p>{benefit}</p></li>)}</ol>
       </div>
     </section>
-  ) : null}
 
-  {protocol.faqs.length > 0 ? (
-    <section class="section">
-      <div class="container">
-        <SectionHead
-          kicker="Domande frequenti"
-          title="Indicazioni utili prima di prenotare."
-        />
-        <FaqAccordion items={protocol.faqs} kicker={`Domande su ${protocol.name}`} />
-      </div>
-    </section>
-  ) : null}
+    {protocol.editorialSections.length > 0 && <section class="pe-section" id="il-protocollo" aria-labelledby="protocol-story-title"><div class="pe-shell">
+      <div class="pe-heading"><div><p class="pe-kicker">Il trattamento, da vicino</p><h2 id="protocol-story-title">Ogni gesto ha<br /><em>il suo perché.</em></h2></div><p>La valutazione, la seduta e la cura a casa: ogni fase viene scelta in base alle condizioni della pelle e ai cambiamenti osservati.</p></div>
+      <div class="pe-story">{protocol.editorialSections.map((section, index) => {
+        const photo = protocolVisuals.story[index % protocolVisuals.story.length];
+        return <article class:list={["pe-story__row", { "pe-story__row--reverse": index % 2 !== 0 }]}>
+          <figure><img src={photo.src} srcset={`${photo.preview} 480w, ${photo.src} ${photo.width}w`} sizes="(max-width:760px) 100vw, 50vw" alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" /><figcaption>REBEL · Scene illustrative del trattamento</figcaption></figure>
+          <div class="pe-story__copy"><span class="pe-story__number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span><h3>{section.heading}</h3>{section.paragraphs.map(paragraph => <p>{paragraph}</p>)}</div>
+        </article>;
+      })}</div>
+    </div></section>}
 
-  {protocol.relatedLinks.length > 0 ? (
-    <section class="section">
-      <div class="container">
-        <SectionHead
-          kicker="Potrebbe interessarti anche"
-          title="Altri trattamenti e informazioni utili."
-        />
-        <div class="link-grid">
-          {protocol.relatedLinks.map((l) => {
-            const isExternal = l.href.startsWith("http");
-            return isExternal ? (
-              <a class="link-card" href={l.href} target="_blank" rel="noreferrer">
-                <span class="link-card__title">{l.label}</span>
-                {l.description ? <span class="link-card__desc">{l.description}</span> : null}
-              </a>
-            ) : (
-              <a class="link-card" href={l.href}>
-                <span class="link-card__title">{l.label}</span>
-                {l.description ? <span class="link-card__desc">{l.description}</span> : null}
-              </a>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  ) : null}
+    {protocol.faqs.length > 0 && <section class="pe-section pe-section--paper"><div class="pe-shell pe-faq-layout">
+      <div><p class="pe-kicker">Prima di prenotare</p><h2 class="pe-title">Le risposte<br /><em>che cerchi.</em></h2></div>
+      <FaqAccordion items={protocol.faqs} kicker={protocol.name} />
+    </div></section>}
 
-  <FullBleedBand
-    image={media.viso.mood}
-    height="sm"
-    align="left"
-    kicker={`${protocol.name} · Rebel Carmagnola`}
-    quote="La valutazione iniziale serve a definire obiettivo, sedute, frequenza e mantenimento."
-    cite="Studio Rebel · Viale Barbaroux 20"
-  />
+    {protocol.relatedLinks.length > 0 && <section class="pe-section"><div class="pe-shell">
+      <div class="pe-heading"><div><p class="pe-kicker">Continua a esplorare</p><h2>Trova il tuo<br /><em>prossimo passo.</em></h2></div><a class="pe-link" href="/protocolli-epigenetici">Confronta tutti i protocolli <span aria-hidden="true">↗</span></a></div>
+      <div class="pe-related">{protocol.relatedLinks.map(link => <a href={link.href} target={link.href.startsWith("http") ? "_blank" : undefined} rel={link.href.startsWith("http") ? "noreferrer" : undefined}><span class="pe-related__arrow" aria-hidden="true">↗</span><h3>{link.label}</h3>{link.description && <p>{link.description}</p>}</a>)}</div>
+    </div></section>}
 
-  <section class="section">
-    <div class="container">
-      <InlineCta
-        kicker="Valutazione REBEL · 30–40 minuti"
-        title={`Valutiamo insieme se _${protocol.name}_ è adatto alla tua pelle.`}
-        lead="In 30–40 minuti valutiamo la zona e definiamo trattamento, frequenza e prezzo. Se scegli di iniziare il percorso proposto, la valutazione iniziale è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi."
-        primaryHref="/contatti"
-        primaryLabel="Prenota la valutazione"
-        secondaryHref="/protocolli-epigenetici"
-        secondaryLabel="Vedi tutti i protocolli"
-      />
-    </div>
-  </section>
-
+    <section class="pe-section pe-closing"><div class="pe-shell pe-closing__grid"><div><p class="pe-kicker">Valutazione REBEL · 30–40 minuti</p><h2>Cominciamo<br /><em>dalla tua pelle.</em></h2></div><div><p>Valutiamo insieme se {protocol.name} è adatto alla tua pelle. In 30–40 minuti definiamo trattamento, frequenza e prezzo.</p><p>Se scegli di iniziare il percorso proposto, la valutazione iniziale è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi.</p><a class="pe-button" href="/contatti">Prenota la valutazione <span aria-hidden="true">↗</span></a></div></div></section>
+  </div>
   <StickyBookingBar primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
 </BaseLayout>
-
-<style>
-  .editorial-flow {
-    display: grid;
-    gap: clamp(2.8rem, 6vw, 5.2rem);
-    margin-top: 1.8rem;
-  }
-  .link-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1rem;
-    margin-top: 1.6rem;
-  }
-  .link-card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    padding: 1.1rem 1.2rem;
-    border: 1px solid var(--line);
-    border-radius: var(--r-md);
-    background: linear-gradient(180deg, rgba(31, 26, 58, 0.55), rgba(20, 16, 42, 0.4));
-    transition: border-color var(--t-base) var(--ease-soft), transform var(--t-base) var(--ease-cinema);
-  }
-  .link-card:hover {
-    border-color: var(--mauve);
-    transform: translateY(-2px);
-  }
-  .link-card__title {
-    font-family: var(--font-display);
-    font-size: 1.05rem;
-    color: var(--text-strong);
-    letter-spacing: -0.01em;
-  }
-  .link-card__desc {
-    font-size: 0.88rem;
-    color: var(--text-muted);
-    line-height: 1.55;
-  }
-</style>

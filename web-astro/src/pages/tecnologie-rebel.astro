@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import JsonLd from "@/components/JsonLd.astro";
+import PageHero from "@/components/PageHero.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import TechnologyTheatre from "@/components/TechnologyTheatre.astro";
 import { thoryTechnologies } from "@/lib/rebel-technologies";
@@ -70,35 +71,30 @@ const list = buildItemListSchema({
 });
 ---
 
-<BaseLayout meta={meta} bodyClass="rebel-rebrand page-tecnologie-rebel">
+<BaseLayout meta={meta} bodyClass="rebel-rebrand rebel-shell page-tecnologie-rebel">
   <JsonLd data={breadcrumb} />
   <JsonLd data={webPage} />
   <JsonLd data={list} />
 
   <div class="tech-showcase" data-tech-showcase>
-    <section class="tech-showcase-hero" aria-labelledby="tech-showcase-title">
-      <picture class="tech-showcase-hero__media">
-        <source media="(max-width:720px)" srcset={siteAsset("home.hero.laser.mobile")} />
-        <img src={siteAsset("home.hero.laser.desktop")} alt="Professionista REBEL durante una seduta con tecnologia laser" width="1536" height="1024" fetchpriority="high" decoding="async" />
-      </picture>
-      <div class="tech-showcase-hero__veil" aria-hidden="true"></div>
-      <div class="rebel-container tech-showcase-hero__content">
-        <p class="rebel-kicker">Tecnologie nel Metodo REBEL</p>
-        <h1 id="tech-showcase-title"><span>Scegliamo la tecnologia.</span><em>Solo quando serve.</em></h1>
-        <p>Partiamo da ciò che vuoi migliorare. Dopo la valutazione scegliamo il trattamento e, se utile, la tecnologia più adatta.</p>
-        <div class="rebel-hero__actions">
-          <a class="btn btn--primary" href="#laser-liberta">Scopri come si svolge la seduta laser</a>
-          <a class="btn btn--secondary" href="#showcase-tecnologie">Esplora tutte le tecnologie</a>
-        </div>
-        <nav class="tech-showcase-hero__paths" aria-label="Percorsi collegati alle tecnologie">
-          <a href="/percorsi/liberta"><span>01</span> Epilazione · Libertà</a>
-          <a href="/percorsi/structure"><span>02</span> Viso · Structure</a>
-          <a href="/percorsi/forma"><span>03</span> Corpo · Forma</a>
-        </nav>
-      </div>
-    </section>
+    <PageHero
+      image={{ src:"/img/studio-treatwell/15432121.jpg", alt:"La cabina REBEL di Carmagnola con il lettino e la tecnologia THORY", width:1080, height:720 }}
+      imageCaption="La cabina REBEL · Viale Barbaroux 20, Carmagnola"
+      imagePosition="54% 50%"
+      kicker="Viso, corpo e laser · Carmagnola"
+      title="La tecnologia. Quando _serve a te._"
+      lead="Partiamo da ciò che vuoi migliorare. Dopo la valutazione scegliamo il trattamento e, se utile, la tecnologia da inserire nel tuo percorso."
+      meta={["Tecnologie nel Metodo REBEL", "Scelte dopo la valutazione"]}
+      ctaPrimary={{ label:"Esplora le tecnologie", href:"#showcase-tecnologie" }}
+      ctaSecondary={{ label:"La seduta laser, da vicino", href:"#laser-liberta" }}
+    />
+    <nav class="tech-paths rebel-container" aria-label="Percorsi collegati alle tecnologie">
+      <a href="/percorsi/liberta"><span>01 / Epilazione</span>Libertà <span aria-hidden="true">↗</span></a>
+      <a href="/percorsi/structure"><span>02 / Viso</span>Structure <span aria-hidden="true">↗</span></a>
+      <a href="/percorsi/forma"><span>03 / Corpo</span>Forma <span aria-hidden="true">↗</span></a>
+    </nav>
 
-    <div id="laser-liberta"><TechnologyTheatre /></div>
+    <div id="laser-liberta"><div id="lumina-x1-pro"><TechnologyTheatre /></div></div>
 
     <section class="rebel-section tech-showroom" id="showcase-tecnologie" aria-labelledby="showroom-title">
       <div class="rebel-container">
@@ -157,7 +153,8 @@ const list = buildItemListSchema({
           <h2 class="rebel-title" id="in-cabin-title">Come utilizziamo le tecnologie durante il trattamento.</h2>
         </header>
         <div class="tech-in-cabin__grid">
-          <article id="ice-polar" style={`--experience-image:url('${siteAsset("services.laser.handpiece.desktop")}')`}>
+          <article id="ice-polar">
+            <figure><img src={siteAsset("services.laser.handpiece.desktop")} alt="Il manipolo laser a contatto con la pelle" width="1536" height="1024" loading="lazy" decoding="async" /><figcaption>Il contatto del manipolo. · Scena illustrativa</figcaption></figure>
             <div>
               <p class="rebel-kicker">Nel percorso Libertà</p>
               <h3>ICE Polar</h3>
@@ -166,7 +163,8 @@ const list = buildItemListSchema({
               <a href="/percorsi/liberta">Scopri Libertà <span>→</span></a>
             </div>
           </article>
-          <article id="lpg" style={`--experience-image:url('${siteAsset("journeys.forma.hero.desktop")}')`}>
+          <article id="lpg">
+            <figure><img src="/img/studio-treatwell/15432127.jpg" alt="Una cabina dedicata ai trattamenti dello studio REBEL" width="1080" height="720" loading="lazy" decoding="async" /><figcaption>Lo spazio della cura. · Fotografia dello studio REBEL</figcaption></figure>
             <div>
               <p class="rebel-kicker">Nel percorso Forma</p>
               <h3>LPG endomassaggio</h3>
@@ -194,13 +192,14 @@ const list = buildItemListSchema({
       </div>
     </section>
 
-    <section class="rebel-campaign">
+    <section class="rebel-section tech-closing">
       <div class="rebel-container">
-        <strong>Vuoi capire quale trattamento<br /><span>può essere adatto a te?</span></strong>
+        <p class="rebel-kicker">Scegliamo insieme</p>
+        <h2>Ogni scelta<br /><em>comincia da te.</em></h2>
         <p>Durante la valutazione ti spieghiamo cosa consigliamo, come si svolge il trattamento, con quale frequenza e a quale prezzo.</p>
         <div class="rebel-hero__actions" style="justify-content:center">
           <a class="btn btn--primary" href="/contatti">Prenota la valutazione REBEL</a>
-          <a class="btn btn--secondary" href="/percorsi">Esplora i nove percorsi</a>
+          <a class="btn btn--secondary" href="/percorsi">Esplora i percorsi REBEL</a>
         </div>
       </div>
     </section>

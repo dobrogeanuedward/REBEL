@@ -10,14 +10,9 @@ import { servicePhotography } from "@/lib/beauty-editorial";
 import { photographs } from "@/lib/catalog-visuals";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHero from "@/components/PageHero.astro";
-import SectionHead from "@/components/SectionHead.astro";
 import FaqAccordion from "@/components/FaqAccordion.astro";
-import FeatureCard from "@/components/FeatureCard.astro";
 import KeyPointsGrid from "@/components/KeyPointsGrid.astro";
 import EditorialSection from "@/components/EditorialSection.astro";
-import TableOfContents from "@/components/TableOfContents.astro";
-import InlineCta from "@/components/InlineCta.astro";
-import FullBleedBand from "@/components/FullBleedBand.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import ServiceAreaDiscovery from "@/components/ServiceAreaDiscovery.astro";
@@ -56,7 +51,6 @@ const hasRblEditorial = Boolean(rblVariant);
 const contactPath = serviceContactPath(service.slug);
 const whatsappPath = serviceWhatsApp(service.slug);
 
-const moodImage = selectedPhotos?.[0] ?? (service.category === "laser" ? media.laser.mood : media.studio.cabin);
 
 const resolveEditorialMedia = (slug: string): readonly ImageAsset[] => {
   if (/laser/.test(slug)) return [media.laser.handpiece, media.laser.consult];
@@ -72,6 +66,11 @@ const resolveEditorialMedia = (slug: string): readonly ImageAsset[] => {
   return [media.studio.professional, media.studio.reception];
 };
 const editorialMedia = selectedPhotos?.slice(1) ?? resolveEditorialMedia(service.slug);
+const introductionImage = editorialMedia[0] ?? service.heroImage;
+const photoForService = (slug: string, fallback?: ImageAsset) => {
+  const key = servicePhotography[slug]?.[0];
+  return key ? photographs[key] : fallback;
+};
 
 const fallbackImage =
   service.category === "laser"
@@ -80,14 +79,6 @@ const fallbackImage =
 
 const baseServiceName = service.name.replace(/\s+a Carmagnola$/i, "").trim();
 const serviceNameLower = `${baseServiceName.charAt(0).toLocaleLowerCase("it-IT")}${baseServiceName.slice(1)}`;
-const serviceArticle = /^epilazione\b/i.test(serviceNameLower)
-  ? "l’"
-  : /^scrub\b/i.test(serviceNameLower)
-    ? "lo "
-    : /^(?:pulizia|laminazione|manicure|ceretta)\b/i.test(serviceNameLower)
-      ? "la "
-      : "il ";
-const serviceWithArticle = `${serviceArticle}${serviceNameLower}`;
 const priceFromMatch = service.priceHint.match(/(\d+(?:[.,]\d+)?)/);
 const priceFrom = priceFromMatch ? Number(priceFromMatch[1].replace(",", ".")) : undefined;
 const formatPrice = (value: string) =>
@@ -210,17 +201,17 @@ const sourceLinks = service.sourceLinks ?? [];
 const tocItems = [
   { id: "benefici", label: "Obiettivi" },
   ...(!isColorPedicure ? [{ id: "prezzi", label: "Prezzo" }] : []),
-  ...(hasRblEditorial ? [{ id: "rbl-colori", label: "Colori e formule RBL" }] : []),
+  ...(hasRblEditorial ? [{ id: "rbl-colori", label: "Colori RBL Nails" }] : []),
   ...(editorialSections.length > 0 ? [{ id: "dettagli", label: "Come si svolge" }] : []),
   { id: "faq", label: "Domande frequenti" },
-  { id: "guide", label: "Approfondimenti" },
+  ...(relatedCompetences.length > 0 ? [{ id: "guide", label: "Approfondimenti" }] : []),
   ...(sourceLinks.length > 0 ? [{ id: "fonti", label: "Fonti" }] : []),
   ...(relatedProtocols.length > 0 ? [{ id: "protocolli", label: "Protocolli REBEL" }] : []),
-  { id: "anche", label: "Altri trattamenti" },
+  ...(siblingServices.length > 0 ? [{ id: "anche", label: "Altri trattamenti" }] : []),
   { id: "raggiungerci", label: "Come raggiungerci" },
 ];
 ---
-<BaseLayout meta={meta} bodyClass={`page-servizio-detail ${service.category === "laser" ? "page-servizio-laser" : "page-servizio-classica"}`}>
+<BaseLayout meta={meta} bodyClass={`rebel-rebrand rebel-shell page-servizio-detail ${service.category === "laser" ? "page-servizio-laser" : "page-servizio-classica"}`}>
   <JsonLd data={breadcrumb} />
   <JsonLd data={webPage} />
   <JsonLd data={serviceSchema} />
@@ -231,266 +222,158 @@ const tocItems = [
 
   <PageHero
     image={service.heroImage}
-    kicker={service.category === "laser" ? "Epilazione laser · Carmagnola" : "Trattamento estetico · Carmagnola"}
+    imageCaption="Immagine editoriale illustrativa del trattamento."
+    kicker={service.category === "laser" ? "Epilazione laser · Carmagnola" : "Beauty REBEL · Carmagnola"}
     title={service.name.replace(/Carmagnola/i, "_Carmagnola_")}
-    lead={service.longDescription}
-    bullets={[service.category === "laser" ? `Listino ordinario · ${displayPrice}` : displayPrice, "Come si svolge e che cosa sapere", "Su appuntamento · Carmagnola"]}
-    meta={[
-      "Viale Barbaroux 20",
-      "Da martedì a sabato",
-    ]}
+    lead={service.shortDescription}
+    bullets={isColorPedicure
+      ? ["Cura del piede e scelta del colore", "Su appuntamento · REBEL"]
+      : [service.category === "laser" ? `Listino ordinario · ${displayPrice}` : displayPrice, "Su appuntamento · REBEL"]}
+    meta={["Viale Barbaroux 20", "Da martedì a sabato"]}
     ctaPrimary={{ label: "Chiedi un appuntamento", href: contactPath, halo: true }}
-    ctaSecondary={{ label: "Scrivici su WhatsApp", href: whatsappPath }}
+    ctaSecondary={{ label: "Scopri il trattamento", href: "#benefici" }}
   />
 
-  {rblVariant && <RblNailEditorial variant={rblVariant} bookingHref={contactPath} />}
-
-  {isLamination && <JourneyCarousel carousel={laminazioneCarousel} slug="laminazione" service />}
-
-  {service.category === "laser" ? (
-    <section class="section section--tight">
-      <div class="container"><LaserOffer compact /></div>
-    </section>
-  ) : null}
-
-  <section class="section">
-    <div class="container detail-grid">
-      <article class="detail-main">
-        <div id="benefici">
-          <SectionHead
-            kicker="Obiettivi del trattamento"
-            title={`Quando scegliere _${serviceWithArticle}_.`}
-            lead="Qui trovi obiettivi, modalità e indicazioni utili prima di prenotare."
-          />
-          <p class="detail-lead">{service.shortDescription}</p>
-          <KeyPointsGrid points={service.benefits} />
-        </div>
-
-        {!isColorPedicure && <div id="prezzi" class="detail-section">
-          <SectionHead
-            kicker="Prezzo"
-            title={`Quanto costa _${serviceWithArticle}_.`}
-            lead={isLamination ? "Scegli ciglia, sopracciglia oppure il trattamento combinato: qui trovi i tre prezzi ordinari e le durate." : service.category === "laser"
-              ? `Prezzo ordinario indicato: ${displayPrice}. Le condizioni della promozione sono riportate sopra e vengono confermate prima dell’appuntamento.`
-              : `Prezzo indicato: ${displayPrice}. Se cambia in base alla zona, alla durata o alla tipologia, te lo confermiamo prima dell’appuntamento.`}
-          />
-          <ServiceCatalogChoices slug={service.slug} />
-          <div class="card-grid card-grid--2">
-            <FeatureCard
-              kicker={service.category === "laser" ? "Listino ordinario" : "Il tuo appuntamento"}
-              title={displayPrice}
-              body={service.category === "laser"
-                ? "Fuori dalla promozione, il prezzo ordinario varia in base alla zona e alla tipologia. Te lo confermiamo prima dell’appuntamento."
-                : "Se il servizio prevede varianti per zona, durata o tipologia, ti confermiamo il prezzo prima dell’appuntamento."}
-            />
-            <FeatureCard
-              kicker="Tutti i prezzi"
-              title="Listino completo Rebel"
-              body="Prezzi di trattamenti viso e corpo, manicure, pedicure, laminazione, epilazione laser e percorsi REBEL."
-              href="/listino-estetica-laser"
-            />
-          </div>
-        </div>}
-
-        {editorialSections.length > 0 ? (
-          <div id="dettagli" class="detail-section">
-            <SectionHead
-              kicker="Come si svolge"
-              title="Prima, durante e _dopo la seduta_."
-              lead="Ti spieghiamo come prepararti, che cosa succede durante l’appuntamento e quali accorgimenti seguire dopo."
-            />
-            <div class="editorial-flow">
-              {editorialSections.map((s, i) => {
-                const mediaIndex = Math.floor(i / 2);
-                const sectionMedia = i % 2 === 0
-                  ? editorialMedia[mediaIndex % editorialMedia.length]
-                  : undefined;
-                return (
-                  <EditorialSection
-                    id={slugifyId(s.heading)}
-                    heading={s.heading}
-                    paragraphs={s.paragraphs}
-                    level={3}
-                    media={sectionMedia}
-                    mediaSide={mediaIndex % 2 === 0 ? "end" : "start"}
-                  />
-                );
-              })}
-            </div>
-          </div>
-        ) : null}
-
-        <div id="faq" class="detail-section">
-          <SectionHead
-            kicker="Domande frequenti"
-            title={`Le domande più comuni su _${baseServiceName}_.`}
-          />
-          <FaqAccordion items={service.faqs} kicker={`Domande su ${baseServiceName}`} />
-        </div>
-
-        {sourceLinks.length > 0 ? (
-          <div id="fonti" class="detail-section">
-            <SectionHead
-              kicker="Fonti e riferimenti"
-              title="Le fonti consultate per le informazioni tecniche."
-            />
-            <ul class="source-list">
-              {sourceLinks.map((s) => (
-                <li>
-                  <a href={s.url} target="_blank" rel="noreferrer">{s.label}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ) : null}
-
-        {relatedCompetences.length > 0 ? (
-          <div id="guide" class="detail-section">
-            <SectionHead
-              kicker="Per approfondire"
-              title={`Approfondimenti pratici su _${baseServiceName}_.`}
-              lead="Preparazione, frequenza e indicazioni dopo il trattamento."
-            />
-            <div class="card-grid card-grid--2">
-              {relatedCompetences.map((c, i) => (
-                <FeatureCard
-                  kicker="Guida"
-                  title={c.title}
-                  body={c.shortDescription}
-                  href={`/competenze/${c.slug}`}
-                  variant="quiet"
-                  index={i + 1}
-                />
-              ))}
-            </div>
-          </div>
-        ) : null}
-
-        {relatedProtocols.length > 0 ? (
-          <div id="protocolli" class="detail-section">
-            <SectionHead
-              kicker="Protocolli REBEL"
-              title="Protocolli collegati a questo trattamento."
-              lead="In ogni scheda trovi esigenze, prezzo e modalità del protocollo."
-            />
-            <div class="card-grid card-grid--2">
-              {relatedProtocols.map((p, i) => (
-                <FeatureCard
-                  kicker={formatPrice(p.price)}
-                  title={p.name}
-                  body={p.shortDescription}
-                  href={`/protocolli/${p.slug}`}
-                  variant="feature"
-                  index={i + 1}
-                />
-              ))}
-            </div>
-          </div>
-        ) : null}
-
-        <div id="anche" class="detail-section">
-          <SectionHead
-            kicker="Altri trattamenti"
-            title="Scopri anche questi trattamenti."
-          />
-          <div class="card-grid card-grid--2">
-            {siblingServices.map((s, i) => (
-              <FeatureCard
-                kicker={formatPrice(s.priceHint)}
-                title={s.name}
-                body={s.shortDescription}
-                href={`/servizi/${s.slug}`}
-                index={i + 1}
-              />
-            ))}
-          </div>
-        </div>
-
-      </article>
-
-      <aside class="detail-aside">
-        <TableOfContents items={tocItems} />
-        <InlineCta
-          kicker="Appuntamenti REBEL · Carmagnola"
-          title={`Vuoi prenotare _${serviceWithArticle}_?`}
-          lead={isColorPedicure ? "Scrivici per scegliere il tuo colore e organizzare il prossimo appuntamento. Raccontaci il risultato che desideri: ti aiutiamo a trovare la tonalità e la finitura che senti tue." : "Scrivici: ti confermiamo disponibilità, durata e prezzo. Se prima serve una valutazione REBEL, dedichiamo 30–40 minuti a capire che cosa può essere adatto a te. Se scegli di iniziare il percorso proposto, la valutazione iniziale è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi."}
-          primaryHref={contactPath}
-          primaryLabel="Chiedi un appuntamento"
-          secondaryHref="/listino-estetica-laser"
-          secondaryLabel="Consulta il listino"
-        />
-      </aside>
+  <div class="service-editorial">
+    <div class="detail-shell detail-navigation">
+      <nav class="detail-jumpnav" aria-label="In questa pagina"><span>Esplora</span>{tocItems.map((item) => <a href={`#${item.id}`}>{item.label}</a>)}</nav>
     </div>
-  </section>
 
-  <FullBleedBand
-    image={moodImage}
-    height="sm"
-    align="left"
-    kicker={`${baseServiceName} · Rebel Carmagnola`}
-    title={`Prenota _${serviceWithArticle}_.`}
-    lead={isColorPedicure ? "Dal colore alla finitura, scegliamo insieme i dettagli del tuo prossimo pedicure." : "Ti confermiamo disponibilità, durata e prezzo prima dell’appuntamento. Se serve una valutazione REBEL, ti spieghiamo subito come funziona."}
-    cta={{ label: "Contattaci", href: contactPath }}
-  />
+    <section class="detail-section detail-section--intro" id="benefici" aria-labelledby="service-intro-title">
+      <div class="detail-shell detail-intro">
+        <div class="detail-intro__copy">
+          <p class="detail-kicker">Il tuo appuntamento REBEL</p>
+          <h2 id="service-intro-title">Il trattamento.<br /><em>Con cura, dall’inizio.</em></h2>
+          <p class="detail-lead">{service.longDescription}</p>
+          <KeyPointsGrid points={service.benefits} variant="quiet" />
+        </div>
+        {introductionImage && <figure class="detail-intro__photo"><img src={introductionImage.src} alt={introductionImage.alt} width={introductionImage.width ?? 1200} height={introductionImage.height ?? 900} loading="lazy" decoding="async" /><figcaption>Un dettaglio del trattamento · immagine illustrativa.</figcaption></figure>}
+      </div>
+    </section>
 
-  <ServiceAreaDiscovery />
+    {rblVariant && <RblNailEditorial variant={rblVariant} bookingHref={contactPath} />}
+    {isLamination && <JourneyCarousel carousel={laminazioneCarousel} slug="laminazione" service />}
 
-  <StickyBookingBar
-    priceHint={service.category === "laser" ? laserOffer.stickyLabel : displayPrice}
-    promo={service.category === "laser"}
-    primary={service.category === "laser"
-      ? { label: "Richiedi la promo", href: laserOffer.contactPath }
-      : { label: "Chiedi un appuntamento", href: contactPath }}
-    whatsappHref={whatsappPath}
-  />
+    {service.category === "laser" && <section class="detail-section detail-section--promo" aria-label="La promozione laser REBEL"><div class="detail-shell"><LaserOffer compact /></div></section>}
+
+    {!isColorPedicure && <section id="prezzi" class="detail-section detail-section--paper" aria-labelledby="service-price-title">
+      <div class="detail-shell">
+        <div class="detail-heading-row"><div><p class="detail-kicker">Il menu, in chiaro</p><h2 id="service-price-title">Scegli la tua seduta.<br /><em>Confronta le varianti.</em></h2></div><p>{isLamination ? "Ciglia, sopracciglia o il trattamento combinato: confronta i prezzi ordinari e le durate." : service.category === "laser" ? "Qui trovi il listino ordinario per zona. Le condizioni della promozione laser sono riportate nella sezione dedicata." : "Trovi le varianti del trattamento, i prezzi ordinari e le durate. Scegli la proposta più vicina a ciò che desideri."}</p></div>
+        <ServiceCatalogChoices slug={service.slug} />
+        <div class="detail-price-note"><p><span>{service.category === "laser" ? "Listino ordinario" : "Prezzo del servizio"}</span><strong>{displayPrice}</strong></p><a class="detail-link" href="/listino-estetica-laser">Esplora tutto il listino <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>}
+
+    {editorialSections.length > 0 && <section id="dettagli" class="detail-section" aria-labelledby="service-steps-title"><div class="detail-shell">
+      <header class="detail-heading"><p class="detail-kicker">Prima, durante, dopo</p><h2 id="service-steps-title">I gesti, i tempi.<br /><em>Quello che vuoi sapere.</em></h2><p>Come prepararti, che cosa succede durante l’appuntamento e come prenderti cura della zona dopo.</p></header>
+      <div class="editorial-flow">{editorialSections.map((s, i) => <EditorialSection id={slugifyId(s.heading)} heading={s.heading} paragraphs={s.paragraphs} level={3} sequence={i + 1} media={i % 2 === 0 ? editorialMedia[Math.floor(i / 2) % editorialMedia.length] : undefined} mediaSide={Math.floor(i / 2) % 2 === 0 ? "end" : "start"} />)}</div>
+    </div></section>}
+
+    <section id="faq" class="detail-section detail-section--paper" aria-labelledby="service-faq-title"><div class="detail-shell detail-questions">
+      <header><p class="detail-kicker">Prima di scegliere</p><h2 id="service-faq-title">Le domande<br /><em>pratiche.</em></h2><p>Indicazioni utili su {serviceNameLower}, per arrivare al tuo appuntamento con le idee più chiare.</p></header>
+      <div><FaqAccordion items={service.faqs} kicker={`Domande su ${baseServiceName}`} /></div>
+    </div></section>
+
+    <section class="detail-section detail-section--booking" aria-labelledby="service-booking-title"><div class="detail-shell detail-booking">
+      <div><p class="detail-kicker">Il prossimo passo</p><h2 id="service-booking-title">Parliamo del tuo<br /><em>appuntamento.</em></h2></div>
+      <div><p>{isColorPedicure ? "Dal colore alla finitura, scegliamo insieme i dettagli del tuo prossimo pedicure. Raccontaci il risultato che desideri e quando vorresti venire." : "Scrivici indicando il trattamento e quando vorresti venire: ti aiutiamo a scegliere la variante e ti confermiamo disponibilità, durata e prezzo."}</p><div class="detail-actions"><a class="btn btn--primary" href={contactPath}>Chiedi un appuntamento <span aria-hidden="true">↗</span></a><a class="detail-link" href={whatsappPath}>Scrivici su WhatsApp</a></div><p class="detail-booking__address">REBEL · Viale Barbaroux 20 · Carmagnola</p></div>
+    </div></section>
+
+    {relatedCompetences.length > 0 && <section id="guide" class="detail-section" aria-labelledby="service-guides-title"><div class="detail-shell detail-reading">
+      <header><p class="detail-kicker">Il tempo di capire</p><h2 id="service-guides-title">Approfondisci,<br /><em>poi scegli.</em></h2></header>
+      <div class="detail-reading__list">{relatedCompetences.map((c, i) => <a href={`/competenze/${c.slug}`}><span class="detail-reading__index">{String(i + 1).padStart(2, "0")}</span><div><span class="detail-kicker">Guida REBEL</span><h3>{c.title}</h3><p>{c.shortDescription}</p></div><span aria-hidden="true">↗</span></a>)}</div>
+    </div></section>}
+
+    {relatedProtocols.length > 0 && <section id="protocolli" class="detail-section detail-section--paper" aria-labelledby="service-protocols-title"><div class="detail-shell">
+      <header class="detail-heading"><p class="detail-kicker">Protocolli REBEL</p><h2 id="service-protocols-title">Quando la cura<br /><em>diventa un percorso.</em></h2><p>Obiettivi e modalità dei protocolli collegati a questo trattamento.</p></header>
+      <div class="detail-protocols">{relatedProtocols.map((p, i) => <a href={`/protocolli/${p.slug}`}><span class="detail-kicker">{String(i + 1).padStart(2,"0")} · {formatPrice(p.price)}</span><h3>{p.name}</h3><p>{p.shortDescription}</p><span class="detail-link">Conosci il protocollo <span aria-hidden="true">↗</span></span></a>)}</div>
+    </div></section>}
+
+    {siblingServices.length > 0 && <section id="anche" class="detail-section" aria-labelledby="service-related-title"><div class="detail-shell">
+      <header class="detail-heading"><p class="detail-kicker">Il mondo beauty REBEL</p><h2 id="service-related-title">Un’altra idea<br /><em>di cura.</em></h2></header>
+      <div class="detail-related">{siblingServices.map((s) => { const photo = photoForService(s.slug, s.heroImage); const hidePrice = ["pedicure-estetico-con-smalto-carmagnola", "pedicure-semipermanente-carmagnola"].includes(s.slug); return <a href={`/servizi/${s.slug}`}>{photo && <div class="detail-related__photo"><img src={photo.src} alt={photo.alt} width={photo.width ?? 1200} height={photo.height ?? 800} loading="lazy" decoding="async" /></div>}<div class="detail-related__copy"><p class="detail-kicker">{hidePrice ? "Cura e colore" : formatPrice(s.priceHint)}</p><h3>{s.name.replace(/ a Carmagnola$/i, "")}<span aria-hidden="true"> ↗</span></h3><p>{s.shortDescription}</p></div></a>; })}</div>
+    </div></section>}
+
+    {sourceLinks.length > 0 && <section id="fonti" class="detail-section detail-section--sources" aria-labelledby="service-sources-title"><div class="detail-shell"><details class="detail-sources"><summary id="service-sources-title">Fonti e riferimenti tecnici <span aria-hidden="true">＋</span></summary><p>Le fonti consultate per le informazioni tecniche di questa pagina.</p><ul>{sourceLinks.map((s) => <li><a href={s.url} target="_blank" rel="noreferrer">{s.label} <span aria-hidden="true">↗</span></a></li>)}</ul></details></div></section>}
+
+    <ServiceAreaDiscovery />
+  </div>
+  <StickyBookingBar priceHint={service.category === "laser" ? laserOffer.stickyLabel : isColorPedicure ? undefined : displayPrice} promo={service.category === "laser"} primary={service.category === "laser" ? { label: "Richiedi la promo", href: laserOffer.contactPath } : { label: "Chiedi un appuntamento", href: contactPath }} whatsappHref={whatsappPath} />
 </BaseLayout>
 
 <style>
-.lamination-choices{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0}.lamination-choices a{display:flex;flex-direction:column;gap:.7rem;border:1px solid #ddcce6;border-radius:12px;padding:1.2rem;background:#fff;color:#3e244c;text-decoration:none}.lamination-choices strong{font-size:1.6rem}.lamination-choices small{font-size:.75rem}@media(max-width:650px){.lamination-choices{grid-template-columns:1fr}}
-  .detail-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 320px;
-    gap: clamp(2rem, 4vw, 4rem);
-    align-items: start;
-  }
-  @media (max-width: 980px) {
-    .detail-grid { grid-template-columns: 1fr; }
-    .detail-aside { order: -1; position: relative; }
-  }
-  .detail-main { min-width: 0; }
-  .detail-section { margin-top: clamp(3rem, 6vw, 5rem); }
-  .detail-cover {
-    margin: 1.4rem 0;
-    border-radius: var(--r-md);
-    overflow: hidden;
-    border: 1px solid var(--line);
-  }
-  .detail-cover img { width: 100%; height: auto; display: block; }
-  .detail-lead {
-    font-size: var(--t-lead);
-    color: var(--text-muted);
-    line-height: var(--leading-body);
-    max-width: 64ch;
-    margin: 1rem 0 0;
-  }
-  .editorial-flow { display: grid; gap: clamp(2.6rem, 6vw, 5rem); margin-top: 1.6rem; }
-  .source-list {
-    list-style: none;
-    margin: 1.2rem 0 0;
-    padding: 0;
-    display: grid;
-    gap: 0.6rem;
-  }
-  .source-list a {
-    color: var(--text);
-    border-bottom: 1px solid var(--line);
-    padding-bottom: 0.4rem;
-    display: inline-block;
-    transition: color var(--t-fast) var(--ease-soft), border-color var(--t-fast) var(--ease-soft);
-  }
-  .source-list a:hover {
-    color: #6c2f70;
-    border-bottom-color: var(--mauve);
-  }
-  .detail-aside { display: grid; gap: 1.4rem; }
+  .service-editorial { color-scheme: light; --text: #301b3e; --text-strong: #301b3e; --text-muted: #685471; --line: #e2d6e7; background: #f8f3ed; color: #301b3e; }
+  .detail-shell { width: min(1240px,calc(100% - 2 * clamp(1.2rem,4vw,3.5rem))); margin-inline: auto; }
+  .service-editorial :is(h2,h3,p,figure) { margin: 0; }
+  .service-editorial :is(h2,h3) { color: #301b3e; overflow-wrap: normal; }
+  .service-editorial h2 { font: 500 clamp(2.15rem,4.2vw,4rem)/1.09 var(--font-display); letter-spacing: -.035em; }
+  .service-editorial em { color: #70428b; font-weight: 400; }
+  .service-editorial p { color: #685471; line-height: 1.75; }
+  .service-editorial .detail-kicker { color: #a51e58; font: 650 .73rem/1.6 var(--font-body); letter-spacing: .13em; text-transform: uppercase; margin-bottom: 1rem; }
+  .detail-navigation { padding-block: 1rem; }
+  .detail-jumpnav { display: flex; gap: .6rem 1.35rem; align-items: center; overflow-x: auto; padding-bottom: .35rem; border-bottom: 1px solid #dfd0e6; }
+  .detail-jumpnav>span { color: #a51e58; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; padding-right: .3rem; }
+  .detail-jumpnav a { flex-shrink: 0; display: inline-flex; align-items: center; min-height: 44px; color: #70428b; font-size: .78rem; text-decoration: none; }
+  .detail-jumpnav a:hover { text-decoration: underline; text-underline-offset: .3em; }
+  .detail-section { padding-block: clamp(3.5rem,7vw,6.5rem); scroll-margin-top: 6rem; }
+  .detail-section--paper { background: #fffdf9; }
+  .detail-section--intro { padding-top: clamp(2rem,4vw,4rem); }
+  .detail-section--promo { padding-top: 0; }
+  .detail-intro { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(2rem,5vw,5rem); align-items: center; }
+  .detail-intro__copy { min-width: 0; }
+  .service-editorial .detail-lead { margin-top: 1.5rem; font-size: 1.02rem; max-width: 62ch; }
+  .detail-intro__photo { min-width: 0; }
+  .detail-intro__photo img { width: 100%; height: auto; aspect-ratio: 4/5; display: block; object-fit: cover; border-radius: 3rem .4rem 3rem .4rem; }
+  .detail-intro__photo figcaption { color: #786981; font-size: .7rem; line-height: 1.5; margin-top: .65rem; }
+  .detail-heading { max-width: 800px; margin-bottom: clamp(2rem,4vw,3.5rem); }
+  .detail-heading>p:last-child:not(.detail-kicker) { margin-top: 1.3rem; max-width: 64ch; }
+  .detail-heading-row { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(1.5rem,5vw,5rem); align-items: end; margin-bottom: 2rem; }
+  .detail-price-note { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap; border-top: 1px solid #dfd0e6; padding-top: 1.5rem; margin-top: 2rem; }
+  .detail-price-note p>span { display: block; font-size: .74rem; }
+  .detail-price-note strong { color: #70428b; font-weight: 600; display: block; font-size: 1.15rem; }
+  .service-editorial .detail-link { display: inline-flex; align-items: center; gap: .7rem; min-height: 44px; color: #70428b; font-size: .83rem; font-weight: 650; text-underline-offset: .3em; }
+  .editorial-flow { display: grid; gap: clamp(2.5rem,6vw,5.5rem); }
+  .detail-questions { display: grid; grid-template-columns: .75fr 1.25fr; gap: clamp(2rem,6vw,6rem); align-items: start; }
+  .detail-questions header>p:last-child { margin-top: 1.5rem; font-size: .92rem; }
+  .detail-questions>div { min-width: 0; }
+  .detail-section--booking { background: #eee4f0; }
+  .detail-booking { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem,6vw,6rem); align-items: center; }
+  .detail-actions { display: flex; align-items: center; gap: 1rem 1.6rem; flex-wrap: wrap; margin-top: 1.5rem; }
+  .detail-actions .btn { gap: .8rem; }
+  .service-editorial .detail-booking__address { font-size: .75rem; margin-top: 1rem; }
+  .detail-reading { display: grid; grid-template-columns: .7fr 1.3fr; gap: clamp(2rem,6vw,6rem); align-items: start; }
+  .detail-reading__list { min-width: 0; }
+  .detail-reading__list>a { display: grid; grid-template-columns: auto minmax(0,1fr) auto; gap: 1.2rem; padding-block: 1.5rem; border-top: 1px solid #dac9e2; color: #70428b; text-decoration: none; }
+  .detail-reading__list>a:last-child { border-bottom: 1px solid #dac9e2; }
+  .detail-reading__index { font: 500 1.1rem/1.5 var(--font-display); color: #a51e58; }
+  .detail-reading__list .detail-kicker { display: block; font-size: .65rem; margin-bottom: .5rem; }
+  .detail-reading__list h3 { font: 500 clamp(1.3rem,2vw,1.7rem)/1.2 var(--font-display); }
+  .detail-reading__list p { font-size: .83rem; margin-top: .7rem; }
+  .detail-reading__list a:hover h3 { color: #92557d; }
+  .detail-protocols { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2rem; }
+  .detail-protocols>a { display: block; padding-block: 1.5rem; border-top: 1px solid #cdb6d9; text-decoration: none; min-width: 0; }
+  .detail-protocols h3 { font: 500 clamp(1.5rem,2.5vw,2.2rem)/1.2 var(--font-display); }
+  .detail-protocols p { margin-top: 1rem; font-size: .92rem; max-width: 60ch; }
+  .detail-protocols .detail-link { margin-top: 1rem; }
+  .detail-related { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2rem 1.5rem; }
+  .detail-related>a { display: block; color: inherit; text-decoration: none; min-width: 0; }
+  .detail-related__photo { overflow: hidden; border-radius: 2rem .4rem 2rem .4rem; background: #e9dfec; }
+  .detail-related__photo img { width: 100%; height: auto; aspect-ratio: 16/10; object-fit: cover; display: block; transition: transform .45s ease; }
+  .detail-related a:hover img { transform: scale(1.025); }
+  .detail-related__copy { padding-block: 1.25rem; }
+  .detail-related__copy .detail-kicker { margin-bottom: .5rem; }
+  .detail-related__copy h3 { font: 500 clamp(1.45rem,2.7vw,2rem)/1.2 var(--font-display); display: flex; justify-content: space-between; gap: .75rem; }
+  .detail-related__copy>p:last-child { font-size: .88rem; margin-top: .8rem; max-width: 56ch; }
+  .detail-section--sources { padding-top: 0; }
+  .detail-sources { border-block: 1px solid #dfd0e6; padding-block: .7rem; }
+  .detail-sources summary { color: #70428b; display: flex; justify-content: space-between; align-items: center; min-height: 44px; gap: 1rem; cursor: pointer; font-size: .88rem; list-style: none; }
+  .detail-sources summary::-webkit-details-marker { display: none; }
+  .detail-sources[open] summary>span { transform: rotate(45deg); }
+  .detail-sources>p { font-size: .8rem; margin-block: .8rem; }
+  .detail-sources ul { list-style: none; display: flex; flex-wrap: wrap; gap: .5rem 2rem; padding: 0; margin: 0 0 .5rem; }
+  .detail-sources a { color: #70428b; font-size: .78rem; display: inline-flex; align-items: center; gap: .6rem; min-height: 44px; text-underline-offset: .3em; }
+  .service-editorial a:focus-visible,.detail-sources summary:focus-visible { outline: 3px solid #7047ff; outline-offset: 4px; }
+  @media(max-width:900px) { .detail-intro,.detail-heading-row,.detail-questions,.detail-booking,.detail-reading { grid-template-columns: 1fr; } .detail-intro__photo img { aspect-ratio: 16/10; max-height: 520px; } .detail-heading-row { gap: 1.5rem; } }
+  @media(max-width:600px) { .detail-related,.detail-protocols { grid-template-columns: 1fr; } .detail-navigation { width: 100%; padding-left: 1.2rem; } .detail-jumpnav { padding-right: 1.2rem; } .detail-related__copy h3 { font-size: 1.65rem; } .detail-reading__list>a { gap: .8rem; } .detail-actions { align-items: stretch; flex-direction: column; } .detail-actions .btn { justify-content: center; } }
+  @media(prefers-reduced-motion:reduce) { .detail-related__photo img { transition: none; } }
 </style>

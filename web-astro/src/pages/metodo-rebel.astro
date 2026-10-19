@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import StepStrip from "@/components/StepStrip.astro";
+import PageHero from "@/components/PageHero.astro";
 import InlineCta from "@/components/InlineCta.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
@@ -64,143 +64,562 @@ const priorities = [
 
 const siteAsset = (slot: string) => `/api/site-asset?slot=${encodeURIComponent(slot)}`;
 const worldMedia = {
-  glow: { src: siteAsset("journeys.glow.hero.desktop"), alt: "Viso di una cliente in luce naturale" },
-  longevity: { src: siteAsset("journeys.longevity.hero.desktop"), alt: "Cliente durante un trattamento viso" },
-  forma: { src: siteAsset("journeys.forma.hero.desktop"), alt: "Trattamento professionale dedicato al corpo" },
+  glow: { src: siteAsset("journeys.glow.hero.desktop"), alt: "Viso in luce naturale, immagine del percorso Glow" },
+  longevity: { src: siteAsset("journeys.longevity.hero.desktop"), alt: "Immagine del percorso viso Longevity" },
+  forma: { src: siteAsset("journeys.forma.hero.desktop"), alt: "Immagine del percorso corpo Forma" },
   liberta: { src: siteAsset("journeys.liberta.hero.desktop"), alt: "Professionista durante una seduta di epilazione laser" },
 } as const;
 const journeys = rebelWorlds.map((world) => ({ ...world, ...worldMedia[world.id], paths: getJourneysByWorld(world.id) }));
 ---
-<BaseLayout meta={meta} bodyClass="page-rebrand page-metodo-rebel">
+<BaseLayout meta={meta} bodyClass="rebel-rebrand rebel-shell page-metodo-rebel">
   <JsonLd data={breadcrumb} />
   <JsonLd data={webPage} />
   <JsonLd data={service} />
   <JsonLd data={article} />
 
-  <section class="rb-hero rb-hero--method">
-    <div class="rb-hero__media">
-      <img src={media.method.hero.src} alt={media.method.hero.alt} />
-    </div>
-    <div class="rb-hero__veil"></div>
-    <div class="container rb-hero__content">
-      <p class="rb-kicker">Metodo Rebel · Carmagnola</p>
-      <h1>Come scegliamo i trattamenti <em>per viso e corpo.</em></h1>
-      <p class="rb-lead">
-        Durante la valutazione parliamo di ciò che vuoi migliorare, osserviamo la pelle o il corpo e definiamo trattamenti, prodotti, tecnologie, frequenza e controlli.
-      </p>
-      <div class="cluster cluster--stack-mobile">
-        <a class="btn btn--primary" href="/contatti">Prenota la valutazione</a>
-        <a class="btn btn--secondary" href="/percorsi">Vedi i nove percorsi</a>
-      </div>
-      <p class="rb-signature">Be Beautiful. Be Rebel.</p>
-    </div>
-  </section>
+  <PageHero
+    image={{ ...media.method.hero, srcMobile: siteAsset("home.hero.method.mobile"), width:1536, height:1024 }}
+    imageCaption="L’ascolto e la valutazione. · Scena illustrativa"
+    imagePosition="65% 50%"
+    kicker="Il Metodo REBEL · Carmagnola"
+    title="La cura prende _la tua direzione._"
+    lead="Ascoltiamo ciò che desideri, osserviamo pelle e corpo e scegliamo insieme trattamenti, prodotti e tecnologie. Con un obiettivo e un calendario chiari."
+    meta={["Valutazione REBEL · 30–40 minuti", "Be Beautiful. Be Rebel."]}
+    ctaPrimary={{ label:"Prenota la valutazione", href:"/contatti" }}
+    ctaSecondary={{ label:"Conosci il metodo", href:"#come-funziona" }}
+  />
 
-  <section class="rb-section rb-section--ivory" id="mappa-rebel-live">
-    <div class="container">
-      <div class="rb-section-head">
-        <p class="rb-kicker">Mappa REBEL</p>
-        <h2>Confronta i nove percorsi REBEL.</h2>
-      </div>
+  <div class="method-editorial">
+    <nav class="method-nav method-shell" aria-label="Esplora il Metodo REBEL"><a href="#come-funziona"><span>01 / La valutazione</span>Come comincia <span aria-hidden="true">↓</span></a><a href="#method-fasi"><span>02 / Il metodo</span>Le sei fasi <span aria-hidden="true">↓</span></a><a href="#mappa-rebel-live"><span>03 / La tua scelta</span>Esplora i percorsi <span aria-hidden="true">↓</span></a></nav>
+
+    <section class="method-section method-section--white" id="come-funziona" aria-labelledby="method-assessment-title"><div class="method-shell method-split">
+      <figure class="method-photo method-photo--portrait"><img src={siteAsset("services.method.consultation.mobile")} alt="Professionista e cliente consultano una scheda durante la valutazione" width="1122" height="1402" loading="lazy" decoding="async" /><figcaption>L’obiettivo si sceglie insieme. · Scena illustrativa</figcaption></figure>
+      <div class="method-copy"><p class="method-kicker">Il primo incontro</p><h2 id="method-assessment-title">Prima di un trattamento,<br /><em>una conversazione.</em></h2><p>Ci racconti che cosa vuoi migliorare. Osserviamo la pelle o il corpo e ti spieghiamo che cosa abbiamo rilevato.</p><p>Definiamo insieme l’obiettivo, i trattamenti consigliati e le eventuali tecnologie. Prima di iniziare conosci la frequenza degli appuntamenti e quando fare il primo controllo.</p><dl class="method-recap"><div><dt>Il tuo obiettivo</dt><dd>Da dove vuoi partire</dd></div><div><dt>Le nostre proposte</dt><dd>Trattamenti e tecnologie</dd></div><div><dt>Il calendario</dt><dd>Frequenza e primo controllo</dd></div></dl></div>
+    </div></section>
+
+    <section class="method-section" id="method-fasi" aria-labelledby="method-steps-title"><div class="method-shell">
+      <div class="method-heading"><div><p class="method-kicker">Come funziona</p><h2 id="method-steps-title">Un percorso.<br /><em>Sei momenti di cura.</em></h2></div><p>Dal colloquio iniziale al mantenimento, seguiamo il percorso e lo aggiorniamo quando serve.</p></div>
+      <ol class="method-steps">{methodSteps.map((step,index)=><li><span>{String(index+1).padStart(2,"0")}</span><p class="method-kicker">{step.step}</p><h3>{step.title}</h3><p>{step.text}</p></li>)}</ol>
+    </div></section>
+
+    <section class="method-section method-section--white" aria-labelledby="method-priorities-title"><div class="method-shell method-split method-split--priorities">
+      <div class="method-copy"><p class="method-kicker">Cosa osserviamo</p><h2 id="method-priorities-title">La tua pelle<br /><em>racconta.</em></h2><p>La valutazione parte da ciò che osserviamo e dalle tue esigenze. Queste sono alcune delle ragioni per cui puoi rivolgerti a REBEL.</p><ol class="method-priorities">{priorities.map((priority,index)=><li><span>{String(index+1).padStart(2,"0")}</span><strong>{priority}</strong></li>)}</ol></div>
+      <figure class="method-photo method-photo--skin"><img src={siteAsset("services.face.skinTexture.mobile")} alt="La grana naturale della pelle, osservata da vicino" width="1122" height="1402" loading="lazy" decoding="async" /><figcaption>Ogni pelle ha caratteristiche proprie. · Immagine illustrativa</figcaption></figure>
+    </div></section>
+
+    <section class="method-section" aria-labelledby="method-worlds-title"><div class="method-shell">
+      <div class="method-heading"><div><p class="method-kicker">I mondi REBEL</p><h2 id="method-worlds-title">Da un desiderio<br /><em>al tuo percorso.</em></h2></div><p>Nove percorsi per il viso, il corpo e l’epilazione progressiva. Scegli il mondo da cui vuoi cominciare.</p></div>
+      <div class="method-worlds">{journeys.map(journey=><a href={journey.href}><figure><img src={journey.src} alt={journey.alt} width="1536" height="1024" loading="lazy" decoding="async" /><span aria-hidden="true">↗</span></figure><div><p class="method-kicker">{journey.eyebrow}</p><h3>{journey.name}</h3><p>{journey.summary}</p><small>{journey.paths.map(path=>path.slug==="white"?"Uniformare":path.name).join(" · ")}</small></div></a>)}</div>
+      <p class="method-image-note">Immagini illustrative del mondo dei percorsi REBEL.</p>
+    </div></section>
+
+    <section class="method-section method-section--white" id="mappa-rebel-live" aria-labelledby="method-map-title"><div class="method-shell">
+      <div class="method-heading"><div><p class="method-kicker">La Mappa REBEL</p><h2 id="method-map-title">Trova la tua<br /><em>direzione.</em></h2></div><p>Filtra per area, apri le schede e confronta ingredienti, tecnologie e prezzo di partenza dei nove percorsi.</p></div>
       <RebelMap client:visible />
-    </div>
-  </section>
+    </div></section>
 
-  <section class="rb-section rb-section--ivory">
-    <div class="container rb-intro-grid rb-intro-grid--visual">
-      <div>
-        <p class="rb-kicker">Dopo la valutazione</p>
-        <h2>Obiettivo, trattamenti e calendario in un unico riepilogo.</h2>
-      </div>
-      <div class="rb-copy">
-        <p>Prima di iniziare ti spieghiamo che cosa abbiamo osservato e definiamo insieme l’obiettivo del percorso.</p>
-        <p>Ti indichiamo i trattamenti consigliati, le eventuali tecnologie, la frequenza iniziale e quando fare il primo controllo.</p>
-      </div>
-      <figure class="rb-editorial-media rb-editorial-media--wide">
-        <img src={siteAsset("services.method.consultation.mobile")} alt="Cliente e professionista consultano la scheda della valutazione REBEL" width="1122" height="1402" loading="lazy" decoding="async" />
-        <figcaption>Obiettivo, trattamenti, frequenza e controlli spiegati prima di iniziare.</figcaption>
-      </figure>
-    </div>
-  </section>
+    <section class="method-section" aria-labelledby="method-treatments-title"><div class="method-shell method-split">
+      <figure class="method-photo method-photo--still"><img src={siteAsset("services.face.activesTopshot.mobile")} alt="Texture cosmetiche e strumenti su un piano di lavoro" width="1122" height="1402" loading="lazy" decoding="async" /><figcaption>Attivi, manualità e tecnologie. · Composizione illustrativa</figcaption></figure>
+      <div class="method-copy"><p class="method-kicker">Trattamenti e tecnologie</p><h2 id="method-treatments-title">Ogni scelta<br /><em>ha una ragione.</em></h2><p>Per ogni percorso ti spieghiamo che cosa utilizziamo, perché e con quale frequenza programmare gli appuntamenti.</p><p>Ai controlli osserviamo i cambiamenti rispetto all’obiettivo iniziale e aggiorniamo il programma quando necessario.</p><a class="method-link" href="/tecnologie-rebel">Conosci le tecnologie REBEL <span aria-hidden="true">↗</span></a><a class="method-link" href="/servizi">Esplora servizi e trattamenti <span aria-hidden="true">↗</span></a></div>
+    </div></section>
 
-  <section class="rb-section rb-section--plum">
-    <div class="container">
-      <div class="rb-section-head">
-        <p class="rb-kicker">Come funziona</p>
-        <h2>Dal colloquio iniziale al mantenimento, in sei fasi.</h2>
-      </div>
-      <StepStrip items={methodSteps} />
-    </div>
-  </section>
-
-  <section class="rb-section rb-section--ivory">
-    <div class="container">
-      <div class="rb-section-head">
-        <p class="rb-kicker">Cosa valutiamo</p>
-        <h2>Le principali esigenze su cui possiamo lavorare, sul viso e sul corpo.</h2>
-      </div>
-      <figure class="rb-editorial-media rb-editorial-media--skin">
-        <img src={siteAsset("services.face.skinTexture.mobile")} alt="Dettaglio ravvicinato della grana naturale della pelle" width="1122" height="1402" loading="lazy" decoding="async" />
-        <figcaption>La valutazione parte da ciò che osserviamo, non da un trattamento scelto in anticipo.</figcaption>
-      </figure>
-      <ol class="rb-priority-grid">
-        {priorities.map((priority, index) => (
-          <li><span>{String(index + 1).padStart(2, "0")}</span><strong>{priority}</strong></li>
-        ))}
-      </ol>
-    </div>
-  </section>
-
-  <section class="rb-section rb-section--spectrum">
-    <div class="container">
-      <div class="rb-section-head">
-        <p class="rb-kicker">I percorsi Rebel</p>
-        <h2>Nove percorsi per il viso, il corpo e l’epilazione progressiva.</h2>
-      </div>
-      <div class="rb-journey-grid">
-        {journeys.map((journey) => (
-          <a class="rb-journey-card" href={journey.href}>
-            <figure><img src={journey.src} alt={journey.alt} width="1536" height="1024" loading="lazy" decoding="async" /></figure>
-            <p class="rb-kicker">{journey.eyebrow}</p>
-            <h3>{journey.name}</h3>
-            <p>{journey.summary}</p>
-            <p>{journey.paths.map((path) => path.slug === "white" ? "Uniformare" : path.name).join(" · ")}</p>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="rb-section rb-section--ivory">
-    <div class="container rb-intro-grid rb-intro-grid--visual">
-      <div>
-        <p class="rb-kicker">Trattamenti e tecnologie</p>
-        <h2>Scegliamo ciò che serve in base alla zona e al risultato desiderato.</h2>
-      </div>
-      <div class="rb-copy">
-        <p>Per ogni percorso ti spieghiamo che cosa utilizziamo, perché e con quale frequenza programmare gli appuntamenti.</p>
-        <p>Ai controlli osserviamo i cambiamenti rispetto all’obiettivo iniziale e aggiorniamo il programma quando necessario.</p>
-      </div>
-      <figure class="rb-editorial-media rb-editorial-media--wide">
-        <img src={siteAsset("services.face.activesTopshot.mobile")} alt="Prodotti e strumenti preparati per un trattamento viso" width="1122" height="1402" loading="lazy" decoding="async" />
-        <figcaption>Prodotti, manualità e tecnologie vengono scelti e spiegati prima di iniziare.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="rb-section rb-section--closing">
-    <div class="container">
-      <InlineCta
-        kicker="Valutazione REBEL · 30–40 minuti"
-        title="Raccontaci che cosa vuoi _migliorare_."
-        lead="In 30–40 minuti definiamo quale percorso può essere più adatto, quanto tempo richiede e quanto costa. Se scegli di iniziare il Percorso REBEL, la valutazione iniziale è gratuita."
-        primaryHref="/contatti"
-        primaryLabel="Prenota la valutazione"
-        secondaryHref="/percorsi"
-        secondaryLabel="Vedi i nove percorsi"
-      />
-    </div>
-  </section>
-
-  <StickyBookingBar primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
+    <section class="method-section method-section--white"><div class="method-shell"><InlineCta kicker="Valutazione REBEL · 30–40 minuti" title="Il prossimo gesto di cura?<br />_Comincia da te._" lead="In 30–40 minuti definiamo quale percorso può essere più adatto, quanto tempo richiede e quanto costa. Se scegli di iniziare il Percorso REBEL, la valutazione iniziale è gratuita." primaryHref="/contatti" primaryLabel="Prenota la valutazione" secondaryHref="/percorsi" secondaryLabel="Vedi i nove percorsi" /></div></section>
+  </div>
+  <StickyBookingBar primary={{ label:"Prenota la valutazione", href:"/contatti" }} />
 </BaseLayout>
+
+<style>
+  .method-editorial {
+    --method-ink: #2b1833;
+    --method-muted: #67566d;
+    --method-line: #e5d9e2;
+    background: #fffdf9;
+    color: var(--method-ink);
+    color-scheme: light;
+    font-family: var(--font-body);
+  }
+  .method-editorial :is(h2, h3, p, figure, dl, dd, ol) {
+    margin: 0;
+  }
+  .method-editorial :is(h2, h3) {
+    color: var(--method-ink);
+    font-family: var(--font-body);
+    font-weight: 600;
+    letter-spacing: -0.05em;
+    text-wrap: balance;
+  }
+  .method-editorial h2 {
+    font-size: clamp(2.2rem, 4.4vw, 4.8rem);
+    line-height: 1.13;
+  }
+  .method-editorial h2 em {
+    color: #7d3985;
+    font-family: var(--font-display);
+    font-weight: 400;
+  }
+  .method-editorial p {
+    color: var(--method-muted);
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+  .method-editorial a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .method-editorial a:focus-visible {
+    outline: 3px solid #8941b0;
+    outline-offset: 5px;
+    border-radius: 4px;
+  }
+  .method-shell {
+    width: min(1320px, calc(100% - 4rem));
+    margin-inline: auto;
+    min-width: 0;
+  }
+  .method-section {
+    padding-block: clamp(4.5rem, 8vw, 8rem);
+    scroll-margin-top: 6rem;
+  }
+  .method-section--white {
+    background: #fff;
+  }
+  .method-editorial .method-kicker {
+    color: #a72c68;
+    font-size: 0.65rem;
+    line-height: 1.6;
+    font-weight: 750;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 1rem;
+  }
+  .method-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 2.5rem;
+    margin-bottom: 2.8rem;
+  }
+  .method-heading > p {
+    max-width: 28rem;
+  }
+  .method-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: clamp(2rem, 5vw, 6rem);
+    align-items: center;
+  }
+  .method-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1.4rem;
+    min-width: 0;
+  }
+  .method-copy .method-kicker {
+    margin-bottom: 0;
+  }
+  .method-photo {
+    min-width: 0;
+  }
+  .method-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 3rem 0.3rem 0.3rem 0.3rem;
+    aspect-ratio: 4/5;
+  }
+  .method-photo--skin img {
+    border-radius: 0.3rem 3rem 0.3rem 0.3rem;
+    object-position: 53% 50%;
+  }
+  .method-photo--still img {
+    aspect-ratio: 1;
+    object-position: center 52%;
+  }
+  .method-photo figcaption {
+    font-size: 0.63rem;
+    line-height: 1.7;
+    color: #89768d;
+    margin-top: 0.8rem;
+  }
+  .method-recap {
+    width: 100%;
+    margin-top: 0.3rem !important;
+  }
+  .method-recap > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.2rem;
+    padding: 1rem 0;
+    border-top: 1px solid var(--method-line);
+    font-size: 0.8rem;
+    line-height: 1.6;
+  }
+  .method-recap dt {
+    color: #8a748d;
+  }
+  .method-recap dd {
+    font-weight: 650;
+    text-align: right;
+  }
+  .method-editorial .method-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    min-height: 44px;
+    color: #71367a;
+    font-size: 0.83rem;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: #71367a45;
+    text-underline-offset: 0.35em;
+  }
+  .method-link:hover {
+    text-decoration-color: currentColor;
+  }
+  .method-nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+    padding-block: 1.8rem 2rem;
+  }
+  .method-nav a {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 0.7rem;
+    min-height: 62px;
+    padding-block: 0.5rem;
+    border-bottom: 1px solid var(--method-line);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    font-weight: 650;
+  }
+  .method-nav a > span:first-child {
+    grid-column: 1/-1;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    color: #8a748d;
+  }
+  .method-nav a > span:last-child {
+    font-size: 1.15rem;
+    color: #7d3985;
+  }
+  .method-nav a:hover {
+    border-color: #7d3985;
+  }
+  .method-steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem 2.5rem;
+    list-style: none;
+    padding: 0;
+  }
+  .method-steps li {
+    padding: 2rem 0;
+    border-top: 1px solid var(--method-line);
+    min-width: 0;
+  }
+  .method-steps li > span {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 3.8rem;
+    line-height: 1.1;
+    color: #b78eba;
+    margin-bottom: 1.7rem;
+  }
+  .method-steps li > .method-kicker {
+    font-size: 0.55rem;
+    margin-bottom: 0.8rem;
+  }
+  .method-steps h3 {
+    font-size: 1.4rem;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+  .method-steps li > p:last-child {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    max-width: 26rem;
+  }
+  .method-priorities {
+    padding: 0;
+    list-style: none;
+    width: 100%;
+  }
+  .method-priorities li {
+    display: grid;
+    grid-template-columns: 1.6rem minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--method-line);
+    font-size: 0.86rem;
+    line-height: 1.7;
+  }
+  .method-priorities li > span {
+    color: #b98baf;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+  }
+  .method-priorities strong {
+    font-weight: 500;
+    color: var(--method-ink);
+  }
+  .method-worlds {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3rem 2rem;
+  }
+  .method-worlds > a {
+    min-width: 0;
+  }
+  .method-worlds figure {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2.5rem 0.3rem 0.3rem 0.3rem;
+  }
+  .method-worlds figure > img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/2;
+    object-fit: cover;
+    transition: transform 0.5s;
+  }
+  .method-worlds figure > span {
+    position: absolute;
+    right: 1.2rem;
+    bottom: 1.2rem;
+    width: 44px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #fffdf9e8;
+    color: #71367a;
+    font-size: 1.3rem;
+  }
+  .method-worlds a:hover img {
+    transform: scale(1.025);
+  }
+  .method-worlds a > div {
+    padding-top: 1.5rem;
+  }
+  .method-worlds .method-kicker {
+    margin-bottom: 0.55rem;
+  }
+  .method-worlds h3 {
+    font-size: clamp(2rem, 3.8vw, 3.6rem);
+    line-height: 1.1;
+    margin-bottom: 0.7rem;
+  }
+  .method-worlds a > div > p:not(.method-kicker) {
+    font-size: 0.9rem;
+    max-width: 32rem;
+  }
+  .method-worlds small {
+    display: block;
+    margin-top: 1rem;
+    color: #9b809f;
+    font-size: 0.67rem;
+    line-height: 1.7;
+  }
+  .method-editorial .method-image-note {
+    font-size: 0.65rem;
+    margin-top: 2rem;
+    color: #9b809f;
+  }
+  @media (max-width: 1000px) {
+    .method-heading > p {
+      max-width: 22rem;
+    }
+    .method-steps {
+      gap: 1rem 1.5rem;
+    }
+    .method-steps h3 {
+      font-size: 1.2rem;
+    }
+    .method-split {
+      gap: 2.5rem;
+    }
+  }
+  @media (max-width: 760px) {
+    .method-shell {
+      width: calc(100% - 2.5rem);
+    }
+    .method-section {
+      padding-block: 4rem;
+    }
+    .method-editorial h2 {
+      font-size: clamp(2.05rem, 7.6vw, 3.5rem);
+    }
+    .method-heading {
+      display: block;
+      margin-bottom: 2rem;
+    }
+    .method-heading > p {
+      max-width: 34rem;
+      margin-top: 1.3rem;
+    }
+    .method-split {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .method-photo--portrait {
+      order: 2;
+    }
+    .method-photo img {
+      aspect-ratio: 4/3;
+    }
+    .method-photo--skin img {
+      aspect-ratio: 1;
+      object-position: center 42%;
+    }
+    .method-photo--still img {
+      aspect-ratio: 4/3;
+    }
+    .method-nav {
+      gap: 1rem;
+      padding-block: 1.25rem 1.5rem;
+    }
+    .method-nav a {
+      font-size: 0.72rem;
+    }
+    .method-nav a > span:first-child {
+      font-size: 0.52rem;
+      letter-spacing: 0.01em;
+    }
+    .method-steps {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 1.5rem;
+    }
+    .method-steps li {
+      padding-block: 1.5rem;
+    }
+    .method-steps li > span {
+      font-size: 2.8rem;
+      margin-bottom: 1.2rem;
+    }
+    .method-steps li > p:last-child {
+      font-size: 0.83rem;
+    }
+    .method-worlds {
+      gap: 2.2rem 1.2rem;
+    }
+    .method-worlds figure {
+      border-top-left-radius: 1.8rem;
+    }
+    .method-worlds figure > img {
+      aspect-ratio: 4/5;
+    }
+    .method-worlds a > div {
+      padding-top: 1.1rem;
+    }
+    .method-worlds h3 {
+      font-size: 1.8rem;
+    }
+    .method-worlds a > div > p:not(.method-kicker) {
+      font-size: 0.8rem;
+    }
+    .method-worlds .method-kicker {
+      font-size: 0.51rem;
+    }
+    .method-worlds small {
+      font-size: 0.57rem;
+    }
+    .method-worlds figure > span {
+      right: 0.7rem;
+      bottom: 0.7rem;
+      width: 36px;
+      font-size: 1rem;
+    }
+  }
+  @media (max-width: 440px) {
+    .method-shell {
+      width: calc(100% - 2rem);
+    }
+    .method-nav {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .method-nav a {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+      font-size: 0.76rem;
+      gap: 0.7rem;
+      min-height: 52px;
+    }
+    .method-nav a > span:first-child {
+      grid-column: auto;
+      font-size: 0.54rem;
+      line-height: 1.6;
+    }
+    .method-photo img {
+      border-top-left-radius: 2rem;
+    }
+    .method-photo--skin img {
+      border-top-right-radius: 2rem;
+    }
+    .method-steps {
+      grid-template-columns: 1fr;
+    }
+    .method-steps li {
+      position: relative;
+      padding: 1.5rem 0 1.5rem 3.8rem;
+    }
+    .method-steps li > span {
+      position: absolute;
+      left: 0;
+      top: 1.4rem;
+      font-size: 2.5rem;
+    }
+    .method-steps li > .method-kicker {
+      font-size: 0.55rem;
+      margin-bottom: 0.5rem;
+    }
+    .method-steps h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.6rem;
+    }
+    .method-steps li > p:last-child {
+      font-size: 0.86rem;
+      max-width: none;
+    }
+    .method-recap > div {
+      font-size: 0.76rem;
+    }
+    .method-priorities li {
+      font-size: 0.8rem;
+      gap: 0.5rem;
+    }
+    .method-worlds {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .method-worlds figure > img {
+      aspect-ratio: 3/2;
+    }
+    .method-worlds h3 {
+      font-size: 2.3rem;
+    }
+    .method-worlds a > div > p:not(.method-kicker) {
+      font-size: 0.9rem;
+    }
+    .method-worlds .method-kicker {
+      font-size: 0.6rem;
+    }
+    .method-worlds small {
+      font-size: 0.65rem;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .method-worlds figure > img {
+      transition: none;
+    }
+    .method-worlds a:hover img {
+      transform: none;
+    }
+  }
+</style>

@@ -10,6 +10,7 @@ interface Props {
   media?: ImageAsset;
   mediaSide?: "start" | "end";
   mediaCaption?: string;
+  sequence?: number;
 }
 const {
   id,
@@ -19,6 +20,7 @@ const {
   media,
   mediaSide = "end",
   mediaCaption,
+  sequence,
 } = Astro.props;
 const HeadingTag = level === 2 ? "h2" : "h3";
 const clearHeading = clarifyCopy(heading);
@@ -30,6 +32,7 @@ const clearMediaCaption = mediaCaption ? clarifyCopy(mediaCaption) : undefined;
   id={id}
 >
   <div class="editorial-block__copy">
+    {sequence !== undefined && <span class="editorial-block__sequence" aria-hidden="true">{String(sequence).padStart(2, "0")}</span>}
     <HeadingTag class="editorial-block__heading">{clearHeading}</HeadingTag>
     {clearParagraphs.map((p) => (
       <p class="editorial-block__p">{p}</p>
@@ -54,33 +57,35 @@ const clearMediaCaption = mediaCaption ? clarifyCopy(mediaCaption) : undefined;
 </div>
 
 <style>
-  .editorial-block { margin-top: 1.4rem; }
+  .editorial-block { margin-top: 1.4rem; min-width: 0; }
   .editorial-block:first-child { margin-top: 0; }
+  .editorial-block__copy { min-width: 0; }
+  .editorial-block__sequence { display: block; color: #a32f68; font: 600 .75rem/1.5 var(--font-body); letter-spacing: .14em; margin-bottom: 1rem; }
   .editorial-block__heading {
     font-family: var(--font-display);
-    font-size: clamp(1.25rem, 2vw, 1.55rem);
+    font-size: clamp(1.65rem, 2.8vw, 2.65rem);
     letter-spacing: var(--tracking-section);
     color: var(--text-strong);
-    margin: 0 0 0.7rem;
+    margin: 0 0 1.2rem;
     line-height: 1.18;
   }
   .editorial-block__p {
     font-size: var(--t-body);
     line-height: var(--leading-body);
-    color: var(--text);
+    color: var(--text-muted);
     margin: 0 0 0.85rem;
     max-width: 70ch;
   }
   .editorial-block__p:last-child { margin-bottom: 0; }
   .editorial-block--with-media {
     display: grid;
-    grid-template-columns: minmax(0, 1.08fr) minmax(220px, 0.92fr);
-    gap: clamp(1.25rem, 3vw, 2.6rem);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 5vw, 5.5rem);
     align-items: center;
     max-width: none;
   }
   .editorial-block--media-start {
-    grid-template-columns: minmax(220px, 0.92fr) minmax(0, 1.08fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
   .editorial-block--media-start .editorial-block__copy { order: 2; }
   .editorial-block__media {
@@ -95,12 +100,12 @@ const clearMediaCaption = mediaCaption ? clarifyCopy(mediaCaption) : undefined;
     aspect-ratio: var(--editorial-media-ratio, 4 / 5);
     overflow: hidden;
     border: 1px solid var(--line);
-    border-radius: 32px 8px 32px 8px;
-    background: rgba(20, 16, 42, 0.12);
-    box-shadow: var(--shadow-md);
+    border-radius: 44px 8px 44px 8px;
+    background: #eee4ed;
+    box-shadow: 0 20px 56px #301b3e0a;
   }
   .editorial-block--media-start .editorial-block__media picture {
-    border-radius: 8px 32px 8px 32px;
+    border-radius: 8px 44px 8px 44px;
   }
   .editorial-block__media img {
     position: absolute;
@@ -118,6 +123,7 @@ const clearMediaCaption = mediaCaption ? clarifyCopy(mediaCaption) : undefined;
   .scene-ivory .editorial-block__heading { color: var(--on-light); }
   .scene-ivory .editorial-block__p { color: rgba(20, 16, 42, 0.78); }
   .scene-ivory .editorial-block__media figcaption { color: var(--on-light-faint); }
+  .editorial-block:not(.editorial-block--with-media) { max-width: 78ch; padding-left: clamp(1.25rem,3vw,2.4rem); border-left: 1px solid #d9c7e2; }
   @media (max-width: 760px) {
     .editorial-block--with-media,
     .editorial-block--media-start {

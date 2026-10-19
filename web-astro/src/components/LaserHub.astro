@@ -1,0 +1,895 @@
+---
+import { laserOffer } from "@/lib/laser-offer";
+
+interface Props { variant?: "journey" | "ice"; }
+const { variant = "journey" } = Astro.props;
+const isGuide = variant === "ice";
+const guides = [
+  { href: "/competenze/epilazione-laser-ascelle-carmagnola", title: "Ascelle", copy: "Prezzo, sensazioni e intervalli.", number: "01" },
+  { href: "/competenze/epilazione-laser-inguine-carmagnola", title: "Inguine", copy: "Aree, preparazione e cura dopo la seduta.", number: "02" },
+  { href: "/competenze/laser-gambe-carmagnola", title: "Gambe", copy: "Zone complete o parziali, tempi e mantenimento.", number: "03" },
+  { href: "/competenze/epilazione-laser-estate-sole-carmagnola", title: "Laser e sole", copy: "Esposizione e precauzioni prima e dopo.", number: "04" },
+  { href: "/competenze/epilazione-laser-inverno-carmagnola", title: "Iniziare in inverno", copy: "Organizzare le sedute nei mesi meno esposti.", number: "05" },
+  { href: "/competenze/laser-e-palestra-sport-carmagnola", title: "Sport e palestra", copy: "Doccia, sudore e attività dopo il trattamento.", number: "06" },
+];
+const zones = [
+  { title: "Viso", copy: "Le zone del viso, con una valutazione dedicata a pelle e pelo.", links: [{ href: "/servizi/epilazione-laser-viso-carmagnola", label: "Viso donna" }, { href: "/servizi/epilazione-laser-viso-uomo-carmagnola", label: "Viso uomo" }] },
+  { title: "Corpo", copy: "Ascelle, inguine, gambe e altre zone: scegli da dove iniziare.", links: [{ href: "/servizi/epilazione-laser-corpo-carmagnola", label: "Corpo donna" }, { href: "/servizi/epilazione-laser-corpo-uomo-carmagnola", label: "Corpo uomo" }] },
+];
+---
+<div class:list={["laser-editorial", { "laser-editorial--guide": isGuide }]}>
+  {isGuide ? (
+    <>
+      <nav class="laser-nav laser-shell" aria-label="In questa guida"><a href="#ice-contatto"><span>01 / La tecnologia</span>Il contatto <span aria-hidden="true">↓</span></a><a href="#ice-sensazioni"><span>02 / Durante la seduta</span>Le sensazioni <span aria-hidden="true">↓</span></a><a href="#ice-valutazione"><span>03 / Il tuo caso</span>La valutazione <span aria-hidden="true">↓</span></a></nav>
+
+      <section class="laser-section laser-section--white" id="ice-contatto" aria-labelledby="ice-contact-title"><div class="laser-shell laser-split laser-split--image-first">
+        <figure class="laser-photo laser-photo--portrait"><picture><source media="(max-width:760px)" srcset="/img/rebel-r2/rebel/services/laser/handpiece-mobile.webp" /><img src="/img/rebel-r2/rebel/services/laser/handpiece-desktop.webp" width="1536" height="1024" alt="Dettaglio del manipolo laser a contatto con la pelle" loading="lazy" decoding="async" /></picture><figcaption>Il contatto del manipolo. · Scena illustrativa</figcaption></figure>
+        <div class="laser-copy"><p class="laser-kicker">ICE Polar, da vicino</p><h2 id="ice-contact-title">Il comfort comincia<br />dal <em>contatto.</em></h2><p>ICE Polar è il raffreddamento a contatto utilizzato con Lumina X1 Pro di THORY. Il sistema Ice Point Cooling raffredda la pelle attraverso la superficie in zaffiro del manipolo.</p><p>Il raffreddamento accompagna la seduta laser. Pelle, pelo e zona vengono valutati prima di scegliere come impostare il trattamento.</p><dl class="laser-specs"><div><dt>Il sistema</dt><dd>Ice Point Cooling</dd></div><div><dt>La superficie</dt><dd>Contatto in zaffiro</dd></div><div><dt>Il momento</dt><dd>Durante la seduta</dd></div></dl></div>
+      </div></section>
+
+      <section class="laser-section" id="ice-sensazioni" aria-labelledby="ice-feeling-title"><div class="laser-shell">
+        <div class="laser-heading"><div><p class="laser-kicker">Le sensazioni</p><h2 id="ice-feeling-title">Il tuo feedback<br /><em>conta.</em></h2></div><p>La percezione cambia da persona a persona e tra zone diverse. Ti chiediamo come la senti durante la seduta.</p></div>
+        <div class="laser-comfort"><figure class="laser-photo"><img src="/img/rebel-r2/rebel/home/hero/laser-icepolar-desktop.webp" width="1536" height="1024" alt="Cliente con occhiali protettivi durante una seduta laser sulla gamba" loading="lazy" decoding="async" /><figcaption>Una seduta laser, illustrata.</figcaption></figure><div class="laser-comfort__copy"><span class="laser-quote" aria-hidden="true">“</span><h3>Come lo senti<br /><em>su questa zona?</em></h3><p>Partiamo dai parametri definiti dopo la valutazione. Durante il trattamento verifichiamo la sensazione e li adattiamo quando necessario.</p><a class="laser-link" href="#laser-faq">Leggi le domande su ICE Polar <span aria-hidden="true">↓</span></a></div></div>
+      </div></section>
+
+      <section class="laser-section laser-section--white" id="ice-valutazione" aria-labelledby="ice-assessment-title"><div class="laser-shell laser-split">
+        <div class="laser-copy"><p class="laser-kicker">Prima di iniziare · 30–40 minuti</p><h2 id="ice-assessment-title">Una tecnologia.<br /><em>Il tuo percorso.</em></h2><p>Osserviamo pelle, caratteristiche del pelo e zona. Ti spieghiamo come si svolge il trattamento e definiamo parametri, frequenza e prezzo.</p><p>Durante gli appuntamenti controlliamo la pelle e la ricrescita e aggiorniamo il calendario quando serve. Se scegli di iniziare il Percorso REBEL, la valutazione iniziale è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi.</p><a class="laser-button" href="/contatti">Parliamone in studio <span aria-hidden="true">↗</span></a></div>
+        <figure class="laser-photo laser-photo--studio"><img src="/img/studio-treatwell/15432121.jpg" width="1080" height="720" alt="La cabina REBEL di Carmagnola con il lettino e la tecnologia THORY" loading="lazy" decoding="async" /><figcaption>La cabina REBEL · Viale Barbaroux 20, Carmagnola</figcaption></figure>
+      </div></section>
+
+      <section class="laser-section laser-section--compact" aria-labelledby="ice-next-title"><div class="laser-shell laser-next"><div><p class="laser-kicker">Continua a esplorare</p><h2 id="ice-next-title">Zone, prezzi<br /><em>e prossimo passo.</em></h2><p>Per scegliere una zona o conoscere il percorso completo, parti dalla pagina dedicata all’epilazione laser.</p></div><nav aria-label="Approfondisci il percorso laser"><a href="/epilazione-laser-carmagnola"><span>Il percorso REBEL</span>Scopri l’epilazione laser <span aria-hidden="true">↗</span></a><a href="/listino-estetica-laser#laser"><span>Prezzi ordinari</span>Consulta il listino per zona <span aria-hidden="true">↗</span></a><a href={laserOffer.landingPath}><span>Promozione attiva</span>Zone e condizioni della promo <span aria-hidden="true">↗</span></a><a href="/competenze/laser-uomo-carmagnola"><span>La guida</span>Laser uomo <span aria-hidden="true">↗</span></a></nav></div></section>
+    </>
+  ) : (
+    <>
+      <nav class="laser-nav laser-shell" aria-label="Esplora l’epilazione laser"><a href="#laser-metodo"><span>01 / Il tuo percorso</span>Come comincia <span aria-hidden="true">↓</span></a><a href="#laser-zone"><span>02 / Viso e corpo</span>Scegli la zona <span aria-hidden="true">↓</span></a><a href="#promo-laser"><span>03 / La promozione</span>Scopri l’offerta <span aria-hidden="true">↓</span></a></nav>
+
+      <section class="laser-section laser-section--white" id="laser-metodo" aria-labelledby="laser-method-title"><div class="laser-shell laser-split laser-split--image-first">
+        <figure class="laser-photo laser-photo--portrait"><picture><source media="(max-width:760px)" srcset="/img/rebel-r2/rebel/services/laser/handpiece-mobile.webp" /><img src="/img/rebel-r2/rebel/services/laser/handpiece-desktop.webp" width="1536" height="1024" alt="Manipolo laser durante un passaggio sulla gamba" loading="lazy" decoding="async" /></picture><figcaption>Il trattamento, da vicino. · Scena illustrativa</figcaption></figure>
+        <div class="laser-copy"><p class="laser-kicker">Lumina X1 Pro di THORY</p><h2 id="laser-method-title">Tecnologia e cura.<br /><em>In ogni passaggio.</em></h2><p>Quattro lunghezze d’onda — 755, 808, 940 e 1064 nm — nello stesso sistema. Pelle, pelo e zona guidano la scelta dei parametri.</p><p>ICE Polar raffredda la pelle a contatto attraverso la superficie in zaffiro del manipolo. Durante la seduta verifichiamo la sensazione e adattiamo i parametri quando serve.</p><a class="laser-link" href="/epilazione-laser-ice-polar-carmagnola">Conosci il comfort ICE Polar <span aria-hidden="true">↗</span></a></div>
+      </div></section>
+
+      <section class="laser-section" aria-labelledby="laser-steps-title"><div class="laser-shell">
+        <div class="laser-heading"><div><p class="laser-kicker">Il metodo REBEL</p><h2 id="laser-steps-title">Si parte <em>da te.</em></h2></div><p>Ogni zona ha la sua ricrescita. Definiamo il percorso e lo seguiamo appuntamento dopo appuntamento.</p></div>
+        <ol class="laser-steps"><li><span class="laser-step-number">01</span><h3>Ci conosciamo.</h3><p>In 30–40 minuti valutiamo pelle, pelo e zone. Ti spieghiamo frequenza, parametri iniziali e prezzo.</p><small>Valutazione REBEL</small></li><li><span class="laser-step-number">02</span><h3>Iniziamo con cura.</h3><p>Impostiamo il trattamento per la zona scelta e controlliamo come percepisci la seduta.</p><small>Tecnologia e comfort ICE Polar</small></li><li><span class="laser-step-number">03</span><h3>Seguiamo i cambiamenti.</h3><p>Osserviamo pelle e ricrescita. Il calendario viene aggiornato in base alla zona e all’andamento del percorso.</p><small>Il prossimo appuntamento</small></li></ol>
+        <p class="laser-note">Se scegli di iniziare il Percorso REBEL, la valutazione iniziale è gratuita.</p>
+      </div></section>
+
+      <section class="laser-section laser-section--white" id="laser-zone" aria-labelledby="laser-zones-title"><div class="laser-shell">
+        <div class="laser-heading"><div><p class="laser-kicker">Le zone del trattamento</p><h2 id="laser-zones-title">Il tuo viso.<br /><em>Il tuo corpo.</em></h2></div><p>Donna e uomo, singole zone e aree più estese. Ogni scheda riporta prezzo ordinario, durata indicativa e dettagli utili.</p></div>
+        <div class="laser-zones"><figure class="laser-photo laser-zones__photo"><img src="/img/catalogo/laser-gamba-rebel.webp" srcset="/img/catalogo/laser-gamba-rebel-480.webp 480w, /img/catalogo/laser-gamba-rebel.webp 1440w" sizes="(max-width:760px) 100vw, 50vw" width="1440" height="810" alt="Dettaglio del manipolo laser sulla pelle della gamba" loading="lazy" decoding="async" /><figcaption>Un gesto preciso, una zona alla volta. · Scena illustrativa</figcaption></figure><div class="laser-zones__choices">{zones.map(zone => <article><h3>{zone.title}</h3><p>{zone.copy}</p><div>{zone.links.map(link => <a class="laser-link" href={link.href}>{link.label}<span aria-hidden="true">↗</span></a>)}</div></article>)}</div></div>
+        <div class="laser-price-note"><div><span>Il listino ordinario</span><strong>Da 25,90 €<small>per una singola zona</small></strong></div><p>Il prezzo cambia con l’estensione della zona. La promozione ha condizioni e prezzi dedicati.</p><a class="laser-link" href="/listino-estetica-laser#laser">Consulta prezzi e zone <span aria-hidden="true">↗</span></a></div>
+      </div></section>
+
+      <section class="laser-section laser-promo" id={laserOffer.id} aria-labelledby="laser-promo-title" data-laser-offer><div class="laser-shell">
+        <div class="laser-heading"><div><p class="laser-kicker">La promozione REBEL · Carmagnola</p><h2 id="laser-promo-title">La libertà<br /><em>comincia qui.</em></h2></div><p>{laserOffer.summary}</p></div>
+        <div class="laser-promo__grid"><div class="laser-promo__price"><span>{laserOffer.zone.label} · {laserOffer.zone.sessionLabel}</span><strong>{laserOffer.zone.price}</strong><p>La zona da cui vuoi partire.</p></div><div class="laser-promo__price"><span>{laserOffer.totalBody.label} · {laserOffer.totalBody.detail} · {laserOffer.totalBody.sessionLabel}</span><strong>{laserOffer.totalBody.price}</strong><p>Più zone, nello stesso appuntamento.</p></div><div class="laser-promo__action"><a class="laser-button" href={laserOffer.landingPath}>Scopri la promozione <span aria-hidden="true">↗</span></a><a class="laser-link" href={laserOffer.contactPath}>Richiedi la valutazione <span aria-hidden="true">→</span></a></div></div>
+        <p class="laser-promo__terms"><strong>{laserOffer.zoneCounting.label}.</strong> {laserOffer.zoneCounting.note} {laserOffer.disclaimer} {laserOffer.validity.label}</p>
+        {laserOffer.financing.enabled && <details class="laser-finance"><summary>{laserOffer.financing.title} con {laserOffer.financing.provider} <span aria-hidden="true">+</span></summary><div><p><strong>{laserOffer.financing.detail}.</strong> {laserOffer.financing.scope}</p><p>{laserOffer.financing.note}</p></div></details>}
+      </div></section>
+
+      <section class="laser-section laser-section--white" aria-labelledby="laser-studio-title"><div class="laser-shell laser-split">
+        <div class="laser-copy"><p class="laser-kicker">Il tuo appuntamento a Carmagnola</p><h2 id="laser-studio-title">Entra <em>da REBEL.</em></h2><p>Ti aspettiamo in Viale Barbaroux 20. Nella cabina dedicata osserviamo le zone da trattare e costruiamo il calendario dei tuoi appuntamenti.</p><a class="laser-link" href="/contatti">Orari, contatti e indicazioni <span aria-hidden="true">↗</span></a><a class="laser-link" href="/localita">Arrivi da Torino o dai comuni vicini? <span aria-hidden="true">↗</span></a></div>
+        <figure class="laser-photo laser-photo--studio"><img src="/img/studio-treatwell/15432121.jpg" width="1080" height="720" alt="La cabina laser dello studio REBEL con la tecnologia THORY" loading="lazy" decoding="async" /><figcaption>La cabina REBEL · Fotografia dello studio di Carmagnola</figcaption></figure>
+      </div></section>
+
+      <section class="laser-section" aria-labelledby="laser-guides-title"><div class="laser-shell">
+        <div class="laser-heading"><div><p class="laser-kicker">Prima e dopo la seduta</p><h2 id="laser-guides-title">Le risposte<br /><em>che cerchi.</em></h2></div><p>Una zona, un dubbio, un’abitudine. Le nostre guide per prepararti all’appuntamento.</p></div>
+        <div class="laser-guides">{guides.map(guide => <a href={guide.href}><span>{guide.number} / La guida</span><h3>{guide.title}</h3><p>{guide.copy}</p><span class="laser-guides__arrow" aria-hidden="true">↗</span></a>)}</div>
+        <div class="laser-guide-links"><a class="laser-link" href="/competenze/laser-uomo-carmagnola">La guida al laser uomo <span aria-hidden="true">↗</span></a><a class="laser-link" href="/competenze/peli-incarniti-laser-carmagnola">Laser e peli incarniti <span aria-hidden="true">↗</span></a></div>
+      </div></section>
+    </>
+  )}
+</div>
+
+<style>
+  .laser-editorial {
+    --laser-ink: #2b1833;
+    --laser-muted: #67566d;
+    --laser-rose: #a72c68;
+    --laser-paper: #fffdf9;
+    --laser-line: #e5d9e2;
+    background: var(--laser-paper);
+    color: var(--laser-ink);
+    color-scheme: light;
+    font-family: var(--font-body);
+  }
+  .laser-editorial :is(h2, h3, p, figure, dl, dd, ol) {
+    margin: 0;
+  }
+  .laser-editorial :is(h2, h3) {
+    color: var(--laser-ink);
+    font-family: var(--font-body);
+    font-weight: 600;
+    letter-spacing: -0.05em;
+    text-wrap: balance;
+  }
+  .laser-editorial h2 {
+    font-size: clamp(2.2rem, 4.4vw, 4.8rem);
+    line-height: 1.12;
+  }
+  .laser-editorial :is(h2, h3) em {
+    font-family: var(--font-display);
+    color: #7d3985;
+    font-weight: 400;
+    letter-spacing: -0.05em;
+  }
+  .laser-editorial p {
+    color: var(--laser-muted);
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+  .laser-editorial strong {
+    color: var(--laser-ink);
+  }
+  .laser-editorial a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .laser-editorial a:focus-visible,
+  .laser-editorial summary:focus-visible {
+    outline: 3px solid #8941b0;
+    outline-offset: 5px;
+    border-radius: 3px;
+  }
+  .laser-shell {
+    width: min(1320px, calc(100% - 4rem));
+    margin-inline: auto;
+    min-width: 0;
+  }
+  .laser-section {
+    padding-block: clamp(4.5rem, 8vw, 8rem);
+    scroll-margin-top: 6rem;
+  }
+  .laser-section--white {
+    background: #fff;
+  }
+  .laser-section--compact {
+    padding-block: clamp(3.5rem, 6vw, 6rem);
+  }
+  .laser-editorial .laser-kicker {
+    color: var(--laser-rose);
+    font-size: 0.65rem;
+    line-height: 1.6;
+    font-weight: 750;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 1rem;
+  }
+  .laser-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 2.5rem;
+    margin-bottom: 2.8rem;
+  }
+  .laser-heading > p {
+    max-width: 28rem;
+  }
+  .laser-editorial .laser-note {
+    margin-top: 1.8rem;
+    font-size: 0.78rem;
+  }
+  .laser-split {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(2rem, 5vw, 6rem);
+    align-items: center;
+  }
+  .laser-split--image-first {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  }
+  .laser-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1.35rem;
+    min-width: 0;
+  }
+  .laser-copy .laser-kicker {
+    margin-bottom: 0;
+  }
+  .laser-copy > p {
+    max-width: 32rem;
+  }
+  .laser-photo {
+    min-width: 0;
+  }
+  .laser-photo picture {
+    display: block;
+  }
+  .laser-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/2;
+    object-fit: cover;
+    border-radius: 3rem 0.3rem 0.3rem 0.3rem;
+  }
+  .laser-photo--portrait img {
+    aspect-ratio: 5/6;
+    object-position: 55% 50%;
+  }
+  .laser-photo--studio img {
+    aspect-ratio: 3/2;
+    border-radius: 0.3rem 3rem 0.3rem 0.3rem;
+  }
+  .laser-photo figcaption {
+    font-size: 0.63rem;
+    line-height: 1.6;
+    color: #89768d;
+    margin-top: 0.8rem;
+    letter-spacing: 0.02em;
+  }
+  .laser-editorial .laser-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    min-height: 44px;
+    color: #71367a;
+    font-size: 0.83rem;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: #71367a45;
+    text-underline-offset: 0.35em;
+  }
+  .laser-link:hover {
+    text-decoration-color: currentColor;
+  }
+  .laser-editorial .laser-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.7rem;
+    min-height: 54px;
+    max-width: 100%;
+    padding: 0.95rem 1.5rem;
+    color: #fff;
+    background: linear-gradient(110deg, #b52b72, #773eb9 62%, #496ca9);
+    border-radius: 99px;
+    font-size: 0.83rem;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+    box-shadow: 0 8px 24px #71377d1c;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  .laser-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px #71377d29;
+  }
+  .laser-nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding-block: 1.8rem 2rem;
+    gap: 2rem;
+  }
+  .laser-nav a {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    font-weight: 650;
+    min-height: 62px;
+    padding-block: 0.5rem;
+    border-bottom: 1px solid var(--laser-line);
+  }
+  .laser-nav a > span:first-child {
+    grid-column: 1/-1;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    color: #8a748d;
+  }
+  .laser-nav a > span:last-child {
+    font-size: 1.15rem;
+    color: #7d3985;
+  }
+  .laser-nav a:hover {
+    border-color: #7d3985;
+  }
+  .laser-steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+  }
+  .laser-steps li {
+    padding: 2rem 0 1.25rem;
+    border-top: 1px solid var(--laser-line);
+  }
+  .laser-step-number {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 3.6rem;
+    color: #b78eba;
+    line-height: 1.1;
+    margin-bottom: 1.7rem;
+  }
+  .laser-steps h3 {
+    font-size: 1.45rem;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+  }
+  .laser-steps p {
+    font-size: 0.94rem;
+    line-height: 1.8;
+    max-width: 26rem;
+  }
+  .laser-steps small {
+    display: block;
+    margin-top: 1.5rem;
+    font-size: 0.63rem;
+    letter-spacing: 0.08em;
+    color: #967d9c;
+    text-transform: uppercase;
+  }
+  .laser-zones {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: clamp(2rem, 4vw, 5rem);
+    align-items: center;
+  }
+  .laser-zones__photo img {
+    aspect-ratio: 5/4;
+  }
+  .laser-zones__choices {
+    display: grid;
+    gap: 2rem;
+  }
+  .laser-zones__choices article {
+    padding-top: 1.8rem;
+    border-top: 1px solid var(--laser-line);
+  }
+  .laser-zones__choices article:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+  .laser-zones__choices h3 {
+    font-size: 2rem;
+    margin-bottom: 0.7rem;
+  }
+  .laser-zones__choices p {
+    font-size: 0.94rem;
+  }
+  .laser-zones__choices article > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem 2.2rem;
+    margin-top: 0.7rem;
+  }
+  .laser-price-note {
+    display: grid;
+    grid-template-columns: minmax(200px, 0.9fr) minmax(0, 1.2fr) auto;
+    gap: 2rem;
+    align-items: center;
+    margin-top: 3.3rem;
+    border-top: 1px solid var(--laser-line);
+    padding-top: 2rem;
+  }
+  .laser-price-note > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .laser-price-note > div > span {
+    font-size: 0.65rem;
+    color: #8a748d;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .laser-price-note strong {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 400;
+  }
+  .laser-price-note small {
+    font-family: var(--font-body);
+    display: block;
+    font-size: 0.7rem;
+    color: var(--laser-muted);
+    margin-top: 0.3rem;
+  }
+  .laser-price-note p {
+    font-size: 0.83rem;
+    max-width: 25rem;
+  }
+  .laser-promo {
+    background: radial-gradient(ellipse at 90% 40%, #ebe5fa75, transparent 60%), #f6edf2;
+  }
+  .laser-promo__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    border-block: 1px solid #dac9d8;
+    padding-block: 2rem;
+  }
+  .laser-promo__price {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .laser-promo__price > span {
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+    color: #755a7b;
+  }
+  .laser-promo__price > strong {
+    font-family: var(--font-display);
+    font-size: clamp(3.7rem, 6.8vw, 6.5rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.07em;
+  }
+  .laser-promo__price > p {
+    font-size: 0.78rem;
+  }
+  .laser-promo__action {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7rem;
+  }
+  .laser-editorial .laser-promo__terms {
+    font-size: 0.72rem;
+    line-height: 1.9;
+    margin-top: 1.5rem;
+    max-width: 72rem;
+  }
+  .laser-finance {
+    margin-top: 1.8rem;
+    border-block: 1px solid #dac9d8;
+  }
+  .laser-finance summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    min-height: 60px;
+    padding-block: 0.8rem;
+    font-size: 0.85rem;
+    font-weight: 650;
+    cursor: pointer;
+    list-style: none;
+  }
+  .laser-finance summary::-webkit-details-marker {
+    display: none;
+  }
+  .laser-finance summary > span {
+    font-size: 1.3rem;
+    transition: transform 0.2s;
+  }
+  .laser-finance[open] summary > span {
+    transform: rotate(45deg);
+  }
+  .laser-finance > div {
+    padding-block: 0.2rem 1.5rem;
+    max-width: 58rem;
+  }
+  .laser-finance p {
+    font-size: 0.8rem;
+  }
+  .laser-finance p + p {
+    margin-top: 0.7rem;
+  }
+  .laser-guides {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0 2rem;
+  }
+  .laser-guides > a {
+    position: relative;
+    padding: 1.8rem 2.2rem 2rem 0;
+    border-top: 1px solid var(--laser-line);
+    min-width: 0;
+  }
+  .laser-guides > a > span:first-child {
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #987c9c;
+  }
+  .laser-guides h3 {
+    font-size: 1.65rem;
+    margin-top: 1rem;
+    line-height: 1.2;
+  }
+  .laser-guides p {
+    font-size: 0.86rem;
+    line-height: 1.7;
+    margin-top: 0.7rem;
+  }
+  .laser-guides__arrow {
+    position: absolute;
+    right: 0;
+    top: 2rem;
+    color: #7d3985;
+    font-size: 1.4rem;
+  }
+  .laser-guides a:hover h3 {
+    color: #7d3985;
+  }
+  .laser-guide-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 3rem;
+    margin-top: 1rem;
+  }
+  .laser-specs {
+    width: 100%;
+    margin-top: 0.4rem !important;
+  }
+  .laser-specs > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    border-top: 1px solid var(--laser-line);
+    font-size: 0.8rem;
+    line-height: 1.7;
+  }
+  .laser-specs dt {
+    color: #8a748d;
+  }
+  .laser-specs dd {
+    font-weight: 650;
+    text-align: right;
+  }
+  .laser-comfort {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+  }
+  .laser-comfort__copy {
+    min-width: 0;
+  }
+  .laser-quote {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 6rem;
+    line-height: 0.9;
+    color: #c3a4ca;
+  }
+  .laser-comfort h3 {
+    font-size: clamp(1.8rem, 3.2vw, 3.3rem);
+    line-height: 1.15;
+  }
+  .laser-comfort p {
+    margin-top: 1.4rem;
+    font-size: 0.94rem;
+  }
+  .laser-comfort .laser-link {
+    margin-top: 1rem;
+  }
+  .laser-next {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: center;
+  }
+  .laser-next > div > p:last-child {
+    margin-top: 1.5rem;
+    max-width: 28rem;
+  }
+  .laser-next nav {
+    display: grid;
+  }
+  .laser-next nav a {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem 1rem;
+    padding-block: 1.3rem;
+    border-top: 1px solid var(--laser-line);
+    font-size: 0.9rem;
+    font-weight: 650;
+    line-height: 1.7;
+  }
+  .laser-next nav a > span:first-child {
+    grid-column: 1/-1;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #9b7d9e;
+    font-weight: 500;
+  }
+  .laser-next nav a > span:last-child {
+    color: #7d3985;
+  }
+  .laser-next nav a:hover {
+    color: #7d3985;
+  }
+  @media (max-width: 1000px) {
+    .laser-promo__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .laser-promo__action {
+      grid-column: 1/-1;
+      flex-direction: row;
+      gap: 2rem;
+    }
+    .laser-price-note {
+      grid-template-columns: 1fr 1fr;
+    }
+    .laser-price-note > .laser-link {
+      grid-column: 1/-1;
+      justify-self: start;
+    }
+    .laser-heading > p {
+      max-width: 23rem;
+    }
+    .laser-comfort {
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2rem;
+    }
+    .laser-guides {
+      column-gap: 1.4rem;
+    }
+  }
+  @media (max-width: 760px) {
+    .laser-shell {
+      width: calc(100% - 2.5rem);
+    }
+    .laser-section {
+      padding-block: 4rem;
+    }
+    .laser-section--compact {
+      padding-block: 3rem;
+    }
+    .laser-heading {
+      display: block;
+      margin-bottom: 2rem;
+    }
+    .laser-heading > p {
+      max-width: 34rem;
+      margin-top: 1.3rem;
+    }
+    .laser-editorial h2 {
+      font-size: clamp(2.05rem, 7.6vw, 3.5rem);
+    }
+    .laser-split,
+    .laser-split--image-first,
+    .laser-zones,
+    .laser-next,
+    .laser-comfort {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .laser-split--image-first > .laser-photo {
+      order: 2;
+    }
+    .laser-photo--portrait img {
+      aspect-ratio: 4/3;
+    }
+    .laser-copy {
+      gap: 1.2rem;
+    }
+    .laser-copy > p {
+      max-width: none;
+    }
+    .laser-nav {
+      gap: 1rem;
+      padding-block: 1.25rem 1.5rem;
+    }
+    .laser-nav a {
+      font-size: 0.72rem;
+    }
+    .laser-nav a > span:first-child {
+      font-size: 0.52rem;
+      letter-spacing: 0.01em;
+    }
+    .laser-steps {
+      gap: 1.4rem;
+    }
+    .laser-step-number {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+    .laser-steps h3 {
+      font-size: 1.15rem;
+    }
+    .laser-steps p {
+      font-size: 0.82rem;
+    }
+    .laser-steps small {
+      font-size: 0.55rem;
+    }
+    .laser-zones__photo img {
+      aspect-ratio: 4/3;
+    }
+    .laser-zones__choices {
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .laser-zones__choices article {
+      padding-top: 0;
+      border-top: 0;
+    }
+    .laser-zones__choices h3 {
+      font-size: 1.65rem;
+    }
+    .laser-zones__choices p {
+      font-size: 0.84rem;
+    }
+    .laser-zones__choices article > div {
+      display: grid;
+      gap: 0.15rem;
+    }
+    .laser-price-note {
+      gap: 1.4rem;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+    }
+    .laser-price-note strong {
+      font-size: 1.9rem;
+    }
+    .laser-promo__grid {
+      gap: 1.5rem;
+    }
+    .laser-promo__price > strong {
+      font-size: clamp(3.5rem, 10vw, 5rem);
+    }
+    .laser-promo__price > span {
+      font-size: 0.64rem;
+    }
+    .laser-promo__price > p {
+      font-size: 0.72rem;
+    }
+    .laser-promo__action {
+      gap: 1rem;
+    }
+    .laser-promo__action .laser-link {
+      font-size: 0.75rem;
+    }
+    .laser-guides {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 1.5rem;
+    }
+    .laser-guides h3 {
+      font-size: 1.4rem;
+    }
+    .laser-guides p {
+      font-size: 0.82rem;
+    }
+    .laser-guides > a {
+      padding-top: 1.4rem;
+      padding-bottom: 1.5rem;
+    }
+    .laser-guide-links {
+      gap: 0.3rem 2rem;
+    }
+    .laser-comfort__copy {
+      padding-top: 0.5rem;
+    }
+    .laser-comfort h3 {
+      font-size: 2.3rem;
+    }
+    .laser-quote {
+      font-size: 4rem;
+    }
+    .laser-comfort p {
+      max-width: 34rem;
+    }
+    .laser-next nav a {
+      padding-block: 1rem;
+    }
+  }
+  @media (max-width: 440px) {
+    .laser-shell {
+      width: calc(100% - 2rem);
+    }
+    .laser-nav {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .laser-nav a {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+      font-size: 0.76rem;
+      gap: 0.7rem;
+      min-height: 52px;
+    }
+    .laser-nav a > span:first-child {
+      grid-column: auto;
+      font-size: 0.54rem;
+      line-height: 1.6;
+    }
+    .laser-photo img {
+      border-top-left-radius: 2rem;
+    }
+    .laser-photo--studio img {
+      border-top-right-radius: 2rem;
+    }
+    .laser-steps {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .laser-steps li {
+      position: relative;
+      padding: 1.5rem 0 1.5rem 3.8rem;
+    }
+    .laser-step-number {
+      position: absolute;
+      top: 1.4rem;
+      left: 0;
+      font-size: 2.5rem;
+    }
+    .laser-steps h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.7rem;
+    }
+    .laser-steps p {
+      font-size: 0.88rem;
+      max-width: none;
+    }
+    .laser-steps small {
+      margin-top: 0.85rem;
+    }
+    .laser-price-note {
+      grid-template-columns: 1fr;
+    }
+    .laser-price-note > .laser-link {
+      grid-column: auto;
+    }
+    .laser-promo__grid {
+      gap: 1.25rem;
+    }
+    .laser-promo__price > strong {
+      font-size: clamp(2.45rem, 10.6vw, 3.4rem);
+    }
+    .laser-promo__price > span {
+      line-height: 1.7;
+    }
+    .laser-promo__action {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.45rem;
+    }
+    .laser-promo__action .laser-link {
+      align-self: center;
+    }
+    .laser-guides {
+      gap: 0 1rem;
+    }
+    .laser-guides h3 {
+      font-size: 1.25rem;
+    }
+    .laser-guides > a {
+      padding-right: 1.3rem;
+    }
+    .laser-guides__arrow {
+      font-size: 1.1rem;
+      top: 1.4rem;
+    }
+    .laser-guides p {
+      font-size: 0.76rem;
+    }
+    .laser-guide-links {
+      display: grid;
+    }
+    .laser-guide-links .laser-link {
+      font-size: 0.78rem;
+    }
+    .laser-finance summary {
+      font-size: 0.76rem;
+    }
+    .laser-specs > div {
+      gap: 1rem;
+      font-size: 0.76rem;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .laser-button,
+    .laser-finance summary > span {
+      transition: none;
+    }
+    .laser-button:hover {
+      transform: none;
+    }
+  }
+</style>

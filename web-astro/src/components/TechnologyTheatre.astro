@@ -82,7 +82,7 @@ const chapters = [
               alt={chapter.mediaAlt}
               width={chapter.mediaWidth}
               height={chapter.mediaHeight}
-              loading={index === 0 ? "eager" : "lazy"}
+              loading="lazy"
               decoding="async"
               data-tech-media={index}
             />
@@ -91,12 +91,16 @@ const chapters = [
         <div class="technology-theatre__readouts" aria-hidden="true">
           {chapters.map((chapter, index) => <span data-tech-readout={index}>{chapter.readout}</span>)}
         </div>
-        <p class="technology-theatre__caption">Lumina X1 Pro · ICE Polar · Metodo REBEL</p>
+        <p class="technology-theatre__caption">Lumina X1 Pro · ICE Polar · Scene illustrative</p>
       </div>
 
       <div class="technology-theatre__chapters">
         {chapters.map((chapter, index) => (
           <article id={`tech-${chapter.id}`} data-tech-chapter={index}>
+            <figure class="technology-theatre__chapter-media">
+              <img src={siteAsset(chapter.mediaSlot)} alt={chapter.mediaAlt} width={chapter.mediaWidth} height={chapter.mediaHeight} loading="lazy" decoding="async" />
+              <figcaption>{chapter.eyebrow} · Scena illustrativa</figcaption>
+            </figure>
             <span>{chapter.number}</span>
             <p class="rebel-kicker">{chapter.eyebrow}</p>
             <h3>{chapter.title}</h3>

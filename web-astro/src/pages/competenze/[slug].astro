@@ -1,16 +1,12 @@
 ---
+import { servicePhotography } from "@/lib/beauty-editorial";
+import { photographs } from "@/lib/catalog-visuals";
 import { guideCommercialDestinations } from "@/lib/service-navigation";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHero from "@/components/PageHero.astro";
-import SectionHead from "@/components/SectionHead.astro";
 import FaqAccordion from "@/components/FaqAccordion.astro";
-import FeatureCard from "@/components/FeatureCard.astro";
 import KeyPointsGrid from "@/components/KeyPointsGrid.astro";
 import EditorialSection from "@/components/EditorialSection.astro";
-import TableOfContents from "@/components/TableOfContents.astro";
-import InlineCta from "@/components/InlineCta.astro";
-import FullBleedBand from "@/components/FullBleedBand.astro";
-import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import { media, type ImageAsset } from "@/lib/page-media";
 import {
@@ -79,6 +75,10 @@ const resolveTheme = (slug: string): { hero: ImageAsset; mood: ImageAsset; edito
   };
 };
 const theme = resolveTheme(competence.slug);
+const photoForService = (slug: string, fallback?: ImageAsset) => {
+  const key = servicePhotography[slug]?.[0];
+  return key ? photographs[key] : fallback;
+};
 const commercialDestination = guideCommercialDestinations[competence.slug];
 const competenceMetaDescription = competence.shortDescription.length >= 105
   ? competence.shortDescription
@@ -219,7 +219,7 @@ const sourceLinks = competence.sourceLinks ?? [];
 
 const tocItems = [
   { id: "punti-chiave", label: "Informazioni principali" },
-  ...(editorialSections.length > 0 ? [{ id: "guida", label: "Come si svolge" }] : []),
+  ...(editorialSections.length > 0 ? [{ id: "guida", label: "Leggi la guida" }] : []),
   { id: "faq", label: "Domande frequenti" },
   ...(relatedServices.length > 0 ? [{ id: "servizi", label: "Servizi collegati" }] : []),
   ...(sourceLinks.length > 0 ? [{ id: "fonti", label: "Fonti" }] : []),
@@ -228,7 +228,7 @@ const tocItems = [
   ...(featuredAreas.length > 0 ? [{ id: "localita", label: "Come raggiungerci" }] : []),
 ];
 ---
-<BaseLayout meta={meta} bodyClass={`page-competenza-detail page-competenza-${competence.intent === "commercial" ? "commercial" : "informational"}`}>
+<BaseLayout meta={meta} bodyClass={`rebel-rebrand rebel-shell page-competenza-detail page-competenza-${competence.intent === "commercial" ? "commercial" : "informational"}`}>
   <JsonLd data={breadcrumb} />
   <JsonLd data={webPage} />
   <JsonLd data={articleSchema} />
@@ -240,258 +240,132 @@ const tocItems = [
 
   <PageHero
     image={theme.hero}
-    kicker={competence.intent === "commercial" ? "Servizi, prezzi e prenotazione" : "Guida pratica Rebel"}
+    kicker="Il journal REBEL · Guida pratica"
     title={compactTitle.replace(/(\b\w+\b)$/, "_$1_")}
-    lead={competence.longDescription}
-    meta={[
-      competence.localAngle,
-      `${readingMinutes} min di lettura`,
-      `Aggiornato il ${updatedLabel}`,
-    ]}
-    ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
-    ctaSecondary={{ label: "Scrivici su WhatsApp", href: siteConfig.social.whatsapp }}
-  />
-  {commercialDestination && <div class="container guide-commercial-link"><a href={commercialDestination.href}>{commercialDestination.label} <span aria-hidden="true">↗</span></a></div>}
-
-
-  <section class="section">
-    <div class="container detail-grid">
-      <article class="detail-main">
-        <div id="punti-chiave">
-          <SectionHead
-            kicker={competence.intent === "commercial" ? "Informazioni prima di prenotare" : "Informazioni principali"}
-            title={`Che cosa sapere su _${compactTitle}_.`}
-          />
-          {competence.heroImage ? (
-            <div class="detail-cover">
-              <img
-                src={competence.heroImage.src}
-                alt={competence.heroImage.alt}
-                width="1600"
-                height="900"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          ) : null}
-          <p class="detail-lead">{competence.shortDescription}</p>
-          <KeyPointsGrid title="In breve" points={competence.benefits} />
-        </div>
-
-        {editorialSections.length > 0 ? (
-          <div id="guida" class="detail-section">
-            <SectionHead
-              kicker="Come si svolge"
-              title={`Preparazione, trattamento e indicazioni su _${compactTitle}_.`}
-              lead="Trovi modalità, tempi, precauzioni e indicazioni utili per dopo l’appuntamento."
-            />
-            <div class="editorial-flow">
-              {editorialSections.map((s, i) => {
-                const mediaIndex = Math.floor(i / 2);
-                const sectionMedia = i % 2 === 0
-                  ? theme.editorial[mediaIndex % theme.editorial.length]
-                  : undefined;
-                return (
-                  <EditorialSection
-                    id={slugifyId(s.heading)}
-                    heading={s.heading}
-                    paragraphs={s.paragraphs}
-                    level={3}
-                    media={sectionMedia}
-                    mediaSide={mediaIndex % 2 === 0 ? "end" : "start"}
-                  />
-                );
-              })}
-            </div>
-          </div>
-        ) : null}
-
-        <div id="faq" class="detail-section">
-          <SectionHead
-            kicker="Domande frequenti"
-            title={`Le domande più comuni su _${compactTitle}_.`}
-          />
-          <FaqAccordion items={competence.faqs} kicker={`Domande su ${compactTitle}`} />
-        </div>
-
-        {sourceLinks.length > 0 ? (
-          <div id="fonti" class="detail-section">
-            <SectionHead
-              kicker="Fonti e riferimenti"
-              title="Le fonti consultate per le informazioni tecniche."
-            />
-            <ul class="source-list">
-              {sourceLinks.map((s) => (
-                <li>
-                  <a href={s.url} target="_blank" rel="noreferrer">{s.label}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ) : null}
-
-        {relatedServices.length > 0 ? (
-          <div id="servizi" class="detail-section">
-            <SectionHead
-              kicker="Servizi collegati"
-              title={`Trattamenti Rebel collegati a _${compactTitle}_.`}
-              lead="In ogni scheda trovi descrizione, prezzo, durata e indicazioni utili prima di prenotare."
-            />
-            <div class="card-grid card-grid--2">
-              {relatedServices.map((s, i) => (
-                <FeatureCard
-                  kicker={formatPrice(s.priceHint)}
-                  title={s.name}
-                  body={s.shortDescription}
-                  href={`/servizi/${s.slug}`}
-                  index={i + 1}
-                />
-              ))}
-            </div>
-          </div>
-        ) : null}
-
-        {relatedProtocols.length > 0 ? (
-          <div id="protocolli" class="detail-section">
-            <SectionHead
-              kicker="Percorsi REBEL"
-              title="Trattamenti professionali per esigenze specifiche di viso o corpo."
-              lead="In ogni scheda trovi obiettivo, prezzo, modalità e indicazioni utili prima di prenotare."
-            />
-            <div class="card-grid card-grid--2">
-              {relatedProtocols.map((p, i) => (
-                <FeatureCard
-                  kicker={formatPrice(p.price)}
-                  title={p.name}
-                  body={p.shortDescription}
-                  href={`/protocolli/${p.slug}`}
-                  variant="feature"
-                  index={i + 1}
-                />
-              ))}
-            </div>
-          </div>
-        ) : null}
-
-        {relatedCompetences.length > 0 ? (
-          <div id="correlate" class="detail-section">
-            <SectionHead
-              kicker="Altri approfondimenti utili"
-              title="Guide su servizi ed esigenze collegate."
-            />
-            <div class="card-grid card-grid--2">
-              {relatedCompetences.map((c, i) => (
-                <FeatureCard
-                  kicker="Guida"
-                  title={c.title}
-                  body={c.shortDescription}
-                  href={`/competenze/${c.slug}`}
-                  variant="quiet"
-                  index={i + 1}
-                />
-              ))}
-            </div>
-          </div>
-        ) : null}
-
-        {featuredAreas.length > 0 ? (
-          <div id="localita" class="detail-section">
-            <SectionHead
-              kicker="Come raggiungerci"
-              title="Indicazioni per chi arriva dai comuni vicini."
-              lead="Apri la pagina del tuo comune per vedere la mappa e il percorso verso Viale Barbaroux 20 a Carmagnola."
-            />
-            <div class="card-grid card-grid--2">
-              {featuredAreas.map((a, i) => (
-                <FeatureCard
-                  kicker="Località"
-                  title={a.city}
-                  body={`Indicazioni e contatti per organizzare la visita da ${a.city}.`}
-                  href={`/localita/${a.slug}`}
-                  variant="quiet"
-                  index={i + 1}
-                />
-              ))}
-            </div>
-          </div>
-        ) : null}
-      </article>
-
-      <aside class="detail-aside">
-        <TableOfContents items={tocItems} />
-        <InlineCta
-          kicker="Valutazione REBEL · 30–40 minuti"
-          title="Vuoi capire quale trattamento può essere adatto a te?"
-          lead="Durante la valutazione parliamo del risultato che desideri, osserviamo la pelle o la zona da trattare e ti spieghiamo opzioni, frequenza e prezzo. Se scegli di iniziare il percorso proposto, la valutazione iniziale è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi."
-          primaryHref="/contatti"
-          primaryLabel="Prenota la valutazione"
-          secondaryHref="/listino-estetica-laser"
-          secondaryLabel="Consulta il listino"
-        />
-      </aside>
-    </div>
-  </section>
-
-  <FullBleedBand
-    image={theme.mood}
-    height="sm"
-    align="left"
-    kicker={`${compactTitle} · Rebel Carmagnola`}
-    quote="Hai ancora un dubbio? Parliamone durante la valutazione REBEL."
-    cite="Studio Rebel · Viale Barbaroux 20"
-    cta={{ label: "Prenota la valutazione", href: "/contatti" }}
+    lead={competence.shortDescription}
+    meta={[`${readingMinutes} min di lettura`, `Aggiornato il ${updatedLabel}`, "REBEL · Carmagnola"]}
+    ctaPrimary={{ label: "Leggi la guida", href: "#punti-chiave" }}
+    ctaSecondary={commercialDestination ? { label: commercialDestination.label, href: commercialDestination.href } : { label: "Tutte le guide", href: "/competenze" }}
+    imageCaption="Immagine editoriale illustrativa del trattamento."
   />
 
-  <StickyBookingBar primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
+  <div class="guide-editorial">
+    <div class="guide-shell guide-navigation"><nav class="guide-jumpnav" aria-label="Indice della guida"><span>In questa guida</span>{tocItems.map(item => <a href={`#${item.id}`}>{item.label}</a>)}</nav></div>
+
+    <section class="guide-section guide-section--intro" id="punti-chiave" aria-labelledby="guide-intro-title"><div class="guide-shell guide-intro">
+      <div><p class="guide-kicker">Cominciamo da qui</p><h2 id="guide-intro-title">Capire il trattamento.<br /><em>Scegliere con calma.</em></h2><p class="guide-intro__lead">{competence.longDescription}</p><p class="guide-local">{competence.localAngle}</p></div>
+      <div class="guide-summary"><p class="guide-kicker">Da tenere a mente</p><KeyPointsGrid points={competence.benefits} variant="quiet" /></div>
+    </div></section>
+
+    {editorialSections.length > 0 && <section id="guida" class="guide-section guide-section--paper" aria-labelledby="guide-content-title"><div class="guide-shell">
+      <header class="guide-heading"><p class="guide-kicker">La guida REBEL</p><h2 id="guide-content-title">Dal primo dubbio<br /><em>ai dettagli che contano.</em></h2></header>
+      <div class="guide-flow">{editorialSections.map((s, i) => <EditorialSection id={slugifyId(s.heading)} heading={s.heading} paragraphs={s.paragraphs} level={3} sequence={i + 1} media={i % 2 === 0 ? theme.editorial[Math.floor(i / 2) % theme.editorial.length] : undefined} mediaSide={Math.floor(i / 2) % 2 === 0 ? "end" : "start"} />)}</div>
+    </div></section>}
+
+    <section id="faq" class="guide-section" aria-labelledby="guide-faq-title"><div class="guide-shell guide-questions">
+      <header><p class="guide-kicker">Un dubbio in più?</p><h2 id="guide-faq-title">Le risposte,<br /><em>da vicino.</em></h2><p>Preparazione, frequenza e cura dopo la seduta: le domande più comuni su {compactTitle.toLocaleLowerCase("it-IT")}.</p></header>
+      <div><FaqAccordion items={competence.faqs} kicker="Domande e risposte" /></div>
+    </div></section>
+
+    {sourceLinks.length > 0 && <section id="fonti" class="guide-section guide-section--sources" aria-labelledby="guide-sources-title"><div class="guide-shell"><details class="guide-sources"><summary id="guide-sources-title">Fonti e riferimenti della guida <span aria-hidden="true">＋</span></summary><p>Le fonti consultate per le informazioni tecniche.</p><ul>{sourceLinks.map(s => <li><a href={s.url} target="_blank" rel="noreferrer">{s.label} <span aria-hidden="true">↗</span></a></li>)}</ul></details></div></section>}
+
+    {relatedServices.length > 0 && <section id="servizi" class="guide-section guide-section--paper" aria-labelledby="guide-services-title"><div class="guide-shell">
+      <div class="guide-heading-row"><div><p class="guide-kicker">Dalla guida all’appuntamento</p><h2 id="guide-services-title">Il servizio<br /><em>che cerchi.</em></h2></div><p>Se vuoi passare alla scelta del trattamento, queste schede raccolgono le proposte REBEL, le varianti e le modalità di prenotazione.</p></div>
+      <div class="guide-services">{relatedServices.map(s => { const photo = photoForService(s.slug, s.heroImage); const hidePrice = ["pedicure-estetico-con-smalto-carmagnola","pedicure-semipermanente-carmagnola"].includes(s.slug); return <a href={`/servizi/${s.slug}`}>{photo && <div class="guide-services__photo"><img src={photo.src} alt={photo.alt} width={photo.width ?? 1200} height={photo.height ?? 800} loading="lazy" decoding="async" /></div>}<div class="guide-services__copy"><p class="guide-kicker">{hidePrice ? "Cura e colore" : formatPrice(s.priceHint)}</p><h3>{s.name.replace(/ a Carmagnola$/i, "")} <span aria-hidden="true">↗</span></h3><p>{s.shortDescription}</p></div></a>; })}</div>
+      {commercialDestination && <p class="guide-commercial-link"><a href={commercialDestination.href}>{commercialDestination.label} <span aria-hidden="true">↗</span></a></p>}
+    </div></section>}
+
+    {relatedProtocols.length > 0 && <section id="protocolli" class="guide-section" aria-labelledby="guide-protocols-title"><div class="guide-shell">
+      <header class="guide-heading"><p class="guide-kicker">Percorsi di cura</p><h2 id="guide-protocols-title">Esigenze diverse.<br /><em>Protocolli dedicati.</em></h2></header>
+      <div class="guide-protocols">{relatedProtocols.map((p, i) => <a href={`/protocolli/${p.slug}`}><span class="guide-kicker">{String(i+1).padStart(2,"0")} · {formatPrice(p.price)}</span><h3>{p.name}</h3><p>{p.shortDescription}</p><span class="guide-link">Conosci il protocollo <span aria-hidden="true">↗</span></span></a>)}</div>
+    </div></section>}
+
+    {relatedCompetences.length > 0 && <section id="correlate" class="guide-section guide-section--paper" aria-labelledby="guide-related-title"><div class="guide-shell guide-reading">
+      <header><p class="guide-kicker">Continua a leggere</p><h2 id="guide-related-title">Altre prospettive<br /><em>sulla tua cura.</em></h2></header>
+      <div class="guide-reading__list">{relatedCompetences.map((c,i) => <a href={`/competenze/${c.slug}`}><span class="guide-reading__index">{String(i+1).padStart(2,"0")}</span><div><h3>{c.title}</h3><p>{c.shortDescription}</p></div><span aria-hidden="true">↗</span></a>)}</div>
+    </div></section>}
+
+    <section class="guide-section guide-section--visit" aria-labelledby="guide-visit-title"><div class="guide-shell guide-visit">
+      <div><p class="guide-kicker">Il dialogo, prima di tutto</p><h2 id="guide-visit-title">Hai ancora<br /><em>una domanda?</em></h2></div>
+      <div><p>Raccontaci che cosa desideri e quale dubbio vorresti chiarire. Se serve una valutazione REBEL, dedichiamo 30–40 minuti a osservare pelle o zona, confrontare le opzioni e spiegare frequenza e prezzo.</p><p>Se scegli di iniziare il percorso proposto, la valutazione iniziale è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi.</p><div class="guide-actions"><a class="btn btn--primary" href="/contatti">Parlane con REBEL <span aria-hidden="true">↗</span></a><a class="guide-link" href={siteConfig.social.whatsapp}>Scrivici su WhatsApp</a></div></div>
+    </div></section>
+
+    {featuredAreas.length > 0 && <section id="localita" class="guide-section guide-section--local" aria-labelledby="guide-local-title"><div class="guide-shell"><div><p class="guide-kicker">Ci trovi a Carmagnola</p><h2 id="guide-local-title">La tua visita,<br /><em>da dove parti.</em></h2><p>Tutti i trattamenti si svolgono in Viale Barbaroux 20. Scegli la partenza per vedere mappa e indicazioni.</p></div><nav aria-label="Indicazioni dai comuni vicini">{featuredAreas.map(a => <a href={`/localita/${a.slug}`}>Da {a.city} <span aria-hidden="true">↗</span></a>)}<a href="/localita">Tutte le località <span aria-hidden="true">→</span></a></nav></div></section>}
+  </div>
 </BaseLayout>
 
 <style>
-  .guide-commercial-link { padding: 1.4rem; color: #6c2f70; background: #fffdf9; border: 1px solid #dfd2e0; border-radius: 18px 6px; margin-block: 1rem 2rem; }
-  .guide-commercial-link a { color: inherit; font-weight: 600; text-underline-offset: .25em; }
-  .detail-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 320px;
-    gap: clamp(2rem, 4vw, 4rem);
-    align-items: start;
-  }
-  @media (max-width: 980px) {
-    .detail-grid { grid-template-columns: 1fr; }
-    .detail-aside { order: -1; }
-  }
-  .detail-main { min-width: 0; }
-  .detail-section { margin-top: clamp(3rem, 6vw, 5rem); }
-  .detail-cover {
-    margin: 1.4rem 0;
-    border-radius: var(--r-md);
-    overflow: hidden;
-    border: 1px solid var(--line);
-  }
-  .detail-cover img { width: 100%; height: auto; display: block; }
-  .detail-lead {
-    font-size: var(--t-lead);
-    color: var(--text-muted);
-    line-height: var(--leading-body);
-    max-width: 64ch;
-    margin: 1rem 0 0;
-  }
-  .editorial-flow { display: grid; gap: clamp(2.6rem, 6vw, 5rem); margin-top: 1.6rem; }
-  .source-list {
-    list-style: none;
-    margin: 1.2rem 0 0;
-    padding: 0;
-    display: grid;
-    gap: 0.6rem;
-  }
-  .source-list a {
-    color: var(--text);
-    border-bottom: 1px solid var(--line);
-    padding-bottom: 0.4rem;
-    display: inline-block;
-    transition: color var(--t-fast) var(--ease-soft), border-color var(--t-fast) var(--ease-soft);
-  }
-  .source-list a:hover {
-    color: var(--ivory-1);
-    border-bottom-color: var(--mauve);
-  }
-  .detail-aside { display: grid; gap: 1.4rem; }
+  .guide-editorial { color-scheme: light; --text: #301b3e; --text-strong: #301b3e; --text-muted: #685471; --line: #e2d6e7; color: #301b3e; background: #f8f3ed; }
+  .guide-shell { width: min(1240px,calc(100% - 2 * clamp(1.2rem,4vw,3.5rem))); margin-inline: auto; }
+  .guide-editorial :is(h2,h3,p) { margin: 0; }
+  .guide-editorial :is(h2,h3) { color: #301b3e; overflow-wrap: normal; }
+  .guide-editorial h2 { font: 500 clamp(2.15rem,4vw,3.7rem)/1.1 var(--font-display); letter-spacing: -.035em; }
+  .guide-editorial em { color: #70428b; font-weight: 400; }
+  .guide-editorial p { color: #685471; line-height: 1.8; }
+  .guide-editorial .guide-kicker { display: block; color: #a51e58; font: 650 .72rem/1.6 var(--font-body); letter-spacing: .13em; text-transform: uppercase; margin-bottom: 1rem; }
+  .guide-navigation { padding-block: 1rem; }
+  .guide-jumpnav { display: flex; align-items: center; gap: .6rem 1.35rem; overflow-x: auto; padding-bottom: .35rem; border-bottom: 1px solid #dfd0e6; }
+  .guide-jumpnav>span { color: #a51e58; font-size: .68rem; white-space: nowrap; letter-spacing: .1em; text-transform: uppercase; }
+  .guide-jumpnav a { flex-shrink: 0; display: inline-flex; align-items: center; min-height: 44px; color: #70428b; font-size: .78rem; text-decoration: none; }
+  .guide-jumpnav a:hover { text-decoration: underline; text-underline-offset: .3em; }
+  .guide-section { padding-block: clamp(3.5rem,7vw,6rem); scroll-margin-top: 6rem; }
+  .guide-section--paper { background: #fffdf9; }
+  .guide-section--intro { padding-top: clamp(2rem,4vw,4rem); }
+  .guide-intro { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem,6vw,6rem); align-items: center; }
+  .guide-intro__lead { margin-top: 1.5rem!important; font-size: 1.02rem; }
+  .guide-editorial .guide-local { color: #786981; font-size: .78rem; margin-top: 1.2rem; }
+  .guide-summary { border-top: 2px solid #b8a1c9; padding: clamp(1.5rem,3vw,2.5rem); background: #f2eaf4; border-radius: .4rem 2rem .4rem 2rem; min-width: 0; }
+  .guide-heading { max-width: 800px; margin-bottom: clamp(2rem,4vw,3.5rem); }
+  .guide-heading-row { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem,5vw,5rem); align-items: end; margin-bottom: 2.5rem; }
+  .guide-heading-row>p { max-width: 58ch; }
+  .guide-flow { display: grid; gap: clamp(2.5rem,6vw,5.5rem); }
+  .guide-questions { display: grid; grid-template-columns: .75fr 1.25fr; gap: clamp(2rem,6vw,6rem); align-items: start; }
+  .guide-questions header>p:last-child { margin-top: 1.5rem; font-size: .92rem; }
+  .guide-questions>div { min-width: 0; }
+  .guide-section--sources { padding-top: 0; }
+  .guide-sources { border-block: 1px solid #dfd0e6; padding-block: .7rem; }
+  .guide-sources summary { color: #70428b; display: flex; justify-content: space-between; align-items: center; min-height: 44px; gap: 1rem; cursor: pointer; font-size: .88rem; list-style: none; }
+  .guide-sources summary::-webkit-details-marker { display: none; }
+  .guide-sources[open] summary>span { transform: rotate(45deg); }
+  .guide-sources>p { font-size: .8rem; margin-block: .8rem; }
+  .guide-sources ul { list-style: none; display: flex; flex-wrap: wrap; gap: .5rem 2rem; padding: 0; margin: 0 0 .5rem; }
+  .guide-sources a { color: #70428b; font-size: .78rem; display: inline-flex; align-items: center; gap: .6rem; min-height: 44px; text-underline-offset: .3em; }
+  .guide-services { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2rem 1.5rem; }
+  .guide-services>a { display: block; color: inherit; text-decoration: none; min-width: 0; }
+  .guide-services__photo { overflow: hidden; border-radius: 2rem .4rem 2rem .4rem; background: #e9dfec; }
+  .guide-services__photo img { width: 100%; height: auto; aspect-ratio: 16/10; object-fit: cover; display: block; transition: transform .45s ease; }
+  .guide-services a:hover img { transform: scale(1.025); }
+  .guide-services__copy { padding-block: 1.25rem; }
+  .guide-services__copy .guide-kicker { margin-bottom: .5rem; }
+  .guide-services__copy h3 { font: 500 clamp(1.45rem,2.7vw,2rem)/1.2 var(--font-display); display: flex; justify-content: space-between; gap: .75rem; }
+  .guide-services__copy>p:last-child { font-size: .88rem; margin-top: .8rem; max-width: 56ch; }
+  .guide-commercial-link { border-top: 1px solid #dfd0e6; padding-top: 1rem; margin-top: 1rem!important; }
+  .guide-commercial-link a,.guide-editorial .guide-link { display: inline-flex; align-items: center; gap: .7rem; min-height: 44px; color: #70428b; font-size: .83rem; font-weight: 650; text-underline-offset: .3em; }
+  .guide-protocols { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2rem; }
+  .guide-protocols>a { display: block; padding-block: 1.5rem; border-top: 1px solid #cdb6d9; text-decoration: none; min-width: 0; }
+  .guide-protocols h3 { font: 500 clamp(1.5rem,2.5vw,2.2rem)/1.2 var(--font-display); }
+  .guide-protocols p { margin-top: 1rem; font-size: .92rem; max-width: 60ch; }
+  .guide-protocols .guide-link { margin-top: 1rem; }
+  .guide-reading { display: grid; grid-template-columns: .7fr 1.3fr; gap: clamp(2rem,6vw,6rem); align-items: start; }
+  .guide-reading__list { min-width: 0; }
+  .guide-reading__list>a { display: grid; grid-template-columns: auto minmax(0,1fr) auto; gap: 1.2rem; padding-block: 1.5rem; border-top: 1px solid #dac9e2; color: #70428b; text-decoration: none; }
+  .guide-reading__list>a:last-child { border-bottom: 1px solid #dac9e2; }
+  .guide-reading__index { font: 500 1.1rem/1.5 var(--font-display); color: #a51e58; }
+  .guide-reading__list h3 { font: 500 clamp(1.3rem,2vw,1.7rem)/1.2 var(--font-display); }
+  .guide-reading__list p { font-size: .83rem; margin-top: .7rem; }
+  .guide-reading__list a:hover h3 { color: #92557d; }
+  .guide-section--visit { background: #eee4f0; }
+  .guide-visit { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem,6vw,6rem); align-items: center; }
+  .guide-visit>div>p+p { margin-top: 1rem; font-size: .84rem; }
+  .guide-actions { display: flex; align-items: center; gap: 1rem 1.6rem; flex-wrap: wrap; margin-top: 1.5rem; }
+  .guide-actions .btn { gap: .8rem; }
+  .guide-section--local>.guide-shell { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(2rem,6vw,6rem); }
+  .guide-section--local h2 { font-size: clamp(1.9rem,3vw,2.7rem); }
+  .guide-section--local>div>div>p:last-child { margin-top: 1.2rem; font-size: .88rem; max-width: 55ch; }
+  .guide-section--local nav { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .5rem 1.5rem; }
+  .guide-section--local nav a { display: flex; align-items: center; justify-content: space-between; min-height: 44px; color: #70428b; font-size: .85rem; border-bottom: 1px solid #dfd0e6; text-decoration: none; gap: .5rem; }
+  .guide-editorial a:focus-visible,.guide-sources summary:focus-visible { outline: 3px solid #7047ff; outline-offset: 4px; }
+  @media(max-width:900px) { .guide-intro,.guide-heading-row,.guide-questions,.guide-reading,.guide-visit,.guide-section--local>.guide-shell { grid-template-columns: 1fr; } .guide-heading-row { gap: 1.5rem; } }
+  @media(max-width:600px) { .guide-services,.guide-protocols { grid-template-columns: 1fr; } .guide-navigation { width: 100%; padding-left: 1.2rem; } .guide-jumpnav { padding-right: 1.2rem; } .guide-services__copy h3 { font-size: 1.65rem; } .guide-reading__list>a { gap: .8rem; } .guide-actions { align-items: stretch; flex-direction: column; } .guide-actions .btn { justify-content: center; } .guide-section--local nav { grid-template-columns: 1fr; } }
+  @media(prefers-reduced-motion:reduce) { .guide-services__photo img { transition: none; } }
 </style>

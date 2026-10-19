@@ -1,13 +1,10 @@
 ---
+import FaqAccordion from "@/components/FaqAccordion.astro";
+import { siteConfig } from "@/lib/site-config";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHero from "@/components/PageHero.astro";
-import SectionHead from "@/components/SectionHead.astro";
-import FeatureCard from "@/components/FeatureCard.astro";
-import InlineCta from "@/components/InlineCta.astro";
-import FullBleedBand from "@/components/FullBleedBand.astro";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
-import NearMeBlock from "@/components/NearMeBlock.astro";
 import {
   buildBreadcrumbSchema,
   buildItemListSchema,
@@ -116,15 +113,27 @@ for (const category of serviceCategories.filter(c => c.key !== "massaggi")) {
 }
 queryTargets.push({ label: "Ceretta donna e uomo", href: "/servizi/ceretta-carmagnola", description: "Epilazione a cera di viso e corpo: zone, varianti e informazioni per il tuo appuntamento.", image: { src: photographs["cera-gamba"].src, alt: photographs["cera-gamba"].alt } });
 
+const localQueryPhotos: Record<string, {src: string; alt: string}> = {
+  "/servizi/pulizia-viso-carmagnola": photographs["viso-manualita"],
+  "/servizi/manicure-semipermanente-carmagnola": {src: "/img/rbl-official/rosa-in-polvere.webp", alt: "Manicure rosa della collezione ufficiale RBL Nails"},
+  "/epilazione-laser-carmagnola": photographs["laser-gamba"],
+  "/servizi/pedicure-carmagnola": photographs["pedicure-cura"],
+  "/servizi/laminazione-ciglia-sopracciglia-carmagnola": photographs["laminazione-sopracciglia"],
+  "/servizi/scrub-corpo-carmagnola": photographs["scrub-gamba"],
+};
+const featuredTargets = queryTargets.slice(0,4).map(item => ({...item,image: localQueryPhotos[item.href] ?? item.image}));
+const otherTargets = queryTargets.slice(4);
+const areaOrder = {"asse-carmagnola": 0, "torino-sud": 1, cuneo: 2};
+const nearbyAreas = [...localAreaPages.filter(area => area.slug !== "carmagnola")].sort((a,b) => areaOrder[a.cluster] - areaOrder[b.cluster]).slice(0,14);
+const dayNames: Record<string,string> = {Tu:"Martedì",We:"Mercoledì",Th:"Giovedì",Fr:"Venerdì",Sa:"Sabato"};
+const openingHours = siteConfig.openingHours.map(entry => {const [day,time] = entry.split(" "); return {day:dayNames[day],time:time.replace("-","–")};});
+
 const querySchema = buildItemListSchema({
   name: "Servizi e trattamenti del centro estetico REBEL a Carmagnola",
   path: "/centro-estetico-carmagnola",
   items: queryTargets.map((it) => ({ name: it.label, path: it.href })),
 });
 
-const featuredAreas = localAreaPages
-  .filter((a) => a.cluster === "asse-carmagnola")
-  .slice(0, 8);
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -165,6 +174,8 @@ const faqSchema = {
   ],
 };
 
+const faqs = faqSchema.mainEntity.map(item => ({q: item.name, a: item.acceptedAnswer.text}));
+
 const keySlugs = [
   "pedicure-carmagnola",
   "scrub-corpo-carmagnola",
@@ -175,7 +186,7 @@ const keyServices = keySlugs
   .map((slug) => servicePages.find((s) => s.slug === slug))
   .filter((s): s is NonNullable<typeof s> => Boolean(s));
 ---
-<BaseLayout meta={meta}>
+<BaseLayout meta={meta} bodyClass="rebel-rebrand rebel-shell page-centro-estetico">
   <JsonLd data={breadcrumb} />
   <JsonLd data={webPage} />
   <JsonLd data={querySchema} />
@@ -183,188 +194,113 @@ const keyServices = keySlugs
 
   <PageHero
     image={media.studio.reception}
-    kicker="Centro estetico · Carmagnola"
-    title="Trattamenti viso, corpo e beauty in _Viale Barbaroux 20_."
-    lead="Da REBEL puoi prenotare pulizia viso, manicure, pedicure, ceretta, massaggi, laminazione, trattamenti corpo, percorsi viso ed epilazione laser."
-    bullets={["Listino online", "Valutazione REBEL · 30–40 min", "Da martedì a sabato"]}
-    meta={["Viale Barbaroux 20 · Carmagnola", "Viso, corpo, laser e beauty"]}
-    ctaPrimary={{ label: "Prenota la valutazione", href: "/contatti", halo: true }}
-    ctaSecondary={{ label: "Consulta il listino", href: "/listino-estetica-laser" }}
+    imageCaption="Lo studio REBEL · Viale Barbaroux 20, Carmagnola"
+    kicker="REBEL · Estetica Epigenetica"
+    title="Il tuo centro estetico _a Carmagnola_."
+    lead="Un appuntamento beauty, una seduta viso o il primo passo di un percorso. Parti da quello che desideri: ci trovi in Viale Barbaroux 20."
+    bullets={["Viso, corpo, laser e beauty", "Servizi singoli e percorsi dedicati"]}
+    meta={["Viale Barbaroux 20 · Carmagnola", "Da martedì a sabato · su appuntamento"]}
+    ctaPrimary={{ label: "Scegli il tuo trattamento", href: "#trattamenti" }}
+    ctaSecondary={{ label: "Organizza la visita", href: "#studio" }}
   />
 
-  <section class="section">
-    <div class="container">
-      <SectionHead
-        kicker="Scegli il tuo trattamento"
-        title="Prezzi e informazioni sui principali trattamenti."
-        lead="Scegli il trattamento che ti interessa per conoscere prezzo, durata indicativa e informazioni utili prima dell’appuntamento."
-      />
-      <div class="image-grid">
-        {queryTargets.map((it) => (
-          <a class="image-card" href={it.href} data-reveal>
-            <figure class="image-card__media">
-              <img src={it.image.src} alt={it.image.alt} loading="lazy" decoding="async" />
-            </figure>
-            <div class="image-card__body">
-              <h3 class="image-card__title">{it.label}</h3>
-              <p class="image-card__lead">{it.description}</p>
-              <span class="image-card__cta" aria-hidden="true">Scopri il trattamento →</span>
-            </div>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
+  <div class="studio-page">
+    <section class="studio-section" id="trattamenti" aria-labelledby="studio-services-title"><div class="studio-shell">
+      <div class="studio-heading-row"><div><p class="studio-kicker">Il tuo tempo REBEL</p><h2 id="studio-services-title">Piccoli gesti beauty.<br /><em>Nuove abitudini di cura.</em></h2></div><p>Il colore che senti tuo, una pelle da ascoltare, il trattamento che cercavi. Scopri da dove iniziare: ogni scheda ti accompagna alla scelta della seduta.</p></div>
+      <div class="studio-services">{featuredTargets.map((item,i) => <a href={item.href}><div class="studio-services__photo"><img src={item.image.src} alt={item.image.alt} width="1440" height="900" loading="lazy" decoding="async" /></div><div class="studio-services__copy"><span class="studio-kicker">0{i+1} · Beauty REBEL</span><h3>{item.label}<span aria-hidden="true">↗</span></h3><p>{item.description}</p></div></a>)}</div>
+      <p class="studio-photo-note">Immagini illustrative dei trattamenti e immagini ufficiali RBL Nails per l’ispirazione colore.</p>
+      <div class="studio-other-services"><div><p class="studio-kicker">E poi, tutto il resto</p><h3>Trova la tua idea <em>di cura.</em></h3><a class="studio-link" href="/servizi">Esplora servizi e trattamenti <span aria-hidden="true">↗</span></a></div><nav aria-label="Altri servizi REBEL">{otherTargets.map(item => <a href={item.href}>{item.label}<span aria-hidden="true">↗</span></a>)}</nav></div>
+      <div class="studio-prices"><p><strong>Il listino, prima dell’appuntamento.</strong><br />Confronta le proposte e le durate; per prenotare, indicaci servizio e disponibilità.</p><a class="btn btn--secondary" href="/listino-estetica-laser">Consulta il listino <span aria-hidden="true">↗</span></a></div>
+    </div></section>
 
-  <section class="section">
-    <div class="container">
-      <SectionHead
-        kicker="Quattro servizi da conoscere"
-        title="Pedicure, scrub ed epilazione laser per viso e corpo."
-        lead="Quattro servizi richiesti di frequente, con prezzo, durata e informazioni pratiche."
-      />
-      <div class="card-grid card-grid--2">
-        {keyServices.map((s) => (
-          <FeatureCard
-            kicker={s.priceHint}
-            title={s.name}
-            body={s.shortDescription}
-            href={`/servizi/${s.slug}`}
-            variant="feature"
-          />
-        ))}
-      </div>
-    </div>
-  </section>
+    <section class="studio-section studio-section--paper" id="studio" aria-labelledby="studio-visit-title"><div class="studio-shell">
+      <div class="studio-visit"><figure><picture>{media.studio.realExterior.srcMobile && <source media="(max-width:600px)" srcset={media.studio.realExterior.srcMobile} />}<img src={media.studio.realExterior.src} alt="L’ingresso dello studio REBEL in Viale Barbaroux 20 a Carmagnola" width="1672" height="941" loading="lazy" decoding="async" /></picture><figcaption>La nostra sede, a Carmagnola.</figcaption></figure><div><p class="studio-kicker">Il tuo appuntamento, qui</p><h2 id="studio-visit-title">Viale Barbaroux 20.<br /><em>Ti aspettiamo da REBEL.</em></h2><p>Lo studio accoglie i tuoi appuntamenti viso, corpo, laser e beauty a Carmagnola. Prima di venire, concordiamo il servizio e il tempo da dedicarti.</p><address>Viale Barbaroux 20<br />10022 Carmagnola (TO)</address><div class="studio-actions"><a class="btn btn--primary" href={siteConfig.social.maps} target="_blank" rel="noreferrer">Apri le indicazioni <span aria-hidden="true">↗</span></a><a class="studio-link" href={`tel:${siteConfig.phoneRaw}`}>{siteConfig.phoneDisplay}</a></div></div></div>
+      <div class="studio-opening"><div><p class="studio-kicker">Organizziamo la visita</p><h3>Gli orari<br /><em>dello studio.</em></h3><p>Riceviamo su appuntamento.<br />Lunedì e domenica lo studio è chiuso.</p><a class="studio-link" href="/contatti">Contatti e prenotazioni <span aria-hidden="true">↗</span></a></div><dl>{openingHours.map(entry => <div><dt>{entry.day}</dt><dd>{entry.time}</dd></div>)}</dl></div>
+    </div></section>
 
-  <section class="section">
-    <div class="container">
-      <SectionHead
-        kicker="Come raggiungerci"
-        title="Indicazioni per chi arriva dai comuni vicini."
-        lead="Consulta la pagina del tuo comune per trovare distanza, percorso verso Viale Barbaroux 20 e servizi disponibili nello studio."
-      />
-      <div class="card-grid card-grid--3">
-        {featuredAreas.map((area) => (
-          <FeatureCard
-            kicker="Indicazioni"
-            title={area.city}
-            body={`Indicazioni per raggiungere REBEL da ${area.city}, servizi e modalità di prenotazione.`}
-            href={`/localita/${area.slug}`}
-            variant="quiet"
-          />
-        ))}
-      </div>
-      <div class="cluster cluster--stack-mobile" style="margin-top: 2rem;">
-        <a class="btn btn--secondary" href="/localita">Vedi tutte le località</a>
-        <a class="btn btn--primary btn--halo" href="/contatti">Contatti e indicazioni</a>
-      </div>
-    </div>
-  </section>
+    <section class="studio-section studio-section--method" aria-labelledby="studio-method-title"><div class="studio-shell">
+      <div class="studio-heading-row"><div><p class="studio-kicker">Da dove cominciare</p><h2 id="studio-method-title">Un servizio preciso.<br /><em>O una scelta da fare insieme.</em></h2></div><p>Puoi richiedere una singola seduta oppure partire dalla valutazione REBEL per confrontare obiettivi, trattamenti e frequenza.</p></div>
+      <ol class="studio-steps"><li><span aria-hidden="true">01</span><h3>Raccontaci ciò che cerchi.</h3><p>Indicaci il servizio, il risultato che desideri e quando vorresti venire. Ti aiutiamo a orientarti tra le proposte.</p></li><li><span aria-hidden="true">02</span><h3>Concordiamo il tuo appuntamento.</h3><p>Per la singola seduta confermiamo variante, durata e prezzo. Per un percorso puoi richiedere una valutazione di 30–40 minuti.</p></li><li><span aria-hidden="true">03</span><h3>La cura continua, se lo desideri.</h3><p>Se inizi il percorso proposto, la valutazione iniziale è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi.</p></li></ol>
+      <div class="studio-actions"><a class="btn btn--primary" href="/contatti">Parlane con REBEL <span aria-hidden="true">↗</span></a><a class="studio-link" href={siteConfig.social.whatsapp}>Scrivici su WhatsApp</a></div>
+    </div></section>
 
-  <NearMeBlock
-    serviceLabel="Centro estetico"
-    kicker="Centro estetico vicino a te"
-    anchorPattern={(s, c) => `${s}: indicazioni da ${c}`}
-    clusters={["asse-carmagnola", "torino-sud", "cuneo"]}
-    limit={14}
-    hrefOverrides={{
-      alba: "/localita/alba",
-      bra: "/localita/bra",
-      canale: "/localita/canale",
-    }}
-  />
+    <section class="studio-section studio-section--paper" aria-labelledby="studio-faq-title"><div class="studio-shell studio-questions"><header><p class="studio-kicker">Prima della visita</p><h2 id="studio-faq-title">Le informazioni<br /><em>che ti servono.</em></h2></header><div><FaqAccordion items={faqs} kicker="Domande su REBEL" /></div></div></section>
 
-  <FullBleedBand
-    image={media.studio.cabin}
-    height="md"
-    align="center"
-    kicker="Studio Rebel · Carmagnola"
-    quote="Quattro cabine per trattamenti viso, corpo, laser e beauty."
-    cta={{ label: "Prenota la valutazione", href: "/contatti" }}
-  />
+    <section class="studio-section" aria-labelledby="studio-local-title"><div class="studio-shell"><div class="studio-heading-row"><div><p class="studio-kicker">Carmagnola e dintorni</p><h2 id="studio-local-title">Il punto di partenza<br /><em>lo scegli tu.</em></h2></div><p>Arrivi da un altro comune? Trovi mappe e indicazioni verso la nostra unica sede in Viale Barbaroux 20. Scegli prima il servizio e concorda l’appuntamento.</p></div><nav class="studio-localities" aria-label="Indicazioni dai comuni vicini">{nearbyAreas.map(area => <a href={`/localita/${area.slug}`}>Da {area.city}<span aria-hidden="true">↗</span></a>)}</nav><p class="studio-localities__more"><a class="studio-link" href="/localita">Vedi tutte le località <span aria-hidden="true">→</span></a><a class="studio-link" href="/contatti">Contatti e indicazioni <span aria-hidden="true">↗</span></a></p></div></section>
 
-  <section class="section">
-    <div class="container">
-      <InlineCta
-        kicker="Valutazione REBEL · 30–40 minuti"
-        title="Ricevi indicazioni su trattamento, _frequenza e prezzo_."
-        lead="In 30–40 minuti valutiamo la zona e ti spieghiamo trattamento, frequenza e prezzo. Se scegli di iniziare il Percorso REBEL, la valutazione iniziale è gratuita. Gli eventuali prodotti consigliati per casa non sono inclusi."
-      />
-    </div>
-  </section>
-
-  <StickyBookingBar priceHint="Valutazione 30–40 min" primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
+    <section class="studio-section studio-section--links" aria-labelledby="studio-details-title"><div class="studio-shell"><div><p class="studio-kicker">Un dettaglio in più</p><h2 id="studio-details-title">Conosci meglio<br /><em>il trattamento.</em></h2></div><nav aria-label="Servizi nel dettaglio">{keyServices.map(service => <a href={`/servizi/${service.slug}`}><h3>{service.name.replace(/ a Carmagnola$/i,"")}</h3><span aria-hidden="true">↗</span></a>)}</nav></div></section>
+  </div>
+  <StickyBookingBar primary={{label:"Chiedi un appuntamento",href:"/contatti"}} whatsappHref={siteConfig.social.whatsapp} />
 </BaseLayout>
 
 <style>
-  .image-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.4rem;
-  }
-  .image-card {
-    display: flex;
-    flex-direction: column;
-    border-radius: var(--r-md);
-    overflow: hidden;
-    background: linear-gradient(180deg, rgba(31, 26, 58, 0.7), rgba(20, 16, 42, 0.85));
-    border: 1px solid var(--line);
-    color: var(--text);
-    transition:
-      transform var(--t-base) var(--ease-cinema),
-      border-color var(--t-base) var(--ease-soft);
-    text-decoration: none;
-  }
-  .image-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--line-strong);
-  }
-  .image-card__media {
-    margin: 0;
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
-    position: relative;
-  }
-  .image-card__media::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, transparent 60%, rgba(7, 5, 14, 0.6) 100%);
-    pointer-events: none;
-  }
-  .image-card__media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 1.4s var(--ease-cinema);
-  }
-  .image-card:hover .image-card__media img { transform: scale(1.04); }
-  .image-card__body {
-    padding: 1.4rem 1.5rem 1.6rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.55rem;
-  }
-  .image-card__title {
-    font-family: var(--font-display);
-    font-size: 1.3rem;
-    line-height: 1.15;
-    letter-spacing: var(--tracking-editorial);
-    color: var(--text-strong);
-    margin: 0;
-  }
-  .image-card__lead {
-    font-size: var(--t-small);
-    color: var(--text-muted);
-    line-height: 1.55;
-    margin: 0;
-  }
-  .image-card__cta {
-    margin-top: 0.5rem;
-    color: var(--mauve);
-    font-size: 0.9rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
+  .studio-page { color-scheme: light; --text:#301b3e; --text-strong:#301b3e; --text-muted:#685471; --line:#e2d6e7; background:#f8f3ed; color:#301b3e; }
+  .studio-shell { width:min(1240px,calc(100% - 2 * clamp(1.2rem,4vw,3.5rem))); margin-inline:auto; }
+  .studio-page :is(h2,h3,p,figure,ol,dl,dd) { margin:0; }
+  .studio-page :is(h2,h3) { color:#301b3e; overflow-wrap:normal; }
+  .studio-page h2 { font:500 clamp(2.15rem,4.1vw,3.9rem)/1.1 var(--font-display); letter-spacing:-.035em; }
+  .studio-page em { color:#70428b; font-weight:400; }
+  .studio-page p { color:#685471; line-height:1.8; }
+  .studio-page .studio-kicker { display:block; color:#a51e58; font:650 .72rem/1.6 var(--font-body); letter-spacing:.13em; text-transform:uppercase; margin-bottom:1rem; }
+  .studio-section { padding-block:clamp(3.5rem,7vw,6.5rem); scroll-margin-top:6rem; }
+  .studio-section--paper { background:#fffdf9; }
+  .studio-heading-row { display:grid; grid-template-columns:1.15fr .85fr; gap:clamp(1.5rem,5vw,5rem); align-items:end; margin-bottom:clamp(2rem,4vw,3.5rem); }
+  .studio-heading-row>p { max-width:58ch; }
+  .studio-services { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:2rem 1.7rem; }
+  .studio-services>a { display:block; color:inherit; text-decoration:none; min-width:0; }
+  .studio-services__photo { overflow:hidden; border-radius:2.5rem .4rem 2.5rem .4rem; background:#e9dfec; }
+  .studio-services__photo img { width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; display:block; transition:transform .45s ease; }
+  .studio-services a:hover img { transform:scale(1.025); }
+  .studio-services__copy { padding-block:1.3rem; }
+  .studio-services__copy .studio-kicker { margin-bottom:.6rem; }
+  .studio-services__copy h3 { font:500 clamp(1.5rem,2.6vw,2.25rem)/1.2 var(--font-display); display:flex; justify-content:space-between; gap:.75rem; }
+  .studio-services__copy>p:last-child { font-size:.9rem; margin-top:.8rem; max-width:58ch; }
+  .studio-page .studio-photo-note { color:#786981; font-size:.7rem; margin-top:.5rem; }
+  .studio-other-services { display:grid; grid-template-columns:.8fr 1.2fr; gap:clamp(2rem,5vw,5rem); align-items:start; border-top:1px solid #d6c4de; padding-top:2.5rem; margin-top:3rem; }
+  .studio-other-services h3 { font:500 clamp(1.6rem,3vw,2.5rem)/1.2 var(--font-display); }
+  .studio-other-services>div>a { margin-top:1rem; }
+  .studio-other-services nav { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.25rem 2rem; }
+  .studio-other-services nav a { display:flex; align-items:center; justify-content:space-between; gap:.8rem; color:#70428b; min-height:60px; padding-block:.75rem; border-bottom:1px solid #dfd0e6; font-size:.85rem; line-height:1.55; text-decoration:none; }
+  .studio-page .studio-link { display:inline-flex; align-items:center; gap:.7rem; min-height:44px; color:#70428b; font-size:.83rem; font-weight:650; text-underline-offset:.3em; }
+  .studio-prices { display:flex; justify-content:space-between; gap:1.5rem; align-items:center; flex-wrap:wrap; margin-top:2.5rem; padding:1.5rem 0; border-block:1px solid #dfd0e6; }
+  .studio-prices p { font-size:.85rem; }
+  .studio-prices strong { color:#301b3e; }
+  .studio-prices .btn { gap:.8rem; }
+  .studio-visit { display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,5vw,5rem); align-items:center; }
+  .studio-visit figure { min-width:0; }
+  .studio-visit picture { display:block; border-radius:.4rem 3rem .4rem 3rem; overflow:hidden; }
+  .studio-visit img { display:block; width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; }
+  .studio-visit figcaption { color:#786981; font-size:.72rem; margin-top:.7rem; }
+  .studio-visit>div>p:not(.studio-kicker) { margin-top:1.5rem; }
+  .studio-visit address { color:#70428b; font-size:1rem; font-style:normal; line-height:1.8; margin-top:1.5rem; padding-left:1.2rem; border-left:2px solid #cdb6d9; }
+  .studio-actions { display:flex; flex-wrap:wrap; align-items:center; gap:1rem 1.7rem; margin-top:1.7rem; }
+  .studio-actions .btn { gap:.8rem; }
+  .studio-opening { display:grid; grid-template-columns:1fr 1fr; align-items:start; gap:clamp(2rem,5vw,5rem); margin-top:clamp(3rem,6vw,5rem); border-top:1px solid #dfd0e6; padding-top:2rem; }
+  .studio-opening h3 { font:500 clamp(1.7rem,3vw,2.5rem)/1.2 var(--font-display); }
+  .studio-opening p:not(.studio-kicker) { font-size:.9rem; margin-top:1.2rem; }
+  .studio-opening dl { min-width:0; }
+  .studio-opening dl>div { display:flex; justify-content:space-between; gap:1.5rem; border-bottom:1px solid #dfd0e6; padding-block:1rem; font-size:.9rem; }
+  .studio-opening dt { color:#685471; }
+  .studio-opening dd { color:#70428b; font-weight:650; }
+  .studio-section--method { background:#eee4f0; }
+  .studio-steps { list-style:none; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(1.5rem,4vw,3rem); }
+  .studio-steps li { border-top:1px solid #cbb2d7; padding-top:1.5rem; }
+  .studio-steps li>span { color:#a51e58; font-size:.75rem; letter-spacing:.13em; }
+  .studio-steps h3 { font:500 clamp(1.35rem,2.1vw,1.8rem)/1.2 var(--font-display); margin-block:1rem; }
+  .studio-steps p { font-size:.9rem; }
+  .studio-questions { display:grid; grid-template-columns:.75fr 1.25fr; align-items:start; gap:clamp(2rem,6vw,6rem); }
+  .studio-questions>div { min-width:0; }
+  .studio-localities { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.4rem 2rem; }
+  .studio-localities a { display:flex; justify-content:space-between; align-items:center; min-height:48px; gap:.7rem; color:#70428b; text-decoration:none; border-bottom:1px solid #dfd0e6; font-size:.86rem; }
+  .studio-localities__more { display:flex; flex-wrap:wrap; gap:.5rem 2rem; margin-top:1.5rem!important; }
+  .studio-section--links { padding-top:0; }
+  .studio-section--links>.studio-shell { display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,6vw,6rem); }
+  .studio-section--links h2 { font-size:clamp(1.9rem,3vw,2.7rem); }
+  .studio-section--links nav a { display:flex; justify-content:space-between; align-items:center; gap:1rem; color:#70428b; text-decoration:none; border-bottom:1px solid #dfd0e6; padding-block:1rem; min-height:50px; }
+  .studio-section--links h3 { font:500 1.4rem/1.3 var(--font-display); }
+  .studio-page a:focus-visible { outline:3px solid #7047ff; outline-offset:4px; }
+  @media(max-width:900px) { .studio-heading-row,.studio-other-services,.studio-visit,.studio-opening,.studio-questions,.studio-section--links>.studio-shell { grid-template-columns:1fr; } .studio-visit img { aspect-ratio:16/10; } .studio-steps { grid-template-columns:1fr; } .studio-heading-row { gap:1.5rem; } }
+  @media(max-width:600px) { .studio-services { grid-template-columns:1fr; } .studio-other-services nav { grid-template-columns:1fr; } .studio-localities { grid-template-columns:repeat(2,minmax(0,1fr)); gap:.4rem 1rem; } .studio-services__copy h3 { font-size:1.8rem; } .studio-actions { align-items:stretch; flex-direction:column; } .studio-actions .btn { justify-content:center; } }
+  @media(max-width:380px) { .studio-localities { grid-template-columns:1fr; } }
+  @media(prefers-reduced-motion:reduce) { .studio-services__photo img { transition:none; } }
 </style>

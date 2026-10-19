@@ -1,8 +1,6 @@
 ---
 import { clarifyCopy } from "@/lib/copy-clarity";
-
 interface CtaSpec { label: string; href: string; halo?: boolean; }
-
 interface Props {
   kicker: string;
   title: string;
@@ -11,210 +9,66 @@ interface Props {
   ctaPrimary?: CtaSpec;
   ctaSecondary?: CtaSpec;
   image?: { src: string; srcMobile?: string; alt: string; width?: number; height?: number };
+  imageCaption?: string;
+  imagePosition?: string;
   bullets?: string[];
 }
-
-const { kicker, title, lead, meta = [], ctaPrimary, ctaSecondary, image, bullets = [] } = Astro.props;
-
-const clearKicker = clarifyCopy(kicker);
-const clearTitle = clarifyCopy(title);
-const clearLead = lead ? clarifyCopy(lead) : undefined;
-const clearMeta = meta.map(clarifyCopy);
-const clearBullets = bullets.map(clarifyCopy);
-const clearPrimary = ctaPrimary ? { ...ctaPrimary, label: clarifyCopy(ctaPrimary.label) } : undefined;
-const clearSecondary = ctaSecondary ? { ...ctaSecondary, label: clarifyCopy(ctaSecondary.label) } : undefined;
-const renderedTitle = clearTitle.replace(/_([^_]+)_/g, (_, inner) => `<em>${inner}</em>`);
+const { kicker, title, lead, meta = [], ctaPrimary, ctaSecondary, image, imageCaption, imagePosition = "center", bullets = [] } = Astro.props;
+const renderedTitle = clarifyCopy(title).replace(/_([^_]+)_/g, (_, inner) => `<em>${inner}</em>`);
 ---
-<section class={`page-hero ${image ? "page-hero--media" : ""}`}>
-  <div class="page-hero__bg" aria-hidden="true"></div>
-  {image ? (
-    <>
-      <picture>
-        {image.srcMobile ? <source media="(max-width: 860px) and (orientation: portrait)" srcset={image.srcMobile} /> : null}
-        <img
-          class="page-hero__photo"
-          src={image.src}
-          alt={image.alt}
-          width={image.width}
-          height={image.height}
-          fetchpriority="high"
-          decoding="async"
-        />
-      </picture>
-      <div class="page-hero__veil" aria-hidden="true"></div>
-    </>
-  ) : null}
-  <div class="container">
+<section class:list={["page-hero page-hero--editorial", { "page-hero--with-image": Boolean(image) }]}>
+  <div class="page-hero__layout">
     <div class="page-hero__inner">
-      <p class="page-hero__kicker" data-reveal>{clearKicker}</p>
-      <h1 class="page-hero__title" data-reveal style="--reveal-delay: 40ms;" set:html={renderedTitle} />
-      {clearLead ? (
-        <p class="page-hero__lead" data-reveal style="--reveal-delay: 120ms;">{clearLead}</p>
-      ) : null}
-
-      {(clearPrimary || clearSecondary) ? (
-        <div class="page-hero__cta cluster cluster--stack-mobile" data-reveal style="--reveal-delay: 150ms;">
-          {clearPrimary ? (
-            <a class={`btn btn--primary ${clearPrimary.halo ? "btn--halo" : ""}`} href={clearPrimary.href}>{clearPrimary.label}</a>
-          ) : null}
-          {clearSecondary ? (
-            <a class="btn btn--secondary" href={clearSecondary.href}>{clearSecondary.label}</a>
-          ) : null}
-        </div>
-      ) : null}
-
-      {clearBullets.length > 0 ? (
-        <ul class="page-hero__bullets" data-reveal style="--reveal-delay: 180ms;">
-          {clearBullets.map((b) => <li>{b}</li>)}
-        </ul>
-      ) : null}
-
-      {clearMeta.length > 0 ? (
-        <div class="page-hero__meta" data-reveal style="--reveal-delay: 210ms;">
-          {clearMeta.map((m) => <span>{m}</span>)}
-        </div>
-      ) : null}
+      <p class="page-hero__kicker">{clarifyCopy(kicker)}</p>
+      <h1 class="page-hero__title" set:html={renderedTitle} />
+      {lead && <p class="page-hero__lead">{clarifyCopy(lead)}</p>}
+      {(ctaPrimary || ctaSecondary) && <div class="page-hero__cta">
+        {ctaPrimary && <a class="page-hero__primary" href={ctaPrimary.href}>{clarifyCopy(ctaPrimary.label)}<span aria-hidden="true">↗</span></a>}
+        {ctaSecondary && <a class="page-hero__secondary" href={ctaSecondary.href}>{clarifyCopy(ctaSecondary.label)}<span aria-hidden="true">→</span></a>}
+      </div>}
+      {bullets.length > 0 && <ul class="page-hero__bullets">{bullets.map(b => <li>{clarifyCopy(b)}</li>)}</ul>}
     </div>
+    {image && <figure class="page-hero__visual" style={`--hero-focus:${imagePosition}`}>
+      <picture>
+        {image.srcMobile && <source media="(max-width:760px)" srcset={image.srcMobile} />}
+        <img class="page-hero__photo" src={image.src} alt={image.alt} width={image.width ?? 1536} height={image.height ?? 1024} fetchpriority="high" decoding="async" />
+      </picture>
+      {imageCaption && <figcaption>{imageCaption}</figcaption>}
+    </figure>}
+    {meta.length > 0 && <div class="page-hero__meta">{meta.map(m => <span>{clarifyCopy(m)}</span>)}</div>}
   </div>
-
-  <div class="page-hero__scroll" aria-hidden="true">Scorri</div>
 </section>
 
 <style>
-  /* Geometry lives beside the markup: global theme patches must not set
-     competing viewport heights or force long titles outside the hero. */
-  .page-hero {
-    --text: #301b3e;
-    --text-strong: #27142f;
-    --text-muted: #685471;
-    --text-faint: #786581;
-    --line: rgba(39, 20, 47, .13);
-    --line-strong: rgba(39, 20, 47, .25);
-    min-height: 0;
-    height: auto;
-    padding-block: clamp(8rem, 11vw, 10.5rem) clamp(3rem, 6vw, 5rem);
-    align-items: center;
-    overflow: visible;
-    color: var(--text);
-    color-scheme: light;
-    background: #fffdf9;
-  }
-  .page-hero__bg { display: none; }
-  .page-hero__inner { min-width: 0; gap: clamp(1rem, 2vw, 1.5rem); }
-  .page-hero__title {
-    max-width: 18ch;
-    font-size: clamp(2.8rem, 6.8vw, 6.8rem);
-    line-height: 1.02;
-    letter-spacing: -.045em;
-    color: var(--text-strong);
-    overflow-wrap: break-word;
-  }
-  .page-hero__title :global(em) {
-    background: none;
-    color: #784795;
-    -webkit-text-fill-color: currentColor;
-  }
-  .page-hero__kicker { color: #a32f68; }
-  .page-hero__kicker::before { background: currentColor; }
-  .page-hero__lead { color: var(--text-muted); }
-  .page-hero__meta { color: var(--text-muted); margin-top: .2rem; }
-  .page-hero__meta span::before { background: #a32f68; box-shadow: none; }
-  .page-hero__cta { min-width: 0; }
-  .page-hero__cta .btn { min-height: 44px; max-width: 100%; white-space: normal; text-align: center; }
-  .page-hero:not(.page-hero--media) .btn--secondary {
-    color: #5c3572;
-    border-color: rgba(92, 53, 114, .3);
-    background: rgba(255, 255, 255, .72);
-  }
-  .page-hero:not(.page-hero--media) .btn--secondary:hover { background: #f3eaf7; }
-  .page-hero__scroll { display: none; }
-  .page-hero--media {
-    --text: #f4eee3;
-    --text-strong: #fffdf9;
-    --text-muted: rgba(244, 238, 227, .76);
-    --text-faint: rgba(244, 238, 227, .6);
-    --line: rgba(255, 255, 255, .16);
-    --line-strong: rgba(255, 255, 255, .3);
-    min-height: min(78svh, 800px);
-    color-scheme: dark;
-    background: #27142f;
-  }
-  .page-hero--media .page-hero__kicker { color: #f1b4d0; }
-  .page-hero--media .page-hero__title :global(em) { color: #f1b4d0; }
-  .page-hero--media .page-hero__meta span::before { background: #f1b4d0; }
-  .page-hero > picture {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-  }
-  .page-hero__photo {
-    position: absolute;
-    inset: 0;
-    z-index: auto;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .page-hero__veil {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background:
-      radial-gradient(70% 60% at 22% 28%, rgba(46, 16, 101, 0.52), transparent 62%),
-      linear-gradient(180deg, rgba(7, 5, 14, 0.58) 0%, rgba(7, 5, 14, 0.32) 38%, rgba(7, 5, 14, 0.90) 96%);
-  }
-  .page-hero--media .page-hero__bg { display: none; }
-  .page-hero__bullets {
-    list-style: none;
-    margin: 0.4rem 0 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem 1.4rem;
-  }
-  .page-hero__bullets li {
-    position: relative;
-    padding-left: 1.5rem;
-    font-size: var(--t-body);
-    color: var(--text);
-  }
-  .page-hero__bullets li::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: #a32f68;
-    font-weight: 700;
-  }
-  .page-hero--media .page-hero__bullets li::before { color: #f1b4d0; }
-
-  @media (min-width: 861px) and (max-height: 800px) {
-    .page-hero {
-      min-height: 0;
-      padding-block: clamp(7.5rem, 16svh, 9rem) 3rem;
-    }
-    .page-hero__title { font-size: clamp(2.8rem, 5.8vw, 5.6rem); }
-    .page-hero__inner { gap: 1rem; }
-  }
-  @media (max-width: 860px) {
-    .page-hero {
-      min-height: 0;
-      padding-block: max(7.5rem, calc(5.75rem + env(safe-area-inset-top, 0px))) 3rem;
-    }
-    .page-hero > .container { width: calc(100% - 2rem); padding-inline: 0; }
-    .page-hero__inner { gap: 1rem; }
-    .page-hero__title { font-size: clamp(2.4rem, 10.8vw, 4.8rem); line-height: 1.04; }
-    .page-hero__lead { font-size: 1rem; line-height: 1.6; }
-    .page-hero__meta { gap: .55rem 1rem; font-size: .82rem; }
-    .page-hero__bullets { gap: .6rem 1rem; }
-    .page-hero__bullets li { font-size: .9rem; }
-  }
-  @media (max-width: 540px) {
-    .page-hero__cta { width: 100%; }
-    .page-hero__cta .btn { width: 100%; }
-  }
-  @media (max-width: 1024px) and (orientation: landscape) and (max-height: 620px) {
-    .page-hero { min-height: 0; padding-block: 7.5rem 2.5rem; }
-    .page-hero__title { font-size: clamp(2.4rem, 5.5vw, 3.8rem); }
-  }
+  .page-hero { --text:#301a3a;--text-strong:#27142f;--text-muted:#685471;--line:#e2d6e1;position:relative;isolation:isolate;display:block;min-height:0;height:auto;overflow:visible;padding:clamp(8rem,11vw,10rem) 0 clamp(2.5rem,5vw,5rem);background:radial-gradient(ellipse at 95% 5%,#f0e2f47a,transparent 48%),#fffdf9;color:var(--text);color-scheme:light; }
+  .page-hero__layout { width:min(1400px,calc(100% - 2 * clamp(1.1rem,3.4vw,4rem)));margin-inline:auto;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(1.8rem,4vw,4.5rem);align-items:center; }
+  .page-hero:not(.page-hero--with-image) .page-hero__layout { grid-template-columns:minmax(0,1fr); }
+  .page-hero__inner { position:relative;z-index:auto;display:grid;gap:1.4rem;min-width:0;max-width:none; }
+  .page-hero__kicker { display:block;margin:0;font:750 .69rem/1.6 var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:#a32f68; }
+  .page-hero__kicker::before { display:none; }
+  .page-hero__title { margin:0;max-width:20ch;font:600 clamp(2.7rem,4.35vw,5rem)/1.08 var(--font-body);letter-spacing:-.065em;color:#27142f;text-wrap:balance;overflow-wrap:break-word; }
+  .page-hero__title :global(em) { background:none;color:#793c86;-webkit-text-fill-color:currentColor;font-family:var(--font-display);font-weight:400;letter-spacing:-.055em; }
+  .page-hero__lead { max-width:50ch;margin:0;font:400 clamp(.98rem,1.15vw,1.1rem)/1.8 var(--font-body);color:#685471;text-wrap:pretty; }
+  .page-hero__cta { display:flex;flex-wrap:wrap;gap:.8rem 1.5rem;align-items:center;margin:.2rem 0 0;min-width:0; }
+  .page-hero__cta a { display:inline-flex;align-items:center;justify-content:space-between;gap:1.2rem;min-height:50px;max-width:100%;font:700 .8rem/1.5 var(--font-body);text-decoration:none; }
+  .page-hero__primary { padding:.95rem 1.35rem;border-radius:99px;color:#fff;background:linear-gradient(110deg,#b12b73,#773eb9 62%,#496ca9);box-shadow:0 8px 24px #71377d20;transition:transform .2s ease,box-shadow .2s ease; }
+  .page-hero__primary:hover { transform:translateY(-2px);box-shadow:0 12px 28px #71377d30; }
+  .page-hero__secondary { color:#71367a;text-decoration:underline!important;text-decoration-color:#71367a55!important;text-underline-offset:.4em; }
+  .page-hero__cta a:focus-visible { outline:3px solid #8941b0;outline-offset:5px; }
+  .page-hero__visual { min-width:0;margin:0;position:relative; }
+  .page-hero__visual picture { display:block;position:relative;overflow:hidden;border-radius:50px 5px 5px 5px;background:#ece2e8; }
+  .page-hero__visual picture::after { content:"";position:absolute;inset:auto 0 0;height:3px;background:linear-gradient(90deg,#cc6b92,#a688d9,#88b5c5,#ddc5a7);opacity:.8;pointer-events:none; }
+  .page-hero .page-hero__photo { display:block;position:static;inset:auto;width:100%;height:auto;aspect-ratio:4/5;max-height:680px;object-fit:cover;object-position:var(--hero-focus); }
+  .page-hero__visual figcaption { margin-top:.7rem;color:#786581;font:400 .68rem/1.7 var(--font-body); }
+  .page-hero__bullets { display:grid;grid-template-columns:minmax(0,1fr);list-style:none;padding:1.2rem 0 0;margin:.2rem 0 0;border-top:1px solid #e2d6e1;gap:.55rem; }
+  .page-hero__bullets li { position:relative;padding-left:1.1rem;color:#685471;font:500 .76rem/1.65 var(--font-body); }
+  .page-hero__bullets li::before { content:"";position:absolute;width:4px;height:4px;left:0;top:.65em;border-radius:50%;background:#a32f68; }
+  .page-hero__meta { grid-column:1/-1;display:flex;flex-wrap:wrap;gap:.5rem 2rem;align-items:center;margin:0;padding-top:1.25rem;border-top:1px solid #e2d6e1;color:#786581;font:500 .7rem/1.7 var(--font-body);letter-spacing:.02em; }
+  .page-hero__meta span { display:inline-flex;gap:.6rem;align-items:center; }
+  .page-hero__meta span::before { content:"";flex:0 0 4px;width:4px;height:4px;background:#a32f68;border-radius:50%;box-shadow:none; }
+  @media(min-width:1100px) and (max-height:800px) { .page-hero { padding-top:8rem; }.page-hero .page-hero__photo { max-height:570px;aspect-ratio:1; }.page-hero__title { font-size:clamp(2.7rem,4vw,4.7rem); } }
+  @media(max-width:1000px) { .page-hero__layout { gap:2rem; }.page-hero__title { font-size:clamp(2.7rem,4.6vw,4rem); }.page-hero .page-hero__photo { aspect-ratio:3/4; } }
+  @media(max-width:760px) { .page-hero { padding-top:7rem;padding-bottom:2.5rem; }.page-hero__layout { grid-template-columns:minmax(0,1fr);gap:2rem; }.page-hero__inner { gap:1.25rem; }.page-hero__title { max-width:24ch;font-size:clamp(2.35rem,9vw,4rem);line-height:1.1; }.page-hero .page-hero__photo { aspect-ratio:4/3;max-height:none; }.page-hero__visual picture { border-radius:35px 5px 5px 5px; }.page-hero__bullets { gap:.5rem; }.page-hero__meta { gap:.5rem 1.2rem;padding-top:1rem; }.page-hero__cta { gap:.6rem 1.2rem; } }
+  @media(max-width:380px) { .page-hero__title { font-size:2.35rem; }.page-hero__cta a { font-size:.75rem; }.page-hero__primary { padding:.9rem 1.1rem; } }
+  @media(prefers-reduced-motion:reduce) { .page-hero__primary { transition:none; }.page-hero__primary:hover { transform:none; } }
 </style>

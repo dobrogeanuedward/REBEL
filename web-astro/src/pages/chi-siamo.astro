@@ -5,12 +5,12 @@ import SectionHead from "@/components/SectionHead.astro";
 import FeatureCard from "@/components/FeatureCard.astro";
 import InlineCta from "@/components/InlineCta.astro";
 import BrandStrip from "@/components/BrandStrip.astro";
-import FullBleedBand from "@/components/FullBleedBand.astro";
-import StudioEvidence from "@/components/StudioEvidence.astro";
 import StudioAtlas from "@/components/StudioAtlas.astro";
+import StoreGallery from "@/components/StoreGallery.tsx";
 import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import { media } from "@/lib/page-media";
+import { storeGalleryImages } from "@/lib/content";
 import {
   buildArticleSchema,
   buildBreadcrumbSchema,
@@ -98,6 +98,9 @@ const paths = [
     href: "/contatti",
   },
 ];
+// Atlas already presents the three R2 studio scenes. Keep the distinct,
+// authentic Treatwell photographs in a compact optional album instead.
+const studioDetails = storeGalleryImages.filter(image => image.src.startsWith("/img/studio-treatwell/"));
 
 ---
 <BaseLayout meta={meta} bodyClass="page-studio">
@@ -116,8 +119,14 @@ const paths = [
     ctaSecondary={{ label: "Consulta il listino", href: "/listino-estetica-laser" }}
   />
 
-  <StudioEvidence />
   <StudioAtlas />
+
+  <section class="studio-details" aria-label="Altre fotografie autentiche dello studio"><div class="container">
+    <details>
+      <summary><span class="studio-details__kicker">Dentro REBEL, ancora più da vicino</span><strong>Postazioni, cabine e dettagli.</strong><span class="studio-details__hint">Apri l’album · {studioDetails.length} fotografie dello studio</span><span class="studio-details__icon" aria-hidden="true">+</span></summary>
+      <div class="studio-details__body"><p>Accoglienza, manicure, pedicure, consulenza e cabine: fotografie autentiche dello studio di Viale Barbaroux 20, anche dal nostro profilo Treatwell.</p><StoreGallery client:visible images={studioDetails} /><a href="/contatti">Vieni a conoscere REBEL <span aria-hidden="true">↗</span></a></div>
+    </details>
+  </div></section>
 
   <section class="section section--tight">
     <div class="container">
@@ -169,19 +178,10 @@ const paths = [
     </div>
   </section>
 
-  <FullBleedBand
-    image={media.studio.realExterior}
-    height="sm"
-    align="left"
-    kicker="Rebel · Carmagnola"
-    quote="Il tuo percorso REBEL comincia qui, in Viale Barbaroux 20."
-    cite="Viale Barbaroux 20"
-  />
-
   <section class="section">
     <div class="container">
       <InlineCta
-        kicker="Valutazione REBEL · 30–40 minuti"
+        kicker="Valutazione REBEL · 30–40 minuti · Viale Barbaroux 20"
         title="Valutiamo la zona e ti spieghiamo _come possiamo lavorare_."
         lead="Valutiamo insieme la zona e il risultato che desideri. Poi ti spieghiamo il trattamento consigliato, la frequenza, il prezzo e le possibili alternative. Se scegli di iniziare il Percorso REBEL, la valutazione iniziale è gratuita."
       />
@@ -190,3 +190,20 @@ const paths = [
 
   <StickyBookingBar primary={{ label: "Prenota la valutazione", href: "/contatti" }} />
 </BaseLayout>
+
+<style>
+  .studio-details { padding:0 0 clamp(2.5rem,5vw,5rem);color:#301a3a;background:#fffdf9; }
+  .studio-details details { border-block:1px solid #dfd1df; }
+  .studio-details summary { position:relative;display:grid;gap:.6rem;list-style:none;cursor:pointer;padding:1.5rem 4rem 1.5rem 0; }
+  .studio-details summary::-webkit-details-marker { display:none; }
+  .studio-details__kicker { color:#914476;font:700 .65rem/1.6 var(--font-body);letter-spacing:.12em;text-transform:uppercase; }
+  .studio-details summary strong { color:#301a3a;font:500 clamp(1.5rem,2.8vw,2.5rem)/1.2 var(--font-display);letter-spacing:-.025em; }
+  .studio-details__hint { color:#7b6781;font-size:.75rem;line-height:1.7; }
+  .studio-details__icon { position:absolute;right:0;top:50%;display:grid;place-items:center;width:44px;height:44px;margin-top:-22px;border:1px solid #d8c3d7;border-radius:50%;color:#85497c;font:400 1.5rem/1 var(--font-body);transition:transform .2s ease; }
+  .studio-details details[open] .studio-details__icon { transform:rotate(45deg); }
+  .studio-details__body { padding-bottom:1.5rem; }
+  .studio-details__body > p { max-width:65ch;margin:0 0 1.5rem;color:#705c79;font-size:.85rem;line-height:1.85; }
+  .studio-details__body > a { display:inline-flex;align-items:center;gap:1.3rem;min-height:44px;margin-top:1rem;color:#814480;font-size:.85rem;font-weight:700;text-decoration:none; }
+  .studio-details :is(summary,a):focus-visible { outline:3px solid #8040c1;outline-offset:5px; }
+  @media(prefers-reduced-motion:reduce) { .studio-details__icon { transition:none; } }
+</style>

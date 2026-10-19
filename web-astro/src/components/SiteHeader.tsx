@@ -34,7 +34,7 @@ export default function SiteHeader({ pathname }: Props) {
   useEffect(() => {
     const close = () => setOpen(false);
     const closeAtDesktop = () => {
-      if (window.matchMedia("(min-width: 1180px)").matches) close();
+      if (window.matchMedia("(min-width: 1280px)").matches) close();
     };
 
     document.addEventListener("astro:before-swap", close);

@@ -1,15 +1,14 @@
 ---
-import LandingLayout from "@/layouts/LandingLayout.astro";
-import LandingHero from "@/components/landing/LandingHero.astro";
-import LandingProof from "@/components/landing/LandingProof.astro";
-import LandingSteps from "@/components/landing/LandingSteps.astro";
-import LandingFaq from "@/components/landing/LandingFaq.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import FaqAccordion from "@/components/FaqAccordion.astro";
+import StickyBookingBar from "@/components/StickyBookingBar.astro";
 import LandingFormCard from "@/components/landing/LandingFormCard.astro";
-import FullBleedBand from "@/components/FullBleedBand.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import { createPageMeta, buildBreadcrumbSchema } from "@/lib/seo";
-import { media } from "@/lib/page-media";
+import { photographs } from "@/lib/catalog-visuals";
 import { siteConfig } from "@/lib/site-config";
+import "@/styles/protocol-editorial.css";
 
 const meta = createPageMeta({
   title: "Protocollo viso epigenetico Carmagnola — valutazione REBEL | Rebel",
@@ -74,99 +73,40 @@ const faqSchema = {
   })),
 };
 ---
-<LandingLayout
-  meta={meta}
-  bodyClass="page-landing--viso"
-  ctaHref="#form"
-  ctaLabel="Prenota la valutazione"
->
+<BaseLayout meta={meta} bodyClass="rebel-rebrand rebel-shell page-protocollo-viso">
   <JsonLd data={breadcrumb} />
   <JsonLd data={serviceSchema} />
   <JsonLd data={faqSchema} />
+  <div class="protocol-editorial">
+    <PageHero image={photographs["percorso-glow"]} imageCaption="REBEL · Scena illustrativa di un trattamento viso"
+      kicker="Trattamento viso · Carmagnola"
+      title="Un protocollo viso. _La tua pelle._"
+      lead="Osserviamo la pelle e scegliamo la linea più adatta tra Marbellas ed Eberlin. Manualità, attivi e frequenza cominciano da ciò che la tua pelle racconta."
+      ctaPrimary={{ label:"Prenota la valutazione", href:"#form" }}
+      ctaSecondary={{ label:"Esplora i protocolli", href:"/protocolli-epigenetici" }}
+      bullets={["Valutazione · 30–40 minuti", "Pulizia viso €55 · Protocolli da €75"]}
+      meta={["Valutazione iniziale gratuita se inizi il Percorso REBEL", "Viale Barbaroux 20 · Carmagnola"]}
+    />
 
-  <LandingHero
-    media={media.viso.hero}
-    badge="Valutazione · 30–40 minuti"
-    kicker="Trattamento viso · Carmagnola"
-    title="Un protocollo viso scelto in base alla _tua_ pelle."
-    lead="Osserviamo la pelle, scegliamo la linea più adatta tra Marbellas ed Eberlin e definiamo frequenza e prezzo. Se inizi il Percorso REBEL, la valutazione iniziale è gratuita."
-    bullets={[
-      { text: "Valutazione in studio di idratazione, sebo, sensibilità e segni visibili." },
-      { text: "Scelta della linea professionale: Marbellas o Eberlin." },
-      { text: "Frequenza delle sedute definita dopo la valutazione." },
-      { text: "Prezzi pubblici: pulizia viso €55, protocolli avanzati da €75." },
-    ]}
-    primaryCta={{ label: "Prenota la valutazione", href: "#form" }}
-    secondaryCta={{
-      label: "Scopri Marbellas / Eberlin",
-      href: "/protocolli-epigenetici",
-    }}
-    footnote="Ti contattiamo personalmente via WhatsApp o telefono."
-  />
+    <section class="pe-section pe-section--paper"><div class="pe-shell pe-approach">
+      <figure><img src={photographs["viso-preparazione"].src} srcset={`${photographs["viso-preparazione"].preview} 480w, ${photographs["viso-preparazione"].src} 1440w`} sizes="(max-width:760px) 100vw, 50vw" width="1440" height="810" alt={photographs["viso-preparazione"].alt} loading="lazy" decoding="async" /><figcaption class="pe-image-note">Preparazione cosmetica · Scena illustrativa</figcaption></figure>
+      <div class="pe-approach__copy"><p class="pe-kicker">La scelta della linea</p><h2 class="pe-title">Attivi e manualità.<br /><em>Scelti per te.</em></h2><p>Idratazione, sebo, sensibilità e segni visibili orientano la valutazione in studio. Scegliamo i cosmetici in base alla tua pelle e definiamo insieme frequenza e prezzo.</p>
+        <div class="pe-lines"><article><h3>Marbellas</h3><p>Linea cosmetica professionale utilizzata nei percorsi dedicati a luminosità, tono e comfort della pelle.</p></article><article><h3>Eberlin</h3><p>Marchio spagnolo di cosmetica professionale. Le linee vengono scelte in base alle esigenze osservate.</p></article></div>
+        <p>Il team segue la formazione THORY dedicata alle linee e alle tecnologie utilizzate in studio.</p>
+      </div>
+    </div></section>
 
-  <LandingProof
-    kicker="Perché Rebel"
-    items={[
-      {
-        title: "Formazione THORY",
-        body: "Il team segue la formazione THORY dedicata alle linee e alle tecnologie utilizzate in studio.",
-      },
-      {
-        title: "Linea Marbellas",
-        body: "Linea cosmetica professionale utilizzata nei percorsi dedicati a luminosità, tono e comfort della pelle.",
-      },
-      {
-        title: "Linea Eberlin",
-        body: "Marchio spagnolo di cosmetica professionale con linee scelte in base alle esigenze della pelle.",
-      },
-      {
-        title: "Tempi e prezzi chiari",
-        body: "Prima di iniziare ti spieghiamo la frequenza proposta, il prezzo e quando faremo il controllo.",
-      },
-    ]}
-  />
+    <section class="pe-section"><div class="pe-shell"><div class="pe-heading"><div><p class="pe-kicker">Dal primo contatto alla cura</p><h2>Un percorso chiaro.<br /><em>Un passo alla volta.</em></h2></div><p>Prima di iniziare conosci linea, frequenza e prezzo e puoi scegliere con calma. I controlli ci aiutano ad aggiornare il programma quando serve.</p></div>
+      <ol class="pe-face-steps"><li><span aria-hidden="true">01</span><h3>Lascia i tuoi recapiti</h3><p>Nome, telefono e, se vuoi, cosa vorresti migliorare: luminosità, idratazione, segni o sensibilità.</p></li><li><span aria-hidden="true">02</span><h3>Valutiamo la pelle</h3><p>In 30–40 minuti osserviamo la pelle, parliamo del tuo obiettivo e scegliamo la linea più adatta.</p></li><li><span aria-hidden="true">03</span><h3>Definiamo il trattamento</h3><p>Ti spieghiamo la frequenza proposta, il prezzo e quando faremo il primo controllo.</p></li><li><span aria-hidden="true">04</span><h3>Seguiamo i cambiamenti</h3><p>Durante i controlli osserviamo la pelle e aggiorniamo il programma quando necessario.</p></li></ol>
+    </div></section>
 
-  <LandingSteps
-    kicker="Come funziona"
-    title="Dalla valutazione della pelle al trattamento personalizzato."
-    steps={[
-      {
-        title: "Lascia i tuoi recapiti",
-        body: "Nome, telefono e — se vuoi — cosa vorresti migliorare (luminosità, segni, sensibilità…).",
-      },
-      {
-        title: "Valutazione di 30–40 minuti",
-        body: "Osserviamo la pelle, parliamo di ciò che vuoi migliorare e scegliamo la linea più adatta.",
-      },
-      {
-        title: "Ti spieghiamo il percorso",
-        body: "Conosci linea, frequenza e prezzo e puoi decidere con calma se iniziare.",
-      },
-      {
-        title: "Iniziamo e controlliamo i cambiamenti",
-        body: "Durante i controlli osserviamo la pelle e aggiorniamo il programma quando serve.",
-      },
-    ]}
-  />
+    <div class="pe-form-wrap"><div class="pe-shell pe-form-intro"><p class="pe-kicker">Il tuo appuntamento REBEL</p><h2 class="pe-title">Cominciamo<br /><em>dalla tua pelle.</em></h2><p>Se scegli di iniziare il Percorso REBEL, la valutazione iniziale è gratuita. Gli eventuali prodotti per casa non sono inclusi.</p></div>
+      <LandingFormCard kicker="Valutazione viso · 30–40 minuti" title="Parliamone insieme."
+        lead="Lascia nome e numero. Ti contattiamo personalmente via WhatsApp o telefono per concordare il tuo appuntamento."
+        source="landing-viso" submitLabel="Prenota la valutazione" showRitual={false} showMessage={true} />
+    </div>
 
-  <FullBleedBand
-    image={media.viso.mood}
-    height="sm"
-    align="center"
-    kicker="Estetica viso · Carmagnola"
-    quote="Il trattamento parte dalla _tua_ pelle."
-    cite="Studio Rebel · Viale Barbaroux 20"
-  />
-
-  <LandingFormCard
-    kicker="Valutazione viso"
-    title="Prenota la valutazione della pelle."
-    lead="Bastano nome e numero. Se vuoi, scrivici già cosa vorresti migliorare (luminosità, idratazione, segni, sensibilità…)."
-    source="landing-viso"
-    submitLabel="Prenota la valutazione"
-    showRitual={false}
-    showMessage={true}
-  />
-
-  <LandingFaq items={faqs} />
-</LandingLayout>
+    <section class="pe-section"><div class="pe-shell pe-faq-layout"><div><p class="pe-kicker">Prima di prenotare</p><h2 class="pe-title">La cura comincia<br /><em>con una risposta.</em></h2></div><FaqAccordion items={faqs} /></div></section>
+  </div>
+  <StickyBookingBar primary={{ label:"Prenota la valutazione", href:"#form" }} />
+</BaseLayout>

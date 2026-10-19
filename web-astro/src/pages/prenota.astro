@@ -5,7 +5,7 @@
  * Goal: minimum copy, maximum conversion. The form is above the fold even on
  * mobile. `noindex` so it never competes with the canonical pages on SEO.
  */
-import LandingLayout from "@/layouts/LandingLayout.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 import LandingFormCard from "@/components/landing/LandingFormCard.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import { createPageMeta, buildBreadcrumbSchema } from "@/lib/seo";
@@ -24,127 +24,62 @@ const breadcrumb = buildBreadcrumbSchema([
   { name: "Prenota", path: "/prenota" },
 ]);
 ---
-<LandingLayout
-  meta={meta}
-  bodyClass="page-landing--ads"
-  ctaHref="#form"
-  ctaLabel="Prenota"
->
+<BaseLayout meta={meta} bodyClass="rebel-rebrand rebel-shell page-prenota">
   <JsonLd data={breadcrumb} />
+  <section class="quick-booking" aria-labelledby="booking-title">
+    <div class="quick-booking__shell quick-booking__layout">
+      <header class="quick-booking__intro">
+        <p class="quick-booking__kicker">Prenota la valutazione · Carmagnola</p>
+        <h1 id="booking-title">Il tuo prossimo<br /><em>momento REBEL.</em></h1>
+        <p>Lascia nome e telefono. Ti ricontattiamo per concordare l’appuntamento e trovare insieme il percorso da cui cominciare.</p>
+        <div class="quick-booking__details"><span>30–40 minuti in studio</span><span>Trattamenti, frequenza e prezzo chiari</span></div>
+      </header>
 
-  <section class="landing-ads-hero">
-    <div class="container container--narrow">
-      <span class="landing-hero__badge">Valutazione · 30–40 minuti</span>
-      <h1 class="landing-ads-hero__title">
-        Prenota la valutazione.<br />
-        <em>Troviamo insieme il percorso più adatto.</em>
-      </h1>
-      <p class="landing-ads-hero__lead">
-        Parliamo di ciò che vuoi migliorare, osserviamo la pelle o l’area da trattare
-        e ti proponiamo un percorso con frequenza e prezzo chiari. Se scegli di
-        iniziare il percorso proposto, la valutazione iniziale è gratuita.
-      </p>
-      <ul class="landing-ads-hero__chips">
-        <li>30–40 min in studio</li>
-        <li>Percorso e prezzo chiari</li>
-        <li>Prodotti per casa non inclusi</li>
-      </ul>
+      <div class="quick-booking__form">
+        <LandingFormCard kicker="Richiedi un appuntamento" title="Bastano nome e telefono."
+          lead="Ti contattiamo via WhatsApp o telefono per concordare un orario disponibile. L’email è opzionale."
+          source="landing-prenota" submitLabel="Prenota la valutazione" showRitual={false} showMessage={false} />
+      </div>
+
+      <aside class="quick-booking__studio" aria-label="Lo studio e i contatti REBEL">
+        <figure><img src="/img/studio-treatwell/15432056.jpg" alt="L’area accoglienza dello studio REBEL a Carmagnola, con vetrina e marchio" width="1080" height="720" loading="eager" decoding="async" /><figcaption>Ti aspettiamo in Viale Barbaroux 20, Carmagnola.</figcaption></figure>
+        <p class="quick-booking__condition">Se scegli di iniziare il percorso proposto, la valutazione iniziale è gratuita. Gli eventuali prodotti per casa non sono inclusi.</p>
+        <address><strong>{siteConfig.name}</strong><span>{siteConfig.address.streetAddress} · {siteConfig.address.postalCode} {siteConfig.address.locality} ({siteConfig.address.region})</span></address>
+        <nav class="quick-booking__contacts" aria-label="Contatta direttamente REBEL"><a href={`tel:${siteConfig.phoneRaw}`}>{siteConfig.phoneDisplay} <span aria-hidden="true">↗</span></a><a href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer">Apri WhatsApp <span aria-hidden="true">↗</span></a><a href="/contatti">Mappa e contatti <span aria-hidden="true">↗</span></a></nav>
+        <p class="quick-booking__hours">Mar, Gio e Ven 09:00–19:00 · Mer 14:00–19:00 · Sab 09:00–14:00 · Lun e Dom chiusi</p>
+      </aside>
     </div>
   </section>
-
-  <LandingFormCard
-    kicker="Richiedi un appuntamento"
-    title="Bastano nome e telefono."
-    lead="Ti contattiamo via WhatsApp o telefono per concordare un orario disponibile. Email e dettagli sono opzionali."
-    source="landing-prenota"
-    submitLabel="Prenota la valutazione"
-    showRitual={false}
-    showMessage={false}
-  />
-
-  <section class="landing-ads-trust section section--tight">
-    <div class="container container--narrow">
-      <p class="landing-ads-trust__line">
-        <strong>Dove ci trovi:</strong> {siteConfig.address.streetAddress}, {siteConfig.address.postalCode}
-        {siteConfig.address.locality} ({siteConfig.address.region})
-      </p>
-      <p class="landing-ads-trust__line">
-        <strong>Telefono / WhatsApp:</strong>
-        <a href={`tel:${siteConfig.phoneRaw}`}>{siteConfig.phoneDisplay}</a>
-        ·
-        <a href={siteConfig.social.whatsapp} target="_blank" rel="noreferrer">Apri WhatsApp</a>
-      </p>
-      <p class="landing-ads-trust__line landing-ads-trust__line--muted">
-        Mar, Gio e Ven 09:00–19:00 · Mer 14:00–19:00 · Sab 09:00–14:00 · Lun e Dom chiusi
-      </p>
-    </div>
-  </section>
-</LandingLayout>
+</BaseLayout>
 
 <style>
-  .landing-ads-hero {
-    padding-block: clamp(2.6rem, 6vw, 4rem) clamp(1.6rem, 3vw, 2.4rem);
-    text-align: left;
-  }
-
-  .landing-ads-hero__title {
-    font-family: var(--font-display);
-    font-size: clamp(2.2rem, 5.5vw, 3.6rem);
-    line-height: 1.06;
-    letter-spacing: var(--tracking-display);
-    color: var(--text-strong);
-    margin: 1rem 0 1.2rem;
-  }
-
-  .landing-ads-hero__title em {
-    font-style: italic;
-    color: var(--mauve);
-  }
-
-  .landing-ads-hero__lead {
-    font-size: var(--t-lead);
-    line-height: var(--lh-body);
-    color: var(--text-muted);
-    margin: 0 0 1.4rem;
-    max-width: 56ch;
-  }
-
-  .landing-ads-hero__chips {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .landing-ads-hero__chips li {
-    padding: 0.4rem 0.8rem;
-    border-radius: var(--r-pill);
-    border: 1px solid rgba(224, 170, 255, 0.35);
-    background: rgba(224, 170, 255, 0.08);
-    color: var(--mauve);
-    font-size: 0.78rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-
-  .landing-ads-trust__line {
-    margin: 0 0 0.5rem;
-    color: var(--text);
-    font-size: 0.97rem;
-    line-height: 1.55;
-  }
-
-  .landing-ads-trust__line a {
-    color: var(--mauve);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-
-  .landing-ads-trust__line--muted {
-    color: var(--text-faint);
-    font-size: 0.85rem;
-  }
+  .quick-booking { padding:clamp(7.2rem,10vw,9rem) 0 clamp(3rem,6vw,6rem);background:#fffdf9;color:#301a3a; }
+  .quick-booking__shell { width:min(1260px,calc(100% - 2 * clamp(1.1rem,3.4vw,4rem)));margin-inline:auto; }
+  .quick-booking__layout { display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1fr);grid-template-areas:"intro form" "studio form";gap:2rem clamp(2.5rem,6vw,6rem);align-items:start; }
+  .quick-booking__intro { grid-area:intro;min-width:0; }
+  .quick-booking__kicker { margin:0 0 1rem;color:#9a3c70;font:700 .68rem/1.6 var(--font-body);letter-spacing:.13em;text-transform:uppercase; }
+  .quick-booking h1 { max-width:16ch;margin:0;color:#301a3a;font:500 clamp(2.5rem,4.4vw,4.5rem)/1.08 var(--font-display);letter-spacing:-.045em; }
+  .quick-booking h1 em { color:#834772;font-weight:400; }
+  .quick-booking__intro > p:not(.quick-booking__kicker) { max-width:44ch;margin:1.25rem 0 0;color:#6d5872;font-size:.95rem;line-height:1.85; }
+  .quick-booking__details { display:flex;flex-wrap:wrap;gap:.5rem 1rem;margin-top:1.25rem;color:#754b79;font-size:.7rem;line-height:1.6; }
+  .quick-booking__details span { padding-top:.65rem;border-top:1px solid #dfd1dd; }
+  .quick-booking__form { grid-area:form;min-width:0; }
+  .quick-booking__form :global(.landing-form-section) { background:transparent;padding:0;scroll-margin-top:7rem; }
+  .quick-booking__form :global(.landing-form-section > .container) { width:100%;max-width:none;padding:0;margin:0; }
+  .quick-booking__form :global(.landing-form-card) { padding:clamp(1.4rem,3vw,2.3rem); }
+  .quick-booking__form :global(.landing-form-card__title) { font-size:clamp(1.9rem,3vw,2.8rem); }
+  .quick-booking__form :global(.landing-form-card__lead) { font-size:.85rem; }
+  .quick-booking__studio { grid-area:studio;min-width:0; }
+  .quick-booking__studio figure { margin:0; }
+  .quick-booking__studio img { display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:.4rem 2.5rem .4rem .4rem; }
+  .quick-booking__studio figcaption { margin-top:.65rem;color:#7b6780;font-size:.65rem;line-height:1.7; }
+  .quick-booking__condition { max-width:55ch;margin:1.4rem 0;color:#6d5872;font-size:.8rem;line-height:1.8; }
+  .quick-booking__studio address { display:grid;gap:.4rem;margin-top:1.4rem;padding-top:1.4rem;border-top:1px solid #dfd1dd;color:#6d5872;font-size:.75rem;font-style:normal;line-height:1.7; }
+  .quick-booking__studio address strong { color:#301a3a;font-weight:700; }
+  .quick-booking__contacts { display:flex;flex-wrap:wrap;gap:.2rem 1.2rem;margin-top:.6rem; }
+  .quick-booking__contacts a { display:inline-flex;align-items:center;gap:.7rem;min-height:44px;color:#784779;font-size:.75rem;font-weight:700;text-decoration:none; }
+  .quick-booking__contacts a:hover { text-decoration:underline;text-underline-offset:.3em; }
+  .quick-booking a:focus-visible { outline:3px solid #8c569e;outline-offset:4px; }
+  .quick-booking__hours { margin:.4rem 0 0;color:#7b6780;font-size:.7rem;line-height:1.8; }
+  @media(max-width:760px) { .quick-booking { padding-top:7rem; }.quick-booking__layout { grid-template-columns:minmax(0,1fr);grid-template-areas:"intro" "form" "studio";gap:1.75rem; }.quick-booking h1 { font-size:clamp(2.4rem,9.5vw,3.6rem); }.quick-booking__intro > p:not(.quick-booking__kicker) { font-size:.9rem;margin-top:1rem; }.quick-booking__details { margin-top:1rem; }.quick-booking__studio { margin-top:.5rem; } }
 </style>

@@ -38,11 +38,11 @@ export const categoryVisuals: Record<
     description: "Scegli la zona, il tempo e la manualità.",
   },
   "ceretta-donna": {
-    photo: "cera-gamba",
+    photo: "cera-preparazione",
     description: "Epilazione a cera: dal viso alle singole zone del corpo.",
   },
   "ceretta-uomo": {
-    photo: "cera-preparazione",
+    photo: "cera-gamba",
     description:
       "Epilazione a cera per viso, braccia, torace, schiena e gambe.",
   },
